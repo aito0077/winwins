@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Winwins
+        psr4_prefix: Winwins
+        src_path: app
