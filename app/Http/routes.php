@@ -1,75 +1,21 @@
 <?php
 
-use Winwins\User;
-use Illuminate\Http\Response as HttpResponse;
 
-/**
- * Displays Angular SPA application
- */
-Route::get('/', function () {
-    return view('spa');
-});
+// OAuth, Login and Signup Routes.
+Route::post('auth/twitter', 'AuthController@twitter');
+Route::post('auth/facebook', 'AuthController@facebook');
+Route::post('auth/google', 'AuthController@google');
+Route::post('auth/login', 'AuthController@login');
+Route::post('auth/signup', 'AuthController@signup');
+Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
-/**
- * Registers a new user and returns a auth token
- */
-Route::post('/signup', function () {
-    $credentials = Input::only('email', 'password');
+// API Routes.
+Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
+Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 
-    try {
-        $user = User::create($credentials);
-    } catch (Exception $e) {
-        return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
-    }
-
-    $token = JWTAuth::fromUser($user);
-
-    return Response::json(compact('token'));
-});
-
-/**
- * Signs in a user using JWT
- */
-Route::post('/signin', function () {
-    $credentials = Input::only('email', 'password');
-
-    if (!$token = JWTAuth::attempt($credentials)) {
-        return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
-    }
-
-    return Response::json(compact('token'));
-});
+Route::resource('api/winwins', 'WinwinController');
+Route::resource('api/users', 'UserController');
 
 
-/**
- * Fetches a restricted resource from the same domain used for user authentication
- */
-Route::get('/restricted', [
-    'before' => 'jwt-auth',
-    function () {
-        $token = JWTAuth::getToken();
-        $user = JWTAuth::toUser($token);
-
-        return Response::json([
-            'data' => [
-                'email' => $user->email,
-                'registered_at' => $user->created_at->toDateTimeString()
-            ]
-        ]);
-    }
-]);
-
-/**
- * Fetches a restricted resource from API subdomain using CORS
- */
-Route::group(['domain' => 'api.jwt.dev', 'prefix' => 'v1'], function () {
-    Route::get('/restricted', function () {
-        try {
-            JWTAuth::parseToken()->toUser();
-        } catch (Exception $e) {
-            return Response::json(['error' => $e->getMessage()], HttpResponse::HTTP_UNAUTHORIZED);
-        }
-
-        return ['data' => 'This has come from a dedicated API subdomain with restricted access.'];
-    });
-});
+// Initialize Angular.js Winwins Route.
+Route::get('/', 'HomeController@index');

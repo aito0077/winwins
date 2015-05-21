@@ -6,8 +6,9 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
-		"barryvdh/laravel-cors": "0.4.x@dev",
-		"tymon/jwt-auth": "0.5.*"
+	  	"firebase/php-jwt": "~2.0",
+	  	"guzzlehttp/guzzle": "5.2.0",
+	  	"guzzlehttp/oauth-subscriber": "0.2.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

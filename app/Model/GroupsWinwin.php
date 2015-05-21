@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Winwin extends Model {
+class GroupsWinwin extends Model {
 
 //
 }

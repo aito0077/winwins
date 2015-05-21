@@ -2,6 +2,14 @@
 
 return [
 
+	'token_secret' => 'some random string',
+	'facebook_secret' => '',
+	'google_secret' => '',
+	'twitter_key' => '',
+	'twitter_secret' => '',
+	'twitter_callback' => '',
+	'yahoo_secret' => '',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -145,9 +153,6 @@ return [
 		'Winwins\Providers\EventServiceProvider',
 		'Winwins\Providers\RouteServiceProvider',
 
-		'Barryvdh\Cors\CorsServiceProvider',
-		'Tymon\JWTAuth\Providers\JWTAuthServiceProvider'
-
 	],
 
 	/*
@@ -195,7 +200,6 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-		'JWTAuth' 	=> 'Tymon\JWTAuth\Facades\JWTAuth'
 
 	],
 

@@ -2,7 +2,7 @@ angular.module('wwApp')
   .controller('SignupCtrl', function($scope, $alert, $auth) {
     $scope.signup = function() {
       $auth.signup({
-        displayName: $scope.displayName,
+        username: $scope.username,
         email: $scope.email,
         password: $scope.password
       }).catch(function(response) {
