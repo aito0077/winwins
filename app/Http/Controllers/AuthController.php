@@ -57,7 +57,7 @@ class AuthController extends Controller {
         }
         else
         {
-            return response()->json(['message' => 'Wrong email and/or password'], 401);
+            return response()->json(['message' => 'Wrong email and/or password.'], 401);
         }
     }
 
