@@ -15,6 +15,10 @@ Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUs
 
 Route::resource('api/winwins', 'WinwinController');
 Route::resource('api/users', 'UserController');
+Route::resource('api/parametric/interests', 'InterestController');
+Route::resource('api/parametric/marital', 'MaritalStatusController');
+Route::resource('api/parametric/languages', 'LanguageController');
+Route::resource('api/parametric/activities', 'ActivityTypeController');
 
 
 // Initialize Angular.js Winwins Route.

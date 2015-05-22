@@ -9,8 +9,8 @@ class CreateActivityTypesTable extends Migration {
 		Schema::create('activity_types', function(Blueprint $table) {
 			$table->increments('id');
 
-            $table->string('name')->nullable();
-            $table->mediumtext('description');
+            $table->string('name');
+            $table->mediumtext('description')->nullable();
             $table->boolean('disabled')->default(FALSE);
 
 

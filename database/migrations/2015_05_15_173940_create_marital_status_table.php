@@ -9,10 +9,9 @@ class CreateMaritalStatusTable extends Migration {
 		Schema::create('marital_status', function(Blueprint $table) {
 			$table->increments('id');
 
-            $table->string('name')->nullable();
-            $table->mediumtext('description');
+            $table->string('name');
+            $table->mediumtext('description')->nullable();
             $table->boolean('disabled')->default(FALSE);
-
 
 			$table->timestamps();
 		});
