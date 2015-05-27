@@ -21,10 +21,10 @@
   <ul class="nav navbar-nav">
     <li><a href="/#/">Home</a></li>
     <li ng-if="isAuthenticated()"><a href="/#/profile">Profile</a></li>
-    <li><a href="/#/winwin-new">New Winwin</a></li>
+    <li ng-if="isAuthenticated()"><a href="/#/winwin-new">New Winwin</a></li>
     <li><a href="/#/winwin-list">Winwins</a></li>
     <li><a href="/#/user-list">Users</a></li>
-    <li><a href="/#/group-new">New Group</a></li>
+    <!--li ng-if="isAuthenticated()><a href="/#/group-new">New Group</a></li-->
     <li><a href="/#/group-list">Groups</a></li>
   </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
