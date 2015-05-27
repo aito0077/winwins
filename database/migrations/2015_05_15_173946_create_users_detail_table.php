@@ -34,7 +34,7 @@ class CreateUsersDetailTable extends Migration {
             $table->longText('about')->nullable();
             $table->longText('interests')->nullable();
 
-            $table->enum('sex', ['M', 'F']);
+            $table->enum('sex', ['M', 'F'])->nullable();
 
             $table->mediumtext('cover_photo');
             $table->mediumtext('photo');

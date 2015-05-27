@@ -15,20 +15,20 @@ class CreateWinwinsTable extends Migration {
 			$table->timestamps();
 
             $table->string('title');
-            $table->string('what_happen', 500);
-            $table->string('description', 1000);
+            $table->string('what_happen', 500)->nullable();
+            $table->string('description', 1000)->nullable();
             $table->string('what_we_do', 500);
 
-            $table->integer('users_amount');
-            $table->date('closing_date');
+            $table->integer('users_amount')->default(2);
+            $table->date('closing_date')->nullable();
 
-            $table->enum('scope', ['GLOBAL', 'REGION', 'COUNTRY', 'STATE', 'CITY']);
+            $table->enum('scope', ['GLOBAL', 'REGION', 'COUNTRY', 'STATE', 'CITY'])->default('GLOBAL');
             $table->string('region')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
 
-            $table->mediumtext('image');
+            $table->mediumtext('image')->nullable();
 
             $table->boolean('canceled')->default(FALSE);
             $table->boolean('emailed')->default(FALSE);

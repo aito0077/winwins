@@ -2,13 +2,13 @@
 
 return [
 
-	'token_secret' => 'some random string',
-	'facebook_secret' => '',
-	'google_secret' => '',
-	'twitter_key' => '',
-	'twitter_secret' => '',
-	'twitter_callback' => '',
-	'yahoo_secret' => '',
+	'token_secret' => env('JWT_TOKEN_SECRET', 'some random string'),
+	'facebook_secret' => env('FACEBOOK_SECRET', ''),
+	'google_secret' => env('GOOGLE_SECRET', '-u5nyEW6blDi_yodu'),
+	'twitter_key' => env('TWITTER_KEY', ''),
+	'twitter_secret' => env('TWITTER_SECRET', ''),
+	'twitter_callback' => env('TWITTER_CALLBACK', ''),
+	'yahoo_secret' => env('TWITTER_CALLBACK', ''),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => env('URL_BASE', 'http://localhost'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -143,6 +143,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+//		'Barryvdh\Cors\CorsServiceProvider',
 
 		/*
 		 * Application Service Providers...

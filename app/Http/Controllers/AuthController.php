@@ -4,15 +4,16 @@ use JWT;
 use Hash;
 use Config;
 use Validator;
+use Log;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Winwins\User;
+use Winwins\Model\UserDetail;
 
 class AuthController extends Controller {
 
-    protected function createToken($user)
-    {
+    protected function createToken($user) {
         $payload = [
             'sub' => $user->id,
             'iat' => time(),
@@ -22,12 +23,10 @@ class AuthController extends Controller {
     }
 
 
-    public function unlink(Request $request, $provider)
-    {
+    public function unlink(Request $request, $provider) {
         $user = User::find($request['user']['sub']);
 
-        if (!$user)
-        {
+        if (!$user) {
             return response()->json(['message' => 'User not found']);
         }
 
@@ -37,37 +36,31 @@ class AuthController extends Controller {
         return response()->json(array('token' => $this->createToken($user)));
     }
 
-    public function login(Request $request)
-    {
+    public function login(Request $request) {
         $email = $request->input('email');
         $password = $request->input('password');
 
         $user = User::where('email', '=', $email)->first();
 
-        if (!$user)
-        {
+        if (!$user) {
             return response()->json(['message' => 'Wrong email and/or password'], 401);
         }
 
-        if (Hash::check($password, $user->password))
-        {
+        if (Hash::check($password, $user->password)) {
             unset($user->password);
 
             return response()->json(['token' => $this->createToken($user)]);
-        }
-        else
-        {
+        } else {
             return response()->json(['message' => 'Wrong email and/or password.'], 401);
         }
     }
 
-    /**
-     * Create Email and Password Account.
-     */
-    public function signup(Request $request)
-    {
+    public function signup(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
+            'birthdate' => 'required',
+            'name' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required'
         ]);
@@ -80,16 +73,20 @@ class AuthController extends Controller {
         $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
+
         $user->save();
+        $detail = new UserDetail;
+        $detail->birthdate = $request->input('birthdate');
+        $detail->name = $request->input('name');
+        $detail->lastname = $request->input('lastname');
+        $detail->language_code = $request->input('language_code') || 'ES';
+
+        $user->detail()->save($detail);
 
         return response()->json(['token' => $this->createToken($user)]);
     }
 
-    /**
-     * Login with Facebook.
-     */
-    public function facebook(Request $request)
-    {
+    public function facebook(Request $request) {
         $accessTokenUrl = 'https://graph.facebook.com/v2.3/oauth/access_token';
         $graphApiUrl = 'https://graph.facebook.com/v2.3/me';
 
@@ -108,6 +105,13 @@ class AuthController extends Controller {
         // Step 2. Retrieve profile information about the current user.
         $profile = $client->get($graphApiUrl, ['query' => $accessToken])->json();
 
+        $picture = 'https://graph.facebook.com/v2.3/'.$profile['id'].'/picture?type=normal';
+
+        Log::info($picture);
+
+        Log::info('Facebook');
+        Log::info($profile);
+
 
         // Step 3a. If user is already signed in then link accounts.
         if ($request->header('Authorization'))
@@ -124,8 +128,17 @@ class AuthController extends Controller {
 
             $user = User::find($payload['sub']);
             $user->facebook = $profile['id'];
-            $user->username = $user->username || $profile['name'];
+            $user->username = $user->username ?: $profile['name'];
+
+            $user->email = $user->email ?: $profile['email'];
+            $userDetail = $user->detail;
+            $userDetail->name = $userDetail->name ?: $profile['first_name'];
+            $userDetail->photo = $userDetail->photo ?: $picture;
+            $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
+            $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : $profile['gender'] == 'female'? 'F': '');
+
             $user->save();
+            $user->detail()->save($userDetail);
 
             return response()->json(['token' => $this->createToken($user)]);
         }
@@ -134,25 +147,29 @@ class AuthController extends Controller {
         {
             $user = User::where('facebook', '=', $profile['id']);
 
-            if ($user->first())
-            {
+            if ($user->first()) {
                 return response()->json(['token' => $this->createToken($user->first())]);
             }
 
             $user = new User;
             $user->facebook = $profile['id'];
             $user->username = $profile['name'];
+
+            $user->email = $user->email ?: $profile['email'];
+
+            $userDetail = new UserDetail;
+            $userDetail->name = $userDetail->name ?: $profile['first_name'];
+            $userDetail->photo = $userDetail->photo ?: $picture;
+            $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
+            $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : ($profile['gender'] == 'female' ? 'F': 'M'));
             $user->save();
+            $user->detail()->save($userDetail);
 
             return response()->json(['token' => $this->createToken($user)]);
         }
     }
 
-    /**
-     * Login with Google.
-     */
-    public function google(Request $request)
-    {
+    public function google(Request $request) {
         $accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
         $peopleApiUrl = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
 
@@ -177,6 +194,9 @@ class AuthController extends Controller {
 
         $profile = $profileResponse->json();
 
+        Log::info('Google');
+        Log::info($profile);
+
         // Step 3a. If user is already signed in then link accounts.
         if ($request->header('Authorization'))
         {
@@ -192,7 +212,7 @@ class AuthController extends Controller {
 
             $user = User::find($payload['sub']);
             $user->google = $profile['sub'];
-            $user->username = $user->username || $profile['name'];
+            $user->username = $user->username ?: $profile['name'];
             $user->save();
 
             return response()->json(['token' => $this->createToken($user)]);
@@ -216,11 +236,7 @@ class AuthController extends Controller {
         }
     }
 
-    /**
-     * Login with Twitter.
-     */
-    public function twitter(Request $request)
-    {
+    public function twitter(Request $request) {
         $requestTokenUrl = 'https://api.twitter.com/oauth/request_token';
         $accessTokenUrl = 'https://api.twitter.com/oauth/access_token';
         $profileUrl = 'https://api.twitter.com/1.1/users/show.json?screen_name=';
@@ -230,6 +246,8 @@ class AuthController extends Controller {
         // Part 1 of 2: Initial request from Satellizer.
         if (!$request->input('oauth_token') || !$request->input('oauth_verifier'))
         {
+            Log::info(Config::get('app.twitter_callback'));
+              
             $requestTokenOauth = new Oauth1([
               'consumer_key' => Config::get('app.twitter_key'),
               'consumer_secret' => Config::get('app.twitter_secret'),
@@ -277,6 +295,8 @@ class AuthController extends Controller {
             // Step 4. Retrieve profile information about the current user.
             $profile = $client->get($profileUrl . $accessToken['screen_name'], ['auth' => 'oauth'])->json();
 
+            Log::info('Twitter');
+            Log::info($profile);
 
             // Step 5a. Link user accounts.
             if ($request->header('Authorization'))
@@ -292,7 +312,7 @@ class AuthController extends Controller {
 
                 $user = User::find($payload['sub']);
                 $user->twitter = $profile['id'];
-                $user->username = $user->username || $profile['screen_name'];
+                $user->username = $user->username ?: $profile['screen_name'];
                 $user->save();
 
                 return response()->json(['token' => $this->createToken($user)]);

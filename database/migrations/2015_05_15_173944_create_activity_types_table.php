@@ -19,7 +19,7 @@ class CreateActivityTypesTable extends Migration {
 	}
 
 	public function down() {
-		Schema::drop('languages');
+		Schema::drop('activity_types');
 	}
 
 

@@ -1,4 +1,10 @@
-angular.module('wwApp', ['ngResource', 'ui.router', 'mgcrea.ngStrap', 'satellizer'])
+angular.module('wwApp', [
+    'ngResource', 
+    'ui.router', 
+    'mgcrea.ngStrap', 
+    'satellizer',
+	'birth-day'
+])
 .config(function($stateProvider, $urlRouterProvider, $authProvider) {
     $stateProvider
     .state('home', {
@@ -20,6 +26,46 @@ angular.module('wwApp', ['ngResource', 'ui.router', 'mgcrea.ngStrap', 'satellize
         template: null,
         controller: 'LogoutCtrl'
     })
+    .state('winwin-new', {
+        url: '/winwin-new',
+        templateUrl: 'partials/winwin/edit.html',
+        controller: 'winwin-edit'
+    })
+    .state('winwin-list', {
+        url: '/winwin-list',
+        templateUrl: 'partials/winwin/list.html',
+        controller: 'winwin-list'
+    })
+    .state('winwin-view', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'partials/winwin/view.html',
+        controller: 'winwin-view'
+    })
+    .state('group-new', {
+        url: '/group-new',
+        templateUrl: 'partials/group/edit.html',
+        controller: 'group-edit'
+    })
+    .state('group-list', {
+        url: '/group-list',
+        templateUrl: 'partials/group/list.html',
+        controller: 'group-list'
+    })
+    .state('group-view', {
+        url: '/group-view/:groupId',
+        templateUrl: 'partials/group/view.html',
+        controller: 'group-view'
+    })
+    .state('user-list', {
+        url: '/user-list',
+        templateUrl: 'partials/user/list.html',
+        controller: 'user-list'
+    })
+    .state('user-view', {
+        url: '/user-view/:userId',
+        templateUrl: 'partials/user/view.html',
+        controller: 'user-view'
+    })
     .state('profile', {
         url: '/profile',
         templateUrl: 'partials/profile.html',
@@ -40,11 +86,13 @@ angular.module('wwApp', ['ngResource', 'ui.router', 'mgcrea.ngStrap', 'satellize
     $urlRouterProvider.otherwise('/');
 
     $authProvider.facebook({
-        clientId: '603122136500203'
+        clientId: '1082199191794840',
+        scope: 'email,public_profile'
+
     });
 
     $authProvider.google({
-        clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com'
+        clientId: '313110710680-p22p1s5brqn7tfaqj9v16u67bic5smqk.apps.googleusercontent.com'
     });
 
     $authProvider.yahoo({

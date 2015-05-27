@@ -6,15 +6,15 @@
       <form method="post" ng-submit="updateProfile()">
         <div class="form-group">
           <label class="control-label">Profile Picture</label>
-          <img class="profile-picture" ng-src="{{user.picture || 'http://placehold.it/100x100'}}">
+          <img class="profile-picture" ng-src="{{user.profile.photo || 'http://placehold.it/100x100'}}">
         </div>
         <div class="form-group">
           <label class="control-label"><i class="ion-person"></i> User Name</label>
-          <input type="text" class="form-control" ng-model="user.username" />
+          <input type="text" class="form-control" ng-model="user.user.username" />
         </div>
         <div class="form-group">
           <label class="control-label"><i class="ion-at"></i> Email Address</label>
-          <input type="email" class="form-control" ng-model="user.email" />
+          <input type="email" class="form-control" ng-model="user.user.email" />
         </div>
         <button class="btn btn-lg btn-success">Update Information</button>
       </form>

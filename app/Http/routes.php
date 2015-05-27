@@ -13,8 +13,12 @@ Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthCon
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 
+Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
+Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::resource('api/winwins', 'WinwinController');
 Route::resource('api/users', 'UserController');
+Route::resource('api/groups', 'GroupController');
+
 Route::resource('api/parametric/interests', 'InterestController');
 Route::resource('api/parametric/marital', 'MaritalStatusController');
 Route::resource('api/parametric/languages', 'LanguageController');

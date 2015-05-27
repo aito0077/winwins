@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlackListUsersTable extends Migration {
+class CreateBlacklistUsersTable extends Migration {
 
 	public function up() {
 		Schema::create('blacklist_users', function(Blueprint $table) {

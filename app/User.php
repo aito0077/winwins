@@ -15,11 +15,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $fillable = ['username', 'email', 'password'];
 
-	protected $hidden = ['password'];
+	protected $hidden = ['password', 'facebook', 'google', 'yahoo', 'twitter', 'canceled', 'suspend', 'active', 'accept_terms', 'created_at', 'updated_at' ];
 
-	public function setPasswordAttribute($password)
-	{
+    /*
+	public function setPasswordAttribute($password) {
 		$this->attributes['password'] = Hash::make($password);
 	}
+    */
+
+    public function detail() {
+        return $this->hasOne('Winwins\Model\UserDetail');
+    }
+
+    public function winwins() {
+        return $this->belongsToMany('Winwins\Winwin', 'winwins_users');
+    }
 
 }

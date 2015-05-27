@@ -32,6 +32,8 @@ return [
 	'stripe' => [
 		'model'  => 'User',
 		'secret' => '',
-	],
+	]
+
+
 
 ];

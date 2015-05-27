@@ -4,17 +4,23 @@ use Illuminate\Http\Request;
 use Config;
 use JWT;
 use Winwins\User;
+use Winwins\Model\UserDetail;
 
 class UserController extends Controller {
 
 	public function index() {
-        $users = User::all();
+        $users = UserDetail::all();
         return $users;
 	}
 
 	public function show($id) {
         $user = User::find($id);
-        return $user;
+        $winwins = $user->winwins;
+
+        $userDetail = $user->detail;
+
+
+        return $userDetail;
 	}
 
     protected function createToken($user) {
@@ -29,7 +35,10 @@ class UserController extends Controller {
     public function getUser(Request $request) {
         $user = User::find($request['user']['sub']);
 
-        return $user;
+        return array(
+            'user' => $user,
+            'profile' => $user->detail
+        );
     }
 
     public function updateUser(Request $request) {

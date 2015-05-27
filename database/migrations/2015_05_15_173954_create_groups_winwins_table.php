@@ -22,7 +22,7 @@ class CreateGroupsWinwinsTable extends Migration {
 	}
 
 	public function down() {
-		Schema::drop('groups_users');
+		Schema::drop('groups_winwins');
 	}
 
 
