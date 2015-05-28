@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Winwins</title>
   <link href="favicon.png" rel="shortcut icon">
-  <link href="//fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <!--link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet"-->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="//cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
+  <link href="/vendor/css/fonts.css" rel="stylesheet">
+  <link href="/vendor/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/vendor/css/ionicons.min.css" rel="stylesheet">
+  <link href="/vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/css/animate.css" rel="stylesheet">
   <link href="/stylesheets/styles.css" rel="stylesheet">
   <link href="/stylesheets/birthDay.min.css" rel="stylesheet">
 </head>
@@ -24,7 +24,7 @@
     <li ng-if="isAuthenticated()"><a href="/#/winwin-new">New Winwin</a></li>
     <li><a href="/#/winwin-list">Winwins</a></li>
     <li><a href="/#/user-list">Users</a></li>
-    <!--li ng-if="isAuthenticated()><a href="/#/group-new">New Group</a></li-->
+    <li ng-if="isAuthenticated()"><a href="/#/group-new">New Group</a></li>
     <li><a href="/#/group-list">Groups</a></li>
   </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">

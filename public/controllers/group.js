@@ -1,18 +1,9 @@
 angular.module('wwApp')
 .controller('group-edit', function($scope, $alert, $auth, Group, Interest) {
     $scope.group = new Group({});
-    $scope.interests = [];
-    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
-
-    $scope.group.closing_date = new Date();
-    $scope.closingdatechange = function(data){ };
-
-    Interest.query(function(data) {
-        $scope.interests = data;
-    });
-
 
     $scope.doSave = function() {
+        $scope.group.photo = ($scope.group.photo || '');
         $scope.group.$save(function() {
             $alert({
                 content: 'Success saving!',
@@ -64,10 +55,6 @@ angular.module('wwApp')
                 duration: 3
             });
         });
-    };
-
-    $scope.pass = function() {
-        $state.go('group-list'); 
     };
 
     $scope.left = function() {

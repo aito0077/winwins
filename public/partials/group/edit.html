@@ -5,36 +5,42 @@
                 <h2 class="text-center">Group</h2>
                 <form method="post" ng-submit="doSave()" name="groupForm">
 
-                    <div class="form-group has-feedback" ng-class="{ 'has-error' : groupForm.title.$invalid && groupForm.title.$dirty }">
-                        <input class="form-control input-lg" type="text" name="title" ng-model="group.title" placeholder="Title" required autofocus>
-                        <div class="help-block text-danger" ng-if="groupForm.title.$dirty" ng-messages="groupForm.title.$error">
-                            <div ng-message="required">You must enter your title.</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group has-feedback" ng-class="{ 'has-error' : groupForm.users_amount.$invalid && groupForm.users_amount.$dirty }">
-                        <input class="form-control input-lg" type="text" name="users_amount" ng-model="group.users_amount" placeholder="Users Amount " required autofocus>
-                        <div class="help-block text-danger" ng-if="groupForm.users_amount.$dirty" ng-messages="groupForm.users_amount.$error">
-                            <div ng-message="required">You must enter an amount of users.</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group has-feedback" ng-class="{ 'has-error' : groupForm.what_we_do.$invalid && groupForm.what_we_do.$dirty }">
-                        <input class="form-control input-lg" type="text" name="what_we_do" ng-model="group.what_we_do" placeholder="What We Do" required autofocus>
-                        <div class="help-block text-danger" ng-if="groupForm.what_we_do.$dirty" ng-messages="groupForm.what_we_do.$error">
-                            <div ng-message="required">You must enter What We Do.</div>
+                    <div class="form-group has-feedback" ng-class="{ 'has-error' : groupForm.name.$invalid && groupForm.name.$dirty }">
+                        <input class="form-control input-lg" type="text" name="name" ng-model="group.name" placeholder="Name" required autofocus>
+                        <div class="help-block text-danger" ng-if="groupForm.name.$dirty" ng-messages="groupForm.name.$error">
+                            <div ng-message="required">You must enter your name.</div>
                         </div>
                     </div>
 
                     <div class="form-group has-feedback" ng-class="{ 'has-error' : groupForm.description.$invalid && groupForm.description.$dirty }">
-                        <input class="form-control input-lg" type="text" name="description" ng-model="group.description" placeholder="Description" autofocus>
+                        <input class="form-control input-lg" type="text" name="description" ng-model="group.description" placeholder="Description" required autofocus>
+                        <div class="help-block text-danger" ng-if="groupForm.description.$dirty" ng-messages="groupForm.description.$error">
+                            <div ng-message="required">You must enter a description.</div>
+                        </div>
                     </div>
 
                     <div class="form-group has-feedback">
-                        <div birth-day-picker birthday="group.closing_date" on-change="closingdatechange()"></div>
+                        <input class="form-control input-lg" type="file" name="photo" ng-model="group.photo" placeholder="Photo" autofocus>
                     </div>
 
-                    <div class="form-group has-feedback">
+                    <div class="form-group ">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"  ng-model="group.control_ww"> Control de Winwin
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"  ng-model="group.private"> Private group?
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group ">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox"  ng-model="group.accept_terms"> He leido y aceptado los terminos y condiciones.
@@ -43,27 +49,8 @@
                     </div>
 
 
+
                     <button type="submit" ng-disabled="groupForm.$invalid" class="btn btn-lg btn-block btn-primary">Create Group</button>
-
-                </form>
-            </div>
-            <div class="panel-body" ng-show="group.id">
-                <h2 class="text-center">Dale identidad a tu Group</h2>
-                <form method="post" ng-submit="doSave()" name="groupPlusForm">
-
-                    <div class="form-group has-feedback">
-                        <select class="form-control input-lg" ng-model="group.interest" ng-options="interest.description for interest in interests" placeholder="Category">
-                        </select>
-                    </div>
-
-
-                    <div class="form-group has-feedback">
-                        <select class="form-control input-lg" ng-model="group.scope" ng-options="scope for scope in scopes" placeholder="Scope">
-                        </select>
-                    </div>
-
-
-                    <button type="submit" ng-disabled="groupPlusForm.$invalid" class="btn btn-lg btn-block btn-primary">Guardar</button>
 
                 </form>
             </div>

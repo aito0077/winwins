@@ -12,6 +12,8 @@ class CreateInterestsInterestedTable extends Migration {
             $table->integer('interest_id')->unsigned();
             $table->integer('interested_id')->unsigned();
             $table->enum('type', ['WINWIN', 'USER', 'SPONSOR']);
+
+			$table->timestamps();
 		});
 	}
 
