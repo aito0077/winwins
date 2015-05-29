@@ -1,9 +1,10 @@
 <?php namespace Winwins\Http\Controllers;
 
-//use Request;
+use JWT;
 use Auth;
 use Log;
 use DB;
+use Config;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Winwin;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
 	public function index() {
@@ -25,7 +26,16 @@ class WinwinController extends Controller {
 
 	public function show(Request $request, $id) {
         $winwin = Winwin::find($id);
-        $user = User::find($request['user']['sub']);
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
 
         $winwin->user;
         $users_count = count($winwin->users);
@@ -133,7 +143,7 @@ class WinwinController extends Controller {
         $winwin = Winwin::find($id);
         $winwin->user();
         if($user->id == $winwin->user->id) {
-            return response()->json(['message' => 'As owner you can left this winwin'], 400);
+            return response()->json(['message' => 'As owner you can not left this winwin'], 400);
         } else {
             $already_joined = count($winwin->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;

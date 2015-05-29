@@ -16,4 +16,7 @@ class Group extends Model {
         return $this->belongsToMany('Winwins\Model\Winwin', 'groups_winwins');
     }
 
+    public function sponsors() {
+        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_groups');
+    }
 }

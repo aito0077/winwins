@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFollowersUsersTable extends Migration {
+class CreateFollowersTable extends Migration {
 
 	public function up() {
 		Schema::create('followers', function(Blueprint $table) {

@@ -25,7 +25,11 @@ angular.module('wwApp')
     });
     
 }])
-.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$alert', 'Group', function($scope, $http, $state, $stateParams, $alert, Group) {
+.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$alert', 'Group', 'Winwin', function($scope, $http, $state, $stateParams, $alert, Group, Winwin) {
+
+    var winwins = Winwin.query(function(data) {
+        $scope.winwins = data;
+    });
 
     $scope.getGroup = function() {
         $scope.group = Group.get({
@@ -61,6 +65,46 @@ angular.module('wwApp')
         $http.get('/api/groups/left/'+$scope.group.id).success(function(data) {
             $alert({
                 content: 'You have left this Group!',
+                animation: 'fadeZoomFadeDown',
+                type: 'material',
+                duration: 3
+            });
+            $scope.getGroup();
+        })
+        .error(function(error) {
+            $alert({
+                content: error.message,
+                animation: 'fadeZoomFadeDown',
+                type: 'material',
+                duration: 3
+            });
+        });
+    };
+
+    $scope.addToGroup = function(winwinId) {
+        $http.get('/api/groups/'+$scope.group.id+'/add_winwin/'+winwinId).success(function(data) {
+            $alert({
+                content: 'Winwin added to Group!',
+                animation: 'fadeZoomFadeDown',
+                type: 'material',
+                duration: 3
+            });
+            $scope.getGroup();
+        })
+        .error(function(error) {
+            $alert({
+                content: error.message,
+                animation: 'fadeZoomFadeDown',
+                type: 'material',
+                duration: 3
+            });
+        });
+    };
+
+    $scope.removeFromGroup = function(winwinId) {
+        $http.get('/api/groups/'+$scope.group.id+'/remove_winwin/'+winwinId).success(function(data) {
+            $alert({
+                content: 'Winwin removed from Group!',
                 animation: 'fadeZoomFadeDown',
                 type: 'material',
                 duration: 3

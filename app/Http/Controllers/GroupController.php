@@ -1,20 +1,24 @@
 <?php namespace Winwins\Http\Controllers;
 
+use JWT;
 use Auth;
 use Log;
 use DB;
+use Config;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\User;
 use Winwins\Model\Group;
 use Winwins\Model\GroupsUser;
+use Winwins\Model\GroupsWinwin;
+use Winwins\Model\Winwin;
 
 use Illuminate\Http\Request;
 
 class GroupController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
 	public function index() {
@@ -50,8 +54,35 @@ class GroupController extends Controller {
 	}
 
 
-	public function show($id) {
+	public function show(Request $request, $id) {
         $group = Group::find($id);
+
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
+
+
+        $group->members_count = count($group->users);
+        $group->winwins;
+        $group->sponsors;
+
+        $group->already_joined = false;
+
+        if($user) {
+            $group->already_joined = count($group->users->filter(function($model) use ($user) {
+                $model->detail;
+                return $model->id == $user->id;
+            })) > 0;
+        }
+
+
         return $group;
 	}
 
@@ -98,7 +129,7 @@ class GroupController extends Controller {
         $group = Group::find($id);
         $group->user();
         if($user->id == $group->user->id) {
-            return response()->json(['message' => 'As owner you can left this group'], 400);
+            return response()->json(['message' => 'As owner you can not left this group'], 400);
         } else {
             $already_joined = count($group->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
@@ -116,6 +147,7 @@ class GroupController extends Controller {
         $group = Group::find($id);
         $winwin = Winwin::find($winwin_id);
 
+        $already_joined = false;
         $already_joined = count($group->winwins->filter(function($model) use ($winwin) {
             return $model->id == $winwin->id;
         })) > 0;
@@ -124,10 +156,11 @@ class GroupController extends Controller {
             return response()->json(['message' => 'This winwin is already joined'], 400);
         } else {
             DB::transaction(function() use ($group, $winwin) {
-                $groupsUsers = new GroupsWinwin;
-                $groupsUsers->user_id = $winwin->id;
-                $groupsUsers->group_id = $group->id;
-                $groupsUsers->pending = true;
+                $groupsWinwins = new GroupsWinwin;
+                $groupsWinwins->winwin_id = $winwin->id;
+                $groupsWinwins->group_id = $group->id;
+                $groupsWinwins->pending = true;
+                $groupsWinwins->save();
             });
         }
 	}
