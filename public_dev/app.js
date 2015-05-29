@@ -9,16 +9,16 @@ angular.module('wwApp', [
     $stateProvider
     .state('home', {
         url: '/',
-        templateUrl: 'partials/home.html'
+        templateUrl: './partials/home.html'
     })
     .state('login', {
         url: '/login',
-        templateUrl: 'partials/login.html',
+        templateUrl: './partials/login.html',
         controller: 'LoginCtrl'
     })
     .state('signup', {
         url: '/signup',
-        templateUrl: 'partials/signup.html',
+        templateUrl: './partials/signup.html',
         controller: 'SignupCtrl'
     })
     .state('logout', {
@@ -28,47 +28,47 @@ angular.module('wwApp', [
     })
     .state('winwin-new', {
         url: '/winwin-new',
-        templateUrl: 'partials/winwin/edit.html',
+        templateUrl: './partials/winwin/edit.html',
         controller: 'winwin-edit'
     })
     .state('winwin-list', {
         url: '/winwin-list',
-        templateUrl: 'partials/winwin/list.html',
+        templateUrl: './partials/winwin/list.html',
         controller: 'winwin-list'
     })
     .state('winwin-view', {
         url: '/winwin-view/:winwinId',
-        templateUrl: 'partials/winwin/view.html',
+        templateUrl: './partials/winwin/view.html',
         controller: 'winwin-view'
     })
     .state('group-new', {
         url: '/group-new',
-        templateUrl: 'partials/group/edit.html',
+        templateUrl: './partials/group/edit.html',
         controller: 'group-edit'
     })
     .state('group-list', {
         url: '/group-list',
-        templateUrl: 'partials/group/list.html',
+        templateUrl: './partials/group/list.html',
         controller: 'group-list'
     })
     .state('group-view', {
         url: '/group-view/:groupId',
-        templateUrl: 'partials/group/view.html',
+        templateUrl: './partials/group/view.html',
         controller: 'group-view'
     })
     .state('user-list', {
         url: '/user-list',
-        templateUrl: 'partials/user/list.html',
+        templateUrl: './partials/user/list.html',
         controller: 'user-list'
     })
     .state('user-view', {
         url: '/user-view/:userId',
-        templateUrl: 'partials/user/view.html',
+        templateUrl: './partials/user/view.html',
         controller: 'user-view'
     })
     .state('profile', {
         url: '/profile',
-        templateUrl: 'partials/profile.html',
+        templateUrl: './partials/profile.html',
         controller: 'ProfileCtrl',
         resolve: {
             authenticated: function($q, $location, $auth) {
