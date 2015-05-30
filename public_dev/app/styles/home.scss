@@ -1,0 +1,37 @@
+.navbar-default{
+	background-color: #1862c2;
+
+	.navbar-brand,
+	.navbar-nav > li > a{
+		color: white;
+	}
+
+	.navbar-brand:hover,
+	.navbar-brand:focus{
+		color: black;
+	}
+	
+	.navbar-nav > .active{
+		> a,
+		> a:hover,
+		> a:focus{
+			background-color: #134d99;
+			color: white;
+		}
+	}
+
+	.navbar-toggle:hover, 
+	.navbar-toggle:focus {
+    	background-color: #3276c9;
+    }
+
+    .navbar-toggle {
+    	border-color: white;
+    	background-color: #1862c2;
+    	
+    	.icon-bar {
+    		background-color: white;
+		}
+	}
+
+}
