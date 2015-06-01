@@ -15,7 +15,7 @@
 		background-image: url("../images/navbar-logo.png");
 	    background-repeat: no-repeat;
 	    background-position: center center;
-	    background-size: 90%;
+	    background-size: 70%;
 		width: 138px;
 	    height: 50px;
 	}
@@ -46,6 +46,7 @@
 }
 
 .videowrapper {
+	margin-bottom: 10px;
     float: none;
     clear: both;
     width: 100%;
@@ -60,5 +61,97 @@
 	    left: 0;
 	    width: 100%;
 	    height: 100%;
+	}
+}
+
+.winwins-list {
+	.row {
+
+		.ww-img img {
+			width: 100%;
+		}
+
+		.ww-buttons {
+			.fa-envelope{
+				border: 1px solid white;
+				color: #aaaaaa;
+				background-color: #cfd1d0;
+			}
+
+			.fa-twitter{
+				border: 1px solid white;
+				color: white;
+				background-color: #55acee;
+			}
+
+			.fa-facebook{
+				border: 1px solid white;
+				color: white;
+				background-color: #3b5998;
+			}
+
+			.btn-interest{
+				font-weight: bold;
+				color: white;
+				background-color: #aaaaaa;
+			}
+
+			.btn-success{
+				font-weight: bold;
+			}
+
+
+			button{
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+
+}
+
+@media screen and (max-width: 767px) {
+	.navbar{
+		margin-bottom: 10px;
+	} 
+	.navbar-nav{
+    	margin: 0 -15px;
+
+		> li {
+			border-bottom: 1px solid white;
+		}
+	}
+
+	.ww-buttons{
+		text-align:right;
+	}
+
+	.btn-row1{
+		float: left;
+		margin-top: 5px;
+	}
+
+	.btn-row2,
+	.btn-row3{
+		display:inline-block;
+		vertical-align: text-top;
+		margin-left: 5px;
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.ww-description{
+		font-size: 75%;
+	}
+
+	.btn-row2,
+	.btn-row3{
+		width: 30%;
+		margin: 0 0 0 0;
+		margin-left: 5px;
+
+		button{
+			width: 100%;
+		}
 	}
 }
