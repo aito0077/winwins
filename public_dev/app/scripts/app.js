@@ -22,13 +22,20 @@ angular
     $urlRouterProvider.otherwise('/');
 
 
-    $stateProvider.state('main',{
+    $stateProvider
+      .state('main',{
         url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      }).state('about',{
+      })
+      .state('about',{
         url: '/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .state('winwin',{
+        url: '/winwin',
+        templateUrl: 'views/winwin.html',
+        controller: 'WinwinCtrl'
       });
   });
