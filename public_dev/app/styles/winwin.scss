@@ -1,0 +1,187 @@
+.navbar-default{
+	background-color: #1862c2;
+
+	.navbar-brand,
+	.navbar-nav > li > a{
+		color: white;
+	}
+
+	.navbar-brand:hover,
+	.navbar-brand:focus{
+		color: black;
+	}
+
+	.navbar-brand{
+		background-image: url("../images/navbar-logo.png");
+	    background-repeat: no-repeat;
+	    background-position: center center;
+	    background-size: 70%;
+		width: 138px;
+	    height: 50px;
+	}
+	
+	.navbar-nav > .active{
+		> a,
+		> a:hover,
+		> a:focus{
+			background-color: #134d99;
+			color: white;
+		}
+	}
+
+	.navbar-toggle:hover, 
+	.navbar-toggle:focus {
+    	background-color: #3276c9;
+    }
+
+    .navbar-toggle {
+    	border-color: white;
+    	background-color: #1862c2;
+    	
+    	.icon-bar {
+    		background-color: white;
+		}
+	}
+
+}
+
+.videowrapper {
+	margin-bottom: 10px;
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+
+	iframe {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+}
+
+.winwins-list {
+	.row {
+
+		.ww-img img {
+			width: 100%;
+		}
+
+		.ww-buttons {
+			.fa-envelope{
+				border: 1px solid white;
+				color: #aaaaaa;
+				background-color: #cfd1d0;
+			}
+
+			.fa-twitter{
+				border: 1px solid white;
+				color: white;
+				background-color: #55acee;
+			}
+
+			.fa-facebook{
+				border: 1px solid white;
+				color: white;
+				background-color: #3b5998;
+			}
+
+			.btn-interest{
+				font-weight: bold;
+				color: white;
+				background-color: #aaaaaa;
+			}
+
+			.btn-success{
+				font-weight: bold;
+			}
+
+
+			button{
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+
+}
+
+@media screen and (max-width: 767px) {
+	.navbar{
+		margin-bottom: 10px;
+	} 
+	.navbar-nav{
+    	margin: 0 -15px;
+
+		> li {
+			border-bottom: 1px solid white;
+		}
+	}
+
+	.ww-buttons{
+		text-align:right;
+	}
+
+	.btn-row1{
+		float: left;
+		margin-top: 5px;
+	}
+
+	.btn-row2,
+	.btn-row3{
+		display:inline-block;
+		vertical-align: text-top;
+		margin-left: 5px;
+	}
+}
+
+@media screen and (max-width: 479px) {
+	.ww-description{
+		font-size: 75%;
+	}
+
+	.btn-row2,
+	.btn-row3{
+		width: 30%;
+		margin: 0 0 0 0;
+		margin-left: 5px;
+
+		button{
+			width: 100%;
+		}
+	}
+}
+
+.winwin-splash{
+	background-image: url("https://placehold.it/640&text=WinWins");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+	width: 100%;
+    height: 300px;
+}
+.winwin-splash-title{
+    background: rgba(0, 0, 0, .1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+	width: 100%;
+    height: 15%;
+}
+.winwin-splash-title-desc {
+	float: left;
+	width: 55%;
+	margin-top: 5px;
+	margin-left: 5px;
+	color: white;
+	font-weight: bold;
+}
+.winwin-splash-title-buttons {
+	float: left;
+	width: 40%;
+	text-align: right;
+}

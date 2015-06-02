@@ -22,7 +22,8 @@ angular
     $urlRouterProvider.otherwise('/');
 
 
-    $stateProvider.state('main',{
+    $stateProvider
+      .state('main',{
         url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
@@ -30,5 +31,9 @@ angular
         url: '/signup',
         templateUrl: 'views/signUp.html',
         controller: 'SignUpCtrl'
+      }).state('winwin',{
+        url: '/winwin',
+        templateUrl: 'views/winwin.html',
+        controller: 'WinwinCtrl'
       });
   });
