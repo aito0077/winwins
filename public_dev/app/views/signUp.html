@@ -1,42 +1,44 @@
 <div class="container" id="sign-up">
-	<form id="sign-up-form" name="signUp">
-		<h2 class="title">Registrate</h2>
-		<p class="subtitle">Completá el formulario rápido de registro</p>
-		<div class="input-group">
-		  	<span class="input-group-addon" id="first-name-label"><i class="fa fa-user"></i></span>
-		  	<input type="text" class="form-control" placeholder="Nombre" aria-describedby="first-name-label">
-		</div>
-		<div class="input-group">
-		  	<span class="input-group-addon" id="last-name-label"><i class="fa fa-user"></i></span>
-		  	<input type="text" class="form-control" placeholder="Apellido" aria-describedby="last-name-label">
-		</div>
-		<p class="date-title">Tu fecha de nacimiento</p>
-		<div id="birth-date" class="input-group">
-			<span class="input-group-addon" id="last-name-label"><i class="fa fa-calendar"></i></span>
-		  	<input type="number" class="form-control" placeholder="Día"/>
-		  	<input type="number" class="form-control" placeholder="Mes"/>
-		  	<input type="number" class="form-control" placeholder="Año"/>
-		</div>
-		<div class="input-group">
-		  	<span class="input-group-addon" id="mail-label"><i class="fa fa-envelope"></i></span>
-		  	<input type="email" class="form-control" placeholder="Tu E-mail" aria-describedby="mail-label">
-		</div>
-		<div class="input-group">
-		  	<span class="input-group-addon" id="password-label"><i class="fa fa-lock"></i></span>
-		  	<input type="password" class="form-control" placeholder="Contraseña" aria-describedby="password-label">
-		</div>
-		<div class="input-group">
-		  	<span class="input-group-addon" id="rpassword-label"><i class="fa fa-lock"></i></span>
-		  	<input type="password" class="form-control" placeholder="Repetir contraseña" aria-describedby="rpassword-label">
-		</div>
-	    <div class="checkbox">
-	        <label>
-	        	<input type="checkbox"> 
-	        	<span>Acepto los Términos y Condiciones del sitio y declaro que los he leido y entendido</span>
-	    	</label>
-	    </div>
+	<form id="sign-up-form" name="signUp" ng-submit="signupForm()">
+		<fieldset>
+			<h2 class="title">Registrate</h2>
+			<p class="subtitle">Completá el formulario rápido de registro</p>
+			<div class="input-group">
+			  	<span class="input-group-addon" id="first-name-label"><i class="fa fa-user"></i></span>
+			  	<input required type="text" class="form-control" ng-class="hasError('firstName')" ng-model="form.firstName" placeholder="Nombre" aria-describedby="first-name-label">
+			</div>
+			<div class="input-group">
+			  	<span class="input-group-addon" id="last-name-label"><i class="fa fa-user"></i></span>
+			  	<input required type="text" class="form-control" ng-class="hasError('lastName')" ng-model="form.lastName"placeholder="Apellido" aria-describedby="last-name-label">
+			</div>
+			<p class="date-title">Tu fecha de nacimiento</p>
+			<div id="birth-date" class="input-group">
+				<span class="input-group-addon" id="last-name-label"><i class="fa fa-calendar"></i></span>
+			  	<input required type="number" class="form-control" ng-class="hasError('date')" ng-model="form.date.day" placeholder="Día"/>
+			  	<input required type="number" class="form-control" ng-class="hasError('date')" ng-model="form.date.month" placeholder="Mes"/>
+			  	<input required type="number" class="form-control" ng-class="hasError('date')" ng-model="form.date.year" placeholder="Año"/>
+			</div>
+			<div class="input-group">
+			  	<span class="input-group-addon" id="mail-label"><i class="fa fa-envelope"></i></span>
+			  	<input required type="email" class="form-control" ng-class="hasError('mail')" ng-model="form.mail" placeholder="Tu E-mail" aria-describedby="mail-label">
+			</div>
+			<div class="input-group">
+			  	<span class="input-group-addon" id="password-label"><i class="fa fa-lock"></i></span>
+			  	<input required type="password" class="form-control" ng-class="hasError('password')" ng-model="form.password" placeholder="Contraseña" aria-describedby="password-label">
+			</div>
+			<div class="input-group">
+			  	<span class="input-group-addon" id="rpassword-label"><i class="fa fa-lock"></i></span>
+			  	<input required type="password" class="form-control" ng-class="hasError('password')" ng-model="form.rpassword" placeholder="Repetir contraseña" aria-describedby="rpassword-label">
+			</div>
+		    <div class="checkbox">
+		        <label>
+		        	<input required type="checkbox"> 
+		        	<span>Acepto los Términos y Condiciones del sitio y declaro que los he leido y entendido</span>
+		    	</label>
+		    </div>
 
-	    <button type="button" class="btn btn-success">Crear Cuenta!</button>
+		    <button type="submit" class="btn btn-success">Crear Cuenta!</button>
+		</fieldset>
 	</form>
 	<div id="one-click">
 		<h3 class="title">Accedé con 1 click</h3>

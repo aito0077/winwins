@@ -37,6 +37,20 @@
 		input{
 			width: 240px;
 		}
+
+		.valid:focus {
+		    outline: none !important;
+		    border:1px solid #5CB85C;
+		    box-shadow: 0 0 10px #719ECE;
+		}
+
+		.error:focus {
+		    outline: none !important;
+		    border:1px solid red;
+		    box-shadow: 0 0 10px #719ECE;
+		}
+
+
 	}
 
 	.checkbox{
