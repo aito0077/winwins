@@ -1,0 +1,32 @@
+#createWW{
+	max-width: 768px;
+
+	.speech-bubble-bottom::after {
+    	border-top-color: #1862c2;
+    }
+
+	.speech-bubble {
+		margin: auto;
+		width: 100%;
+		height: auto;
+		max-width: 380px;
+		padding: 10px 0;
+		background-color: #1862c2;
+		border-radius: 5px;
+		line-height: inherit;
+
+		h2{
+			margin: 20px 20px 10px 20px;
+		}
+
+		p{
+			font-size: 75%;
+			margin: 0 30px;
+		}
+	}
+
+	#create-ww-form{
+		margin: 50px auto 10px auto;
+		max-width: 360px;
+	}
+}

@@ -35,5 +35,9 @@ angular
         url: '/winwin',
         templateUrl: 'views/winwin.html',
         controller: 'WinwinCtrl'
+      }).state('createWW',{
+        url: '/createww',
+        templateUrl: 'views/createWW.html',
+        controller: 'CreateWWCtrl'
       });
   });

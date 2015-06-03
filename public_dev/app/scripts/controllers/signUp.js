@@ -9,6 +9,22 @@
  */
 angular.module('winwinsApp')
   .controller('SignUpCtrl', function ($scope) {
+
+  	$scope.form = {
+  		firstName: '',
+  		lastName: '',
+		day: '',
+		month: '',
+		year: '',
+  		mail: '',
+  		password: '',
+  		rpassword: ''
+  	}
+
+  	$scope.signupForm = function(){
+    	console.log("submit");
+    }
+
     $scope.signupForm = function(){
     	console.log("submit");
     }

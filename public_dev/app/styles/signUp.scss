@@ -1,3 +1,4 @@
+#createWW,
 #sign-up{
 	margin-bottom: 50px;
 
@@ -38,15 +39,27 @@
 			width: 240px;
 		}
 
-		.valid:focus {
+		input.ng-valid {
 		    outline: none !important;
 		    border:1px solid #5CB85C;
 		    box-shadow: 0 0 10px #719ECE;
 		}
 
-		.error:focus {
+		input.ng-invalid {
 		    outline: none !important;
-		    border:1px solid red;
+		    border: 1px solid red;
+		    box-shadow: 0 0 10px #719ECE;
+		}
+
+		input.ng-pristine {
+		    outline: none !important;
+		    border: 1px solid #cccccc;
+		    box-shadow: 0 0 0 #719ECE ;
+		}
+
+		input:focus {
+		    outline: none !important;
+		    border: 1px solid #66afe9;
 		    box-shadow: 0 0 10px #719ECE;
 		}
 
