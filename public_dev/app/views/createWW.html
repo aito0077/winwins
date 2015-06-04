@@ -7,10 +7,10 @@
 	<form id="create-ww-form" name="createWW" ng-submit="createWW()">
 		<fieldset>
 			<input required type="text" class="form-control" ng-model="form.name" placeholder="Un nombre para tu WinWin"/>
-			<p>Plantea tu WinWin</p>
-			<p>¿Si supieras que  somos <input required type="text" ng-model="form.howMany"</span> para</p>
-			<textarea required type="text" rows="5" class="form-control" ng-model="form.activity"/>
-			<p>te sumarias?</p>
+			<p class="subtitle">Plantea tu WinWin</p>
+			<p class="subtitle textww">¿Si supieras que  somos <input class="people"  type="text" ng-model="form.howMany"/> para</p>
+			<textarea required type="text" rows="5" class="form-control" ng-model="form.activity"></textarea>
+			<p class="subtitle textww">te sumarias?</p>
 			<input required type="text" class="form-control" ng-model="form.details" placeholder="Más detalles del WinWin"/>
 			<p class="date-title">Fecha límite si aplica</p>
 			<div id="birth-date" class="input-group">
@@ -21,7 +21,7 @@
 			</div>
 		    <div class="checkbox">
 		        <label>
-		        	<input required type="checkbox"> 
+		        	<input required type="checkbox"/> 
 		        	<span>He leído y acepto los Términos y Condiciones</span>
 		    	</label>
 		    </div>
