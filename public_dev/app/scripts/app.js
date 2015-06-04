@@ -39,5 +39,9 @@ angular
         url: '/createww',
         templateUrl: 'views/createWW.html',
         controller: 'CreateWWCtrl'
+      }).state('createWWid',{
+        url: '/createwwid',
+        templateUrl: 'views/createWWid.html',
+        controller: 'CreateWWCtrl'
       });
   });
