@@ -9,27 +9,27 @@
 
 			<div class="dropdown">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="categoryMenu" data-toggle="dropdown" aria-expanded="true">
-			    {{"Selecciona una categoría"}}
+			    {{category===''?'Selecciona una categoría':category}}
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="categoryMenu">
-			    <li role="presentation"><a role="menuitem" tabindex="-1">categoria1</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">categoria2</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">categoria3</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">categoria4</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria1')" role="menuitem" tabindex="-1">categoria1</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria2')" role="menuitem" tabindex="-1">categoria2</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria3')" role="menuitem" tabindex="-1">categoria3</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria4')" role="menuitem" tabindex="-1">categoria4</a></li>
 			  </ul>
 			</div>
 
 			<div class="dropdown">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="regionMenu" data-toggle="dropdown" aria-expanded="true">
-			    {{"Selecciona una escala territorial"}}
+			    {{region===''?'Selecciona una escala territorial':region}}
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="regionMenu">
-			    <li role="presentation"><a role="menuitem" tabindex="-1">region1</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">region2</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">region3</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1">region4</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region1')" role="menuitem" tabindex="-1">region1</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region2')" role="menuitem" tabindex="-1">region2</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region3')" role="menuitem" tabindex="-1">region3</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region4')" role="menuitem" tabindex="-1">region4</a></li>
 			  </ul>
 			</div>
 

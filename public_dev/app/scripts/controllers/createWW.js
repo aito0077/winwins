@@ -10,6 +10,15 @@
 angular.module('winwinsApp')
   .controller('CreateWWCtrl', function ($scope) {
 
+  	$scope.region = "";
+  	$scope.category = "";
 
+  	$scope.selectRegion = function(region){
+  		$scope.region = region;
+  	}
+
+  	$scope.selectCategory = function(category){
+  		$scope.category = category;
+  	}
 
   });
