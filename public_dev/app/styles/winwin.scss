@@ -1,33 +1,125 @@
-.winwin-splash{
-	background-image: url("https://placehold.it/640&text=WinWins");
+.winwin-splash {
+	background-image: url("https://mehranbanaei.files.wordpress.com/2014/12/children-in-central-african-republic.jpg");
+    background-color: lightgrey;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-	width: 100%;
-    height: 300px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 320px;
+    min-height: 600px;
+    overflow: hidden;
 
-	.title{
-	    background: rgba(0, 0, 0, .1);
-	    background-repeat: no-repeat;
-	    background-position: center center;
-	    background-size: cover;
-		width: 100%;
-	    height: 15%;
+	.description {
+	    background-color: rgba(0,0,0,0.75);
+	    color: white;
+	    text-align: center;
+	    padding: 5px;
+	    width: 100%;
+	    min-height: 50px;
+	    display: table;
 
-		.description {
-			float: left;
-			width: 55%;
-			margin-top: 5px;
-			margin-left: 5px;
-			color: white;
+		.title {
+		    width:80%;
+			text-align:left;
+			display: table-cell;
+			text-transform: uppercase;
 			font-weight: bold;
+			font-size: 20px;
+			word-wrap: break-word;
 		}
-		.markers {
-			float: left;
-			width: 40%;
-			text-align: right;
+	
+		.buttons {
+		    display: table-cell;
+		    width:18%;
+			text-align:right;
+			color: grey;
 		}
 	}
+
+
+	.somos {
+		display: block;
+
+		/*background-color: rgba(255,0,0,0.2);*/
+		width: 33%;
+		height: 60px;
+
+		position: absolute;
+		bottom: 60px;
+		right: 0px;
+		padding: 5px;
+
+		color: white;
+	    text-align: right;
+	    margin-right: 20px; 
+	}
+
+	.information {
+	    /*background-color: rgba(0,0,0,0.2);*/
+	    color: white;
+	    text-align: center;
+	    clear: both;
+	    padding:5px;
+	    height: 60px;
+	    position: absolute;
+	    bottom: 0;
+	    width: 100%;
+
+
+		.quedan {
+			width: 33%;
+			float: left;
+		}
+
+		.faltan {
+			width: 25%;
+			float: right;
+	    	text-align: right;
+	    	margin-right: 20px;
+		}
+
+		.social {
+			width: 33%;
+			float: left;
+			min-width: 160px;
+
+			i{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				border: solid 1px transparent;
+				cursor: pointer; 
+			}
+
+			i::before{
+				vertical-align: middle;
+				padding-bottom: 3px;
+			}
+
+			.fa-envelope{
+				color: white;
+				background-color: #3F59FF;
+				border-bottom: thick solid #1F4F7F;
+			}
+
+			.fa-twitter{
+				color: white;
+				background-color: #55acee;
+				border-bottom: thick solid #3276c9;
+			}
+
+			.fa-facebook{
+				color: white;
+				background-color: #3b5998;
+				border-bottom: thick solid #1f497c;
+			}
+
+		}
+
+	}
+
 }
 
 @media screen and (max-width: 767px) {
@@ -35,5 +127,24 @@
 }
 
 @media screen and (max-width: 479px) {
+	.winwin-splash {
+	    min-height: 320px;
 
+		.description {
+			.buttons {
+				margin-top: 15px;
+			}
+		}
+
+		.information {
+			.social {
+				min-width: 110px;
+
+				i{
+					width:  35px;
+					height: 35px; 
+				}
+			}
+		}
+	}
 }
