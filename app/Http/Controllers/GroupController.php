@@ -11,6 +11,7 @@ use Winwins\User;
 use Winwins\Model\Group;
 use Winwins\Model\GroupsUser;
 use Winwins\Model\GroupsWinwin;
+use Winwins\Model\Repository\GroupRepository;
 use Winwins\Model\Winwin;
 
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ use Illuminate\Http\Request;
 class GroupController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
 	public function index() {
@@ -99,6 +100,12 @@ class GroupController extends Controller {
 	}
 
     //Actions
+	public function search(Request $request, GroupRepository $groupRepository) {
+        $query = $request->input('q');
+        return $groupRepository->search($query);
+    }
+
+
 	public function join(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $group = Group::find($id);
