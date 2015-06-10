@@ -5,10 +5,15 @@ use Auth;
 use Log;
 use DB;
 use Config;
+use Storage;
+use Response;
+use Validator;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Winwin;
+use Winwins\Model\Repository\WinwinRepository;
 use Winwins\Model\WinwinsUser;
+use Winwins\Model\Media;
 use Winwins\User;
 
 use Illuminate\Http\Request;
@@ -16,7 +21,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
 	public function index() {
@@ -113,6 +118,11 @@ class WinwinController extends Controller {
 	}
 
     //Actions
+	public function search(Request $request, WinwinRepository $winwinRepository) {
+        $query = $request->input('q');
+        return $winwinRepository->search($query);
+    }
+
 	public function join(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $winwin = Winwin::find($id);
@@ -164,5 +174,50 @@ class WinwinController extends Controller {
 	public function edit($id) {
 		//
 	}
+
+    public function storeImage(Request $request, Media $media) {
+
+        $user = User::find($request['user']['sub']);
+        if(!$request->hasFile('file')) { 
+            return Response::json(['error' => 'No File Sent']);
+        }
+
+        if(!$request->file('file')->isValid()) {
+            return Response::json(['error' => 'File is not valid']);
+        }
+
+        $file = $request->file('file');
+
+        $v = Validator::make(
+            $request->all(),
+            ['file' => 'required|mimes:jpeg,jpg,png|max:8000']
+        );
+
+        if($v->fails()) {
+            return Response::json(['error' => $v->errors()]);
+        }
+
+        Log::info($request->file('file'));
+
+        $image = $media::create([
+            'name' => $request->file('file')->getClientOriginalName(),
+            'ext' => $request->file('file')->guessExtension(),
+            'user_id' => $user->id,
+            'type' => 'IMAGE'
+        ]);
+        
+        $filename = $image->id . '.' . $image->ext;
+
+        Storage::disk('s3-uploads')->put('/' . $filename, file_get_contents($file));
+
+        //Use this line to move the file to local storage & make any thumbnails you might want
+        //$request->file('file')->move('/full/path/to/uploads', $filename);
+
+        //If making thumbnails uncomment these to remove the local copy.
+        //if(Storage::disk('s3')->exists('uploads/' . $filename))
+            //Storage::disk()->delete('uploads/' . $filename);
+
+        return Response::json(['OK' => 1, 'filename' => $filename]);
+    }
 
 }

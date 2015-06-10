@@ -14,7 +14,9 @@ class CreateMediasTable extends Migration {
 
             $table->enum('type', ['VIDEO', 'IMAGE', 'DATA'])->default('IMAGE');
 
-            $table->string('title');
+            $table->string('name');
+            $table->string('ext');
+            $table->string('title')->nullable();
             $table->mediumtext('description')->nullable();
             $table->mediumtext('path')->nullable();
             $table->string('bucket')->nullable();

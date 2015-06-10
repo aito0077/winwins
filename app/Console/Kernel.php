@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'Winwins\Console\Commands\Inspire',
+		'Winwins\Console\Commands\ESIndexAllCommand',
 	];
 
 	/**

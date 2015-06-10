@@ -48,13 +48,21 @@ return [
 			'root'   => storage_path().'/app',
 		],
 
-		's3' => [
+		's3-gallery' => [
 			'driver' => 's3',
-			'key'    => 'your-key',
-			'secret' => 'your-secret',
-			'region' => 'your-region',
-			'bucket' => 'your-bucket',
+			'key'    => env('AWS_KEY', ''),
+			'secret' => env('AWS_SECRET', ''),
+			'region' => env('AWS_REGION', ''),
+			'bucket' => 'winwin-gallery',
 		],
+		's3-uploads' => [
+			'driver' => 's3',
+			'key'    => env('AWS_KEY', ''),
+			'secret' => env('AWS_SECRET', ''),
+			'region' => env('AWS_REGION', ''),
+			'bucket' => 'winwin-gallery',
+		],
+
 
 		'rackspace' => [
 			'driver'    => 'rackspace',

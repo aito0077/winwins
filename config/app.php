@@ -4,7 +4,7 @@ return [
 
 	'token_secret' => env('JWT_TOKEN_SECRET', 'some random string'),
 	'facebook_secret' => env('FACEBOOK_SECRET', ''),
-	'google_secret' => env('GOOGLE_SECRET', '-u5nyEW6blDi_yodu'),
+	'google_secret' => env('GOOGLE_SECRET', ''),
 	'twitter_key' => env('TWITTER_KEY', ''),
 	'twitter_secret' => env('TWITTER_SECRET', ''),
 	'twitter_callback' => env('TWITTER_CALLBACK', ''),
@@ -153,6 +153,8 @@ return [
 		'Winwins\Providers\ConfigServiceProvider',
 		'Winwins\Providers\EventServiceProvider',
 		'Winwins\Providers\RouteServiceProvider',
+		'Winwins\Providers\ObserversServiceProvider',
+		'Winwins\Providers\RepositoriesServiceProvider',
 
 	],
 
@@ -204,4 +206,7 @@ return [
 
 	],
 
+
+	'es_hosts' => env('ES_HOST', '')
+    
 ];

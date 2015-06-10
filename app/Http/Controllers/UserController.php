@@ -5,6 +5,7 @@ use Config;
 use JWT;
 use Winwins\User;
 use Winwins\Model\UserDetail;
+use Winwins\Model\Repository\UserRepository;
 
 class UserController extends Controller {
 
@@ -52,4 +53,11 @@ class UserController extends Controller {
 
         return response()->json(['token' => $token]);
     }
+
+	public function search(Request $request, UserRepository $userRepository) {
+        $query = $request->input('q');
+        return $userRepository->search($query);
+    }
+
+
 }

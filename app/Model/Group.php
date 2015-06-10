@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model {
 
+    protected $fillable = ['user_id', 'name', 'description', 'photo', 'private', 'control_ww', 'confirm_ww', 'canceled', 'created_at'];
+
     public function user() {
         return $this->belongsTo('Winwins\User');
     }
