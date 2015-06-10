@@ -43,5 +43,9 @@ angular
         url: '/createwwid',
         templateUrl: 'views/createWWid.html',
         controller: 'CreateWWCtrl'
+      }).state('forbidden',{
+        url: '/forbidden',
+        templateUrl: 'views/forbidden.html',
+        controller: 'ForbiddenCtrl'
       });
   });
