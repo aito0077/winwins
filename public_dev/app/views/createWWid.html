@@ -4,13 +4,19 @@
 		<p>Tu WinWin va a ser visto por miles, o tal vez millones de personas. Subí la mejor imágen que tengas para hacer tu WinWin memorable. También podes linkear un video de YouTube, esto sí que ayuda!</p>
 	</div>
 
+	<div class="row ww-id">
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+	</div>
+
 	<form id="create-ww-id-form" name="createWWid" ng-submit="createWWid()">
 		<fieldset>
 
 			<div class="dropdown">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="categoryMenu" data-toggle="dropdown" aria-expanded="true">
-			    {{category===''?'Selecciona una categoría':category}}
-			    <span class="caret"></span>
+			    <span>{{category===''?'Selecciona una categoría':category}}</span>
+			    <i class="fa fa-caret-down"></i>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="categoryMenu">
 			    <li role="presentation"><a ng-click="selectCategory('categoria1')" role="menuitem" tabindex="-1">categoria1</a></li>
@@ -23,7 +29,7 @@
 			<div class="dropdown">
 			  <button class="btn btn-default dropdown-toggle" type="button" id="regionMenu" data-toggle="dropdown" aria-expanded="true">
 			    {{region===''?'Selecciona una escala territorial':region}}
-			    <span class="caret"></span>
+			    <i class="fa fa-caret-down"></i>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="regionMenu">
 			    <li role="presentation"><a ng-click="selectRegion('region1')" role="menuitem" tabindex="-1">region1</a></li>

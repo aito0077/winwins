@@ -1,7 +1,12 @@
 #createWW,
 #createWWid,
-#forbidden{
+.sign-in{
 	max-width: 768px;
+
+	.ww-id{
+		max-width: 480px;
+		margin: 50px auto 0 auto;
+	}
 
 	.speech-bubble-bottom::after {
     	border-top-color: #1862c2;
@@ -29,7 +34,7 @@
 	}
 
 	#create-ww-form,
-	#create-ww-id-form,{
+	#create-ww-id-form{
 		margin: 50px auto 10px auto;
 		max-width: 360px;
 
@@ -51,6 +56,44 @@
 
 		.date-title{
 			margin-top: 20px;
+		}
+
+		.dropdown{
+			.btn{
+				white-space: initial;
+			}
+
+			margin: 10px 0 20px 0;
+
+			button{
+				text-align: left;
+				width: 100%;
+			}
+
+			i{
+				float: right;
+				margin-top: 5px;
+			}
+		}
+
+	}
+
+	#create-ww-id-form{
+		margin: 40px auto 10px auto;
+
+		.btn-success{
+			margin-top: 20px;
+			width: 180px;
+		}
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+	.ww-id{
+		img{
+			padding-left: 5px;
+			padding-right: 5px;
 		}
 	}
 }

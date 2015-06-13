@@ -1,6 +1,6 @@
 #createWW,
 #sign-up,
-#forbidden{
+.sign-in{
 	max-width: 768px;
 	margin-bottom: 50px;
 
@@ -146,5 +146,11 @@
 				border-bottom: thick solid #2f016b;
 			}
 		}
+	}
+}
+
+.sign-in{
+	h2.title{
+		margin-bottom: 20px;
 	}
 }

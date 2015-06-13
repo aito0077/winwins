@@ -1,4 +1,4 @@
-<div class="winwin-splash">
+<div class="winwin-splash" back-img="{{backImg}}">
 	<div class="description">  
 		<div class="title">
 			<p>
@@ -6,13 +6,13 @@
 			</p>
 		</div>  
 		<div class="buttons">
-			<i class="fa fa-star-o fa-3x"></i>	
-			<i class="fa fa-bookmark-o fa-3x"></i>
+			<i class="fa fa-star fa-2x"></i>	
+			<i class="fa fa-bookmark fa-2x"></i>
 		</div>
 	</div>
 
 	<div class="somos">
-		Somos <button type="button" class="btn btn-lg">{{ mock.suscribed }}</button>
+		<button type="button" class="btn btn-lg subscribed">{{ mock.suscribed }}</button>
 	</div>
 
 	<div class="information">
@@ -26,21 +26,23 @@
 	 	</div>
 
 		<div class="quedan">
-  			<button type="button" class="btn btn-lg">{{ mock.days }}</button>
-  			<button type="button" class="btn btn-lg">{{ mock.hours }}</button>
-  			<button type="button" class="btn btn-lg">{{ mock.minutes }}</button>
+  			<button type="button" class="btn btn-lg days">{{ mock.days }}</button>
+  			<button type="button" class="btn btn-lg hours">{{ mock.hours }}</button>
+  			<button type="button" class="btn btn-lg minutes">{{ mock.minutes }}</button>
 	 	</div>
 
 		<div class="faltan">
-			Faltan <button type="button" class="btn btn-lg">{{ mock.missing }}</button>
+			<button type="button" class="btn btn-lg missing">{{ mock.missing }}</button>
 	 	</div>
 		
 	</div>
-
 </div>
 
+<div class="ww-text">
+	<span style="color: #fd7e01">Si supieras</span> que somos <span class="how-many">{{howMany}}</span> para {{details}}, <span style="color: #fd7e01">te sumarias?</span>
+</div>
 
-<br/>
+<!--br/>
 texto recontramil piola
 <br/>
 estado activo, global, <a href="#">Denunciar</a>
@@ -49,4 +51,4 @@ estado activo, global, <a href="#">Denunciar</a>
 <input type="button" value="La Proxima">
 <br/>
 <p><img src="https://placehold.it/64&text=Creador" alt="Creador" class="img-circle">creador</p>
-<br/>
+<br/-->

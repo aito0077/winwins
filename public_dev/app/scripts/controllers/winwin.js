@@ -11,16 +11,14 @@ angular.module('winwinsApp')
   .controller('WinwinCtrl', function ($scope) {
   	var d = new Date();
   	$scope.mock = {
-  		days: d.getDate(),
+  		days: "100",
   		hours: d.getHours(),
   		minutes: d.getMinutes(),
-  		suscribed: Math.floor( 100*Math.random() ),
-  		missing: Math.floor( 100*Math.random() )
+  		suscribed: Math.floor( 10000*Math.random() ),
+  		missing: Math.floor( 10000*Math.random() )
   	};
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.backImg = "https://mehranbanaei.files.wordpress.com/2014/12/children-in-central-african-republic.jpg"
+    $scope.howMany = 1500;
+    $scope.details = "para hacer donaciones a los niños de África, y cambiar el destino de personas que necesitan comida, ropa, cariño y un monton de otras cosas";
   });

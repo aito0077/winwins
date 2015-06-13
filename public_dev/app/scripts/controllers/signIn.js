@@ -8,7 +8,7 @@
  * Controller of the winwinsApp
  */
 angular.module('winwinsApp')
-  .controller('ForbiddenCtrl', function ($scope) {
+  .controller('SignInCtrl', function ($scope) {
 
 
 

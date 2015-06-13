@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/matchmedia/matchMedia.js',
       'bower_components/matchmedia-ng/matchmedia-ng.js',
+      'bower_components/webcomponentsjs/webcomponents.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

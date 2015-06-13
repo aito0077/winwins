@@ -1,9 +1,7 @@
 .winwin-splash {
-	background-image: url("https://mehranbanaei.files.wordpress.com/2014/12/children-in-central-african-republic.jpg");
     background-color: lightgrey;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
     position: relative;
     height: 100%;
     width: 100%;
@@ -35,6 +33,18 @@
 		    width:18%;
 			text-align:right;
 			color: grey;
+
+			i{
+				margin-left: 5px;
+			}
+
+			.fa-star{
+				color: #FFFF00;
+			}
+
+			.fa-bookmark{
+				color: #FE8000;
+			}
 		}
 	}
 
@@ -47,13 +57,36 @@
 		height: 60px;
 
 		position: absolute;
-		bottom: 60px;
+		bottom: 100px;
 		right: 0px;
 		padding: 5px;
 
 		color: white;
 	    text-align: right;
 	    margin-right: 20px; 
+
+	    button{
+	    	min-width: 115px;
+	    }
+
+    	button:before{
+			display: block;
+			font-size: 70%;
+			margin-top: 3px;
+			font-weight: bold;
+		}
+
+    	.subscribed,
+		.subscribed:hover,
+		.subscribed:focus{
+			color: white;
+			background-color: #56AB01;
+    	}
+
+		.subscribed:before {
+			content:"SOMOS";
+		}
+
 	}
 
 	.information {
@@ -64,13 +97,61 @@
 	    padding:5px;
 	    height: 60px;
 	    position: absolute;
-	    bottom: 0;
+	    bottom: 25px;
 	    width: 100%;
 
 
 		.quedan {
 			width: 33%;
 			float: left;
+
+			button{
+				width: 30%;
+				max-width: 70px;
+				text-align: center;
+			}
+
+			button:before{
+				display: block;
+				font-size: 50%;
+				margin-top: 3px;
+				font-weight: bold;
+			}
+
+			.days,
+			.days:hover,
+			.days:focus{
+				color: white;
+				background-color: #FA555A;
+			}
+
+			.days:before {
+				content:"DIAS";
+			}
+
+			.hours,
+			.hours:hover,
+			.hours:focus{
+				color: white;
+				background-color: #2DCB74;
+			}
+
+			.hours:before {
+				content:"HORAS";
+			}
+
+
+			.minutes,
+			.minutes:hover,
+			.minutes:focus{
+				color: white;
+				background-color: #F6BC58;
+			}
+
+			.minutes:before {
+				content:"MINUTOS";
+			}
+
 		}
 
 		.faltan {
@@ -78,17 +159,41 @@
 			float: right;
 	    	text-align: right;
 	    	margin-right: 20px;
+
+		    button{
+		    	min-width: 115px;
+		    }
+
+	    	button:before{
+				display: block;
+				font-size: 70%;
+				margin-top: 3px;
+				font-weight: bold;
+			}
+
+	    	.missing,
+			.missing:hover,
+			.missing:focus{
+				color: white;
+				background-color: #3276C9;
+	    	}
+
+			.missing:before {
+				content:"NOS FALTAN";
+			}
 		}
 
 		.social {
 			width: 33%;
 			float: left;
 			min-width: 160px;
+			margin-top: 7px;
 
 			i{
 				width: 50px;
 				height: 50px;
 				text-align: center;
+				padding-top: 5px;
 				border: solid 1px transparent;
 				cursor: pointer; 
 			}
@@ -122,29 +227,65 @@
 
 }
 
-@media screen and (max-width: 767px) {
+.ww-text{
+	color: #727272;
+	margin: auto;
+	text-align: center;
+	max-width: 600px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 125%;
 
+	.how-many{
+		color: white;
+		padding: 0 4px;
+		background-color: #fd7e01;
+	}
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 599px) {
 	.winwin-splash {
-	    min-height: 320px;
 
-		.description {
-			.buttons {
-				margin-top: 15px;
+		button{
+			padding: 10px 5px;
+		}
+
+		min-height: 320px;
+		overflow: visible;
+		margin-bottom: 155px;
+
+		.information{
+			bottom: -65px;
+
+			.quedan{
+				text-align: right;
+				float: right;
+				width: 50%;
+			}
+			
+			.social{
+				text-align: left;
+				float: left;
+				width: 50%;
+			}
+
+			.faltan{
+				text-align: left;
+				margin-top: 10px;
+				display: block;
+				float: left;
 			}
 		}
 
-		.information {
-			.social {
-				min-width: 110px;
-
-				i{
-					width:  35px;
-					height: 35px; 
-				}
+		.somos{
+			bottom: -132px;
+			width: inherit;
+			
+			.subscribed {
+				float: left;
+				margin-left: 145px;
 			}
 		}
+
 	}
 }
