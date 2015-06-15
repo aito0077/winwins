@@ -47,5 +47,9 @@ angular
         url: '/signin',
         templateUrl: 'views/signIn.html',
         controller: 'SignInCtrl'
+      }).state('activateWW',{
+        url: '/activate',
+        templateUrl: 'views/activateWW.html',
+        controller: 'ActivateWWCtrl'
       });
   });
