@@ -51,5 +51,13 @@ angular
         url: '/activate',
         templateUrl: 'views/activateWW.html',
         controller: 'ActivateWWCtrl'
-      });
+      }).state('promote',{
+        url: '/promote',
+        templateUrl: 'views/promote.html',
+        controller: 'ActivateWWCtrl'
+      }).state('members',{
+        url: '/members',
+        templateUrl: 'views/members.html',
+        controller: 'MembersCtrl'
+      });;
   });

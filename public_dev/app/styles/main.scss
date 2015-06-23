@@ -85,3 +85,9 @@ body {
     border-bottom: 0;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .container{
+    width: 100%;
+  }
+}

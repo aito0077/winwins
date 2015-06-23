@@ -67,30 +67,46 @@
 	}
 }
 
-.winwins-list {
+.winwins-list,
+.members-list {
 	.row {
 
 		.ww-img img {
 			width: 100%;
 		}
 
+		.ww-member{
+				border-radius: 50%;
+				padding: 10%;
+		}
+
 		.ww-buttons {
+			.fa{
+				text-align: center;
+				padding: 12px;
+				border-bottom: solid 1px transparent;
+				cursor: pointer; 
+			}
+
 			.fa-envelope{
 				border: 1px solid white;
 				color: #aaaaaa;
 				background-color: #cfd1d0;
+				border-bottom: thick solid #aaaaaa;
 			}
 
 			.fa-twitter{
 				border: 1px solid white;
 				color: white;
 				background-color: #55acee;
+				border-bottom: thick solid #3276c9;
 			}
 
 			.fa-facebook{
 				border: 1px solid white;
 				color: white;
 				background-color: #3b5998;
+				border-bottom: thick solid #1f497c;
 			}
 
 			.btn-interest{

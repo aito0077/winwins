@@ -89,6 +89,21 @@
 
 }
 
+.promote{
+	text-align: center;
+	
+	.glyphicon-bullhorn{
+		font-size: 10em;
+		color: #1862C2;
+	}
+
+
+	.share,
+	button{
+		margin: 30px auto;
+	}
+}
+
 @media screen and (max-width: 480px) {
 	.ww-id{
 		img{
