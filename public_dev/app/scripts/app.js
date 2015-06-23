@@ -60,5 +60,9 @@ angular
         url: '/members',
         templateUrl: 'views/members.html',
         controller: 'MembersCtrl'
-      });;
+      }).state('comments',{
+        url: '/comments',
+        templateUrl: 'views/comments.html',
+        controller: 'WinwinCtrl'
+      });
   });

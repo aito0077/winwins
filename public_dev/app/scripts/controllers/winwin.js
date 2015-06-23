@@ -12,6 +12,24 @@ angular.module('winwinsApp')
 
     $scope.waypoints = {};
 
+    $scope.submenu = {
+      members: false,
+      groups: false,
+      favs: false,
+      comments: true,
+      config: false
+    };
+
+    $scope.subMenuClick = function(menuEntry){
+      //set all to false
+      $.each($scope.submenu, function(i,v){
+        $scope.submenu[i] = false;
+      });
+
+      //set clicked to true
+      $scope.submenu[menuEntry] = true;
+    }
+
   	var d = new Date();
   	$scope.mock = {
   		days: "100",

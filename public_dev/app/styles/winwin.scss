@@ -1,13 +1,18 @@
-.red{
-	background-color: red;
-}
-
-.blue{
-	background-color: blue;
-}
-
 .winwin{
-	min-height: 1000px;
+	min-height: 1500px;
+
+	.cssFade {
+	    transition: 0.5s linear all;
+	    opacity: 1;
+	}
+	.cssFade.ng-hide {
+	    opacity: 0;
+	}
+}
+
+.winwin-body{
+	position: fixed;
+	top: 101px;
 }
 
 .winwin-splash {
@@ -381,6 +386,56 @@
 	}
 }
 
+.ww-submenu{
+	background-color: #1862C2;
+	min-height: 50px;
+
+	.col-xs-2{
+		padding-left: 0px;
+	  	padding-right: 0px;
+	}
+
+	li{
+		text-align: center;
+		
+		a{
+			color: #FFF;
+		}
+
+		a:hover,
+		a:focus{
+			background-color: #337AB7;
+		}
+	}
+}
+
+.comments-list {
+	.ww-img{
+		text-align: center;
+		img{
+			max-width: 115px;
+		}
+
+		.name{
+			font-size: 125%;
+			font-widght: bold;
+			margin-top: 5px;
+			margin-bottom: 0;
+		}
+
+		.date{
+			font-size: 75%;
+			font-widght: bold;
+			margin-top: 5px;
+			margin-bottom: 0;
+		}
+	}
+
+	.ww-description{
+		padding-top: 30px;
+	}
+
+}
 
 @media screen and (max-width: 599px) {
 	.winwin-splash {
@@ -432,5 +487,23 @@
 		.speech-bubble{
 			width: 70%;
 		}
+	}
+}
+
+@media screen and (max-width: 1199px) {
+	.winwin-body{
+		position: fixed;
+		top: 151px;
+	}
+	}
+
+@media screen and (max-width: 767px) {
+	.winwin-body{
+		top: 51px;
+		padding-left: 0px;
+	  	padding-right: 0px;
+	}
+	.ww-submenu{
+		margin-left: -15px;
 	}
 }
