@@ -9,6 +9,9 @@
  */
 angular.module('winwinsApp')
   .controller('WinwinCtrl', function ($scope) {
+
+    $scope.waypoints = {};
+
   	var d = new Date();
   	$scope.mock = {
   		days: "100",

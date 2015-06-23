@@ -1,43 +1,47 @@
-<div class="winwin-splash" back-img="{{backImg}}">
-	<div class="description">  
-		<div class="title">
-			<p>
-				Demos una oportunidad a los niños de Africa
-			</p>
-		</div>  
-		<div class="buttons">
-			<i class="fa fa-star fa-2x"></i>	
-			<i class="fa fa-bookmark fa-2x"></i>
+<div class="winwin" zum-waypoint="waypoints" down="name.down" up="name.up" offset="-20%" ng-class="{red: waypoints.name.down, blue: waypoints.name.up}">
+	<div class="winwin-header">
+		<div class="winwin-splash" back-img="{{backImg}}">
+			<div class="description">  
+				<div class="title">
+					<p>
+						Demos una oportunidad a los niños de Africa
+					</p>
+				</div>  
+				<div class="buttons">
+					<i class="fa fa-star fa-2x"></i>	
+					<i class="fa fa-bookmark fa-2x"></i>
+				</div>
+			</div>
+
+			<div class="somos">
+				<button type="button" class="btn btn-lg subscribed">{{ mock.suscribed }}</button>
+			</div>
+
+			<div class="information">
+
+				<div class="social">
+
+					<i title="Email" class="fa fa-envelope fa-2x"></i>
+					<i title="Twitter" class="fa fa-twitter fa-2x"></i>
+					<i title="Facebook" class="fa fa-facebook fa-2x"></i>
+
+			 	</div>
+
+				<div class="quedan">
+		  			<button type="button" class="btn btn-lg days">{{ mock.days }}</button>
+		  			<button type="button" class="btn btn-lg hours">{{ mock.hours }}</button>
+		  			<button type="button" class="btn btn-lg minutes">{{ mock.minutes }}</button>
+			 	</div>
+
+				<div class="faltan">
+					<button type="button" class="btn btn-lg missing">{{ mock.missing }}</button>
+			 	</div>
+				
+			</div>
+		</div>
+
+		<div class="ww-text">
+			<span style="color: #fd7e01">Si supieras</span> que somos <span class="how-many">{{howMany}}</span> para {{details}}, <span style="color: #fd7e01">te sumarias?</span>
 		</div>
 	</div>
-
-	<div class="somos">
-		<button type="button" class="btn btn-lg subscribed">{{ mock.suscribed }}</button>
-	</div>
-
-	<div class="information">
-
-		<div class="social">
-
-			<i title="Email" class="fa fa-envelope fa-2x"></i>
-			<i title="Twitter" class="fa fa-twitter fa-2x"></i>
-			<i title="Facebook" class="fa fa-facebook fa-2x"></i>
-
-	 	</div>
-
-		<div class="quedan">
-  			<button type="button" class="btn btn-lg days">{{ mock.days }}</button>
-  			<button type="button" class="btn btn-lg hours">{{ mock.hours }}</button>
-  			<button type="button" class="btn btn-lg minutes">{{ mock.minutes }}</button>
-	 	</div>
-
-		<div class="faltan">
-			<button type="button" class="btn btn-lg missing">{{ mock.missing }}</button>
-	 	</div>
-		
-	</div>
-</div>
-
-<div class="ww-text">
-	<span style="color: #fd7e01">Si supieras</span> que somos <span class="how-many">{{howMany}}</span> para {{details}}, <span style="color: #fd7e01">te sumarias?</span>
 </div>

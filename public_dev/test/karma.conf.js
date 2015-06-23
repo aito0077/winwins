@@ -34,6 +34,8 @@ module.exports = function(config) {
       'bower_components/matchmedia/matchMedia.js',
       'bower_components/matchmedia-ng/matchmedia-ng.js',
       'bower_components/webcomponentsjs/webcomponents.js',
+      'bower_components/jquery-waypoints/waypoints.js',
+      'bower_components/angular-waypoints/dist/angular-waypoints.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
