@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'zumba.angular-waypoints'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
 
