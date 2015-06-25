@@ -376,7 +376,8 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'styles/{,*/}*.css'
           ]
         }, {
           expand: true,
@@ -395,6 +396,25 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      }
+    },
+
+    replace: {
+      dist: {
+        options: {
+          patterns: [
+            {
+              match: '../images',
+              replacement: './images'
+            }
+          ],
+          usePrefix: false
+        },
+        files: [{
+          expand: true,
+          src: [ 'dist/*.html', 'dist/views/{,*/}*.html'],
+          dest: '.'
+        }]
       }
     },
 
@@ -466,7 +486,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'replace:dist'
   ]);
 
   grunt.registerTask('default', [

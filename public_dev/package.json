@@ -1,7 +1,9 @@
 {
   "name": "winwins",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-replace": "^0.9.2"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",

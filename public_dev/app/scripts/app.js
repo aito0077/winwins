@@ -36,7 +36,15 @@ angular
         url: '/winwin',
         templateUrl: 'views/winwin.html',
         controller: 'WinwinCtrl'
-      }).state('createWW',{
+      }).state('winwin.header',{
+        templateUrl: 'views/winwinPreview.html',
+      }).state('winwin.menu',{
+        templateUrl: 'views/winwinMenu.html',
+      }).state('winwin.menu.comments',{
+        templateUrl: 'views/comments.html',
+      })
+
+      .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',
         controller: 'CreateWWCtrl'

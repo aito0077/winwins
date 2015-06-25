@@ -67,6 +67,17 @@ body {
   }
 }
 
+.no-padding {
+  margin-top: 400px;
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
