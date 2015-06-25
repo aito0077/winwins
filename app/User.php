@@ -1,6 +1,7 @@
 <?php namespace Winwins;
 
 use Hash;
+use Winwis\Model\Notification;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -31,4 +32,24 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users');
     }
 
+    public function notifications() {
+        return $this->hasMany('Notification');
+    }
+    
+/*
+    $user->newNotification()
+    ->from($sender)
+    ->withType('RecipeFavorited')
+    ->withSubject('Your recipe has been favorited.')
+    ->withBody('<User X> favorited your Caramel Cream Cakes recipe!')
+    ->regarding($recipe)
+    ->deliver();
+*/
+
+    public function newNotification() {
+        $notification = new Notification;
+        $notification->user()->associate($this);
+ 
+        return $notification;
+    }
 }

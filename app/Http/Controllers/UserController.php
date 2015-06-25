@@ -16,11 +16,13 @@ class UserController extends Controller {
 
 	public function show($id) {
         $user = User::find($id);
-        $winwins = $user->winwins;
+        $userDetail = array();
+        if($user) {
+            $winwins = $user->winwins;
 
-        $userDetail = $user->detail;
-        $userDetail->winwins = $winwins;
-
+            $userDetail = $user->detail;
+            $userDetail->winwins = $winwins;
+        }
         return $userDetail;
 	}
 
@@ -58,6 +60,24 @@ class UserController extends Controller {
         $query = $request->input('q');
         return $userRepository->search($query);
     }
+
+	public function notifications($id) {
+        $user = User::find($id);
+        $notifications = $user->notifications;
+        return $notifications;
+	}
+
+	public function countUnreadNotifications($id) {
+        $user = User::find($id);
+        $notificationsCount = $user->notifications()->unread()->count();
+        return $notificationsCount;
+    }
+
+	public function unreadNotifications($id) {
+        $user = User::find($id);
+        $notifications = $user->notifications()->unread()->get();
+        return $notifications;
+	}
 
 
 }
