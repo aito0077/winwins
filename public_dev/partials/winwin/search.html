@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Winwins</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 input-group">
+                        <input type="text" class="form-control" ng-model="query" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <span class="btn btn-default" ng-click="do_search()">Search!</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <ul class="media-list">
+                        <li class="media" ng-repeat="winwin in winwins">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img ng-src="{{winwin.image}}"/>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{winwin.title}}</h4>
+                                <p>{{winwin.what_we_do}}</p>
+                                <p><small>{{winwin.description}}</small></p>
+                                <p><a ng-href="#/winwin-view/{{winwin.id}}" class="btn btn-primary" role="button">Ver</a></p>
+                                <h4 class="media-footing">{{winwin.users_amount}}</h4>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
