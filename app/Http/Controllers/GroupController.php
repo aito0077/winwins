@@ -91,6 +91,7 @@ class GroupController extends Controller {
 	public function update($id) {
         $group = Group::find($id);
         //Set updated
+
         $group->save();
         return $group;
 	}

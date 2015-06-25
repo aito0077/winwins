@@ -19,7 +19,7 @@ class UserController extends Controller {
         $winwins = $user->winwins;
 
         $userDetail = $user->detail;
-
+        $userDetail->winwins = $winwins;
 
         return $userDetail;
 	}

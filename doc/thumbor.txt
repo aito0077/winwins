@@ -1,0 +1,18 @@
+
+Imágenes
+
+Las imagenes se suben a S3 y de ahí se toman a través de un servidor que las procesa de acuerdo a los parámetros de la ruta.
+
+El Servidor Base:
+
+http://images.dev-winwins.net
+
+Ejemplo:
+
+http://images.dev-winwins.net/300x200/smart/{{nombre de archivo}}
+
+nos devuelve una imagen de 300px por 200px centrada.
+
+Más referencias del uso en
+
+https://github.com/thumbor/thumbor/wiki/Usage

@@ -14,6 +14,7 @@ use Winwins\Model\Winwin;
 use Winwins\Model\Repository\WinwinRepository;
 use Winwins\Model\WinwinsUser;
 use Winwins\Model\Media;
+use Winwins\Model\InterestsInterested;
 use Winwins\User;
 
 use Illuminate\Http\Request;
@@ -94,22 +95,33 @@ class WinwinController extends Controller {
         return $winwin;
 	}
 
-	public function update($id) {
+	public function update(Request $request, $id) {
         $winwin = Winwin::find($id);
 
-        $winwin->closing_date = $request->input('closing_date');
-        $winwin->description = $request->input('description');
-        $winwin->title = $request->input('title');
-        $winwin->users_amount = $request->input('users_amount');
-        $winwin->what_we_do = $request->input('what_we_do');
-        $winwin->scope = $request->input('scope') || 'GLOBAL';
-        $winwin->region = $request->input('region');
-        $winwin->country = $request->input('country');
-        $winwin->state = $request->input('state');
-        $winwin->city = $request->input('city');
-        $winwin->image = $request->input('image');
+        DB::transaction(function() use ($request, $winwin) {
+            $winwin->closing_date = $request->input('closing_date');
+            $winwin->description = $request->input('description');
+            $winwin->title = $request->input('title');
+            $winwin->users_amount = $request->input('users_amount');
+            $winwin->what_we_do = $request->input('what_we_do');
+            $winwin->scope = $request->input('scope') ? : 'GLOBAL';
+            $winwin->region = $request->input('region');
+            $winwin->country = $request->input('country');
+            $winwin->state = $request->input('state');
+            $winwin->city = $request->input('city');
+            $winwin->image = $request->input('image');
 
-        $winwin->save();
+            $interest = $request->input('interest');
+            Log::info($interest);
+
+            $interestIntrested = new InterestsInterested;
+            $interestIntrested->interest_id = $interest['id'];
+            $interestIntrested->interested_id = $winwin->id;
+            $interestIntrested->type = 'WINWIN';
+
+            $interestIntrested->save();
+            $winwin->save();
+        });
         return $winwin;
 	}
 
@@ -214,8 +226,8 @@ class WinwinController extends Controller {
         //$request->file('file')->move('/full/path/to/uploads', $filename);
 
         //If making thumbnails uncomment these to remove the local copy.
-        //if(Storage::disk('s3')->exists('uploads/' . $filename))
-            //Storage::disk()->delete('uploads/' . $filename);
+        if(Storage::disk('s3')->exists('uploads/' . $filename))
+        Storage::disk()->delete('uploads/' . $filename);
 
         return Response::json(['OK' => 1, 'filename' => $filename]);
     }

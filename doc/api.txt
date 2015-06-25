@@ -1,0 +1,138 @@
+
+Route::post('auth/twitter', 'AuthController@twitter');
+Route::post('auth/facebook', 'AuthController@facebook');
+Route::post('auth/google', 'AuthController@google');
+Route::post('auth/login', 'AuthController@login');
+Route::post('auth/signup', 'AuthController@signup');
+Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
+
+Route::get('/', 'HomeController@index');
+
+
+
+API
+    Winwins: (Winwins\Http\Controllers\WinwinController)
+    
+        GET /api/winwins        -> Lista
+        GET /api/winwins/:id    -> Devuelve datos del WW
+            OUT
+                ww
+                ww.user (Creador)
+                ww.users (Participantes) 
+                ww.users_already_joined #
+                ww.users_left #
+                ww.already_joined (Usuario actual se encuentra unido al ww)
+
+        POST /api/winwins       -> Crea WW
+            IN
+                closing_date
+                description
+                title
+                users_amount
+                what_we_do
+                scope
+                region
+                country
+                state
+                city
+                image
+
+    PUT/POST /api/winwins/:id    -> Update WW
+            IN
+                closing_date
+                description
+                title
+                users_amount
+                what_we_do
+                scope
+                region
+                country
+                state
+                city
+                image
+
+        GET /api/winwins/search -> Búsqueda de WW por términos
+            IN
+                q   (query de búsqueda)
+                
+        GET /api/winwins/join/:id   -> Usuario actual se une a WW con :id
+        GET /api/winwins/left/:id   -> Usuario actual deja a WW con :id
+
+       POST /api/winwins/upload     -> Ruta para subir imágen del WW
+
+
+
+    Groups: (Winwins\Http\Controllers\GroupController)
+    
+        GET /api/groups         -> Lista
+        GET /api/groups/:id     -> Devuelve datos del Grupo
+            OUT
+                group
+                group.users             -> Lista de usuarios del grupo
+                group.members_count     -> Cantidad de miembros
+                group.winwins           -> Lista de WW del grupo
+                group.sponsors          -> Lista de Sponsors
+
+                group.already_joined -> Usuario actual se encuentra unido al grupo
+
+        POST /api/groups        -> Crea Grupo
+            IN
+                name
+                description
+                photo
+                private
+                control_ww
+                confirm_ww
+
+    PUT/POST /api/groups/:id    -> Actualiza Grupo
+            IN
+                name
+                description
+                photo
+                private
+                control_ww
+                confirm_ww
+
+        GET /api/groups/search -> Búsqueda de Grupos por términos
+            IN
+                q   (query de búsqueda)
+                
+        GET /api/groups/join/:id   -> Usuario actual se une a Grupo con :id
+        GET /api/groups/left/:id   -> Usuario actual deja a Grupo con :id
+
+        GET /api/groups/:id/add_winwin/:winwin_id   -> Agregar ww al grupo 
+        GET /api/groups/:id/remove_winwin/:winwin_id   -> Quita ww del grupo 
+
+
+
+    Users: (Winwins\Http\Controllers\UserController)
+    
+        GET /api/users         -> Lista
+        GET /api/users/:id     -> Devuelve datos del Usuario
+            OUT
+                user
+                user.winwins 
+
+        GET /api/users/search -> Búsqueda de Usuarios por términos
+            IN
+                q   (query de búsqueda)
+                
+        GET /api/me             -> Obtiene usuario logeado
+            OUT
+                user 
+                profile         -> Detalle del usuario (apellido, etc)
+
+        PUT /api/me             -> Actualiza datos del usuario
+            IN
+                username        
+                email           
+
+
+
+    Paramétricas CRUD
+        GET /api/parametric/interests        -> Intereses 
+        GET /api/parametric/marital          -> Estado Civil
+        GET /api/parametric/languages        -> Lenguages
+        GET /api/parametric/activities       -> Tipo de Actividades
+
+
