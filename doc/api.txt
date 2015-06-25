@@ -1,15 +1,4 @@
 
-Route::post('auth/twitter', 'AuthController@twitter');
-Route::post('auth/facebook', 'AuthController@facebook');
-Route::post('auth/google', 'AuthController@google');
-Route::post('auth/login', 'AuthController@login');
-Route::post('auth/signup', 'AuthController@signup');
-Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
-
-Route::get('/', 'HomeController@index');
-
-
-
 API
     Winwins: (Winwins\Http\Controllers\WinwinController)
     
@@ -134,5 +123,18 @@ API
         GET /api/parametric/marital          -> Estado Civil
         GET /api/parametric/languages        -> Lenguages
         GET /api/parametric/activities       -> Tipo de Actividades
+
+
+    Autenticación
+        La autenticación se creo usando JWT, y tomando como referencia del lado del frontend al proyecto https://github.com/sahat/satellizer. En la demo está implementado el circuito de registro/login/etc.
+
+        POST /auth/twitter
+        POST /auth/facebook
+        POST /auth/google
+
+        POST /auth/login
+        POST /auth/signup
+
+
 
 
