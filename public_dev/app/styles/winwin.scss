@@ -8,6 +8,11 @@
 	.cssFade.ng-hide {
 	    opacity: 0;
 	}
+
+	.compressed {
+		max-height: 300px;
+		overflow: hidden;
+	}
 }
 
 .winwin-body{
@@ -389,6 +394,8 @@
 .ww-submenu{
 	background-color: #1862C2;
 	min-height: 50px;
+	margin-left: -15px;
+	margin-right: 15px;
 
 	.col-xs-2{
 		padding-left: 0px;

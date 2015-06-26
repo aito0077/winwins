@@ -36,14 +36,12 @@ angular
         url: '/winwin',
         templateUrl: 'views/winwin.html',
         controller: 'WinwinCtrl'
-      }).state('winwin.header',{
-        templateUrl: 'views/winwinPreview.html',
-      }).state('winwin.menu',{
-        templateUrl: 'views/winwinMenu.html',
-      }).state('winwin.menu.comments',{
-        templateUrl: 'views/comments.html',
       })
-
+      /*.state('winwinMenu',{
+        url: '/winwinmenu',
+        templateUrl: 'views/winwinMenu.html',
+        controller: 'WinwinMenuCtrl'
+      })*/
       .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',

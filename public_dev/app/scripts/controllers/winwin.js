@@ -8,49 +8,15 @@
  * Controller of the winwinsApp
  */
 angular.module('winwinsApp')
-  .controller('WinwinCtrl', ['$scope', '$state', '$anchorScroll', '$location', '$window', function ($scope, $state, $anchorScroll, $location, $window) {
+  .controller('WinwinCtrl', ['$scope', '$state', '$stateParams', function ($scope, $state, $stateParams) {
 
-    /*if ($state.current.name === 'winwin'){
-      $state.go('winwin.comments');
-    }*/
-    
-    var lastMenuState = 'winwin.menu.comments'
-    $scope.submenu = {
-      members: false,
-      sponsors: false,
-      comments: true,
-      config: false
-    };
-
-    $scope.$watch('waypoints.name.down', function() {
-      if ($scope.waypoints === undefined || $scope.waypoints.name.down == false){
-        $state.go('winwin.header');
+    /*$scope.$watch('wpPreview.name.down', function() {
+      if ($scope.wpPreview === undefined || $scope.wpPreview.name.down == false){
+        $state.go('winwin');
       }else{
-        console.log($window.pageYOffset);
-        $state.go(lastMenuState);
+        $state.go('winwinMenu');
       }
-      
-    });
-
-    $scope.submenu = {
-      members: false,
-      sponsors: false,
-      comments: true,
-      config: false
-    };
-
-    $scope.subMenuClick = function(menuEntry){
-      //set all to false
-      $.each($scope.submenu, function(i,v){
-        $scope.submenu[i] = false;
-      });
-
-      //set clicked to true
-      $scope.submenu[menuEntry] = true;
-
-      //go to state
-      $state.go('winwin.'+menuEntry);
-    }
+    });*/
 
   	var d = new Date();
   	$scope.mock = {

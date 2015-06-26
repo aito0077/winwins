@@ -1,3 +1,58 @@
-<div class="winwin" zum-waypoint="waypoints" down="name.down" up="name.up" offset="-400px">
-	<div ui-view=""></div>
+<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-400px">
+	<div ng-class='{ compressed: wpPreview.name.down}' class="winwin-header cssFade">
+		<div class="winwin-splash" back-img="{{backImg}}">
+			<div class="description">  
+				<div class="title">
+					<p>
+						Demos una oportunidad a los niños de Africa
+					</p>
+				</div>  
+				<div class="buttons">
+					<i class="fa fa-star fa-2x"></i>	
+					<i class="fa fa-bookmark fa-2x"></i>
+				</div>
+			</div>
+
+			<div class="somos">
+				<button type="button" class="btn btn-lg subscribed">{{ mock.suscribed }}</button>
+			</div>
+
+			<div class="information">
+
+				<div class="social">
+
+					<i title="Email" class="fa fa-envelope fa-2x"></i>
+					<i title="Twitter" class="fa fa-twitter fa-2x"></i>
+					<i title="Facebook" class="fa fa-facebook fa-2x"></i>
+
+			 	</div>
+
+				<div class="quedan">
+		  			<button type="button" class="btn btn-lg days">{{ mock.days }}</button>
+		  			<button type="button" class="btn btn-lg hours">{{ mock.hours }}</button>
+		  			<button type="button" class="btn btn-lg minutes">{{ mock.minutes }}</button>
+			 	</div>
+
+				<div class="faltan">
+					<button type="button" class="btn btn-lg missing">{{ mock.missing }}</button>
+			 	</div>
+				
+			</div>
+		</div>
+
+		<div class="ww-text">
+			<span style="color: #fd7e01">Si supieras</span> que somos <span class="how-many">{{howMany}}</span> para {{details}}, <span style="color: #fd7e01">te sumarias?</span>
+		</div>
+	</div>
+		<div ng-show='wpPreview.name.down' class="container winwin-body">
+			<ul class="nav nav-pills ww-submenu">
+				<li ng-class="{active: submenu.members}" class="col-xs-2 col-xs-offset-1"><a ng-click="subMenuClick('members')"><i class="fa fa-2x fa-users"></i></a></li>
+				<li class="col-xs-2"><a href="#/winwin"><i class="fa fa-2x fa-comments"></i></a></li>
+				<li ng-class="{active: submenu.sponsors}" class="col-xs-2"><a ng-click="subMenuClick('sponsors')"><i class="fa fa-2x fa-star"></i></a></li>
+				<li ng-class="{active: submenu.comments}" class="col-xs-2"><a ng-click="subMenuClick('comments')"><i class="fa fa-2x fa-comment"></i></a></li>
+				<li ng-class="{active: submenu.config}" class="col-xs-2"><a ng-click="subMenuClick('config')"><i class="fa fa-2x fa-cog"></i></a></li>
+			</ul>
+		</div>
+		<div style="background-color: red; height: 500px;">
+		<!--div class="no-padding" ui-view=""></div-->
 </div>
