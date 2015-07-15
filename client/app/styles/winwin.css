@@ -1,0 +1,343 @@
+.winwin {
+  min-height: 1500px; }
+  .winwin .cssFade {
+    transition: 0.5s linear all;
+    opacity: 1; }
+  .winwin .cssFade.ng-hide {
+    opacity: 0; }
+  .winwin .compressed {
+    max-height: 300px;
+    overflow: hidden; }
+
+.winwin-body {
+  position: fixed;
+  top: 101px; }
+
+.winwin-splash {
+  background-color: lightgrey;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  min-height: 600px;
+  overflow: hidden; }
+  .winwin-splash .description {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    min-height: 50px;
+    display: table; }
+    .winwin-splash .description .title {
+      width: 80%;
+      text-align: left;
+      display: table-cell;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 20px;
+      word-wrap: break-word; }
+    .winwin-splash .description .buttons {
+      display: table-cell;
+      width: 18%;
+      text-align: right;
+      color: grey; }
+      .winwin-splash .description .buttons i {
+        margin-left: 5px; }
+      .winwin-splash .description .buttons .fa-star {
+        color: #FFFF00; }
+      .winwin-splash .description .buttons .fa-bookmark {
+        color: #FE8000; }
+  .winwin-splash .somos {
+    display: block;
+    /*background-color: rgba(255,0,0,0.2);*/
+    width: 33%;
+    height: 60px;
+    position: absolute;
+    bottom: 100px;
+    right: 0px;
+    padding: 5px;
+    color: white;
+    text-align: right;
+    margin-right: 20px; }
+    .winwin-splash .somos button {
+      min-width: 115px; }
+    .winwin-splash .somos button:before {
+      display: block;
+      font-size: 70%;
+      margin-top: 3px;
+      font-weight: bold; }
+    .winwin-splash .somos .subscribed,
+    .winwin-splash .somos .subscribed:hover,
+    .winwin-splash .somos .subscribed:focus {
+      color: white;
+      background-color: #56AB01; }
+    .winwin-splash .somos .subscribed:before {
+      content: "SOMOS"; }
+  .winwin-splash .information {
+    /*background-color: rgba(0,0,0,0.2);*/
+    color: white;
+    text-align: center;
+    clear: both;
+    padding: 5px;
+    height: 60px;
+    position: absolute;
+    bottom: 25px;
+    width: 100%; }
+    .winwin-splash .information .quedan {
+      width: 33%;
+      float: left; }
+      .winwin-splash .information .quedan button {
+        width: 30%;
+        max-width: 70px;
+        text-align: center; }
+      .winwin-splash .information .quedan button:before {
+        display: block;
+        font-size: 50%;
+        margin-top: 3px;
+        font-weight: bold; }
+      .winwin-splash .information .quedan .days,
+      .winwin-splash .information .quedan .days:hover,
+      .winwin-splash .information .quedan .days:focus {
+        color: white;
+        background-color: #FA555A; }
+      .winwin-splash .information .quedan .days:before {
+        content: "DIAS"; }
+      .winwin-splash .information .quedan .hours,
+      .winwin-splash .information .quedan .hours:hover,
+      .winwin-splash .information .quedan .hours:focus {
+        color: white;
+        background-color: #2DCB74; }
+      .winwin-splash .information .quedan .hours:before {
+        content: "HORAS"; }
+      .winwin-splash .information .quedan .minutes,
+      .winwin-splash .information .quedan .minutes:hover,
+      .winwin-splash .information .quedan .minutes:focus {
+        color: white;
+        background-color: #F6BC58; }
+      .winwin-splash .information .quedan .minutes:before {
+        content: "MINUTOS"; }
+    .winwin-splash .information .faltan {
+      width: 25%;
+      float: right;
+      text-align: right;
+      margin-right: 20px; }
+      .winwin-splash .information .faltan button {
+        min-width: 115px; }
+      .winwin-splash .information .faltan button:before {
+        display: block;
+        font-size: 70%;
+        margin-top: 3px;
+        font-weight: bold; }
+      .winwin-splash .information .faltan .missing,
+      .winwin-splash .information .faltan .missing:hover,
+      .winwin-splash .information .faltan .missing:focus {
+        color: white;
+        background-color: #3276C9; }
+      .winwin-splash .information .faltan .missing:before {
+        content: "NOS FALTAN"; }
+    .winwin-splash .information .social {
+      width: 33%;
+      float: left;
+      min-width: 160px;
+      margin-top: 7px; }
+      .winwin-splash .information .social i {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        padding-top: 5px;
+        border: solid 1px transparent;
+        cursor: pointer; }
+      .winwin-splash .information .social i::before {
+        vertical-align: middle;
+        padding-bottom: 3px; }
+      .winwin-splash .information .social .fa-envelope {
+        color: white;
+        background-color: #3F59FF;
+        border-bottom: thick solid #1F4F7F; }
+      .winwin-splash .information .social .fa-twitter {
+        color: white;
+        background-color: #55acee;
+        border-bottom: thick solid #3276c9; }
+      .winwin-splash .information .social .fa-facebook {
+        color: white;
+        background-color: #3b5998;
+        border-bottom: thick solid #1f497c; }
+
+.ww-text {
+  color: #727272;
+  margin: auto;
+  text-align: center;
+  max-width: 600px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 125%; }
+  .ww-text .how-many {
+    color: white;
+    padding: 0 4px;
+    background-color: #fd7e01; }
+
+.activate-ww {
+  margin-bottom: 0 !important; }
+  .activate-ww .title {
+    margin: 0 15px;
+    padding-top: 100px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px #161616; }
+  .activate-ww .subtitle {
+    color: white;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 125%;
+    text-shadow: 1px 1px #161616; }
+
+.comment-lg {
+  margin: 0;
+  padding: 30px 0;
+  background-color: #1862c2;
+  line-height: 150px; }
+  .comment-lg .speech-bubble {
+    width: 60%;
+    background-color: white;
+    border-radius: 5px;
+    vertical-align: middle;
+    padding-left: 0; }
+    .comment-lg .speech-bubble div {
+      padding: 0 10px; }
+  .comment-lg .speech-bubble-left::after {
+    border-color: #1862c2;
+    border-right-color: white; }
+  .comment-lg .user-icon-wrapper {
+    padding-right: 25px;
+    text-align: right; }
+  .comment-lg .user-icon {
+    width: 100%;
+    max-width: 96px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 10; }
+  .comment-lg .comment-text {
+    margin: 18px 0;
+    resize: none; }
+  .comment-lg .attachments {
+    padding: 15px 10px !important;
+    line-height: 60px; }
+    .comment-lg .attachments .upload {
+      width: 100%;
+      height: 45px; }
+
+.share {
+  margin: auto;
+  max-width: 360px;
+  margin-top: 30px;
+  text-align: center; }
+  .share .title {
+    color: #1862c2;
+    font-weight: bold;
+    margin-bottom: 10px; }
+  .share .icon-group i {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: solid 1px transparent;
+    cursor: pointer; }
+  .share .icon-group i::before {
+    vertical-align: middle; }
+  .share .icon-group .fa-facebook {
+    color: white;
+    background-color: #3b5998;
+    border-bottom: thick solid #1f497c; }
+  .share .icon-group .fa-twitter {
+    color: white;
+    background-color: #55acee;
+    border-bottom: thick solid #3276c9; }
+  .share .icon-group .fa-envelope {
+    color: white;
+    background-color: #00A8EE;
+    border-bottom: thick solid #0091CD; }
+  .share .btn {
+    width: 85%;
+    margin: 25px 0 50px 0; }
+
+.ww-submenu {
+  background-color: #1862C2;
+  min-height: 50px;
+  margin-left: -15px;
+  margin-right: 15px; }
+  .ww-submenu .col-xs-2 {
+    padding-left: 0px;
+    padding-right: 0px; }
+  .ww-submenu li {
+    text-align: center; }
+    .ww-submenu li a {
+      color: #FFF; }
+    .ww-submenu li a:hover,
+    .ww-submenu li a:focus {
+      background-color: #337AB7; }
+
+.comments-list .ww-img {
+  text-align: center; }
+  .comments-list .ww-img img {
+    max-width: 115px; }
+  .comments-list .ww-img .name {
+    font-size: 125%;
+    font-widght: bold;
+    margin-top: 5px;
+    margin-bottom: 0; }
+  .comments-list .ww-img .date {
+    font-size: 75%;
+    font-widght: bold;
+    margin-top: 5px;
+    margin-bottom: 0; }
+.comments-list .ww-description {
+  padding-top: 30px; }
+
+@media screen and (max-width: 599px) {
+  .winwin-splash {
+    min-height: 320px;
+    overflow: visible;
+    margin-bottom: 155px; }
+    .winwin-splash button {
+      padding: 10px 5px; }
+    .winwin-splash .information {
+      bottom: -65px; }
+      .winwin-splash .information .quedan {
+        text-align: right;
+        float: right;
+        width: 50%; }
+      .winwin-splash .information .social {
+        text-align: left;
+        float: left;
+        width: 50%; }
+      .winwin-splash .information .faltan {
+        text-align: left;
+        margin-top: 10px;
+        display: block;
+        float: left; }
+    .winwin-splash .somos {
+      bottom: -132px;
+      width: inherit; }
+      .winwin-splash .somos .subscribed {
+        float: left;
+        margin-left: 145px; }
+
+  .comment-lg .speech-bubble {
+    width: 70%; } }
+@media screen and (max-width: 1199px) {
+  .winwin-body {
+    position: fixed;
+    top: 151px; } }
+@media screen and (max-width: 767px) {
+  .winwin-body {
+    top: 51px;
+    padding-left: 0px;
+    padding-right: 0px; }
+
+  .ww-submenu {
+    margin-left: -15px; } }
+
+/*# sourceMappingURL=winwin.css.map */

@@ -1,0 +1,114 @@
+#createWW,
+#createWWid,
+.sign-in{
+	max-width: 768px;
+
+	.ww-id{
+		max-width: 480px;
+		margin: 50px auto 0 auto;
+	}
+
+	.speech-bubble-bottom::after {
+    	border-top-color: #1862c2;
+    }
+
+	.speech-bubble {
+		margin: auto;
+		width: 100%;
+		height: auto;
+		max-width: 380px;
+		padding: 10px 0;
+		background-color: #1862c2;
+		border-radius: 5px;
+		line-height: inherit;
+
+		h2,h3{
+			margin: 20px 20px 10px 20px;
+		}
+
+		p{
+			font-size: 75%;
+			margin: 10px 30px;
+		}
+
+	}
+
+	#create-ww-form,
+	#create-ww-id-form{
+		margin: 50px auto 10px auto;
+		max-width: 360px;
+
+		.people{
+			width: 60px;
+		}
+
+		.subtitle{
+			font-size: 100%;
+			font-weight: bold;
+			color: #535353;
+			margin: 20px 0;
+		}
+
+		.textww{
+			color: #6394d2;
+			margin: 0 0 10px 0;
+		}
+
+		.date-title{
+			margin-top: 20px;
+		}
+
+		.dropdown{
+			.btn{
+				white-space: initial;
+			}
+
+			margin: 10px 0 20px 0;
+
+			button{
+				text-align: left;
+				width: 100%;
+			}
+
+			i{
+				float: right;
+				margin-top: 5px;
+			}
+		}
+
+	}
+
+	#create-ww-id-form{
+		margin: 40px auto 10px auto;
+
+		.btn-success{
+			margin-top: 20px;
+			width: 180px;
+		}
+	}
+
+}
+
+.promote{
+	text-align: center;
+	
+	.glyphicon-bullhorn{
+		font-size: 10em;
+		color: #1862C2;
+	}
+
+
+	.share,
+	button{
+		margin: 30px auto;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.ww-id{
+		img{
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	}
+}

@@ -1,0 +1,130 @@
+#createWW,
+#createWWid,
+.sign-in {
+  max-width: 768px; }
+  #createWW .ww-id,
+  #createWWid .ww-id,
+  .sign-in .ww-id {
+    max-width: 480px;
+    margin: 50px auto 0 auto; }
+  #createWW .speech-bubble-bottom::after,
+  #createWWid .speech-bubble-bottom::after,
+  .sign-in .speech-bubble-bottom::after {
+    border-top-color: #1862c2; }
+  #createWW .speech-bubble,
+  #createWWid .speech-bubble,
+  .sign-in .speech-bubble {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    max-width: 380px;
+    padding: 10px 0;
+    background-color: #1862c2;
+    border-radius: 5px;
+    line-height: inherit; }
+    #createWW .speech-bubble h2, #createWW .speech-bubble h3,
+    #createWWid .speech-bubble h2,
+    #createWWid .speech-bubble h3,
+    .sign-in .speech-bubble h2,
+    .sign-in .speech-bubble h3 {
+      margin: 20px 20px 10px 20px; }
+    #createWW .speech-bubble p,
+    #createWWid .speech-bubble p,
+    .sign-in .speech-bubble p {
+      font-size: 75%;
+      margin: 10px 30px; }
+  #createWW #create-ww-form,
+  #createWW #create-ww-id-form,
+  #createWWid #create-ww-form,
+  #createWWid #create-ww-id-form,
+  .sign-in #create-ww-form,
+  .sign-in #create-ww-id-form {
+    margin: 50px auto 10px auto;
+    max-width: 360px; }
+    #createWW #create-ww-form .people,
+    #createWW #create-ww-id-form .people,
+    #createWWid #create-ww-form .people,
+    #createWWid #create-ww-id-form .people,
+    .sign-in #create-ww-form .people,
+    .sign-in #create-ww-id-form .people {
+      width: 60px; }
+    #createWW #create-ww-form .subtitle,
+    #createWW #create-ww-id-form .subtitle,
+    #createWWid #create-ww-form .subtitle,
+    #createWWid #create-ww-id-form .subtitle,
+    .sign-in #create-ww-form .subtitle,
+    .sign-in #create-ww-id-form .subtitle {
+      font-size: 100%;
+      font-weight: bold;
+      color: #535353;
+      margin: 20px 0; }
+    #createWW #create-ww-form .textww,
+    #createWW #create-ww-id-form .textww,
+    #createWWid #create-ww-form .textww,
+    #createWWid #create-ww-id-form .textww,
+    .sign-in #create-ww-form .textww,
+    .sign-in #create-ww-id-form .textww {
+      color: #6394d2;
+      margin: 0 0 10px 0; }
+    #createWW #create-ww-form .date-title,
+    #createWW #create-ww-id-form .date-title,
+    #createWWid #create-ww-form .date-title,
+    #createWWid #create-ww-id-form .date-title,
+    .sign-in #create-ww-form .date-title,
+    .sign-in #create-ww-id-form .date-title {
+      margin-top: 20px; }
+    #createWW #create-ww-form .dropdown,
+    #createWW #create-ww-id-form .dropdown,
+    #createWWid #create-ww-form .dropdown,
+    #createWWid #create-ww-id-form .dropdown,
+    .sign-in #create-ww-form .dropdown,
+    .sign-in #create-ww-id-form .dropdown {
+      margin: 10px 0 20px 0; }
+      #createWW #create-ww-form .dropdown .btn,
+      #createWW #create-ww-id-form .dropdown .btn,
+      #createWWid #create-ww-form .dropdown .btn,
+      #createWWid #create-ww-id-form .dropdown .btn,
+      .sign-in #create-ww-form .dropdown .btn,
+      .sign-in #create-ww-id-form .dropdown .btn {
+        white-space: initial; }
+      #createWW #create-ww-form .dropdown button,
+      #createWW #create-ww-id-form .dropdown button,
+      #createWWid #create-ww-form .dropdown button,
+      #createWWid #create-ww-id-form .dropdown button,
+      .sign-in #create-ww-form .dropdown button,
+      .sign-in #create-ww-id-form .dropdown button {
+        text-align: left;
+        width: 100%; }
+      #createWW #create-ww-form .dropdown i,
+      #createWW #create-ww-id-form .dropdown i,
+      #createWWid #create-ww-form .dropdown i,
+      #createWWid #create-ww-id-form .dropdown i,
+      .sign-in #create-ww-form .dropdown i,
+      .sign-in #create-ww-id-form .dropdown i {
+        float: right;
+        margin-top: 5px; }
+  #createWW #create-ww-id-form,
+  #createWWid #create-ww-id-form,
+  .sign-in #create-ww-id-form {
+    margin: 40px auto 10px auto; }
+    #createWW #create-ww-id-form .btn-success,
+    #createWWid #create-ww-id-form .btn-success,
+    .sign-in #create-ww-id-form .btn-success {
+      margin-top: 20px;
+      width: 180px; }
+
+.promote {
+  text-align: center; }
+  .promote .glyphicon-bullhorn {
+    font-size: 10em;
+    color: #1862C2; }
+  .promote .share,
+  .promote button {
+    margin: 30px auto; }
+
+@media screen and (max-width: 480px) {
+  .ww-id img {
+    padding-left: 5px;
+    padding-right: 5px; } }
+
+/*# sourceMappingURL=createWW.css.map */
