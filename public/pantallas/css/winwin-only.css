@@ -1,0 +1,27 @@
+.bajada-winwin {
+    font-size:0.4em;
+    font-weight: 400;
+}
+.te-sumarias {
+    color: #1862c3;
+}
+.icons-id {
+    font-size: 60px
+}
+.border-grey {
+    color: grey;
+    border-bottom: 3px solid grey;
+}
+.drop-categorias {
+    border: 2px solid grey;
+    background-color: #FFF;
+    text-align: left;
+    font-weight: 400;
+    font-size: 7pt;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.ir-winwin {
+    border-radius: 8px;
+    height: 60px
+}
