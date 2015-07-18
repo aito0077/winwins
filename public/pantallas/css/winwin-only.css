@@ -25,3 +25,166 @@
     border-radius: 8px;
     height: 60px
 }
+.compartir-comentario.winwin {
+    height: 127px
+}
+.fix-comment {
+    padding: 26px 0; 
+}
+.fix-comment-textarea {
+    padding: 13px 0;
+}
+.btn-camera {
+    font-size: 15px;
+    position: relative;
+    top: -70px;
+    right: -230px;
+    line-height: 2px;
+    text-align: center;
+}
+.btn-video {
+    font-size: 15px;
+    position: relative;
+    top: -70px;
+    right: -230px;
+    line-height: 2px;
+    text-align: center;
+    color: #000
+}
+.btn-social.mail {
+    background-color: #00a9ee;
+}
+.altavoz {
+    font-size: 180px;
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Chrome, Safari, Opera */
+    transform: rotate(-30deg);
+    margin-top: 20px;
+}
+.destacados-legales {
+    background-color:orange;
+    color:#FFF;
+    padding:0 3px
+}
+.si-me-sumo {
+    background-color: #58ad07;
+    border-bottom: 4px solid #147b00;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #FFF;
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+}
+.la-proxima {
+    background-color: #aaaaaa;
+    border-bottom: 4px solid grey;
+}
+.header-winwins {
+    height: 253px;
+    margin-top: -12px;
+}
+.title-winwins {
+     background-color: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 0, 0, 0.3);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";);
+    height:59px;
+}
+.star-style {
+    font-size: 30px;
+    color: #FFF;
+    margin-top: 8px;
+}
+.star-style.active {
+    color: yellow
+}
+.margin-somos {
+    margin-top: 80px;
+}
+.num-somos-green {
+    background-color: #58ad07!important;
+    color: #FFF;
+    padding: 4px;
+}
+.winwin-home-social {
+    width: 34px;
+    height: 34px;
+    font-size: 15px
+}
+.quedan-dia {
+    background-color: #fa5559!important;
+    margin-left:15px!important;
+    border-bottom: 0!important
+}
+.quedan-horas {
+    background-color: #2dcb74!important;
+    border-bottom: 0!important
+}
+.quedan-segundos {
+    background-color: #f6bc59!important;
+    border-bottom: 0!important
+}
+.submenu-icons {
+    float: left;
+    height: 40px;
+    background-color: grey;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    padding-top: 5px
+}
+.icon-bell {
+    background-color: #2e7dcc!important;
+    color: #FFF!important;
+    margin-top: 60px;
+    font-size: 60px;
+    padding: 10px;
+    margin-left: 0px!important;
+}
+.color-blue {
+    color:#2e7dcc!important
+}
+.col-xs-8.no-padding ul li {
+    font-size: 10px
+}
+.col-xs-4.no-padding ul li {
+    font-size: 10px
+}
+
+@media (min-width: 400px) {
+    .btn-camera {
+        right: -500px
+    }
+    .col-xs-push-2 {
+        left: 6%!important;
+    }
+    .margin-somos {
+        margin-bottom: 30px
+    }
+    .fix-sponsor {
+        left:70px!important;
+    }
+    .fix-faltan {
+        left:70px!important;   
+    }
+    .fix-invita {
+        left: 20px!important;
+        top: -20px!important;
+    }
+    .fix-quedan {
+        left: -80px!important;
+        top: -20px!important;   
+    }
+    .quedan-dia {
+        margin-left: 50px!important;
+    }
+    .fix-twitter {
+        margin-top: -20px!important;
+    }
+    .fix-facebook {
+        margin-left: 100px!important
+    }
+}
