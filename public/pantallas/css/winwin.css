@@ -387,8 +387,8 @@ h4 {
     border-bottom: 1px solid #bb5700
 }
 .img-circle {
-    width: 80%;
-    height: 80%;
+    max-width: 100px;
+    max-height: 100px;
     border: 6px solid #2e7dcc;
     margin-left: 10px;
 }
@@ -445,7 +445,7 @@ a.no-link {
     color: #FFF!important;
 }
 .title-main-sponsor {
-    font-size: 12px;
+    font-size: 0.8em;
     top: 0!important;
     left: 0!important
 }
@@ -504,4 +504,84 @@ a.no-link {
     height: 38px;
     float: left!important;
     font-size: 15pt;
+}
+
+@media (min-width: 400px) {
+    .main {
+        margin-top: 0
+    }
+    .col-xs-4.no-padding {
+        width: 15.3333333333%
+    }
+    .col-xs-6.no-padding-left {
+        width: 68%
+    }
+    .btn-somos {
+        float: right;
+    }
+    .hidden-xs {
+        display: none;
+    }
+    .container-search {
+        left: 42%   
+    }
+    .logo-sponsors-landscape {
+        width: 162px;
+        height: 162px;
+        max-width: 200px;
+        max-height: 200px;
+        margin-left: 15%;
+    }
+    .fix-social-landscape {
+        margin-left: 29%!important;
+    }
+    .dropdown-toggle {
+        width: 100%!important
+    }
+    .dropdown.col-xs-4.no-padding {
+        width: 33.333333%!important
+    }
+    .title-destacados , .text-destacados {
+        padding-left: 5%!important;
+    }
+    .col-xs-12.no-padding.me-interesa {
+        width: 50%!important;
+        margin-left: 50%;
+    }
+    .container-search.home-search {
+        position: relative;
+    }
+    .col-sm-4 {
+        width: 33.333333%!important
+    }
+    .title-somos {
+        top:-30px!important;
+        left: 35px!important
+    }
+    .title-main-sponsor.compartir {
+        left: -68px!important;
+        top: -20px!important;
+    }
+    .num-somos {
+        left: -63px!important
+    }
+    .btn-home.facebook.compartir {
+        margin-left: 25%!important        
+    }
+    .btn-social.btn-home.google {
+        margin-top: -20px;
+    }
+    .col-xs-4.col-xs-push-4.no-padding.main.text-center {
+        width: 33.3333333%!important
+    }
+    .wwpatrocinados {
+        left: 50px!important;
+        margin-top: 15px;
+    }
+    .fix-num-sponsors {
+        left: 10px!important;
+    }
+    .fix-title-sponsors {
+        top: -38px!important;
+    }
 }
