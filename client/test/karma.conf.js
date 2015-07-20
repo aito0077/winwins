@@ -38,6 +38,7 @@ module.exports = function(config) {
       'bower_components/webcomponentsjs/webcomponents.js',
       'bower_components/jquery-waypoints/waypoints.js',
       'bower_components/angular-waypoints/dist/angular-waypoints.js',
+      'bower_components/satellizer/satellizer.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

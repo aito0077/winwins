@@ -34,6 +34,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    cnf: grunt.file.readJSON('config.json'),
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -402,6 +403,23 @@ module.exports = function (grunt) {
       ]
     },
 
+    ngconstant: {
+        options: {
+            name: 'config',
+            dest: '<%= yeoman.app %>/scripts/config.js',
+            wrap: '"use strict";\n\n{%= __ngModule %}',
+            space: '  ',
+            constants: {
+                api_host: '<%= cnf.api_host %>'
+            },
+            values: {
+                debug: true
+            }
+        },
+        build: {
+        }
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -443,6 +461,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

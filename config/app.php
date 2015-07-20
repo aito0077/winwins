@@ -156,6 +156,9 @@ return [
 		'Winwins\Providers\ObserversServiceProvider',
 		'Winwins\Providers\RepositoriesServiceProvider',
 
+        'Barryvdh\Cors\ServiceProvider',
+
+
 	],
 
 	/*
@@ -207,6 +210,6 @@ return [
 	],
 
 
-	'es_hosts' => env('ES_HOST', '')
+	'es_hosts' => env('ES_HOST', 'http://10.0.2.2:9200')
     
 ];

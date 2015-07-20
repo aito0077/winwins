@@ -11,6 +11,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'Winwins\Http\Middleware\VerifyCsrfToken',
+        'Barryvdh\Cors\HandleCors',
 	];
 
 	protected $routeMiddleware = [

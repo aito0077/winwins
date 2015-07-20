@@ -26,6 +26,11 @@ class DatabaseSeeder extends Seeder {
 		$this->call('MaritalStatusTableSeeder');
         $this->command->info('Maital seeded!');
 
+		$this->call('UsersTableSeeder');
+        $this->command->info('Users seeded!');
+
+		$this->call('WinwinsTableSeeder');
+        $this->command->info('Winwins seeded!');
 	}
 
 }
