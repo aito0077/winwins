@@ -3043,7 +3043,7 @@ fieldset[disabled] .btn {
 .btn-default {
   color: #333;
   background-color: #fff;
-  border-color: #ccc;
+  /*border-color: #ccc;*/
 }
 .btn-default:hover,
 .btn-default:focus,
