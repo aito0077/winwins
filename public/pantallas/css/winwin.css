@@ -64,6 +64,7 @@ footer {
 .menu-style li a {
     color: #FFF!important;
     border-bottom: 1px solid #174d93;
+    font-weight: 400;
 }
 .back-buttom {
     padding: 9px 10px;
@@ -81,11 +82,13 @@ footer {
     padding-bottom: 40px;
     background-color: 
 }
+/*
 .txt-welcome {
     font-weight: bolder;
     color: #FFF;
     font-size: 18pt;
 }
+*/
 .msj-bienvenida::before {
     content: "";
     position: absolute;
@@ -102,6 +105,7 @@ footer {
 .back-grey {
     background-color: #f6f6f6;
 }
+/*
 .btn-primary {
     border-radius: 2px!important;
     background-color: #1862c3!important; 
@@ -112,9 +116,10 @@ footer {
     text-transform: uppercase;
     font-weight: bolder;
 }
+*/
 .btn-second {
-    background-color: #36b10b!important;
-    box-shadow: 2px 2px 0px #1f7700;
+    background-color: #36B10B !important;
+    box-shadow: 2px 2px 0px #1F7700;
     font-weight: bolder;
 }
 .container-first {
@@ -123,15 +128,16 @@ footer {
     padding:0
 }
 .btn-sponsor {
-    background-color: #dddddd;
-    border-bottom: 4px solid #4c4c4c;
-    border-radius: 2px;
-    width:100%;
+    background-color: #DDD;
+    border-bottom: 3px solid #1F7700;
+    border-radius: 5px;
+    width: 100%;
     font-weight: bolder;
 }
 .btn-toogle {
     background-color:#3277c2;
     border:0!important;
+    box-shadow: 1.5px 1.5px #094588;
 }
 .title-color {
     color: #3475c5!important;
@@ -141,31 +147,35 @@ h5 {
     font-size: 10pt;
 }
 .btn-social {
-    width:74px; 
-    height:62px; 
-    border-left:0;
-    border-right:0;
-    border-top:0;
-    font-size: 30pt;
+    width: 62px;
+    height: 62px;
+    border-left: 0px none;
+    border-right: 0px none;
+    border-top: 0px none;
+    font-size: 23pt;
     float: left;
-    color: #FFF!important
+    color: #FFF !important;
 }
 .btn-social.facebook {
-    background-color:#4a6eaa;
-    border-bottom:4px solid #1a487a;
-    margin-left: 2% 
+    background-color: #4A6EAA;
+    border-bottom: 4px solid #1A487A;
+    margin-left: 2%;
+    border-radius: 70%;
 }
 .btn-social.twitter {
-    background-color:#62a0cf;
-    border-bottom:4px solid #3178c8;
+    background-color: #62A0CF;
+    border-bottom: 4px solid #3178C8;
+    border-radius: 50%;
 }
 .btn-social.google {
-    background-color:#ce402c;
-    border-bottom:4px solid #632913;
+    background-color: #CE402C;
+    border-bottom: 4px solid #632913;
+    border-radius: 50%;
 }
 .btn-social.yahoo {
-    background-color:#63106a;
-    border-bottom:4px solid #320732;
+    background-color: #63106A;
+    border-bottom: 4px solid #320732;
+    border-radius: 50%;
 }
 .last-object {
     margin-bottom: 100px;
@@ -186,7 +196,8 @@ h5 {
     color: #58ba57!important;
 }
 .check-big {
-    font-size: 100pt
+    font-size: 100pt;
+    padding-top: 60px;
 }
 h4 {
     font-size: 1em
@@ -236,6 +247,33 @@ h4 {
 .text-destacados {
     font-size: 7pt;
     font-weight: 400;
+}
+.btn {
+  display: inline-block!important;
+  padding: 6px 12px!important;
+  margin-bottom: 0!important;
+  font-size: 14px!important;
+  font-weight: 400!important;
+  line-height: 1.42857143!important;
+  text-align: center!important;
+  white-space: nowrap!important;
+  vertical-align: middle!important;
+  -ms-touch-action: manipulation!important;
+  touch-action: manipulation!important;
+  cursor: pointer!important;
+  -webkit-user-select: none!important;
+  -moz-user-select: none!important;
+  -ms-user-select: none!important;
+  user-select: none!important;
+  background-image: none!important;
+  border: 0px!important;
+  border-radius: 4px!important;
+}
+
+.btn-warning {
+  color: #fff!important;
+  background-color: #f0ad4e!important;
+  /* border-color: #eea236; */
 }
 .btn-somos button {
     float:left;
@@ -338,8 +376,8 @@ h4 {
 }
 .search {
     content: "";
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: #1862c1;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -350,10 +388,10 @@ h4 {
     z-index: 999;
 }
 .search-fa {
-    font-size: 30pt;
+    font-size: 20pt;
     color: #FFF;
     text-align: center;
-    padding-top: 6px;
+    padding-top: 16px;
 }
 .container-search {
     height:50px; 
@@ -422,6 +460,7 @@ h4 {
 }
 .btn-sponsor.sponsor {
     font-size: 7pt;
+    border-bottom: 3px solid #4c4c4c;
 }
 a.no-link {
     text-decoration: none;
