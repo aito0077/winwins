@@ -1,0 +1,29 @@
+.back-grey {
+    background-color: #f1f2f6!important;
+    color: #757671;
+    font-size: 11px
+}
+.nombre-grupo {
+    height: 52px;
+}
+.descrip-grupo {
+    height: 133px; 
+    margin: 15px 0; 
+}
+.icon-grupo {
+    height: 158px;
+}
+.back-blank {
+    background-color: #FFF;
+    border-bottom: 5px solid grey;
+    padding-top: 15px;
+    border-radius: 4px
+}
+.aclaracion {
+    color: #afafaf 
+}
+.icon-avatar {
+    font-size: 50px;
+    line-height: 40px;
+    text-align: center;
+}

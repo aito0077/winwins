@@ -617,8 +617,19 @@ a.no-link {
 .ctrl-compartir-novedades {
     width: 80%;
 }
-
-
+.center {
+    margin: auto;
+    width: 60%;
+    border:3px solid #8AC007;
+    padding: 10px;
+}
+.img-center-logo {
+    width: 100px!important;
+    margin: 0 50%!important;
+}
+.btn-social.facebook.fix-social-landscape, .btn-social.twitter {
+    border-radius: 0!important;
+}
 
 
 
