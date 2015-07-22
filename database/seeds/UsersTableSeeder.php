@@ -82,7 +82,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Falso'; 
         $detail->name = 'JosÃ©'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_179.jpg'; 
@@ -114,7 +114,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Giubilo'; 
         $detail->name = 'Ray'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_185.jpg'; 
@@ -162,7 +162,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1984-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -194,7 +194,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1976-12-21'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -274,7 +274,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1977-10-23'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -306,7 +306,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Zajdenberg'; 
         $detail->name = 'Dario'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_200.jpg'; 
@@ -322,7 +322,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Stewart-Usher'; 
         $detail->name = 'Lenny'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_201.jpg'; 
@@ -370,7 +370,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_204.jpg'; 
@@ -386,7 +386,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'FontÃ¡n'; 
         $detail->name = 'Liliana'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_205.jpg'; 
@@ -466,7 +466,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Mayol'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_210.jpg'; 
@@ -482,7 +482,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Lima'; 
         $detail->name = 'Sebastian'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_211.jpg'; 
@@ -546,7 +546,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Cardoso'; 
         $detail->name = 'Carlos'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1980-07-08'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_218.jpg'; 
@@ -578,7 +578,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nason'; 
         $detail->name = 'Ovidio'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_220.jpg'; 
@@ -610,7 +610,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Bonzi'; 
         $detail->name = 'Aldo'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_222.jpg'; 
@@ -642,7 +642,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rouge'; 
         $detail->name = 'Alain'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_224.jpg'; 
@@ -674,7 +674,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Matinee'; 
         $detail->name = 'Valenteena'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_226.jpg'; 
@@ -754,7 +754,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo A.'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1982-12-20'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_236.jpg'; 
@@ -786,7 +786,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Acosta'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -802,7 +802,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_242.jpg'; 
@@ -1026,7 +1026,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1982-10-07'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_259.jpg'; 
@@ -1074,7 +1074,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juana'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_265.jpg'; 
@@ -1106,7 +1106,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Perez'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -1122,7 +1122,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_268.jpg'; 
@@ -1186,7 +1186,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1979-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_272.jpg'; 
@@ -1266,7 +1266,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'diaz'; 
         $detail->name = 'cesar alexis'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_281.jpg'; 
@@ -1282,7 +1282,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'N.'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_282.jpg'; 
@@ -1298,7 +1298,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Agency'; 
         $detail->name = 'Bowie'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_284.jpg'; 
@@ -1362,7 +1362,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ginia'; 
         $detail->name = 'Virt'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_289.jpg'; 
@@ -1538,7 +1538,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1963-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_302.jpg'; 
@@ -1730,7 +1730,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_316.jpg'; 
@@ -1746,7 +1746,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Arnaldo Fernandez'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -1762,7 +1762,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'NuÃ±ez AgÃ¼ero'; 
         $detail->name = 'IÃ±aki'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_318.jpg'; 
@@ -1778,7 +1778,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_319.jpg'; 
@@ -1794,7 +1794,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Carena'; 
         $detail->name = 'Mati'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_320.jpg'; 
@@ -1810,7 +1810,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Garcia'; 
         $detail->name = 'Leonardo'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_321.jpg'; 
@@ -1826,7 +1826,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_323.jpg'; 
@@ -1874,7 +1874,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'aito77'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -1938,7 +1938,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Caputto'; 
         $detail->name = 'MartÃ­n'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_334.jpg'; 
@@ -1954,7 +1954,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Moreno'; 
         $detail->name = 'Silvina'; 
-        $detail->birthdate = '0000-00-00'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_335.jpg'; 
@@ -1970,7 +1970,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Henriquez'; 
         $detail->name = 'Luis'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'user_336.jpg'; 
@@ -1986,56 +1986,13 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Interactivista'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = 'NULL'; 
+        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
 
-
-
-    /*
-        "mgabrielabrenes@gmail.com","524ddb3068eafcad2df5b2fff763e898","NULL","winwins","Brenes","MarÃ­a Gabriela","1990-03-30","F","NULL","user_333.jpg","","","","NULL"
-        "javierangel56@gmail.com","5d93525204a5251f56db3c39fe9dbd74","http://www.facebook.com/profile.php?id=521323328","facebook","Alvarez","Javier","1956-12-08","M","2","user_169.jpg","","","","user_169_coverphoto.jpg"
-        "berru31@hotmail.com","559acdab8860f8adb906712edccf5d82","NULL","winwins","Gandhi","Super Mahatma","1969-12-31","M","NULL","user_170.jpg","","Mahatma Gandhi (Porbandar, India britÃ¡nica, 2 de octubre de 1869 â€“ Nueva Delhi, UniÃ³n de la India, 30 de enero de 1948) fue un abogado, pensador y polÃ­tico hindÃº. RecibiÃ³ de Rabindranat Tagore el nombre honorÃ­fico de Mahatma (comp. en sÃ¡nscrito e hindi de majÄ: â€˜grandeâ€™ y ÄtmÄ: â€˜almaâ€™).1 En la India tambiÃ©n se le llamaba BÄpu (àª¬àª¾àªªà«), â€˜padreâ€™ en idioma guyaratÃ­.","","user_170_coverphoto.jpg"
-        "kbzndiaz69@yahoo.com.ar","e153590dbc11aefce0b910290063eb3a","NULL","winwins","Diaz","Cesar","1969-01-06","M","NULL","user_171.jpg","","","","NULL"
-        "rey.nico@gmail.com","fd3c6b796a5844172f55efdb6163fb29","NULL","winwins","Rey","NicolÃ¡s","1990-10-22","M","NULL","user_173.jpg","","","","NULL"
-        "bku.mberruezo@gmail.com","36f2e31cf9edbf4da4c6aea420894d94","NULL","sponsor","","HumaNet","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "ladybepalm@gmail.com","edf7a8aef0a05b73cb55e6aa840dbdb0","NULL","sponsor","","Cooperarte","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "mjnieva@paginar.net","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","Paginar","MJNieva","1977-10-29","F","1","user_180.jpg","","","","NULL"
-        "marojenieva@gmail.com","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","Paginar","MJN gmail","1977-10-22","F","1","user_181.jpg","","","","NULL"
-        "afernandez@paginar.net","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","del valle","arnaldo","1996-08-25","M","NULL","user_183.jpg","","alguien que hace andar las cosas...bien o mal :P","","NULL"
-        "afernandez@paginar.net","49568fc397f9eb1ac2ebe28ecdc0391b","NULL","sponsor","","PatrocinadorTest","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "mjnievapaginar@twitter.com","null","http://twitter.com/account/profile?user_id=934616244","twitter","Paginar Tw","MJN","1980-10-10","F","NULL","NULL","","","","NULL"
-        "pblancheton@twitter.com","null","http://twitter.com/account/profile?user_id=23941545","twitter","","pblancheton","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "rojas_alan@hotmail.com","21b027df83a8b8a2efbf195eb62f4bc9","NULL","winwins","Rojas","Alan","1983-12-29","M","2","user_214.jpg","","","","NULL"
-        "apiccardo@outlook.com","3a17bbd8b50683897e9b826646c251ba","NULL","winwins","Piccardo","Adriana","1958-08-10","F","1","user_216.jpg","Buenos Aires","","","NULL"
-        "antoniofilardi1976@gmail.com","null","http://www.facebook.com/profile.php?id=100003482254376","facebook","Rojas","Alan","1983-12-29","M","2","user_217.jpg","","","","NULL"
-        "LVommaro@twitter.com","null","http://twitter.com/account/profile?user_id=110222106","twitter","Vommaro","Leonardo","1982-12-20","M","2","user_238.jpg","","","","NULL"
-        "lvommaro@gmail.com","null","http://www.facebook.com/profile.php?id=523066964","facebook","Vommaro","Leonardo","1982-12-20","NULL","NULL","user_237.jpg","","","","NULL"
-        "clarisaruizdiaz@gmail.com","193f0d0cc841fc074035c9fb566d79a0","NULL","winwins","WW","Clarisa","2013-05-29","F","NULL","user_228.jpg","Bs As","","","user_228_coverphoto.jpg"
-        "mjnieva@paginar.com","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","n","mj","1980-01-22","F","NULL","user_230.jpg","","","","NULL"
-        "clarisaruizdiaz@yahoo.com.ar","193f0d0cc841fc074035c9fb566d79a0","NULL","winwins","WW","Clari","2013-06-01","F","NULL","user_231.jpg","","","","user_231_coverphoto.jpg"
-        "Myberru@twitter.com","null","http://twitter.com/account/profile?user_id=174686940","twitter","berru","My","1990-09-25","F","NULL","user_241.jpg","","esta es mi cuenta en WW de twitter","","user_241_coverphoto.jpg"
-        "karaokedos@hotmail.com","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","sponsor","","Prueba","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "clarisaruizdiaz@hotmail.com","193f0d0cc841fc074035c9fb566d79a0","NULL","winwins","Win","Clari","2013-07-02","F","NULL","user_246.jpg","","","","user_246_coverphoto.jpg"
-        "sivocarina@yahoo.com","f70241431c1148ded7f71c84753de9e6","NULL","winwins","Sivo","Carina","1978-07-22","F","1","user_250.jpg","BA","","","user_250_coverphoto.jpg"
-        "martin@MejoramosJuntos.org","c67069101b9d0e33d072a8e5b2f4b2cf","NULL","winwins","Urdaniz","Martin","1963-09-26","M","1","user_254.jpg","","","","NULL"
-        "clarisa@winwins.org","193f0d0cc841fc074035c9fb566d79a0","NULL","winwins","WinWin","Clarisa","1990-09-07","F","NULL","user_260.jpg","","","","user_260_coverphoto.jpg"
-        "agus@toma78.com","null","http://www.facebook.com/profile.php?id=100002436903359","facebook","Berruezo","Agustin","1974-01-20","NULL","NULL","user_264.jpg","","","","NULL"
-        "afernandez@paginar.com","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","mini","arnaldo","1997-10-21","M","NULL","user_276.jpg","","","","NULL"
-        "fhamada@paginar.com","f935802087ae35e2440da0017cda3ed7","NULL","winwins","Zimmerman Puentedura","MarÃ­a Elizabeth","1980-10-10","F","NULL","user_278.jpg","","","","NULL"
-        "berru33@gmail.com","5796eeb38c008416c4856437434678fb","NULL","sponsor","","Patrocinador A","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "javiernassif@hotmail.com","706ca0a2ae8e1f3651932b8a6fa7735d","NULL","winwins","Nassif","Javier","1977-03-21","M","1","user_300.jpg","","","","NULL"
-        "alexcarri@gmail.com","eb1f416487404b3a0474053b2c0d9471","NULL","winwins","Carrillo","Alejandro","1954-01-31","M","1","user_301.jpg","","","","user_301_coverphoto.jpg"
-        "alficarr2@gmail.com","70c51c5059b92e34996ee71f692899ca","NULL","winwins","Carr","Alfonzo","1992-07-10","M","NULL","user_307.jpg","","","","NULL"
-        "maticarena@gmail.com","5154783a0db328ef2d3d1ec8a2f15a5d","NULL","winwins","CarenaGmail","MatiasGmail","1967-09-04","M","NULL","user_311.jpg","","","","NULL"
-        "cesaralexisdiaz@gmail.com","4c7057915afaff676c3703848d6f508f","NULL","sponsor","","Nuevo Patro Cesar","NULL","NULL","NULL","NULL","NULL","NULL","NULL","NULL"
-        "gabybreg@twitter.com","null","http://twitter.com/account/profile?user_id=30817249","twitter","Brenes","Gaby","1990-03-30","F","NULL","user_326.jpg","","","","NULL"
-        "daniel.riosmoreno@hotmail.com","null","http://www.facebook.com/profile.php?id=10152308066260143","facebook","Rios","Daniel","0000-00-00","M","2","user_327.jpg","CABA","","","user_327_coverphoto.jpg"
-        "numa@gopacifia.org","aa6d2727d042f6c1fab79cb2b6fa29d7","NULL","winwins","Bellisario","Numa","1983-07-30","M","NULL","user_331.jpg","","","","NULL"
-        */
     }
 
 }
