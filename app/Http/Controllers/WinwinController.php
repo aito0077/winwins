@@ -8,6 +8,7 @@ use Config;
 use Storage;
 use Response;
 use Validator;
+use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Winwin;
@@ -27,7 +28,16 @@ class WinwinController extends Controller {
 
 	public function index() {
         $winwins = Winwin::all();
-        return $winwins;
+
+        $collection = Collection::make($winwins);
+        $collection->each(function($winwin) {
+            $users_count = count($winwin->users);
+            $winwin->users_already_joined = $users_count;
+            if($winwin->users_amount) {
+                $winwin->users_left = ($winwin->users_amount - $users_count);
+            }
+        });
+        return $collection;
 	}
 
 	public function show(Request $request, $id) {
@@ -45,7 +55,6 @@ class WinwinController extends Controller {
 
         $winwin->user;
         $users_count = count($winwin->users);
-
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
 

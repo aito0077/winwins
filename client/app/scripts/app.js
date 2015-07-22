@@ -17,12 +17,14 @@ angular.module('winwinsApp', [
     'ngTouch',
     'satellizer',
     'config',
+	'birth-day',
     'zumba.angular-waypoints'
 ])
-.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
+.config(function ($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, api_host) {
 
     $urlRouterProvider.otherwise('/');
 
+    $locationProvider.html5Mode(true);
 
     $stateProvider
     .state('main',{
@@ -32,8 +34,13 @@ angular.module('winwinsApp', [
     })
     .state('signUp',{
         url: '/signup',
-        templateUrl: 'views/signUp.html',
+        templateUrl: 'views/signup.html',
         controller: 'SignUpCtrl'
+    })
+    .state('logout', {
+        url: '/logout',
+        template: null,
+        controller: 'LogoutCtrl'
     })
     .state('winwin',{
         url: '/winwin',
@@ -57,8 +64,18 @@ angular.module('winwinsApp', [
     })
     .state('signIn',{
         url: '/signin',
-        templateUrl: 'views/signIn.html',
-        controller: 'SignInCtrl'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+    })
+   .state('success-login',{
+        url: '/success-login',
+        templateUrl: 'views/login_success.html',
+        controller: 'SuccessLogin'
+    })
+   .state('failure-login',{
+        url: '/fail-login',
+        templateUrl: 'views/login_failure.html',
+        controller: 'FailureLogin'
     })
     .state('activateWW',{
         url: '/activate',
@@ -81,6 +98,7 @@ angular.module('winwinsApp', [
         controller: 'WinwinCtrl'
     });
 
+    $authProvider.baseUrl = api_host+'/';
 
     $authProvider.facebook({
         clientId: '1082199191794840',
@@ -100,4 +118,23 @@ angular.module('winwinsApp', [
     });
 
 
-  });
+})
+.controller("Ctrl", function ($scope, $location, $window) {
+    $scope.$on("$locationChangeStart", function (event, newUrl, oldUrl) {
+        $scope.startPath = $location.path();
+        $scope.startNewUrl = newUrl;
+        $scope.startOldUrl = oldUrl;
+    });
+    $scope.$on("$locationChangeSuccess", function (event, newUrl, oldUrl) {
+        $scope.successPath = $location.path();
+        $scope.successNewUrl = newUrl;
+        $scope.successOldUrl = oldUrl;
+    });
+    $scope.back = function () {
+        $window.history.back();
+    };
+    $scope.forward = function () {
+        $window.history.forward();
+    };
+})
+;

@@ -31,6 +31,10 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('WinwinsTableSeeder');
         $this->command->info('Winwins seeded!');
+
+		$this->call('WinwinsUsersTableSeeder');
+        $this->command->info('Winwins Users seeded!');
+
 	}
 
 }
