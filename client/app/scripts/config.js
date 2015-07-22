@@ -2,7 +2,7 @@
 
 angular.module('config', [])
 
-.constant('api_host', 'http://winwins.app')
+.constant('api_host', 'http://dev-winwins.net')
 
 .value('debug', true)
 

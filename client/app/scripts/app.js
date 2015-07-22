@@ -42,16 +42,33 @@ angular.module('winwinsApp', [
         template: null,
         controller: 'LogoutCtrl'
     })
+
     .state('winwin',{
         url: '/winwin',
         templateUrl: 'views/winwin.html',
         controller: 'WinwinCtrl'
     })
-    /*.state('winwinMenu',{
-    url: '/winwinmenu',
-    templateUrl: 'views/winwinMenu.html',
-    controller: 'WinwinMenuCtrl'
-    })*/
+    .state('winwin-new', {
+        url: '/winwin-new',
+        templateUrl: 'views/winwin/edit.html',
+        controller: 'winwin-edit'
+    })
+    .state('winwin-list', {
+        url: '/winwin-list',
+        templateUrl: 'views/winwin/list.html',
+        controller: 'winwin-list'
+    })
+    .state('winwin-search', {
+        url: '/winwin-search',
+        templateUrl: 'views/winwin/search.html',
+        controller: 'winwin-search'
+    })
+    .state('winwin-view', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/view.html',
+        controller: 'winwin-view'
+    })
+
     .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',

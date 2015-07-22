@@ -1,0 +1,79 @@
+    <div class="container no-padding">
+        <div class="dropdown col-xs-12 no-padding">
+            <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                WinWins Destacados
+                <span class="caret pull-right caret-middle"></span>
+            </button>
+            <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
+                <li><a href="#">WinWins Populares</a></li>
+                <li><a href="#">Últimos WinWins Creados</a></li>
+                <li><a href="#">WinWins que están cerca de concretarse</a></li>
+                <li><a href="#">Consumo responsable / Comercio Justo</a></li>
+                <li><a href="#">Cultura / Artes / Espectáculos</a></li>
+                <li><a href="#">Deportes / Actividad Físicas</a></li>
+                <li><a href="#">Diversidad / Convivencia</a></li>
+                <li><a href="#">Educación / Formación</a></li>
+                <li><a href="#">Empleo / Asuntos laborales</a></li>
+                <li><a href="#">Entretenimiento / Festejos / Juegos</a></li>
+                <li><a href="#">Internet / Tecnología</a></li>
+                <li><a href="#">Naturaleza / Medio Ambiente</a></li>
+                <li><a href="#">Pareja / Familia / Amigos</a></li>
+                <li><a href="#">Participación Civica / Asúntos públicos</a></li>
+                <li><a href="#">Salud / Terapias</a></li>
+                <li><a href="#">Solidaridad / Cooperación</a></li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
+            <div class="col-xs-4 img-misc no-padding">
+                <img src="images/img-refe.jpg" />
+                <div class="somos">
+                    <span class="title-somos">Somos</span>
+                    <span class="num-somos">{{::winwin.users_already_joined}}</span>
+                </div>
+                <div class="somos">
+                    <span class="title-faltan">Faltan</span>
+                    <span class="num-faltan">{{::winwin.users_left}}</span>
+                </div>
+            </div>
+            <div class="col-xs-6 no-padding-left">
+                <h5 class="title-destacados">
+                    {{::winwin.title}}
+                </h5>
+                <p class="text-destacados">
+                    <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do}}
+                </p>
+            </div>
+            <div class="col-xs-2 no-padding">
+                <div class="col-xs-12 no-padding">
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class=" no-padding">
+                            <i class="fa fa-envelope-o fa-6"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class="twitter no-padding">
+                            <i class="fa fa-twitter fa-6"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class="facebook no-padding">
+                            <i class="fa fa-facebook fa-6"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-12 no-padding me-interesa">
+                    <button type="button" class="btn btn-interesa border-bottom">Me Interesa</button>
+                </div>
+                <div class="col-xs-12 no-padding me-sumo text-right">
+                    <button type="button" class="btn btn-sumo">Me <br> Sumo</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container container-search" style="">
+        <i class="search fa fa-search search-fa"></i>
+    </div>
+

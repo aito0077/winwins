@@ -41,10 +41,17 @@ angular.module('winwinsApp')
         });
     };
 
-    $scope.range = function(min, max, step){
-        step = step || 1;
-        var input = [];
-        for (var i = min; i <= max; i += step) input.push(i);
-        return input;
+    $scope.authenticate = function(provider) {
+        $auth.authenticate(provider)
+        .then(function() {
+            $state.go('success-login');
+                //'You have successfully logged in',
+        })
+        .catch(function(response) {
+                //response.data ? response.data.message : response,
+            $state.go('failure-login');
+        });
     };
+
+
 });

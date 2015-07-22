@@ -1,6 +1,6 @@
 <div ng-if="isAuthenticated()">
     <div class="col-xs-12 no-padding portada" style="background-color:red">
-        <iframe width="100%" height="280" src="https://www.youtube.com/embed/LaWODK2jUYQ" frameborder="0" allowfullscreen></iframe>
+        <iframe width="100%" height="280" src="https://www.youtube.com/embed/HlAxAciOeP8" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 no-padding title-home back-winwin border-bottom">
         comenzar ahora!
@@ -24,8 +24,6 @@
             </h5>
             <p class="text-destacados">
                 <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do}}
-                
-                 <img ng-show="winwin.sponsored" src="images/grupos/logos/coca-cola.jpg" style="bottom: 0" />
             </p>
         </div>
         <div class="col-xs-2 no-padding">
@@ -47,7 +45,7 @@
                 </div>
             </div>
             <div class="col-xs-12 no-padding me-interesa">
-                <button type="button" class="btn btn-interesa border-bottom">Me Interesa</button>
+                <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Me Interesa</button>
             </div>
             <div class="col-xs-12 no-padding me-sumo text-right">
                 <button type="button" class="btn btn-sumo">Me <br> Sumo</button>
@@ -73,8 +71,8 @@
             <div class="col-xs-12" style="margin-top:20px; border-bottom:2px solid #FFF;">
                 Creá o Sumáte a un WinWin
                 <div style="margin: 15px 0;">
-                    <a ng-href="/winwin/new" class="btn btn-danger btn-primary">crear winwin</a>
-                    <a ng-href="/winwin/list" class="btn btn-danger btn-second btn-primary">sumate a un ww</a>
+                    <a ng-href="/winwin-new" class="btn btn-danger btn-primary">crear winwin</a>
+                    <a ng-href="/winwin-list" class="btn btn-danger btn-second btn-primary">sumate a un ww</a>
                 </div>
             </div>
             <div class="col-xs-12" style="margin-top:20px; border-bottom:2px solid #FFF;">

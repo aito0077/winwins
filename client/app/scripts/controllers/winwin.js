@@ -1,34 +1,116 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name winwinsApp.controller:WinwinCtrl
- * @description
- * # WinwinCtrl
- * Controller of the winwinsApp
- */
 angular.module('winwinsApp')
-  .controller('WinwinCtrl', ['$scope', '$state', '$stateParams', function ($scope, $state, $stateParams) {
+.controller('winwin-edit', function($scope, $auth, Upload, Winwin, Interest) {
+    $scope.winwin = new Winwin({});
+    $scope.interests = [];
+    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
 
-    /*$scope.$watch('wpPreview.name.down', function() {
-      if ($scope.wpPreview === undefined || $scope.wpPreview.name.down == false){
-        $state.go('winwin');
-      }else{
-        $state.go('winwinMenu');
-      }
-    });*/
+    $scope.winwin.closing_date = new Date();
+    $scope.closingdatechange = function(data){ };
 
-  	var d = new Date();
-  	$scope.mock = {
-  		days: "100",
-  		hours: d.getHours(),
-  		minutes: d.getMinutes(),
-  		suscribed: Math.floor( 10000*Math.random() ),
-  		missing: Math.floor( 10000*Math.random() )
-  	};
+    Interest.query(function(data) {
+        $scope.interests = data;
+    });
 
-    $scope.backImg = "https://mehranbanaei.files.wordpress.com/2014/12/children-in-central-african-republic.jpg"
-    $scope.howMany = 1500;
-    $scope.details = "para hacer donaciones a los niños de África, y cambiar el destino de personas que necesitan comida, ropa, cariño y un monton de otras cosas";
 
-  }]);
+    $scope.doSave = function() {
+        $scope.winwin.$save(function() {
+            //ToDo: saved
+        });
+    };
+
+
+    $scope.$watch('files', function () {
+        $scope.upload($scope.files);
+    });
+
+    $scope.upload = function (files) {
+        if (files && files.length) {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                Upload.upload({
+                    url: '/api/winwins/upload',
+                    fields: {'username': $scope.username},
+                    file: file
+                }).progress(function (evt) {
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                }).success(function (data, status, headers, config) {
+                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                });
+            }
+        }
+    };
+
+})
+.controller('winwin-list', ['$scope','$http', 'Winwin', function($scope, $http, Winwin) {
+
+    $scope.winwins = [];
+
+    var winwins = Winwin.query(function(data) {
+        $scope.winwins = data;
+    });
+    
+}])
+.controller('winwin-search', ['$scope','$http', function($scope, $http) {
+
+    $scope.winwins = [];
+
+    $scope.do_search = function() {
+        $http.get('/api/winwins/search/', {
+                params: {
+                    q: $scope.query
+                }
+            })
+            .success(function(data) {
+                $scope.winwins = data;
+            })
+            .error(function(error) {
+                //ToDo: error
+            });
+    };
+
+    
+}])
+
+.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
+
+    $scope.getWinwin = function() {
+        $scope.winwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+
+        });
+    }
+
+    $scope.getWinwin();
+
+    $scope.join = function() {
+        $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
+            //ToDo: Te uniste
+            $scope.getWinwin();
+        })
+        .error(function(error) {
+            //ToDo: Error al unirse
+        });
+    };
+
+    $scope.pass = function() {
+        $state.go('winwin-list'); 
+    };
+
+    $scope.left = function() {
+        $http.get('/api/winwins/left/'+$scope.winwin.id).success(function(data) {
+            //ToDo: dejaste el ww
+            $scope.getWinwin();
+        })
+        .error(function(error) {
+            //ToDo: error al dejar
+        });
+    };
+
+
+
+
+}])
