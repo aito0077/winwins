@@ -12,6 +12,7 @@ Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthCon
 // API Routes.
 Route::get('api/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);
 
+Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);

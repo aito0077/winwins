@@ -9,6 +9,7 @@ use Storage;
 use Response;
 use Validator;
 use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Winwin;
@@ -23,7 +24,23 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
+    }
+
+    public function paginate(Request $request, $page = 0, $amount = 15) {
+        $winwins = DB::table('winwins')->skip($page * $amount)->take($amount)->get();
+        $collection = Collection::make($winwins);
+        $collection->each(function($winwin) {
+            if($winwin->users_amount) {
+                $users_count = DB::table('users')
+                    ->join('winwins_users', 'users.id', '=', 'winwins_users.user_id')
+                    ->where('winwins_users.winwin_id', '=', $winwin->id)->count();
+                $winwin->users_already_joined = $users_count;
+                $winwin->users_left = ($winwin->users_amount - $users_count);
+            }
+        });
+        return $collection;
+
     }
 
 	public function index() {

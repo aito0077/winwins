@@ -24,7 +24,8 @@
             </ul>
         </div>
 
-        <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
+<div infinite-scroll='winwins.nextPage()'>
+        <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins.items">
             <div class="col-xs-4 img-misc no-padding">
                 <img src="images/img-refe.jpg" />
                 <div class="somos">
@@ -71,7 +72,7 @@
             </div>
         </div>
 
-    </div>
+</div>
 
     <div class="container container-search" style="">
         <i class="search fa fa-search search-fa"></i>

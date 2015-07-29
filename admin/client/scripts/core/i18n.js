@@ -33,7 +33,7 @@
 
 
         function LangCtrl($scope, $translate) {
-            $scope.lang = 'English';
+            $scope.lang = 'Español';
 
             $scope.setLang = function(lang) {
                 switch (lang) {

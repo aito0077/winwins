@@ -142,7 +142,7 @@
                         }
                     ]
                 },
-                all: [
+                _all: [
                     ".tmp", ".DS_Store", ".sass-cache", "node_modules", ".git",
                     "<%= yeoman.app %>/bower_components", "documentation/jade",
                     "<%= yeoman.landing %>/jade", "<%= yeoman.landing %>/bower_components",

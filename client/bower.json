@@ -19,7 +19,10 @@
     "satellizer": "~0.11.2",
     "angular-date-dropdowns": "~0.1.1",
     "moment": "~2.10.3",
-    "moment-timezone": "~0.4.0"
+    "moment-timezone": "~0.4.0",
+    "ngInfiniteScroll": "~1.2.1",
+    "angular-translate": "~2.7.2",
+    "angular-translate-loader-url": "~2.7.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"

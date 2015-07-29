@@ -18,6 +18,7 @@ angular.module('winwinsApp', [
     'satellizer',
     'config',
 	'birth-day',
+    'infinite-scroll',
     'zumba.angular-waypoints'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, api_host) {

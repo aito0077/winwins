@@ -6,6 +6,9 @@ angular.module('winwinsApp')
     $scope.interests = [];
     $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
 
+    $scope.first_stage = true;
+    $scope.second_stage = false;
+
     $scope.winwin.closing_date = new Date();
     $scope.closingdatechange = function(data){ };
 
@@ -19,7 +22,6 @@ angular.module('winwinsApp')
             //ToDo: saved
         });
     };
-
 
     $scope.$watch('files', function () {
         $scope.upload($scope.files);
@@ -44,61 +46,57 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-list', ['$scope','$http', 'Winwin', function($scope, $http, Winwin) {
+.controller('winwin-list', ['$scope', 'WinwinPaginate', function($scope, WinwinPaginate) {
+   
+    $scope.winwins = new WinwinPaginate();
 
-    $scope.winwins = [];
-
-    var winwins = Winwin.query(function(data) {
-        $scope.winwins = data;
-    });
-    
 }])
 .controller('winwin-search', ['$scope','$http', function($scope, $http) {
 
-    $scope.winwins = [];
+        $scope.winwins = [];
 
-    $scope.do_search = function() {
-        $http.get('/api/winwins/search/', {
-                params: {
-                    q: $scope.query
-                }
-            })
-            .success(function(data) {
-                $scope.winwins = data;
+        $scope.do_search = function() {
+            $http.get('/api/winwins/search/', {
+                    params: {
+                        q: $scope.query
+                    }
+                })
+                .success(function(data) {
+                    $scope.winwins = data;
+                })
+                .error(function(error) {
+                    //ToDo: error
+                });
+        };
+
+        
+    }])
+
+    .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
+
+        $scope.getWinwin = function() {
+            $scope.winwin = Winwin.get({
+                id: $stateParams.winwinId
+            }, function(data) {
+
+            });
+        }
+
+        $scope.getWinwin();
+
+        $scope.join = function() {
+            $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
+                //ToDo: Te uniste
+                $scope.getWinwin();
             })
             .error(function(error) {
-                //ToDo: error
+                //ToDo: Error al unirse
             });
-    };
+        };
 
-    
-}])
-
-.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
-
-    $scope.getWinwin = function() {
-        $scope.winwin = Winwin.get({
-            id: $stateParams.winwinId
-        }, function(data) {
-
-        });
-    }
-
-    $scope.getWinwin();
-
-    $scope.join = function() {
-        $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
-            //ToDo: Te uniste
-            $scope.getWinwin();
-        })
-        .error(function(error) {
-            //ToDo: Error al unirse
-        });
-    };
-
-    $scope.pass = function() {
-        $state.go('winwin-list'); 
-    };
+        $scope.pass = function() {
+            $state.go('winwin-list'); 
+        };
 
     $scope.left = function() {
         $http.get('/api/winwins/left/'+$scope.winwin.id).success(function(data) {

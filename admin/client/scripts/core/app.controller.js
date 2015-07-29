@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app')
-        .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', AppCtrl]) // overall control
+        .controller('AppCtrl', [ '$scope', '$rootScope', '$state', '$document', AppCtrl]) 
         .config(['$mdThemingProvider', mdConfig])
     
     function AppCtrl($scope, $rootScope, $state, $document) {
@@ -11,7 +11,7 @@
         var year = date.getFullYear();
 
         $scope.main = {
-            brand: 'Material',
+            brand: 'Winwins',
             name: 'Lisa',
             year: year
         };
@@ -38,7 +38,7 @@
             fixedHeader: true,                              // true, false
             fixedSidebar: true,                             // true, false
             pageTransition: $scope.pageTransitionOpts[0],   // unlimited
-            skin: '12'                                      // 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
+            skin: '22'                                      // 11,12,13,14,15,16; 21,22,23,24,25,26; 31,32,33,34,35,36
         };
 
         $scope.$watch('admin', function(newVal, oldVal) {

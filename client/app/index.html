@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link  rel="stylesheet" href="styles/winwin.css">
+    <link  rel="stylesheet" href="styles/winwin-only.css">
     <!-- endbuild -->
     <link rel="stylesheet" href="styles/speechBubbles.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -60,6 +61,9 @@
                     </li>
                     <li ng-if="!isAuthenticated()">
                         <a ng-href="/signup">Creá una cuenta en WinWins</a>
+                    </li>
+                    <li ng-if="isAuthenticated()">
+                        <a ng-href="/winwin-new">Creá un WinWin</a>
                     </li>
                     <li>
                         <a ng-href="/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
@@ -124,6 +128,9 @@
     <script src="bower_components/angular-date-dropdowns/directive.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
