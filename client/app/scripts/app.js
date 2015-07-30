@@ -12,6 +12,7 @@ angular.module('winwinsApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
+    'ngFileUpload',
     'ui.router',
     'ngSanitize',
     'ngTouch',
@@ -19,9 +20,11 @@ angular.module('winwinsApp', [
     'config',
 	'birth-day',
     'infinite-scroll',
-    'zumba.angular-waypoints'
+    'zumba.angular-waypoints',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale'
 ])
-.config(function ($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, api_host) {
+.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
@@ -116,7 +119,11 @@ angular.module('winwinsApp', [
         controller: 'WinwinCtrl'
     });
 
+})
+.config(function ($authProvider, api_host) {
+
     $authProvider.baseUrl = api_host+'/';
+    $authProvider.httpInterceptor = true;
 
     $authProvider.facebook({
         clientId: '1082199191794840',
@@ -135,7 +142,26 @@ angular.module('winwinsApp', [
         url: '/auth/twitter'
     });
 
+})
+.config(function ($translateProvider, tmhDynamicLocaleProvider) {
+    $translateProvider.useMissingTranslationHandlerLog();
 
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'resources/locale-',// path to translations files
+        suffix: '.json'// suffix, currently- extension of the translations
+    });
+
+    $translateProvider.preferredLanguage('es_ES');
+    $translateProvider.useLocalStorage();
+    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+
+})
+.constant('LOCALES', {
+    'locales': {
+        'es_ES': 'Español',
+        'en_US': 'English'
+    },
+    'preferredLocale': 'es_ES'
 })
 .controller("Ctrl", function ($scope, $location, $window) {
     $scope.$on("$locationChangeStart", function (event, newUrl, oldUrl) {

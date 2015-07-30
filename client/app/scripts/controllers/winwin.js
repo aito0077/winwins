@@ -20,6 +20,8 @@ angular.module('winwinsApp')
     $scope.doSave = function() {
         $scope.winwin.$save(function() {
             //ToDo: saved
+            $scope.first_stage = false;
+            $scope.second_stage = true;
         });
     };
 

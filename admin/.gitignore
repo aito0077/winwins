@@ -1,5 +1,4 @@
 node_modules
-dist
 .tmp
 .sass-cache
 client/bower_components
@@ -8,6 +7,4 @@ landing/css/main.css
 landing/vendors
 landing/index.html
 
-.DS_Store
 npm-debug.log
-/preview/preview.zip

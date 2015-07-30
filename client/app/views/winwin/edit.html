@@ -1,75 +1,87 @@
 <div ng-if="first_stage">
-    <div class="container">
-        <div class="col-xs-12 msj-bienvenida back-winwin mb-20">
-            <h1 class="txt-welcome text-center">
-                COMENZÁ TU <span style="color: orange;">WIN</span>WIN
-                <p class="bajada-winwin"><i>Comenzá una acción positiva, por más chica que sea que sientas que úede llegar a mejorar aunque sea algo. Algo que te inspire y te motive. Por más pequeño o GIGANTESCO que sea!</i></p>
-            </h1>            
-        </div>
-        <div class="col-xs-12">
+    <form method="post" ng-submit="doSave()" name="winwinForm">
+        <div class="container">
+
+            <div class="col-xs-12 msj-bienvenida back-winwin mb-20">
+                <h1 class="txt-welcome text-center">
+                    COMENZÁ TU <span style="color: orange;">WIN</span>WIN
+                    <p class="bajada-winwin"><i>Comenzá una acción positiva, por más chica que sea que sientas que úede llegar a mejorar aunque sea algo. Algo que te inspire y te motive. Por más pequeño o GIGANTESCO que sea!</i></p>
+                </h1>            
+            </div>
+
+            <div class="col-xs-12">
+                <div class="col-xs-12 no-padding">
+                    <div class="input-group active col-xs-12" style="margin:20px 0">
+                      <input type="text" ng-model="winwin.title" class="form-control" placeholder="Un Nombre para tu WinWin" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                Plantea tu WinWin <i class="fa fa-question-circle" style="color:red;"></i>
+                <div class="col-xs-12 no-padding te-sumarias">
+                    ¿Si supieras que somos <input type="text" ng-model="winwin.users_amount" class="form-control" aria-describedby="basic-addon1" style="width:50px; display:inline"> para
+                </div>
+                <div class="col-xs-12 no-padding">
+                    <div class="input-group active col-xs-12" style="margin:20px 0">
+                      <textarea  ng-model="winwin.what_we_do" class="form-control" rows="3" no-resize></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-12 no-padding te-sumarias">
+                te sumarías?
+                <textarea ng-model="winwin.description" class="form-control" rows="2" no-resize placeholder="Más detalles del WinWin"></textarea>
+            </div>
+
             <div class="col-xs-12 no-padding">
-                <div class="input-group active col-xs-12" style="margin:20px 0">
-                  <input type="text" class="form-control" placeholder="Un Nombre para tu WinWin" aria-describedby="basic-addon1">
+                <h5 class="text-center" style="color:#9f9f9f;">
+                    Fecha limite si aplica
+                </h5>
+
+                <div class="col-xs-12 no-padding mb-20">
+                    <div closingDatePicker class="datepicker" ng-model="winwin.closing_date" min-date="-1" max-date="'2018-05-02T22:00:00.000Z'"></div>
                 </div>
-            </div>
-            Plantea tu WinWin <i class="fa fa-question-circle" style="color:red;"></i>
-            <div class="col-xs-12 no-padding te-sumarias">
-                ¿Si supieras que somos <input type="text" class="form-control" aria-describedby="basic-addon1" style="width:50px; display:inline"> para
-            </div>
-            <div class="col-xs-12 no-padding">
-                <div class="input-group active col-xs-12" style="margin:20px 0">
-                  <textarea class="form-control" rows="3" no-resize></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 no-padding te-sumarias">
-            te sumarías?
-            <textarea class="form-control" rows="2" no-resize></textarea>
-        </div>
-        <div class="col-xs-12 no-padding">
-            <h5 class="text-center" style="color:#9f9f9f;">
-                Fecha limite si aplica
-            </h5>
-            <div class="col-xs-12 no-padding mb-20">
-                <div class="dropdown col-xs-4 no-padding">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Día
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown col-xs-4 no-padding">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Mes
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Enero</a></li>
-                        <li><a href="#">Febrero</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown col-xs-4 no-padding">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Año
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">2015</a></li>
-                        <li><a href="#">2104</a></li>
-                    </ul>
-                </div>
+
+                <!--div class="col-xs-12 no-padding mb-20">
+                    <div class="dropdown col-xs-4 no-padding">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Día
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-xs-4 no-padding">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Mes
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Enero</a></li>
+                            <li><a href="#">Febrero</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-xs-4 no-padding">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Año
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">2015</a></li>
+                            <li><a href="#">2104</a></li>
+                        </ul>
+                    </div>
+                </div-->
             </div>
         </div>
-    </div>
-    <div class="col-xs-10 text-center mb-20" style="margin-top:10px;">
-        <input type="checkbox" aria-label="Checkbox for following text input" style="width:15px; height:15px;">
-        <span style="font-size:9px;">He leido y acepto los <a href="#">terminos y condiciones</a></span>
-    </div>
-    <button type="button" class="btn btn-default btn-sponsor btn-second mb-20" style="color:#FFF; text-transform:uppercase;">
-        Crear winwin
-    </button>   
+
+        <div class="col-xs-10 text-center mb-20" style="margin-top:10px;">
+            <input type="checkbox" ng-model="winwin.accept_terms" aria-label="Checkbox for following text input" style="width:15px; height:15px;">
+            <span style="font-size:9px;">He leido y acepto los <a href="#">terminos y condiciones</a></span>
+        </div>
+        <button type="submit" ng-disabled="winwinForm.$invalid" class="btn btn-default btn-sponsor btn-second mb-20" style="color:#FFF; text-transform:uppercase;">
+            Crear winwin
+        </button>   
+
+    </form>
 </div>
 
 <div ng-if="second_stage">
@@ -85,10 +97,17 @@
                 <i class="fa fa-arrow-circle-o-up"></i><br>
                 <i class="fa fa-youtube-play"></i>
             </div>
-            <div class="col-xs-4 border-grey">
+            <div ngf-drop ng-model="files" class="col-xs-4 border-grey" 
+                ngf-drag-over-class="dragover"
+                ngf-multiple="false"
+                ngf-allow-dir="true"
+                ngf-capture="'camera'"
+                ngf-accept="'image/*'">
                 <i class="fa fa-arrow-circle-o-up"></i><br>
                 <i class="fa fa-camera"></i>
             </div>
+            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
             <div class="col-xs-4 border-grey">
                 <i class="fa fa-arrow-circle-o-up"></i><br>
                 <i class="fa fa-picture-o"></i>

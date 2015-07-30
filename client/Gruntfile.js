@@ -64,9 +64,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+            '<%= yeoman.app %>/{,*/}*.html',
+            '.tmp/styles/{,*/}*.css',
+            '<%= yeoman.app %>/resources/{,*/}*.json',
+            '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -366,19 +367,27 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
+            'resources/{,*/}*.*',
             'styles/fonts/{,*/}*.*'
           ]
         }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
+            expand: true,
+            cwd: '.tmp/images',
+            dest: '<%= yeoman.dist %>/images',
+            src: ['generated/*']
         }, {
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        }]
+            expand: true,
+            cwd: 'bower_components/bootstrap/dist',
+            src: 'fonts/*',
+            dest: '<%= yeoman.dist %>'
+        }, {
+            expand: true,
+            cwd: 'bower_components/angular-i18n/',
+            src: '*.js',
+            dest: '<%= yeoman.dist %>/bower_components/angular-i18n'
+        }
+
+        ]
       },
       styles: {
         expand: true,

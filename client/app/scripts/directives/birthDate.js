@@ -1,4 +1,5 @@
-angular.module('birth-day', ['ng']).directive('birthDayPicker', function () {
+angular.module('birth-day', ['ng'])
+.directive('birthDayPicker', function () {
     return {
         restrict: 'A',
         replace: true,
@@ -64,3 +65,5 @@ angular.module('birth-day', ['ng']).directive('birthDayPicker', function () {
 
     };
 });
+
+
