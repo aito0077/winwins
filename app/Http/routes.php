@@ -7,6 +7,7 @@ Route::post('auth/facebook', 'AuthController@facebook');
 Route::post('auth/google', 'AuthController@google');
 Route::post('auth/login', 'AuthController@login');
 Route::post('auth/signup', 'AuthController@signup');
+Route::get('auth/token', 'AuthController@getToken');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
 // API Routes.
@@ -14,6 +15,7 @@ Route::get('api/{post_type}/{post_reference}/posts', ['uses' => 'PostController@
 
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
+Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@storeImage']);
@@ -37,6 +39,6 @@ Route::resource('api/parametric/marital', 'MaritalStatusController');
 Route::resource('api/parametric/languages', 'LanguageController');
 Route::resource('api/parametric/activities', 'ActivityTypeController');
 
-
 // Initialize Angular.js Winwins Route.
 Route::get('/', 'HomeController@index');
+

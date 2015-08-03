@@ -48,6 +48,26 @@ angular.module('winwinsApp')
         }
     });
 }])
+.factory('TokenService',['$http', 'api_host', function($http, api_host){
+        return {
+            get: get
+        };
+ 
+        function get() {
+            return $http.get(api_host+'/auth/token').then(
+                success,
+                fail
+            );
+        }
+ 
+        function success(response) {
+            return response;
+        }
+ 
+        function fail(response) {
+            return response;
+        }
+}])
 .factory('WinwinPaginate',['$http', 'api_host', function($http, api_host){
     var WinwinPaginate = function() {
         this.items = [];

@@ -14,7 +14,8 @@ angular.module('winwinsApp')
     var template = $templateCache.get(fileName);
   
     if(!template){
-      template = [
+       /* 
+      __template = [
         '<form name="datepicker">',
           '<div class="btn-group btn-group-justified" role="group">',
             '<div ng-repeat="i in localeOrder track by $index" class="btn-group" role="group">',
@@ -32,12 +33,25 @@ angular.module('winwinsApp')
             '</div>',
           '</div>',
         '</form>'
-        
       ].join('');
+        */
+      template = [
+        '<div ng-repeat="i in localeOrder track by $index"  class="dropdown col-xs-4 no-padding">',
+            '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">',
+                '<span ng-bind="date[options[i].name] || options[i].name"> </span>',
+                '<span class="caret"></span>',
+            '</button>',
+            '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">',
+            '<li ng-repeat="(j, option) in options[i].options track by $index" ng-class="{\'selectedval\': option.selected === true, \'disabled\': option.disabled === true}">',
+              '<a ng-click="select(options[i].name, option)" ng-bind="options[i].labels[j] || option.value"></a>',
+            '</li>',
+            '</ul>',
+        '</div>'
+      ].join('');
+
       $templateCache.put(fileName, template);
     }
   
-    console.log('after template');
     return {
       restrict: 'A',
       //replace: true,

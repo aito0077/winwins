@@ -52,6 +52,12 @@ module.exports = function(config) {
       'bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
       'bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+      'bower_components/sweetalert/dist/sweetalert.min.js',
+      'bower_components/angular-sweetalert/SweetAlert.js',
+      'bower_components/select2/select2.js',
+      'bower_components/ui-select/src/select3.js',
+      'bower_components/angular-ui-select/dist/select.js',
+      'bower_components/ng-tags-input/ng-tags-input.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

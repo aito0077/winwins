@@ -22,6 +22,9 @@ class AuthController extends Controller {
         return JWT::encode($payload, Config::get('app.token_secret'));
     }
 
+    public function getToken() {
+        return csrf_token();
+    }
 
     public function unlink(Request $request, $provider) {
         $user = User::find($request['user']['sub']);

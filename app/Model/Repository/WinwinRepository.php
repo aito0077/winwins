@@ -46,4 +46,46 @@ class WinwinRepository {
         }, $result));
     }
 
+    public function summary() {
+        $items = $this->elasticsearch->search([
+            'index' => self::INDEX,
+            'type' => self::INDEX_TYPE,
+            'body' => [
+                'aggregations' => [
+                    'scope' => [
+                        'terms' => [
+                            'field' => 'scope'
+                        ]
+                    ],
+                    'users_amount' => [
+                        'range' => [
+                            'field' => 'users_amount',
+                            'ranges' => [
+                                [ 'to' => 50 ],
+                                [ 'from' => 50, 'to' => 100 ],
+                                [ 'from' => 100 , 'to' => 500 ],
+                                [ 'from' => 500 ]
+                            ]
+                        ]
+                    ],
+                    'closing_date' => [
+                        'date_range' => [
+                            'field' => 'closing_date',
+                            'format' => 'dd-MM-yyyy',
+                            'ranges' => [
+                                [ 'to' => 'now+7d/d' ], 
+                                [ 'from' => 'now+7d/d' ] 
+                            ]
+                        ]
+                    ]
+
+                ]
+            ]
+        ]);
+
+        return $items;
+    }
+
+
+
 }

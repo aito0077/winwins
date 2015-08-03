@@ -16,7 +16,7 @@ return [
 	|
 	*/
 
-	'driver' => env('SESSION_DRIVER', 'file'),
+	'driver' => env('SESSION_DRIVER', 'cookie'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
 	|
 	*/
 
-	'connection' => null,
+	'connection' => 'default',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,7 +109,7 @@ return [
 	|
 	*/
 
-	'cookie' => 'laravel_session',
+	'cookie' => 'winwin_session',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,8 +135,7 @@ return [
 	|
 	*/
 
-	'domain' => null,
-
+	'domain' => env('SESSION_DOMAIN', '.winwins.app'),
 	/*
 	|--------------------------------------------------------------------------
 	| HTTPS Only Cookies

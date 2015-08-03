@@ -8,10 +8,10 @@
  * Controller of the winwinsApp
  */
 angular.module('winwinsApp')
-.controller('LoginCtrl', function($scope, $auth, $state) {
+.controller('LoginCtrl', function($scope, $rootScope, $auth, $state) {
     $scope.login = function() {
         $auth.login({ email: $scope.email, password: $scope.password })
-        .then(function() {
+        .then(function(data) {
             $state.go('success-login');
                 //'You have successfully logged in',
         })

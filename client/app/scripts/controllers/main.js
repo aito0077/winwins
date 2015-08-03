@@ -2,11 +2,13 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', 'WinwinPaginate', function($scope, $auth, WinwinPaginate) {
+.controller('MainCtrl', ['$scope','$auth', 'Winwin', function($scope, $auth, Winwin) {
     $scope.winwins = [];
 
     if($auth.isAuthenticated()) {
-        $scope.winwins = new WinwinPaginate();
+        Winwin.query(function(data) {
+            $scope.winwins = data;
+        });
     }
 
     $scope.isAuthenticated = function() {

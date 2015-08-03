@@ -13,12 +13,13 @@ angular.module('winwinsApp', [
     'ngCookies',
     'ngResource',
     'ngFileUpload',
-    'ui.router',
     'ngSanitize',
     'ngTouch',
+    'ngTagsInput',
+    'ui.router',
+    'ui.select',
     'satellizer',
     'config',
-	'birth-day',
     'infinite-scroll',
     'zumba.angular-waypoints',
     'pascalprecht.translate',
@@ -56,6 +57,11 @@ angular.module('winwinsApp', [
         url: '/winwin-new',
         templateUrl: 'views/winwin/edit.html',
         controller: 'winwin-edit'
+    })
+    .state('winwin-first-post', {
+        url: '/winwin-first-post',
+        templateUrl: 'views/winwin/first_post.html',
+        controller: 'winwin-first-post'
     })
     .state('winwin-list', {
         url: '/winwin-list',
@@ -141,6 +147,7 @@ angular.module('winwinsApp', [
     $authProvider.twitter({
         url: '/auth/twitter'
     });
+
 
 })
 .config(function ($translateProvider, tmhDynamicLocaleProvider) {

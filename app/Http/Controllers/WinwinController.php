@@ -8,6 +8,7 @@ use Config;
 use Storage;
 use Response;
 use Validator;
+use Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Winwins\Http\Requests;
@@ -24,11 +25,11 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
-        $winwins = DB::table('winwins')->skip($page * $amount)->take($amount)->get();
+        $winwins = DB::table('winwins')->where('published', '=', 1)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {
@@ -44,7 +45,7 @@ class WinwinController extends Controller {
     }
 
 	public function index() {
-        $winwins = Winwin::all();
+        $winwins = Winwin::where('selected', 1)->where('published', 1)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
@@ -156,11 +157,6 @@ class WinwinController extends Controller {
 	}
 
     //Actions
-	public function search(Request $request, WinwinRepository $winwinRepository) {
-        $query = $request->input('q');
-        return $winwinRepository->search($query);
-    }
-
 	public function join(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $winwin = Winwin::find($id);
@@ -257,5 +253,18 @@ class WinwinController extends Controller {
 
         return Response::json(['OK' => 1, 'filename' => $filename]);
     }
+
+    //Search
+	public function search(Request $request, WinwinRepository $winwinRepository) {
+        $query = $request->input('q');
+        return $winwinRepository->search($query);
+    }
+
+
+	public function summary(Request $request, WinwinRepository $winwinRepository) {
+        $summary = $winwinRepository->summary();
+        return $summary;
+    }
+
 
 }

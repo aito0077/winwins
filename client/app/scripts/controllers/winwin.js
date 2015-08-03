@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('winwin-edit', function($scope, $auth, Upload, Winwin, Interest) {
+.controller('winwin-edit', function($scope, $state, $auth, Upload, Winwin, Interest) {
     $scope.winwin = new Winwin({});
     $scope.interests = [];
     $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
@@ -17,15 +17,28 @@ angular.module('winwinsApp')
     });
 
 
-    $scope.doSave = function() {
-        $scope.winwin.$save(function() {
-            //ToDo: saved
+    $scope.doValidateBasic = function() {
+        return true;
+    };
+
+    $scope.persistBasic = function() {
+        console.log('persist basic');
+        if($scope.doValidateBasic()) {
             $scope.first_stage = false;
             $scope.second_stage = true;
+        }
+    }
+
+    $scope.doSave = function() {
+        $scope.winwin.$save(function(data) {
+            $state.go('winwin-first-post', {
+                winwin_id: $scope.winwin.id
+            }); 
         });
     };
 
     $scope.$watch('files', function () {
+        console.log('uploading');
         $scope.upload($scope.files);
     });
 
@@ -48,6 +61,13 @@ angular.module('winwinsApp')
     };
 
 })
+.controller('winwin-first-post', ['$scope', '$stateParams', 'Winwin', function($scope, $stateParams, Winwin) {
+    console.dir($stateParams); 
+    Winwin.get({id: $stateParams.winwin_id}, function(winwin) {
+      $scope.winwin = winwin;
+    });
+
+}])
 .controller('winwin-list', ['$scope', 'WinwinPaginate', function($scope, WinwinPaginate) {
    
     $scope.winwins = new WinwinPaginate();
