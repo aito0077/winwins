@@ -99,13 +99,7 @@
                     <i class="fa fa-arrow-circle-o-up"></i><br>
                     <i class="fa fa-youtube-play"></i>
                 </div>
-                <div ngf-select ngf-drop ng-model="files" class="col-xs-4 border-grey" 
-                    ngf-drag-over-class="dragover"
-                    ngf-keep="keep" 
-                    ngf-drop-available="dropAvailable"
-                    ngf-multiple="false"
-                    ngf-allow-dir="true"
-                    ngf-accept="'image/*'">
+                <div ngf-select ngf-change="upload($file)" ngf-multiple="true" class="col-xs-4 border-grey" ngf-accept="'image/*'">
                         <div ng-show="!winwin.image">
                             <i class="fa fa-arrow-circle-o-up"></i><br>
                             <i class="fa fa-camera"></i>

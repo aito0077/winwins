@@ -22,6 +22,7 @@ angular.module('winwinsApp', [
     'config',
     'infinite-scroll',
     'zumba.angular-waypoints',
+    'oitozero.ngSweetAlert',
     'pascalprecht.translate',
     'tmh.dynamicLocale'
 ])

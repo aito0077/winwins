@@ -2,7 +2,6 @@
 
 angular.module('winwinsApp')
 .directive('closingDatePicker', [ '$window', '$templateCache', function ($window, $templateCache) {
-    console.log('date picker');
     if(!$window.moment){
       console.log('moment.js is required for this datepicker, http://momentjs.com/');
       return {
@@ -41,10 +40,10 @@ angular.module('winwinsApp')
                 '<span ng-bind="date[options[i].name] || options[i].name"> </span>',
                 '<span class="caret"></span>',
             '</button>',
-            '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">',
-            '<li ng-repeat="(j, option) in options[i].options track by $index" ng-class="{\'selectedval\': option.selected === true, \'disabled\': option.disabled === true}">',
-              '<a ng-click="select(options[i].name, option)" ng-bind="options[i].labels[j] || option.value"></a>',
-            '</li>',
+            '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">',
+                '<li ng-repeat="(j, option) in options[i].options track by $index" ng-class="{\'selectedval\': option.selected === true, \'disabled\': option.disabled === true}">',
+                  '<a ng-click="select(options[i].name, option)" ng-bind="options[i].labels[j] || option.value"></a>',
+                '</li>',
             '</ul>',
         '</div>'
       ].join('');
@@ -369,8 +368,6 @@ angular.module('winwinsApp')
         // in setupModel()
         var toModel = function(value){
           
-          console.log('toModel ', value)
-           
           if(value && value.isValid()){
             if((value.isAfter(minDate) || minDate.isSame(value)) && (maxDate.isAfter(value) || maxDate.isSame(value)) ){
               ngModelCtrl.$setValidity('not-allowed', true);

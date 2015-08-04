@@ -7,16 +7,14 @@ angular.module('winwinsApp')
 			replace: true,
 			scope: {
         	},
-			templateUrl: 'partials/searchBar.html',
+			templateUrl: 'views/extras/searchBar.html',
 			link: function(scope, element, attrs){
 				scope.searchActive = false;
 
 				scope.toggleSearchBar = function(){
 			  		scope.searchActive = !scope.searchActive;
 			  		if (scope.searchActive){
-			  			console.log("active");
 			  		}else{
-			  			console.log("inactive");
 			  		}
 			  	};
 				

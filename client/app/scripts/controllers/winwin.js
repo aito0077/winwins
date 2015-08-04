@@ -38,23 +38,26 @@ angular.module('winwinsApp')
     };
 
     $scope.$watch('files', function () {
-        console.log('uploading');
+        console.log('watch files');
         $scope.upload($scope.files);
     });
 
     $scope.upload = function (files) {
-        if (files && files.length) {
+        console.log('uploading');
+        console.dir(files);
+        console.log('Size: '+files.length);
+         if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 Upload.upload({
                     url: '/api/winwins/upload',
-                    fields: {'username': $scope.username},
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
                 }).success(function (data, status, headers, config) {
                     console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                    $scope.winwin.image = config.file.name;
                 });
             }
         }

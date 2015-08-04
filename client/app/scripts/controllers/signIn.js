@@ -8,27 +8,40 @@
  * Controller of the winwinsApp
  */
 angular.module('winwinsApp')
-.controller('LoginCtrl', function($scope, $rootScope, $auth, $state) {
+.controller('LoginCtrl', function($scope, $rootScope, $auth, $state, SweetAlert) {
     $scope.login = function() {
         $auth.login({ email: $scope.email, password: $scope.password })
         .then(function(data) {
-            $state.go('success-login');
+            SweetAlert.swal('Genial!', 'Vamos a tu cuenta!', 'success', function() {
+                $state.go('main');
+            });
+            //$state.go('success-login');
                 //'You have successfully logged in',
         })
         .catch(function(response) {
-            $state.go('failure-login');
+            console.dir(response);
+            SweetAlert.swal('Pasó algo!', response.data.message, 'warning', function() {
+                $state.go('signin');
+            });
+            //$state.go('failure-login');
                 //response.data.message,
         });
     };
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
         .then(function() {
-            $state.go('success-login');
+            SweetAlert.swal('Genial!', 'Vamos a tu cuenta!', 'success', function() {
+                $state.go('main');
+            });
+            //$state.go('success-login');
                 //'You have successfully logged in',
         })
         .catch(function(response) {
-                //response.data ? response.data.message : response,
-            $state.go('failure-login');
+            //$state.go('failure-login');
+            SweetAlert.swal('Pasó algo!', response.message+'<br/><span class="advertencia">Vuelve a inentar</span>', 'warning', function() {
+                $state.go('signin');
+            });
+
         });
     };
 
