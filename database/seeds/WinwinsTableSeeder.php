@@ -17,6 +17,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "1000";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -31,6 +33,8 @@ class WinwinsTableSeeder extends Seeder {
         "30";
         "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -45,6 +49,8 @@ class WinwinsTableSeeder extends Seeder {
         "30";
         "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -57,6 +63,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "11";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -69,6 +77,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "100";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -81,6 +91,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "100";
         $winwin->image = "winwinAvatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -93,6 +105,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "100";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -105,6 +119,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "50";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -117,6 +133,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "300";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();
@@ -129,6 +147,8 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->users_amount = "300";
         $winwin->image = "winwinAvatar_avatar.jpg";
         $winwin->published = 1;
+        $winwin->selected = 1;
+        $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
         $winwin = new Winwin();

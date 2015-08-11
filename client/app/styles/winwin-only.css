@@ -188,3 +188,37 @@
         margin-left: 100px!important
     }
 }
+
+.winwin-menu {
+    position:fixed;
+    top:70px;
+    width:100%; 
+    height:75px; 
+    background-color:#DDDDDD;
+    color: #FFFFFF;
+    z-index:9999;
+    display: none;
+}
+
+.winwin {
+    min-height: 1500px; 
+}
+.winwin .cssFade {
+    transition: 0.5s linear all;
+    opacity: 1; 
+}
+.winwin .cssFade.ng-hide {
+    opacity: 0; 
+}
+.winwin .compressed {
+    max-height: 300px;
+    overflow: hidden; 
+}
+
+.winwin-body {
+  position: fixed;
+  top: 101px;
+}
+
+
+

@@ -26,6 +26,8 @@ angular.module('winwinsApp')
         if($scope.doValidateBasic()) {
             $scope.first_stage = false;
             $scope.second_stage = true;
+            console.log('First Stage: '+$scope.first_stage);
+            console.log('Second Stage: '+$scope.second_stage);
         }
     }
 
@@ -37,20 +39,20 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.files = [];
+
     $scope.$watch('files', function () {
         console.log('watch files');
         $scope.upload($scope.files);
     });
 
     $scope.upload = function (files) {
-        console.log('uploading');
-        console.dir(files);
-        console.log('Size: '+files.length);
          if (files && files.length) {
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 Upload.upload({
                     url: '/api/winwins/upload',
+                    fields: {},
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
@@ -61,6 +63,21 @@ angular.module('winwinsApp')
                 });
             }
         }
+    };
+
+
+    $scope.setVideoUrl = function() {
+        console.log('set video');
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "text",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+            $scope.video = inputValue;
+        });
     };
 
 })
@@ -95,10 +112,10 @@ angular.module('winwinsApp')
         };
 
         
-    }])
+}])
+.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Winwin) {
 
-    .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
-
+        $scope.main_view = true;
         $scope.getWinwin = function() {
             $scope.winwin = Winwin.get({
                 id: $stateParams.winwinId
@@ -123,17 +140,53 @@ angular.module('winwinsApp')
             $state.go('winwin-list'); 
         };
 
-    $scope.left = function() {
-        $http.get('/api/winwins/left/'+$scope.winwin.id).success(function(data) {
-            //ToDo: dejaste el ww
-            $scope.getWinwin();
-        })
-        .error(function(error) {
-            //ToDo: error al dejar
-        });
-    };
+        $scope.left = function() {
+            $http.get('/api/winwins/left/'+$scope.winwin.id).success(function(data) {
+                //ToDo: dejaste el ww
+                $scope.getWinwin();
+            })
+            .error(function(error) {
+                //ToDo: error al dejar
+            });
+        };
 
+        $scope.setup_components = function() {
+        
+            var scope = $scope;
+            $timeout(function() {
+                scope.view_height = $('winwin-view').height();
+                $scope.height_to_change = scope.view_height * 1.5;
+                scope.height_to_change = scope.view_height;
 
+                $(window).scroll(function(){                          
+                    if ($(this).scrollTop() > $scope.view_height) {
+                        $('#menu-winwin').fadeIn(500);
+                    } else {
+                        $('#menu-winwin').fadeOut(500);
+                    }
+                });
+            }, 1000);
+        };
 
+        $scope.setup_components();
+
+        $scope.go_muro = function() {
+            $state.go('winwin-view.muro'); 
+            $location.hash('winwin-subviews');
+            $anchorScroll();
+        };
+
+        $scope.go_members= function() {
+            $state.go('winwin-view.members'); 
+            $location.hash('winwin-subviews');
+            $anchorScroll();
+        };
 
 }])
+.controller('winwin-members', ['$scope','$http', function($scope, $http) {
+    console.log('members');     
+}])
+.controller('winwin-muro', ['$scope','$http', function($scope, $http) {
+    console.log('muro');     
+}]);
+

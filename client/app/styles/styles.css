@@ -1,9 +1,0 @@
-.datepicker.ng-invalid > form > .btn-group {
-  border: 1px solid red;
-  border-radius: 5px;
-}
-
-.datepicker .selectedval a {
-  font-weight: 600;
-  font-size: 1.1em;
-}

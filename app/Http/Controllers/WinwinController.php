@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary', 'gallery']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
@@ -212,6 +212,8 @@ class WinwinController extends Controller {
     public function storeImage(Request $request, Media $media) {
 
         $user = User::find($request['user']['sub']);
+        Log::info($user);
+
         if(!$request->hasFile('file')) { 
             return Response::json(['error' => 'No File Sent']);
         }
@@ -242,17 +244,28 @@ class WinwinController extends Controller {
         
         $filename = $image->id . '.' . $image->ext;
 
-        Storage::disk('s3-uploads')->put('/' . $filename, file_get_contents($file));
+        Log::info('Uploading to S3 file '.$filename);
+        Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
 
         //Use this line to move the file to local storage & make any thumbnails you might want
         //$request->file('file')->move('/full/path/to/uploads', $filename);
 
         //If making thumbnails uncomment these to remove the local copy.
-        if(Storage::disk('s3')->exists('uploads/' . $filename))
-        Storage::disk()->delete('uploads/' . $filename);
+	/*
+        if(Storage::disk('s3')->exists('/' . $filename))
+        Storage::disk()->delete('/' . $filename);
+	*/
 
         return Response::json(['OK' => 1, 'filename' => $filename]);
     }
+
+
+    public function gallery() {
+        $files = Storage::disk('s3-gallery')->allFiles('/gallery/');
+        return $files;
+    }
+
+
 
     //Search
 	public function search(Request $request, WinwinRepository $winwinRepository) {

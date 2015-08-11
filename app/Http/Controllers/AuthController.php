@@ -10,6 +10,7 @@ use GuzzleHttp;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Winwins\User;
 use Winwins\Model\UserDetail;
+use Storage;
 
 class AuthController extends Controller {
 
@@ -52,6 +53,19 @@ class AuthController extends Controller {
         if (Hash::check($password, $user->password)) {
             unset($user->password);
 
+
+            if(!isset($user->detail()->photo)) {
+                $gravatar = md5(strtolower(trim($request->input('email'))));
+
+                $detail = $user->detail;
+                $detail->photo = $gravatar;
+                $user->detail()->save($detail);
+                Storage::disk('s3-gallery')->put('/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon'), 'public');
+                
+            }
+
+ 
+
             return response()->json(['token' => $this->createToken($user)]);
         } else {
             return response()->json(['message' => 'Wrong email and/or password.'], 401);
@@ -84,7 +98,13 @@ class AuthController extends Controller {
         $detail->lastname = $request->input('lastname');
         $detail->language_code = $request->input('language_code') || 'ES';
 
+        $gravatar = md5(strtolower(trim($request->input('email'))));
+
+        Log::info($gravatar);
+        $detail->photo = $gravatar;
+
         $user->detail()->save($detail);
+        Storage::disk('s3-gallery')->put('/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar));
 
         return response()->json(['token' => $this->createToken($user)]);
     }

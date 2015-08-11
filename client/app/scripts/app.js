@@ -79,7 +79,16 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/view.html',
         controller: 'winwin-view'
     })
-
+    .state('winwin-view.muro', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/muro.html',
+        controller: 'winwin-muro'
+    })
+    .state('winwin-view.members', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/participantes.html',
+        controller: 'winwin-members'
+    })
     .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',
@@ -125,6 +134,7 @@ angular.module('winwinsApp', [
         templateUrl: 'views/comments.html',
         controller: 'WinwinCtrl'
     });
+
 
 })
 .config(function ($authProvider, api_host) {

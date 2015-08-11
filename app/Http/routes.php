@@ -15,6 +15,7 @@ Route::get('api/{post_type}/{post_reference}/posts', ['uses' => 'PostController@
 
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
+Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
 Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
