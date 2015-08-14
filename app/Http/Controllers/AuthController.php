@@ -10,6 +10,7 @@ use GuzzleHttp;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Winwins\User;
 use Winwins\Model\UserDetail;
+use Winwins\Jobs\UpdateProfilePicture;
 use Storage;
 
 class AuthController extends Controller {
@@ -55,13 +56,7 @@ class AuthController extends Controller {
 
 
             if(!isset($user->detail()->photo)) {
-                $gravatar = md5(strtolower(trim($request->input('email'))));
-
-                $detail = $user->detail;
-                $detail->photo = $gravatar;
-                $user->detail()->save($detail);
-                Storage::disk('s3-gallery')->put('/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon'), 'public');
-                
+                $this->dispatch(new UpdateProfilePicture($user));
             }
 
  

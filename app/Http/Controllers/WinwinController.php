@@ -260,6 +260,51 @@ class WinwinController extends Controller {
     }
 
 
+    public function flowUpload(Request $request) {
+
+        $user = User::find($request['user']['sub']);
+
+        $config = new \Flow\Config();
+        if(!Storage::disk('local')->exists('chunks')) {
+            Storage::makeDirectory('chunks');
+        }
+
+        $config->setTempDir(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'/chunks');
+
+        $file = new \Flow\File($config);
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if ($file->checkChunk()) {
+                header("HTTP/1.1 200 Ok");
+            } else {
+                header("HTTP/1.1 204 No Content");
+                return ;
+            }
+        } else {
+            if ($file->validateChunk()) {
+                $file->saveChunk();
+            } else {
+                header("HTTP/1.1 400 Bad Request");
+                return ;
+            }
+        }
+        $filename = $request->input('flowFilename');
+        if ($file->validateFile() && $file->save('./'.$filename)) {
+            // File upload was completed
+            Storage::disk('s3-gallery')->put('/' . $filename, Storage::get('chunks/'.$filename), 'public');
+            Media::create([
+                'name' => $filename,
+                'ext' => '',
+                'user_id' => $user->id,
+                'type' => 'IMAGE'
+            ]);
+ 
+        }
+
+    }
+
+
     public function gallery() {
         $files = Storage::disk('s3-gallery')->allFiles('/gallery/');
         return $files;
