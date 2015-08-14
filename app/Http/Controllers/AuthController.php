@@ -93,13 +93,9 @@ class AuthController extends Controller {
         $detail->lastname = $request->input('lastname');
         $detail->language_code = $request->input('language_code') || 'ES';
 
-        $gravatar = md5(strtolower(trim($request->input('email'))));
-
-        Log::info($gravatar);
-        $detail->photo = $gravatar;
-
         $user->detail()->save($detail);
-        Storage::disk('s3-gallery')->put('/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar));
+
+        $this->dispatch(new UpdateProfilePicture($user));
 
         return response()->json(['token' => $this->createToken($user)]);
     }
