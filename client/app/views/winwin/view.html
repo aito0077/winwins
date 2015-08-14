@@ -76,7 +76,7 @@
                 </h4>
             </div>
             <div class="col-xs-12 no-padding text-center mb-20">
-                <div ng-show="!winwin.already_joined" class="col-xs-7 si-me-sumo btn" >
+                <div ng-show="!winwin.already_joined" class="col-xs-7 si-me-sumo btn"  ng-click="join()">
                     si! me sumo!
                 </div>
                 <div ng-show="winwin.already_joined" class="col-xs-7 si-me-sumo" >
@@ -107,11 +107,11 @@
         </section>
 </div>
 
-<section ng-show='wpPreview.name.down' id="winwin-subviews" class="winwin-body col-xs-12">
 <!-- menu scroll -->
-    <div id="menu-winwin" class="container col-xs-12 no-padding">
+<section ng-show='wpPreview.name.down' id="winwin-subviews" class="winwin-body col-xs-12">
+    <div id="menu-winwin" class="col-xs-12 no-padding">
         <a href="#">
-            <div class="col-xs-20">
+            <div class="col-xs-20 active">
                 <span ng-click="go_members()"><i class="fa fa-users"></i></span>
             </div>
         </a>
@@ -123,11 +123,10 @@
         <a href="#">
             <div class="col-xs-20">
                 <span ng-click="go_sponsors()"><i class="fa fa-star"></i></span>
-                <i class="fa fa-star"></i>
             </div>
         </a>
         <a href="#">
-            <div class="col-xs-20 active">
+            <div class="col-xs-20 ">
                 <span ng-click="go_muro()"><i class="fa fa-comment"></i></span>
             </div>
         </a>

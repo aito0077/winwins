@@ -207,9 +207,23 @@ angular.module('winwinsApp')
             $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
                 //ToDo: Te uniste
                 $scope.getWinwin();
+                swal({
+                    title: "info", 
+                    text: 'winwin_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+
             })
             .error(function(error) {
-                //ToDo: Error al unirse
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
             });
         };
 
@@ -221,9 +235,23 @@ angular.module('winwinsApp')
             $http.get('/api/winwins/left/'+$scope.winwin.id).success(function(data) {
                 //ToDo: dejaste el ww
                 $scope.getWinwin();
+                swal({
+                    title: "info", 
+                    text: 'winwin_left', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+
             })
             .error(function(error) {
-                //ToDo: error al dejar
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
             });
         };
 
