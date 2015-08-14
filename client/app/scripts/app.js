@@ -60,9 +60,10 @@ angular.module('winwinsApp', [
         controller: 'winwin-edit'
     })
     .state('winwin-first-post', {
-        url: '/winwin-first-post',
+        url: '/winwin-first-post/:winwinId',
         templateUrl: 'views/winwin/first_post.html',
         controller: 'winwin-first-post'
+        
     })
     .state('winwin-list', {
         url: '/winwin-list',

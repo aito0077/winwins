@@ -5,8 +5,16 @@ angular.module('winwinsApp')
             method: 'POST'
         }
     });
-}])
-.factory('User',['$resource', 'api_host', function($resource, api_host){
+}]).factory('Account', ['$http', function($http) {
+    return {
+        getProfile: function() {
+            return $http.get('/api/me');
+        },
+        updateProfile: function(profileData) {
+            return $http.put('/api/me', profileData);
+        }
+    };
+}]).factory('User',['$resource', 'api_host', function($resource, api_host){
     return $resource(api_host+'/api/users/:id', { id:'@id' }, {
         update: {
             method: 'POST'

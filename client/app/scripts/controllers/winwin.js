@@ -34,7 +34,7 @@ angular.module('winwinsApp')
     $scope.doSave = function() {
         $scope.winwin.$save(function(data) {
             $state.go('winwin-first-post', {
-                winwin_id: $scope.winwin.id
+                winwinId: $scope.winwin.id
             }); 
         });
     };
@@ -82,11 +82,69 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', 'Winwin', function($scope, $stateParams, Winwin) {
+.controller('winwin-first-post', ['$scope', '$stateParams', 'Winwin', 'Account', function($scope, $stateParams, Winwin, Account) {
     console.dir($stateParams); 
-    Winwin.get({id: $stateParams.winwin_id}, function(winwin) {
-      $scope.winwin = winwin;
+    $scope.profile = {};
+    $scope.winwin = {};
+    $scope.cover_style = '';
+
+    Account.getProfile().success(function(data) {
+        if(data) {
+            $scope.profile = data.profile;
+        }
     });
+
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+        $scope.cover_style = "{'background-image': url(http://images.dev-winwins.net/"+winwin.image+");'background-size': 'cover';}"; 
+    });
+
+    $scope.setVideoUrl = function() {
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "text",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+            $scope.video = inputValue;
+        });
+    };
+
+    $scope.files = [];
+
+    $scope.$watch('files', function () {
+        $scope.upload($scope.files);
+    });
+
+    $scope.upload = function (files) {
+         if (files && files.length) {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                Upload.upload({
+                    url: '/api/comments/upload',
+                    fields: {},
+                    file: file
+                }).progress(function (evt) {
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                }).success(function (data, status, headers, config) {
+                    $scope.winwin.image = data.filename;
+                });
+            }
+        }
+    };
+
+    $scope.submitPost = function() {
+        $scope.comment.$save(function(data) {
+            $state.go('winwin-view', {
+                winwinId: $scope.winwin.id
+            }); 
+        });
+    };
+
+
+
 
 }])
 .controller('winwin-list', ['$scope', 'WinwinPaginate', function($scope, WinwinPaginate) {
@@ -117,13 +175,31 @@ angular.module('winwinsApp')
 .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Winwin) {
 
         $scope.main_view = true;
+        $scope.winwin = {};
         $scope.getWinwin = function() {
             $scope.winwin = Winwin.get({
                 id: $stateParams.winwinId
             }, function(data) {
-
+                $scope.calculate_time();
             });
         }
+
+        $scope.duration_days = 0;
+        $scope.duration_hours = 0;
+        $scope.duration_minutes = 0;
+
+        $scope.calculate_time = function() {
+            var now = moment(),
+                closing_date = moment($scope.winwin.closing_date);
+            $scope.duration_days = closing_date.diff(now, 'days');
+            console.log($scope.duration_days);
+            $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
+            console.log($scope.duration_hours);
+            var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
+            $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
+
+            console.log($scope.duration_minutes);
+        };
 
         $scope.getWinwin();
 

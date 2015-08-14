@@ -3,12 +3,12 @@
         <iframe width="100%" height="280" src="https://www.youtube.com/embed/HlAxAciOeP8" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 no-padding title-home back-winwin border-bottom">
-        comenzar ahora!
+        <a ng-href="/winwin-new" style="text-dedcoration: none!important;">comenzar ahora!</a>
     </div>
 
     <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
         <div class="col-xs-4 img-misc no-padding">
-            <img src="images/img-refe.jpg" />
+            <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
             <div class="somos">
                 <span class="title-somos">Somos</span>
                 <span class="num-somos">{{::winwin.users_already_joined}}</span>
