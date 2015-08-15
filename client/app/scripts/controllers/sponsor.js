@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('sponsor-list', ['$scope', 'SponsorPaginate', function($scope, SponsorPaginate) {
+.controller('sponsor-list', ['$scope', '$state', 'SponsorPaginate', function($scope, $state, SponsorPaginate) {
    
     $scope.sponsors = new SponsorPaginate();
 
-    /*
-    $scope.sponsors = [];
-
-    var sponsors = Sponsor.query(function(data) {
-        $scope.sponsors = data;
-    });
-    */
+    $scope.view = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    }
  
 }])
 .controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor) {

@@ -3,30 +3,31 @@
         <div class="col-xs-12 no-padding portada mb-20" style="background-color:red">
             <div class="col-xs-12">
                 <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
-                    <img src="images/grupos/logos/coca-cola-main.jpg" class="img-responsive img-circle logo-sponsors-landscape" />
-                    <h4 class="text-white">Coca Cola Co.</h4>
+                    <img src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle logo-sponsors-landscape" />
+                    <h4 class="text-white">{{::sponsor.name}}</h4>
                 </div>
             </div>
             <div class="col-xs-12 text-center">
                 <div class="col-xs-4 col-sm-4">
                     <span class="title-somos title-main-sponsor">Seguidores</span>
-                    <span class="num-somos sponsor back-winwin num-somos-seguidore-main">20</span>
+                    <span class="num-somos sponsor back-winwin num-somos-seguidore-main">{{::sponsor.followers_count}}</span>
                 </div>
                 <div class="col-xs-4 col-sm-4">
-                    <button type="button" class="btn btn-sponsor sponsor main">
+                    <button type="button" ng-show="sponsor.already_following" ng-click="unfollow()" class="btn btn-sponsor sponsor main">
+                        UNFOLLOW
+                    </button>
+                    <button type="button" ng-show="!sponsor.already_following" ng-click="follow()" class="btn btn-sponsor sponsor main">
                         FOLLOW
                     </button>
                 </div>
                 <div class="col-xs-4 col-sm-4 no-padding ">
                     <span class="title-somos title-main-sponsor wwpatrocinados">WW Patrocinados</span>
-                    <span class="num-somos sponsor back-winwin num-somos-sponsor-main">20</span>
+                    <span class="num-somos sponsor back-winwin num-somos-sponsor-main">{{::sponsor.winwins_count}}</span>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 font-light mb-20">
-            Queremos ser parte del cambio junto a WinWins.<br>
-            Estamos en todos lados, queremos estar con vos. <br><br>
-            Contános tu causa!
+            {{::sponsor.about}}
         </div>
         <div class="col-xs-12 no-padding subcat">
             <div class="col-xs-11 valign">
@@ -37,8 +38,11 @@
             </div>
         </div>
         <div class="col-xs-12 mb-20">
-            <img src="images/profile.png" class="img-responsive img-circle profile">
-             <img src="images/profile.png" class="img-responsive img-circle profile">
+            <div ng-repeat="follower in sponsor.users">
+                <a ng-href="/user-view/{{::follower.id}}">
+                    <img title="{{::follower.username}}" alt="{{::follower.username}}" ng-src="http://images.dev-winwins.net/40x40/{{::follower.detail.photo}}" class="img-responsive img-circle profile">
+                </a>
+            </div>
         </div>
         <div class="col-xs-12 no-padding subcat">
             <div class="col-xs-11 valign">
@@ -49,10 +53,13 @@
             </div>
         </div>
         <div class="col-xs-12 no-padding">
-            <img src="images/img-refe.jpg" class="img-responsive float-left">
-             <img src="images/img-refe.jpg" class="img-responsive">
+            <div ng-repeat="winwin in sponsor.winwins">
+                <a ng-href="/winwin-view/{{::winwin.id}}">
+                    <img alt="{{::winwin.title}}" ng-src="http://images.dev-winwins.net/40x40/{{::winwin.image}}" class="img-responsive float-left">
+                </a>
+            </div>
         </div>
-        <div class="col-xs-12 no-padding subcat">
+        <!--div class="col-xs-12 no-padding subcat">
             <div class="col-xs-11 valign">
                 WinWins Sponsoreados Finalizados
             </div>
@@ -61,7 +68,9 @@
             </div>
         </div>
         <div class="col-xs-12 no-padding">
-            <img src="images/refe2.jpg" class="img-responsive float-left">
-        </div>
+            <div ng-repeat="winwin in sponsor.closed_winwins">
+                <img ng-src="http://images.dev-winwins.net/40x40/{{winwin.image}}" class="img-responsive float-left">
+            </div>
+        </div-->
     <div>
  

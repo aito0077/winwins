@@ -4,6 +4,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model {
 
+    public function user() {
+        return $this->belongsTo('Winwins\User');
+    }
+
     public function winwins() {
         return $this->belongsToMany('Winwins\Model\Winwin', 'sponsors_winwins');
     }

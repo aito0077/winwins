@@ -27,10 +27,13 @@ class SponsorController extends Controller {
         $sponsors = DB::table('sponsors')->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($sponsors);
         $collection->each(function($sponsor) {
-            $users_count = DB::table('users')
-                ->join('sponsors_users', 'users.id', '=', 'sponsors_users.user_id')
-                ->where('sponsors_users.sponsor_id', '=', $sponsor->id)->count();
-            $sponsor->users_already_following = $users_count;
+            $winwins_count = DB::table('winwins')
+                ->leftJoin('sponsors_winwins', 'winwins.id', '=', 'sponsors_winwins.winwin_id')
+                ->where('sponsors_winwins.sponsor_id', '=', $sponsor->id)
+                ->where('sponsors_winwins.ww_accept', '=', 1)
+                ->where('sponsors_winwins.sponsor_accept', '=', 1)
+                ->count();
+            $sponsor->winwins_count = $winwins_count;
         });
         return $collection;
     }
@@ -87,8 +90,8 @@ class SponsorController extends Controller {
         }
 
 
-        $sponsor->followers = count($sponsor->users);
-        $sponsor->winwins;
+        $sponsor->followers_count  = count($sponsor->users);
+        $sponsor->winwins_count  = count($sponsor->winwins);
 
         $sponsor->already_following = false;
 
