@@ -12,4 +12,7 @@ class Sponsor extends Model {
         return $this->belongsToMany('Winwins\Model\Group', 'sponsors_groups');
     }
 
+    public function users() {
+        return $this->belongsToMany('Winwins\User', 'sponsors_users');
+    }
 }

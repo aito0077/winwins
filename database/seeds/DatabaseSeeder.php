@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Languages seeded!');
 
 		$this->call('MaritalStatusTableSeeder');
-        $this->command->info('Maital seeded!');
+        $this->command->info('Marital seeded!');
 
 		$this->call('UsersTableSeeder');
         $this->command->info('Users seeded!');
@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('WinwinsUsersTableSeeder');
         $this->command->info('Winwins Users seeded!');
+
+		$this->call('SponsorsTableSeeder');
+        $this->command->info('Sponsors seeded!');
 
 	}
 

@@ -2,14 +2,14 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class GroupsUser extends Model {
+class SponsorsUser extends Model {
 
     public function user() {
         return $this->hasOne('Winwins\User');
     }
 
     public function sponsor() {
-        return $this->hasOne('Winwins\Model\Group');
+        return $this->hasOne('Winwins\Model\Sponsor');
     }
 
 }

@@ -32,6 +32,12 @@ Route::get('api/groups/{id}/add_winwin/{winwin_id}', ['middleware' => 'auth', 'u
 Route::get('api/groups/{id}/remove_winwin/{winwin_id}', ['middleware' => 'auth', 'uses' => 'GroupController@removeWinwin']);
 Route::resource('api/groups', 'GroupController');
 
+Route::get('api/sponsors/paginate/{page}/{amount}', ['uses' => 'SponsorController@paginate']);
+Route::get('api/sponsors/search', ['uses' => 'SponsorController@search']);
+Route::get('api/sponsors/follow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@follow']);
+Route::get('api/sponsors/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@unfollow']);
+Route::resource('api/sponsors', 'SponsorController');
+
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 Route::get('api/users/search', ['uses' => 'UserController@search']);

@@ -153,6 +153,16 @@ angular.module('winwinsApp', [
         url: '/group-list',
         templateUrl: 'views/group/list.html',
         controller: 'group-list'
+    })
+    .state('sponsor-view', {
+        url: '/sponsor-view/:sponsorId',
+        templateUrl: 'views/sponsor/view.html',
+        controller: 'sponsor-view'
+    })
+    .state('sponsor-list',{
+        url: '/sponsor-list',
+        templateUrl: 'views/sponsor/list.html',
+        controller: 'sponsor-list'
     });
 
 })

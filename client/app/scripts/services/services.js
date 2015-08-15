@@ -5,7 +5,15 @@ angular.module('winwinsApp')
             method: 'POST'
         }
     });
-}]).factory('Account', ['$http', function($http) {
+}])
+.factory('Sponsor',['$resource', 'api_host', function($resource, api_host){
+    return $resource(api_host+'/api/sponsors/:id', { id:'@id' }, {
+        update: {
+            method: 'POST'
+        }
+    });
+}])
+.factory('Account', ['$http', function($http) {
     return {
         getProfile: function() {
             return $http.get('/api/me');
@@ -131,5 +139,32 @@ angular.module('winwinsApp')
     
     return GroupPaginate; 
 
-}]);    
+}])    
+.factory('SponsorPaginate',['$http', 'api_host', function($http, api_host){
+    var SponsorPaginate = function() {
+        this.items = [];
+        this.busy = false;
+        this.current_page = 0;
+    };
 
+    SponsorPaginate.prototype.nextPage = function() {
+        console.log('next page');
+        if (this.busy) {
+            return;
+        }
+        this.busy = true;
+
+        var self = this;
+        $http.get(api_host+'/api/sponsors/paginate/'+(this.current_page || '0')+'/15')
+        .success(function(data) {
+            self.current_page = self.current_page + 1;
+            for (var i = 0; i < data.length; i++) {
+                self.items.push(data[i]);
+            }
+            self.busy = false;
+        });
+    };
+    
+    return SponsorPaginate; 
+
+}]);
