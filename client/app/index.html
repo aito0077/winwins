@@ -64,7 +64,7 @@
             <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
                 <ul class="nav navbar-nav text-center menu-style">
                     <li ng-if="isAuthenticated()">
-                        <a href="#">Ir a mi cuenta</a>
+                        <a href="/account">Ir a mi cuenta</a>
                     </li>
                     <li ng-if="!isAuthenticated()">
                         <a ng-href="/signup">Creá una cuenta en WinWins</a>
@@ -76,7 +76,7 @@
                         <a ng-href="/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
                     </li>
                     <li>
-                        <a href="#">Encontrá grupos y unite!</a>
+                        <a href="/group-list">Encontrá grupos y unite!</a>
                     </li>
                     <li>
                         <a href="#">Historias con final feliz :)</a>
@@ -163,6 +163,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/signUp.js"></script>
         <script src="scripts/controllers/winwin.js"></script>
+        <script src="scripts/controllers/group.js"></script>
         <script src="scripts/controllers/winwinMenu.js"></script>
         <script src="scripts/controllers/createWW.js"></script>
         <script src="scripts/controllers/activateWW.js"></script>

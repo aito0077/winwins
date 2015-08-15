@@ -67,5 +67,49 @@ class PostController extends Controller {
 		//
 	}
 
+    public function storeImage(Request $request, Media $media) {
+
+        $user = User::find($request['user']['sub']);
+        Log::info($user);
+
+        if(!$request->hasFile('file')) { 
+            return Response::json(['error' => 'No File Sent']);
+        }
+
+        if(!$request->file('file')->isValid()) {
+            return Response::json(['error' => 'File is not valid']);
+        }
+
+        $file = $request->file('file');
+
+        $v = Validator::make(
+            $request->all(),
+            ['file' => 'required|mimes:jpeg,jpg,png|max:8000']
+        );
+
+        if($v->fails()) {
+            return Response::json(['error' => $v->errors()]);
+        }
+
+        Log::info($request->file('file'));
+
+        $image = $media::create([
+            'name' => $request->file('file')->getClientOriginalName(),
+            'ext' => $request->file('file')->guessExtension(),
+            'user_id' => $user->id,
+            'type' => 'IMAGE'
+        ]);
+        
+        $filename = $image->id . '.' . $image->ext;
+
+        Log::info('Uploading to S3 file '.$filename);
+        Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
+
+        return Response::json(['OK' => 1, 'filename' => $filename]);
+    }
+
+
+
+
 }
 

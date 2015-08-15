@@ -24,6 +24,7 @@ Route::get('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinContr
 Route::resource('api/winwins', 'WinwinController');
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
 
+Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);
 Route::get('api/groups/search', ['uses' => 'GroupController@search']);
 Route::get('api/groups/join/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@join']);
 Route::get('api/groups/left/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@left']);

@@ -5,6 +5,7 @@ use Auth;
 use Log;
 use DB;
 use Config;
+use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\User;
@@ -22,9 +23,29 @@ class GroupController extends Controller {
         $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
+    public function paginate(Request $request, $page = 0, $amount = 15) {
+        $groups = DB::table('groups')->where('private', '=', 0)->skip($page * $amount)->take($amount)->get();
+        $collection = Collection::make($groups);
+        $collection->each(function($group) {
+            $users_count = DB::table('users')
+                ->join('groups_users', 'users.id', '=', 'groups_users.user_id')
+                ->where('groups_users.group_id', '=', $group->id)->count();
+            $group->users_already_joined = $users_count;
+        });
+        return $collection;
+    }
+
+
+
 	public function index() {
         $groups = Group::all();
-        return $groups;
+        $collection = Collection::make($groups);
+        $collection->each(function($group) {
+            $users_count = count($group->users);
+            $group->users_already_joined = $users_count;
+        });
+        return $collection;
+
 	}
 
 	public function store(Request $request) {
@@ -35,10 +56,10 @@ class GroupController extends Controller {
 
             $group->name = $request->input('name');
             $group->description = $request->input('description');
-            $group->photo = $request->input('photo');
-            $group->private = $request->input('private') || false;
-            $group->control_ww = $request->input('control_ww') || false;
-            $group->confirm_ww = $request->input('confirm_ww') || false;
+            $group->photo = $request->input('photo')?: 'group-default.gif';
+            $group->private = $request->input('private') ? 1 : 0;
+            $group->control_ww = $request->input('control_ww') ? 1 : 0;
+            $group->confirm_ww = $request->input('confirm_ww') ? 1 : 0;
 
             $group->user_id = $user->id;
             $group->save();
@@ -51,6 +72,7 @@ class GroupController extends Controller {
 
         });
 
+        Log::info('grupo creado');
         return $group;
 	}
 

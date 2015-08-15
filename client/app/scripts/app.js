@@ -48,7 +48,11 @@ angular.module('winwinsApp', [
         template: null,
         controller: 'LogoutCtrl'
     })
-
+    .state('account',{
+        url: '/account',
+        templateUrl: 'views/user/account.html',
+        controller: 'MainCtrl'
+    })
     .state('winwin',{
         url: '/winwin',
         templateUrl: 'views/winwin.html',
@@ -134,8 +138,22 @@ angular.module('winwinsApp', [
         url: '/comments',
         templateUrl: 'views/comments.html',
         controller: 'WinwinCtrl'
+    })
+    .state('group-view', {
+        url: '/group-view/:groupId',
+        templateUrl: 'views/group/view.html',
+        controller: 'group-view'
+    })
+    .state('group-new',{
+        url: '/group-new',
+        templateUrl: 'views/group/edit.html',
+        controller: 'group-edit'
+    })
+    .state('group-list',{
+        url: '/group-list',
+        templateUrl: 'views/group/list.html',
+        controller: 'group-list'
     });
-
 
 })
 .config(function ($authProvider, api_host) {

@@ -117,6 +117,16 @@ class WinwinController extends Controller {
             $winwinsUsers->moderator = true;
             $winwinsUsers->save();
 
+            if($request->input('video')) {
+                $media::create([
+                    'name' => $request->input('video'),
+                    'path' => $request->input('video'),
+                    'bucket' => 'youtube',
+                    'user_id' => $user->id,
+                    'type' => 'vIDEO'
+                ]);
+            }
+           
         });
 
         return $winwin;
@@ -239,6 +249,7 @@ class WinwinController extends Controller {
             'name' => $request->file('file')->getClientOriginalName(),
             'ext' => $request->file('file')->guessExtension(),
             'user_id' => $user->id,
+            'bucket' => 'S3',
             'type' => 'IMAGE'
         ]);
         
@@ -247,61 +258,7 @@ class WinwinController extends Controller {
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
 
-        //Use this line to move the file to local storage & make any thumbnails you might want
-        //$request->file('file')->move('/full/path/to/uploads', $filename);
-
-        //If making thumbnails uncomment these to remove the local copy.
-	/*
-        if(Storage::disk('s3')->exists('/' . $filename))
-        Storage::disk()->delete('/' . $filename);
-	*/
-
         return Response::json(['OK' => 1, 'filename' => $filename]);
-    }
-
-
-    public function flowUpload(Request $request) {
-
-        $user = User::find($request['user']['sub']);
-
-        $config = new \Flow\Config();
-        if(!Storage::disk('local')->exists('chunks')) {
-            Storage::makeDirectory('chunks');
-        }
-
-        $config->setTempDir(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'/chunks');
-
-        $file = new \Flow\File($config);
-
-
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if ($file->checkChunk()) {
-                header("HTTP/1.1 200 Ok");
-            } else {
-                header("HTTP/1.1 204 No Content");
-                return ;
-            }
-        } else {
-            if ($file->validateChunk()) {
-                $file->saveChunk();
-            } else {
-                header("HTTP/1.1 400 Bad Request");
-                return ;
-            }
-        }
-        $filename = $request->input('flowFilename');
-        if ($file->validateFile() && $file->save('./'.$filename)) {
-            // File upload was completed
-            Storage::disk('s3-gallery')->put('/' . $filename, Storage::get('chunks/'.$filename), 'public');
-            Media::create([
-                'name' => $filename,
-                'ext' => '',
-                'user_id' => $user->id,
-                'type' => 'IMAGE'
-            ]);
- 
-        }
-
     }
 
 
@@ -309,7 +266,6 @@ class WinwinController extends Controller {
         $files = Storage::disk('s3-gallery')->allFiles('/gallery/');
         return $files;
     }
-
 
 
     //Search
