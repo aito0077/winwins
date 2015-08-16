@@ -32,6 +32,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users');
     }
 
+    public function following() {
+        return $this->belongsToMany('Winwins\Model\Follower', 'followers');
+    }
+
+    public function followers() {
+        return $this->hasMany('Winwins\Model\Follower', 'followers');
+    }
+
     public function notifications() {
         return $this->hasMany('Notification');
     }

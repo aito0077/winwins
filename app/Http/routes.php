@@ -40,7 +40,10 @@ Route::resource('api/sponsors', 'SponsorController');
 
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
+Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@paginate']);
 Route::get('api/users/search', ['uses' => 'UserController@search']);
+Route::get('api/users/follow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@follow']);
+Route::get('api/users/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@unfollow']);
 Route::resource('api/users', 'UserController');
 
 Route::resource('api/parametric/interests', 'InterestController');

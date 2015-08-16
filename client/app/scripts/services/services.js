@@ -92,7 +92,6 @@ angular.module('winwinsApp')
     };
 
     WinwinPaginate.prototype.nextPage = function() {
-        console.log('next page');
         if (this.busy) {
             return;
         }
@@ -120,7 +119,6 @@ angular.module('winwinsApp')
     };
 
     GroupPaginate.prototype.nextPage = function() {
-        console.log('next page');
         if (this.busy) {
             return;
         }
@@ -140,6 +138,33 @@ angular.module('winwinsApp')
     return GroupPaginate; 
 
 }])    
+.factory('UserPaginate',['$http', 'api_host', function($http, api_host){
+    var UserPaginate = function() {
+        this.items = [];
+        this.busy = false;
+        this.current_page = 0;
+    };
+
+    UserPaginate.prototype.nextPage = function() {
+        if (this.busy) {
+            return;
+        }
+        this.busy = true;
+
+        var self = this;
+        $http.get(api_host+'/api/users/paginate/'+(this.current_page || '0')+'/15')
+        .success(function(data) {
+            self.current_page = self.current_page + 1;
+            for (var i = 0; i < data.length; i++) {
+                self.items.push(data[i]);
+            }
+            self.busy = false;
+        });
+    };
+    
+    return UserPaginate; 
+
+}])
 .factory('SponsorPaginate',['$http', 'api_host', function($http, api_host){
     var SponsorPaginate = function() {
         this.items = [];
@@ -148,7 +173,6 @@ angular.module('winwinsApp')
     };
 
     SponsorPaginate.prototype.nextPage = function() {
-        console.log('next page');
         if (this.busy) {
             return;
         }

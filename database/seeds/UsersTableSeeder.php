@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mariana.berruezo@gmail.com'; 
         $user->password = '36f2e31cf9edbf4da4c6aea420894d94'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -21,7 +22,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'Entusiasta exploradora de los para quÃ©s de la Web'; 
-        $detail->photo = 'user_168.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'user_168_coverphoto.jpg'; 
         $detail->save();
         $user = new User();
@@ -29,6 +30,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'xavadu@gmail.com'; 
         $user->password = '42486a985b03a51f7dfa6f696fb5c8cb'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -37,7 +39,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-01-16'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_172.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -45,6 +47,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'rey.nico@gmail.com'; 
         $user->password = 'fd3c6b796a5844172f55efdb6163fb29'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -53,7 +56,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-22'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_174.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -61,6 +64,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'stedesco@paginar.net'; 
         $user->password = 'c289942cd01f95dcdfa2fc287113eff2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -69,7 +73,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_175.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -77,6 +81,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sporta@paginar.net'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -85,7 +90,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_179.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -93,6 +98,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marojenieva@hotmail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -101,7 +107,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_182.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -109,6 +115,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'raygiubilo@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -117,7 +124,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_185.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -125,6 +132,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'berru33@gmail.com'; 
         $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -133,7 +141,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-02-20'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_186.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -141,6 +149,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'arnaldo.tuc.ar@gmail.com'; 
         $user->password = '822c61e2d8dd1df84af2199b8d0bbf04'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -149,7 +158,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1984-10-17'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_187.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -157,6 +166,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'rgil@paginar.net'; 
         $user->password = '06812722ebce706e40075705cf71a997'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -173,6 +183,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lfontan@paginar.net'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -181,7 +192,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1976-12-21'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_189.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -189,6 +200,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'gilgiulianobackup@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -205,6 +217,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marojenieva@yahoo.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -213,7 +226,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_192.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -221,6 +234,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marioanibalmarquez@gmail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -229,7 +243,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_261.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -237,6 +251,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mjnieva@paginar.net'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -245,7 +260,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_233.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -253,6 +268,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javiromerofoto@gmail.com'; 
         $user->password = 'b945aa0893faa7c00e33da98d4c35629'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -261,7 +277,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-10-23'; 
         $detail->sex = 'M'; 
         $detail->about = 'Soy diseÃ±ador grÃ¡fico, especializado en diseÃ±o web y tambiÃ©n fotÃ³grafo de moda.'; 
-        $detail->photo = 'user_195.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'user_195_coverphoto.jpg'; 
         $detail->save();
         $user = new User();
@@ -269,6 +285,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marojenieva@gmail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -285,6 +302,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mjnpaginar@yahoo.com.ar'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -293,7 +311,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_198.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -301,6 +319,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'dariozaj@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -309,7 +328,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_200.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -317,6 +336,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'oqtuvre@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -325,7 +345,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_201.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -333,6 +353,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javirangel56@gmail.com'; 
         $user->password = 'ec297842d8eab5ba2e283814f582857b'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -341,7 +362,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_202.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -349,6 +370,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javierangel56@me.com'; 
         $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -357,7 +379,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_203.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -365,6 +387,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marojenieva@gmail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -373,7 +396,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_204.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -381,6 +404,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lilianafontan@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -389,7 +413,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_205.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -397,6 +421,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javierangel@fibertel.com.ar'; 
         $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -405,7 +430,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_206.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -413,6 +438,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lfontan@paginar.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -421,7 +447,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1994-12-21'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_207.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -429,6 +455,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'fetraverso@yahoo.com.ar'; 
         $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -437,7 +464,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-11-09'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_208.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -445,6 +472,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'berru33@gmail.com'; 
         $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -453,7 +481,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_209.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -461,6 +489,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanmayol@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -469,7 +498,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_210.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -477,6 +506,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sricciardi@fibertel.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -485,7 +515,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_211.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -493,6 +523,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'test@mail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -501,7 +532,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '2000-04-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_212.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -509,6 +540,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'test2@mail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -517,7 +549,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1998-05-22'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_213.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -525,6 +557,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sostele@outlook.com'; 
         $user->password = '18996b4e3e882a61b88e7b1f4205bd91'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -533,7 +566,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-07-08'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_215.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -541,6 +574,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'haze.cardoso@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -549,7 +583,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-07-08'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_218.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -557,6 +591,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'ovidionason@gmail.com'; 
         $user->password = '320173abf2ff553cf9e0ec3d06a56be2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -565,7 +600,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1966-11-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_219.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -573,6 +608,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'ovidionason1976@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -581,7 +617,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_220.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -589,6 +625,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'aldobonzi1976@gmail.com'; 
         $user->password = '6f7382516af91c66bf8cdd9f58ed4e43'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -597,7 +634,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_221.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -605,6 +642,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'aldobonzi1976@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -613,7 +651,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_222.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -621,6 +659,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'alainrouge1976@gmail.com'; 
         $user->password = '8700e60bd20af1d61e93c463d46ad987'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -629,7 +668,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1986-09-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_223.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -637,6 +676,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'alainrouge1976@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -645,7 +685,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_224.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -653,6 +693,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'revistamatinee@gmail.com'; 
         $user->password = '060ed7ad35ed9c44c3fcbe3669c5e091'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -661,7 +702,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_225.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -669,6 +710,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'revistamatinee@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -677,7 +719,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_226.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -685,6 +727,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'jesusguiraud@yahoo.com.ar'; 
         $user->password = 'a902e547fd00761e1a261a53382440f1'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -693,7 +736,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_227.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -701,6 +744,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'karaokedos@hotmail.com'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -709,7 +753,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-10-15'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_229.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -717,6 +761,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanperez@hotmail.com'; 
         $user->password = '2e0d4417e261fdfc98e18976b0e7c30a'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -725,7 +770,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_234.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -733,6 +778,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lvommaro@paginar.com'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -741,7 +787,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-12-20'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_235.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -749,6 +795,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lvommaro@paginar.net'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -757,7 +804,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-12-20'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_236.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -765,6 +812,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'karaokedos@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -773,7 +821,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_239.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -781,6 +829,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'acostajuan2013@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -797,6 +846,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lvommaro@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -805,7 +855,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_242.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -813,6 +863,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'agastiazoro@paginar.com'; 
         $user->password = 'c37a5aeb20e451821854d20e76450b4b'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -821,7 +872,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-04-17'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_243.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -829,6 +880,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'matiasche@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -837,7 +889,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1984-02-19'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_245.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -845,6 +897,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'nabebis@yahoo.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -853,7 +906,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-07-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_283.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -861,6 +914,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'demians@digbang.com'; 
         $user->password = '5e0bb17463116d851353c13963fdcebe'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -869,7 +923,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-08-03'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_247.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -877,6 +931,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'ebox@jarawi.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -885,7 +940,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-03-20'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_248.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -893,6 +948,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sivocarina@hotmail.com'; 
         $user->password = '6a623bdb7acd899d02439bf340d95815'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -901,7 +957,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '2013-07-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_249.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -909,6 +965,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sivocarina@yahoo.com'; 
         $user->password = 'f70241431c1148ded7f71c84753de9e6'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -917,7 +974,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1968-07-22'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_251.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -925,6 +982,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'jnassif@paginar.com'; 
         $user->password = '7bc2e834118e354b6a6819dba8853c50'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -933,7 +991,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-03-21'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_252.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -941,6 +999,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mcarena@paginar.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -949,7 +1008,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1968-04-12'; 
         $detail->sex = 'M'; 
         $detail->about = 'EstudiÃ³ DiseÃ±o Industrial en la Universidad de Buenos Aires (UBA). EntendiÃ³ la importancia de Internet desde sus comienzos y en 1994 fundÃ³ Paginar junto a SebastiÃ¡n Tedesco. Desde entonces no ha parado. Confiesa que disfruta de la familia, los amigos, la buena cocina y el golf.'; 
-        $detail->photo = 'user_253.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'user_253_coverphoto.jpg'; 
         $detail->save();
         $user = new User();
@@ -957,6 +1016,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'test@paginar.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -965,7 +1025,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_255.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -973,6 +1033,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mjnieva@paginar.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -981,7 +1042,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '2000-01-19'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_256.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -989,6 +1050,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'afernandez@paginar.com_1'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -997,7 +1059,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1988-08-11'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_257.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1005,6 +1067,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mh@illuminatilab.com'; 
         $user->password = '550e04eacf97274979b28114fb818c08'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1013,7 +1076,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-10-07'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_258.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1021,6 +1084,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'berru33@gmail.com'; 
         $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1029,7 +1093,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-10-07'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_259.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1037,6 +1101,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanaperezmilenaria2013@yahoo.com.ar'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1045,7 +1110,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_262.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1053,6 +1118,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'pedro.gomez2013@yahoo.com.ar'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1061,7 +1127,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_263.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1069,6 +1135,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'JuanaPe20169106@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1077,7 +1144,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_265.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1085,6 +1152,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'fhamada@paginar.net'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1093,7 +1161,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_274.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1101,6 +1169,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanperezmilenario@yahoo.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'yahoo!'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1117,6 +1186,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanperezmilenario@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1125,7 +1195,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_268.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1133,6 +1203,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanperezmillonario@yahoo.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1141,7 +1212,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1971-09-18'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_269.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1149,6 +1220,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'pedro.gomez2013@yahoo.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1157,7 +1229,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1995-11-19'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_270.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1165,6 +1237,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'arnaldoprog@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1173,7 +1246,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1979-10-17'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_271.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1181,6 +1254,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'JohnPerez201320@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1189,7 +1263,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1979-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_272.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1197,6 +1271,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mariagomezmillonaria@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1205,7 +1280,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1999-09-18'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_273.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1213,6 +1288,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sivocarina@gmail.com'; 
         $user->password = 'f70241431c1148ded7f71c84753de9e6'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1221,7 +1297,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1999-01-07'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_277.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1229,6 +1305,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mariojuarezmenor@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1237,7 +1314,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1999-09-18'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_279.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1245,6 +1322,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'sandrastun@gmail.com'; 
         $user->password = '25af73966d487146fde66405495beda8'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1253,7 +1331,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_280.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1261,6 +1339,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'cesaralexisdiaz@gmail.com'; 
         $user->password = 'ce8b503198ee4b1f9aed8fd1d30359a5'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1269,7 +1348,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_281.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1277,6 +1356,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'JLuzbelito@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1285,7 +1365,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_282.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1293,6 +1373,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'bowieagency@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1301,7 +1382,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_284.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1309,6 +1390,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'Jorgemantovani@hotmail.com'; 
         $user->password = 'ccf14c3f2a3bb2e847546b87ccc53a78'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1317,7 +1399,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1958-12-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_285.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1325,6 +1407,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'kbzndiaz69@yahoo.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1333,7 +1416,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-01-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_286.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1341,6 +1424,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'raygiubilo@gmail.com'; 
         $user->password = '660ce59ea0c6d08e1914f40eaaf2c93c'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1349,7 +1433,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_287.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1357,6 +1441,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'Virtginia@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1365,7 +1450,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_289.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1373,6 +1458,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'fabianahamada@gmail.com'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1381,7 +1467,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_290.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1389,6 +1475,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'nocualquiera@gmail.com'; 
         $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1397,7 +1484,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-06-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_291.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1405,6 +1492,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'virginiapizzaferri@gmail.com'; 
         $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1413,7 +1501,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-06-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_292.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1421,6 +1509,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'a@a.com'; 
         $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1429,7 +1518,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_293.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1437,6 +1526,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'b@a.com'; 
         $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1445,7 +1535,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_294.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1453,6 +1543,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'c@b.com'; 
         $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1461,7 +1552,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_295.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1469,6 +1560,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'a@b.com'; 
         $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1477,7 +1569,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_296.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1485,6 +1577,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mspentito@yahoo.com.ar'; 
         $user->password = '081555d77ed1f8ca02d866e40cebbc70'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1493,7 +1586,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1978-10-15'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_297.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1501,6 +1594,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'vip@ideadeliveryla.com'; 
         $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1509,7 +1603,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-02-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_298.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1517,6 +1611,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'marianadumas@fibertel.com.ar'; 
         $user->password = '19e0214bd56716066e621748149d027c'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1525,7 +1620,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1963-10-17'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_299.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1533,6 +1628,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'arnaldex@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1541,7 +1637,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1963-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_302.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1549,6 +1645,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'vgaibisso@yahoo.com.ar'; 
         $user->password = '60107e6a39a06c573d0cb0f5d975d6f7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1557,7 +1654,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1954-09-09'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_303.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1565,6 +1662,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mnvercellino@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1573,7 +1671,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1910-09-11'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_304.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1581,6 +1679,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'a@a.com.ar'; 
         $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1589,7 +1688,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_305.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1597,6 +1696,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'cristobalalfonzo@outlook.com'; 
         $user->password = '9f74da02dc8dd1ae9ea7bc9724715a48'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1605,7 +1705,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1996-11-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_306.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1613,6 +1713,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javiernassif@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1621,7 +1722,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1977-03-21'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_308.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1629,6 +1730,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mcarena@paginar.net'; 
         $user->password = '9e986c4ab90ee0f951bd6bd4ce63dd12'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1637,7 +1739,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1968-12-04'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_309.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1645,6 +1747,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'rozashome@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1653,7 +1756,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1944-02-14'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_310.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1661,6 +1764,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'edunick@gmail.com'; 
         $user->password = 'bac23575d826310b8c4dc501bbf28c7a'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1669,7 +1773,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1979-03-26'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_312.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1677,6 +1781,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'edunick@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1685,7 +1790,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1979-03-26'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_313.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1693,6 +1798,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'cperez2603@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1701,7 +1807,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1982-11-01'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_314.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1709,6 +1815,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'eruete@iae.edu.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1717,7 +1824,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_315.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1725,6 +1832,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'arnaldo.tuc.ar@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1733,7 +1841,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_316.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1741,6 +1849,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'arnaldoprog@hotmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'yahoo!'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1757,6 +1866,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'juanperezmillonario@yahoo.com.ar'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1765,7 +1875,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_318.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1773,6 +1883,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'berru33@gmail.com'; 
         $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1781,7 +1892,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_319.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1789,6 +1900,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'mcarena@paginar.net'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1797,7 +1909,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_320.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1805,6 +1917,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'aito0077@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1813,7 +1926,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_321.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1821,6 +1934,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javierangel56@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1829,7 +1943,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_323.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1837,6 +1951,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'daniel.riosmoreno@hotmail.com'; 
         $user->password = '4b3768a55eef9eab907b2b1028438b45'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1845,7 +1960,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1986-11-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_324.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1853,6 +1968,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'javierangel56@mac.com'; 
         $user->password = 'ec297842d8eab5ba2e283814f582857b'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1861,7 +1977,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_325.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1869,6 +1985,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'aito77@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1885,6 +2002,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'prueba@gmail.com'; 
         $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1893,7 +2011,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1976-10-15'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_329.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1901,6 +2019,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'gabybreg'; 
         $user->password = '6acdbee23196e4acff4a0df631034a89'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1917,6 +2036,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'myberru'; 
         $user->password = '36f2e31cf9edbf4da4c6aea420894d94'; 
         $user->facebook = 'winwins'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1933,6 +2053,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'martin@martincaputto.com'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1941,7 +2062,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_334.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1949,6 +2070,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'smoreno@paginar.net'; 
         $user->password = 'null'; 
         $user->facebook = 'facebook'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1957,7 +2079,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_335.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1965,6 +2087,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'lmhenriquezm@gmail.com'; 
         $user->password = 'null'; 
         $user->facebook = 'google'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;
@@ -1973,7 +2096,7 @@ class UsersTableSeeder extends Seeder {
         $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
-        $detail->photo = 'user_336.jpg'; 
+        $detail->photo = 'placeholder-square.jpg'; 
         $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
@@ -1981,6 +2104,7 @@ class UsersTableSeeder extends Seeder {
         $user->username = 'interactivista@twitter.com'; 
         $user->password = 'null'; 
         $user->facebook = 'twitter'; 
+        $user->active = 1;
         $user->save();
         $detail = new UserDetail();
         $detail->user_id = $user->id;

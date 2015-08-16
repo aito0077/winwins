@@ -2,12 +2,37 @@
 
 use Illuminate\Http\Request;
 use Config;
+use Log;
+use DB;
 use JWT;
+use Illuminate\Support\Collection;
 use Winwins\User;
+use Winwins\Model\Follower;
 use Winwins\Model\UserDetail;
 use Winwins\Model\Repository\UserRepository;
 
 class UserController extends Controller {
+
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
+    }
+
+    public function paginate(Request $request, $page = 0, $amount = 15) {
+        $users = DB::table('user_details')
+                                    ->join('users', 'user_details.user_id', '=', 'users.id')
+                                    ->where('users.active', '=', 1)
+                                    ->where('users.suspend', '=', 0)
+                                    ->skip($page * $amount)
+                                    ->take($amount)->get();
+        $collection = Collection::make($users);
+        $collection->each(function($user) {
+            $winwins_count = DB::table('winwins')
+                ->join('winwins_users', 'winwins.id', '=', 'winwins_users.user_id')
+                ->where('winwins_users.user_id', '=', $user->id)->count();
+            $user->winwins_count = $winwins_count;
+        });
+        return $collection;
+    }
 
 	public function index() {
         $users = UserDetail::all();
@@ -78,6 +103,45 @@ class UserController extends Controller {
         $notifications = $user->notifications()->unread()->get();
         return $notifications;
 	}
+
+	public function follow(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $followed = User::find($id);
+
+        if($user->id == $followed->id) {
+            return response()->json(['message' => 'Can not follow yourself'], 400);
+        } else {
+            $already_following = count($followed->followers->filter(function($model) use ($user) {
+                return $model->id == $user->id;
+            })) > 0;
+
+            if($already_following) {
+                return response()->json(['message' => 'You are already following'], 400);
+            } else {
+                DB::transaction(function() use ($followed, $user) {
+                    $followedsUsers = new Follower;
+                    $followedsUsers->follower_id = $user->id;
+                    $followedsUsers->followed_id = $followed->id;
+                    $followedsUsers->save();
+                });
+            }
+        }
+	}
+
+	public function unfollow(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $followed = User::find($id);
+        $already_following = count($followed->followers->filter(function($model) use ($user) {
+            return $model->id == $user->id;
+        })) > 0;
+
+        if(!$already_following) {
+            return response()->json(['message' => 'You have to follow in order to unfollow'], 400);
+        } else {
+            DB::table('followers')->where('follower_id', $user->id )->where('followed_id', $followed->id)->delete();
+        }
+	}
+
 
 
 }

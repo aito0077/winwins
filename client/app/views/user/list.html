@@ -1,36 +1,36 @@
     <div class="container no-padding">
         <div class="dropdown col-xs-12 no-padding">
             <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-               Sponsors Destacados
+               Últimos usuarios
                 <span class="caret pull-right caret-middle"></span>
             </button>
             <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Sponsors Populares</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
             </ul>
         </div>
 
+    <div infinite-scroll='users.nextPage()'>
+        <div class="col-xs-12 no-padding" ng-repeat="user in users.items">
 
-    <div infinite-scroll='sponsors.nextPage()'>
-        <div class="col-xs-12 no-padding" ng-repeat="sponsor in sponsors.items">
-
-            <div class="col-xs-4 no-padding" ng-click="view(sponsor.id)">
-                <img ng-src="http://images.dev-winwins.net/120x106/{{::sponsor.photo}}" />
+            <div class="col-xs-4 no-padding">
+                <img ng-src="http://images.dev-winwins.net/120x106/{{::user.photo}}" />
                 <div class="somos-grupo">
-                    <span class="title-somos sponsor">WW Patrocinados</span>
-                    <span class="num-somos sponsor">{{::sponsor.winwins_count}}</span>
+                    <span class="title-somos sponsor fix-title-sponsors">Winwins Sumados</span>
+                    <span class="num-somos sponsor fix-num-sponsors">{{::user.winwin_count}}</span>
                 </div>
             </div>
-            <div class="col-xs-6 no-padding-left" ng-click="view(sponsor.id)">
+            <div class="col-xs-6 no-padding-left">
                 <h5 class="title-destacados sponsor">
-                    {{::sponsor.name}}
+                    {{::user.name}} {{::user.lastname}}
                 </h5>
-                <p class="text-destacados">
-                    {{::sponsor.about}}
+                <p class="text-destacados lista">
+                    {{::user.about}}
                 </p>
             </div>
             <div class="col-xs-2 no-padding">
                 <div class="col-xs-12 no-padding">
-                    <div class="col-xs-4 no-padding btn-somos">
+                    <div class="col-xs-4 no-padding btn-somos hidden-xs">
                     </div>
                     <div class="col-xs-4 no-padding btn-somos">
                         <button type="button" class="twitter no-padding">
@@ -43,18 +43,18 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-xs-12 no-padding me-sumo text-right">
-                    <button type="button" class="btn btn-unirme sponsor">solicitar<br>sponsoreo</button>
+                <div class="col-xs-12 no-padding blank-space">
                 </div>
                 <div class="col-xs-12 no-padding me-interesa">
-                    <button type="button" class="btn btn-sponsor sponsor">
+                    <button type="button" class="btn btn-sponsor sponsor" ng-click="follow(user.id)">
                         FOLLOW
                     </button>
                 </div>
             </div>
         </div>
-
     </div>
     <div class="container container-search">
         <search-bar/>
     </div>
+
+
