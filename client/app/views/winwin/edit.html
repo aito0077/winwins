@@ -71,11 +71,12 @@
                     <i class="fa fa-youtube-play" ng-click="setVideoUrl()"></i>
                 </div>
                 <div ngf-select ng-model="files" ngf-multiple="true" class="col-xs-4 border-grey" ngf-accept="'image/*'">
-                        <div ng-show="!winwin.image">
+                        <div >
                             <i class="fa fa-arrow-circle-o-up"></i><br>
-                            <i class="fa fa-camera"></i>
+                            <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
                         </div>
-                        <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/232x154/smart/{{winwin.image}}" >
+                        <img ng-show="uploading" src="/images/loader.gif" height="75" />
+                        <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/smart/{{winwin.image}}" height="75px">
                 </div>
 
                 <div class="col-xs-4 border-grey">

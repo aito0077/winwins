@@ -5,11 +5,9 @@ angular.module('winwinsApp')
 .controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', function($scope, $auth, $http, $state, Winwin) {
     $scope.winwins = [];
 
-    if($auth.isAuthenticated()) {
-        Winwin.query(function(data) {
-            $scope.winwins = data;
-        });
-    }
+    Winwin.query(function(data) {
+        $scope.winwins = data;
+    });
 
     $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
@@ -42,5 +40,10 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.view = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
 
 }]);

@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
-        <div class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding">
+        <div ng-click="view(winwin.id)" class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding"  style="cursor: pointer">
             <img ng-src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
             <div class="somos">
                 <span class="title-somos">Somos</span>
@@ -17,12 +17,12 @@
                 <span class="num-faltan">{{::winwin.users_left}}</span>
             </div>
         </div>
-        <div class="col-xs-6 no-padding-left">
+        <div ng-click="view(winwin.id)" class="col-xs-6 no-padding-left" style="cursor: pointer">
             <h5 class="title-destacados">
                 {{::winwin.title}}
             </h5>
             <p class="text-destacados">
-                <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do | characters: 140}}
+                <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do | characters: 140}}... <b>te sumarías?</b>
             </p>
         </div>
         <div class="col-xs-2 no-padding">
