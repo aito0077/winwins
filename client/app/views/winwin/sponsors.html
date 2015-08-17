@@ -1,4 +1,3 @@
-    <div class="container no-padding">
         <div class="dropdown col-xs-12 no-padding">
             <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
                Sponsors Destacados
@@ -10,22 +9,21 @@
         </div>
 
 
-        <!-- Sponsor view -->
-        <div class="col-xs-12 no-padding">
-            <div class="col-xs-4 no-padding">
-                <img src="../images/img-refe.jpg" class="img-circle" />
+        <div class="col-xs-12 no-padding" ng-repeat="sponsor in winwin.sponsors">
+
+            <div class="col-xs-4 no-padding" ng-click="view(sponsor.id)">
+                <img ng-src="http://images.dev-winwins.net/120x106/{{::sponsor.photo}}" />
                 <div class="somos-grupo">
                     <span class="title-somos sponsor">WW Patrocinados</span>
-                    <span class="num-somos sponsor">20</span>
+                    <span class="num-somos sponsor">{{::sponsor.winwins_count}}</span>
                 </div>
             </div>
-            <div class="col-xs-6 no-padding-left">
+            <div class="col-xs-6 no-padding-left" ng-click="view(sponsor.id)">
                 <h5 class="title-destacados sponsor">
-                    Coca-cola co.
+                    {{::sponsor.name}}
                 </h5>
                 <p class="text-destacados">
-                    Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de<br>
-                     <img src="../images/grupos/logos/coca-cola.jpg" style="bottom: 0" />
+                    {{::sponsor.about}}
                 </p>
             </div>
             <div class="col-xs-2 no-padding">
@@ -44,20 +42,13 @@
                     </div>
                 </div>
                 <div class="col-xs-12 no-padding me-sumo text-right">
-                    <button type="button" class="btn btn-unirme sponsor">ver</button>
+                    <button type="button" class="btn btn-unirme sponsor">solicitar<br>sponsoreo</button>
                 </div>
                 <div class="col-xs-12 no-padding me-interesa">
                     <button type="button" class="btn btn-sponsor sponsor">
-                        SEGUIR
+                        FOLLOW
                     </button>
                 </div>
             </div>
         </div>
-        
-
-
-        <div class="container container-search" style="">
-            <i class="search fa fa-search search-fa"></i>
-        </div>
-
 

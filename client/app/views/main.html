@@ -3,12 +3,12 @@
         <iframe width="100%" height="280" src="https://www.youtube.com/embed/HlAxAciOeP8" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="col-xs-12 no-padding title-home back-winwin border-bottom">
-        <a ng-href="/winwin-new" style="text-dedcoration: none!important;">comenzar ahora!</a>
+        <span ng-click="newWinwin()" style="text-decoration: none!important">comenzar ahora!</span>
     </div>
 
     <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
         <div class="col-xs-4 img-misc no-padding">
-            <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
+            <img ng-src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
             <div class="somos">
                 <span class="title-somos">Somos</span>
                 <span class="num-somos">{{::winwin.users_already_joined}}</span>
@@ -23,7 +23,7 @@
                 {{::winwin.title}}
             </h5>
             <p class="text-destacados">
-                <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do}}
+                <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do | characters: 140}}
             </p>
         </div>
         <div class="col-xs-2 no-padding">

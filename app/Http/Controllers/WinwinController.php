@@ -71,10 +71,19 @@ class WinwinController extends Controller {
             }
         }
 
-        $winwin->user;
-        $users_count = count($winwin->users);
+        $user = $winwin->user;
+        $user->detail;
+        $users = $winwin->users;
+        $sponsors = $winwin->sponsors;
+        $users_count = count($users);
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
+
+        /*
+        foreach ($users as &$member) {
+            $member->detail;
+        }
+        */
 
         $winwin->already_joined = false;
         if($user) {

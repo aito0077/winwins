@@ -24,6 +24,8 @@ angular.module('winwinsApp', [
     'zumba.angular-waypoints',
     'oitozero.ngSweetAlert',
     'pascalprecht.translate',
+    '720kb.background',
+    'truncate',
     'tmh.dynamicLocale'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -93,6 +95,11 @@ angular.module('winwinsApp', [
         url: '/winwin-view/:winwinId',
         templateUrl: 'views/winwin/participantes.html',
         controller: 'winwin-members'
+    })
+    .state('winwin-view.sponsors', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/sponsors.html',
+        controller: 'winwin-sponsors'
     })
     .state('createWW',{
         url: '/createww',

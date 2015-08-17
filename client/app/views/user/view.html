@@ -1,33 +1,33 @@
     <div class="container no-padding">
 
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
             <div class="col-xs-12">
                 <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
-                    <img src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle logo-sponsors-landscape" />
-                    <h4 class="text-white">{{::sponsor.name}}</h4>
+                    <img src="http://images.dev-winwins.net/smart/{{::user_detail.photo}}" class="img-responsive img-circle logo-user_details-landscape" />
+                    <h4 class="text-white">{{::user_detail.name}}</h4>
                 </div>
             </div>
             <div class="col-xs-12 text-center">
                 <div class="col-xs-4 col-sm-4">
-                    <span class="title-somos title-main-sponsor">Seguidores</span>
-                    <span class="num-somos sponsor back-winwin num-somos-seguidore-main">{{::sponsor.followers_count}}</span>
+                    <span class="title-somos title-main-user_detail">Seguidores</span>
+                    <span class="num-somos user_detail back-winwin num-somos-seguidore-main">{{::user_detail.followers_count}}</span>
                 </div>
                 <div class="col-xs-4 col-sm-4">
-                    <button type="button" ng-show="sponsor.already_following" ng-click="unfollow()" class="btn btn-sponsor sponsor main">
+                    <button type="button" ng-show="user_detail.already_following" ng-click="unfollow()" class="btn btn-user_detail user_detail main">
                         UNFOLLOW
                     </button>
-                    <button type="button" ng-show="!sponsor.already_following" ng-click="follow()" class="btn btn-sponsor sponsor main">
+                    <button type="button" ng-show="!user_detail.already_following" ng-click="follow()" class="btn btn-user_detail user_detail main">
                         FOLLOW
                     </button>
                 </div>
                 <div class="col-xs-4 col-sm-4 no-padding ">
-                    <span class="title-somos title-main-sponsor wwpatrocinados">WW Patrocinados</span>
-                    <span class="num-somos sponsor back-winwin num-somos-sponsor-main">{{::sponsor.winwins_count}}</span>
+                    <span class="title-somos title-main-user_detail wwpatrocinados">WW Patrocinados</span>
+                    <span class="num-somos user_detail back-winwin num-somos-user_detail-main">{{::user_detail.winwins_count}}</span>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 font-light mb-20">
-            {{::sponsor.about}}
+            {{::user_detail.about}}
         </div>
         <div class="col-xs-12 no-padding subcat">
             <div class="col-xs-11 valign">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-xs-12 mb-20">
-            <div ng-repeat="follower in sponsor.users">
+            <div ng-repeat="follower in user_detail.users">
                 <a ng-href="/user-view/{{::follower.id}}">
                     <img title="{{::follower.username}}" alt="{{::follower.username}}" ng-src="http://images.dev-winwins.net/40x40/{{::follower.detail.photo}}" class="img-responsive img-circle profile">
                 </a>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="col-xs-12 no-padding">
-            <div ng-repeat="winwin in sponsor.winwins">
+            <div ng-repeat="winwin in user_detail.winwins">
                 <a ng-href="/winwin-view/{{::winwin.id}}">
                     <img alt="{{::winwin.title}}" ng-src="http://images.dev-winwins.net/40x40/{{::winwin.image}}" class="img-responsive float-left">
                 </a>
@@ -68,9 +68,10 @@
             </div>
         </div>
         <div class="col-xs-12 no-padding">
-            <div ng-repeat="winwin in sponsor.closed_winwins">
+            <div ng-repeat="winwin in user_detail.closed_winwins">
                 <img ng-src="http://images.dev-winwins.net/40x40/{{winwin.image}}" class="img-responsive float-left">
             </div>
         </div-->
     <div>
  
+

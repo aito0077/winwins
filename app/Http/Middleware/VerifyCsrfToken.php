@@ -10,7 +10,6 @@ use Symfony\Component\Security\Core\Util\StringUtils;
 class VerifyCsrfToken extends BaseVerifier {
 
 	public function handle($request, Closure $next) {
-	Log::info('Token: session'.$request->session()->token());
         //ToDo: Workaround for this 
         if (Request::is('auth/*')) {
             return $next($request);

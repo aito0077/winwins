@@ -1,8 +1,8 @@
 <div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-400px">
 	<div ng-class='{ compressed: wpPreview.name.down}' class="winwin-header cssFade">
         <section id="winwin-view" ng-show="main_view">
-            <div class="col-xs-12 no-padding header-winwins" 
-                style="{background-image: url(http://images.dev-winwins.net/'+winwin.image+'), 'background-size': 'cover'}">
+
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}" class="col-xs-12 no-padding header-winwins">
 
                 <div class="col-xs-12 no-padding title-winwins">
                     <div class="col-xs-8 text-white" style="margin-top:10px">
@@ -13,8 +13,7 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <div class="col-xs-6">
-                        
-                            <img ng-src="http://images.dev-winwins.net/40x40/smart/{{::winwin.image}}" height="40" />
+                            <img src="/images/postit.png" height="40" />
                         </div>
                     </div>
                 </div>
@@ -90,11 +89,11 @@
                 </div>
             </div>
             <div class="col-xs-12 no-padding text-center">
-                <div class="col-xs-2 no-padding" ng-repeat="user in winwin.users">
-                    <img alt="{{::user.detail.username}}" title="{{::user.detail.username}}" ng-src="http://images.dev-winwins.net/42x42/{{::user.detail.photo}}" width="42" height="42" class="img-circle">
+                <div class="col-xs-2 no-padding" ng-repeat="member in winwin.users">
+                    <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/42x42/{{::member.detail.photo}}" width="42" height="42" class="img-circle">
 
-                    <div class="col-xs-3" ng-show="winwin.user.id == user.id">
-                        {{::winwin.user.username}} CREADOR
+                    <div class="col-xs-3" ng-show="winwin.user.id == member.id">
+                        {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}} CREADOR
                     </div>
                 </div>
             </div>
@@ -105,39 +104,27 @@
                 </div>
             </div>
         </section>
-</div>
-
-<!-- menu scroll -->
-<section ng-show='wpPreview.name.down' id="winwin-subviews" class="winwin-body col-xs-12">
-    <div id="menu-winwin" class="col-xs-12 no-padding">
-        <a href="#">
-            <div class="col-xs-20 active">
-                <span ng-click="go_members()"><i class="fa fa-users"></i></span>
-            </div>
-        </a>
-        <a href="#">
-            <div class="col-xs-20">
-                <span ng-click="go_muro()"><i class="fa fa-comments"></i></span>
-            </div>
-        </a>
-        <a href="#">
-            <div class="col-xs-20">
-                <span ng-click="go_sponsors()"><i class="fa fa-star"></i></span>
-            </div>
-        </a>
-        <a href="#">
-            <div class="col-xs-20 ">
-                <span ng-click="go_muro()"><i class="fa fa-comment"></i></span>
-            </div>
-        </a>
-        <a href="#">
-            <div class="col-xs-20">
-                <i class="fa fa-bars"></i>
-            </div>
-        </a>
     </div>
-    
-    <div ui-view autoscroll="true" class="winwin-scroll-view" ></div>
 
-</section>
+    <!-- menu scroll -->
+    <section ng-show='wpPreview.name.down' id="winwin-subviews" class="winwin-body col-xs-12">
+        
+        <div id="menu-winwin" class="col-xs-12 no-padding">
+                <div class="col-xs-20 {{current_subview == 'members' ? 'active' : ''}} ">
+                    <span class="btn" ng-click="goMembers()"><i class="fa fa-users"></i></span>
+                </div>
+                <div class="col-xs-20 {{current_subview == 'sponsors' ? 'active' : ''}} ">
+                    <span class="btn" ng-click="goSponsors()"><i class="fa fa-star"></i></span>
+                </div>
+                <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
+                    <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
+                </div>
+                <div class="col-xs-20">
+                    <i class="fa fa-bars"></i>
+                </div>
+        </div>
+        
+        <div ui-view autoscroll="true" class="winwin-scroll-view"></div>
+
+    </section>
 </div>

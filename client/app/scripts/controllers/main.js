@@ -15,4 +15,9 @@ angular.module('winwinsApp')
         return $auth.isAuthenticated();
     };
 
+    $scope.newWinwin = function() {
+        $state.go('winwin-new'); 
+    };
+
+
 }]);

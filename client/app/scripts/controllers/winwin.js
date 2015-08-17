@@ -86,7 +86,6 @@ angular.module('winwinsApp')
     console.dir($stateParams); 
     $scope.profile = {};
     $scope.winwin = {};
-    $scope.cover_style = '';
 
     Account.getProfile().success(function(data) {
         if(data) {
@@ -96,7 +95,6 @@ angular.module('winwinsApp')
 
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
         $scope.winwin = winwin;
-        $scope.cover_style = "{'background-image': url(http://images.dev-winwins.net/"+winwin.image+");'background-size': 'cover';}"; 
     });
 
     $scope.setVideoUrl = function() {
@@ -275,23 +273,45 @@ angular.module('winwinsApp')
 
         $scope.setup_components();
 
-        $scope.go_muro = function() {
-            $state.go('winwin-view.muro'); 
-            $location.hash('winwin-subviews');
-            $anchorScroll();
+        $scope.current_subview = 'muro';
+
+        $scope.goMuro = function() {
+            $state.go('winwin-view.muro', {
+                winwinId: $scope.winwin.id
+            }); 
+            $scope.current_subview = 'muro';
         };
 
-        $scope.go_members= function() {
-            $state.go('winwin-view.members'); 
-            $location.hash('winwin-subviews');
-            $anchorScroll();
+        $scope.goMembers= function() {
+            $state.go('winwin-view.members', {
+                winwinId: $scope.winwin.id
+            }); 
+            $scope.current_subview = 'members';
+        };
+
+        $scope.goSponsors = function() {
+            $state.go('winwin-view.sponsors', {
+                winwinId: $scope.winwin.id
+            }); 
+            $scope.current_subview = 'sponsors';
         };
 
 }])
-.controller('winwin-members', ['$scope','$http', function($scope, $http) {
-    console.log('members');     
+.controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+
 }])
-.controller('winwin-muro', ['$scope','$http', function($scope, $http) {
-    console.log('muro');     
+.controller('winwin-sponsors', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+}])
+.controller('winwin-muro', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+
 }]);
 
