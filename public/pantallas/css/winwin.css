@@ -78,9 +78,17 @@ footer {
     color: #FFF;
 }
 .msj-bienvenida {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:#FFF;
+    margin-top: -13px;
+}
+.me-sumo {
+    font-size: 4px
+}
+.img-misc {
+    padding-right: 10px;
+
 }
 /*
 .txt-welcome {
@@ -279,7 +287,7 @@ h4 {
     float:left;
     border: 0!important;
     padding: 3px!important;
-    width: 25px;
+    width: 100%;
     height: 30px;
 }
 .btn-somos button.twitter {
@@ -295,20 +303,20 @@ h4 {
     font-size: 6pt!important;
     color: #FFF;
     background-color: #1960c8;
-    border-radius: 2px;
     padding: 7px;
-    margin: 3px 0;
+    margin: 5px 0;
+    width: 100%
 }
 .btn-sumo {
-    font-size: 10pt!important;
     color: #FFF;
     background-color: #56bb53;
-    border-radius: 2px;
     padding: 7px;
     text-transform: uppercase;
-    width: 63px;
     line-height: 9pt;
-    border-bottom: 1px solid #1f7700
+    border-bottom: 1px solid #1f7700;
+    width: 100%;
+    overflow: hidden;
+    font-size: 8px!important;
 }
 .somos {
     width: 45%;
@@ -337,6 +345,7 @@ h4 {
     font-size: 8px;
     color: #FFF;
     padding: 2px;
+    text-align: center
 }
 .num-somos {
     position: relative;
@@ -346,6 +355,7 @@ h4 {
     font-size: 10px;
     color: #FFF;
     padding: 2px;
+
 }
 .num-somos.grupo {
     position: relative;
@@ -355,6 +365,9 @@ h4 {
     font-size: 10px;
     color: #FFF;
     padding: 2px;
+    width:auto;
+    display: block;
+    text-align: center
 }
 .title-faltan {
     position: relative;
@@ -413,16 +426,17 @@ h4 {
     padding-bottom: 5px;
 }
 .btn-unirme {
-    font-size: 7pt!important;
     color: #FFF;
     background-color: #ff7e02;
     border-radius: 2px;
     padding: 7px;
     text-transform: uppercase;
-    width: 63px;
     text-align: center;
     line-height: 9pt;
-    border-bottom: 1px solid #bb5700
+    border-bottom: 1px solid #bb5700;
+    width: 100%;
+    overflow: hidden;
+    font-size: 8px!important;
 }
 .img-circle {
     max-width: 100px;
@@ -481,7 +495,7 @@ a.no-link {
     background-color: grey;
 }
 .main {
-    margin-top: 80px
+    margin-top: 40px
 }
 .text-white {
     color: #FFF!important;
@@ -617,9 +631,12 @@ a.no-link {
 .ctrl-compartir-novedades {
     width: 80%;
 }
-
-
-
+.search-bar .search-bar-button {
+    left: 250%!important
+}
+.btn.btn-sponsor.sponsor.main {
+    font-size: 10px!important
+}
 
 
 

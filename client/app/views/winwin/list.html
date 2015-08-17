@@ -26,13 +26,11 @@
 
     <div infinite-scroll='winwins.nextPage()'>
         <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins.items">
-            <div class="col-xs-4  {{winwin.selected ? 'img-misc' : ''}} no-padding">
+            <div class="col-xs-4  {{winwin.selected ? 'img-misc' : ''}} no-padding text-center">
                 <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
                 <div class="somos">
                     <span class="title-somos">Somos</span>
-                    <span class="num-somos">{{::winwin.users_already_joined}}</span>
-                </div>
-                <div class="somos">
+                    <span class="num-somos">{{::winwin.users_already_joined}}</span><br/>
                     <span class="title-faltan">Faltan</span>
                     <span class="num-faltan">{{::winwin.users_left}}</span>
                 </div>
@@ -47,24 +45,14 @@
             </div>
             <div class="col-xs-2 no-padding">
                 <div class="col-xs-12 no-padding">
-                    <div class="col-xs-4 no-padding btn-somos">
+                    <div class="col-xs-12 no-padding btn-somos">
                         <button type="button" class=" no-padding">
-                            <i class="fa fa-envelope-o fa-6"></i>
-                        </button>
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="twitter no-padding">
-                            <i class="fa fa-twitter fa-6"></i>
-                        </button>
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="facebook no-padding">
-                            <i class="fa fa-facebook fa-6"></i>
+                            <i class="fa fa-share-alt"></i>
                         </button>
                     </div>
                 </div>
                 <div class="col-xs-12 no-padding me-interesa">
-                    <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Me Interesa</a>
+                    <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Like</a>
                 </div>
                 <div class="col-xs-12 no-padding me-sumo text-right">
                     <button type="button" class="btn btn-sumo">Me <br> Sumo</button>
