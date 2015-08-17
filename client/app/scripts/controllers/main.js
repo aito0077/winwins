@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', 'Winwin', function($scope, $auth, Winwin) {
+.controller('MainCtrl', ['$scope','$auth', '$http', 'Winwin', function($scope, $auth, $http, Winwin) {
     $scope.winwins = [];
 
     if($auth.isAuthenticated()) {
@@ -17,6 +17,29 @@ angular.module('winwinsApp')
 
     $scope.newWinwin = function() {
         $state.go('winwin-new'); 
+    };
+
+    $scope.join = function(winwin_id) {
+        $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
+            $scope.getWinwin();
+            swal({
+                title: "info", 
+                text: 'winwin_join', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
     };
 
 

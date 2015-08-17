@@ -59,6 +59,7 @@ module.exports = function(config) {
       'bower_components/angular-ui-select/dist/select.js',
       'bower_components/ng-tags-input/ng-tags-input.min.js',
       'bower_components/angular-background/dist/angular-background.min.js',
+      'bower_components/angularjs-socialshare/dist/angular-socialshare.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

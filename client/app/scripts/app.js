@@ -25,6 +25,7 @@ angular.module('winwinsApp', [
     'oitozero.ngSweetAlert',
     'pascalprecht.translate',
     '720kb.background',
+    '720kb.socialshare',
     'truncate',
     'tmh.dynamicLocale'
 ])

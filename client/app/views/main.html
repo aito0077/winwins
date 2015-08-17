@@ -34,12 +34,20 @@
                     </button>
                 </div>
                 <div class="col-xs-4 no-padding btn-somos">
-                    <button type="button" class="twitter no-padding">
+                    <button type="button" class="twitter no-padding" socialshare
+                        socialshare-provider="twitter"
+                        socialshare-text="Sumate!"
+                        socialshare-url="http://dev-winwins.net/winwin/{{::winwin.id}}"
+                        socialshare-media="http://images.dev-winwins.net/120x106/{{::winwin.image}}">
                         <i class="fa fa-twitter fa-6"></i>
                     </button>
                 </div>
                 <div class="col-xs-4 no-padding btn-somos">
-                    <button type="button" class="facebook no-padding">
+                    <button type="button" class="facebook no-padding" socialshare
+                        socialshare-provider="facebook"
+                        socialshare-text="Sumate!"
+                        socialshare-url="http://dev-winwins.net/winwin/{{::winwin.id}}"
+                        socialshare-media="http://images.dev-winwins.net/120x106/{{::winwin.image}}">
                         <i class="fa fa-facebook fa-6"></i>
                     </button>
                 </div>
@@ -48,7 +56,7 @@
                 <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Me Interesa</button>
             </div>
             <div class="col-xs-12 no-padding me-sumo text-right">
-                <button type="button" class="btn btn-sumo">Me <br> Sumo</button>
+                <button type="button" class="btn btn-sumo" ng-click="join(winwin.id)">Me <br> Sumo</button>
             </div>
         </div>
     </div>
