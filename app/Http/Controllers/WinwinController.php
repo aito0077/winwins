@@ -79,11 +79,9 @@ class WinwinController extends Controller {
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
 
-        /*
-        foreach ($users as &$member) {
-            $member->detail;
-        }
-        */
+        $winwin->posts = DB::table('posts')
+            ->where('type', '=', 'WINWIN')
+            ->where('reference_id', '=', $winwin->id)->get();
 
         $winwin->already_joined = false;
         if($user) {
@@ -219,6 +217,27 @@ class WinwinController extends Controller {
             }
         }
 	}
+
+	public function activate(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $winwin = Winwin::find($id);
+        $winwin->user();
+        if($user->id == $winwin->user->id) {
+            $post_count = DB::table('posts')
+                ->where('type', '=', 'WINWIN')
+                ->where('reference_id', '=', $winwin->id)->count();
+            if($post_count > 0) {
+                $winwin->published = 1;
+                return response()->json(['message' => 'winwin_activated'], 200);
+            } else {
+                return response()->json(['message' => 'at_least_one_post_to_activate'], 400);
+            }
+        } else {
+            return response()->json(['message' => 'you_are_not_the_admin'], 400);
+        }
+	}
+
+
 
 	public function create() {
 		//

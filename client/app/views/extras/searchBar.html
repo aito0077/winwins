@@ -3,7 +3,7 @@
 	<div id="search-body" ng-if="searchActive" class="animate-if">
 		<div class="input-group">
 			<input type="text" class="form-control" placeholder="" ng-model="term" aria-describedby="search-lbl">
-			<span class="input-group-addon" id="search-lbl">Buscar</span>
+			<span class="input-group-addon" id="search-lbl" ng-click="search()" >Buscar</span>
 		</div>
 		<div class="search-filters">
 			<div class="checkbox-grp">

@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', 'Winwin', function($scope, $auth, $http, Winwin) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', function($scope, $auth, $http, $state, Winwin) {
     $scope.winwins = [];
 
     if($auth.isAuthenticated()) {
@@ -15,8 +15,8 @@ angular.module('winwinsApp')
         return $auth.isAuthenticated();
     };
 
-    $scope.newWinwin = function() {
-        $state.go('winwin-new'); 
+    $scope.goControlPanel = function() {
+        $state.go('account'); 
     };
 
     $scope.join = function(winwin_id) {

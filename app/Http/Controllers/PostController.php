@@ -30,17 +30,35 @@ class PostController extends Controller {
 	}
 
 	public function store(Request $request) {
+        Log::info($request['user']);
         $user = User::find($request['user']['sub']);
+        Log::info($user);
 
         $post = new Post;
         DB::transaction(function() use ($request, $post, $user) {
-
+            $post->reference_id = $request->input('reference_id');
+            $post->type = $request->input('type');
+            $post->user_id = $user->id;
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
             $post->save();
                  
+            if($request->input('video')) {
+                $video = $media::create([
+                    'name' => $request->input('video'),
+                    'path' => $request->input('video'),
+                    'bucket' => 'youtube',
+                    'user_id' => $user->id,
+                    'type' => 'VIDEO'
+                ]);
+                $post->media_id = $video->id;
+            }
+           
         });
 
         return $post;
 	}
+
 
 	public function update($id) {
         $post = Post::find($id);
@@ -105,7 +123,7 @@ class PostController extends Controller {
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
 
-        return Response::json(['OK' => 1, 'filename' => $filename]);
+        return Response::json(['OK' => 1, 'filename' => $filename, 'media_id' => $image->id]);
     }
 
 

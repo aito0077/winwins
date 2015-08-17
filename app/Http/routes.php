@@ -17,12 +17,16 @@ Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
 Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
 Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
+Route::get('api/winwins/activate/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@activate']);
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@storeImage']);
 Route::get('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@flowUpload']);
 Route::resource('api/winwins', 'WinwinController');
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
+
+Route::resource('api/posts', 'PostController');
+
 
 Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);
 Route::get('api/groups/search', ['uses' => 'GroupController@search']);
@@ -50,6 +54,9 @@ Route::resource('api/parametric/interests', 'InterestController');
 Route::resource('api/parametric/marital', 'MaritalStatusController');
 Route::resource('api/parametric/languages', 'LanguageController');
 Route::resource('api/parametric/activities', 'ActivityTypeController');
+
+Route::get('api/ww/search', ['uses' => 'SearchController@search']);
+
 
 // Initialize Angular.js Winwins Route.
 Route::get('/', 'HomeController@index');

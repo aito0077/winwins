@@ -1,32 +1,5 @@
-<div class="container no-padding">
-    <div class="dropdown col-xs-12 no-padding">
-        <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-            WinWins Destacados
-            <span class="caret pull-right caret-middle"></span>
-        </button>
-        <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
-            <li><a href="#">WinWins Populares</a></li>
-            <li><a href="#">Últimos WinWins Creados</a></li>
-            <li><a href="#">WinWins que están cerca de concretarse</a></li>
-            <li><a href="#">Consumo responsable / Comercio Justo</a></li>
-            <li><a href="#">Cultura / Artes / Espectáculos</a></li>
-            <li><a href="#">Deportes / Actividad Físicas</a></li>
-            <li><a href="#">Diversidad / Convivencia</a></li>
-            <li><a href="#">Educación / Formación</a></li>
-            <li><a href="#">Empleo / Asuntos laborales</a></li>
-            <li><a href="#">Entretenimiento / Festejos / Juegos</a></li>
-            <li><a href="#">Internet / Tecnología</a></li>
-            <li><a href="#">Naturaleza / Medio Ambiente</a></li>
-            <li><a href="#">Pareja / Familia / Amigos</a></li>
-            <li><a href="#">Participación Civica / Asúntos públicos</a></li>
-            <li><a href="#">Salud / Terapias</a></li>
-            <li><a href="#">Solidaridad / Cooperación</a></li>
-        </ul>
-    </div>
-
-    <div infinite-scroll='winwins.nextPage()'>
-        <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins.items">
-            <div class="col-xs-4  {{winwin.selected ? 'img-misc' : ''}} no-padding">
+        <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins">
+            <div class="col-xs-4 img-misc no-padding">
                 <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
                 <div class="somos">
                     <span class="title-somos">Somos</span>
@@ -71,10 +44,4 @@
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
-    <div class="container container-search">
-        <search-bar/>
-    </div>
 

@@ -82,8 +82,10 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', 'Winwin', 'Account', function($scope, $stateParams, Winwin, Account) {
+.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', 'Winwin', 'Account', 'Post', function($scope, $stateParams, $http, $state, Winwin, Account, Post) {
     console.dir($stateParams); 
+
+    $scope.post = new Post({});
     $scope.profile = {};
     $scope.winwin = {};
 
@@ -95,6 +97,8 @@ angular.module('winwinsApp')
 
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
         $scope.winwin = winwin;
+        $scope.post.reference_id = winwin.id;
+        $scope.post.type = 'WINWIN';
     });
 
     $scope.setVideoUrl = function() {
@@ -121,23 +125,44 @@ angular.module('winwinsApp')
             for (var i = 0; i < files.length; i++) {
                 var file = files[i];
                 Upload.upload({
-                    url: '/api/comments/upload',
+                    url: '/api/post/upload',
                     fields: {},
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function (data, status, headers, config) {
-                    $scope.winwin.image = data.filename;
+                    $scope.post.media_id = data.media_id;
                 });
             }
         }
     };
 
     $scope.submitPost = function() {
-        $scope.comment.$save(function(data) {
-            $state.go('winwin-view', {
-                winwinId: $scope.winwin.id
-            }); 
+        console.log('submit');
+        console.dir($scope.post);
+        $scope.post.$save(function(data) {
+            $http.get('/api/winwins/activate/'+$scope.winwin.id).success(function(data) {
+                swal({
+                    title: "Info", 
+                    text: 'winwin_activated', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+                $state.go('winwin-view', {
+                    winwinId: $scope.winwin.id
+                }); 
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+        
         });
     };
 
@@ -295,6 +320,12 @@ angular.module('winwinsApp')
             }); 
             $scope.current_subview = 'sponsors';
         };
+
+        $scope.goWinwin = function() {
+            $location.hash('winwin-view');
+            $anchorScroll();
+        };
+
 
 }])
 .controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {

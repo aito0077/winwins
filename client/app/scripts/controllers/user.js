@@ -1,15 +1,20 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('user-list', ['$scope', '$state', '$http', 'UserPaginate', function($scope, $state, $http, UserPaginate) {
+.controller('user-list', ['$scope', '$state', '$http', '$auth', 'UserPaginate', function($scope, $state, $http, $auth, UserPaginate) {
    
     $scope.users = new UserPaginate();
+
+    $scope.isAuthenticated = function() {
+        return $auth.isAuthenticated();
+    };
 
     $scope.view = function(id) {
         $state.go('user-view', {
             userId: id
         }); 
     }
+
 
     $scope.follow = function(id) {
         $http.get('/api/users/follow/'+id).success(function(data) {
