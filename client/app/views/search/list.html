@@ -1,21 +1,21 @@
         <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins">
             <div class="col-xs-4 img-misc no-padding">
-                <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
+                <img src="http://images.dev-winwins.net/120x106/{{::winwin._source.image}}" />
                 <div class="somos">
                     <span class="title-somos">Somos</span>
-                    <span class="num-somos">{{::winwin.users_already_joined}}</span>
+                    <span class="num-somos">{{::winwin._source.users_already_joined}}</span>
                 </div>
                 <div class="somos">
                     <span class="title-faltan">Faltan</span>
-                    <span class="num-faltan">{{::winwin.users_left}}</span>
+                    <span class="num-faltan">{{::winwin._source.users_left}}</span>
                 </div>
             </div>
             <div class="col-xs-6 no-padding-left">
                 <h5 class="title-destacados">
-                    {{::winwin.title}}
+                    {{::winwin._source.title}}
                 </h5>
                 <p class="text-destacados">
-                    <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do}}
+                    <b>Si supieras</b> que somos {{::winwin._source.users_amount}} para {{::winwin._source.what_we_do}}
                 </p>
             </div>
             <div class="col-xs-2 no-padding">
@@ -44,4 +44,47 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-xs-12 no-padding" ng-repeat="user in users">
+
+            <div class="col-xs-4 no-padding">
+                <img ng-src="http://images.dev-winwins.net/120x106/{{::user._source.photo}}" />
+                <div class="somos-grupo">
+                    <span class="title-somos sponsor fix-title-sponsors">Winwins Sumados</span>
+                    <span class="num-somos sponsor fix-num-sponsors">{{::user._source.winwin_count}}</span>
+                </div>
+            </div>
+            <div class="col-xs-6 no-padding-left">
+                <h5 class="title-destacados sponsor">
+                    {{::user._source.name}} {{::user._source.lastname}}
+                </h5>
+                <p class="text-destacados lista">
+                    {{::user._source.about}}
+                </p>
+            </div>
+            <div class="col-xs-2 no-padding">
+                <div class="col-xs-12 no-padding">
+                    <div class="col-xs-4 no-padding btn-somos hidden-xs">
+                    </div>
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class="twitter no-padding">
+                            <i class="fa fa-twitter fa-6"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class="facebook no-padding">
+                            <i class="fa fa-facebook fa-6"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-12 no-padding blank-space">
+                </div>
+                <div class="col-xs-12 no-padding me-interesa">
+                    <button type="button" class="btn btn-sponsor sponsor" ng-click="follow(user.id)">
+                        FOLLOW
+                    </button>
+                </div>
+            </div>
+        </div>
+
 

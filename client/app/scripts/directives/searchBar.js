@@ -4,17 +4,14 @@ angular.module('winwinsApp')
 	.directive('searchBar', ['$animate', '$state', function($animate, $state){
 		return {
 			restrict: 'E',
-			replace: true,
+            replace: true,
 			scope: {
         	},
 			templateUrl: 'views/extras/searchBar.html',
-			link: function(scope, element, attrs){
+
+            link: function(scope, element, attrs, ngModelCtrl) {
+
 				scope.searchActive = false;
-                scope.search_sponsors = false;
-                scope.search_users = false;
-                scope.search_groups = false;
-                scope.search_winwins = false;
-                scope.term = '';
 
 				scope.toggleSearchBar = function(){
 			  		scope.searchActive = !scope.searchActive;
@@ -26,17 +23,16 @@ angular.module('winwinsApp')
 			  	};
 				
                 scope.search = function() {
-                    console.dir(scope);
+                    console.dir($('#query').val());
                     $state.go('search-list', {
-                        query: scope.term,
-                        winwin: scope.search_winwins,
-                        user: scope.search_users,
-                        group: scope.search_groups,
-                        sponsor: scope.search_sponsors
+                        query: $('#query').val(),
+                        winwin: scope.winwin,
+                        user: scope.user,
+                        group: scope.group,
+                        sponsor: scope.sponsor
                     }); 
                 };
 
-				return {};
 			}
 		};
 	}]);

@@ -17,10 +17,10 @@ angular.module('winwinsApp')
     })
     .success(function(data) {
         $scope.hits = data;
-        $scope.users = hits['users'] || [];
-        $scope.winwins = hits['winwins'] || [];
-        $scope.groups = hits['groups'] || [];
-        $scope.sponsors = hits['sponsors'] || [];
+        $scope.users = data['users'] || [];
+        $scope.winwins = data['winwins'] || [];
+        $scope.groups = data['groups'] || [];
+        $scope.sponsors = data['sponsors'] || [];
     })
     .error(function(error) {
         console.log(error);

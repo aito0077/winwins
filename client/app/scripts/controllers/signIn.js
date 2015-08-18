@@ -12,6 +12,7 @@ angular.module('winwinsApp')
     $scope.login = function() {
         $auth.login({ email: $scope.email, password: $scope.password })
         .then(function(data) {
+            $rootScope.currentUser = data;
             SweetAlert.swal('Genial!', 'Vamos a tu cuenta!', 'success', function() {
                 $state.go('main');
             });

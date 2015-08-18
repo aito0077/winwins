@@ -40,7 +40,7 @@
                     {{::winwin.title}}
                 </h5>
                 <p class="text-destacados">
-                    <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do}}
+                    <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do | characters: 140}}... <b>te sumarías?</b>
                 </p>
             </div>
             <div class="col-xs-2 no-padding">
@@ -62,7 +62,6 @@
     </div>
 
 </div>
-    <div class="container container-search">
-        <search-bar/>
-    </div>
+
+    <search-bar/>
 

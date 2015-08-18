@@ -1,7 +1,9 @@
 angular.module('winwinsApp')
-.controller('LogoutCtrl', function($auth) {
+.controller('LogoutCtrl', function($auth, $rootScope) {
     if (!$auth.isAuthenticated()) {
         return;
     }
-    $auth.logout();
+    $auth.logout().then(function() {
+        $rootScope.currentUser = data;
+    });
 });

@@ -53,7 +53,10 @@ angular.module('winwinsApp')
                 var file = files[i];
                 Upload.upload({
                     url: '/api/winwins/upload',
-                    fields: {},
+                    headers: {
+                        'Authorization': 'Bearer '+$auth.getToken()
+                    },
+                    withCredentials: true,
                     file: file
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
