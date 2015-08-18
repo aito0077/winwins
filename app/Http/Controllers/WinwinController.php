@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary', 'gallery']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary', 'storeImage']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
@@ -249,8 +249,10 @@ class WinwinController extends Controller {
 
     public function storeImage(Request $request, Media $media) {
 
+        /*
         $user = User::find($request['user']['sub']);
         Log::info($user);
+        */
 
         if(!$request->hasFile('file')) { 
             return Response::json(['error' => 'No File Sent']);
@@ -276,7 +278,8 @@ class WinwinController extends Controller {
         $image = $media::create([
             'name' => $request->file('file')->getClientOriginalName(),
             'ext' => $request->file('file')->guessExtension(),
-            'user_id' => $user->id,
+            //'user_id' => $user->id || 1,
+            'user_id' => 1,
             'bucket' => 'S3',
             'type' => 'IMAGE'
         ]);
