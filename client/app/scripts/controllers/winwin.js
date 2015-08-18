@@ -53,9 +53,6 @@ angular.module('winwinsApp')
                 var file = files[i];
                 Upload.upload({
                     url: '/api/winwins/upload',
-                    headers: {
-                        'Authorization': 'Bearer '+$auth.getToken()
-                    },
                     withCredentials: true,
                     file: file
                 }).progress(function (evt) {
