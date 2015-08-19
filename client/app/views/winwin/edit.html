@@ -24,8 +24,10 @@
                       <textarea  name="what_we_do" ng-model="winwin.what_we_do" class="form-control" rows="3" no-resize></textarea>
                     </div>
                 </div>
-                <div class="col-xs-12 no-padding te-sumarias">
+                <div class="col-xs-12 no-padding te-sumarias mb-20">
                     te sumarías?
+                </div>
+                <div class="col-xs-12 no-padding">
                     <textarea ng-model="winwin.description" class="form-control" rows="2" no-resize placeholder="Más detalles del WinWin"></textarea>
                 </div>
 
@@ -67,10 +69,11 @@
             </div>
             <div class="col-xs-12 icons-id text-center mb-20">
                 <div class="col-xs-4 border-grey">
-                    <i class="fa fa-arrow-circle-o-up"  ng-click="setVideoUrl()"></i><br>
-                    <i class="fa fa-youtube-play" ng-click="setVideoUrl()"></i>
+                    <i style="cursor:pointer" class="fa fa-arrow-circle-o-up"  ng-click="setVideoUrl()"></i><br>
+                    <i style="cursor:pointer" ng-show="!winwin.video" class="fa fa-youtube-play" ng-click="setVideoUrl()"></i>
+                    <img ng-show="winwin.video" src="/images/youtube.jpg" height="75" />
                 </div>
-                <div ngf-select ng-model="files" ngf-multiple="true" class="col-xs-4 border-grey" ngf-accept="'image/*'">
+                <div style="cursor:pointer" ngf-select ng-model="files" ngf-multiple="true" class="col-xs-4 border-grey" ngf-accept="'image/*'">
                         <div >
                             <i class="fa fa-arrow-circle-o-up"></i><br>
                             <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
@@ -98,7 +101,7 @@
             </div>
 
             <div class="col-xs-10 col-xs-push-1 mb-20">
-                 <tags-input ng-model="winwin.tags"></tags-input>
+                 <tags-input  class="bootstrap" ng-model="winwin.tags" placeholder="Ingresa palabras claves"></tags-input>
             </div>
 
                 <!--

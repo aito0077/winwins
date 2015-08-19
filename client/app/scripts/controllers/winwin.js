@@ -78,11 +78,17 @@ angular.module('winwinsApp')
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
             type: "input",
-            inputType: "text",
+            inputType: "url",
             showCancelButton: true,
             closeOnConfirm: true 
         }, function(inputValue) {
-            $scope.video = inputValue;
+            var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+            if(inputValue && inputValue.match(p)) {
+                console.log('Valido');
+                $scope.winwin.video = inputValue;
+            } else {
+                console.log('No Valido');
+            }
         });
     };
 
@@ -154,7 +160,7 @@ angular.module('winwinsApp')
                     showcancelbutton: false,
                     closeonconfirm: true 
                 });
-                $state.go('winwin-view', {
+                $state.go('winwin-promote', {
                     winwinId: $scope.winwin.id
                 }); 
             })
@@ -173,6 +179,27 @@ angular.module('winwinsApp')
 
 
 
+
+}])
+.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, Winwin, Account) {
+    $scope.profile = {};
+    $scope.winwin = {};
+
+    Account.getProfile().success(function(data) {
+        if(data) {
+            $scope.profile = data.profile;
+        }
+    });
+
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+
+    $scope.goView = function() {
+        $state.go('winwin-view', {
+            winwinId: $scope.winwin.id
+        }); 
+    };
 
 }])
 .controller('winwin-list', ['$scope', 'WinwinPaginate', function($scope, WinwinPaginate) {

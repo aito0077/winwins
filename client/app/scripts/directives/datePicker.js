@@ -40,9 +40,9 @@ angular.module('winwinsApp')
                 '<span ng-bind="date[options[i].name] || options[i].name"> </span>',
                 '<span class="caret"></span>',
             '</button>',
-            '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">',
-                '<li ng-repeat="(j, option) in options[i].options track by $index" ng-class="{\'selectedval\': option.selected === true, \'disabled\': option.disabled === true}">',
-                  '<a ng-click="select(options[i].name, option)" ng-bind="options[i].labels[j] || option.value"></a>',
+            '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">',
+                '<li ng-repeat="(j, option) in options[i].options track by $index">',
+                  '<span style="cursor:pointer" ng-click="select(options[i].name, option)" ng-bind="options[i].labels[j] || option.value"></span>',
                 '</li>',
             '</ul>',
         '</div>'
@@ -73,17 +73,17 @@ angular.module('winwinsApp')
         var params = {
           days: {
             name: 'days',
-            initLabel: 'Day',
+            initLabel: 'Día',
             options: []
           },
           months: {
             name: 'months',
-            initLabel: 'Month',
+            initLabel: 'Mes',
             options: [],
           },
           years: {
             name: 'years',
-            initLabel: 'Year',
+            initLabel: 'Año',
             options: []
           }
         };

@@ -72,6 +72,12 @@ angular.module('winwinsApp', [
         controller: 'winwin-first-post'
         
     })
+    .state('winwin-promote', {
+        url: '/winwin-promote/:winwinId',
+        templateUrl: 'views/winwin/promote.html',
+        controller: 'winwin-promote'
+        
+    })
     .state('winwin-list', {
         url: '/winwin-list',
         templateUrl: 'views/winwin/list.html',
