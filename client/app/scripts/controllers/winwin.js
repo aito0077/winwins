@@ -53,8 +53,10 @@ angular.module('winwinsApp')
                 var file = files[i];
                 Upload.upload({
                     url: '/api/winwins/upload',
-                    withCredentials: true,
-                    file: file
+                    method: 'POST',
+                    fields: {},
+                    file: file,
+                    fileFormDataName: 'myFile'
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     $scope.uploading = true;

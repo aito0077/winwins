@@ -26,10 +26,10 @@ angular.module('winwinsApp')
                     console.dir($('#query').val());
                     $state.go('search-list', {
                         query: $('#query').val(),
-                        winwin: scope.winwin,
-                        user: scope.user,
-                        group: scope.group,
-                        sponsor: scope.sponsor
+                        winwin: $('#search_winwin').val(),
+                        user: $('#search_user').val(),
+                        group: $('#search_group').val(),
+                        sponsor: $('#search_sponsor').val()
                     }); 
                 };
 

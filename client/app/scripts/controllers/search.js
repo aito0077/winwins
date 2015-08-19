@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('search-list', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+.controller('search-list', ['$scope', '$stateParams', '$state', '$http', function($scope, $stateParams, $state, $http) {
     console.dir($stateParams); 
     $scope.hits = [];
     $scope.winwins = [];
@@ -25,6 +25,26 @@ angular.module('winwinsApp')
     .error(function(error) {
         console.log(error);
     });
+
+    $scope.view = function(type, id) {
+        console.log('Type: '+type+' - Id: '+id);
+        switch(type) {
+            case 'winwins':
+                $state.go('winwin-view', {
+                    winwinId: id
+                }); 
+                break;
+            case 'users':
+                $state.go('user-view', {
+                    userId: id
+                }); 
+                break;
+            default:
+                $state.go('winwin-view', {
+                    winwinId: id
+                }); 
+        }
+    };
 
 
 }]);

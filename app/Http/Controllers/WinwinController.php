@@ -125,7 +125,7 @@ class WinwinController extends Controller {
             $winwinsUsers->save();
 
             if($request->input('video')) {
-                $media::create([
+                Media::create([
                     'name' => $request->input('video'),
                     'path' => $request->input('video'),
                     'bucket' => 'youtube',
@@ -273,7 +273,7 @@ class WinwinController extends Controller {
 
         Log::info($request->file('file'));
 
-        $image = $media::create([
+        $image = Media::create([
             'name' => $request->file('file')->getClientOriginalName(),
             'ext' => $request->file('file')->guessExtension(),
             'user_id' => $user->id || 1,

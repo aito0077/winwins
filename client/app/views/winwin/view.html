@@ -78,15 +78,17 @@
                 <div ng-show="!winwin.already_joined" class="col-xs-7 si-me-sumo btn"  ng-click="join()">
                     si! me sumo!
                 </div>
-                <div ng-show="winwin.already_joined" class="col-xs-7 si-me-sumo" >
-                    Estás participando
-                </div>
                 <div ng-show="!winwin.already_joined" class="col-xs-5 si-me-sumo la-proxima btn" ng-click="pass()">
                     la proxima
+                </div>
+                <!--
+                <div ng-show="winwin.already_joined" class="col-xs-7 si-me-sumo" >
+                    Estás participando
                 </div>
                 <div ng-show="winwin.already_joined" class="col-xs-5 si-me-sumo la-proxima btn" ng-click="left()">
                     Me bajo
                 </div>
+                -->
             </div>
             <div class="col-xs-12 no-padding text-center">
                 <div class="col-xs-2 no-padding" ng-repeat="member in winwin.users">
