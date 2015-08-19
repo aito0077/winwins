@@ -11,7 +11,7 @@ Route::get('auth/token', 'AuthController@getToken');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
 // API Routes.
-Route::get('api/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);
+Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);
 
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);

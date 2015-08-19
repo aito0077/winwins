@@ -5,6 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model {
 
 //
+    public function user() {
+        return $this->belongsTo('Winwins\User');
+    }
+
+    public function media() {
+        return $this->belongsTo('Winwins\Model\Media');
+    }
 
     public function scopeWinwins($query) {
         return $query->where('type', 'WINWIN');

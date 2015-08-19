@@ -311,6 +311,7 @@ angular.module('winwinsApp')
                 });
             });
         };
+        $scope.first_view = true;
 
         $scope.setup_components = function() {
         
@@ -323,6 +324,10 @@ angular.module('winwinsApp')
                 $(window).scroll(function(){                          
                     if ($(this).scrollTop() > $scope.view_height) {
                         $('#menu-winwin').fadeIn(500);
+                        if($scope.first_view) {
+                            $scope.first_view = false;
+                            $scope.goMuro();
+                        }
                     } else {
                         $('#menu-winwin').fadeOut(500);
                     }
@@ -335,27 +340,28 @@ angular.module('winwinsApp')
         $scope.current_subview = 'muro';
 
         $scope.goMuro = function() {
+            $scope.current_subview = 'muro';
             $state.go('winwin-view.muro', {
                 winwinId: $scope.winwin.id
             }); 
-            $scope.current_subview = 'muro';
         };
 
         $scope.goMembers= function() {
+            $scope.current_subview = 'members';
             $state.go('winwin-view.members', {
                 winwinId: $scope.winwin.id
             }); 
-            $scope.current_subview = 'members';
         };
 
         $scope.goSponsors = function() {
+            $scope.current_subview = 'sponsors';
             $state.go('winwin-view.sponsors', {
                 winwinId: $scope.winwin.id
             }); 
-            $scope.current_subview = 'sponsors';
         };
 
         $scope.goWinwin = function() {
+            $scope.current_subview = 'muro';
             $location.hash('winwin-view');
             $anchorScroll();
         };
@@ -375,10 +381,16 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-muro', ['$scope','$http', '$stateParams', 'Winwin', 'Account', 'Post', function($scope, $http, $stateParams, Winwin, Account, Post) {
     $scope.posts = [];
+    $scope.last = {};
+
+    $http.get('http://winwins.app/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+        $scope.posts = data.posts;
+        $scope.last = data.last;
+    });
 
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
         $scope.winwin = winwin;
-        $scope.posts = winwin.posts;
+        //$scope.posts = winwin.posts;
     });
 
     $scope.post = new Post({});

@@ -5,6 +5,7 @@ use Auth;
 use Log;
 use DB;
 use Config;
+use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Post;
@@ -16,12 +17,27 @@ use Illuminate\Http\Request;
 class PostController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'posts']]);
     }
 
 	public function index() {
         $posts = Post::all();
         return $posts;
+	}
+
+	public function posts($type, $reference) {
+        $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at')->get();
+        $collection = Collection::make($posts);
+        $collection->each(function($post) {
+            $user = $post->user;
+            $user->detail;
+            $post->media;
+        });
+        
+        return array(
+            'posts' => $collection,
+            'last' => $collection->last()
+        );
 	}
 
 	public function show(Request $request, $id) {
