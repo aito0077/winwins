@@ -341,6 +341,7 @@ angular.module('winwinsApp')
 
         $scope.goMuro = function() {
             $scope.current_subview = 'muro';
+            $scope.isAdmin = false;
             $state.go('winwin-view.muro', {
                 winwinId: $scope.winwin.id
             }); 
@@ -348,6 +349,7 @@ angular.module('winwinsApp')
 
         $scope.goMembers= function() {
             $scope.current_subview = 'members';
+            $scope.isAdmin = false;
             $state.go('winwin-view.members', {
                 winwinId: $scope.winwin.id
             }); 
@@ -355,6 +357,7 @@ angular.module('winwinsApp')
 
         $scope.goSponsors = function() {
             $scope.current_subview = 'sponsors';
+            $scope.isAdmin = false;
             $state.go('winwin-view.sponsors', {
                 winwinId: $scope.winwin.id
             }); 
@@ -362,10 +365,44 @@ angular.module('winwinsApp')
 
         $scope.goWinwin = function() {
             $scope.current_subview = 'muro';
+            $scope.isAdmin = false;
             $location.hash('winwin-view');
             $anchorScroll();
         };
 
+        $scope.goAdmin = function() {
+            $scope.isAdmin = true;
+        };
+
+        $scope.goPatrocinio = function() {
+            $scope.current_subadmin = 'patrocinio';
+            $state.go('winwin-view.admin_patrocinio', {
+                winwinId: $scope.winwin.id
+            }); 
+        };
+
+        $scope.goMiembros = function() {
+            $scope.current_subadmin = 'miembros';
+            $state.go('winwin-view.admin_miembros', {
+                winwinId: $scope.winwin.id
+            }); 
+        };
+
+        $scope.goConfiguracion = function() {
+            $scope.current_subadmin = 'configuracion';
+            $state.go('winwin-view.admin_configuracion', {
+                winwinId: $scope.winwin.id
+            }); 
+        };
+
+        $scope.goCampanada = function() {
+            $scope.current_subadmin = 'campanada';
+            $state.go('winwin-view.admin_campanada', {
+                winwinId: $scope.winwin.id
+            }); 
+        };
+
+        $scope.isAdmin = false;
 
 }])
 .controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
@@ -458,5 +495,26 @@ angular.module('winwinsApp')
 
 
 
-}]);
+}])
+.controller('winwin-campanada', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+}])
+.controller('winwin-miembros', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+}])
+.controller('winwin-configuracion', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+}])
+.controller('winwin-patrocinio', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+}])
+;
 

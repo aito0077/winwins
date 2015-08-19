@@ -124,10 +124,26 @@
                 <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
                     <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
                 </div>
-                <div class="col-xs-20">
-                    <i class="fa fa-bars"></i>
+                <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
+                    <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
                 </div>
         </div>
+        <div ng-show="isAdmin" id=""menu-winwin-admin" class="no-padding">
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'patrocinio' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goPatrocinio()"><i class="fa fa-star"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'miembros' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMiembros()"><i class="fa fa-users"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'campanada' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goCampanada()"><i class="fa fa-bell"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'configuracion' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goConfiguracion()"><i class="fa fa-server"></i></span>
+            </div>
+        </div>
+
+
         
         <div ui-view autoscroll="true" class="winwin-scroll-view"></div>
 

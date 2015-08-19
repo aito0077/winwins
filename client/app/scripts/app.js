@@ -108,6 +108,26 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/sponsors.html',
         controller: 'winwin-sponsors'
     })
+    .state('winwin-view.admin_campanada', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/admin_campanada.html',
+        controller: 'winwin-campanada'
+    })
+    .state('winwin-view.admin_configuracion', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/admin_configuracion.html',
+        controller: 'winwin-configuracion'
+    })
+    .state('winwin-view.admin_patrocinio', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/admin_solicitud_patrocinio.html',
+        controller: 'winwin-patrocinio'
+    })
+    .state('winwin-view.admin_miembros', {
+        url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin/admin_participantes.html',
+        controller: 'winwin-miembros'
+    })
     .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',
