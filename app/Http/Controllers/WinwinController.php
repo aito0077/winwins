@@ -91,6 +91,9 @@ class WinwinController extends Controller {
             })) > 0;
         }
 
+        $winwin->previous_id = Winwin::where('id', '<', $winwin->id)->max('id');
+        $winwin->next_id = Winwin::where('id', '>', $winwin->id)->min('id');
+
         return $winwin;
 	}
 

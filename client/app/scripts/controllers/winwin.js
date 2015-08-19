@@ -404,6 +404,26 @@ angular.module('winwinsApp')
 
         $scope.isAdmin = false;
 
+        $scope.next = function() {
+            console.log('next');
+            if($scope.winwin.next_id) {
+                $state.go('winwin-view', {
+                    winwinId: $scope.winwin.next_id
+                }); 
+            }
+        };
+
+        $scope.previous = function() {
+            console.log('back');
+
+            if($scope.winwin.previous_id) {
+                $state.go('winwin-view', {
+                    winwinId: $scope.winwin.previous_id
+                }); 
+            }
+        };
+
+
 }])
 .controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
