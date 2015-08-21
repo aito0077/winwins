@@ -18,6 +18,9 @@ Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
 Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
 Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
 Route::get('api/winwins/activate/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@activate']);
+Route::post('api/winwins/campanada/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@campanada']);
+Route::post('api/winwins/sponsor_request/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorRequest']);
+
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@storeImage']);
@@ -43,6 +46,7 @@ Route::get('api/sponsors/follow/{id}', ['middleware' => 'auth', 'uses' => 'Spons
 Route::get('api/sponsors/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@unfollow']);
 Route::resource('api/sponsors', 'SponsorController');
 
+Route::get('api/me/status', ['middleware' => 'auth', 'uses' => 'UserController@getUserStatus']);
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@paginate']);

@@ -1,8 +1,9 @@
 <?php namespace Winwins\Model;
 
+use Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Notification extends Base {
+class Notification extends Model {
 
     protected $fillable   = ['user_id', 'type', 'subject', 'body', 'object_id', 'object_type', 'sent_at'];
  

@@ -1,7 +1,7 @@
 <?php namespace Winwins;
 
 use Hash;
-use Winwis\Model\Notification;
+use Winwins\Model\Notification;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -32,6 +32,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users');
     }
 
+    public function sponsor() {
+        return $this->hasOne('Winwins\Model\Sponsor');
+    }
+
     public function following() {
         return $this->belongsToMany('Winwins\Model\Follower', 'followers');
     }
@@ -41,7 +45,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function notifications() {
-        return $this->hasMany('Notification');
+        return $this->hasMany('Winwins\Model\Notification');
     }
     
 /*

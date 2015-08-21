@@ -128,6 +128,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/admin_participantes.html',
         controller: 'winwin-miembros'
     })
+    .state('winwin-view.winwin-sponsor-request', {
+        url: '/winwin-sponsor-request/:winwinId',
+        templateUrl: 'views/winwin/admin_solicitud_patrocinio.html',
+        controller: 'winwin-sponsor-request'
+    })
     .state('createWW',{
         url: '/createww',
         templateUrl: 'views/createWW.html',

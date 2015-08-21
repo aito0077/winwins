@@ -128,7 +128,10 @@
                     <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
                 </div>
         </div>
-        <div ng-show="isAdmin" id=""menu-winwin-admin" class="no-padding">
+                <div ng-show="isSponsor" class="col-xs-20 {{current_subview == 'sponsor' ? 'active' : ''}} " >
+                    <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
+                </div>
+        <div ng-show="isAdmin" id="menu-winwin-admin" class="no-padding">
             <div class="col-xs-3  submenu-icons {{current_subadmin == 'patrocinio' ? 'active' : ''}} ">
                 <span class="btn" ng-click="goPatrocinio()"><i class="fa fa-star"></i></span>
             </div>
@@ -143,8 +146,6 @@
             </div>
         </div>
 
-
-        
         <div ui-view autoscroll="true" class="winwin-scroll-view"></div>
 
     </section>

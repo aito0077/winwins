@@ -18,6 +18,9 @@ angular.module('winwinsApp')
         getProfile: function() {
             return $http.get('/api/me');
         },
+        getStatus: function() {
+            return $http.get('/api/me/status');
+        },
         updateProfile: function(profileData) {
             return $http.put('/api/me', profileData);
         }

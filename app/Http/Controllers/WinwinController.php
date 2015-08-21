@@ -16,6 +16,7 @@ use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Winwin;
 use Winwins\Model\Repository\WinwinRepository;
 use Winwins\Model\WinwinsUser;
+use Winwins\Model\SponsorsWinwin;
 use Winwins\Model\Media;
 use Winwins\Model\InterestsInterested;
 use Winwins\User;
@@ -136,7 +137,14 @@ class WinwinController extends Controller {
                     'type' => 'VIDEO'
                 ]);
             }
-           
+
+            $user->newNotification()
+                ->from($user)
+                ->withType('WW_CREATED')
+                ->withSubject('you_have_created_new_ww_title')
+                ->withBody('you_have_created_new_ww_title_body')
+                ->regarding($winwin)
+                ->deliver();
         });
 
         return $winwin;
@@ -237,6 +245,92 @@ class WinwinController extends Controller {
             }
         } else {
             return response()->json(['message' => 'you_are_not_the_admin'], 400);
+        }
+	}
+
+	public function campanada(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $winwin = Winwin::find($id);
+        $winwin->user();
+        $campanada_body = $request->input('body');
+        if($user->id == $winwin->user->id) {
+            $users = $winwin->users;
+            foreach($users as $member) {
+                //if($member->id != $user->id)
+
+                $member->newNotification()
+                    ->from($user)
+                    ->withType('CAMPANADA')
+                    ->withSubject('New campanada')
+                    ->withBody($campanada_body)
+                    ->regarding($winwin)
+                    ->deliver();
+            }
+            return response()->json(['message' => 'campanada_sent', 'amount' => count($users)], 200);
+        } else {
+            return response()->json(['message' => 'you_are_not_the_admin'], 400);
+        }
+	}
+
+	public function sponsorRequest(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = $user->sponsor;
+
+        $winwin = Winwin::find($id);
+        $ww_user = $winwin->user;
+        $request_body = $request->input('body');
+
+        if(!isset($sponsor)) {
+            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
+        } else {
+            $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+                return $model->id == $sponsor->id;
+            })) > 0;
+
+            if($already_sponsored) {
+                return response()->json(['message' => 'you_are_already_sponsored_this_winwin'], 400);
+            } else {
+                DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
+                    $winwinsSponsors = new SponsorsWinwin;
+                    $winwinsSponsors->sponsor_id = $sponsor->id;
+                    $winwinsSponsors->winwin_id = $winwin->id;
+                    $winwinsSponsors->sponsor_message = $request_body;
+                    $winwinsSponsors->sponsor_accept = 1;
+
+                    $winwinsSponsors->save();
+                });
+                $ww_user->newNotification()
+                    ->from($user)
+                    ->withType('SPONSOR_REQUEST')
+                    ->withSubject('Sponsor_request')
+                    ->withBody($request_body)
+                    ->regarding($winwin)
+                    ->deliver();
+
+                return response()->json(['message' => 'sponsor_request_sent'], 200);
+            }
+        }
+
+
+
+
+
+        if($user->id == $winwin->user->id) {
+            $users = $winwin->users;
+            foreach($users as $member) {
+                //if($member->id != $user->id)
+
+                $member->newNotification()
+                    ->from($user)
+                    ->withType('CAMPANADA')
+                    ->withSubject('New campanada')
+                    ->withBody($campanada_body)
+                    ->regarding($winwin)
+                    ->deliver();
+            }
+            return response()->json(['message' => 'campanada_sent', 'amount' => count($users)], 200);
+        } else {
+            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
         }
 	}
 

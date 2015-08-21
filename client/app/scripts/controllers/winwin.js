@@ -229,7 +229,7 @@ angular.module('winwinsApp')
 
         
 }])
-.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Winwin) {
+.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Winwin', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Winwin, Account) {
 
         $scope.main_view = true;
         $scope.winwin = {};
@@ -240,6 +240,16 @@ angular.module('winwinsApp')
                 $scope.calculate_time();
             });
         }
+
+        $scope.isSponsor = false;
+        Account.getProfile().success(function(data) {
+            if(data) {
+                $scope.profile = data.profile;
+                $scope.isSponsor = data.sponsor;
+            }
+        });
+
+
 
         $scope.duration_days = 0;
         $scope.duration_hours = 0;
@@ -381,6 +391,13 @@ angular.module('winwinsApp')
             }); 
         };
 
+        $scope.goRequestPatrocinio = function() {
+            $scope.current_subview = 'sponsor';
+            $state.go('winwin-view.winwin-sponsor-request', {
+                winwinId: $scope.winwin.id
+            }); 
+        };
+
         $scope.goMiembros = function() {
             $scope.current_subadmin = 'miembros';
             $state.go('winwin-view.admin_miembros', {
@@ -454,9 +471,11 @@ angular.module('winwinsApp')
     $scope.profile = {};
     $scope.winwin = {};
 
+    $scope.isSponsor = false;
     Account.getProfile().success(function(data) {
         if(data) {
             $scope.profile = data.profile;
+            $scope.isSponsor = data.sponsor;
         }
     });
 
@@ -516,10 +535,38 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-campanada', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+.controller('winwin-campanada', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
         $scope.winwin = winwin;
     });
+
+    $scope.sentCampanada = function() {
+        $http.post('/api/winwins/campanada/'+$scope.winwin.id,
+             {body: $scope.body}
+        )
+        .success(function(data) {
+            swal({
+                title: "Info", 
+                text: 'campanada_sent', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            $state.go('winwin-view', {
+                winwinId: $scope.winwin.id
+            }); 
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    }
+ 
 }])
 .controller('winwin-miembros', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
@@ -536,5 +583,37 @@ angular.module('winwinsApp')
         $scope.winwin = winwin;
     });
 }])
-;
+.controller('winwin-sponsor-request', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
+    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
+        $scope.winwin = winwin;
+    });
+
+    $scope.sentRequest = function() {
+        $http.post('/api/winwins/sponsor_request/'+$scope.winwin.id,
+             {body: $scope.body}
+        )
+        .success(function(data) {
+            swal({
+                title: "Info", 
+                text: 'sponsor_request_sent', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            $state.go('winwin-view', {
+                winwinId: $scope.winwin.id
+            }); 
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    }
+ 
+}]);
 

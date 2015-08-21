@@ -60,12 +60,22 @@ class UserController extends Controller {
         return JWT::encode($payload, Config::get('app.token_secret'));
     }
 
+    public function getUserStatus(Request $request) {
+        $user = User::find($request['user']['sub']);
+        return array(
+            'notifications_unread' => $this->countUnreadNotifications($user->id)
+        );
+    }
+
     public function getUser(Request $request) {
         $user = User::find($request['user']['sub']);
 
         return array(
             'user' => $user,
-            'profile' => $user->detail
+            'profile' => $user->detail,
+            'sponsor' => $user->sponsor,
+            'notifications' => $this->notifications($user->id),
+            'notifications_unread' => $this->countUnreadNotifications($user->id)
         );
     }
 
@@ -123,6 +133,14 @@ class UserController extends Controller {
                     $followedsUsers->follower_id = $user->id;
                     $followedsUsers->followed_id = $followed->id;
                     $followedsUsers->save();
+
+                    $followed->newNotification()
+                        ->from($user)
+                        ->withType('FOLLOWING')
+                        ->withSubject('following_you_title')
+                        ->withBody('following_you_body')
+                        ->regarding($user)
+                        ->deliver();
                 });
             }
         }
