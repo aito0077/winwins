@@ -1,16 +1,18 @@
     <div class="container no-padding">
 
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" class="col-xs-12 no-padding portada mb-20">
             <div class="col-xs-12">
                 <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
-                    <img src="http://images.dev-winwins.net/smart/{{::user_detail.photo}}" class="img-responsive img-circle logo-user_details-landscape" />
+                    <img ng-src="http://images.dev-winwins.net/smart/{{::user_detail.photo}}" class="img-responsive img-circle logo-user_details-landscape" />
                     <h4 class="text-white">{{::user_detail.name}}</h4>
                 </div>
             </div>
             <div class="col-xs-12 text-center">
                 <div class="col-xs-4 col-sm-4">
-                    <span class="title-somos title-main-user_detail">Seguidores</span>
-                    <span class="num-somos user_detail back-winwin num-somos-seguidore-main">{{::user_detail.followers_count}}</span>
+                    <div ng-show="::user_detail.followers_count > 0">
+                        <span class="title-somos title-main-user_detail">Seguidores</span>
+                        <span class="num-somos user_detail back-winwin num-somos-seguidore-main">{{::user_detail.followers_count}}</span>
+                    </div>
                 </div>
                 <div class="col-xs-4 col-sm-4">
                     <button type="button" ng-show="user_detail.already_following" ng-click="unfollow()" class="btn btn-user_detail user_detail main">
@@ -21,11 +23,10 @@
                     </button>
                 </div>
                 <div class="col-xs-4 col-sm-4 no-padding ">
-                    <span class="title-somos title-main-user_detail wwpatrocinados">WW Patrocinados</span>
-                    <span class="num-somos user_detail back-winwin num-somos-user_detail-main">{{::user_detail.winwins_count}}</span>
                 </div>
             </div>
         </div>
+
         <div class="col-xs-12 font-light mb-20">
             {{::user_detail.about}}
         </div>

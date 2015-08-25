@@ -335,6 +335,13 @@ angular.module('winwinsApp')
 
         $scope.getWinwin();
 
+        $scope.viewProfile = function(user_id) {
+            console.log('User id: '+user_id);
+            $state.go('user-view', {
+                userId: user_id
+            }); 
+
+        };
 
         $scope.join = function() {
             if($auth.isAuthenticated()) {

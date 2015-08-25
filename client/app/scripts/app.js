@@ -198,7 +198,7 @@ angular.module('winwinsApp', [
         controller: 'group-list'
     })
     .state('user-view', {
-        url: '/user-view/:groupId',
+        url: '/user-view/:userId',
         templateUrl: 'views/user/view.html',
         controller: 'user-view'
     })

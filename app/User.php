@@ -41,7 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function followers() {
-        return $this->hasMany('Winwins\Model\Follower', 'followers');
+        return $this->hasMany('Winwins\Model\Follower', 'follower_id');
     }
 
     public function notifications() {

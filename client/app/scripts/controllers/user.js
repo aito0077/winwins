@@ -44,10 +44,11 @@ angular.module('winwinsApp')
 .controller('user-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User) {
 
     $scope.getUser = function() {
+        console.log('User id profile: '+$stateParams.userId);
         $scope.user = User.get({
             id: $stateParams.userId
         }, function(data) {
-
+            $scope.user_detail = data;
         });
     }
 

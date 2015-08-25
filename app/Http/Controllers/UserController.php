@@ -118,6 +118,8 @@ class UserController extends Controller {
         $user = User::find($request['user']['sub']);
         $followed = User::find($id);
 
+        $already_following = false;
+
         if($user->id == $followed->id) {
             return response()->json(['message' => 'Can not follow yourself'], 400);
         } else {

@@ -96,8 +96,6 @@ footer {
     color: white;
     text-transform: uppercase;
     z-index: 50;
-}
-.img-misc:before {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#727370+0,919191+100 */
     background: #727370; /* Old browsers */
     background: -moz-linear-gradient(top,  #727370 0%, #919191 100%); /* FF3.6+ */
@@ -862,4 +860,20 @@ a.no-link {
 }
 .dropdown-menu {
     z-index: 99;
+}
+.navbar-inverse .navbar-toggle {
+    background-color: #3277c2;
+    border: 0!important;
+    box-shadow: 1.5px 1.5px #094588;
+}
+.img-misc:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  left: 0;
+  background-image: linear-gradient(to bottom ,#111,#ccc);
+  opacity: .6;
 }
