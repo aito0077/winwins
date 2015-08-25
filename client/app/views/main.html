@@ -5,70 +5,63 @@
         <span>comenzar ahora!</span>
     </div>
 
-    <div class="col-xs-12 no-padding"  ng-repeat="winwin in winwins">
-        <div ng-click="view(winwin.id)" class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding"  style="cursor: pointer">
-            <img ng-src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
-            <div class="somos">
-                <span class="title-somos">Somos</span>
-                <span class="num-somos">{{::winwin.users_already_joined}}</span>
-            </div>
-            <div class="somos">
-                <span class="title-faltan">Faltan</span>
-                <span class="num-faltan">{{::winwin.users_left}}</span>
-            </div>
-        </div>
-        <div ng-click="view(winwin.id)" class="col-xs-6 no-padding-left" style="cursor: pointer">
-            <h5 class="title-destacados">
+        <div ng-repeat="winwin in winwins" class="col-xs-12 no-padding" >
+            <div class=" {{winwin.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
                 {{::winwin.title}}
-            </h5>
-            <p class="text-destacados">
-                <b>Si supieras</b> que somos {{::winwin.users_amount}} para {{::winwin.what_we_do | characters: 140}}... <b>te sumarías?</b>
-            </p>
-        </div>
-        <div class="col-xs-2 no-padding">
-            <div class="col-xs-12 no-padding btn-somos">
+            </div>
+            <div class="col-xs-12 no-padding">
+                <!--
+                <div class="col-xs-4 no-padding btn4 btn-share">
+                    <a href="#" class=" no-padding">
+                        <i class="fa fa-share-alt"></i>
+                    </a>
+                </div>
+                -->
 
-
-                        <div id="socialShare" class="btn-group share-group">
-                            <button href="#" data-toggle="dropdown" class="col-xs-12 no-padding btn-somos col-xs-12 no-padding btn btn-info dropdown-toggle share">
-                                <i class="fa fa-share-alt fa-inverse"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left" socialshare
+                <div class="col-xs-4 no-padding btn4 btn-share">
+                    <a href="#" data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
+                        <i class="fa fa-share-alt fa-inverse"></i>
+                    </a>
+                    <ul class="dropdown-menu col-xs-12">
+                        <li class="center-block">
+                            <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
 socialshare-provider="twitter"
 socialshare-text="{{::winwin.title}}"
 socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left"  socialshare
+                                <i class="fa fa-twitter"></i> Twitter
+                            </span>
+                        </li>
+                        <li>
+                            <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
 socialshare-provider="facebook"
 socialshare-text="{{::winwin.title}}"
 socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>                   
-                                <li>
-                                    <a  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
-                                        <i class="fa fa-envelope"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                                <i class="fa fa-facebook"></i> Facebook
+                            </span>
+                        </li>                   
+                        <li>
+                            <span  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
+                                <i class="fa fa-envelope"></i> Mail
+                            </span>
+                        </li>
+                    </ul>
+                </div>
 
-
-            </div>
-            <div class="col-xs-12 no-padding me-interesa">
-                <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Ver</a>
-            </div>
-            <div class="col-xs-12 no-padding me-sumo text-right">
-                <button type="button" class="btn btn-sumo" ng-click="join(winwin.id)">Me <br> Sumo</button>
+                <div class="col-xs-4 no-padding btn4 btn-share like">
+                    <a href="#" class="no-padding" ng-click="view(winwin.id)">
+                        <h5>Like</h5>
+                    </a>
+                </div>
+                <div class="col-xs-4 no-padding btn4 btn-share mesumo">
+                    <a href="#" class="no-padding"  ng-click="join(winwin.id)">
+                        <h5>Me Sumo</h5>
+                    </a>
+                </div>
             </div>
         </div>
+
+
+
     </div>
-
-
 
     <search-bar/>
