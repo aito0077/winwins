@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mariana.berruezo@gmail.com'; 
         $user->username = 'mariana.berruezo@gmail.com'; 
-        $user->password = '36f2e31cf9edbf4da4c6aea420894d94'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'xavadu@gmail.com'; 
         $user->username = 'xavadu@gmail.com'; 
-        $user->password = '42486a985b03a51f7dfa6f696fb5c8cb'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'rey.nico@gmail.com'; 
         $user->username = 'rey.nico@gmail.com'; 
-        $user->password = 'fd3c6b796a5844172f55efdb6163fb29'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -62,7 +62,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'stedesco@paginar.net'; 
         $user->username = 'stedesco@paginar.net'; 
-        $user->password = 'c289942cd01f95dcdfa2fc287113eff2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -79,7 +79,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sporta@paginar.net'; 
         $user->username = 'sporta@paginar.net'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -96,7 +96,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marojenieva@hotmail.com'; 
         $user->username = 'marojenieva@hotmail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -113,7 +113,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'raygiubilo@hotmail.com'; 
         $user->username = 'raygiubilo@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -130,7 +130,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
         $user->username = 'berru33@gmail.com'; 
-        $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -147,7 +147,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'arnaldo.tuc.ar@gmail.com'; 
         $user->username = 'arnaldo.tuc.ar@gmail.com'; 
-        $user->password = '822c61e2d8dd1df84af2199b8d0bbf04'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -164,7 +164,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'rgil@paginar.net'; 
         $user->username = 'rgil@paginar.net'; 
-        $user->password = '06812722ebce706e40075705cf71a997'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -181,7 +181,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lfontan@paginar.net'; 
         $user->username = 'lfontan@paginar.net'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -198,7 +198,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'gilgiulianobackup@gmail.com'; 
         $user->username = 'gilgiulianobackup@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -215,7 +215,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marojenieva@yahoo.com'; 
         $user->username = 'marojenieva@yahoo.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -232,7 +232,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marioanibalmarquez@gmail.com'; 
         $user->username = 'marioanibalmarquez@gmail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -249,7 +249,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mjnieva@paginar.net'; 
         $user->username = 'mjnieva@paginar.net'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -266,7 +266,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javiromerofoto@gmail.com'; 
         $user->username = 'javiromerofoto@gmail.com'; 
-        $user->password = 'b945aa0893faa7c00e33da98d4c35629'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -283,7 +283,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marojenieva@gmail.com'; 
         $user->username = 'marojenieva@gmail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -300,7 +300,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mjnpaginar@yahoo.com.ar'; 
         $user->username = 'mjnpaginar@yahoo.com.ar'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -317,7 +317,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'dariozaj@gmail.com'; 
         $user->username = 'dariozaj@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -334,7 +334,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'oqtuvre@hotmail.com'; 
         $user->username = 'oqtuvre@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -351,7 +351,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javirangel56@gmail.com'; 
         $user->username = 'javirangel56@gmail.com'; 
-        $user->password = 'ec297842d8eab5ba2e283814f582857b'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -368,7 +368,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javierangel56@me.com'; 
         $user->username = 'javierangel56@me.com'; 
-        $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -385,7 +385,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marojenieva@gmail.com'; 
         $user->username = 'marojenieva@gmail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -402,7 +402,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lilianafontan@hotmail.com'; 
         $user->username = 'lilianafontan@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -419,7 +419,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javierangel@fibertel.com.ar'; 
         $user->username = 'javierangel@fibertel.com.ar'; 
-        $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -436,7 +436,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lfontan@paginar.com'; 
         $user->username = 'lfontan@paginar.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -453,7 +453,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'fetraverso@yahoo.com.ar'; 
         $user->username = 'fetraverso@yahoo.com.ar'; 
-        $user->password = '5d93525204a5251f56db3c39fe9dbd74'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -470,7 +470,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
         $user->username = 'berru33@gmail.com'; 
-        $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -487,7 +487,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanmayol@gmail.com'; 
         $user->username = 'juanmayol@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -504,7 +504,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sricciardi@fibertel.com.ar'; 
         $user->username = 'sricciardi@fibertel.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -521,7 +521,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'test@mail.com'; 
         $user->username = 'test@mail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -538,7 +538,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'test2@mail.com'; 
         $user->username = 'test2@mail.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -555,7 +555,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sostele@outlook.com'; 
         $user->username = 'sostele@outlook.com'; 
-        $user->password = '18996b4e3e882a61b88e7b1f4205bd91'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -572,7 +572,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'haze.cardoso@gmail.com'; 
         $user->username = 'haze.cardoso@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -589,7 +589,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'ovidionason@gmail.com'; 
         $user->username = 'ovidionason@gmail.com'; 
-        $user->password = '320173abf2ff553cf9e0ec3d06a56be2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -606,7 +606,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'ovidionason1976@gmail.com'; 
         $user->username = 'ovidionason1976@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -623,7 +623,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'aldobonzi1976@gmail.com'; 
         $user->username = 'aldobonzi1976@gmail.com'; 
-        $user->password = '6f7382516af91c66bf8cdd9f58ed4e43'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -640,7 +640,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'aldobonzi1976@gmail.com'; 
         $user->username = 'aldobonzi1976@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -657,7 +657,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'alainrouge1976@gmail.com'; 
         $user->username = 'alainrouge1976@gmail.com'; 
-        $user->password = '8700e60bd20af1d61e93c463d46ad987'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -674,7 +674,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'alainrouge1976@gmail.com'; 
         $user->username = 'alainrouge1976@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -691,7 +691,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'revistamatinee@gmail.com'; 
         $user->username = 'revistamatinee@gmail.com'; 
-        $user->password = '060ed7ad35ed9c44c3fcbe3669c5e091'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -708,7 +708,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'revistamatinee@gmail.com'; 
         $user->username = 'revistamatinee@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -725,7 +725,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'jesusguiraud@yahoo.com.ar'; 
         $user->username = 'jesusguiraud@yahoo.com.ar'; 
-        $user->password = 'a902e547fd00761e1a261a53382440f1'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -742,7 +742,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'karaokedos@hotmail.com'; 
         $user->username = 'karaokedos@hotmail.com'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -759,7 +759,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanperez@hotmail.com'; 
         $user->username = 'juanperez@hotmail.com'; 
-        $user->password = '2e0d4417e261fdfc98e18976b0e7c30a'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -776,7 +776,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lvommaro@paginar.com'; 
         $user->username = 'lvommaro@paginar.com'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -793,7 +793,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lvommaro@paginar.net'; 
         $user->username = 'lvommaro@paginar.net'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -810,7 +810,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'karaokedos@hotmail.com'; 
         $user->username = 'karaokedos@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -827,7 +827,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'acostajuan2013@twitter.com'; 
         $user->username = 'acostajuan2013@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -844,7 +844,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'lvommaro@gmail.com'; 
         $user->username = 'lvommaro@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -861,7 +861,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'agastiazoro@paginar.com'; 
         $user->username = 'agastiazoro@paginar.com'; 
-        $user->password = 'c37a5aeb20e451821854d20e76450b4b'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -878,7 +878,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'matiasche@gmail.com'; 
         $user->username = 'matiasche@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -895,7 +895,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'nabebis@yahoo.com'; 
         $user->username = 'nabebis@yahoo.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -912,7 +912,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'demians@digbang.com'; 
         $user->username = 'demians@digbang.com'; 
-        $user->password = '5e0bb17463116d851353c13963fdcebe'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -929,7 +929,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'ebox@jarawi.com'; 
         $user->username = 'ebox@jarawi.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -946,7 +946,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sivocarina@hotmail.com'; 
         $user->username = 'sivocarina@hotmail.com'; 
-        $user->password = '6a623bdb7acd899d02439bf340d95815'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -963,7 +963,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sivocarina@yahoo.com'; 
         $user->username = 'sivocarina@yahoo.com'; 
-        $user->password = 'f70241431c1148ded7f71c84753de9e6'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -980,7 +980,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'jnassif@paginar.com'; 
         $user->username = 'jnassif@paginar.com'; 
-        $user->password = '7bc2e834118e354b6a6819dba8853c50'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -997,7 +997,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mcarena@paginar.com'; 
         $user->username = 'mcarena@paginar.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1014,7 +1014,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'test@paginar.com'; 
         $user->username = 'test@paginar.com'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1031,7 +1031,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mjnieva@paginar.com'; 
         $user->username = 'mjnieva@paginar.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1048,7 +1048,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'afernandez@paginar.com_1'; 
         $user->username = 'afernandez@paginar.com_1'; 
-        $user->password = '5154783a0db328ef2d3d1ec8a2f15a5d'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1065,7 +1065,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mh@illuminatilab.com'; 
         $user->username = 'mh@illuminatilab.com'; 
-        $user->password = '550e04eacf97274979b28114fb818c08'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1082,7 +1082,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
         $user->username = 'berru33@gmail.com'; 
-        $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -1099,7 +1099,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanaperezmilenaria2013@yahoo.com.ar'; 
         $user->username = 'juanaperezmilenaria2013@yahoo.com.ar'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1116,7 +1116,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'pedro.gomez2013@yahoo.com.ar'; 
         $user->username = 'pedro.gomez2013@yahoo.com.ar'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1133,7 +1133,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'JuanaPe20169106@twitter.com'; 
         $user->username = 'JuanaPe20169106@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1150,7 +1150,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'fhamada@paginar.net'; 
         $user->username = 'fhamada@paginar.net'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1167,7 +1167,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanperezmilenario@yahoo.com.ar'; 
         $user->username = 'juanperezmilenario@yahoo.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'yahoo!'; 
         $user->active = 1;
         $user->save();
@@ -1184,7 +1184,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanperezmilenario@gmail.com'; 
         $user->username = 'juanperezmilenario@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -1201,7 +1201,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanperezmillonario@yahoo.com.ar'; 
         $user->username = 'juanperezmillonario@yahoo.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1218,7 +1218,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'pedro.gomez2013@yahoo.com.ar'; 
         $user->username = 'pedro.gomez2013@yahoo.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1235,7 +1235,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'arnaldoprog@hotmail.com'; 
         $user->username = 'arnaldoprog@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1252,7 +1252,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'JohnPerez201320@twitter.com'; 
         $user->username = 'JohnPerez201320@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1269,7 +1269,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mariagomezmillonaria@gmail.com'; 
         $user->username = 'mariagomezmillonaria@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1286,7 +1286,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sivocarina@gmail.com'; 
         $user->username = 'sivocarina@gmail.com'; 
-        $user->password = 'f70241431c1148ded7f71c84753de9e6'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1303,7 +1303,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mariojuarezmenor@gmail.com'; 
         $user->username = 'mariojuarezmenor@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1320,7 +1320,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'sandrastun@gmail.com'; 
         $user->username = 'sandrastun@gmail.com'; 
-        $user->password = '25af73966d487146fde66405495beda8'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1337,7 +1337,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'cesaralexisdiaz@gmail.com'; 
         $user->username = 'cesaralexisdiaz@gmail.com'; 
-        $user->password = 'ce8b503198ee4b1f9aed8fd1d30359a5'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -1354,7 +1354,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'JLuzbelito@twitter.com'; 
         $user->username = 'JLuzbelito@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1371,7 +1371,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'bowieagency@twitter.com'; 
         $user->username = 'bowieagency@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1388,7 +1388,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'Jorgemantovani@hotmail.com'; 
         $user->username = 'Jorgemantovani@hotmail.com'; 
-        $user->password = 'ccf14c3f2a3bb2e847546b87ccc53a78'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1405,7 +1405,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'kbzndiaz69@yahoo.com.ar'; 
         $user->username = 'kbzndiaz69@yahoo.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1422,7 +1422,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'raygiubilo@gmail.com'; 
         $user->username = 'raygiubilo@gmail.com'; 
-        $user->password = '660ce59ea0c6d08e1914f40eaaf2c93c'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1439,7 +1439,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'Virtginia@twitter.com'; 
         $user->username = 'Virtginia@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1456,7 +1456,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'fabianahamada@gmail.com'; 
         $user->username = 'fabianahamada@gmail.com'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1473,7 +1473,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'nocualquiera@gmail.com'; 
         $user->username = 'nocualquiera@gmail.com'; 
-        $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1490,7 +1490,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'virginiapizzaferri@gmail.com'; 
         $user->username = 'virginiapizzaferri@gmail.com'; 
-        $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1507,7 +1507,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'a@a.com'; 
         $user->username = 'a@a.com'; 
-        $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1524,7 +1524,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'b@a.com'; 
         $user->username = 'b@a.com'; 
-        $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1541,7 +1541,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'c@b.com'; 
         $user->username = 'c@b.com'; 
-        $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1558,7 +1558,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'a@b.com'; 
         $user->username = 'a@b.com'; 
-        $user->password = '7a54e8c15231463e5ea105e52ccc4ba2'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1575,7 +1575,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mspentito@yahoo.com.ar'; 
         $user->username = 'mspentito@yahoo.com.ar'; 
-        $user->password = '081555d77ed1f8ca02d866e40cebbc70'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1592,7 +1592,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'vip@ideadeliveryla.com'; 
         $user->username = 'vip@ideadeliveryla.com'; 
-        $user->password = 'b94ffae584c1e0164fa01d6f47b0c094'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1609,7 +1609,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'marianadumas@fibertel.com.ar'; 
         $user->username = 'marianadumas@fibertel.com.ar'; 
-        $user->password = '19e0214bd56716066e621748149d027c'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1626,7 +1626,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'arnaldex@twitter.com'; 
         $user->username = 'arnaldex@twitter.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'twitter'; 
         $user->active = 1;
         $user->save();
@@ -1643,7 +1643,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'vgaibisso@yahoo.com.ar'; 
         $user->username = 'vgaibisso@yahoo.com.ar'; 
-        $user->password = '60107e6a39a06c573d0cb0f5d975d6f7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1660,7 +1660,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mnvercellino@hotmail.com'; 
         $user->username = 'mnvercellino@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1677,7 +1677,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'a@a.com.ar'; 
         $user->username = 'a@a.com.ar'; 
-        $user->password = 'f935802087ae35e2440da0017cda3ed7'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1694,7 +1694,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'cristobalalfonzo@outlook.com'; 
         $user->username = 'cristobalalfonzo@outlook.com'; 
-        $user->password = '9f74da02dc8dd1ae9ea7bc9724715a48'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1711,7 +1711,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javiernassif@hotmail.com'; 
         $user->username = 'javiernassif@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1728,7 +1728,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mcarena@paginar.net'; 
         $user->username = 'mcarena@paginar.net'; 
-        $user->password = '9e986c4ab90ee0f951bd6bd4ce63dd12'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1745,7 +1745,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'rozashome@gmail.com'; 
         $user->username = 'rozashome@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1762,7 +1762,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'edunick@gmail.com'; 
         $user->username = 'edunick@gmail.com'; 
-        $user->password = 'bac23575d826310b8c4dc501bbf28c7a'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();
@@ -1779,7 +1779,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'edunick@gmail.com'; 
         $user->username = 'edunick@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1796,7 +1796,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'cperez2603@hotmail.com'; 
         $user->username = 'cperez2603@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1813,7 +1813,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'eruete@iae.edu.ar'; 
         $user->username = 'eruete@iae.edu.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1830,7 +1830,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'arnaldo.tuc.ar@gmail.com'; 
         $user->username = 'arnaldo.tuc.ar@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'google'; 
         $user->active = 1;
         $user->save();
@@ -1847,7 +1847,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'arnaldoprog@hotmail.com'; 
         $user->username = 'arnaldoprog@hotmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'yahoo!'; 
         $user->active = 1;
         $user->save();
@@ -1864,7 +1864,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'juanperezmillonario@yahoo.com.ar'; 
         $user->username = 'juanperezmillonario@yahoo.com.ar'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1881,7 +1881,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
         $user->username = 'berru33@gmail.com'; 
-        $user->password = '07206771119f7bb7b5e75ef5fd9e7368'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1898,7 +1898,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'mcarena@paginar.net'; 
         $user->username = 'mcarena@paginar.net'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1915,7 +1915,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'aito0077@gmail.com'; 
         $user->username = 'aito0077@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1932,7 +1932,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'javierangel56@gmail.com'; 
         $user->username = 'javierangel56@gmail.com'; 
-        $user->password = 'null'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'facebook'; 
         $user->active = 1;
         $user->save();
@@ -1949,7 +1949,7 @@ class UsersTableSeeder extends Seeder {
         $user = new User();
         $user->email = 'daniel.riosmoreno@hotmail.com'; 
         $user->username = 'daniel.riosmoreno@hotmail.com'; 
-        $user->password = '4b3768a55eef9eab907b2b1028438b45'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
         $user->facebook = 'winwins'; 
         $user->active = 1;
         $user->save();

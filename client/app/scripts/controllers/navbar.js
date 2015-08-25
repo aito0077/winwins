@@ -16,8 +16,11 @@ angular.module('winwinsApp')
         }
     });
 
-    $rootScope.$on('$stateChangeSuccess',function(){
-        $("html, body").animate({ scrollTop: 0 }, 200);
+    $rootScope.$on('$stateChangeSuccess',function(data, other){
+	if(!other.name.lastIndexOf('winwin-view.', 0) === 0) {
+		$("html, body").animate({ scrollTop: 0 }, 200);
+	}
+
     })
 
     $scope.isAuthenticated = function() {

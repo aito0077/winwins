@@ -6,7 +6,7 @@
     </div>
 
     <div ng-repeat="winwin in winwins" class="col-xs-12 no-padding" >
-        <div class=" {{winwin.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
+        <div class=" img-misc no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" ng-click="view(winwin.id)" style="cursor:pointer"">
             {{::winwin.title}}
         </div>
         <div class="col-xs-12 no-padding">
@@ -41,7 +41,7 @@ socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
 
             <div class="col-xs-4 no-padding btn4 btn-share like">
                 <a href="#" class="no-padding" ng-click="view(winwin.id)">
-                    <h5>Like</h5>
+                    <h5>Me Interesa</h5>
                 </a>
             </div>
             <div class="col-xs-4 no-padding btn4 btn-share mesumo">
