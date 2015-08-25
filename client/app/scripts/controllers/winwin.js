@@ -209,13 +209,50 @@ angular.module('winwinsApp')
     };
 
 }])
-.controller('winwin-list', ['$scope', 'WinwinPaginate', function($scope, WinwinPaginate) {
+.controller('winwin-list', ['$scope', '$http', '$auth', '$state', 'WinwinPaginate', function($scope, $http, $auth, $state, WinwinPaginate) {
    
     $scope.winwins = new WinwinPaginate();
 
     $scope.doFilter = function(filter) {
         console.log(filter);
     };
+
+    $scope.join = function(winwin_id) {
+        if($auth.isAuthenticated()) {
+            $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'winwin_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+                $scope.view(winwin_id);
+
+            })
+            .error(function(error) {
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+        } else {
+            $state.go('signIn');
+        }
+    };
+
+    $scope.view = function(id) {
+        console.log('view '+id);
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+
+
 
 }])
 .controller('winwin-search', ['$scope','$http', function($scope, $http) {

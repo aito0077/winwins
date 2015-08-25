@@ -26,11 +26,8 @@
             </p>
         </div>
         <div class="col-xs-2 no-padding">
-            <div class="col-xs-12 no-padding">
+            <div class="col-xs-12 no-padding btn-somos">
 
-                <div class="col-xs-12 no-padding btn-somos">
-
-                    <div class="col-xs-12">
 
                         <div id="socialShare" class="btn-group share-group">
                             <button href="#" data-toggle="dropdown" class="col-xs-12 no-padding btn-somos col-xs-12 no-padding btn btn-info dropdown-toggle share">
@@ -38,12 +35,18 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left">
+                                    <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left" socialshare
+socialshare-provider="twitter"
+socialshare-text="{{::winwin.title}}"
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left">
+                                    <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left"  socialshare
+socialshare-provider="facebook"
+socialshare-text="{{::winwin.title}}"
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
                                         <i class="fa fa-facebook"></i>
                                     </a>
                                 </li>                   
@@ -54,8 +57,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
+
 
             </div>
             <div class="col-xs-12 no-padding me-interesa">
