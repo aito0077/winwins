@@ -49,7 +49,10 @@ footer {
 .container.no-padding {
     margin-top: -12px;
 }
-
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 /* custom */
 
 .back-winwin {
@@ -87,8 +90,75 @@ footer {
     font-size: 4px
 }
 .img-misc {
-    padding-right: 10px;
-
+    width: 100%;
+    height: 190px;
+    text-align:center;
+    color: white;
+    text-transform: uppercase;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#727370+0,919191+100 */
+    background: #727370; /* Old browsers */
+    background: -moz-linear-gradient(top,  #727370 0%, #919191 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#727370), color-stop(100%,#919191)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #727370 0%,#919191 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #727370 0%,#919191 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #727370 0%,#919191 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #727370 0%,#919191 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#727370', endColorstr='#919191',GradientType=0 ); /* IE6-9 */;
+    z-index: 999px;
+}
+.btn4 {
+    min-height: 35px!important;
+    padding: 0!important;
+}
+.btn5 {
+    min-height: 50px!important;
+    padding: 0!important;
+}
+.btn-share {
+    background-color: #256ac7!important;
+    text-align: center;
+}
+.btn-share a {
+    color: #FFF!important;
+}
+.center-btn-share {
+    margin-top: 5px
+}
+.fa.fa-share-alt {
+    margin-top: 10px;
+}
+.fa.fa-share-alt.share4 {
+    margin-top: 8px;
+    font-size: 30px;
+    font-weight: 100
+}
+.btn-share.like {
+    background-color: #1960c8!important;
+}
+.orange {
+    color: #ed7904!important;
+}
+.backorange {
+    background-color: #ed7904!important;
+    color: #FFF!important;
+    padding: 0 3px;
+}
+.btn-share.mesumo {
+    background-color: #56bb53!important;   
+}
+.shadow-border {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+    height: 50px
+}
+.img-circle-second {
+    border: 2px solid #2e7dcc;
+    margin: 15px 8px 0 0;    
+    float: left;
+    width: 25px!important;
+    height: 25px!important;
+    border-radius: 50%;
 }
 /*
 .txt-welcome {
@@ -168,22 +238,21 @@ h5 {
     background-color: #4A6EAA;
     border-bottom: 4px solid #1A487A;
     margin-left: 2%;
-    border-radius: 70%;
 }
 .btn-social.twitter {
     background-color: #62A0CF;
     border-bottom: 4px solid #3178C8;
-    border-radius: 50%;
+    
 }
 .btn-social.google {
     background-color: #CE402C;
     border-bottom: 4px solid #632913;
-    border-radius: 50%;
+    
 }
 .btn-social.yahoo {
     background-color: #63106A;
     border-bottom: 4px solid #320732;
-    border-radius: 50%;
+    
 }
 .last-object {
     margin-bottom: 100px;
@@ -235,6 +304,7 @@ h4 {
 .caret-middle {
     margin-top: 6px;
 }
+/*
 .img-misc:after {
     content: "a";
     color: #f98106;
@@ -247,6 +317,7 @@ h4 {
     left: 10px;
     z-index: 99;
 }
+*/
 .title-destacados {
     font-size: 7pt;
     text-transform: uppercase;
@@ -275,7 +346,7 @@ h4 {
   user-select: none!important;
   background-image: none!important;
   border: 0px!important;
-  border-radius: 4px!important;
+  border-radius: 0px!important;
 }
 
 .btn-warning {
@@ -304,7 +375,6 @@ h4 {
     color: #FFF;
     background-color: #1960c8;
     padding: 7px;
-    margin: 5px 0;
     width: 100%
 }
 .btn-sumo {
@@ -409,7 +479,7 @@ h4 {
 .container-search {
     height:50px; 
     overflow:hidden; 
-    position: absolute; 
+    position: relative; 
     bottom: 0; 
     left: 32%;
 }
@@ -678,10 +748,6 @@ a.no-link {
     }
     .title-destacados , .text-destacados {
         padding-left: 5%!important;
-    }
-    .col-xs-12.no-padding.me-interesa {
-        width: 50%!important;
-        margin-left: 50%;
     }
     .container-search.home-search {
         position: relative;
