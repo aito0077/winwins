@@ -1,5 +1,5 @@
 angular.module('winwinsApp')
-.controller('NavController', function ($scope, $location, $auth, $window, Account) {
+.controller('NavController', function ($scope, $rootScope, $location, $auth, $window, Account) {
     $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
     $scope.$on('$routeChangeSuccess', function () {
@@ -15,6 +15,11 @@ angular.module('winwinsApp')
             $scope.unreadNotifications = 0;
         }
     });
+
+    $rootScope.$on('$stateChangeSuccess',function(){
+        $("html, body").animate({ scrollTop: 0 }, 200);
+    })
+
     $scope.isAuthenticated = function() {
         return $auth.isAuthenticated();
     };
