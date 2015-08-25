@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('search-list', ['$scope', '$stateParams', '$state', '$http', function($scope, $stateParams, $state, $http) {
+.controller('search-list', ['$scope', '$stateParams', '$state', '$http', '$auth', function($scope, $stateParams, $state, $http, $auth) {
     console.dir($stateParams); 
     $scope.hits = [];
     $scope.winwins = [];
@@ -45,6 +45,34 @@ angular.module('winwinsApp')
                 }); 
         }
     };
+
+    $scope.join = function(winwin_id) {
+        if($auth.isAuthenticated()) {
+            $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'winwin_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+                $scope.view(winwin_id);
+
+            })
+            .error(function(error) {
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+        } else {
+            $state.go('signIn');
+        }
+    };
+
 
 
 }]);

@@ -10,7 +10,6 @@ angular.module('winwinsApp')
     $scope.second_stage = false;
 
     $scope.winwin.closing_date = new Date();
-    $scope.closingdatechange = function(data){ };
 
     $('#datetimepicker1').datetimepicker({
         minDate: new Date(),
@@ -23,6 +22,9 @@ angular.module('winwinsApp')
 
 
     $scope.doValidateBasic = function() {
+        $scope.winwin.closing_date =  $('#datetimepicker1').data("DateTimePicker").date();
+        console.dir($scope.winwin.closing_date);
+
         return true;
     };
 
@@ -93,14 +95,16 @@ angular.module('winwinsApp')
             showCancelButton: true,
             closeOnConfirm: true 
         }, function(inputValue) {
-            var result = $scope.matchYoutubeUrl(inputValue);
-            if(result) {
-                $scope.$apply(function(){
-                    $scope.winwin.video = result;
-                });
-                console.log('Winwin video: '+result);
-            } else {
-                console.log('Wrong url');
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.winwin.video = result;
+                    });
+                    console.log('Winwin video: '+result);
+                } else {
+                    console.log('Wrong url');
+                }
             }
         });
     };
@@ -281,9 +285,11 @@ angular.module('winwinsApp')
 
         
 }])
-.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Winwin', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Winwin, Account) {
+.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account) {
 
         $scope.main_view = true;
+        $scope.show_closing_date = false;
+
         $scope.winwin = {};
         $scope.getWinwin = function() {
             $scope.winwin = Winwin.get({
@@ -311,14 +317,20 @@ angular.module('winwinsApp')
         $scope.calculate_time = function() {
             var now = moment(),
                 closing_date = moment($scope.winwin.closing_date);
-            $scope.duration_days = closing_date.diff(now, 'days');
-            console.log($scope.duration_days);
-            $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-            console.log($scope.duration_hours);
-            var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
-            $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
 
-            console.log($scope.duration_minutes);
+            $scope.show_closing_date = false;
+
+            if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
+                $scope.duration_days = closing_date.diff(now, 'days');
+                console.log($scope.duration_days);
+                $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
+                console.log($scope.duration_hours);
+                var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
+                $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
+
+                console.log($scope.duration_minutes);
+                $scope.show_closing_date = true;
+            }
         };
 
         $scope.getWinwin();
