@@ -74,11 +74,11 @@
                     <span style="color: orange">¿Si supieras</span> que somos <span class="destacados-legales">{{::winwin.users_amount}}</span> para {{::winwin.what_we_do}} <span style="color: orange">te sumarías?</span>
                 </h4>
             </div>
-            <div class="col-xs-12 no-padding text-center mb-20">
-                <div ng-show="!winwin.already_joined" class="col-xs-7 si-me-sumo btn"  ng-click="join()">
+            <div class="col-xs-12 no-padding text-center mb-20" ng-show="!winwin.already_joined">
+                <div class="col-xs-7 si-me-sumo btn"  ng-click="join()">
                     si! me sumo!
                 </div>
-                <div ng-show="!winwin.already_joined" class="col-xs-5 si-me-sumo la-proxima btn" ng-click="pass()">
+                <div class="col-xs-5 si-me-sumo la-proxima btn" ng-click="pass()">
                     la proxima
                 </div>
                 <!--
@@ -112,28 +112,31 @@
     <section ng-show='wpPreview.name.down' id="winwin-subviews" class="winwin-body col-xs-12">
         
         <div id="menu-winwin" class="col-xs-12 no-padding">
-                <div class="col-xs-20">
-                    <span class="btn" ng-click="goWinwin()"><i class="fa fa-comments"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'members' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goMembers()"><i class="fa fa-users"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'sponsors' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goSponsors()"><i class="fa fa-star"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
-                    <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
-                </div>
+            <div class="col-xs-20">
+                <span class="btn" ng-click="goWinwin()"><i class="fa fa-comments"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'members' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMembers()"><i class="fa fa-users"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'sponsors' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goSponsors()"><i class="fa fa-star"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
+            </div>
+
+            <div ng-show="isSponsor" class="col-xs-20 {{current_subview == 'sponsor' ? 'active' : ''}} " >
+                <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
+            </div>
+
+            <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
+                <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
+            </div>
         </div>
-                <div ng-show="isSponsor" class="col-xs-20 {{current_subview == 'sponsor' ? 'active' : ''}} " >
-                    <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
-                </div>
+
         <div ng-show="isAdmin" id="menu-winwin-admin" class="no-padding">
             <div class="col-xs-3  submenu-icons {{current_subadmin == 'patrocinio' ? 'active' : ''}} ">
-                <span class="btn" ng-click="goPatrocinio()"><i class="fa fa-star"></i></span>
+                <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
             </div>
             <div class="col-xs-3  submenu-icons {{current_subadmin == 'miembros' ? 'active' : ''}} ">
                 <span class="btn" ng-click="goMiembros()"><i class="fa fa-users"></i></span>
@@ -146,7 +149,7 @@
             </div>
         </div>
 
-        <div ui-view autoscroll="true" class="winwin-scroll-view"></div>
+        <div ui-view autoscroll="true" class="winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
 
     </section>
 </div>

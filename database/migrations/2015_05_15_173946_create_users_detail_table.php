@@ -37,7 +37,7 @@ class CreateUsersDetailTable extends Migration {
             $table->enum('sex', ['M', 'F'])->nullable();
 
             $table->mediumtext('cover_photo');
-            $table->mediumtext('photo');
+            $table->mediumtext('photo')->default('placeholder-square.jpg');
 
             //`id_maritalstatus` int(11) DEFAULT NULL,
 

@@ -70,7 +70,7 @@ class AuthController extends Controller {
     public function signup(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
-            'birthdate' => 'required',
+            //'birthdate' => 'required',
             'name' => 'required',
             'lastname' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -88,7 +88,7 @@ class AuthController extends Controller {
 
         $user->save();
         $detail = new UserDetail;
-        $detail->birthdate = $request->input('birthdate');
+        //$detail->birthdate = $request->input('birthdate');
         $detail->name = $request->input('name');
         $detail->lastname = $request->input('lastname');
         $detail->language_code = $request->input('language_code') || 'ES';

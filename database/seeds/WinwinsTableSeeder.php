@@ -29,7 +29,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= Todos dejan la caca en el Piso&quot;
         $winwin->what_we_do = ";
         $winwin->users_amount = "";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -43,7 +43,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= Todos dejan la caca en el Piso&quot;
         $winwin->what_we_do = ";
         $winwin->users_amount = "";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -57,7 +57,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Crear un Winwin";
         $winwin->users_amount = "11";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -71,7 +71,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Comprometernos a invitar cada uno a 5 amigos/as a que se sumen a winwins.";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -85,7 +85,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " Comprometernos a invitar cada uno a 5 amigos/as a que se sumen a winwins.";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -99,7 +99,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Comprometernos a invitar cada uno a 5 amigos/as a que se sumen a winwins.";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -113,7 +113,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Clasificar la basura en 3 grupos: vidrio (saco amarillo), plastico (saco rojo), papel (saco verde) y orgánico (saco blanco)";
         $winwin->users_amount = "50";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -127,7 +127,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Si somos muchos los vecinos, aportando una pequeña suma podríamos organizarnos para restaurar el edificio, de a tramos para no entorpecer el funcionamiento del mercado. Tambien podríamos trabajar en su difusión, en su fachada. Podríamos hacer juntos muchas cosas! Sumate!";
         $winwin->users_amount = "300";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -141,7 +141,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Si somos muchos los vecinos, aportando una pequeña suma podríamos organizarnos para restaurar el edificio, de a tramos para no entorpecer el funcionamiento del mercado. Tambien podríamos trabajar en su difusión, en su fachada. Podríamos hacer juntos muchas cosas! Sumate!";
         $winwin->users_amount = "300";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-10-10'; 
@@ -155,7 +155,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Si somos muchos los vecinos, aportando una pequeña suma podríamos organizarnos para restaurar el edificio, de a tramos para no entorpecer el funcionamiento del mercado. Tambien podríamos trabajar en su difusión, en su fachada. Podríamos hacer juntos muchas cosas! Sumate!";
         $winwin->users_amount = "300";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -167,7 +167,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Juntémonos entre los padres. Si somos 20 lo pintamos en un funde";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -179,7 +179,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -191,7 +191,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "prueba2";
         $winwin->users_amount = "30";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -203,7 +203,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " cada finde salir a una caminata de limpieza te sumarías?";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -215,7 +215,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " hacer una caminata de limpieza todos los lunes, te sumarías??";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -227,7 +227,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "No hay que hacer nada. Este winwin es una prueba de los cambios realizados.";
         $winwin->users_amount = "100000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -239,7 +239,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "rezar!";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -251,7 +251,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "If you knew that we were a group of 200 volunteers ready to go to the NJ shores area to help and try to comfort. Would you Join In Too?";
         $winwin->users_amount = "30";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -263,7 +263,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Organizarnos en grupos de 10 familias para ir a hacer compras quincenalmente, rotando al comprador (el que efectivamente va) periodicamente.";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -275,7 +275,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " ahorrar y cuidar del agua, usando menos de este recurso para lavar los platos, tomar una ducha, lavar la ropa, etc.";
         $winwin->users_amount = "1000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -287,7 +287,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "omos 50 para para empezar a laevñkañlkjañlfkjañlkfañlkjÂ ";
         $winwin->users_amount = "50";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -299,7 +299,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "0 para llevar todos bolsitas cuando plkjñalkfjñlakjfñalkj{propuesta participativa}";
         $winwin->users_amount = "50";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -311,7 +311,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "para ver el mensaje de cierre (tambiénÂ la encuesta final)";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -323,7 +323,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "s 4 para Conseguir que Maprimed distribuya un % gratis deÂ benznidazol en la provincia de Chaco.El tratamiento con benznidazol se realiza por única vez tomando dos píldoras diarias durante 60 días.";
         $winwin->users_amount = "4";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -335,7 +335,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "mos 400 para paraentusiasmar y contagiarles Pasión por la vida a los alumnos de 100 colegios, elprimer lunes de cada mes. Â NecesitamosMotivadores personales que sepan contagiar de entusiasmo al alumnado. Que elcolegio vuelva a ser el espacio público donde se siembren los primeros sueñospersonales con consciencia colectiva. Revalorizar las materias que más leinteresan a cada uno y fortalecer la visualización de un futuro construido apartir de la detonación interna ";
         $winwin->users_amount = "400";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -347,7 +347,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "para ir a La Plata el fin de semana a ayudar a los coordinadores de la campaña para reunir a las mascotas con sus dueños";
         $winwin->users_amount = "5";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -359,7 +359,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " {propuesta participativa} tener mucha paciencia";
         $winwin->users_amount = "15";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -371,7 +371,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " propuesta participativa del winwin prueba nuevo servidor";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -383,7 +383,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "{10} para poner 200 dólares cada uno para comparar el pasaje";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -395,7 +395,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " detectar las explotaciones ilegales en la provincia del Chaco y denunciarlas en un mapa web armado bajo el concepto de crowdsourced";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -407,7 +407,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " prueba propuesta participativa";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -419,7 +419,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " prueba propuesta participativa";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -431,7 +431,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "ayudar a limpiar nuestra inmerecida mala fama, aportarías $1000 a Ricciardi para que se ocupe de una campaña ed mkt a favor de los bogas?";
         $winwin->users_amount = "50";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -443,7 +443,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " {propuesta participativa}";
         $winwin->users_amount = "1";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -455,7 +455,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " probar el nuevo WW";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -467,7 +467,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " hacer pruebas en el sitio";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -479,7 +479,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -491,7 +491,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " {propuesta participativa}";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -503,7 +503,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " WW de prueba";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -515,7 +515,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " armar, mantener y gestionar un blog dedicado a escrachar a esta gente";
         $winwin->users_amount = "6";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -527,7 +527,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " WW";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -539,7 +539,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Apagar las luces de nuestros hogares a las 18:30hs y marchar a pie con velas a la plaza principal de tu barrio el jueves 29 de agosto del 2013 clamando por la responsabilidad ambiental de nuestros Estados, empresas y compatriotas.";
         $winwin->users_amount = "100000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -551,7 +551,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = " probando nuevos contenidosprobando nuevos contenidosprobando nuevos contenidosprobando nuevos contenidosprobando nuevos contenidosprobando nuevos contenidos";
         $winwin->users_amount = "5";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -563,7 +563,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Si supieras que todos vecinos del Parque Centenario se comprometen a poner su granito de arena clasificando la basura que generamos, vos... ";
         $winwin->users_amount = "5";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -575,7 +575,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "todos los vecinos del edificio nos comprometemos a separar nuestros residuos, para así llegar a ser el 1er Edificio Verde de Chacarita";
         $winwin->users_amount = "0";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -587,7 +587,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "crear un ww sin quorum";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -599,7 +599,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Gestion en las comunas el control y arreglo de las veredas rotas, también fomentar que la gente sea más limpia, teniendo mas cestos de basura, etc.";
         $winwin->users_amount = "30";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -611,7 +611,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "10 pasar la primavera en familia en la casa de Sebas y Nat";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -623,7 +623,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -635,7 +635,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "1000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -647,7 +647,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "100";
         $winwin->users_amount = "150";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -659,7 +659,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "100 armar una asociación civil";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -671,7 +671,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "probar que funcione esta funcionalidad";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -683,7 +683,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "bajar a la playa juntos las mañanas de los lunes y los jueves, con bolsas de consorcio para levantar la basura, mientras caminamos y charlamos";
         $winwin->users_amount = "30";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -695,7 +695,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "firmar un petitorio a la Jefatura porteña para abrir estos datos en y para presentar un prouecto de ley en la legislatura.";
         $winwin->users_amount = "100000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -707,7 +707,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "reciclar en nuestro edificio de Dorrego 4454, ";
         $winwin->users_amount = "40";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -719,7 +719,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -731,7 +731,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -743,7 +743,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "una persona de guardia por cada día, que le pasa la posta y la bitácora de la guardia al siguiente.";
         $winwin->what_we_do = "ayudar a los enfermos y personas mayores de cada barrio, rotando cada día para ayudarlos a hacer compras, llevarles agua e higienisarlos";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -755,7 +755,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "La idea es conseguir un lugar, hacer una pantomima para llevarlo, invitar a sus amigos y... PARTY TIME";
         $winwin->what_we_do = "organizar una fiestita sorpresa a Agus";
         $winwin->users_amount = "5";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -767,7 +767,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Es muy largo de contar pero se pueden escribit hasta 1000 caracters...";
         $winwin->what_we_do = "que podemos armar grupos y varias cosas";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -779,7 +779,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "cada uno elije cómo pedir por la paz entre los pueblos y las personas en desventaja, por esta causa vale rezar, meditar, visualizar, etc.";
         $winwin->what_we_do = "orar y/o meditar 5 minutos todos los días a las 9am por la paz entre los pueblos pobres del globo";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -791,7 +791,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "bajar los sábados a limpiar la playa mientras charlamos";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -803,7 +803,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Debemos parar esta represión injusta y cruel que sólo demuestra los negocios e inescrupulosos que hay detrás de estos tristísimos sucesos. El encuentro de al menos 20 en cada plaza sería de media hora una vez al menos, convidando prensa y con cartelería homogenea en cada nodo.";
         $winwin->what_we_do = "que nos juntemos los primeros sábados de c/ mes en la plaza principal de la capital de la prov. en q' vivamos protestando por la represión a los pueblos originarios";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -815,7 +815,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Deberíamos juntarnos un fin de semana con ropa cómoda y que no importe que se ensucie. Pensamos llevar una guitarra y empanadas. ";
         $winwin->what_we_do = "limpiar el Parque Las Heras, mientras cantamos";
         $winwin->users_amount = "25";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -827,7 +827,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Deberíamos juntarnos un fin de semana con ropa cómoda y que no importe que se ensucie. Pensamos llevar una guitarra y empanadas. ";
         $winwin->what_we_do = "limpiar el Parque Las Heras, mientras cantamos";
         $winwin->users_amount = "25";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -839,7 +839,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "ocuparnos de un desayuno diario para las personas sin techo que se presenten en la plaza de barrio";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -851,7 +851,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "organizar una compra mensual de almacén orgánico, otra mensual de hortalizas y otra quincenal de frutas";
         $winwin->users_amount = "50";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -863,7 +863,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -875,7 +875,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -887,7 +887,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -899,7 +899,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -911,7 +911,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -923,7 +923,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -935,7 +935,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Vivamus elementum eros in quam imperdiet ac commodo ipsum hendrerit. Sed orci justo, aliquam sed mattis in, aliquam in mauris. Cras et ipsum sed lectus suscipit scelerisque. ";
         $winwin->users_amount = "1";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -947,7 +947,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Que hay mas pasto en las casas, barrios y ciudades";
         $winwin->users_amount = "4";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -959,7 +959,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Para manejar de la mejor manera de usar nuestro tiempo y crear un taller experimental.";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -971,7 +971,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Para que levanten la serie para que la gente pueda utilizar mejor su tiempo. Borrar es una prueba.";
         $winwin->users_amount = "8";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -983,7 +983,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Para detectar si lo que muestra en mis winwins esta ok!";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -995,7 +995,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "Prueba";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1007,7 +1007,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "firmar un petitorio al Gobierno Nacional para que genere una Política de Estado en forma participativa y de largo plazo para erradicar la pobreza ";
         $winwin->users_amount = "100000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1019,7 +1019,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "undefined";
         $winwin->what_we_do = "to spread the knowledge and develop skills in our neigbours";
         $winwin->users_amount = "1000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1031,7 +1031,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi.";
         $winwin->what_we_do = "Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum ";
         $winwin->users_amount = "69";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1043,7 +1043,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.";
         $winwin->what_we_do = "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido ";
         $winwin->users_amount = "100";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1055,7 +1055,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Si por Internet podemos ver quiénes son y qué hacen estos inadaptados en sus picos de locura violenta podemos amedrentarlos con una &quot;
         $winwin->what_we_do = condena social&quot;
         $winwin->users_amount = ";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1067,7 +1067,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "vamos ARGENTINA!!!";
         $winwin->what_we_do = "hacerles una recepción cariñosa";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1079,7 +1079,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "la empatía y compartir la experiencia propia no sólo ayudará a otros si no que enriquecerá nuestro tránsito.";
         $winwin->what_we_do = "mentorear principiantes de meditación en el hogar";
         $winwin->users_amount = "4";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1091,7 +1091,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.";
         $winwin->what_we_do = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.";
         $winwin->users_amount = "5";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1103,7 +1103,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up.";
         $winwin->what_we_do = "Contrary to popular belief, ";
         $winwin->users_amount = "4";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1115,7 +1115,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Cuántas transfusiones se utilizan en un hospital?-Accidente grave de tránsito: 20 - 30-Trasplante de hígado: 20 - 30-Parto complicado: 4 - 6 -Hemorragia digestiva: 10-Paciente con leucemia: 250 Sólo el hospital Garrahan requiere 60 donantes diarios para cubrir las necesidades de sus pacientes. Unámonos para alivianarles la carga al menos un día a estos profesionales de la salud. ";
         $winwin->what_we_do = "donar sangre en el hospital público o centro de recepción más cercano";
         $winwin->users_amount = "60";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1127,7 +1127,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Para el mantenimiento de la huerta y la reconstrucción de las instalaciones seguro necesitaremos herramientas: Carretilla, palas de punta, ancha, recta, corazón o la que sea ... palitas de mano, baldes de esos usados de pintura o enduido ... y no tan urgente: tijeras de podar, pinzas, pico de loro, alicate, martillo, clavos, masa, alambre y todo tipo de herramientas que no usen ... ";
         $winwin->what_we_do = "Somos 40 para reconstruir con productos reciclados y técnicas de permacultura la Huerta de Don Torcuato que se incendió en junio pasado y donde se desarrollaban proyectos educativos con niños del barrio";
         $winwin->users_amount = "40";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-1.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1139,7 +1139,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Deseas ver la versión para tu país? De lo contrario, es posible que no puedas ver algunas películas y series de TV. Sí (redireccionar a mi país) - No (quedarme en el sitio actual).";
         $winwin->what_we_do = "Deseas ver la versión para tu país? De lo contrario, es posible que no puedas ver algunas películas y series de TV. Sí (redireccionar a mi país) - No (quedarme en el sitio actual).";
         $winwin->users_amount = "1000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-2.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1151,7 +1151,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "La acción es ir al Parque para dar a conocer la campaña y invitar a la gente que traigan juguetes. En el mismo Parque, los niños se acercan y arman las cajas, las embalan y pueden escribir cartas o hacer dibujos para el niño que recibirá el regalo.";
         $winwin->what_we_do = "ir al Parque Centenario los sábados para juntar regalos para la Campaña Niños Solidarios";
         $winwin->users_amount = "15";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-3.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1163,7 +1163,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Tenemos las herramientas disponibles que usa los chicos que trabajan en mantenimiento, creo que podría ser todos los sábados, una reunión de unos 5 como mínimo, de la lista de 20 que se sumen. ";
         $winwin->what_we_do = "hacer una huerta orgánica en el Barrio de los Andes";
         $winwin->users_amount = "20";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-4.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1175,7 +1175,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "saradasass llegará antes de que esté activo... lets see";
         $winwin->what_we_do = "para ver cómo llega el mensaje por email y cuando...";
         $winwin->users_amount = "4";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-5.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1187,7 +1187,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Desafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevo";
         $winwin->what_we_do = "Desafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevoDesafio Nuevo para ver el MSJ nuevo ";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-6.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1199,7 +1199,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ";
         $winwin->what_we_do = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-7b.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1211,7 +1211,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ";
         $winwin->what_we_do = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-8.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1223,7 +1223,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Faltan sólo unos 10 metros cuadrados, entre 10 lo hacemos en una hora... y luego podemos comer ensalada de Rúcula Orgánica con orgullo y vinagreta.";
         $winwin->what_we_do = "trabajar juntos el suelo de la Huerta del Paso del Lobo, mientras comemos cosas ricas y hacemos Danzoterapia";
         $winwin->users_amount = "10";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-default-9.jpg";
         $winwin->published = 1;
         $winwin->save();
 

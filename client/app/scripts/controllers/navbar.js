@@ -20,7 +20,6 @@ angular.module('winwinsApp')
     };
 
     $scope.do_back = function() {
-        console.log('do back');
         $window.history.back();
     };
 

@@ -21,7 +21,7 @@ angular.module('winwinsApp')
             lastname: $scope.lastname,
             language_code: 'ES' //ToDo: Obtener del sitio
         }).catch(function(response) {
-            SweetAlert.swal('Pasó algo!', response.message+'<br/><span class="advertencia">Vuelve a inentar</span>', 'warning', function() {
+            SweetAlert.swal('Pasó algo!', response.message, 'warning', function() {
                 $state.go('signup');
             });
         });
@@ -37,7 +37,7 @@ angular.module('winwinsApp')
         })
         .catch(function(response) {
             $state.go('failure-login');
-            SweetAlert.swal('Pasó algo!', response.message+'<br/><span class="advertencia">Vuelve a inentar</span>', 'warning', function() {
+            SweetAlert.swal('Pasó algo!', response.message, 'warning', function() {
                 $state.go('signup');
             });
 

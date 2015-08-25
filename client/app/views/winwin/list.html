@@ -5,37 +5,28 @@
             <span class="caret pull-right caret-middle"></span>
         </button>
         <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
-            <li><a href="#">WinWins Populares</a></li>
-            <li><a href="#">Últimos WinWins Creados</a></li>
-            <li><a href="#">WinWins que están cerca de concretarse</a></li>
-            <li><a href="#">Consumo responsable / Comercio Justo</a></li>
-            <li><a href="#">Cultura / Artes / Espectáculos</a></li>
-            <li><a href="#">Deportes / Actividad Físicas</a></li>
-            <li><a href="#">Diversidad / Convivencia</a></li>
-            <li><a href="#">Educación / Formación</a></li>
-            <li><a href="#">Empleo / Asuntos laborales</a></li>
-            <li><a href="#">Entretenimiento / Festejos / Juegos</a></li>
-            <li><a href="#">Internet / Tecnología</a></li>
-            <li><a href="#">Naturaleza / Medio Ambiente</a></li>
-            <li><a href="#">Pareja / Familia / Amigos</a></li>
-            <li><a href="#">Participación Civica / Asúntos públicos</a></li>
-            <li><a href="#">Salud / Terapias</a></li>
-            <li><a href="#">Solidaridad / Cooperación</a></li>
+            <li><a ng-click="doFilter('popular')">WinWins Populares</a></li>
+            <li><a ng-click="doFilter('last')">Últimos WinWins Creados</a></li>
+            <li><a  ng-click="doFilter('next_to_close')">WinWins que están cerca de concretarse</a></li>
+            <!--li><a href="#">Solidaridad / Cooperación</a></li-->
         </ul>
     </div>
 
     <div infinite-scroll='winwins.nextPage()'>
         <div class="col-xs-12 no-padding" ng-repeat="winwin in winwins.items">
-            <div class="col-xs-4  {{winwin.selected ? 'img-misc' : ''}} no-padding text-center">
-                <img src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
+
+            <div ng-click="view(winwin.id)" class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding"  style="cursor: pointer">
+                <img ng-src="http://images.dev-winwins.net/120x106/{{::winwin.image}}" />
                 <div class="somos">
                     <span class="title-somos">Somos</span>
-                    <span class="num-somos">{{::winwin.users_already_joined}}</span><br/>
+                    <span class="num-somos">{{::winwin.users_already_joined}}</span>
+                </div>
+                <div class="somos">
                     <span class="title-faltan">Faltan</span>
                     <span class="num-faltan">{{::winwin.users_left}}</span>
                 </div>
             </div>
-            <div class="col-xs-6 no-padding-left">
+            <div ng-click="view(winwin.id)" class="col-xs-6 no-padding-left" style="cursor: pointer">
                 <h5 class="title-destacados">
                     {{::winwin.title}}
                 </h5>
@@ -45,19 +36,49 @@
             </div>
             <div class="col-xs-2 no-padding">
                 <div class="col-xs-12 no-padding">
+
                     <div class="col-xs-12 no-padding btn-somos">
-                        <button type="button" class=" no-padding">
-                            <i class="fa fa-share-alt"></i>
-                        </button>
+
+                        <div class="col-xs-12">
+
+                            <div id="socialShare" class="btn-group share-group">
+                                <button href="#" data-toggle="dropdown" class="col-xs-12 no-padding btn-somos col-xs-12 no-padding btn btn-info dropdown-toggle share">
+                                    <i class="fa fa-share-alt fa-inverse"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a data-original-title="Twitter" rel="tooltip"  href="#" class="btn btn-twitter" data-placement="left">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-original-title="Facebook" rel="tooltip"  href="#" class="btn btn-facebook" data-placement="left">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>                   
+                                    <li>
+                                        <a  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
+                                            <i class="fa fa-envelope"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col-xs-12 no-padding me-interesa">
-                    <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Like</a>
+                    <a ng-href="/winwin-view/{{winwin.id}}" class="btn btn-interesa border-bottom">Ver</a>
                 </div>
                 <div class="col-xs-12 no-padding me-sumo text-right">
-                    <button type="button" class="btn btn-sumo">Me <br> Sumo</button>
+                    <button type="button" class="btn btn-sumo" ng-click="join(winwin.id)">Me <br> Sumo</button>
                 </div>
             </div>
+
+
+
+
+
         </div>
     </div>
 

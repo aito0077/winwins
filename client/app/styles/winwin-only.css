@@ -228,7 +228,19 @@
 }
 
 #menu-winwin-admin {
-    position: fixed;
+    display:block;
     left: 0px;
-    top: 45px;
+    top: 95px;
+}
+.winwin-scroll-view {
+    top: 95px;
+}
+.winwin-scroll-view.admin {
+    top: 135px;
+}
+.new-comentario {
+    position: fixed;
+    display:block;
+    left: 0px;
+    bottom: 0px;
 }

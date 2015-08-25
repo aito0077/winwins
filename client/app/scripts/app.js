@@ -64,7 +64,11 @@ angular.module('winwinsApp', [
     .state('winwin-new', {
         url: '/winwin-new',
         templateUrl: 'views/winwin/edit.html',
-        controller: 'winwin-edit'
+        controller: 'winwin-edit',
+        resolve: {
+          loginRequired: loginRequired
+        }
+
     })
     .state('winwin-first-post', {
         url: '/winwin-first-post/:winwinId',
@@ -218,6 +222,19 @@ angular.module('winwinsApp', [
         templateUrl: 'views/sponsor/list.html',
         controller: 'sponsor-list'
     });
+
+
+    function loginRequired($q, $location, $auth, $state) {
+        var deferred = $q.defer();
+        if ($auth.isAuthenticated()) {
+            deferred.resolve();
+        } else {
+            console.dir($state);
+            $location.path('/signin');
+        }
+        return deferred.promise;
+    }
+
 
 })
 .config(function ($authProvider, api_host) {

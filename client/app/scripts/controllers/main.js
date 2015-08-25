@@ -18,32 +18,43 @@ angular.module('winwinsApp')
     };
 
     $scope.join = function(winwin_id) {
-        $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
-            $scope.getWinwin();
-            swal({
-                title: "info", 
-                text: 'winwin_join', 
-                type: "info",
-                showcancelbutton: false,
-                closeonconfirm: true 
-            });
+        if($auth.isAuthenticated()) {
+            $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'winwin_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+                $scope.view(winwin_id);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
+            })
+            .error(function(error) {
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
             });
-        });
+        } else {
+            $state.go('signIn');
+        }
     };
 
     $scope.view = function(id) {
+        console.log('view '+id);
         $state.go('winwin-view', {
             winwinId: id
         }); 
+    };
+
+
+    $scope.openShare = function (winwin_id) {
+        $('#socialModal').modal('show');
+        console.log('winwin_id: '+winwin_id);
     };
 
 }]);

@@ -12,6 +12,11 @@ angular.module('winwinsApp')
     $scope.winwin.closing_date = new Date();
     $scope.closingdatechange = function(data){ };
 
+    $('#datetimepicker1').datetimepicker({
+        minDate: new Date(),
+        format: 'DD MM YYYY'
+    });
+
     Interest.query(function(data) {
         $scope.interests = data;
     });
@@ -95,7 +100,7 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', 'Winwin', 'Account', 'Post', function($scope, $stateParams, $http, $state, Winwin, Account, Post) {
+.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', 'Winwin', 'Account', 'Post', function($scope, $stateParams, $http, $state, $auth, Winwin, Account, Post) {
     console.dir($stateParams); 
 
     $scope.post = new Post({});
@@ -208,6 +213,10 @@ angular.module('winwinsApp')
    
     $scope.winwins = new WinwinPaginate();
 
+    $scope.doFilter = function(filter) {
+        console.log(filter);
+    };
+
 }])
 .controller('winwin-search', ['$scope','$http', function($scope, $http) {
 
@@ -237,6 +246,7 @@ angular.module('winwinsApp')
             $scope.winwin = Winwin.get({
                 id: $stateParams.winwinId
             }, function(data) {
+                $scope.winwin = data;
                 $scope.calculate_time();
             });
         }
@@ -270,28 +280,33 @@ angular.module('winwinsApp')
 
         $scope.getWinwin();
 
-        $scope.join = function() {
-            $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
-                //ToDo: Te uniste
-                $scope.getWinwin();
-                swal({
-                    title: "info", 
-                    text: 'winwin_join', 
-                    type: "info",
-                    showcancelbutton: false,
-                    closeonconfirm: true 
-                });
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
+        $scope.join = function() {
+            if($auth.isAuthenticated()) {
+                $http.get('/api/winwins/join/'+$scope.winwin.id).success(function(data) {
+                    //ToDo: Te uniste
+                    $scope.getWinwin();
+                    swal({
+                        title: "info", 
+                        text: 'winwin_join', 
+                        type: "info",
+                        showcancelbutton: false,
+                        closeonconfirm: true 
+                    });
+
+                })
+                .error(function(error) {
+                    swal({
+                        title: "ADVERTENCIA", 
+                        text: error.message, 
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
                 });
-            });
+            } else {
+                $state.go('signIn');
+            }
         };
 
         $scope.pass = function() {

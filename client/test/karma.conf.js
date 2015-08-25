@@ -60,6 +60,7 @@ module.exports = function(config) {
       'bower_components/ng-tags-input/ng-tags-input.min.js',
       'bower_components/angular-background/dist/angular-background.min.js',
       'bower_components/angularjs-socialshare/dist/angular-socialshare.min.js',
+      'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

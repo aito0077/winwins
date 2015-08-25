@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="bower_components/select2/select2.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -66,6 +67,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
                 <ul class="nav navbar-nav text-center menu-style">
+                    <li ng-if="!isAuthenticated()">
+                        <a ng-href="/signin">Login</a>
+                    </li>
                     <li ng-if="isAuthenticated()">
                         <a href="/account">Ir a mi cuenta</a>
                     </li>
@@ -102,7 +106,7 @@
     <!-- / End Navigation -->
 
     <!-- Page Content -->
-      <div ui-view autoscroll="true" class="container no-padding"></div>
+      <div ui-view autoscroll="true" class="main-view container no-padding"></div>
 
     <!--div class="footer"></div-->
 
@@ -157,6 +161,7 @@
     <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
     <script src="bower_components/angular-background/dist/angular-background.min.js"></script>
     <script src="bower_components/angularjs-socialshare/dist/angular-socialshare.min.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
