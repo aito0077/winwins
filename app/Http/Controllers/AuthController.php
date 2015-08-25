@@ -58,7 +58,6 @@ class AuthController extends Controller {
             if(!isset($user->detail()->photo)) {
                 $this->dispatch(new UpdateProfilePicture($user));
             }
-
  
 
             return response()->json(['token' => $this->createToken($user)]);

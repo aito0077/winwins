@@ -78,6 +78,10 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
 
     $scope.setVideoUrl = function() {
         console.log('set video');
@@ -89,12 +93,14 @@ angular.module('winwinsApp')
             showCancelButton: true,
             closeOnConfirm: true 
         }, function(inputValue) {
-            var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            if(inputValue && inputValue.match(p)) {
-                console.log('Valido');
-                $scope.winwin.video = inputValue;
+            var result = $scope.matchYoutubeUrl(inputValue);
+            if(result) {
+                $scope.$apply(function(){
+                    $scope.winwin.video = result;
+                });
+                console.log('Winwin video: '+result);
             } else {
-                console.log('No Valido');
+                console.log('Wrong url');
             }
         });
     };

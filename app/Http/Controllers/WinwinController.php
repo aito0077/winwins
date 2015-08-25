@@ -136,6 +136,14 @@ class WinwinController extends Controller {
                     'user_id' => $user->id,
                     'type' => 'VIDEO'
                 ]);
+                if(!isset($winwin->image)) {
+                    $youtube_img = 'http://img.youtube.com/vi/'.$request->input('video').'/maxresdefault.jpg';
+                
+                    Storage::disk('s3-gallery')->put('/' .$request->input('video').'.jpg', file_get_contents($youtube_img), 'public');
+
+                    $winwin->image = $request->input('video').'.jpg';
+                    $winwin->save();
+                }
             }
 
             $user->newNotification()
