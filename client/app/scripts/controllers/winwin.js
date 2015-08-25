@@ -534,10 +534,16 @@ angular.module('winwinsApp')
     $scope.posts = [];
     $scope.last = {};
 
-    $http.get('http://winwins.app/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
-        $scope.posts = data.posts;
-        $scope.last = data.last;
-    });
+    $scope.getPosts = function() {
+        $http.get('http://winwins.app/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+            $scope.posts = data.posts;
+            $scope.last = data.last;
+            $scope.post = new Post({});
+        });
+
+    }
+
+    $scope.getPosts();
 
     Winwin.get({id: $stateParams.winwinId}, function(winwin) {
         $scope.winwin = winwin;
@@ -604,6 +610,8 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
+            $scope.getPosts();
+
         });
     };
 
