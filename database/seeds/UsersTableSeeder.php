@@ -19,7 +19,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Manuna'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'Entusiasta exploradora de los para quÃ©s de la Web'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -36,7 +35,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Du'; 
         $detail->name = 'Xava'; 
-        $detail->birthdate = '1982-01-16'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -53,7 +51,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rey'; 
         $detail->name = 'NicolÃ¡s'; 
-        $detail->birthdate = '1990-10-22'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -70,7 +67,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Tedesco'; 
         $detail->name = 'Sebas'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -87,7 +83,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Falso'; 
         $detail->name = 'JosÃ©'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -104,7 +99,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Paginar'; 
         $detail->name = 'MJN'; 
-        $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -121,7 +115,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Giubilo'; 
         $detail->name = 'Ray'; 
-        $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -138,7 +131,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Beer'; 
         $detail->name = 'Andy'; 
-        $detail->birthdate = '1980-02-20'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -155,7 +147,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'del carmen'; 
         $detail->name = 'arnaldo'; 
-        $detail->birthdate = '1984-10-17'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -172,7 +163,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->birthdate = '1984-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -189,7 +179,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fontan'; 
         $detail->name = 'Liliana'; 
-        $detail->birthdate = '1976-12-21'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -206,7 +195,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->birthdate = '1976-12-21'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -223,7 +211,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'n'; 
         $detail->name = 'mj'; 
-        $detail->birthdate = '1977-10-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -240,7 +227,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'M'; 
         $detail->name = 'Mario'; 
-        $detail->birthdate = '1980-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -257,7 +243,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Paginar'; 
         $detail->name = 'Mjn'; 
-        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -274,7 +259,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rom'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1977-10-23'; 
         $detail->sex = 'M'; 
         $detail->about = 'Soy diseÃ±ador grÃ¡fico, especializado en diseÃ±o web y tambiÃ©n fotÃ³grafo de moda.'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -291,7 +275,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
-        $detail->birthdate = '1977-10-23'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -308,7 +291,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'hotmail paginar'; 
         $detail->name = 'mjn'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -325,7 +307,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Zajdenberg'; 
         $detail->name = 'Dario'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -342,7 +323,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Stewart-Usher'; 
         $detail->name = 'Lenny'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -359,7 +339,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alvarez Manteola'; 
         $detail->name = 'Javier Angel'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -376,7 +355,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -393,7 +371,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -410,7 +387,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'FontÃ¡n'; 
         $detail->name = 'Liliana'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -427,7 +403,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Angel Alvarez'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -444,7 +419,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fontan'; 
         $detail->name = 'Lili'; 
-        $detail->birthdate = '1994-12-21'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -461,7 +435,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Traverso'; 
         $detail->name = 'Fernando Jorge'; 
-        $detail->birthdate = '1956-11-09'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -478,7 +451,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -495,7 +467,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Mayol'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -512,7 +483,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Lima'; 
         $detail->name = 'Sebastian'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -529,7 +499,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'test'; 
         $detail->name = 'test'; 
-        $detail->birthdate = '2000-04-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -546,7 +515,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'test 2'; 
         $detail->name = 'test 2'; 
-        $detail->birthdate = '1998-05-22'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -563,7 +531,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Stele'; 
         $detail->name = 'Sonia'; 
-        $detail->birthdate = '1980-07-08'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -580,7 +547,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Cardoso'; 
         $detail->name = 'Carlos'; 
-        $detail->birthdate = '1980-07-08'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -597,7 +563,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nason'; 
         $detail->name = 'Ovidio '; 
-        $detail->birthdate = '1966-11-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -614,7 +579,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nason'; 
         $detail->name = 'Ovidio'; 
-        $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -631,7 +595,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Bonzi'; 
         $detail->name = 'Aldo'; 
-        $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -648,7 +611,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Bonzi'; 
         $detail->name = 'Aldo'; 
-        $detail->birthdate = '1956-10-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -665,7 +627,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rouge'; 
         $detail->name = 'Alain'; 
-        $detail->birthdate = '1986-09-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -682,7 +643,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rouge'; 
         $detail->name = 'Alain'; 
-        $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -699,7 +659,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Matinee'; 
         $detail->name = 'Marteena'; 
-        $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -716,7 +675,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Matinee'; 
         $detail->name = 'Valenteena'; 
-        $detail->birthdate = '1996-12-29'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -733,7 +691,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'guiraud'; 
         $detail->name = 'jesus '; 
-        $detail->birthdate = '1977-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -750,7 +707,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ponce'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1977-10-15'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -767,7 +723,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1980-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -784,7 +739,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo'; 
-        $detail->birthdate = '1982-12-20'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -801,7 +755,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo A.'; 
-        $detail->birthdate = '1982-12-20'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -818,7 +771,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Hamada'; 
         $detail->name = 'Fabiana'; 
-        $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -835,7 +787,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Acosta'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -852,7 +803,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo'; 
-        $detail->birthdate = '1981-12-13'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -869,7 +819,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Test'; 
         $detail->name = 'Ana'; 
-        $detail->birthdate = '1982-04-17'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -886,7 +835,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Che'; 
         $detail->name = 'Matias'; 
-        $detail->birthdate = '1984-02-19'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -903,7 +851,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Navas'; 
         $detail->name = 'Bea'; 
-        $detail->birthdate = '1957-07-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -920,7 +867,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Schnaidman'; 
         $detail->name = 'Demian'; 
-        $detail->birthdate = '1975-08-03'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -937,7 +883,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Box'; 
         $detail->name = 'Enrique'; 
-        $detail->birthdate = '1975-03-20'; 
         $detail->sex = 'm'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -954,7 +899,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
-        $detail->birthdate = '2013-07-22'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -971,7 +915,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
-        $detail->birthdate = '1968-07-22'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -988,7 +931,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nassif'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1977-03-21'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1005,7 +947,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Carena'; 
         $detail->name = 'Matias'; 
-        $detail->birthdate = '1968-04-12'; 
         $detail->sex = 'M'; 
         $detail->about = 'EstudiÃ³ DiseÃ±o Industrial en la Universidad de Buenos Aires (UBA). EntendiÃ³ la importancia de Internet desde sus comienzos y en 1994 fundÃ³ Paginar junto a SebastiÃ¡n Tedesco. Desde entonces no ha parado. Confiesa que disfruta de la familia, los amigos, la buena cocina y el golf.'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1022,7 +963,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'paginar'; 
         $detail->name = 'test'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1039,7 +979,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'FalcÃ³n'; 
         $detail->name = 'Marianita'; 
-        $detail->birthdate = '2000-01-19'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1056,7 +995,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'del carmen'; 
         $detail->name = 'arnaldo'; 
-        $detail->birthdate = '1988-08-11'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1073,7 +1011,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Hegouaburu'; 
         $detail->name = 'Maria'; 
-        $detail->birthdate = '1982-10-07'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1090,7 +1027,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '1982-10-07'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1107,7 +1043,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juana'; 
-        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1124,7 +1059,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Pedro'; 
-        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1141,7 +1075,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juana'; 
-        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1158,7 +1091,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Acosta'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1175,7 +1107,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Perez'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -1192,7 +1123,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1990-01-01'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1209,7 +1139,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'NuÃ±ez AgÃ¼ero'; 
         $detail->name = 'IÃ±aki'; 
-        $detail->birthdate = '1971-09-18'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1226,7 +1155,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Paula'; 
-        $detail->birthdate = '1995-11-19'; 
         $detail->sex = 'f'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1243,7 +1171,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->birthdate = '1979-10-17'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1260,7 +1187,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->birthdate = '1979-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1277,7 +1203,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Maria'; 
-        $detail->birthdate = '1999-09-18'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1294,7 +1219,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
-        $detail->birthdate = '1999-01-07'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1311,7 +1235,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Juarez'; 
         $detail->name = 'Mario'; 
-        $detail->birthdate = '1999-09-18'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1328,7 +1251,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'AstÃºn'; 
         $detail->name = 'Sandra Paola'; 
-        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1345,7 +1267,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'diaz'; 
         $detail->name = 'cesar alexis'; 
-        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1362,7 +1283,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'N.'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1379,7 +1299,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Agency'; 
         $detail->name = 'Bowie'; 
-        $detail->birthdate = '1975-12-04'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1396,7 +1315,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Mantovani'; 
         $detail->name = 'Jorge'; 
-        $detail->birthdate = '1958-12-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1413,7 +1331,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Diaz'; 
         $detail->name = 'Cesar Alexis'; 
-        $detail->birthdate = '1969-01-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1430,7 +1347,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'giubilo'; 
         $detail->name = 'Raymond'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1447,7 +1363,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ginia'; 
         $detail->name = 'Virt'; 
-        $detail->birthdate = '1969-12-31'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1464,7 +1379,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Prueba'; 
         $detail->name = 'Faby'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1481,7 +1395,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Test'; 
         $detail->name = 'Virginia'; 
-        $detail->birthdate = '1982-06-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1498,7 +1411,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Test'; 
         $detail->name = 'Virginia'; 
-        $detail->birthdate = '1982-06-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1515,7 +1427,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'ss'; 
         $detail->name = 'a'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1532,7 +1443,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Maria'; 
         $detail->name = 'a'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1549,7 +1459,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Maria'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1566,7 +1475,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'a'; 
         $detail->name = 'ss'; 
-        $detail->birthdate = '1990-10-10'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1583,7 +1491,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Pentito'; 
         $detail->name = 'MarÃ­a Soledad'; 
-        $detail->birthdate = '1978-10-15'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1600,7 +1507,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Pizza'; 
         $detail->name = 'Virginia'; 
-        $detail->birthdate = '1982-02-23'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1617,7 +1523,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Dumas'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '1963-10-17'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1634,7 +1539,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->birthdate = '1963-10-17'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1651,7 +1555,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gaibisso'; 
         $detail->name = 'Viviana'; 
-        $detail->birthdate = '1954-09-09'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1668,7 +1571,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ve.'; 
         $detail->name = 'Nawel'; 
-        $detail->birthdate = '1910-09-11'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1685,7 +1587,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'a'; 
         $detail->name = 'a'; 
-        $detail->birthdate = '1980-01-01'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1702,7 +1603,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alfonzo'; 
         $detail->name = 'Cristobal'; 
-        $detail->birthdate = '1996-11-10'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1719,7 +1619,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nassif'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1977-03-21'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1736,7 +1635,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Carena'; 
         $detail->name = 'Mati'; 
-        $detail->birthdate = '1968-12-04'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1753,7 +1651,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Barton'; 
         $detail->name = 'Ed'; 
-        $detail->birthdate = '1944-02-14'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1770,7 +1667,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Cortez'; 
         $detail->name = 'Eduardo'; 
-        $detail->birthdate = '1979-03-26'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1787,7 +1683,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Cortez'; 
         $detail->name = 'Eduardo'; 
-        $detail->birthdate = '1979-03-26'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1804,7 +1699,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ctez'; 
         $detail->name = 'Ealx'; 
-        $detail->birthdate = '1982-11-01'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1821,7 +1715,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ruete GÃ¼emes'; 
         $detail->name = 'Ernesto'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1838,7 +1731,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1855,7 +1747,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Arnaldo Fernandez'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -1872,7 +1763,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'NuÃ±ez AgÃ¼ero'; 
         $detail->name = 'IÃ±aki'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1889,7 +1779,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1906,7 +1795,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Carena'; 
         $detail->name = 'Mati'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1923,7 +1811,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Garcia'; 
         $detail->name = 'Leonardo'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1940,7 +1827,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier'; 
-        $detail->birthdate = '1957-06-06'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1957,7 +1843,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Rios'; 
         $detail->name = 'Daniel'; 
-        $detail->birthdate = '1986-11-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1974,7 +1859,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier Angel '; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -1991,7 +1875,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'aito77'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = '1956-12-08'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
@@ -2008,7 +1891,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Apellido'; 
         $detail->name = 'Nombre'; 
-        $detail->birthdate = '1976-10-15'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -2025,7 +1907,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Brenes'; 
         $detail->name = 'Gaby'; 
-        $detail->birthdate = '1990-03-30'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -2042,7 +1923,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'NULL'; 
@@ -2059,7 +1939,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Caputto'; 
         $detail->name = 'MartÃ­n'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'M'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -2076,7 +1955,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Moreno'; 
         $detail->name = 'Silvina'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'F'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -2093,7 +1971,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Henriquez'; 
         $detail->name = 'Luis'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
@@ -2110,7 +1987,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Interactivista'; 
         $detail->name = 'NULL'; 
-        $detail->birthdate = '1972-03-29'; 
         $detail->sex = 'NULL'; 
         $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
