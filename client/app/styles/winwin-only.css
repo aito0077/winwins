@@ -154,6 +154,7 @@
     font-size: 10px
 }
 
+/*
 @media (min-width: 400px) {
     .btn-camera {
         right: -500px
@@ -188,6 +189,7 @@
         margin-left: 100px!important
     }
 }
+*/
 
 .winwin-menu {
     position:fixed;

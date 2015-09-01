@@ -721,6 +721,7 @@ a.no-link {
 
 
 
+/*
 @media (min-width: 400px) {
     .main {
         margin-top: 0
@@ -737,11 +738,6 @@ a.no-link {
     .hidden-xs {
         display: none;
     }
-    /*
-    .container-search {
-        left: 42%   
-    }
-    */
     .logo-sponsors-landscape {
         width: 162px;
         height: 162px;
@@ -765,11 +761,6 @@ a.no-link {
         width: 50%!important;
         margin-left: 50%;
     }
-    /*
-    .container-search.home-search {
-        position: relative;
-    }
-    */
     .col-sm-4 {
         width: 33.333333%!important
     }
@@ -819,6 +810,7 @@ a.no-link {
         left: 65%
     }
 }
+*/
 /*
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
