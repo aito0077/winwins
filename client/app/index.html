@@ -69,22 +69,22 @@
             <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'">
                 <ul class="nav navbar-nav text-center menu-style">
                     <li ng-if="!isAuthenticated()">
-                        <a ng-href="/signin">Login</a>
+                        <a ng-href="/#/signin">Login</a>
                     </li>
                     <li ng-if="isAuthenticated()">
-                        <a href="/account">Ir a mi cuenta</a>
+                        <a href="/#/account">Ir a mi cuenta</a>
                     </li>
                     <li ng-if="!isAuthenticated()">
-                        <a ng-href="/signup">Creá una cuenta en WinWins</a>
+                        <a ng-href="/#/signup">Creá una cuenta en WinWins</a>
                     </li>
                     <li ng-if="isAuthenticated()">
-                        <a ng-href="/winwin-new">Creá un WinWin</a>
+                        <a ng-href="/#/winwin-new">Creá un WinWin</a>
                     </li>
                     <li>
-                        <a ng-href="/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
+                        <a ng-href="/#/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
                     </li>
                     <li>
-                        <a href="/group-list">Encontrá grupos y unite!</a>
+                        <a href="/#/group-list">Encontrá grupos y unite!</a>
                     </li>
                     <!--li>
                         <a href="#">Historias con final feliz :)</a>
@@ -96,7 +96,7 @@
                         <div ng-translate-language-select></div>
                     </li-->
                     <li ng-if="isAuthenticated()">
-                        <a ng-href="/logout">Cerrar Sesión</a>
+                        <a ng-href="/#/logout">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -107,7 +107,7 @@
     <!-- / End Navigation -->
 
     <!-- Page Content -->
-    <div ui-view class="main-view container no-padding"></div>
+    <div ui-view class="slide main-view container no-padding"></div>
 
     <!--div class="footer"></div-->
 

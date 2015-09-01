@@ -40,7 +40,7 @@
         </div>
         <div class="col-xs-12 mb-20">
             <div ng-repeat="follower in user_detail.users">
-                <a ng-href="/user-view/{{::follower.id}}">
+                <a ng-href="/#/user-view/{{::follower.id}}">
                     <img title="{{::follower.username}}" alt="{{::follower.username}}" ng-src="http://images.dev-winwins.net/40x40/{{::follower.detail.photo}}" class="img-responsive img-circle profile">
                 </a>
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="col-xs-12 no-padding">
             <div ng-repeat="winwin in user_detail.winwins">
-                <a ng-href="/winwin-view/{{::winwin.id}}">
+                <a ng-href="/#/winwin-view/{{::winwin.id}}">
                     <img alt="{{::winwin.title}}" ng-src="http://images.dev-winwins.net/40x40/{{::winwin.image}}" class="img-responsive float-left">
                 </a>
             </div>

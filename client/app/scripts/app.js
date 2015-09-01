@@ -12,6 +12,7 @@ angular.module('winwinsApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
+    'ngMessages',
     'ngFileUpload',
     'ngSanitize',
     'ngTouch',
@@ -33,7 +34,7 @@ angular.module('winwinsApp', [
 
     $urlRouterProvider.otherwise('/');
 
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 
     $stateProvider
     .state('main',{
