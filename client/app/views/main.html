@@ -6,8 +6,8 @@
     </div>
 
     <div ng-repeat="winwin in winwins" class="col-xs-12 no-padding" >
-        <div class=" img-misc no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" ng-click="view(winwin.id)" style="cursor:pointer">
-                <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999">
+        <div class=" img-misc no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
+                <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999; cursor:pointer;"  ng-click="view(winwin.id)" >
                     {{::winwin.title}}
                 </div>
         </div>

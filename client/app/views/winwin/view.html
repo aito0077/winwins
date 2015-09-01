@@ -1,4 +1,4 @@
-<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-300px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
+<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-250px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
 	<div ng-class='{ compressed: wpPreview.name.down}' class="winwin-header cssFade">
         <section id="winwin-view" ng-show="main_view">
 
@@ -6,7 +6,10 @@
             <div class="col-xs-12 no-padding">
 
                 <div class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding"  style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}">
-                    {{::winwin.title}}
+                    <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999">
+                        {{::winwin.title}}
+                    </div>
+
                 </div>
                 <div class="col-xs-12 no-padding shadow-border">
                     <div class="col-xs-3 no-padding btn5 btn-share">

@@ -19,7 +19,7 @@ angular.module('winwinsApp')
     $rootScope.$on('$stateChangeSuccess',function(data, other){
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
         } else {
-            $("html, body").animate({ scrollTop: 0 }, 200);
+            $("html, body").animate({ scrollTop: 10 }, 200);
 
         }
 

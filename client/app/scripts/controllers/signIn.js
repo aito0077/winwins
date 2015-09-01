@@ -10,6 +10,7 @@
 angular.module('winwinsApp')
 .controller('LoginCtrl', function($scope, $rootScope, $auth, $state, SweetAlert) {
     $scope.login = function() {
+        console.log('Login!!');
         $auth.login({ email: $scope.email, password: $scope.password })
         .then(function(data) {
             $rootScope.currentUser = data;
