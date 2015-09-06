@@ -534,7 +534,7 @@ angular.module('winwinsApp')
         $scope.winwin = winwin;
     });
 }])
-.controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, Winwin, Account, Upload, Post) {
+.controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post) {
     $scope.posts = [];
     $scope.last = {};
 
@@ -607,51 +607,38 @@ angular.module('winwinsApp')
     };
 
 
-    $scope.uploading = false;
-    //$scope.files = [];
-    $scope.file = false;
-
-    /*
-    $scope.$watch('files', function () {
-        console.log('watchs');
-        $scope.upload($scope.files);
-    });
-    */
-
-    $scope.$watch('file', function () {
-        console.log('watch');
-        if ($scope.file && !$scope.uploading) {
-            $scope.upload($scope.file);
-        }
-    });
-
-    $scope.upload = function (file) {
-        console.log(file);
+    $scope.uploadFiles = function(file) {
         console.dir(file);
-         if (file && !$scope.uploading) {
-            $scope.uploading = true; 
-            console.log('File');
-            Upload.upload({
+        $scope.f = file;
+        console.log(file.$error);
+        if (file && !file.$error) {
+            console.log('enviando...');
+            file.upload = Upload.upload({
                 url: '/api/posts/upload',
-                method: 'POST',
-                fields: {},
-                file: file,
-                data: {}
-            }).progress(function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                $scope.uploading = true;
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-            }).success(function (data, status, headers, config) {
-                console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-                console.dir(data);
-                $scope.uploading = false;
-                $scope.post.media_id = data.media_id;
-                $scope.post.media_type  = 'IMAGE';
-
-            }).error(function() {
-                $scope.uploading = false;
+                file: file
             });
-        }
+
+            file.upload.then(function (response) {
+                console.log('success...');
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.post.media_id = response.data.media_id;
+                    $scope.post.media_type  = 'IMAGE';
+                    $scope.post.media_path = response.data.filename;
+                });
+            }, function (response) {
+                console.log('error...');
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                console.log('progress...');
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
     };
 
     $scope.cancelEditing = function() {
@@ -672,6 +659,9 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
+            $scope.normal_size = true;
+            $scope.editing = false;
+
             $scope.getPosts();
         });
     };

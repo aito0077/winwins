@@ -5,6 +5,9 @@ use Auth;
 use Log;
 use DB;
 use Config;
+use Storage;
+use Validator;
+use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
@@ -109,8 +112,10 @@ class PostController extends Controller {
 
     public function storeImage(Request $request, Media $media) {
 
+        Log::info('subiendo imagen');
         $user = User::find($request['user']['sub']);
         Log::info($user);
+
 
         if(!$request->hasFile('file')) { 
             return Response::json(['error' => 'No File Sent']);

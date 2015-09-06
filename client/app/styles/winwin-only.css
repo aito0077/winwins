@@ -211,7 +211,7 @@
 }
 .winwin .compressed {
     max-height: 300px;
-    overflow: hidden; 
+    overflow: scroll; 
 }
 
 .winwin-body {
@@ -233,6 +233,7 @@
 }
 .winwin-scroll-view {
     top: 95px;
+    
 }
 .winwin-scroll-view.admin {
     top: 135px;

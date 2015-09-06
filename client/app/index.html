@@ -46,23 +46,28 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                 <button class="pull-left back-buttom btn-toogle" style="margin-left:8px" ng-click="do_back()">
-                    <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
-                </button>
-                <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
-                    <span class="sr-only">Navigation Menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="col-xs-3 col-xs-push-1">
+                <div class="col-xs-4">
+                    <button class="pull-left back-buttom btn-toogle" ng-click="do_back()">
+                        <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
+                    </button>
+                </div>
+
+                <div class="col-xs-4">
                     <a class="navbar-brand" href="/#/">
-                        <img src="http://images.dev-winwins.net/logo_winwins.png" />
+                        <img class="img-responsive" src="http://images.dev-winwins.net/logo_winwins.png"  />
                     </a>
                 </div>
 
-                <div  class="pull-right">
-                    <span ng-show="{{unreadNotifications > 0}}" style="font-size:15pt; color: white;"><i class="fa fa-bell-o"></i> <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;">{{unreadNotifications}}</span>
+                <div class="col-xs-4">
+                    <button type="button" class="navbar-toggle pull-right" ng-click="isCollapsed = !isCollapsed">
+                        <span class="sr-only">Navigation Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div  class="pull-right">
+                        <span ng-show="{{unreadNotifications > 0 || true}}" style="font-size:15pt; color: white;"><i class="fa fa-bell-o"></i> <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;">{{unreadNotifications}}</span>
+                    </div>
                 </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -121,8 +126,6 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script-->
-    <script src="scripts/extras/html5-formdata-polyfilll.js"></script>
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
