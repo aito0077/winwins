@@ -291,7 +291,6 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account) {
 
-        $scope.main_view = true;
         $scope.show_closing_date = false;
 
         $scope.winwin = {};

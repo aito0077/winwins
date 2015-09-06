@@ -46,10 +46,19 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <div class="col-xs-4">
-                    <button class="pull-left back-buttom btn-toogle" ng-click="do_back()">
-                        <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
-                    </button>
+                <div class="col-xs-4 no-padding">
+                    <div class="col-xs-6">
+                        <button class="pull-left back-buttom btn-toogle" ng-click="do_back()">
+                            <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="pull-right">
+                            <span ng-show="{{unreadNotifications > 0 || true}}" style="font-size:15pt; color: white;">
+                                <i class="fa fa-bell-o"></i> <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;">{{unreadNotifications}}
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-xs-4">
@@ -59,14 +68,16 @@
                 </div>
 
                 <div class="col-xs-4">
-                    <button type="button" class="navbar-toggle pull-right" ng-click="isCollapsed = !isCollapsed">
-                        <span class="sr-only">Navigation Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div  class="pull-right">
-                        <span ng-show="{{unreadNotifications > 0 || true}}" style="font-size:15pt; color: white;"><i class="fa fa-bell-o"></i> <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;">{{unreadNotifications}}</span>
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="pull-right navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                            <span class="sr-only">Navigation Menu</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                     </div>
                 </div>
             </div>

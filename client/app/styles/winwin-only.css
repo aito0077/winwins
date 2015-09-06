@@ -209,14 +209,13 @@
 .winwin .cssFade.ng-hide {
     opacity: 0; 
 }
-.winwin .compressed {
-    max-height: 300px;
-    overflow: scroll; 
+
+#winwin-view{
+    display:block;
 }
 
 .winwin-body {
-    position: fixed;
-    top: 95px;
+    margin-top: 365px;
     min-height: 400px;
 }
 
@@ -227,13 +226,13 @@
 }
 
 #menu-winwin-admin {
-    display:block;
+    position: fixed;
     left: 0px;
     top: 95px;
 }
 .winwin-scroll-view {
     top: 95px;
-    
+
 }
 .winwin-scroll-view.admin {
     top: 135px;

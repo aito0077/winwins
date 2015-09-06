@@ -40,28 +40,33 @@
 
     <div class="row container text-destacados">
         <ul class="media-list">
-            <li class="media"  ng-repeat="item_post in posts">
-                <div class="media-left media-middle">
-                    <a href="#">
-                        <img ng-src="http://images.dev-winwins.net/38x38/{{::item_post.user.detail.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
-                    </a>
-                </div>
-                <div class="media-body">
-                    <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:190px;">
+            <li ng-repeat="item_post in posts" class="border-orange container">
+                <div class="row container">
+                    <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:190px;">
                     </div>
                     <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                     </div>
-                    <p>
-                        {{::item_post.content}}
-                    </p>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                            <img ng-src="http://images.dev-winwins.net/38x38/{{::item_post.user.detail.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <p>
+                            {{::item_post.content}}
+                        </p>
 
-                    <div class="media-footer row">
-                            <span class="pull-left small"><i class="glyphicon glyphicon-calendar"></i> {{::item_post.created_at | moment: 'DD/MM/YYYY'}}</span>
-                            <span class="btn pull-right small"><i class="glyphicon glyphicon-comment"></i> Comentar </span>
-                            <span class="btn pull-right small"><i class="glyphicon glyphicon-share"></i> Compartir</span>
                     </div>
                 </div>
+                <div class="row containeri mb10">
+                        <span class="pull-right"><i class="glyphicon glyphicon-calendar"></i> {{::item_post.created_at | moment: 'DD/MM/YYYY'}}</span>
+                        <!--span class="btn pull-right small"><i class="glyphicon glyphicon-comment"></i> Comentar </span>
+                        <span class="btn pull-right small"><i class="glyphicon glyphicon-share"></i> Compartir</span-->
+                </div>
+
             </li>
         </ul>
     </div>
