@@ -3,14 +3,6 @@
 angular.module('winwinsApp')
 .controller('SignUpCtrl', function($scope, $auth, SweetAlert) {
 
-    /*
-    $scope.birthdate = new Date();
-    $scope.birthdatechange = function(data){ 
-        console.dir(data);
-        $scope.birthdate = data;
-    };
-    */
-
     $scope.signup = function() {
         $auth.signup({
             username: $scope.name,
@@ -21,7 +13,7 @@ angular.module('winwinsApp')
             lastname: $scope.lastname,
             language_code: 'ES' //ToDo: Obtener del sitio
         }).catch(function(response) {
-            SweetAlert.swal('Pasó algo!', response.message, 'warning', function() {
+            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
                 $state.go('signup');
             });
         });
@@ -31,13 +23,13 @@ angular.module('winwinsApp')
         $auth.authenticate(provider)
         .then(function() {
             $rootScope.currentUser = data;
-            SweetAlert.swal('Genial!', 'Vamos a tu cuenta!', 'success', function() {
+            SweetAlert.swal('success_title', 'success_subtitle', 'success', function() {
                 $state.go('main');
             });
         })
         .catch(function(response) {
             $state.go('failure-login');
-            SweetAlert.swal('Pasó algo!', response.message, 'warning', function() {
+            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
                 $state.go('signup');
             });
 

@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Post;
+use Winwins\Model\Media;
 use Winwins\Model\Winwin;
 use Winwins\User;
 
@@ -26,7 +27,7 @@ class PostController extends Controller {
 	}
 
 	public function posts($type, $reference) {
-        $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at')->get();
+        $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
         $collection = Collection::make($posts);
         $collection->each(function($post) {
             $user = $post->user;
@@ -57,18 +58,23 @@ class PostController extends Controller {
             $post->user_id = $user->id;
             $post->title = $request->input('title');
             $post->content = $request->input('content');
-            $post->save();
+            $post->media_id = $request->input('media_id');
                  
-            if($request->input('video')) {
-                $video = $media::create([
-                    'name' => $request->input('video'),
-                    'path' => $request->input('video'),
-                    'bucket' => 'youtube',
-                    'user_id' => $user->id,
-                    'type' => 'VIDEO'
-                ]);
-                $post->media_id = $video->id;
+            if($request->input('media_type')) {
+                if($request->input('media_type') == 'VIDEO') {
+                    $video = new Media();
+                    $video->path = $request->input('media_path');
+                    $video->bucket = 'youtube';
+                    $video->user_id = $user->id;
+                    $video->type = 'VIDEO';
+                    $video->save();
+
+                    $post->media_id = $video->id;
+
+                }
             }
+
+            $post->save();
            
         });
 

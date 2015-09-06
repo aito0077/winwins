@@ -25,9 +25,6 @@
     border-radius: 8px;
     height: 60px
 }
-.compartir-comentario.post-winwin {
-    height: 127px;
-}
 .fix-comment {
     padding: 26px 0; 
 }
@@ -240,9 +237,30 @@
 .winwin-scroll-view.admin {
     top: 135px;
 }
+
+.compartir-comentario {
+    /*padding: 16px 0!important; */
+    /*height: 72px;*/
+    padding-top: 16px !important;
+}
 .new-comentario {
+    background-color: #1563c8;
+    /*
     position: fixed;
-    display:block;
-    left: 0px;
     bottom: 0px;
+    display: block;
+    left: 0px;
+    */
+    min-height: 93px;
+}
+.comentario-list {
+}
+.compartir-comentario.post-winwin {
+    /*height: 127px;*/
+}
+.fix-comment {
+    padding: 16px 0; 
+}
+.fix-comment-textarea {
+    padding: 13px 0;
 }

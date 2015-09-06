@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Database\Seeder;
 use Winwins\Model\Winwin;
+use Winwins\Model\Post;
+use Winwins\Model\Media;
 
 class WinwinsTableSeeder extends Seeder {
 
@@ -21,33 +23,63 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->closing_date= '2015-10-10'; 
         $winwin->save();
 
-        $winwin = new Winwin();
-        $winwin->user_id = "45";
-        $winwin->scope = "GLOBAL";
-        $winwin->title = "Perritos Limpios en el Barrio de los And";
-        $winwin->what_happen = "Me parece que queda muy feo, y aparte es muy riesgoso para los niños que juegan, que tengamos los deshechos de los perros, en las veredas y jardines adentro del parque. Pero cada vecino a quien le pregunto dice: &quot;
-        $winwin->description= Todos dejan la caca en el Piso&quot;
-        $winwin->what_we_do = ";
-        $winwin->users_amount = "";
-        $winwin->image = "ww-default-1.jpg";
-        $winwin->published = 1;
-        $winwin->selected = 1;
-        $winwin->closing_date= '2015-10-10'; 
-        $winwin->save();
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Este es mi primer post";
+        $post->user_id = 79;
+        $post->save();
 
-        $winwin = new Winwin();
-        $winwin->user_id = "113";
-        $winwin->scope = "GLOBAL";
-        $winwin->title = "Perritos Barrio Andes";
-        $winwin->what_happen = "Me parece que queda muy feo, y aparte es muy riesgoso para los niños que juegan, que tengamos los deshechos de los perros, en las veredas y jardines adentro del parque. Pero cada vecino a quien le pregunto dice: &quot;
-        $winwin->description= Todos dejan la caca en el Piso&quot;
-        $winwin->what_we_do = ";
-        $winwin->users_amount = "";
-        $winwin->image = "ww-default-2.jpg";
-        $winwin->published = 1;
-        $winwin->selected = 1;
-        $winwin->closing_date= '2015-10-10'; 
-        $winwin->save();
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Este es mi primer post";
+        $post->user_id = 88;
+        $post->save();
+
+        $media = new Media();
+        $media->type = 'IMAGE';
+        $media->user_id = 76;
+        $media->bucket = 'S3';
+        $media->ext = 'jpeg';
+        $media->save();
+
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Me parece que queda muy feo, y aparte es muy riesgoso para los niños que juegan, que tengamos los deshechos de los perros, en las veredas y jardines adentro del parque";
+        $post->user_id = 76;
+        $post->media_id = 1;
+        $post->save();
+
+        $media = new Media();
+        $media->type = 'VIDEO';
+        $media->user_id = 4;
+        $media->bucket = 'youtube';
+        $media->path = 'AQ9zeDd0mpg';
+        $media->save();
+
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Esta red social es nueva, por lo tanto poco conocida y esta realidad dificulta su crecimiento";
+        $post->user_id = 4;
+        $post->media_id = 2;
+        $post->save();
+
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo. Estos textos hacen parecerlo un español que se puede leer. Muchos paquetes de autoedición y editores de páginas web usan el Lorem Ipsum como su texto por defecto, y al hacer una búsqueda de Lorem Ipsum va a dar por resultado muchos sitios web que usan este texto si se encuentran en estado de desarrollo. Muchas versiones han evolucionado a través de los años, algunas veces por accidente, otras veces a propósito (por ejemplo insertándole humor y cosas por el estilo).";
+        $post->user_id = 9;
+        $post->save();
+
+        $post = new Post();
+        $post->reference_id = 1;
+        $post->type = "WINWIN";
+        $post->content = "Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, consecteur, en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de de Finnibus Bonorum et Malorum (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. ";
+        $post->user_id = 10;
+        $post->save();
 
         $winwin = new Winwin();
         $winwin->user_id = "57";

@@ -30,6 +30,7 @@ Route::resource('api/winwins', 'WinwinController');
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
 
 Route::resource('api/posts', 'PostController');
+Route::post('api/posts/upload', ['middleware' => 'auth', 'uses' => 'PostController@storeImage']);
 
 
 Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);

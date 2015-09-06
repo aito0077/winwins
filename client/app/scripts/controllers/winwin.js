@@ -61,8 +61,10 @@ angular.module('winwinsApp')
                 console.log('File');
                 Upload.upload({
                     url: '/api/winwins/upload',
+                    method: 'POST',
                     fields: {},
                     file: file,
+                    data: {}
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                     $scope.uploading = true;
@@ -109,7 +111,7 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', 'Winwin', 'Account', 'Post', function($scope, $stateParams, $http, $state, $auth, Winwin, Account, Post) {
+.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $stateParams, $http, $state, $auth, Winwin, Account, Upload, Post) {
     console.dir($stateParams); 
 
     $scope.post = new Post({});
@@ -153,8 +155,11 @@ angular.module('winwinsApp')
                 var file = files[i];
                 Upload.upload({
                     url: '/api/post/upload',
+                    method: 'POST',
                     fields: {},
-                    file: file
+                    file: file,
+                    data: {}
+
                 }).progress(function (evt) {
                     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function (data, status, headers, config) {
@@ -529,7 +534,7 @@ angular.module('winwinsApp')
         $scope.winwin = winwin;
     });
 }])
-.controller('winwin-muro', ['$scope','$http', '$stateParams', 'Winwin', 'Account', 'Post', function($scope, $http, $stateParams, Winwin, Account, Post) {
+.controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, Winwin, Account, Upload, Post) {
     $scope.posts = [];
     $scope.last = {};
 
@@ -538,6 +543,7 @@ angular.module('winwinsApp')
             $scope.posts = data.posts;
             $scope.last = data.last;
             $scope.post = new Post({});
+            $scope.editing = false
         });
 
     }
@@ -561,40 +567,97 @@ angular.module('winwinsApp')
         }
     });
 
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
+
     $scope.setVideoUrl = function() {
+        console.log('set video');
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
             type: "input",
-            inputType: "text",
+            inputType: "url",
             showCancelButton: true,
             closeOnConfirm: true 
         }, function(inputValue) {
-            $scope.video = inputValue;
+
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.post.media_type = 'VIDEO';
+                        $scope.post.media_path = result;
+                    });
+                } else {
+                    console.log('Wrong url');
+                    swal({
+                        title: "Incorrecto", 
+                        text: "La direccion ingresada no es correcta", 
+                        type: "warning"
+                    });
+                }
+            }
         });
     };
 
-    $scope.files = [];
+    $scope.getIframeSrc = function (videoId) {
+        return $sce.trustAsResourceUrl('http://www.youtube.com/embed/'+videoId);
+    };
 
+
+    $scope.uploading = false;
+    //$scope.files = [];
+    $scope.file = false;
+
+    /*
     $scope.$watch('files', function () {
+        console.log('watchs');
         $scope.upload($scope.files);
     });
+    */
 
-    $scope.upload = function (files) {
-         if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                Upload.upload({
-                    url: '/api/post/upload',
-                    fields: {},
-                    file: file
-                }).progress(function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                }).success(function (data, status, headers, config) {
-                    $scope.post.media_id = data.media_id;
-                });
-            }
+    $scope.$watch('file', function () {
+        console.log('watch');
+        if ($scope.file && !$scope.uploading) {
+            $scope.upload($scope.file);
         }
+    });
+
+    $scope.upload = function (file) {
+        console.log(file);
+        console.dir(file);
+         if (file && !$scope.uploading) {
+            $scope.uploading = true; 
+            console.log('File');
+            Upload.upload({
+                url: '/api/posts/upload',
+                method: 'POST',
+                fields: {},
+                file: file,
+                data: {}
+            }).progress(function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                $scope.uploading = true;
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+            }).success(function (data, status, headers, config) {
+                console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                console.dir(data);
+                $scope.uploading = false;
+                $scope.post.media_id = data.media_id;
+                $scope.post.media_type  = 'IMAGE';
+
+            }).error(function() {
+                $scope.uploading = false;
+            });
+        }
+    };
+
+    $scope.cancelEditing = function() {
+        $scope.normal_size = true;
+        $scope.post = new Post({});
+        $scope.editing = false;
     };
 
     $scope.submitPost = function() {
@@ -610,13 +673,20 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $scope.getPosts();
-
         });
     };
 
+    $scope.normal_size = true;
+    $scope.editing = false;
 
+    $scope.min_size = function() {
+        $scope.normal_size = true;
+    };
 
-
+    $scope.max_size = function() {
+        $scope.normal_size = false;
+        $scope.editing = true;
+    };
 
 }])
 .controller('winwin-campanada', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {

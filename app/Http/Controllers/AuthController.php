@@ -77,7 +77,11 @@ class AuthController extends Controller {
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['message' => $validator->messages()], 400);
+            if ($validator->errors()->has('email')) {
+                return response()->json(['message' => 'email_already_taken'], 401);
+            } else {
+                return response()->json(['message' => $validator->messages()], 400);
+            }
         }
 
         $user = new User;

@@ -236,7 +236,7 @@ angular.module('winwinsApp', [
         return deferred.promise;
     }
 
-
+    
 })
 .config(function ($authProvider, api_host) {
 
