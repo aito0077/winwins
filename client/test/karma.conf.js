@@ -70,6 +70,7 @@ module.exports = function(config) {
       'bower_components/fizzy-ui-utils/utils.js',
       'bower_components/outlayer/outlayer.js',
       'bower_components/masonry/masonry.js',
+      'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

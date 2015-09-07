@@ -119,6 +119,10 @@ class WinwinController extends Controller {
             $winwin->city = $request->input('city');
             $winwin->image = $request->input('image');
 
+            if( !isset($winwin->image) ) {
+                $winwin->image = $request->input('gallery_image');
+            }
+
             $winwin->user_id = $user->id;
             $winwin->save();
                  

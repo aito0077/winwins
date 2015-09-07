@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -54,7 +55,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="pull-right">
-                            <span ng-show="{{unreadNotifications > 0 || true}}" style="font-size:15pt; color: white;">
+                            <span ng-show="{{unreadNotifications > 0}}" style="font-size:15pt; color: white;">
                                 <i class="fa fa-bell-o"></i> <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;">{{unreadNotifications}}
                             </span>
                         </div>
@@ -187,6 +188,7 @@
     <script src="bower_components/fizzy-ui-utils/utils.js"></script>
     <script src="bower_components/outlayer/outlayer.js"></script>
     <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 <!--script src="bower_components/masonry/masonry.js"></script-->

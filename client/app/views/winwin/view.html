@@ -1,10 +1,52 @@
 <div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-250px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
 
+    <div class="navbar navbar-fixed-top" ng-show="wpPreview.name.down">
+        <div id="menu-winwin" class="col-xs-12 no-padding">
+            <div class="col-xs-20">
+                <span class="btn" ng-click="goWinwin()"><i class="fa fa-comments"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'members' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMembers()"><i class="fa fa-users"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'sponsors' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goSponsors()"><i class="fa fa-star"></i></span>
+            </div>
+            <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
+            </div>
+
+            <div ng-show="isSponsor" class="col-xs-20 {{current_subview == 'sponsor' ? 'active' : ''}} " >
+                <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
+            </div>
+
+            <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
+                <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
+            </div>
+        </div>
+
+        <div ng-show="isAdmin" id="menu-winwin-admin" class="no-padding navbar navbar-fixed-top">
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'patrocinio' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'miembros' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goMiembros()"><i class="fa fa-users"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'campanada' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goCampanada()"><i class="fa fa-bell"></i></span>
+            </div>
+            <div class="col-xs-3  submenu-icons {{current_subadmin == 'configuracion' ? 'active' : ''}} ">
+                <span class="btn" ng-click="goConfiguracion()"><i class="fa fa-server"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+
     <section id="winwin-view" ng-show="!wpPreview.name.down" class="cssFade">
 
         <div class="col-xs-12 no-padding">
 
-            <div class="col-xs-4 {{winwin.selected ? 'img-misc' : ''}} no-padding"  style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}">
+            <div class="img-misc no-padding"  style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}">
                 <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999">
                     {{::winwin.title}}
                 </div>
@@ -65,46 +107,6 @@
     <!-- menu scroll -->
     <section ng-show='wpPreview.name.down' class="winwin-body col-xs-12 ">
         
-        <div class="navbar navbar-fixed-top ">
-            <div id="menu-winwin" class="col-xs-12 no-padding">
-                <div class="col-xs-20">
-                    <span class="btn" ng-click="goWinwin()"><i class="fa fa-comments"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'members' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goMembers()"><i class="fa fa-users"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'sponsors' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goSponsors()"><i class="fa fa-star"></i></span>
-                </div>
-                <div class="col-xs-20 {{current_subview == 'muro' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goMuro()"><i class="fa fa-comment"></i></span>
-                </div>
-
-                <div ng-show="isSponsor" class="col-xs-20 {{current_subview == 'sponsor' ? 'active' : ''}} " >
-                    <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
-                </div>
-
-                <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
-                    <span class="btn" ng-click="goAdmin()"><i class="fa fa-bars"></i></span>
-                </div>
-            </div>
-
-            <div ng-show="isAdmin" id="menu-winwin-admin" class="no-padding navbar navbar-fixed-top">
-                <div class="col-xs-3  submenu-icons {{current_subadmin == 'patrocinio' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goRequestPatrocinio()"><i class="fa fa-star"></i></span>
-                </div>
-                <div class="col-xs-3  submenu-icons {{current_subadmin == 'miembros' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goMiembros()"><i class="fa fa-users"></i></span>
-                </div>
-                <div class="col-xs-3  submenu-icons {{current_subadmin == 'campanada' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goCampanada()"><i class="fa fa-bell"></i></span>
-                </div>
-                <div class="col-xs-3  submenu-icons {{current_subadmin == 'configuracion' ? 'active' : ''}} ">
-                    <span class="btn" ng-click="goConfiguracion()"><i class="fa fa-server"></i></span>
-                </div>
-            </div>
-        </div>
-
         <div ui-view autoscroll="true" class="winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
 
     </section>

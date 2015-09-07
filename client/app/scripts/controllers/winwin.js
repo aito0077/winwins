@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('winwin-edit', function($scope, $state, $auth, Upload, Winwin, Interest) {
+.controller('winwin-edit', function($scope, $state, $auth, $timeout, Upload, Winwin, Interest) {
     $scope.winwin = new Winwin({});
     $scope.interests = [];
     $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
@@ -11,9 +11,18 @@ angular.module('winwinsApp')
 
     $scope.winwin.closing_date = new Date();
 
+    $scope.setup_components = function() {
+        $('[data-toggle="popover"]').popover();
+        console.log('setup component');
+    };
+
+    $timeout(function() {
+        $scope.setup_components();
+    }, 1000);
+
     $('#datetimepicker1').datetimepicker({
         minDate: new Date(),
-        format: 'DD MM YYYY'
+        format: 'DD - MM - YYYY'
     });
 
     Interest.query(function(data) {
@@ -23,10 +32,15 @@ angular.module('winwinsApp')
 
     $scope.doValidateBasic = function() {
         $scope.winwin.closing_date =  $('#datetimepicker1').data("DateTimePicker").date();
-        console.dir($scope.winwin.closing_date);
-
         return true;
     };
+
+    $scope.doValidateWinwin = function() {
+        $scope.winwin.gallery_image = $scope.image_gallery_selected;
+        return true && !$scope.saving;
+    };
+
+
 
     $scope.persistBasic = function() {
         console.log('persist basic');
@@ -39,11 +53,14 @@ angular.module('winwinsApp')
     }
 
     $scope.doSave = function() {
-        $scope.winwin.$save(function(data) {
-            $state.go('winwin-first-post', {
-                winwinId: $scope.winwin.id
-            }); 
-        });
+        if($scope.doValidateWinwin()) {
+            $scope.saving = true;
+            $scope.winwin.$save(function(data) {
+                $state.go('winwin-first-post', {
+                    winwinId: $scope.winwin.id
+                }); 
+            });
+        }
     };
 
     $scope.uploading = false;
@@ -110,8 +127,23 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.gallery_picker = false;
+
+    $scope.select_gallery = function() {
+        $scope.gallery_picker = true;
+        if(!$scope.image_gallery_selected) {
+            $('#image-gallery').imagepicker({
+                changed: function(old, new_value) {
+                    $scope.$apply(function(){
+                        $scope.gallery_picker = false;
+                    });
+                }
+            });
+        }
+    };
+
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $stateParams, $http, $state, $auth, Winwin, Account, Upload, Post) {
+.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', '$sce', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $stateParams, $http, $state, $auth, $sce, Winwin, Account, Upload, Post) {
     console.dir($stateParams); 
 
     $scope.post = new Post({});
@@ -129,45 +161,6 @@ angular.module('winwinsApp')
         $scope.post.reference_id = winwin.id;
         $scope.post.type = 'WINWIN';
     });
-
-    $scope.setVideoUrl = function() {
-        swal({
-            title: "Video Link", 
-            text: "Ingresa dirección de video:", 
-            type: "input",
-            inputType: "text",
-            showCancelButton: true,
-            closeOnConfirm: true 
-        }, function(inputValue) {
-            $scope.video = inputValue;
-        });
-    };
-
-    $scope.files = [];
-
-    $scope.$watch('files', function () {
-        $scope.upload($scope.files);
-    });
-
-    $scope.upload = function (files) {
-         if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                Upload.upload({
-                    url: '/api/post/upload',
-                    method: 'POST',
-                    fields: {},
-                    file: file,
-                    data: {}
-
-                }).progress(function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                }).success(function (data, status, headers, config) {
-                    $scope.post.media_id = data.media_id;
-                });
-            }
-        }
-    };
 
     $scope.submitPost = function() {
         console.log('submit');
@@ -199,6 +192,80 @@ angular.module('winwinsApp')
     };
 
 
+
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
+
+    $scope.setVideoUrl = function() {
+        console.log('set video');
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "url",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.post.media_type = 'VIDEO';
+                        $scope.post.media_path = result;
+                    });
+                } else {
+                    console.log('Wrong url');
+                    swal({
+                        title: "Incorrecto", 
+                        text: "La direccion ingresada no es correcta", 
+                        type: "warning"
+                    });
+                }
+            }
+        });
+    };
+
+    $scope.getIframeSrc = function (videoId) {
+        return $sce.trustAsResourceUrl('http://www.youtube.com/embed/'+videoId);
+    };
+
+
+    $scope.uploadFiles = function(file) {
+        console.dir(file);
+        $scope.f = file;
+        console.log(file.$error);
+        if (file && !file.$error) {
+            console.log('enviando...');
+            file.upload = Upload.upload({
+                url: '/api/posts/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                console.log('success...');
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.post.media_id = response.data.media_id;
+                    $scope.post.media_type  = 'IMAGE';
+                    $scope.post.media_path = response.data.filename;
+                });
+            }, function (response) {
+                console.log('error...');
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                console.log('progress...');
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
 
 
 }])

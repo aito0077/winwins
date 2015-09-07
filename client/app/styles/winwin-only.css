@@ -208,15 +208,30 @@
 }
 .winwin .cssFade.ng-hide {
     opacity: 0; 
+    transition: 0.5s linear all;
 }
 
 #winwin-view{
-    display:block;
+/*    display:block;*/
+}
+
+.fix-view {
+    position: fixed;
+    height: 400px;
 }
 
 .winwin-body {
     margin-top: 365px;
     min-height: 400px;
+}
+
+.winwin-body.ng-show {
+    opacity: 1; 
+    transition: 0.5s linear all;
+}
+
+.winwin-body.ng-hide {
+    opacity: 0; 
 }
 
 #menu-winwin {
@@ -232,7 +247,6 @@
 }
 .winwin-scroll-view {
     top: 95px;
-
 }
 .winwin-scroll-view.admin {
     top: 135px;

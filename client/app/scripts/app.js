@@ -28,6 +28,7 @@ angular.module('winwinsApp', [
     '720kb.background',
     '720kb.socialshare',
     'truncate',
+    'angular-loading-bar',
     'tmh.dynamicLocale'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
