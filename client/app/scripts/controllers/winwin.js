@@ -605,7 +605,7 @@ angular.module('winwinsApp')
     $scope.last = {};
 
     $scope.getPosts = function() {
-        $http.get('http://winwins.app/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+        $http.get('/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
             $scope.posts = data.posts;
             $scope.last = data.last;
             $scope.post = new Post({});

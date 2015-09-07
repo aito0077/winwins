@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name winwinsApp
- * @description
- * # winwinsApp
- *
- * Main module of the application.
- */
 angular.module('winwinsApp', [
     'ngAnimate',
     'ngCookies',
