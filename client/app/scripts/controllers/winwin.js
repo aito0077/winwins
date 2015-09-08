@@ -146,7 +146,7 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', '$sce', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $stateParams, $http, $state, $auth, $sce, Winwin, Account, Upload, Post) {
+.controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $stateParams, $http, $state, $auth, $sce, $timeout, Winwin, Account, Upload, Post) {
     console.dir($stateParams); 
 
     $scope.post = new Post({});
@@ -236,6 +236,7 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.uploading = false;
     $scope.uploadFiles = function(file) {
         console.dir(file);
         $scope.f = file;
@@ -250,6 +251,7 @@ angular.module('winwinsApp')
             file.upload.then(function (response) {
                 console.log('success...');
 
+                $scope.uploading = false;
                 $timeout(function () {
                     file.result = response.data;
                     $scope.post.media_id = response.data.media_id;
@@ -258,6 +260,7 @@ angular.module('winwinsApp')
                 });
             }, function (response) {
                 console.log('error...');
+                $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
                 }
@@ -265,6 +268,7 @@ angular.module('winwinsApp')
 
             file.upload.progress(function (evt) {
                 console.log('progress...');
+                $scope.uploading = true;
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }   
@@ -664,6 +668,7 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.uploading = false;
     $scope.uploadFiles = function(file) {
         console.dir(file);
         $scope.f = file;
@@ -677,6 +682,7 @@ angular.module('winwinsApp')
 
             file.upload.then(function (response) {
                 console.log('success...');
+                $scope.uploading = false;
 
                 $timeout(function () {
                     file.result = response.data;
@@ -686,12 +692,14 @@ angular.module('winwinsApp')
                 });
             }, function (response) {
                 console.log('error...');
+                $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
                 }
             });
 
             file.upload.progress(function (evt) {
+                $scope.uploading = true;
                 console.log('progress...');
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });

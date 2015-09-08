@@ -12,26 +12,31 @@
     <div class="row">
     <form role="form" ng-submit="submitPost()" name="wwFirstPost">
 
-        <div class="row" ng-show="post.media_type" style="min-height: 300px">
-
-            <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
-            </div>
-            <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(post.media_path)}}" allowfullscreen=""></iframe>
-            </div>
-        </div>
-
 
         <div class="col-xs-12 compartir-comentario post-winwin mb-20 container new-comentario">
-            <div class="col-xs-2 text-center fix-comment">
-                <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
-            </div>
-            <div class="col-xs-10 fix-comment-textarea container">
-                <div class="form-group">
-                    <textarea class="form-control" rows="4" ng-model="post.content" no-resize ng-required="true"></textarea>
-                    <span class="btn btn-default col-xs-6" ng-click="setVideoUrl()"><i class="fa fa-youtube-play"></i> Video</span>
-                    <button type="file" class="btn btn-default col-xs-6 " ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera"></i> Imagen</button>
+            <div class="row" ng-show="post.media_type || uploading" style="min-height: 50px">
 
+                <div ng-show="uploading">
+                    <img class="block-center img-responsive col-xs-offset-5 col-xs-2" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
+                </div>
+                <div ng-if="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
+                </div>
+                <div ng-if="post.media_type == 'VIDEO'" dynamic-background="" background-size="cover" background-image="http://img.youtube.com/vi/{{post.media_path}}/default.jpg" style="height:190px;">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-2 text-center fix-comment">
+                    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
+                </div>
+                <div class="col-xs-10 fix-comment-textarea container">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4" ng-model="post.content" no-resize ng-required="true"></textarea>
+                        <span class="btn btn-default col-xs-6" ng-click="setVideoUrl()"><i class="fa fa-youtube-play"></i> Video</span>
+                        <button type="file" class="btn btn-default col-xs-6 " ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera"></i> Imagen</button>
+
+                    </div>
                 </div>
             </div>
         </div>

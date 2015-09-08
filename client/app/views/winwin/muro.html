@@ -3,6 +3,9 @@
 
             <div class="row" ng-show="post.media_type">
 
+                <div ng-show="uploading" style="height:190px;">
+                    <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:30px"/>
+                </div>
                 <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
                 </div>
                 <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
