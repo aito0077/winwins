@@ -71,14 +71,15 @@ footer {
 }
 .back-buttom {
     padding: 9px 10px;
-    margin-top: 8px;
-    margin-right: 15px;
-    margin-bottom: 8px;
+    margin: 8px 20px!important;
     background-color: transparent;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
     color: #FFF;
+}
+.navbar-brand {
+    padding: 15px 0!important
 }
 .msj-bienvenida {
     padding-top: 20px;
@@ -123,6 +124,13 @@ footer {
 }
 .center-btn-share {
     margin-top: 5px
+}
+.btn-follow {
+    background-color: #00b200!important;
+    text-align: center;
+    font-size:14px; 
+    text-transform:uppercase; 
+    color:#FFF; 
 }
 .fa.fa-share-alt {
     margin-top: 10px;
@@ -178,7 +186,7 @@ footer {
     position: absolute;
     bottom: -80px;
     left: 43%;
-    z-index: 50
+    z-index: 99 
 }
 .back-grey {
     background-color: #f6f6f6;
@@ -225,7 +233,7 @@ h5 {
     font-size: 10pt;
 }
 .btn-social {
-    width: 62px;
+ /*   width: 62px; */
     height: 62px;
     border-left: 0px none;
     border-right: 0px none;
@@ -237,7 +245,6 @@ h5 {
 .btn-social.facebook {
     background-color: #4A6EAA;
     border-bottom: 4px solid #1A487A;
-    margin-left: 2%;
 }
 .btn-social.twitter {
     background-color: #62A0CF;
@@ -303,6 +310,9 @@ h4 {
 }
 .caret-middle {
     margin-top: 6px;
+}
+.img-no-border {
+    border: 0!important;
 }
 /*
 .img-misc:after {
@@ -477,11 +487,11 @@ h4 {
     padding-top: 16px;
 }
 .container-search {
+    max-width: 100px;
     height:50px; 
     overflow:hidden; 
     position: absolute; 
     bottom: 0; 
-    /*left: 32%;*/
 }
 .dd-destacados {
     width: 100%;
@@ -509,13 +519,13 @@ h4 {
     font-size: 8px!important;
 }
 .img-circle {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 90px;
+    max-height: 90px;
     border: 6px solid #2e7dcc;
     margin-left: 10px;
 }
 .img-circle.profile {
-    border: 6px solid #2e7dcc;
+    border: 3px solid #2e7dcc;
     width: 47px!important;
     height: 47px!important;
     margin-top: 5px;
@@ -714,7 +724,54 @@ a.no-link {
 }
 
 
-
+a.accordion-main {
+    text-decoration: none;
+    color: #FFF!important;
+}
+tr{
+/* Todas las filas blancas */
+background-color: white;
+}
+tr:nth-child(2n+1){
+/* Filas impares grises */
+background-color: #ece9e9;
+}
+         
+.control-user {
+    background-color: #e1e1e1;
+    color: grey;
+    font-size: 30px
+}
+.control-user.active {
+    background-color:#3277c2;
+    color: #FFF;
+}
+.admin-title {
+    color:#3277c2;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.admin-choose {
+    background-color: #e1e1e1;
+    padding: 10px;
+    font-weight: 400;
+    color: #000;
+    margin-left: 10px;
+}
+.admin-notes {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: -1px
+}
+.grey-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: grey;
+    color: grey;
+    line-height: -15px;
+    margin-left: 5px
+}
 
 /*
 @media (min-width: 400px) {

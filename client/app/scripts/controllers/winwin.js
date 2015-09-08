@@ -64,39 +64,42 @@ angular.module('winwinsApp')
     };
 
     $scope.uploading = false;
-    $scope.files = [];
+    $scope.uploadFiles = function(file) {
+        console.dir(file);
+        $scope.f = file;
+        console.log(file.$error);
+        if (file && !file.$error) {
+            console.log('enviando...');
+            file.upload = Upload.upload({
+                url: '/api/winwins/upload',
+                file: file
+            });
 
-    $scope.$watch('files', function () {
-        console.log('watch files');
-        $scope.upload($scope.files);
-    });
+            file.upload.then(function (response) {
+                console.log('success...');
+                $scope.uploading = false;
 
-    $scope.upload = function (files) {
-         if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                console.log('File');
-                Upload.upload({
-                    url: '/api/winwins/upload',
-                    method: 'POST',
-                    fields: {},
-                    file: file,
-                    data: {}
-                }).progress(function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                    $scope.uploading = true;
-                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-                }).success(function (data, status, headers, config) {
-                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-                    console.dir(data);
-                    $scope.uploading = false;
-                    $scope.winwin.image = data.filename;
-                }).error(function() {
-                    $scope.uploading = false;
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.winwin.image = response.data.filename;
                 });
-            }
-        }
+            }, function (response) {
+                console.log('error...');
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                    console.log($scope.errorMsg);
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                console.log('progress...');
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
     };
+
 
     $scope.matchYoutubeUrl = function(url){
         var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
@@ -590,15 +593,9 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 
 }])
 .controller('winwin-sponsors', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 }])
 .controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post) {
     $scope.posts = [];
@@ -616,14 +613,8 @@ angular.module('winwinsApp')
 
     $scope.getPosts();
 
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-        //$scope.posts = winwin.posts;
-    });
-
     $scope.post = new Post({});
     $scope.profile = {};
-    $scope.winwin = {};
 
     $scope.isSponsor = false;
     Account.getProfile().success(function(data) {
@@ -746,10 +737,6 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-campanada', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
-
     $scope.sentCampanada = function() {
         $http.post('/api/winwins/campanada/'+$scope.winwin.id,
              {body: $scope.body}
@@ -779,24 +766,12 @@ angular.module('winwinsApp')
  
 }])
 .controller('winwin-miembros', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 }])
 .controller('winwin-configuracion', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 }])
 .controller('winwin-patrocinio', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 }])
 .controller('winwin-sponsor-request', ['$scope','$http', '$state', '$stateParams', 'Winwin', function($scope, $http, $state, $stateParams, Winwin) {
-    Winwin.get({id: $stateParams.winwinId}, function(winwin) {
-        $scope.winwin = winwin;
-    });
 
     $scope.sentRequest = function() {
         $http.post('/api/winwins/sponsor_request/'+$scope.winwin.id,

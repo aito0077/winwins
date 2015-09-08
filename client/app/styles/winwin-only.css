@@ -221,7 +221,7 @@
 }
 
 .winwin-body {
-    margin-top: 365px;
+    padding-top: 365px;
     min-height: 400px;
 }
 
@@ -246,10 +246,10 @@
     top: 95px;
 }
 .winwin-scroll-view {
-    top: 95px;
+    padding-top: 95px;
 }
 .winwin-scroll-view.admin {
-    top: 135px;
+    padding-top: 135px;
 }
 
 .compartir-comentario {

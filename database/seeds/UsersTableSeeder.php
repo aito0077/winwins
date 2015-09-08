@@ -36,9 +36,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Du'; 
         $detail->name = 'Xava'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'rey.nico@gmail.com'; 
@@ -52,9 +50,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Rey'; 
         $detail->name = 'NicolÃ¡s'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'stedesco@paginar.net'; 
@@ -68,9 +64,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Tedesco'; 
         $detail->name = 'Sebas'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sporta@paginar.net'; 
@@ -84,9 +78,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Falso'; 
         $detail->name = 'JosÃ©'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'marojenieva@hotmail.com'; 
@@ -100,9 +92,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Paginar'; 
         $detail->name = 'MJN'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'raygiubilo@hotmail.com'; 
@@ -116,9 +106,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Giubilo'; 
         $detail->name = 'Ray'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
@@ -132,9 +120,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Beer'; 
         $detail->name = 'Andy'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'arnaldo.tuc.ar@gmail.com'; 
@@ -148,9 +134,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'del carmen'; 
         $detail->name = 'arnaldo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'rgil@paginar.net'; 
@@ -163,10 +147,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
-        $detail->photo = 'NULL'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lfontan@paginar.net'; 
@@ -180,9 +160,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Fontan'; 
         $detail->name = 'Liliana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'gilgiulianobackup@gmail.com'; 
@@ -195,10 +173,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Gil Giuliano'; 
         $detail->name = 'Rodrigo'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
-        $detail->photo = 'NULL'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'marojenieva@yahoo.com'; 
@@ -212,9 +186,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'n'; 
         $detail->name = 'mj'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'marioanibalmarquez@gmail.com'; 
@@ -228,9 +200,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'M'; 
         $detail->name = 'Mario'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mjnieva@paginar.net'; 
@@ -244,9 +214,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Paginar'; 
         $detail->name = 'Mjn'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javiromerofoto@gmail.com'; 
@@ -275,10 +243,6 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
-        $detail->photo = 'NULL'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mjnpaginar@yahoo.com.ar'; 
@@ -292,9 +256,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'hotmail paginar'; 
         $detail->name = 'mjn'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'dariozaj@gmail.com'; 
@@ -308,9 +270,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Zajdenberg'; 
         $detail->name = 'Dario'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'oqtuvre@hotmail.com'; 
@@ -324,9 +284,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Stewart-Usher'; 
         $detail->name = 'Lenny'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javirangel56@gmail.com'; 
@@ -340,9 +298,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Alvarez Manteola'; 
         $detail->name = 'Javier Angel'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javierangel56@me.com'; 
@@ -356,9 +312,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'marojenieva@gmail.com'; 
@@ -372,9 +326,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Nieva'; 
         $detail->name = 'MarÃ­a JosÃ©'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lilianafontan@hotmail.com'; 
@@ -388,9 +340,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'FontÃ¡n'; 
         $detail->name = 'Liliana'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javierangel@fibertel.com.ar'; 
@@ -404,9 +354,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Angel Alvarez'; 
         $detail->name = 'Javier'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lfontan@paginar.com'; 
@@ -420,9 +368,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Fontan'; 
         $detail->name = 'Lili'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'fetraverso@yahoo.com.ar'; 
@@ -436,9 +382,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Traverso'; 
         $detail->name = 'Fernando Jorge'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
@@ -452,9 +396,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanmayol@gmail.com'; 
@@ -468,9 +410,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Mayol'; 
         $detail->name = 'Juan'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sricciardi@fibertel.com.ar'; 
@@ -484,9 +424,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Lima'; 
         $detail->name = 'Sebastian'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'test@mail.com'; 
@@ -500,9 +438,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'test'; 
         $detail->name = 'test'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'test2@mail.com'; 
@@ -516,9 +452,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'test 2'; 
         $detail->name = 'test 2'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sostele@outlook.com'; 
@@ -532,9 +466,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Stele'; 
         $detail->name = 'Sonia'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'haze.cardoso@gmail.com'; 
@@ -547,10 +479,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Cardoso'; 
         $detail->name = 'Carlos'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'ovidionason@gmail.com'; 
@@ -564,9 +493,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Nason'; 
         $detail->name = 'Ovidio '; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'ovidionason1976@gmail.com'; 
@@ -580,9 +507,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Nason'; 
         $detail->name = 'Ovidio'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'aldobonzi1976@gmail.com'; 
@@ -596,9 +521,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Bonzi'; 
         $detail->name = 'Aldo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'aldobonzi1976@gmail.com'; 
@@ -612,9 +535,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Bonzi'; 
         $detail->name = 'Aldo'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'alainrouge1976@gmail.com'; 
@@ -628,9 +549,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Rouge'; 
         $detail->name = 'Alain'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'alainrouge1976@gmail.com'; 
@@ -644,9 +563,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Rouge'; 
         $detail->name = 'Alain'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'revistamatinee@gmail.com'; 
@@ -660,9 +577,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Matinee'; 
         $detail->name = 'Marteena'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'revistamatinee@gmail.com'; 
@@ -676,9 +591,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Matinee'; 
         $detail->name = 'Valenteena'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'jesusguiraud@yahoo.com.ar'; 
@@ -692,9 +605,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'guiraud'; 
         $detail->name = 'jesus '; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'karaokedos@hotmail.com'; 
@@ -708,9 +619,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Ponce'; 
         $detail->name = 'Juan'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanperez@hotmail.com'; 
@@ -724,9 +633,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lvommaro@paginar.com'; 
@@ -740,9 +647,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lvommaro@paginar.net'; 
@@ -755,10 +660,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo A.'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'karaokedos@hotmail.com'; 
@@ -772,9 +674,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Hamada'; 
         $detail->name = 'Fabiana'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'acostajuan2013@twitter.com'; 
@@ -786,11 +686,7 @@ class UsersTableSeeder extends Seeder {
         $detail = new UserDetail();
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Acosta'; 
-        $detail->name = 'NULL'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lvommaro@gmail.com'; 
@@ -803,10 +699,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Vommaro'; 
         $detail->name = 'Leonardo'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'agastiazoro@paginar.com'; 
@@ -820,9 +713,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Test'; 
         $detail->name = 'Ana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'matiasche@gmail.com'; 
@@ -836,9 +727,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Che'; 
         $detail->name = 'Matias'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'nabebis@yahoo.com'; 
@@ -852,9 +741,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Navas'; 
         $detail->name = 'Bea'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'demians@digbang.com'; 
@@ -868,9 +755,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Schnaidman'; 
         $detail->name = 'Demian'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'ebox@jarawi.com'; 
@@ -884,9 +769,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Box'; 
         $detail->name = 'Enrique'; 
         $detail->sex = 'm'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sivocarina@hotmail.com'; 
@@ -900,9 +783,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sivocarina@yahoo.com'; 
@@ -916,9 +797,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'jnassif@paginar.com'; 
@@ -932,9 +811,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Nassif'; 
         $detail->name = 'Javier'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mcarena@paginar.com'; 
@@ -964,9 +841,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'paginar'; 
         $detail->name = 'test'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mjnieva@paginar.com'; 
@@ -980,9 +855,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'FalcÃ³n'; 
         $detail->name = 'Marianita'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'afernandez@paginar.com_1'; 
@@ -996,9 +869,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'del carmen'; 
         $detail->name = 'arnaldo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mh@illuminatilab.com'; 
@@ -1012,9 +883,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Hegouaburu'; 
         $detail->name = 'Maria'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
@@ -1027,10 +896,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanaperezmilenaria2013@yahoo.com.ar'; 
@@ -1044,9 +910,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'pedro.gomez2013@yahoo.com.ar'; 
@@ -1060,9 +924,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Pedro'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'JuanaPe20169106@twitter.com'; 
@@ -1075,10 +937,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juana'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'fhamada@paginar.net'; 
@@ -1092,9 +951,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Acosta'; 
         $detail->name = 'Juan'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanperezmilenario@yahoo.com.ar'; 
@@ -1106,11 +963,7 @@ class UsersTableSeeder extends Seeder {
         $detail = new UserDetail();
         $detail->user_id = $user->id;
         $detail->lastname = 'Juan Perez'; 
-        $detail->name = 'NULL'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanperezmilenario@gmail.com'; 
@@ -1123,10 +976,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanperezmillonario@yahoo.com.ar'; 
@@ -1140,9 +990,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'NuÃ±ez AgÃ¼ero'; 
         $detail->name = 'IÃ±aki'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'pedro.gomez2013@yahoo.com.ar'; 
@@ -1156,9 +1004,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Paula'; 
         $detail->sex = 'f'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'arnaldoprog@hotmail.com'; 
@@ -1172,9 +1018,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'JohnPerez201320@twitter.com'; 
@@ -1187,10 +1031,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Perez'; 
         $detail->name = 'Juan'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mariagomezmillonaria@gmail.com'; 
@@ -1204,9 +1045,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Gomez'; 
         $detail->name = 'Maria'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sivocarina@gmail.com'; 
@@ -1220,9 +1059,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Sivo'; 
         $detail->name = 'Carina'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mariojuarezmenor@gmail.com'; 
@@ -1236,9 +1073,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Juarez'; 
         $detail->name = 'Mario'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'sandrastun@gmail.com'; 
@@ -1252,9 +1087,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'AstÃºn'; 
         $detail->name = 'Sandra Paola'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'cesaralexisdiaz@gmail.com'; 
@@ -1267,10 +1100,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'diaz'; 
         $detail->name = 'cesar alexis'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'JLuzbelito@twitter.com'; 
@@ -1283,10 +1113,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'N.'; 
         $detail->name = 'Javier'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'bowieagency@twitter.com'; 
@@ -1299,10 +1126,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Agency'; 
         $detail->name = 'Bowie'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'Jorgemantovani@hotmail.com'; 
@@ -1316,9 +1140,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Mantovani'; 
         $detail->name = 'Jorge'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'kbzndiaz69@yahoo.com.ar'; 
@@ -1332,9 +1154,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Diaz'; 
         $detail->name = 'Cesar Alexis'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'raygiubilo@gmail.com'; 
@@ -1348,9 +1168,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'giubilo'; 
         $detail->name = 'Raymond'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'Virtginia@twitter.com'; 
@@ -1363,10 +1181,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Ginia'; 
         $detail->name = 'Virt'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'fabianahamada@gmail.com'; 
@@ -1380,9 +1195,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Prueba'; 
         $detail->name = 'Faby'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'nocualquiera@gmail.com'; 
@@ -1396,9 +1209,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Test'; 
         $detail->name = 'Virginia'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'virginiapizzaferri@gmail.com'; 
@@ -1412,9 +1223,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Test'; 
         $detail->name = 'Virginia'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'a@a.com'; 
@@ -1428,9 +1237,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'ss'; 
         $detail->name = 'a'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'b@a.com'; 
@@ -1444,9 +1251,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Maria'; 
         $detail->name = 'a'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'c@b.com'; 
@@ -1460,9 +1265,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Perez'; 
         $detail->name = 'Maria'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'a@b.com'; 
@@ -1476,9 +1279,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'a'; 
         $detail->name = 'ss'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mspentito@yahoo.com.ar'; 
@@ -1492,9 +1293,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Pentito'; 
         $detail->name = 'MarÃ­a Soledad'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'vip@ideadeliveryla.com'; 
@@ -1508,9 +1307,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Pizza'; 
         $detail->name = 'Virginia'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'marianadumas@fibertel.com.ar'; 
@@ -1524,9 +1321,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Dumas'; 
         $detail->name = 'Mariana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'arnaldex@twitter.com'; 
@@ -1539,10 +1334,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'vgaibisso@yahoo.com.ar'; 
@@ -1556,9 +1348,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Gaibisso'; 
         $detail->name = 'Viviana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mnvercellino@hotmail.com'; 
@@ -1572,9 +1362,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Ve.'; 
         $detail->name = 'Nawel'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'a@a.com.ar'; 
@@ -1588,9 +1376,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'a'; 
         $detail->name = 'a'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'cristobalalfonzo@outlook.com'; 
@@ -1604,9 +1390,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Alfonzo'; 
         $detail->name = 'Cristobal'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javiernassif@hotmail.com'; 
@@ -1620,9 +1404,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Nassif'; 
         $detail->name = 'Javier'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mcarena@paginar.net'; 
@@ -1636,9 +1418,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Carena'; 
         $detail->name = 'Mati'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'rozashome@gmail.com'; 
@@ -1652,9 +1432,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Barton'; 
         $detail->name = 'Ed'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'edunick@gmail.com'; 
@@ -1668,9 +1446,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Cortez'; 
         $detail->name = 'Eduardo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'edunick@gmail.com'; 
@@ -1684,9 +1460,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Cortez'; 
         $detail->name = 'Eduardo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'cperez2603@hotmail.com'; 
@@ -1700,9 +1474,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Ctez'; 
         $detail->name = 'Ealx'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'eruete@iae.edu.ar'; 
@@ -1716,9 +1488,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Ruete GÃ¼emes'; 
         $detail->name = 'Ernesto'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'arnaldo.tuc.ar@gmail.com'; 
@@ -1731,10 +1501,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Fernandez'; 
         $detail->name = 'Arnaldo'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'arnaldoprog@hotmail.com'; 
@@ -1746,11 +1513,7 @@ class UsersTableSeeder extends Seeder {
         $detail = new UserDetail();
         $detail->user_id = $user->id;
         $detail->lastname = 'Arnaldo Fernandez'; 
-        $detail->name = 'NULL'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'juanperezmillonario@yahoo.com.ar'; 
@@ -1764,9 +1527,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'NuÃ±ez AgÃ¼ero'; 
         $detail->name = 'IÃ±aki'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'berru33@gmail.com'; 
@@ -1780,9 +1541,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'mcarena@paginar.net'; 
@@ -1796,9 +1555,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Carena'; 
         $detail->name = 'Mati'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'aito0077@gmail.com'; 
@@ -1812,9 +1569,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Garcia'; 
         $detail->name = 'Leonardo'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javierangel56@gmail.com'; 
@@ -1828,9 +1583,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'daniel.riosmoreno@hotmail.com'; 
@@ -1844,9 +1597,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Rios'; 
         $detail->name = 'Daniel'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'javierangel56@mac.com'; 
@@ -1860,9 +1611,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Alvarez'; 
         $detail->name = 'Javier Angel '; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'aito77@twitter.com'; 
@@ -1874,11 +1623,7 @@ class UsersTableSeeder extends Seeder {
         $detail = new UserDetail();
         $detail->user_id = $user->id;
         $detail->lastname = 'aito77'; 
-        $detail->name = 'NULL'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'prueba@gmail.com'; 
@@ -1892,9 +1637,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Apellido'; 
         $detail->name = 'Nombre'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'gabybreg'; 
@@ -1908,9 +1651,6 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Brenes'; 
         $detail->name = 'Gaby'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
-        $detail->photo = 'NULL'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'myberru'; 
@@ -1924,9 +1664,6 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Berruezo'; 
         $detail->name = 'Mariana'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
-        $detail->photo = 'NULL'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'martin@martincaputto.com'; 
@@ -1940,9 +1677,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Caputto'; 
         $detail->name = 'MartÃ­n'; 
         $detail->sex = 'M'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'smoreno@paginar.net'; 
@@ -1956,9 +1691,7 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Moreno'; 
         $detail->name = 'Silvina'; 
         $detail->sex = 'F'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'lmhenriquezm@gmail.com'; 
@@ -1971,10 +1704,7 @@ class UsersTableSeeder extends Seeder {
         $detail->user_id = $user->id;
         $detail->lastname = 'Henriquez'; 
         $detail->name = 'Luis'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'placeholder-square.jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
         $user = new User();
         $user->email = 'interactivista@twitter.com'; 
@@ -1986,11 +1716,7 @@ class UsersTableSeeder extends Seeder {
         $detail = new UserDetail();
         $detail->user_id = $user->id;
         $detail->lastname = 'Interactivista'; 
-        $detail->name = 'NULL'; 
-        $detail->sex = 'NULL'; 
-        $detail->about = 'NULL'; 
         $detail->photo = 'jpg'; 
-        $detail->cover_photo = 'NULL'; 
         $detail->save();
 
     }

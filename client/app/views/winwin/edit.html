@@ -103,12 +103,13 @@
                     <a/>
                 </div>
 
-                <div style="cursor:pointer" ngf-select ng-model="files" ngf-multiple="multiple" class="col-xs-4" ngf-accept="'image/*'">
+                <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4" ngf-accept="'image/*'">
                         <div>
                             <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
                         </div>
-                        <img class="img-responsive" ng-show="uploading" src="/images/loader.gif" height="75" />
+                        <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
                         <img class="img-responsive" ng-show="winwin.image" ng-src="http://images.dev-winwins.net/smart/{{winwin.image}}" height="75px">
+                        <span class="small" ng-show="errorMsg">{{errorMsg}}</span>
                 </div>
 
                 <div class="col-xs-4">
