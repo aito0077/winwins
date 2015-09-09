@@ -1,4 +1,5 @@
 <div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-250px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
+    <a id="winwin-top"></a>
 
     <div ng-show="wpPreview.name.down">
         <div id="menu-winwin" class="col-xs-12 no-padding navbar navbar-fixed-top">
@@ -20,7 +21,7 @@
             </div>
 
             <div class="col-xs-20 {{current_subview == 'admin' ? 'active' : ''}} " >
-                <span class="btn" ng-click="goAdmin()"><i class="fa fa-gear"></i></span>
+                <span class="btn" ng-click="goAdmin()" ng-show="winwin.is_moderator"><i class="fa fa-gear"></i></span>
             </div>
         </div>
 
@@ -106,9 +107,10 @@
 
     <!-- menu scroll -->
     <section ng-show='wpPreview.name.down' class="winwin-body col-xs-12">
-        
-        <div id="subview"></div>
-        <div ui-view autoscroll="false" class="no-padding winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
+        <div class="col-xs-12" style="height: 115px; display: block"></div>
+        <a id="winwin-subview"></a>
+
+        <div ui-view autoscroll="true" class="no-padding winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
 
     </section>
 </div>

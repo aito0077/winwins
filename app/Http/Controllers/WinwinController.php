@@ -72,8 +72,8 @@ class WinwinController extends Controller {
             }
         }
 
-        $user = $winwin->user;
-        $user->detail;
+        $ww_user = $winwin->user;
+        $ww_user->detail;
         $users = $winwin->users;
         $sponsors = $winwin->sponsors;
         $users_count = count($users);
@@ -86,9 +86,14 @@ class WinwinController extends Controller {
 
         $winwin->already_joined = false;
         if($user) {
-            $winwin->already_joined = count($winwin->users->filter(function($model) use ($user) {
+            $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin) {
                 $model->detail;
-                return $model->id == $user->id;
+                $result = $model->id == $user->id;
+                Log::info($model);
+                if($result && $model->pivot->moderator) {
+                   $winwin->is_moderator = true; 
+                }
+                return $result;
             })) > 0;
         }
 

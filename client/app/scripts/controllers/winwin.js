@@ -384,6 +384,8 @@ angular.module('winwinsApp')
         $scope.isSponsor = false;
         Account.getProfile().success(function(data) {
             if(data) {
+
+                $scope.account = data.account;
                 $scope.profile = data.profile;
                 $scope.isSponsor = data.sponsor;
             }
@@ -533,14 +535,26 @@ angular.module('winwinsApp')
         };
 
         $scope.goWinwin = function() {
+            window.scrollTo(0, 0);
             $scope.current_subview = 'muro';
             $scope.isAdmin = false;
-            $location.hash('winwin-view');
+            $location.hash('winwin-top');
             $anchorScroll();
         };
 
         $scope.goAdmin = function() {
-            $scope.isAdmin = true;
+            if($scope.winwin.is_moderator) {
+                $scope.isAdmin = true;
+                console.dir($scope.profile);
+            } else {
+                swal({
+                    title: "warning", 
+                    text: 'not_is_a_moderator', 
+                    type: "warning",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+            }
         };
 
         $scope.goPatrocinio = function() {
