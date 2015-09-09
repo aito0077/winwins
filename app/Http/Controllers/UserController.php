@@ -123,8 +123,10 @@ class UserController extends Controller {
         if($user->id == $followed->id) {
             return response()->json(['message' => 'Can not follow yourself'], 400);
         } else {
+            Log::info($followed->followers);
             $already_following = count($followed->followers->filter(function($model) use ($user) {
-                return $model->id == $user->id;
+                Log::info($model);
+                return $model->follower_id == $user->id;
             })) > 0;
 
             if($already_following) {

@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="col-xs-12 text-center"  style="padding-top: 20px!important;">
-            <span class="orange">¿Si supieras </span> que somos <span  class="backorange">{{::winwin.users_amount}}</span> para {{::winwin.what_we_do}}
+            <span class="orange">¿Si supieras </span> que somos <span  class="backorange">{{::winwin.users_amount}}</span> para {{::winwin.what_we_do}}  <span class="orange">te sumarías?</span>
         </div>
         <div class="col-xs-12 no-padding caret-middle" style="height:75px"  ng-show="!winwin.already_joined">
             <div class="col-xs-7 no-padding btn4 btn-share like" style="background-color:#5aad07!important; height:50px;; margin-top:15px;">
@@ -108,6 +108,7 @@
     <!-- menu scroll -->
     <section ng-show='wpPreview.name.down' class="winwin-body col-xs-12">
         <div class="col-xs-12" style="height: 115px; display: block"></div>
+        <div ng-show="isAdmin" class="col-xs-12" style="height: 115px; display: block"></div>
         <a id="winwin-subview"></a>
 
         <div ui-view autoscroll="true" class="no-padding winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>

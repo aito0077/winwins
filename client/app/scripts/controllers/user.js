@@ -13,7 +13,7 @@ angular.module('winwinsApp')
         $state.go('user-view', {
             userId: id
         }); 
-    }
+    };
 
 
     $scope.follow = function(id) {

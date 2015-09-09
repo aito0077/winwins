@@ -89,10 +89,19 @@ class WinwinController extends Controller {
             $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin) {
                 $model->detail;
                 $result = $model->id == $user->id;
-                Log::info($model);
                 if($result && $model->pivot->moderator) {
                    $winwin->is_moderator = true; 
                 }
+                $model->following = false;
+                if(!$result) {
+                    $model->following = count($model->followers->filter(function($user_model) use ($user) {
+                        Log::info($user_model->follower_id.' - '.$user->id);
+                        return $user_model->follower_id == $user->id;
+                    })) > 0;
+                } else {
+                    $model->my_self = true;
+                }
+
                 return $result;
             })) > 0;
         }

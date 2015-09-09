@@ -10,7 +10,7 @@
     <div class="col-xs-12 no-padding grid-participantes">
 
         <div ng-repeat="participante in winwin.users" class="participante-item {{classType(participante)}}">
-            <div class="col-xs-12 no-padding" style="margin:12px 0;">
+            <div class="col-xs-12 no-padding" style="margin:12px 0;" ng-click="view(participante)">
                 <div class="col-xs-4 no-padding">
                     <img ng-src="http://images.dev-winwins.net/120x106/{{::participante.detail.photo}}" class="img-responsive img-circle img-no-border" />
                 </div>
@@ -25,11 +25,18 @@
             </div>
             <div class="col-xs-12 no-padding shadow-border">
                 <div class="col-xs-3 col-xs-push-2 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
+                    <!--
                     <span style="background-color:#000; color:#FFF; padding: 2px 3px">Win Wins</span><br>
                     <span>{{::participante.winwins_involved}}</span>
+                    -->
                 </div>
-                <div class="btn col-xs-3 col-xs-push-3 btn5 btn-follow no-padding" style="padding-top: 12px!important;"  ng-click="follow(participante.detail.id)">
-                    Follow
+                <div ng-show="!participante.my_self">
+                    <div ng-show="!participante.following" class="btn col-xs-3 col-xs-push-3 btn5 btn-follow no-padding" style="padding-top: 12px!important;"  ng-click="follow(participante)">
+                        Seguir
+                    </div>
+                    <div ng-show="participante.following" class="btn col-xs-3 col-xs-push-3 btn5 no-padding" style="padding-top: 12px!important;"  ng-click="unfollow(participante)">
+                        Siguiendo
+                    </div>
                 </div>
             </div>
 

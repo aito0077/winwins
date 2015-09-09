@@ -538,6 +538,7 @@ angular.module('winwinsApp')
             window.scrollTo(0, 0);
             $scope.current_subview = 'muro';
             $scope.isAdmin = false;
+            $scope.first_view = false;
             $location.hash('winwin-top');
             $anchorScroll();
         };
@@ -615,7 +616,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-members', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', function($scope, $http, $timeout, $stateParams, Winwin) {
+.controller('winwin-members', ['$scope','$http', '$timeout', '$stateParams', '$state', 'Winwin', function($scope, $http, $timeout, $stateParams, $state, Winwin) {
 
     $scope.current = 'all';
 
@@ -626,7 +627,7 @@ angular.module('winwinsApp')
                 columnWidth: 380
             }
         });
-    });
+    }, 1000);
     
     $scope.classType= function(participante) {
        return (participante.pivot.moderator ? 'activator' : '')+' '+ (participante.pivot.creator? 'creator' : '');
@@ -636,6 +637,58 @@ angular.module('winwinsApp')
         $scope.current = filter_by;
         $('.grid-participantes').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
     };
+
+    $scope.follow = function(participante) {
+        $http.get('/api/users/follow/'+participante.id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'user_following', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            participante.following = true;
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+    $scope.view = function(participante) {
+        $state.go('user-view', {
+            userId: participante.id
+        }); 
+    };
+
+    $scope.unfollow = function(participante) {
+        $http.get('/api/users/unfollow/'+participante.id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'user_left', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            participante.following = false;
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
 
 }])
 .controller('winwin-sponsors', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', function($scope, $http, $timeout, $stateParams, Winwin) {
