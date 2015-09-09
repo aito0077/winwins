@@ -15,6 +15,7 @@ class CreateWinwinsUsersTable extends Migration {
 
             $table->primary(['winwin_id', 'user_id']);  
 
+            $table->boolean('creator')->default(FALSE);
             $table->boolean('moderator')->default(FALSE);
 
             $table->integer('process_rate')->default(0);

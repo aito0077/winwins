@@ -194,7 +194,11 @@ angular.module('winwinsApp')
         });
     };
 
-
+    $scope.continue = function() {
+        $state.go('winwin-view', {
+            winwinId: $scope.winwin.id
+        }); 
+    };
 
     $scope.matchYoutubeUrl = function(url){
         var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
@@ -506,6 +510,7 @@ angular.module('winwinsApp')
         $scope.goMuro = function() {
             $scope.current_subview = 'muro';
             $scope.isAdmin = false;
+
             $state.go('winwin-view.muro', {
                 winwinId: $scope.winwin.id
             }); 
@@ -596,10 +601,51 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-members', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+.controller('winwin-members', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', function($scope, $http, $timeout, $stateParams, Winwin) {
+
+    $scope.current = 'all';
+
+    $timeout(function () {
+        $('.grid-participantes').isotope({
+            itemSelector: '.participante-item',
+            masonry: {
+                columnWidth: 380
+            }
+        });
+    });
+    
+    $scope.classType= function(participante) {
+       return (participante.pivot.moderator ? 'activator' : '')+' '+ (participante.pivot.creator? 'creator' : '');
+    }
+
+    $scope.filter = function(filter_by) {
+        $scope.current = filter_by;
+        $('.grid-participantes').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
 
 }])
-.controller('winwin-sponsors', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
+.controller('winwin-sponsors', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', function($scope, $http, $timeout, $stateParams, Winwin) {
+
+    $scope.current = 'all';
+
+    $timeout(function () {
+        $('.grid-sponsors').isotope({
+            itemSelector: '.sponsor-item',
+            masonry: {
+                columnWidth: 380
+            }
+        });
+    });
+    
+    $scope.classType= function(sponsor) {
+       return (sponsor.pivot.promoted ? 'promoted' : '');
+    }
+
+    $scope.filter = function(filter_by) {
+        $scope.current = filter_by;
+        $('.grid-sponsors').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
+
 }])
 .controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post) {
     $scope.posts = [];

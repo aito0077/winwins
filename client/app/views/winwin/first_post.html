@@ -9,11 +9,9 @@
         </div>
     </div>
 
-    <div class="row">
     <form role="form" ng-submit="submitPost()" name="wwFirstPost">
-
-
         <div class="col-xs-12 compartir-comentario post-winwin mb-20 container new-comentario">
+
             <div class="row" ng-show="post.media_type || uploading" style="min-height: 50px">
 
                 <div ng-show="uploading">
@@ -39,15 +37,25 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <div class="col-xs-8 col-xs-push-2">
-            <button type="submit" ng-disabled="wwFirstPost.$invalid" class="btn btn-default btn-sponsor btn-second mb-20 ir-winwin" style="color:#FFF; text-transform:uppercase;">
-                ACTIVAR WINWIN!
-            </button>   
+        <div class="col-xs-12 container">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <button type="submit" ng-disabled="wwFirstPost.$invalid" class="btn btn-default btn-sponsor btn-second mb-20 ir-winwin" style="color:#FFF; text-transform:uppercase;">
+                        ACTIVAR WINWIN!
+                    </button>   
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-xs-4 col-xs-offset-4">
+                    <span class="btn btn-default" ng-click="continue()">
+                        Continuar Inactivo
+                    </span>   
+                </div>
+            </div>
         </div>
     </form>
-
-    </div>
 
 

@@ -129,6 +129,7 @@ class WinwinController extends Controller {
             $winwinsUsers = new WinwinsUser;
             $winwinsUsers->user_id = $user->id;
             $winwinsUsers->winwin_id = $winwin->id;
+            $winwinsUsers->creator = true;
             $winwinsUsers->moderator = true;
             $winwinsUsers->save();
 

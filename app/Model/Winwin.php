@@ -12,7 +12,7 @@ class Winwin extends Model {
     }
 
     public function users() {
-        return $this->belongsToMany('Winwins\User', 'winwins_users');
+        return $this->belongsToMany('Winwins\User', 'winwins_users')->withPivot('creator', 'moderator');
     }
 
     public function groups() {

@@ -251,6 +251,9 @@
 .winwin-scroll-view.admin {
     padding-top: 135px;
 }
+.subview-body {
+    padding-top: 16px !important;
+}
 
 .compartir-comentario {
     /*padding: 16px 0!important; */
