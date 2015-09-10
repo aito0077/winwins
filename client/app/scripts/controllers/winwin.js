@@ -536,7 +536,7 @@ angular.module('winwinsApp')
 
         $scope.goWinwin = function() {
             window.scrollTo(0, 0);
-            $scope.current_subview = 'muro';
+            //$scope.current_subview = 'muro';
             $scope.isAdmin = false;
             $scope.first_view = false;
             $location.hash('winwin-top');
