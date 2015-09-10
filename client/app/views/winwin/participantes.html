@@ -1,6 +1,6 @@
-<div class="subview-body">
+<div class="subview-body no-padding">
 
-    <div class="" role="group" aria-label="...">
+    <div class="col-xs-12 row no-padding" role="group" aria-label="...">
         <button type="button" ng-click="filter('all')" class="btn btn-default col-xs-4" ng-class="{active: current == 'all'}">Todos</button>
         <button type="button" ng-click="filter('activator')" class="btn col-xs-4 btn-default" ng-class="{active: current == 'activator'}">Activadores</button>
         <button type="button" ng-click="filter('creator')" class="btn  col-xs-4 btn-default" ng-class="{active: current == 'creator'}">Creador</button>
@@ -9,7 +9,7 @@
 
     <div class="col-xs-12 no-padding grid-participantes">
 
-        <div ng-repeat="participante in winwin.users" class="participante-item {{classType(participante)}}">
+        <div ng-repeat="participante in winwin.users" class="participante-item col-xs-12 {{classType(participante)}}" ng-class="{odd: $odd}">
             <div class="col-xs-12 no-padding" style="margin:12px 0;" ng-click="view(participante)">
                 <div class="col-xs-4 no-padding">
                     <img ng-src="http://images.dev-winwins.net/120x106/{{::participante.detail.photo}}" class="img-responsive img-circle img-no-border" />
