@@ -2,8 +2,8 @@ angular.module('winwinsApp')
 .controller('NavController', function ($scope, $rootScope, $state, $location, $auth, $window, Account) {
     $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
-    $scope.is_logged = false;
     $scope.profile = false;
+    $scope.is_logged = false;
 
     $scope.profile_image = 0;
 
@@ -21,6 +21,22 @@ angular.module('winwinsApp')
         }
     });
 
+    $rootScope.$on('is_logged',function(event, logged){
+        console.log('logged: '+logged);
+        $scope.is_logged = logged;
+        if(logged) {
+            if(!$scope.fetching_profile && !$scope.profile) {
+                $scope.fetching_profile = true;
+                Account.getProfile().then(function(response) {
+                    $scope.fetching_profile = false;
+                    $scope.profile = response.data.profile;
+                });
+            }
+        }
+
+    });
+
+
     $rootScope.$on('$stateChangeSuccess',function(data, other){
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
         } else {
@@ -33,6 +49,16 @@ angular.module('winwinsApp')
 
     $scope.isAuthenticated = function() {
         var is_authenticated = $auth.isAuthenticated();
+
+        if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
+            $scope.fetching_profile = true;
+            Account.getProfile().then(function(response) {
+                $scope.fetching_profile = false;
+                $scope.profile = response.data.profile;
+                $rootScope.$broadcast('is_logged', true);
+            });
+        }
+
         return is_authenticated;
     };
 
@@ -41,13 +67,6 @@ angular.module('winwinsApp')
 
     $scope.getProfile = function() {
         var is_authenticated = $auth.isAuthenticated();
-        if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
-            $scope.fetching_profile = true;
-            Account.getProfile().then(function(response) {
-                $scope.fetching_profile = false;
-                $scope.profile = response.data.profile;
-            });
-        }
         return $scope.profile;
     };
 

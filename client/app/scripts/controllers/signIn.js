@@ -6,6 +6,7 @@ angular.module('winwinsApp')
         $auth.login({ email: $scope.email, password: $scope.password })
         .then(function(data) {
             $rootScope.currentUser = data;
+            $rootScope.$broadcast('is_logged', true);
             SweetAlert.swal('success_title', 'success_subtitle', 'success', function() {
                 $state.go('main');
             });

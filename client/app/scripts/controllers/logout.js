@@ -4,6 +4,6 @@ angular.module('winwinsApp')
         return;
     }
     $auth.logout().then(function() {
-
+        $rootScope.$broadcast('is_logged', false);
     });
 });
