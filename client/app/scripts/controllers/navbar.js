@@ -1,7 +1,12 @@
 angular.module('winwinsApp')
-.controller('NavController', function ($scope, $rootScope, $location, $auth, $window, Account) {
+.controller('NavController', function ($scope, $rootScope, $state, $location, $auth, $window, Account) {
     $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
+    $scope.is_logged = false;
+    $scope.profile = false;
+
+    $scope.profile_image = 0;
+
     $scope.$on('$routeChangeSuccess', function () {
         $scope.isCollapsed = true;
     });
@@ -25,12 +30,33 @@ angular.module('winwinsApp')
 
     })
 
+
     $scope.isAuthenticated = function() {
-        return $auth.isAuthenticated();
+        var is_authenticated = $auth.isAuthenticated();
+        return is_authenticated;
+    };
+
+
+    $scope.fetching_profile = false;
+
+    $scope.getProfile = function() {
+        var is_authenticated = $auth.isAuthenticated();
+        if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
+            $scope.fetching_profile = true;
+            Account.getProfile().then(function(response) {
+                $scope.fetching_profile = false;
+                $scope.profile = response.data.profile;
+            });
+        }
+        return $scope.profile;
     };
 
     $scope.do_back = function() {
         $window.history.back();
+    };
+
+    $scope.goProfile = function() {
+        $state.go('profile');
     };
 
 });

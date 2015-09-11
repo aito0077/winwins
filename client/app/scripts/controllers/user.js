@@ -99,6 +99,18 @@ angular.module('winwinsApp')
     };
 
 
-}]);
+}])
+.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
 
+    $scope.getUser = function() {
+        Account.getProfile().then(function(response) {
+            $scope.user = response.data;
+        });
+
+    };
+
+    $scope.getUser();
+
+
+}]);
 

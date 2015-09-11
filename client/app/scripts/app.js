@@ -45,6 +45,11 @@ angular.module('winwinsApp', [
         template: null,
         controller: 'LogoutCtrl'
     })
+    .state('profile',{
+        url: '/profile',
+        templateUrl: 'views/user/profile.html',
+        controller: 'ProfileCtrl'
+    })
     .state('account',{
         url: '/account',
         templateUrl: 'views/user/account.html',
