@@ -29,7 +29,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function winwins() {
-        return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users');
+        return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users')->withPivot('creator', 'moderator');
+    }
+
+    public function groups() {
+        return $this->belongsToMany('Winwins\Model\Group', 'groups_users')->withPivot('moderator');
     }
 
     public function sponsor() {
@@ -37,11 +41,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function following() {
-        return $this->belongsToMany('Winwins\Model\Follower', 'followers');
+        return $this->belongsToMany('Winwins\User', 'followers', 'follower_id', 'followed_id' );
     }
 
     public function followers() {
-        return $this->hasMany('Winwins\Model\Follower', 'follower_id');
+        return $this->belongsToMany('Winwins\User', 'followers', 'followed_id', 'follower_id');
     }
 
     public function notifications() {

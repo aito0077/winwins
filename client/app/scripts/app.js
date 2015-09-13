@@ -190,7 +190,7 @@ angular.module('winwinsApp', [
     })
     .state('user-view', {
         url: '/user-view/:userId',
-        templateUrl: 'views/user/view.html',
+        templateUrl: 'views/user/profile.html',
         controller: 'user-view'
     })
     .state('user-list',{

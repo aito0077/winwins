@@ -39,15 +39,49 @@ class UserController extends Controller {
         return $users;
 	}
 
-	public function show($id) {
+	public function show(Request $request, $id) {
+
         $user = User::find($id);
         $userDetail = array();
+
+        $my_self = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $my_self= User::find($payload['sub']);
+            }
+        }
+
+
+
+
         if($user) {
             $winwins = $user->winwins;
 
             $userDetail = $user->detail;
             $userDetail->winwins = $winwins;
+            $userDetail->groups = $user->groups;
+            $userDetail->notifications = $user->notifications;
+            $userDetail->followers = $user->followers;
+            $userDetail->following = $user->following;
+
+            Log::info($my_self);
+            if($my_self) {
+                if($my_self->id == $id) {
+                    $userDetail->myself = true;
+                } else {
+                    $already_following = count($userDetail->followers->filter(function($model) use ($my_self) {
+                        return $model->id == $my_self->id;
+                    })) > 0;
+                    $userDetail->already_following = $already_following;
+                }
+            }
+            
         }
+
         return $userDetail;
 	}
 
@@ -126,7 +160,7 @@ class UserController extends Controller {
             Log::info($followed->followers);
             $already_following = count($followed->followers->filter(function($model) use ($user) {
                 Log::info($model);
-                return $model->follower_id == $user->id;
+                return $model->id == $user->id;
             })) > 0;
 
             if($already_following) {

@@ -104,12 +104,42 @@ angular.module('winwinsApp')
 
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
-            $scope.user = response.data;
+            $scope.account = response.data;
+
+            User.get({
+                id: $scope.account.user.id
+            }, function(user_data) {
+                $scope.user_detail = user_data;
+            });
+
         });
 
     };
 
     $scope.getUser();
+
+    $scope.follow = function(id) {
+        $http.get('/api/users/follow/'+$scope.account.user.id).success(function(data) {
+            $scope.getUser();
+            swal({
+                title: "info", 
+                text: 'user_join', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
 
 
 }]);

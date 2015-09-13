@@ -248,12 +248,12 @@
     top: 95px;
 }
 .winwin-scroll-view {
-    padding-top: 95px;
+    /*padding-top: 95px;*/
 }
 .winwin-scroll-view.admin {
-    padding-top: 135px;
+    /*padding-top: 135px;*/
 }
-.subview-body {
+._subview-body {
     padding-top: 16px !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -262,15 +262,17 @@
 .compartir-comentario {
     /*padding: 16px 0!important; */
     /*height: 72px;*/
-    padding-top: 16px !important;
+    /*padding-top: 16px !important;*/
 }
 .new-comentario {
+    padding-top: 10px;
     background-color: #1563c8;
-    /*
     position: fixed;
     bottom: 0px;
     display: block;
     left: 0px;
+    right: 0px;
+    /*
     */
     min-height: 93px;
 }

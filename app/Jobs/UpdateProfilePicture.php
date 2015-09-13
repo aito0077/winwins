@@ -23,6 +23,9 @@ class UpdateProfilePicture extends Job implements SelfHandling, ShouldQueue {
         $gravatar = md5(strtolower(trim($this->user->email)));
         $detail = $this->user->detail;
         $detail->photo = $gravatar;
+        $this->user->photo = $gravatar;
+
+        $this->user->save();
         $this->user->detail()->save($detail);
         Storage::disk('s3-gallery')->put('/' . $gravatar, file_get_contents('http://www.gravatar.com/avatar/'.$gravatar.'?d=identicon'), 'public');
         if ($this->attempts() > 1) {

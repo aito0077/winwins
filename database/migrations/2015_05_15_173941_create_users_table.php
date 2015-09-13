@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration {
 			$table->string('yahoo')->nullable();
 			$table->string('twitter')->nullable();
 
+            $table->string('photo')->default('placeholder-square.jpg');
+
 			$table->dateTime('last_access')->nullable();
             $table->boolean('canceled')->default(FALSE);
             $table->boolean('suspend')->default(FALSE);
