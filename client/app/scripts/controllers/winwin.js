@@ -371,6 +371,18 @@ angular.module('winwinsApp')
 
         $scope.show_closing_date = false;
 
+        $scope.posts = [];
+        $scope.last = {};
+
+        $scope.getPosts = function() {
+            $http.get('/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+                $scope.posts = data.posts;
+                $scope.last = data.last;
+            });
+
+        }
+
+
         $scope.winwin = {};
         $scope.getWinwin = function() {
             $scope.winwin = Winwin.get({
@@ -378,6 +390,7 @@ angular.module('winwinsApp')
             }, function(data) {
                 $scope.winwin = data;
                 $scope.calculate_time();
+                $scope.getPosts();
             });
         }
 
@@ -513,9 +526,11 @@ angular.module('winwinsApp')
             $scope.current_subview = 'muro';
             $scope.isAdmin = false;
 
-            $state.go('winwin-view.muro', {
-                winwinId: $scope.winwin.id
-            }); 
+            $timeout(function() {
+                $state.go('winwin-view.muro', {
+                    winwinId: $scope.winwin.id
+                }); 
+            }, 500);
         };
 
         $scope.goMembers= function() {
@@ -613,6 +628,7 @@ angular.module('winwinsApp')
                 }); 
             }
         };
+
 
 
 }])
@@ -715,9 +731,6 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post) {
-    $scope.posts = [];
-    $scope.last = {};
-
     $scope.getPosts = function() {
         $http.get('/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
             $scope.posts = data.posts;

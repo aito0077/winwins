@@ -1,4 +1,4 @@
-<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-250px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
+<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-200px" ng-swipe-right="previous()"  ng-swipe-left="next()" >
     <a id="winwin-top"></a>
 
     <div ng-show="wpPreview.name.down">
@@ -48,7 +48,7 @@
         <div class="col-xs-12 no-padding">
 
             <div class="img-misc no-padding"  style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}">
-                <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999">
+                <div class="winwin-title" style="padding: 5px;position: absolute;margin-right:auto; margin-left:auto; display:block; width: 99%; z-index: 999; cursor:pointer" ng-click="view(winwin.id)"> 
                     {{::winwin.title}}
                 </div>
 
@@ -77,21 +77,23 @@
             <span class="orange">¿Si supieras </span> que somos <span  class="backorange">{{::winwin.users_amount}}</span> para {{::winwin.what_we_do}}  <span class="orange">te sumarías?</span>
         </div>
         <div class="col-xs-12 no-padding caret-middle" style="height:75px"  ng-show="!winwin.already_joined">
-            <div class="col-xs-7 no-padding btn4 btn-share like" style="background-color:#5aad07!important; height:50px;; margin-top:15px;">
+            <div class="col-xs-7 no-padding btn4 btn-share like" style="background-color:#5aad07!important; height: 55px; margin-top:15px;border-bottom: 4px solid green;"> 
                 <a href="#" class="no-padding" ng-click="join()">
                     <h5 style="padding-top:8px;">SI! ME SUMO</h5>
                 </a>
             </div>
-            <div class="col-xs-5 no-padding btn4 btn-share like" style="background-color:grey!important; height:50px;; margin-top:15px;">
+            <div class="col-xs-5 no-padding btn4 btn-share like" style="background-color:grey!important; height: 55px; margin-top:15px;border-bottom: 5px solid #666;"> 
                 <a href="#" class="no-padding" ng-click="pass()">
                     <h5 style="padding-top:8px;">LA PROXIMA</h5>
                 </a>
             </div>
         </div>
-        <div class="col-xs-12 mb-20">
-            <div class="col-xs-6 no-padding" style="cursor: pointer" ng-click="viewProfile(winwin.user.id)">
+
+
+        <div class="col-xs-12 mb-20" style="background-color: #f1f1f1; padding: 10px 10px 20px;"> 
+            <div class="col-xs-6 no-padding" style="cursor: pointer" ng-click="viewProfile(winwin.user.id)"> 
                 <img ng-src="http://images.dev-winwins.net/42x42/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile">
-                <h5>{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</h5>
+                <h5 style="padding: 10px 10px 10px 10px;">{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</h5>
             </div>
             <div class="col-xs-6">
                 <img  alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/42x42/{{::member.detail.photo}}" src="images/profile.png" class="img-responsive img-circle-second"  ng-repeat="member in winwin.users" ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)">
