@@ -40,6 +40,7 @@ angular.module('winwinsApp')
     $rootScope.$on('$stateChangeSuccess',function(data, other){
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
             console.log('not scroll at all');
+            $("html, body").animate({ scrollTop: 430 }, 0);
         } else {
             console.log('scroll to top');
             $("html, body").animate({ scrollTop: 1 }, 0);

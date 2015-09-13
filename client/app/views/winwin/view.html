@@ -109,11 +109,11 @@
 
     <!-- menu scroll -->
     <section ng-show='wpPreview.name.down' class="winwin-body col-xs-12">
+        <a id="winwin-subview"></a>
         <div class="col-xs-12" style="height: 115px; display: block"></div>
         <div ng-show="isAdmin" class="col-xs-12" style="height: 45px; display: block"></div>
-        <a id="winwin-subview"></a>
 
-        <div ui-view autoscroll="true" class="no-padding winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
+        <div ui-view autoscroll="false" class="no-padding winwin-scroll-view {{isAdmin ? 'admin' : ''}}"></div>
 
     </section>
 </div>

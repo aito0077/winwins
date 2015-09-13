@@ -495,6 +495,7 @@ angular.module('winwinsApp')
             });
         };
         $scope.first_view = true;
+        $scope.up_down = true;
 
         $scope.setup_components = function() {
         
@@ -511,8 +512,13 @@ angular.module('winwinsApp')
                             $scope.first_view = false;
                             $scope.goMuro();
                         }
+                        if($scope.up_down) {
+                            $scope.up_down = false;
+                            $("html, body").animate({ scrollTop: 430 }, 0);
+                        } 
                     } else {
                         $('#menu-winwin').fadeOut(500);
+                        $scope.up_down = true;
                     }
                 });
             }, 1000);
@@ -731,6 +737,8 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post) {
+
+
     $scope.getPosts = function() {
         $http.get('/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
             $scope.posts = data.posts;
