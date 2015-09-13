@@ -502,12 +502,12 @@ angular.module('winwinsApp')
             var scope = $scope;
             $timeout(function() {
                 scope.view_height = $('winwin-view').height();
-                $scope.height_to_change = scope.view_height * 1.5;
+                $scope.height_to_change = scope.view_height * 1.4;
                 scope.height_to_change = scope.view_height;
 
                 $(window).scroll(function(){                          
                     if ($(this).scrollTop() > $scope.view_height) {
-                        $('#menu-winwin').fadeIn(500);
+                        $('#menu-winwin').fadeIn(1);
                         if($scope.first_view) {
                             $scope.first_view = false;
                             $scope.goMuro();
@@ -517,7 +517,7 @@ angular.module('winwinsApp')
                             $("html, body").animate({ scrollTop: 430 }, 0);
                         } 
                     } else {
-                        $('#menu-winwin').fadeOut(500);
+                        $('#menu-winwin').fadeOut(1);
                         $scope.up_down = true;
                     }
                 });
