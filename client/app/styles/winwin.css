@@ -982,3 +982,27 @@ ul.thumbnails.image_picker_selector li {
 .mb-20 {
     /* margin-bottom: 20px; */
 }
+
+
+
+/* Profile */
+
+#menu-profile.fixed {
+    position: fixed;
+    z-index: 99;
+/*    left: 0px;
+    top: 55px;
+*/
+}
+
+#menu-profile > .nav > li > a {
+    display: normal;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    color: #FFFFFF;
+    font-size: 14px;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
