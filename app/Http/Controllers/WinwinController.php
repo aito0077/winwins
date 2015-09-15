@@ -165,7 +165,7 @@ class WinwinController extends Controller {
                 }
             }
 
-            $user->newNotification()
+            $user->newActivity()
                 ->from($user)
                 ->withType('WW_CREATED')
                 ->withSubject('you_have_created_new_ww_title')
@@ -232,6 +232,14 @@ class WinwinController extends Controller {
                     $winwinsUsers->winwin_id = $winwin->id;
                     $winwinsUsers->moderator = false;
                     $winwinsUsers->save();
+
+                    $user->newActivity()
+                        ->from($user)
+                        ->withType('WW_JOIN')
+                        ->withSubject('you_have_join_ww_title')
+                        ->withBody('you_have_join_ww_title_body')
+                        ->regarding($winwin)
+                        ->deliver();
                 });
             }
         }
@@ -251,7 +259,21 @@ class WinwinController extends Controller {
             if(!$already_joined) {
                 return response()->json(['message' => 'You have to join in order to left'], 400);
             } else {
-                DB::table('winwins_users')->where('user_id', $user->id )->where('winwin_id', $winwin->id)->delete();
+                DB::transaction(function() use ($winwin, $user) {
+
+
+                    DB::table('winwins_users')->where('user_id', $user->id )->where('winwin_id', $winwin->id)->delete();
+
+                    $user->newActivity()
+                        ->from($user)
+                        ->withType('WW_LEFT')
+                        ->withSubject('you_have_left_ww_title')
+                        ->withBody('you_have_left_ww_title_body')
+                        ->regarding($winwin)
+                        ->deliver();
+                });
+ 
+
             }
         }
 	}

@@ -68,4 +68,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
  
         return $notification;
     }
+
+    public function newActivity() {
+        $notification = new Notification;
+        $notification->markAsActivity();
+        $notification->user()->associate($this);
+ 
+        return $notification;
+    }
 }

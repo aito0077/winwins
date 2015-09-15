@@ -10,23 +10,22 @@
                         </div>
                     </a>
                     <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body no-padding">
-                            <table>
-                                <tr ng-repeat="activity in user_detail.activities">
-                                    <td>
-                                        <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                            <div class="col-xs-2 no-padding">
-                                                <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                            </div>
-                                            <div class="col-xs-10 no-padding-left">
-                                                <p class="text-destacados lista">
-                                                    {{activity.description}}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="panel-body container">
+                            <div class="row col-xs-12 no-padding" style="margin:12px 0;" ng-repeat="activity in user_detail.notifications | filter: {is_activity: 1}">
+                                <div class="col-xs-2 no-padding">
+                                    <i class="fa fa-comments" ng-if="activity.type == 'WW_CREATED'"></i>
+                                    <i class="fa fa-comments" ng-if="activity.type == 'WW_JOIN'"></i>
+                                    <i class="fa fa-comments" ng-if="activity.type == 'WW_LEFT'"></i>
+                                    <i class="fa fa-users" ng-if="activity.type == 'GROUP_CREATED'"></i>
+                                    <i class="fa fa-users" ng-if="activity.type == 'GROUP_JOIN'"></i>
+                                    <i class="fa fa-users" ng-if="activity.type == 'GROUP_LEFT'"></i>
+                                </div>
+                                <div class="col-xs-10 no-padding-left">
+                                    <p class="text-destacados lista">
+                                        {{activity.body}}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,9 +42,11 @@
                         </div>
                     </a>
                     <div id="collapsetwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.id} " class="col-xs-1">
-                                <img ng-src="http://images.dev-winwins.net/40x40/smart/{{ww.image}}" width="100%" class="img-no-border" />
+                        <div class="panel-body no-padding">
+                           <div class="row col-xs-12"> 
+                                <div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.id} " class="col-xs-1">
+                                    <img ng-src="http://images.dev-winwins.net/40x40/smart/{{ww.image}}" width="100%" class="img-no-border" />
+                                </div>
                             </div>
                         </div>
                     </div>

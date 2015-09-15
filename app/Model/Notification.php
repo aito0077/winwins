@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model {
 
-    protected $fillable   = ['user_id', 'type', 'subject', 'body', 'object_id', 'object_type', 'sent_at'];
+    protected $fillable   = ['user_id', 'type', 'subject', 'body', 'object_id', 'object_type', 'sent_at', 'is_activity'];
  
     private $relatedObject = null;
 
@@ -28,6 +28,12 @@ class Notification extends Model {
 
     public function withSubject($subject) {
         $this->subject = $subject;
+ 
+        return $this;
+    }
+
+    public function markAsActivity() {
+        $this->is_activity = true;
  
         return $this;
     }

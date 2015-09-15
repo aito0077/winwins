@@ -70,6 +70,15 @@ class GroupController extends Controller {
             $groupsUsers->moderator = true;
             $groupsUsers->save();
 
+            $user->newActivity()
+                ->from($user)
+                ->withType('GROUP_CREATED')
+                ->withSubject('you_have_created_new_group_title')
+                ->withBody('you_have_created_new_group_title_body')
+                ->regarding($group)
+                ->deliver();
+
+
         });
 
         Log::info('grupo creado');
@@ -149,6 +158,16 @@ class GroupController extends Controller {
                     $groupsUsers->group_id = $group->id;
                     $groupsUsers->moderator = false;
                     $groupsUsers->save();
+
+                    $user->newActivity()
+                        ->from($user)
+                        ->withType('GROUP_JOIN')
+                        ->withSubject('you_have_join_group_title')
+                        ->withBody('you_have_join_group_title_body')
+                        ->regarding($group)
+                        ->deliver();
+
+
                 });
             }
         }
@@ -168,7 +187,20 @@ class GroupController extends Controller {
             if(!$already_joined) {
                 return response()->json(['message' => 'You have to join in order to left'], 400);
             } else {
-                DB::table('groups_users')->where('user_id', $user->id )->where('group_id', $group->id)->delete();
+                DB::transaction(function() use ($group, $user) {
+                    DB::table('groups_users')->where('user_id', $user->id )->where('group_id', $group->id)->delete();
+
+                    $user->newActivity()
+                        ->from($user)
+                        ->withType('GROUP_LEFT')
+                        ->withSubject('you_have_left_group_title')
+                        ->withBody('you_have_left_group_title_body')
+                        ->regarding($group)
+                        ->deliver();
+
+                });
+
+
             }
         }
 	}

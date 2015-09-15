@@ -3,29 +3,30 @@
         <div class="panel-heading no-padding">
             <div class="col-xs-12 no-padding subcat">
                 <div class="col-xs-10 valign">
-                    timeline
+                    Notificaciones
                 </div>
             </div>
         </div>
     </a>
     <div id="collapseOne" class="panel-collapse collapse in">
         <div class="panel-body no-padding">
-            <table>
-                <tr ng-repeat="activity in user_detail.activities">
-                    <td>
-                        <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                            <div class="col-xs-2 no-padding">
-                                <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                            </div>
-                            <div class="col-xs-10 no-padding-left">
-                                <p class="text-destacados lista">
-                                    {{activity.description}}
-                                </p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div class="row col-xs-12 no-padding" style="margin:12px 0;" ng-repeat="notification in user_detail.notifications">
+                <div class="col-xs-2 no-padding">
+                    <i class="fa fa-comments" ng-if="notification.type == 'WW_CREATED'"></i>
+                    <i class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></i>
+                    <i class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></i>
+                    <i class="fa fa-users" ng-if="notification.type == 'GROUP_CREATED'"></i>
+                    <i class="fa fa-users" ng-if="notification.type == 'GROUP_JOIN'"></i>
+                    <i class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></i>
+                </div>
+                <div class="col-xs-10 no-padding-left">
+                    <p class="text-destacados lista">
+                        {{notification.body}}
+                    </p>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
