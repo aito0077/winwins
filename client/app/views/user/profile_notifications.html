@@ -1,4 +1,87 @@
+<div class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="accordion-main">
+        <div class="panel-heading no-padding">
+            <div class="col-xs-12 no-padding subcat">
+                <div class="col-xs-10 valign">
+                    timeline
+                </div>
+            </div>
+        </div>
+    </a>
+    <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body no-padding">
+            <table>
+                <tr ng-repeat="activity in user_detail.activities">
+                    <td>
+                        <div class="col-xs-12 no-padding" style="margin:12px 0;">
+                            <div class="col-xs-2 no-padding">
+                                <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
+                            </div>
+                            <div class="col-xs-10 no-padding-left">
+                                <p class="text-destacados lista">
+                                    {{activity.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
-        <h3>NOTIFICACIONES</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+
+<div class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse14" class="accordion-main">
+        <div class="panel-heading no-padding">
+            <div class="col-xs-12 no-padding subcat">
+                <div class="col-xs-10 valign">
+                    DEJA UN COMENTARIO 
+                </div>
+            </div>
+        </div>
+    </a>
+    <div id="collapse14" class="panel-collapse collapse in">
+        <div class="panel-body no-padding">
+
+            <table>
+                <tr ng-repeat="comment in user_detail.comments">
+                    <td>
+                        <div class="col-xs-12 no-padding" style="margin:12px 0;">
+                            <div class="col-xs-2 no-padding">
+                                <img  ng-src="http://images.dev-winwins.net/30x30/smart/{{comment.user.photo}}" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
+                            </div>
+                            <div class="col-xs-10 no-padding-left">
+                                <p class="text-destacados lista">
+                                    {{comment.content}}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="user-comentario col-xs-12">
+        
+                <div class="col-xs-1 no-padding">
+                    <img ng-src="http://images.dev-winwins.net/38x38/{{user_detail.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
+                </div>
+                <div class="col-xs-9">
+                    <textarea class=""  rows="2" ng-model="post.content" no-resize ng-required="true" style="width:100%" placeholder="">
+                    </textarea>
+                </div>
+                <div class="col-xs-2 no-padding">
+                    <span class="btn btn-success "  ng-click="submitPost()" style="font-size:10px!important;">ENVIAR</span>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
 

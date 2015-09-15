@@ -30,8 +30,11 @@ angular.module('winwinsApp')
                 Account.getProfile().then(function(response) {
                     $scope.fetching_profile = false;
                     $scope.profile = response.data.profile;
+                    $rootScope.account = $scope.profile;
                 });
             }
+        } else {
+            $rootScope.account = {};
         }
 
     });

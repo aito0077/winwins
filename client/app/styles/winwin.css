@@ -1020,5 +1020,16 @@ ul.thumbnails.image_picker_selector li {
     cursor: pointer;
 }
 .profile-tabs > .tab-pane {
-    min-height: 900px;
+    min-height: 600px;
+}
+.user-comentario {
+    padding-top: 10px;
+    background-color: #1563c8;
+    position: fixed;
+    bottom: 0px;
+    display: block;
+    left: 0px;
+    right: 0px;
+    width:100%;
+    min-height: 65px;
 }
