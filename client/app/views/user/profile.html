@@ -54,290 +54,37 @@
 </div>
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-        <h3>HOME</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <div ng-include="'/views/user/profile_home.html'"></div>
+
     </div>
     <div id="users" class="tab-pane fade in active">
-        <h3>USERS</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <div ng-include="'/views/user/profile_users.html'"></div>
+
     </div>
     <div id="winwins" class="tab-pane fade in active">
-        <h3>WINWINS</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <div ng-include="'/views/user/profile_winwins.html'"></div>
+
+
     </div>
     <div id="notificaciones" class="tab-pane fade in active">
-        <h3>NOTIFICACIONES</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <div ng-include="'/views/user/profile_notifications.html'"></div>
+
     </div>
     <div id="config" class="tab-pane fade in active">
-        <h3>CONFIG</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-</div>
 
-
-
-
-
-
-
-
-<div class="bs-example">
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            informacion personal
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <p class="text-destacados lista" style="margin-top:10px">
-                        {{user_detail.about}}
-                    </p>
-                    <p class="text-destacados lista" style="margin-top:10px">
-                        Soy usuario de Winwins desde el {{user_detail.created_at |moment: 'DD/MM/YYYY'}}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            timeline
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body no-padding">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapsetwo" class="accordion-main">
-                <div class="panel-heading no-padding" style="margin: 8px 0;">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            MIS WINWINS
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapsetwo" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.id} " class="col-xs-1">
-                        <img ng-src="http://images.dev-winwins.net/40x40/smart/{{ww.image}}" width="100%" class="img-no-border" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" class="accordion-main">
-                <div class="panel-heading no-padding" style="margin: 8px 0; letter-spacing:-1px">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                           WinWins en los que participo
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse3" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    <div ng-repeat="ww in user_detail.winwins" class="col-xs-1">
-                        <img ng-src="http://images.dev-winwins.net/40x40/smart/{{ww.image}}" width="100%" class="img-no-border" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse11" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            ME SIGUEN
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse11" class="panel-collapse collapse in">
-                <div class="panel-body no-padding">
-                    <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                        <div class="col-xs-12 no-padding">
-                            <img ng-repeat="follower in user_detail.followers" ng-src="http://images.dev-winwins.net/30x30/smart/{{follower.photo}}" class="img-responsive img-circle img-no-border" style="width:30px; height:30px; float:left; " />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse12" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            PERSONAS QUE SIGO
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse12" class="panel-collapse collapse in">
-                <div class="panel-body no-padding">
-                    <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                        <div class="col-xs-12 no-padding">
-                            <img ng-repeat="followed in user_detail.following" ng-src="http://images.dev-winwins.net/30x30/smart/{{followed.photo}}" class="img-responsive img-circle img-no-border" alt="{{followed.username}}"  title="{{followed.username}}" style="width:30px; height:30px; float:left; " />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse13" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            grupos a los que estoy unido
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse13" class="panel-collapse collapse in">
-                <div class="panel-body no-padding">
-                    <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                        <div class="col-xs-12 no-padding">
-                            <div ng-repeat="group in user_detail.groups" class="col-xs-1">
-                                <img ng-src="http://images.dev-winwins.net/30x30/smart/{{group.image}}" width="100%" class="img-responsive img-circle img-no-border" style="width:30px; height:30px; float:left;"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse14" class="accordion-main">
-                <div class="panel-heading no-padding">
-                    <div class="col-xs-12 no-padding subcat">
-                        <div class="col-xs-10 valign">
-                            DEJA UN COMENTARIO 
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div id="collapse14" class="panel-collapse collapse in">
-                <div class="panel-body no-padding">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="col-xs-12 no-padding" style="margin:12px 0;">
-                                    <div class="col-xs-2 no-padding">
-                                        <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="width:30px; height:30px " />
-                                    </div>
-                                    <div class="col-xs-10 no-padding-left">
-                                        <p class="text-destacados lista">
-                                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <div ng-include="'/views/user/profile_config.html'"></div>
 
     </div>
 </div>
+
+
+
+
+
+
+
 
