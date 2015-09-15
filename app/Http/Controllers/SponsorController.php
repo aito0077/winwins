@@ -92,6 +92,7 @@ class SponsorController extends Controller {
 
         $sponsor->followers_count  = count($sponsor->users);
         $sponsor->winwins_count  = count($sponsor->winwins);
+        $sponsor->groups_count  = count($sponsor->groups);
 
         $sponsor->already_following = false;
 

@@ -1020,7 +1020,7 @@ ul.thumbnails.image_picker_selector li {
     cursor: pointer;
 }
 .profile-tabs > .tab-pane {
-    min-height: 600px;
+    min-height: 900px;
 }
 .user-comentario {
     padding-top: 10px;
@@ -1033,3 +1033,17 @@ ul.thumbnails.image_picker_selector li {
     width:100%;
     min-height: 65px;
 }
+
+/*sponsors*/
+
+#menu-sponsor-config.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 95px;
+}
+#menu-sponsor.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 55px;
+}
+

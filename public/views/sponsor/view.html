@@ -1,76 +1,84 @@
-    <div class="container no-padding">
+<div zum-waypoint="sponsorScroll" down="name.down" up="name.up" offset="-200"></div>
 
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
-            <div class="col-xs-12">
-                <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
-                    <img src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle logo-sponsors-landscape" />
-                    <h4 class="text-white">{{::sponsor.name}}</h4>
-                </div>
-            </div>
-            <div class="col-xs-12 text-center">
-                <div class="col-xs-4 col-sm-4">
-                    <span class="title-somos title-main-sponsor">Seguidores</span>
-                    <span class="num-somos sponsor back-winwin num-somos-seguidore-main">{{::sponsor.followers_count}}</span>
-                </div>
-                <div class="col-xs-4 col-sm-4">
-                    <button type="button" ng-show="sponsor.already_following" ng-click="unfollow()" class="btn btn-sponsor sponsor main">
-                        UNFOLLOW
-                    </button>
-                    <button type="button" ng-show="!sponsor.already_following" ng-click="follow()" class="btn btn-sponsor sponsor main">
-                        FOLLOW
-                    </button>
-                </div>
-                <div class="col-xs-4 col-sm-4 no-padding ">
-                    <span class="title-somos title-main-sponsor wwpatrocinados">WW Patrocinados</span>
-                    <span class="num-somos sponsor back-winwin num-somos-sponsor-main">{{::sponsor.winwins_count}}</span>
-                </div>
-            </div>
+<div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
+    <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
+            <img src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle logo-sponsors-landscape" />
+            <h4 class="text-white">{{::sponsor.name}}</h4>
         </div>
-        <div class="col-xs-12 font-light mb-20">
-            {{::sponsor.about}}
+    </div>
+    <div class="col-xs-12 text-center">
+        <div class="col-xs-4 col-sm-4">
+            <span class="title-somos title-main-sponsor">Seguidores</span>
+            <span class="num-somos sponsor back-winwin num-somos-seguidore-main">{{::sponsor.followers_count}}</span>
         </div>
-        <div class="col-xs-12 no-padding subcat">
-            <div class="col-xs-11 valign">
-                Seguidores
-            </div>
-            <div class="col-xs-1 valign text-white">
-                <i class="fa fa-caret-up fa-6"></i>
-            </div>
+        <div class="col-xs-4 col-sm-4">
+            <button type="button" ng-show="sponsor.already_following" ng-click="unfollow()" class="btn btn-sponsor sponsor main">
+                UNFOLLOW
+            </button>
+            <button type="button" ng-show="!sponsor.already_following" ng-click="follow()" class="btn btn-sponsor sponsor main">
+                FOLLOW
+            </button>
         </div>
-        <div class="col-xs-12 mb-20">
-            <div ng-repeat="follower in sponsor.users">
-                <a ng-href="/#/user-view/{{::follower.id}}">
-                    <img title="{{::follower.username}}" alt="{{::follower.username}}" ng-src="http://images.dev-winwins.net/40x40/{{::follower.detail.photo}}" class="img-responsive img-circle profile">
-                </a>
-            </div>
+        <div class="col-xs-4 col-sm-4 no-padding ">
+            <span class="title-somos title-main-sponsor wwpatrocinados">WW Patrocinados</span>
+            <span class="num-somos sponsor back-winwin num-somos-sponsor-main">{{::sponsor.winwins_count}}</span>
         </div>
-        <div class="col-xs-12 no-padding subcat">
-            <div class="col-xs-11 valign">
-                WinWins Sponsoreados
-            </div>
-            <div class="col-xs-1 valign text-white">
-                <i class="fa fa-caret-up fa-6"></i>
-            </div>
-        </div>
-        <div class="col-xs-12 no-padding">
-            <div ng-repeat="winwin in sponsor.winwins">
-                <a ng-href="/#/winwin-view/{{::winwin.id}}">
-                    <img alt="{{::winwin.title}}" ng-src="http://images.dev-winwins.net/40x40/{{::winwin.image}}" class="img-responsive float-left">
-                </a>
-            </div>
-        </div>
-        <!--div class="col-xs-12 no-padding subcat">
-            <div class="col-xs-11 valign">
-                WinWins Sponsoreados Finalizados
-            </div>
-            <div class="col-xs-1 valign text-white">
-                <i class="fa fa-caret-up fa-6"></i>
-            </div>
-        </div>
-        <div class="col-xs-12 no-padding">
-            <div ng-repeat="winwin in sponsor.closed_winwins">
-                <img ng-src="http://images.dev-winwins.net/40x40/{{winwin.image}}" class="img-responsive float-left">
-            </div>
-        </div-->
-    <div>
- 
+    </div>
+</div>
+
+<div class="col-xs-12 font-light mb-20">
+    {{::sponsor.about}}
+</div>
+
+
+<div id="menu-sponsor" class="menu-profile col-xs-12 no-padding navbar" ng-show="sponsorScroll.name.down" ng-class="{fixed: sponsorScroll.name.down}">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_summary">
+                <i class="fa fa-comments"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_winwins">
+                <i class="fa fa-star"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_groups">
+                <i class="fa fa-users"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_followers">
+                <i class="fa fa-user"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_config">
+                <i class="fa fa-gear"></i>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+
+<div class="profile-tabs tab-content">
+    <div id="sponsor_summary" role="tabpanel" class="tab-pane fade in active">
+        <div ng-include="'/views/sponsor/view_summary.html'"></div>
+    </div>
+    <div id="sponsor_winwins" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_winwins.html'"></div>
+    </div>
+    <div id="sponsor_groups" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_groups.html'"></div>
+    </div>
+    <div id="sponsor_followers" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_followers.html'"></div>
+    </div>
+    <div id="sponsor_config" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_config.html'"></div>
+    </div>
+</div>
+

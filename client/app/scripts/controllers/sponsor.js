@@ -18,7 +18,7 @@ angular.module('winwinsApp')
         $scope.sponsor = Sponsor.get({
             id: $stateParams.sponsorId
         }, function(data) {
-
+            $scope.sponsor = data;
         });
     }
 
@@ -70,4 +70,3 @@ angular.module('winwinsApp')
 
 
 }]);
-
