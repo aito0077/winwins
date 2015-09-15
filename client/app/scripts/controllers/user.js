@@ -41,7 +41,9 @@ angular.module('winwinsApp')
 
  
 }])
-.controller('user-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User) {
+.controller('user-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$rootScope', 'User', 'Post', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $rootScope, User, Post) {
+
+    $scope.comments = [];
 
     $scope.getUser = function() {
         console.log('User id profile: '+$stateParams.userId);
@@ -49,6 +51,7 @@ angular.module('winwinsApp')
             id: $stateParams.userId
         }, function(data) {
             $scope.user_detail = data;
+            $scope.comments = data.comments;
         });
     }
 
@@ -97,6 +100,28 @@ angular.module('winwinsApp')
             });
         });
     };
+
+
+    $scope.comment = new Post({});
+    $scope.submitComment = function() {
+        console.log('submit');
+        $http.post('/api/users/'+$scope.user.id+'/comment',{
+            content: $scope.comment.content
+        }).success(function(data) {
+            $scope.comments = data;
+            $scope.comment = new Post({});
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
 
 
 }])

@@ -31,6 +31,7 @@ Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinContro
 
 Route::resource('api/posts', 'PostController');
 Route::post('api/posts/upload', ['middleware' => 'auth', 'uses' => 'PostController@storeImage']);
+Route::post('api/posts/{id}/comment', ['middleware' => 'auth', 'uses' => 'PostController@comment']);
 
 
 Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);
@@ -54,6 +55,7 @@ Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@pagi
 Route::get('api/users/search', ['uses' => 'UserController@search']);
 Route::get('api/users/follow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@follow']);
 Route::get('api/users/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@unfollow']);
+Route::post('api/users/{id}/comment', ['middleware' => 'auth', 'uses' => 'UserController@comment']);
 Route::resource('api/users', 'UserController');
 
 Route::resource('api/parametric/interests', 'InterestController');

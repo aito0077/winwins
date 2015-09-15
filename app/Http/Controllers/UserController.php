@@ -10,6 +10,7 @@ use Winwins\User;
 use Winwins\Model\Follower;
 use Winwins\Model\UserDetail;
 use Winwins\Model\Repository\UserRepository;
+use Winwins\Model\Post;
 
 class UserController extends Controller {
 
@@ -67,6 +68,13 @@ class UserController extends Controller {
             $userDetail->notifications = $user->notifications;
             $userDetail->followers = $user->followers;
             $userDetail->following = $user->following;
+
+            $comments = DB::table('posts')
+            ->select('posts.content', 'posts.created_at', 'posts.user_id', 'user_details.photo', 'user_details.name')
+            ->join('user_details', 'posts.user_id', '=', 'user_details.user_id')
+            ->where('posts.reference_id', '=', $id)->where('posts.type', 'USER')->orderBy('posts.created_at', 'desc')->get();
+
+            $userDetail->comments = $comments;
 
             Log::info($my_self);
             if($my_self) {
@@ -197,6 +205,30 @@ class UserController extends Controller {
             DB::table('followers')->where('follower_id', $user->id )->where('followed_id', $followed->id)->delete();
         }
 	}
+
+	public function comment(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+
+        $post = new Post;
+
+        DB::transaction(function() use ($request, $post, $user, $id) {
+            $post->reference_id = $id;
+            $post->type = 'USER';
+            $post->user_id = $user->id;
+            $post->title = '';
+            $post->content = $request->input('content');
+            $post->save();
+        });
+
+                                    
+        $comments = DB::table('posts')
+            ->select('posts.content', 'posts.created_at', 'posts.user_id', 'user_details.photo', 'user_details.name')
+            ->join('user_details', 'posts.user_id', '=', 'user_details.id')
+            ->where('posts.reference_id', '=', $id)->where('posts.type', 'USER')->orderBy('posts.created_at', 'desc')->get();
+
+        return $comments;
+	}
+
 
 
 

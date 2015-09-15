@@ -11,7 +11,7 @@ class CreatePostsTable extends Migration {
 
             $table->integer('reference_id')->unsigned();
 
-            $table->enum('type', ['WINWIN', 'GROUP', 'WW_COMMENT', 'USER_TESTIMONIAL', 'DASHBOARD']);
+            $table->enum('type', ['WINWIN', 'GROUP', 'WW_COMMENT', 'USER', 'USER_TESTIMONIAL', 'DASHBOARD']);
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

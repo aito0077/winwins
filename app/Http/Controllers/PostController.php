@@ -84,6 +84,27 @@ class PostController extends Controller {
         return $post;
 	}
 
+	public function comment(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $post = new Post;
+
+        DB::transaction(function() use ($request, $post, $user) {
+            $post->reference_id = $request->input('$id');
+            $post->type = 'WW_COMMENT';
+            $post->user_id = $user->id;
+            $post->title = '';
+            $post->content = $request->input('content');
+            $post->save();
+        });
+
+        return $post;
+	}
+
+
+
+
+
+
 
 	public function update($id) {
         $post = Post::find($id);
