@@ -655,6 +655,9 @@ a.no-link {
     color: #FFF;
     font-size: 20px
 }
+.col-xs-20.half {
+    width: 50%;
+}
 .col-xs-20.active {
     background-color: #2ab467;
 }
@@ -990,12 +993,22 @@ ul.thumbnails.image_picker_selector li {
 #menu-profile.fixed {
     position: fixed;
     z-index: 99;
-/*    left: 0px;
     top: 55px;
-*/
 }
 
-#menu-profile > .nav > li > a {
+#menu-profile-config.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 95px;
+}
+
+.menu-profile.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 55px;
+}
+
+.menu-profile > .nav > li > a {
     display: normal;
     padding-left: 12px;
     padding-right: 12px;
@@ -1005,4 +1018,7 @@ ul.thumbnails.image_picker_selector li {
     font-size: 14px;
     background-color: rgba(0,0,0,0);
     cursor: pointer;
+}
+.profile-tabs > .tab-pane {
+    min-height: 900px;
 }

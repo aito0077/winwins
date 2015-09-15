@@ -1,3 +1,4 @@
+<div zum-waypoint="userScroll" down="name.down" up="name.up" offset="-200"></div>
 <div class="col-xs-12 no-padding" style="margin-bottom:35px;">
     <div class="col-xs-4 img-misc no-padding text-center"  style="padding-top: 20px!important;">
         <img src="../images/placeholder-square.jpg" class="img-responsive img-circle img-no-border" style="margin:5px auto" />
@@ -21,8 +22,31 @@
         </div>
     </div>
 </div>
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="accordion-main">
+            <div class="panel-heading no-padding">
+                <div class="col-xs-12 no-padding subcat">
+                    <div class="col-xs-10 valign">
+                        informacion personal
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <p class="text-destacados lista" style="margin-top:10px">
+                    {{user_detail.about}}
+                </p>
+                <p class="text-destacados lista" style="margin-top:10px">
+                    Soy usuario de Winwins desde el {{user_detail.created_at |moment: 'DD/MM/YYYY'}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="menu-profile" class="col-xs-12 no-padding navbar" ng-class="{fixed: userScroll.name.down}">
+<div id="menu-profile" class="menu-profile col-xs-12 no-padding navbar" ng-show="userScroll.name.down" ng-class="{fixed: userScroll.name.down}">
     <ul class="nav nav-tabs" role="tablist">
         <li class="col-xs-20">
             <a data-toggle="tab" data-target="#home">
@@ -52,7 +76,9 @@
 
     </ul>
 </div>
-<div class="tab-content">
+
+
+<div class="profile-tabs tab-content">
     <div id="home" role="tabpanel" class="tab-pane fade in active">
 
         <div ng-include="'/views/user/profile_home.html'"></div>
