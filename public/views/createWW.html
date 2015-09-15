@@ -1,1 +1,32 @@
-<div id="createWW" class="container"> <div class="speech-bubble speech-bubble-bottom"> <h2>COMENZÁ TU <span style="color: #fd7e01">WIN</span>WIN</h2> <p>Comenzá una acción Positiva, por más chica que sea que sientas que puede llegar a mejorar aunque sea algo. Algo que te inspire y te motive. Por más pequeño o GIGANTESCO que sea!</p> </div> <form id="create-ww-form" name="createWW" ng-submit="createWW()"> <fieldset> <input required type="text" class="form-control" ng-model="form.name" placeholder="Un nombre para tu WinWin"> <p class="subtitle">Plantea tu WinWin</p> <p class="subtitle textww">¿Si supieras que somos <input class="people" type="text" ng-model="form.howMany"> para</p> <textarea required type="text" rows="5" class="form-control" ng-model="form.activity"></textarea> <p class="subtitle textww">te sumarias?</p> <input required type="text" class="form-control" ng-model="form.details" placeholder="Más detalles del WinWin"> <p class="date-title">Fecha límite si aplica</p> <div id="birth-date" class="input-group"> <span class="input-group-addon" id="last-name-label"><i class="fa fa-calendar"></i></span> <input required type="number" class="form-control" ng-model="form.day" placeholder="Día"> <input required type="number" class="form-control" ng-model="form.month" placeholder="Mes"> <input required type="number" class="form-control" ng-model="form.year" placeholder="Año"> </div> <div class="checkbox"> <label> <input required type="checkbox"> <span>He leído y acepto los Términos y Condiciones</span> </label> </div> <button type="submit" class="btn btn-success">Crear WinWin!</button> </fieldset> </form> </div>
+<div id="createWW" class="container">
+	<div class="speech-bubble speech-bubble-bottom">
+		<h2>COMENZÁ TU <span style="color: #fd7e01">WIN</span>WIN</h2>
+		<p>Comenzá una acción Positiva, por más chica que sea que sientas que puede llegar a mejorar aunque sea algo. Algo que te inspire y te motive. Por más pequeño o GIGANTESCO que sea!</p>
+	</div>
+
+	<form id="create-ww-form" name="createWW" ng-submit="createWW()">
+		<fieldset>
+			<input required type="text" class="form-control" ng-model="form.name" placeholder="Un nombre para tu WinWin"/>
+			<p class="subtitle">Plantea tu WinWin</p>
+			<p class="subtitle textww">¿Si supieras que  somos <input class="people"  type="text" ng-model="form.howMany"/> para</p>
+			<textarea required type="text" rows="5" class="form-control" ng-model="form.activity"></textarea>
+			<p class="subtitle textww">te sumarias?</p>
+			<input required type="text" class="form-control" ng-model="form.details" placeholder="Más detalles del WinWin"/>
+			<p class="date-title">Fecha límite si aplica</p>
+			<div id="birth-date" class="input-group">
+				<span class="input-group-addon" id="last-name-label"><i class="fa fa-calendar"></i></span>
+			  	<input required type="number" class="form-control" ng-model="form.day" placeholder="Día"/>
+			  	<input required type="number" class="form-control" ng-model="form.month" placeholder="Mes"/>
+			  	<input required type="number" class="form-control" ng-model="form.year" placeholder="Año"/>
+			</div>
+		    <div class="checkbox">
+		        <label>
+		        	<input required type="checkbox"/> 
+		        	<span>He leído y acepto los Términos y Condiciones</span>
+		    	</label>
+		    </div>
+
+		    <button type="submit" class="btn btn-success">Crear WinWin!</button>
+		</fieldset>
+	</form>
+</div>

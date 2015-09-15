@@ -1,0 +1,47 @@
+    <div class="container no-padding">
+        <div class="dropdown col-xs-12 no-padding">
+            <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                Más Populares
+                <span class="caret pull-right caret-middle"></span>
+            </button>
+            <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Últimos Grupos Creados</a></li>
+            </ul>
+        </div>
+
+    <div infinite-scroll='groups.nextPage()'>
+        <div class="col-xs-12 no-padding" ng-repeat="group in groups.items">
+            <div class="col-xs-4 img-misc no-padding">
+                <img src="http://images.dev-winwins.net/120x106/{{::group.photo}}" />
+                <div class="somos-grupo">
+                    <span class="title-somos grupo">Somos</span>
+                    <span class="num-somos grupo">{{group.users_already_joined}}</span>
+                </div>
+            </div>
+            <div class="col-xs-6 no-padding-left">
+                <h5 class="title-destacados">
+                    {{::group.title}}
+                </h5>
+                <p class="text-destacados">
+                    {{::group.description}}
+                </p>
+            </div>
+            <div class="col-xs-2 no-padding">
+                <div class="col-xs-12 no-padding">
+                    <div class="col-xs-4 no-padding btn-somos">
+                        <button type="button" class=" no-padding">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-12 no-padding me-interesa text-right">
+                    <a href="/group-view/{{::group.id}}" class="btn btn-interesa border-bottom">Like</a>
+                </div>
+                <div class="col-xs-12 no-padding me-sumo text-right">
+                    <a href="/group-view/{{::group.id}}" class="btn btn-unirme border-bottom">unirme</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <search-bar/>

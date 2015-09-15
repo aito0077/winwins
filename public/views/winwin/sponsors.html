@@ -1,0 +1,41 @@
+
+<div class="subview-body">
+
+    <div class="" role="group" aria-label="...">
+        <button type="button" ng-click="filter('all')" class="btn btn-default col-xs-6" ng-class="{active: current == 'all'}">Todos</button>
+        <button type="button" ng-click="filter('promoted')" class="btn col-xs-6 btn-default" ng-class="{active: current == 'promoted'}">Destacados</button>
+    </div>
+
+
+
+        <div class="col-xs-12 no-padding grid-sponsors">
+
+            <div ng-repeat="sponsor in winwin.sponsors" class="sponsor-item {{classType(sponsor)}}">
+                <div class="col-xs-12 no-padding" style="margin:12px 0;">
+                    <div class="col-xs-4 no-padding">
+                        <img ng-src="http://images.dev-winwins.net/120x106/{{::sponsor.photo}}" class="img-responsive img-circle img-no-border" />
+                    </div>
+                    <div class="col-xs-6 no-padding-left">
+                        <h5 class="title-destacados sponsor">
+                            {{::sponsor.name}} {{::sponsor.detail.lastname}}
+                        </h5>
+                        <p class="text-destacados lista">
+                            {{::sponsor.about}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 no-padding shadow-border">
+                    <div class="col-xs-3 col-xs-push-2 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
+                        <span style="background-color:#000; color:#FFF; padding: 2px 3px">Win Wins</span><br>
+                        <span>{{::sponsor.winwins_count}}</span>
+                    </div>
+                    <div class="btn col-xs-3 col-xs-push-3 btn5 btn-follow no-padding" style="padding-top: 12px!important;"  ng-click="follow(sponsor.detail.id)">
+                        Follow
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+

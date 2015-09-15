@@ -1,34 +1,19 @@
-<div class="container no-padding">
-    <div class="dropdown col-xs-12 col-sm-12 no-padding">
-        <button class="btn col-xs-12 col-sm-12 " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-            WinWins Destacados
-            <span class="caret pull-right caret-middle"></span>
-        </button>
-        <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
-            <li><a ng-click="doFilter('popular')">WinWins Populares</a></li>
-            <li><a ng-click="doFilter('last')">Últimos WinWins Creados</a></li>
-            <li><a  ng-click="doFilter('next_to_close')">WinWins que están cerca de concretarse</a></li>
-            <!--li><a href="#">Solidaridad / Cooperación</a></li-->
-        </ul>
-    </div>
-
-    <div infinite-scroll='winwins.nextPage()'>
-        <div class="col-xs-12 col-sm-12 no-padding" ng-repeat="winwin in winwins.items">
+        <div class="col-xs-12 no-padding" ng-repeat="winwin in user_detail.winwins">
 
             <div class=" {{winwin.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
                 {{::winwin.title}}
             </div>
-            <div class="col-xs-12 col-sm-12 no-padding">
-                <div class="col-xs-4 col-sm-4 no-padding btn4 btn-share">
+            <div class="col-xs-12 no-padding">
+                <div class="col-xs-4 no-padding btn4 btn-share">
                     <a href="#" data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
                         <i class="fa fa-share-alt fa-inverse"></i>
                     </a>
-                    <ul class="dropdown-menu col-xs-12 col-sm-12 ">
+                    <ul class="dropdown-menu col-xs-12">
                         <li class="center-block">
                             <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
 socialshare-provider="twitter"
 socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin._id}}">
                                 <i class="fa fa-twitter"></i> Twitter
                             </span>
                         </li>
@@ -36,7 +21,7 @@ socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
                             <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
 socialshare-provider="facebook"
 socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin._id}}">
                                 <i class="fa fa-facebook"></i> Facebook
                             </span>
                         </li>                   
@@ -48,23 +33,17 @@ socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
                     </ul>
                 </div>
 
-                <div class="col-xs-4 col-sm-4 no-padding btn4 btn-share like">
-                    <a href="#" class="no-padding" ng-click="view(winwin.id)">
+                <div class="col-xs-4 no-padding btn4 btn-share like">
+                    <a href="#" class="no-padding" ng-click="view(winwin._type, winwin._id)">
                         <h5>Like</h5>
                     </a>
                 </div>
-                <div class="col-xs-4 col-sm-4 no-padding btn4 btn-share mesumo">
-                    <a href="#" class="no-padding"  ng-click="join(winwin.id)">
+                <div class="col-xs-4 no-padding btn4 btn-share mesumo">
+                    <a href="#" class="no-padding"  ng-click="join(winwin._id)">
                         <h5>Me Sumo</h5>
                     </a>
                 </div>
             </div>
         </div>
-
-
-    </div>
-
-    <search-bar/>
-</div>
 
 

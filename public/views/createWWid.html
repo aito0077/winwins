@@ -1,1 +1,47 @@
-<div id="createWWid" class="container"> <div class="speech-bubble speech-bubble-bottom"> <h3>DALE IDENTIDAD A TU WINWIN</h3> <p>Tu WinWin va a ser visto por miles, o tal vez millones de personas. Subí la mejor imágen que tengas para hacer tu WinWin memorable. También podes linkear un video de YouTube, esto sí que ayuda!</p> </div> <div class="row ww-id"> <img class="col-xs-4" src="./images/placeholder-square.38420e33.jpg"> <img class="col-xs-4" src="./images/placeholder-square.38420e33.jpg"> <img class="col-xs-4" src="./images/placeholder-square.38420e33.jpg"> </div> <form id="create-ww-id-form" name="createWWid" ng-submit="createWWid()"> <fieldset> <div class="dropdown"> <button class="btn btn-default dropdown-toggle" type="button" id="categoryMenu" data-toggle="dropdown" aria-expanded="true"> <span>{{category===''?'Selecciona una categoría':category}}</span> <i class="fa fa-caret-down"></i> </button> <ul class="dropdown-menu" role="menu" aria-labelledby="categoryMenu"> <li role="presentation"><a ng-click="selectCategory('categoria1')" role="menuitem" tabindex="-1">categoria1</a></li> <li role="presentation"><a ng-click="selectCategory('categoria2')" role="menuitem" tabindex="-1">categoria2</a></li> <li role="presentation"><a ng-click="selectCategory('categoria3')" role="menuitem" tabindex="-1">categoria3</a></li> <li role="presentation"><a ng-click="selectCategory('categoria4')" role="menuitem" tabindex="-1">categoria4</a></li> </ul> </div> <div class="dropdown"> <button class="btn btn-default dropdown-toggle" type="button" id="regionMenu" data-toggle="dropdown" aria-expanded="true"> {{region===''?'Selecciona una escala territorial':region}} <i class="fa fa-caret-down"></i> </button> <ul class="dropdown-menu" role="menu" aria-labelledby="regionMenu"> <li role="presentation"><a ng-click="selectRegion('region1')" role="menuitem" tabindex="-1">region1</a></li> <li role="presentation"><a ng-click="selectRegion('region2')" role="menuitem" tabindex="-1">region2</a></li> <li role="presentation"><a ng-click="selectRegion('region3')" role="menuitem" tabindex="-1">region3</a></li> <li role="presentation"><a ng-click="selectRegion('region4')" role="menuitem" tabindex="-1">region4</a></li> </ul> </div> <input required type="text" class="form-control" ng-model="form.keywords" placeholder="Ingresá palabras claves y separalas por coma."> <button type="submit" class="btn btn-success">Ir a mi WinWin!</button> </fieldset> </form> </div>
+<div id="createWWid" class="container">
+	<div class="speech-bubble speech-bubble-bottom">
+		<h3>DALE IDENTIDAD A TU WINWIN</h3>
+		<p>Tu WinWin va a ser visto por miles, o tal vez millones de personas. Subí la mejor imágen que tengas para hacer tu WinWin memorable. También podes linkear un video de YouTube, esto sí que ayuda!</p>
+	</div>
+
+	<div class="row ww-id">
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+		<img class="col-xs-4" src="../images/placeholder-square.jpg"/>
+	</div>
+
+	<form id="create-ww-id-form" name="createWWid" ng-submit="createWWid()">
+		<fieldset>
+
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="categoryMenu" data-toggle="dropdown" aria-expanded="true">
+			    <span>{{category===''?'Selecciona una categoría':category}}</span>
+			    <i class="fa fa-caret-down"></i>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="categoryMenu">
+			    <li role="presentation"><a ng-click="selectCategory('categoria1')" role="menuitem" tabindex="-1">categoria1</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria2')" role="menuitem" tabindex="-1">categoria2</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria3')" role="menuitem" tabindex="-1">categoria3</a></li>
+			    <li role="presentation"><a ng-click="selectCategory('categoria4')" role="menuitem" tabindex="-1">categoria4</a></li>
+			  </ul>
+			</div>
+
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="regionMenu" data-toggle="dropdown" aria-expanded="true">
+			    {{region===''?'Selecciona una escala territorial':region}}
+			    <i class="fa fa-caret-down"></i>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="regionMenu">
+			    <li role="presentation"><a ng-click="selectRegion('region1')" role="menuitem" tabindex="-1">region1</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region2')" role="menuitem" tabindex="-1">region2</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region3')" role="menuitem" tabindex="-1">region3</a></li>
+			    <li role="presentation"><a ng-click="selectRegion('region4')" role="menuitem" tabindex="-1">region4</a></li>
+			  </ul>
+			</div>
+
+			<input required type="text" class="form-control" ng-model="form.keywords" placeholder="Ingresá palabras claves y separalas por coma."/>
+
+		    <button type="submit" class="btn btn-success">Ir a mi WinWin!</button>
+		</fieldset>
+	</form>
+</div>
