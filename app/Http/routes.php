@@ -52,10 +52,14 @@ Route::get('api/me/status', ['middleware' => 'auth', 'uses' => 'UserController@g
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::get('api/me/notificactions/read', ['middleware' => 'auth', 'uses' => 'UserController@markNotificationsAsRead']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
+
+Route::post('api/me/upload', ['middleware' => 'auth', 'uses' => 'UserController@storeImage']);
+
 Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@paginate']);
 Route::get('api/users/search', ['uses' => 'UserController@search']);
 Route::get('api/users/follow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@follow']);
 Route::get('api/users/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@unfollow']);
+Route::post('api/profile', ['middleware' => 'auth', 'uses' => 'UserController@updateProfile']);
 Route::post('api/users/{id}/comment', ['middleware' => 'auth', 'uses' => 'UserController@comment']);
 Route::resource('api/users', 'UserController');
 

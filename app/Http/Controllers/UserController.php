@@ -11,6 +11,8 @@ use Winwins\Model\Follower;
 use Winwins\Model\UserDetail;
 use Winwins\Model\Repository\UserRepository;
 use Winwins\Model\Post;
+use Winwins\Model\Media;
+use Storage;
 
 class UserController extends Controller {
 
@@ -63,11 +65,26 @@ class UserController extends Controller {
             $winwins = $user->winwins;
 
             $userDetail = $user->detail;
+            $userDetail->email = $user->email;
             $userDetail->winwins = $winwins;
             $userDetail->groups = $user->groups;
             $userDetail->notifications = $user->notifications;
-            $userDetail->followers = $user->followers;
-            $userDetail->following = $user->following;
+            //$userDetail->followers = $user->followers;
+            //$userDetail->following = $user->following;
+
+            $followers = DB::table('user_details')
+            ->select('user_details.name', 'user_details.lastname', 'user_details.photo', 'user_details.user_id')
+            ->join('followers', 'user_details.user_id', '=', 'followers.follower_id')
+            ->where('followers.followed_id', '=', $id)->get();
+            $userDetail->followers = $followers;
+
+            $following = DB::table('user_details')
+            ->select('user_details.name', 'user_details.lastname', 'user_details.photo', 'user_details.user_id')
+            ->join('followers', 'user_details.user_id', '=', 'followers.followed_id')
+            ->where('followers.follower_id', '=', $id)->get();
+            $userDetail->following = $following;
+
+
 
             $comments = DB::table('posts')
             ->select('posts.content', 'posts.created_at', 'posts.user_id', 'user_details.photo', 'user_details.name')
@@ -81,7 +98,7 @@ class UserController extends Controller {
                 if($my_self->id == $id) {
                     $userDetail->myself = true;
                 } else {
-                    $already_following = count($userDetail->followers->filter(function($model) use ($my_self) {
+                    $already_following = count($user->followers->filter(function($model) use ($my_self) {
                         return $model->id == $my_self->id;
                     })) > 0;
                     $userDetail->already_following = $already_following;
@@ -131,6 +148,66 @@ class UserController extends Controller {
         $token = $this->createToken($user);
 
         return response()->json(['token' => $token]);
+    }
+
+    public function updateProfile(Request $request) {
+        $user = User::find($request['user']['sub']);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found']);
+        }
+
+        $userDetail = UserDetail::find($user->id);
+        Log::info($userDetail);
+
+		if($request->has('name')) {
+            $userDetail->name = $request->input('name');
+        }
+		if($request->has('photo')) {
+            $userDetail->photo = $request->input('photo');
+        }
+		if($request->has('photo_cover')) {
+            $userDetail->photo_cover = $request->input('photo_cover');
+        }
+		if($request->has('lastname')) {
+            $userDetail->lastname = $request->input('lastname');
+        }
+		if($request->has('birthdate')) {
+            $userDetail->birthdate = $request->input('birthdate');
+        }
+		if($request->has('about')) {
+            $userDetail->about = $request->input('about');
+        }
+		if($request->has('interests')) {
+            $userDetail->interests = $request->input('interests');
+        }
+		if($request->has('language_code')) {
+            $userDetail->language_code = $request->input('language_code');
+        }
+		if($request->has('invite_ww')) {
+            $userDetail->invite_ww = $request->input('invite_ww');
+        }
+		if($request->has('ww_to_finish')) {
+            $userDetail->ww_to_finish = $request->input('ww_to_finish');
+        }
+		if($request->has('invite_group')) {
+            $userDetail->invite_group = $request->input('invite_group');
+        }
+		if($request->has('not_message')) {
+            $userDetail->not_message = $request->input('not_message');
+        }
+		if($request->has('email_notification')) {
+            $userDetail->email_notification = $request->input('email_notification');
+        }
+		if($request->has('private')) {
+            $userDetail->private = $request->input('private');
+        }
+
+        $userDetail->save();
+
+        Log::info($userDetail);
+        
+        return $userDetail;
     }
 
 	public function search(Request $request, UserRepository $userRepository) {
@@ -243,7 +320,46 @@ class UserController extends Controller {
         );
 	}
 
+    public function storeImage(Request $request, Media $media) {
 
+        $user = User::find($request['user']['sub']);
+
+        if(!$request->hasFile('file')) { 
+            return Response::json(['error' => 'No File Sent']);
+        }
+
+        if(!$request->file('file')->isValid()) {
+            return Response::json(['error' => 'File is not valid']);
+        }
+
+        $file = $request->file('file');
+
+        $v = Validator::make(
+            $request->all(),
+            ['file' => 'required|mimes:jpeg,jpg,png|max:8000']
+        );
+
+        if($v->fails()) {
+            return Response::json(['error' => $v->errors()]);
+        }
+
+        Log::info($request->file('file'));
+
+        $image = Media::create([
+            'name' => $request->file('file')->getClientOriginalName(),
+            'ext' => $request->file('file')->guessExtension(),
+            'user_id' => $user->id || 1,
+            'bucket' => 'S3',
+            'type' => 'IMAGE'
+        ]);
+        
+        $filename = $image->id . '.' . $image->ext;
+
+        Log::info('Uploading to S3 file '.$filename);
+        Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
+
+        return Response::json(['OK' => 1, 'filename' => $filename]);
+    }
 
 
 }
