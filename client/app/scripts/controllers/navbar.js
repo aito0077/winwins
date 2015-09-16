@@ -14,7 +14,8 @@ angular.module('winwinsApp')
         $scope.isCollapsed = true;
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
-                $scope.unreadNotifications = response.data.notifications_unread || 0;
+                $scope.unreadNotifications = response.data.notifications_unread;
+                console.log($scope.unreadNotifications);
             });
         } else {
             $scope.unreadNotifications = 0;
@@ -82,6 +83,10 @@ angular.module('winwinsApp')
 
     $scope.goProfile = function() {
         $state.go('profile');
+    };
+
+    $scope.goNotifications = function() {
+        $state.go('profile_notificaciones');
     };
 
 });

@@ -229,6 +229,20 @@ class UserController extends Controller {
         return $comments;
 	}
 
+	public function markNotificationsAsRead(Request $request) {
+        $user = User::find($request['user']['sub']);
+
+        DB::transaction(function() use ($user) {
+            DB::table('notifications')
+                ->where('user_id', $user->id)
+                ->update(['is_read' => 1]);
+        });
+
+        return array(
+            'message' => 'notifications_mark_as_read'
+        );
+	}
+
 
 
 

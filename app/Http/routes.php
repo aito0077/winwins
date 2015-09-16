@@ -50,6 +50,7 @@ Route::resource('api/sponsors', 'SponsorController');
 
 Route::get('api/me/status', ['middleware' => 'auth', 'uses' => 'UserController@getUserStatus']);
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
+Route::get('api/me/notificactions/read', ['middleware' => 'auth', 'uses' => 'UserController@markNotificationsAsRead']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
 Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@paginate']);
 Route::get('api/users/search', ['uses' => 'UserController@search']);

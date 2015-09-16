@@ -50,6 +50,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/user/profile.html',
         controller: 'ProfileCtrl'
     })
+    .state('profile_notificaciones',{
+        url: '/notificaciones',
+        templateUrl: 'views/user/user_notificaciones.html',
+        controller: 'ProfileNotificaciones'
+    })
     .state('account',{
         url: '/account',
         templateUrl: 'views/user/account.html',

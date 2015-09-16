@@ -127,6 +127,8 @@ angular.module('winwinsApp')
 }])
 .controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
 
+
+
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
             $scope.account = response.data;
@@ -135,6 +137,15 @@ angular.module('winwinsApp')
                 id: $scope.account.user.id
             }, function(user_data) {
                 $scope.user_detail = user_data;
+
+                if($stateParams.notifications) {
+                    $location.hash('notificaciones');
+                    $anchorScroll();
+                    $timeout(function() {
+                        $('#menu-profile-tabs a[data-target="#notificaciones"]').tab('show');
+                    });
+                }
+
             });
 
         });
@@ -167,5 +178,29 @@ angular.module('winwinsApp')
 
 
 
-}]);
+}])
+.controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
 
+
+
+    $scope.getUser = function() {
+        Account.getProfile().then(function(response) {
+            $scope.account = response.data;
+
+            User.get({
+                id: $scope.account.user.id
+            }, function(user_data) {
+                $scope.user_detail = user_data;
+            });
+
+        });
+
+        $http.get('/api/me/notificactions/read').success(function(data) {
+
+        });
+
+    };
+
+    $scope.getUser();
+
+}]);

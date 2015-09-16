@@ -51,10 +51,9 @@
                  <div class="pull-left back-buttom btn-toogle" style="margin-left:8px; cursor: pointer" ng-click="do_back()">
                     <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-1" style="cursor:pointer" ng-click="goNotifications()">
                     <i ng-if="is_logged" class="fa fa-bell" style="color: rgb(255, 255, 255); font-size: 20px; margin-top: 18px; margin-right: auto; margin-left: -10px; display: block; width: 99%;" ng-cloak></i>
-                    <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff;" ng-show="{{unreadNotifications > 0}}" ng-cloak>{{unreadNotifications}}
-                    </span>
+                    <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff; top: 8px; position:absolute" ng-show="unreadNotifications > 0" ng-cloak>{{unreadNotifications}}</span>
 
                 </div>
                 <div class="col-xs-2">
