@@ -202,6 +202,7 @@
 .winwin {
     min-height: 1500px; 
 }
+/*
 .winwin .cssFade {
     transition: 0.5s linear all;
     opacity: 1; 
@@ -210,6 +211,7 @@
     opacity: 0; 
     transition: 0.5s linear all;
 }
+*/
 
 #winwin-view{
 /*    display:block;*/
@@ -227,6 +229,7 @@
     min-height: 400px;
 }
 
+/*
 .winwin-body.ng-show {
     opacity: 1; 
     transition: 0.5s linear all;
@@ -235,6 +238,7 @@
 .winwin-body.ng-hide {
     opacity: 0; 
 }
+*/
 
 #menu-winwin {
     position: fixed;
