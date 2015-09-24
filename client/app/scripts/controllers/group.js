@@ -42,17 +42,50 @@ angular.module('winwinsApp')
     };
 
 })
-.controller('group-list', ['$scope', 'GroupPaginate', function($scope, GroupPaginate) {
+.controller('group-list', ['$scope', '$http', '$auth', '$state', 'GroupPaginate', function($scope, $http, $auth, $state, GroupPaginate) {
    
     $scope.groups = new GroupPaginate();
 
-    /*
-    $scope.groups = [];
+    $scope.doFilter = function(filter) {
+        console.log(filter);
+    };
 
-    var groups = Group.query(function(data) {
-        $scope.groups = data;
-    });
-    */
+    $scope.join = function(group_id) {
+        if($auth.isAuthenticated()) {
+            $http.get('/api/group/join/'+group_id).success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'group_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+                $scope.view(winwin_id);
+
+            })
+            .error(function(error) {
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+        } else {
+            $state.go('signIn');
+        }
+    };
+
+    $scope.view = function(id) {
+        console.log('view '+id);
+        $state.go('group-view', {
+            groupId: id
+        }); 
+    };
+
+
+
  
 }])
 .controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post) {

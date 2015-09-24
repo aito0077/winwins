@@ -1,0 +1,67 @@
+<div class="bs-example">
+    <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="accordion-main">
+            <div class="panel-heading no-padding">
+                <div class="col-xs-12 no-padding subcat">
+                    <div class="col-xs-10 valign">
+                        Miembros del Grupo
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body no-padding">
+                <div class="col-xs-12 no-padding" style="margin:12px 0;">
+                    <div class="col-xs-12 no-padding">
+                        <img ng-repeat="member in group.members" ng-src="http://images.dev-winwins.net/30x30/smart/{{member.photo}}" class="img-responsive img-circle img-no-border"  alt="{{member.detail.name}}"  title="{{member.detail.name}}" style="width:30px; height:30px; float:left; cursor:pointer;" ng-click="viewUser(member.id)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2" class="accordion-main">
+            <div class="panel-heading no-padding" style="margin: 8px 0;">
+                <div class="col-xs-12 no-padding subcat">
+                    <div class="col-xs-10 valign">
+                        SPONSORS
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div id="collapse2" class="panel-collapse collapse in">
+            <div class="panel-body">
+               <div class="row col-xs-12 no-padding"> 
+                    <div ng-repeat="sponsor in group.sponsors" class="col-xs-2">
+                        <img ng-src="http://images.dev-winwins.net/40x40/smart/{{sponsor.image}}" width="100%" class="img-no-border" ng-click="viewSponsor(sponsor.id)" alt="{{sponsor.title}}" title="{{sponsor.title}}" style="cursor:pointer"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" class="accordion-main">
+            <div class="panel-heading no-padding" style="margin: 8px 0;">
+                <div class="col-xs-12 no-padding subcat">
+                    <div class="col-xs-10 valign">
+                        WINWINS UNIDOS
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div id="collapse3" class="panel-collapse collapse in">
+            <div class="panel-body">
+               <div class="row col-xs-12 no-padding"> 
+                    <div ng-repeat="ww in group.winwins" class="col-xs-2">
+                        <img ng-src="http://images.dev-winwins.net/40x40/smart/{{ww.image}}" width="100%" class="img-no-border" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

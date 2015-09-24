@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 class GroupController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
