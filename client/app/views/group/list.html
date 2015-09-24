@@ -11,10 +11,10 @@
 
     <div infinite-scroll='groups.nextPage()'>
 
-        <div class="col-xs-12 col-sm-12 no-padding" ng-repeat="group in groups.items">
+        <div class="col-xs-12 col-sm-12 no-padding group-item" ng-repeat="group in groups.items">
 
-            <div class=" {{winwin.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
-                {{::winwin.title}}
+            <div class=" {{group.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-groups.net/{{::group.image}}">
+                {{::group.title}}
             </div>
             <div class="col-xs-12 col-sm-12 no-padding">
                 <div class="col-xs-4 col-sm-4 no-padding btn4 btn-share">
@@ -25,16 +25,16 @@
                         <li class="center-block">
                             <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
 socialshare-provider="twitter"
-socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+socialshare-text="{{::group.title}}"
+socialshare-url="http://dev-groups/ww/group/{{::group.id}}">
                                 <i class="fa fa-twitter"></i> Twitter
                             </span>
                         </li>
                         <li>
                             <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
 socialshare-provider="facebook"
-socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+socialshare-text="{{::group.title}}"
+socialshare-url="http://dev-groups/ww/group/{{::group.id}}">
                                 <i class="fa fa-facebook"></i> Facebook
                             </span>
                         </li>                   

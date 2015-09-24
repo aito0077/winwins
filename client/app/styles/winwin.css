@@ -1054,3 +1054,6 @@ ul.thumbnails.image_picker_selector li {
     width:100%;
     min-height: 65px;
 }
+.group-item {
+    min-height: 200px;
+}

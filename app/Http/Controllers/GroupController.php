@@ -57,10 +57,17 @@ class GroupController extends Controller {
 
             $group->name = $request->input('name');
             $group->description = $request->input('description');
-            $group->photo = $request->input('photo')?: 'group-default.gif';
             $group->private = $request->input('private') ? 1 : 0;
             $group->control_ww = $request->input('control_ww') ? 1 : 0;
             $group->confirm_ww = $request->input('confirm_ww') ? 1 : 0;
+
+            $group->photo = $request->input('photo');
+            if( !isset($group->photo) ) {
+                $group->photo = $request->input('gallery_image');
+                if( !isset($group->photo) ) {
+                    $group->photo = 'group-default.gif';
+                }
+            }
 
             $group->user_id = $user->id;
             $group->save();

@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('group-edit', function($scope, $state, $auth, Upload, Group, Interest) {
+.controller('group-edit', function($scope, $state, $auth, $timeout,  Upload, Group, Interest) {
     $scope.group = new Group({});
 
     $scope.doValidate = function() {
+        $scope.group.gallery_image = $scope.image_gallery_selected;
         return true;
     };
 
@@ -18,28 +19,60 @@ angular.module('winwinsApp')
         }
     };
 
-    $scope.files = [];
 
-    $scope.$watch('files', function () {
-        $scope.upload($scope.files);
-    });
+    $scope.uploading = false;
 
-    $scope.upload = function (files) {
-         if (files && files.length) {
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                Upload.upload({
-                    url: '/api/winwins/upload',
-                    fields: {},
-                    file: file
-                }).progress(function (evt) {
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                }).success(function (data, status, headers, config) {
-                    $scope.group.photo = data.filename;
+    $scope.uploadFiles = function(file) {
+        console.log('uploading');
+        $scope.f = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: '/api/winwins/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading = false;
+                console.log('succeess');
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.group.photo = response.data.filename;
+                    console.log($scope.group.photo);
+
                 });
-            }
+            }, function (response) {
+                console.log(response);
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
+
+
+    $scope.gallery_picker = false;
+
+    $scope.select_gallery = function() {
+        $scope.gallery_picker = true;
+        if(!$scope.image_gallery_selected) {
+            $('#image-gallery').imagepicker({
+                changed: function(old, new_value) {
+                    $scope.$apply(function(){
+                        $scope.gallery_picker = false;
+                    });
+                }
+            });
         }
     };
+
+
 
 })
 .controller('group-list', ['$scope', '$http', '$auth', '$state', 'GroupPaginate', function($scope, $http, $auth, $state, GroupPaginate) {
