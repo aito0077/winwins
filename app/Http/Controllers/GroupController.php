@@ -14,6 +14,7 @@ use Winwins\Model\GroupsUser;
 use Winwins\Model\GroupsWinwin;
 use Winwins\Model\Repository\GroupRepository;
 use Winwins\Model\Winwin;
+use Winwins\Model\Post;
 
 use Illuminate\Http\Request;
 
@@ -250,5 +251,72 @@ class GroupController extends Controller {
 	public function edit($id) {
 		//
 	}
+
+	public function conversation(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+
+        $post = new Post;
+
+        DB::transaction(function() use ($request, $post, $user, $id) {
+            $post->reference_id = $id;
+            $post->type = 'CONVERSATION';
+            $post->user_id = $user->id;
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->save();
+        });
+
+        return $this->group_thread($id);                                    
+	}
+
+
+
+    public function thread(Request $request, $id) {
+        return $this->group_thread($id);                                    
+    }
+
+    public function group_thread($id) {
+        $comments = DB::table('posts')
+            ->select('posts.id', 'posts.title', 'posts.content', 'posts.created_at', 'posts.user_id', 'user_details.photo', 'user_details.name')
+            ->join('user_details', 'posts.user_id', '=', 'user_details.user_id')
+            ->join('groups', 'posts.reference_id', '=', 'groups.id')
+            ->where('posts.reference_id', '=', $id)->where('posts.type', 'CONVERSATION')->orderBy('posts.created_at', 'desc')->get();
+        
+        Log::info($comments);
+
+        $collection = Collection::make($comments);
+        $collection->each(function($comment) {
+            //Log::info($comment);
+            $replies = DB::table('posts')
+                ->select('posts.content', 'posts.created_at', 'posts.user_id', 'user_details.photo', 'user_details.name')
+                ->join('user_details', 'posts.user_id', '=', 'user_details.user_id')
+                ->where('posts.reference_id', '=', $comment->id)->where('posts.type', 'REPLY')->orderBy('posts.created_at', 'desc')->get();
+            $comment->replies = $replies;
+        });
+
+        return $comments;
+
+    }
+
+
+	public function conversation_reply(Request $request, $groupId, $id) {
+        $user = User::find($request['user']['sub']);
+
+        $post = new Post;
+
+        DB::transaction(function() use ($request, $post, $user, $id) {
+            $post->reference_id = $id;
+            $post->type = 'REPLY';
+            $post->user_id = $user->id;
+            $post->content = $request->input('content');
+            $post->save();
+        });
+
+        return $this->group_thread($groupId);                                    
+                                    
+	}
+
+
+
 
 }

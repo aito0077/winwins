@@ -35,6 +35,9 @@ angular.module('winwinsApp')
                 });
             }
         } else {
+            $scope.profile = false;
+            $scope.is_logged = false;
+            $scope.profile_image = 0;
             $rootScope.account = {};
         }
 

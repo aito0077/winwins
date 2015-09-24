@@ -233,6 +233,9 @@ class WinwinController extends Controller {
                     $winwinsUsers->moderator = false;
                     $winwinsUsers->save();
 
+                    DB::table('winwins')->whereId($winwin->id)->increment('users_joined');
+
+
                     $user->newActivity()
                         ->from($user)
                         ->withType('WW_JOIN')
@@ -263,6 +266,7 @@ class WinwinController extends Controller {
 
 
                     DB::table('winwins_users')->where('user_id', $user->id )->where('winwin_id', $winwin->id)->delete();
+                    DB::table('winwins')->whereId($winwin->id)->decrement('users_joined');
 
                     $user->newActivity()
                         ->from($user)

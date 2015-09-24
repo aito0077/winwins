@@ -55,13 +55,13 @@ angular.module('winwinsApp')
     */
  
 }])
-.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group) {
+.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post) {
 
     $scope.getGroup = function() {
         $scope.group = Group.get({
             id: $stateParams.groupId
         }, function(data) {
-
+            $scope.getThread(data.id);
         });
     }
 
@@ -155,5 +155,105 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
 
+    $scope.viewUser = function(id) {
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewGroup = function(id) {
+        $state.go('group-view', {
+            groupId: id
+        }); 
+    };
+
+    $scope.filter = function(filter_by) {
+        $scope.current = filter_by;
+        $('.grid-participantes').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
+
+    $timeout(function () {
+        $('.grid-participantes').isotope({
+            itemSelector: '.participante-item',
+            masonry: {
+                columnWidth: 380
+            }
+        });
+    });
+
+    $scope.editing_conversation = false;
+    $scope.conversation = new Post({});
+
+    $scope.newConversation = function() {
+        $scope.editing_conversation = true;
+    };
+    $scope.cancelConversation = function() {
+        $scope.editing_conversation = false;
+    };
+
+    $scope.newReply = function(conversation) {
+        conversation.editing_reply = true;
+    };
+
+    $scope.cancelReply = function(conversation) {
+        conversation.editing_reply = false;
+    };
+
+    $scope.submitConversation = function() {
+        console.log('submit');
+        $http.post('/api/groups/'+$scope.group.id+'/conversation',{
+            content: $scope.conversation.content,
+            title: $scope.conversation.title
+        }).success(function(data) {
+            $scope.comments = data;
+            $scope.conversation = new Post({});
+            $scope.editing_conversation = false;
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+    $scope.reply = new Post({});
+
+
+    $scope.submitReply = function(conversation) {
+        console.log('submit');
+        $http.post('/api/groups/'+$scope.group.id+'/conversation/'+conversation.id,{
+            content: $scope.reply.content
+        }).success(function(data) {
+            $scope.comments = data;
+            $scope.reply = new Post({});
+            conversation.editing_reply = false;
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+
+    $scope.getThread = function(group_id) {
+        $http.get('/api/group_thread/'+group_id).success(function(data) {
+            $scope.comments = data;
+        })
+    };
 }]);

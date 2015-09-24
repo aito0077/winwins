@@ -46,6 +46,13 @@ angular.module('winwinsApp')
         }
     });
 }])
+.factory('Comment',['$resource', 'api_host', function($resource, api_host){
+    return $resource(api_host+'/api/comments/:id', { id:'@id' }, {
+        update: {
+            method: 'POST'
+        }
+    });
+}])
 .factory('ActivityType',['$resource', 'api_host', function($resource, api_host){
     return $resource(api_host+'/api/parametric/activities/:id', { id:'@id' }, {
         update: {

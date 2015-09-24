@@ -2,9 +2,13 @@
 
 use Illuminate\Http\Request;
 use Config;
+use Hash;
 use Log;
 use DB;
 use JWT;
+use Validator;
+use Response;
+use Storage;
 use Illuminate\Support\Collection;
 use Winwins\User;
 use Winwins\Model\Follower;
@@ -12,7 +16,6 @@ use Winwins\Model\UserDetail;
 use Winwins\Model\Repository\UserRepository;
 use Winwins\Model\Post;
 use Winwins\Model\Media;
-use Storage;
 
 class UserController extends Controller {
 
@@ -166,8 +169,8 @@ class UserController extends Controller {
 		if($request->has('photo')) {
             $userDetail->photo = $request->input('photo');
         }
-		if($request->has('photo_cover')) {
-            $userDetail->photo_cover = $request->input('photo_cover');
+		if($request->has('cover_photo')) {
+            $userDetail->cover_photo = $request->input('cover_photo');
         }
 		if($request->has('lastname')) {
             $userDetail->lastname = $request->input('lastname');
@@ -201,6 +204,21 @@ class UserController extends Controller {
         }
 		if($request->has('private')) {
             $userDetail->private = $request->input('private');
+        }
+
+
+
+        $current_password =  $request->input('current_password');
+        $password =  $request->input('password');
+
+        if(isset($current_password) && isset($password) ) {
+
+            if (Hash::check($current_password, $user->password)) {
+                $user->password = Hash::make($request->input('password'));
+                $user->save();
+            } else {
+                return response()->json(['message' => 'user_current_password_wrong'], 400);
+            }
         }
 
         $userDetail->save();

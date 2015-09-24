@@ -20,6 +20,7 @@ class CreateWinwinsTable extends Migration {
             $table->string('what_we_do', 500);
 
             $table->integer('users_amount')->default(2);
+            $table->integer('users_joined')->default(1);
             $table->date('closing_date')->nullable();
 
             $table->enum('scope', ['GLOBAL', 'REGION', 'COUNTRY', 'STATE', 'CITY'])->default('GLOBAL');

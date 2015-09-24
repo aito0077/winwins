@@ -33,9 +33,9 @@
                                     Imagen de Avatar
                                 </span>
 
-                                <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
+                                <i ng-show="!edit_user.photo && !uploading" class="fa fa-camera"></i>
                                 <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
-                                <img class="img-responsive" ng-show="edit_user.photo" ng-src="http://images.dev-winwins.net/smart/{{edit_user.photo}}" height="75px"  style="padding:7px">
+                                <img class="img-responsive" ng-show="!uploading && edit_user.photo" ng-src="http://images.dev-winwins.net/smart/{{edit_user.photo}}" height="75px"  style="padding:7px">
                                 <span class="small" ng-show="errorMsg">{{errorMsg}}</span>
                             </div>
 
@@ -43,10 +43,10 @@
                                 <span class="text-center">
                                     Imagen de Portada
                                 </span>
-                                <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
-                                <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
-                                <img class="img-responsive" ng-show="edit_user.photo_cover" ng-src="http://images.dev-winwins.net/smart/{{edit_user.photo_cover}}" height="75px"  style="padding:7px">
-                                <span class="small" ng-show="errorMsg">{{errorMsg}}</span>
+                                <i ng-show="!edit_user.cover_photo && !uploading_cover" class="fa fa-camera"></i>
+                                <img class="img-responsive col-xs-12" ng-show="uploading_cover" src="/images/loader.gif" height="75" style="padding:7px"/>
+                                <img class="img-responsive" ng-show="!uploading && edit_user.cover_photo" ng-src="http://images.dev-winwins.net/smart/{{edit_user.cover_photo}}" height="75px"  style="padding:7px">
+                                <span class="small" ng-show="errorMsg">{{errorMsgCover}}</span>
                             </div>
 
 
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                         <div class="form-group no-padding mb-0 mt-0 col-xs-12 " style=""  ng-class="{ 'has-error': signupForm.confirmPassword.$touched && signupForm.confirmPassword.$invalid ,  'has-success': signupForm.confirmPassword.$touched && signupForm.confirmPassword.$valid}">
-                            <input password-match="password" class="form-control input-lg" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="password" >
+                            <input password-match="password" class="form-control input-lg" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
                             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"  ng-if="signupForm.confirmPassword.$touched  && signupForm.confirmPassword.$valid "></span>
                             <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"  ng-if="signupForm.confirmPassword.$touched  && signupForm.confirmPassword.$invalid "></span>
                             <div ng-messages="signupForm.confirmPassword.$error"  ng-if="signupForm.confirmPassword.$touched" class="help-block">
@@ -159,11 +159,11 @@
                 <div class="col-xs-12 mb-20">
                     <h4 class="admin-title">IDIOMA</h4> 
                     <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                            <input type="radio" autocomplete="off" ng-model="edit_user.language_code" ng-value="ES" checked>Español 
+                        <label class="btn btn-primary active" ng-click="setOption('language_code', 'ES')" >
+                            <input type="radio" autocomplete="off" {{edit_user.language_code == 'ES' ? 'checked' : ''}}>Español 
                         </label> 
-                        <label class="btn btn-primary">
-                            <input type="radio" autocomplete="off" ng-model="edit_user.language_code" ng-value="EN" checked>English
+                        <label class="btn btn-primary" ng-click="setOption('language_code', 'EN')" >
+                            <input type="radio" autocomplete="off" {{edit_user.language_code == 'EN' ? 'checked' : ''}}>English
                         </label> 
                     </div>
                 </div>
@@ -174,11 +174,11 @@
                             <h5 class="admin-notes">Invitación a un Winwin </h5>
                         </div>
                         <div class="col-xs-6 btn-group" data-toggle="buttons">
-                            <label class="btn btn-default pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.invite_ww" ng-value="false">NO
+                            <label class="btn btn-default pull-right" ng-click="setOption('invite_ww', 0)" >
+                                <input type="radio" autocomplete="off" {{edit_user.invite_ww == 0 ? 'checked' : ''}}>NO
                             </label> 
-                            <label class="btn btn-primary pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.invite_ww" ng-value="true">SI
+                            <label class="btn btn-primary pull-right" ng-click="setOption('invite_ww', 1)" >
+                                <input type="radio" autocomplete="off" {{edit_user.invite_ww == 1 ? 'checked' : ''}}>SI
                             </label> 
                         </div>
                     </div>
@@ -187,26 +187,29 @@
                             <h5 class="admin-notes">Winwin que finaliza</h5>
                         </div>
                         <div class="col-xs-6 btn-group" data-toggle="buttons">
-                            <label class="btn btn-default pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.ww_to_finish" ng-value="false">NO
+                            <label class="btn btn-default pull-right" ng-click="setOption('ww_to_finish', 0)" >
+                                <input type="radio" autocomplete="off" {{edit_user.ww_to_finish == 0 ? 'checked' : ''}}>NO
                             </label> 
-                            <label class="btn btn-primary pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.ww_to_finish" ng-value="true">SI
+                            <label class="btn btn-primary pull-right" ng-click="setOption('ww_to_finish', 1)" >
+                                <input type="radio" autocomplete="off" {{edit_user.ww_to_finish == 1 ? 'checked' : ''}}>SI
                             </label> 
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
                             <h5 class="admin-notes">Invitacion a un Grupo</h5>
                         </div>
                         <div class="col-xs-6 btn-group" data-toggle="buttons">
-                            <label class="btn btn-default pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.invite_group" ng-value="false">NO
+                            <label class="btn btn-default pull-right" ng-click="setOption('invite_group', 0)" >
+                                <input type="radio" autocomplete="off" {{edit_user.invite_group == 0 ? 'checked' : ''}}>NO
                             </label> 
-                            <label class="btn btn-primary pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.invite_group" ng-value="true">SI
+                            <label class="btn btn-primary pull-right" ng-click="setOption('invite_group', 1)" >
+                                <input type="radio" autocomplete="off" {{edit_user.invite_group == 1 ? 'checked' : ''}}>SI
                             </label> 
                         </div>
+
+
                     </div>
                 </div>
                 <div class="col-xs-12 mb-20">
@@ -216,13 +219,14 @@
                             <h5 class="admin-notes">Compartir Perfil</h5>
                         </div>
                         <div class="col-xs-6 btn-group" data-toggle="buttons">
-                            <label class="btn btn-default pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.private" ng-value="false">NO
+                            <label class="btn btn-default pull-right" ng-click="setOption('private', 0)" >
+                                <input type="radio" autocomplete="off" {{edit_user.private == 0 ? 'checked' : ''}}>NO
                             </label> 
-                            <label class="btn btn-primary pull-right">
-                                <input type="radio" autocomplete="off" ng-model="edit_user.private" ng-value="true">SI
+                            <label class="btn btn-primary pull-right" ng-click="setOption('private', 1)" >
+                                <input type="radio" autocomplete="off" {{edit_user.private == 1 ? 'checked' : ''}}>SI
                             </label> 
                         </div>
+
                     </div>
                 </div>
 

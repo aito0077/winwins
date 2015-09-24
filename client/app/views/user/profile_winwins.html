@@ -36,13 +36,15 @@ socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
 
             <div class="col-xs-4 no-padding btn4 btn-share like">
                 <a href="#" class="no-padding" ng-click="view(winwin.id)">
-                    <h5>Me Interesa</h5>
+                    <h5 ng-if="!user_detail.myself">Me Interesa</h5>
+                    <h5 ng-if="user_detail.myself">Ver</h5>
                 </a>
             </div>
             <div class="col-xs-4 no-padding btn4 btn-share mesumo">
-                <a href="#" class="no-padding"  ng-click="join(winwin.id)">
-                    <h5>Me Sumo</h5>
+                <a ng-if="!user_detail.myself" href="#" class="no-padding"  ng-click="join(winwin.id)">
+                    <h5 >Me Sumo</h5>
                 </a>
+                <h5 ng-if="user_detail.myself">{{winwin.users_joined}} de {{winwin.users_amount}}</h5>
             </div>
         </div>
     </div>

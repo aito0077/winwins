@@ -40,6 +40,9 @@ Route::get('api/groups/join/{id}', ['middleware' => 'auth', 'uses' => 'GroupCont
 Route::get('api/groups/left/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@left']);
 Route::get('api/groups/{id}/add_winwin/{winwin_id}', ['middleware' => 'auth', 'uses' => 'GroupController@addWinwin']);
 Route::get('api/groups/{id}/remove_winwin/{winwin_id}', ['middleware' => 'auth', 'uses' => 'GroupController@removeWinwin']);
+Route::post('api/groups/{id}/conversation', ['middleware' => 'auth', 'uses' => 'GroupController@conversation']);
+Route::post('api/groups/{groupId}/conversation/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@conversation_reply']);
+Route::get('api/group_thread/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@thread']);
 Route::resource('api/groups', 'GroupController');
 
 Route::get('api/sponsors/paginate/{page}/{amount}', ['uses' => 'SponsorController@paginate']);

@@ -1047,4 +1047,11 @@ ul.thumbnails.image_picker_selector li {
     z-index: 99;
     top: 55px;
 }
-
+.new-conversation {
+    background-color: #1563c8;
+    display: block;
+    left: 0px;
+    right: 0px;
+    width:100%;
+    min-height: 65px;
+}

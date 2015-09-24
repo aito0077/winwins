@@ -147,9 +147,28 @@ angular.module('winwinsApp')
         }); 
     };
 
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+    $scope.viewUser = function(id) {
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewGroup = function(id) {
+        $state.go('group-view', {
+            groupId: id
+        }); 
+    };
+
+
 
 }])
-.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
+.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Upload', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Upload, User, Account) {
 
     $scope.followers = [];
     $scope.following = [];
@@ -169,6 +188,7 @@ angular.module('winwinsApp')
                 $scope.following = user_data.following;
                 $scope.comments = user_data.comments;
                 $scope.edit_user = user_data;
+                $scope.setup_components();
 
             });
 
@@ -224,7 +244,7 @@ angular.module('winwinsApp')
 
     $scope.filter = function(filter_by) {
         $scope.current = filter_by;
-        $('.grid-participantes').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+        $scope.isot.isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
     };
 
     $scope.view = function(id) {
@@ -233,24 +253,75 @@ angular.module('winwinsApp')
         }); 
     };
 
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+    $scope.viewUser = function(id) {
+        console.log('view user: '+id);
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewGroup = function(id) {
+        $state.go('group-view', {
+            groupId: id
+        }); 
+    };
+
+
+    $scope.$watch('following', function() {
+        if($scope.following.length > 0) {
+            $timeout(function() {
+                $scope.isot = angular.element('.grid-participantes');
+                $scope.isot.isotope({
+                    itemSelector: '.participante-item',
+                    masonry: {
+                        columnWidth: 380
+                    }
+                });
+            });
+        }
+    });
+
+
+
+    $scope.$watch('followers', function() {
+        if($scope.followers.length > 0) {
+            $timeout(function() {
+                $scope.isot = angular.element('.grid-participantes');
+                $scope.isot.isotope({
+                    itemSelector: '.participante-item',
+                    masonry: {
+                        columnWidth: 380
+                    }
+                });
+            });
+        }
+    });
+
 
     $scope.setup_components = function() {
+        /*
         $('.grid-participantes').isotope({
             itemSelector: '.participante-item',
             masonry: {
                 columnWidth: 380
             }
         });
+        */
         $('#datetimepicker1').datetimepicker({
-            minDate: new Date(),
+            maxDate: new Date(),
             format: 'DD - MM - YYYY'
         });
+        console.log($scope.edit_user.birthdate);
+        $('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
     };
 
-    $timeout(function() {
-        $scope.setup_components();
-    }, 1000);
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
@@ -301,7 +372,7 @@ angular.module('winwinsApp')
             }, function (response) {
                 $scope.uploading_cover = false;
                 if (response.status > 0) {
-                    $scope.errorMsg = response.status + ': ' + response.data;
+                    $scope.errorMsgCover = response.status + ': ' + response.data;
                 }
             });
 
@@ -313,9 +384,19 @@ angular.module('winwinsApp')
     };
 
     $scope.saveProfile = function() {
+        $scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
+
         $http.post('/api/profile', $scope.edit_user)
         .success(function(data) {
             $scope.getUser();
+            swal({
+                title: "info", 
+                text: 'user_updated', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+
         })
         .error(function(error) {
             swal({
@@ -328,6 +409,13 @@ angular.module('winwinsApp')
         });
     };
 
+
+    $scope.setOption = function(key, value) {
+    
+        $scope.edit_user[key] = value;
+        console.log('Key: '+key+' - value: '+value);
+        console.log('user_edit: '+$scope.edit_user[key]);
+    };
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
