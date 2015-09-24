@@ -63,6 +63,7 @@ Route::get('api/users/search', ['uses' => 'UserController@search']);
 Route::get('api/users/follow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@follow']);
 Route::get('api/users/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'UserController@unfollow']);
 Route::post('api/profile', ['middleware' => 'auth', 'uses' => 'UserController@updateProfile']);
+Route::post('api/group/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@updateGroup']);
 Route::post('api/users/{id}/comment', ['middleware' => 'auth', 'uses' => 'UserController@comment']);
 Route::resource('api/users', 'UserController');
 

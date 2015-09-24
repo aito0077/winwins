@@ -1,23 +1,23 @@
         <div class="col-xs-12 row no-padding" role="group" aria-label="...">
             <button type="button" ng-click="filter('all')" class="btn btn-default col-xs-4" ng-class="{active: current == 'all'}">Todos</button>
-            <button type="button" ng-click="filter('follower')" class="btn col-xs-4 btn-default" ng-class="{active: current == 'follower'}">Seguidores</button>
-            <button type="button" ng-click="filter('following')" class="btn  col-xs-4 btn-default" ng-class="{active: current == 'following'}">Seguidos</button>
+            <button type="button" ng-click="filter('last')" class="btn col-xs-4 btn-default" ng-class="{active: current == 'last'}">Ultimos</button>
+            <button type="button" ng-click="filter('admin')" class="btn  col-xs-4 btn-default" ng-class="{active: current == 'admin'}">Administradores</button>
         </div>
 
  
         <div class="col-xs-12 no-padding grid-participantes">
 
-           <div ng-repeat="participante in followers" class="participante-item col-xs-12 follower" ng-class="{odd: $odd}">
-                <div class="col-xs-12 no-padding" style="margin:12px 0;" ng-click="view(participante.user_id)">
+           <div ng-repeat="member in group.users" class="participante-item col-xs-12 follower" ng-class="{odd: $odd}">
+                <div class="col-xs-12 no-padding" style="margin:12px 0;" ng-click="view(member.user_id)">
                     <div class="col-xs-4 no-padding">
-                        <img ng-src="http://images.dev-winwins.net/120x106/{{::participante.photo}}" class="img-responsive img-circle img-no-border" />
+                        <img ng-src="http://images.dev-winwins.net/120x106/{{::member.detail.photo}}" class="img-responsive img-circle img-no-border" />
                     </div>
                     <div class="col-xs-6 no-padding-left">
                         <h5 class="title-destacados sponsor">
-                            {{::participante.name}} {{::participante.lastname}}
+                            {{::member.detail.name}} {{::member.detail.lastname}}
                         </h5>
                         <p class="text-destacados lista">
-                            {{::participante.about}}
+                            {{::member.detail.about}}
                         </p>
                     </div>
                 </div>
@@ -25,45 +25,15 @@
                     <div class="col-xs-3 col-xs-push-2 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
                         <!--
                         <span style="background-color:#000; color:#FFF; padding: 2px 3px">Win Wins</span><br>
-                        <span>{{::participante.winwins_involved}}</span>
+                        <span>{{::member.detail.winwins_involved}}</span>
                         -->
                     </div>
-                    <div ng-show="!participante.my_self">
-                        <div ng-show="!participante.following" class="btn col-xs-3 col-xs-push-3 btn5 btn-follow no-padding" style="padding-top: 12px!important;"  ng-click="follow(participante)">
+                    <div ng-show="!member.my_self">
+                        <div ng-show="!member.following" class="btn col-xs-3 col-xs-push-3 btn5 btn-follow no-padding" style="padding-top: 12px!important;"  ng-click="follow(member)">
                             Seguir
                         </div>
-                        <div ng-show="participante.following" class="btn col-xs-3 col-xs-push-3 btn5 no-padding" style="padding-top: 12px!important;"  ng-click="unfollow(participante)">
+                        <div ng-show="member.following" class="btn col-xs-3 col-xs-push-3 btn5 no-padding" style="padding-top: 12px!important;"  ng-click="unfollow(member)">
                             Siguiendo
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div ng-repeat="participante in following" class="participante-item col-xs-12 following" ng-class="{odd: $odd}">
-                <div class="col-xs-12 no-padding" style="margin:12px 0;" ng-click="view(participante.user_id)">
-                    <div class="col-xs-4 no-padding">
-                        <img ng-src="http://images.dev-winwins.net/120x106/{{::participante.photo}}" class="img-responsive img-circle img-no-border" />
-                    </div>
-                    <div class="col-xs-6 no-padding-left">
-                        <h5 class="title-destacados sponsor">
-                            {{::participante.name}} {{::participante.lastname}}
-                        </h5>
-                        <p class="text-destacados lista">
-                            {{::participante.about}}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-xs-12 no-padding shadow-border">
-                    <div class="col-xs-3 col-xs-push-2 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
-                        <!--
-                        <span style="background-color:#000; color:#FFF; padding: 2px 3px">Win Wins</span><br>
-                        <span>{{::participante.winwins_involved}}</span>
-                        -->
-                    </div>
-                    <div ng-show="!participante.my_self">
-                        <div ng-show="participante.following" class="btn col-xs-3 col-xs-push-3 btn5 no-padding" style="padding-top: 12px!important;"  ng-click="unfollow(participante)">
-                            Dejar de Seguir
                         </div>
                     </div>
                 </div>

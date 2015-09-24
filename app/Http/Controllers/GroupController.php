@@ -49,6 +49,37 @@ class GroupController extends Controller {
 
 	}
 
+	public function updateGroup(Request $request, $id ) {
+        $user = User::find($request['user']['sub']);
+        $group = Group::find($id);
+
+        DB::transaction(function() use ($request, $group, $user) {
+
+            $group->name = $request->input('name');
+            $group->description = $request->input('description');
+            $group->private = $request->input('private') ? 1 : 0;
+            $group->control_ww = $request->input('control_ww') ? 1 : 0;
+            $group->confirm_ww = $request->input('confirm_ww') ? 1 : 0;
+
+            $group->photo = $request->input('photo');
+            if( !isset($group->photo) ) {
+                $group->photo = $request->input('gallery_image');
+                if( !isset($group->photo) ) {
+                    $group->photo = 'group-default.gif';
+                }
+            }
+
+            $group->save();
+
+        });
+
+        Log::info('grupo updated');
+        return $group;
+	}
+
+
+
+
 	public function store(Request $request) {
         $user = User::find($request['user']['sub']);
 
@@ -98,8 +129,8 @@ class GroupController extends Controller {
         $group = Group::find($id);
 
         $user = false;
-		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
-		if ( $token )  {
+        $token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+        if ( $token )  {
             $token = $request->header('Authorization');
             if(isset($token[1])) {
                 $token = explode(' ', $request->header('Authorization'))[1];
@@ -107,7 +138,6 @@ class GroupController extends Controller {
                 $user = User::find($payload['sub']);
             }
         }
-
 
         $group->members_count = count($group->users);
         $group->winwins;
@@ -120,6 +150,7 @@ class GroupController extends Controller {
                 $model->detail;
                 return $model->id == $user->id;
             })) > 0;
+            $group->is_admin = ($user->id == $group->user_id);
         }
 
 

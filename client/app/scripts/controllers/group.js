@@ -322,4 +322,147 @@ angular.module('winwinsApp')
             $scope.comments = data;
         })
     };
-}]);
+
+
+    $scope.follow = function(member) {
+        $http.get('/api/users/follow/'+member.id).success(function(data) {
+            $scope.getUser();
+            swal({
+                title: "info", 
+                text: 'user_follow', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+    $scope.unfollow = function(member) {
+        $http.get('/api/users/unfollow/'+member.id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'user_unfollow', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            $scope.getUser();
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+}])
+.controller('group-config', function($scope, $state, $auth, $timeout, $http,  Upload, Group, Interest) {
+
+    $scope.doValidate = function() {
+        $scope.group.gallery_image = $scope.image_gallery_selected;
+        return true;
+    };
+
+    $scope.doSave = function() {
+        if($scope.doValidate()) {
+            $http.post('/api/group/'+$scope.group.id, $scope.group)
+            .success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'group_updated', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+
+                $state.go('group-view', {
+                    groupId: $scope.group.id
+                }); 
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+
+
+        }
+    };
+
+
+    $scope.uploading = false;
+
+    $scope.uploadFiles = function(file) {
+        console.log('uploading');
+        $scope.f = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: '/api/winwins/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading = false;
+                console.log('succeess');
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.group.photo = response.data.filename;
+                    console.log($scope.group.photo);
+
+                });
+            }, function (response) {
+                console.log(response);
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
+
+
+    $scope.gallery_picker = false;
+
+    $scope.select_gallery = function() {
+        $scope.gallery_picker = true;
+        if(!$scope.image_gallery_selected) {
+            $('#image-gallery').imagepicker({
+                changed: function(old, new_value) {
+                    if(new_value) {
+                        $scope.group.photo = false;
+                    }
+                    $scope.$apply(function(){
+                        $scope.gallery_picker = false;
+                    });
+                }
+            });
+        }
+    };
+
+
+
+});
