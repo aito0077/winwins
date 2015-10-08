@@ -7,9 +7,9 @@
         </div>
         <div class="col-xs-12 no-padding">
             <div ng-show="!editing_conversation" class="col-xs-offset-9">
-                <span class="btn btn-success pull-right" ng-click="newConversation()">Crear Conversación</span> 
+                <span class="btn btn-success pull-right" ng-click="newConversation()">Crear</span> 
             </div>
-            <div ng-show="editing_conversation" class="row new-conversation col-xs-12 no-padding">
+            <div ng-show="editing_conversation" class="new-conversation col-xs-12 no-padding">
                 <div class="col-xs-10 col-xs-offset-1" style="padding-top: 10px;">
                     <input type="text" ng-model="conversation.title" ng-required="true" style="width:100%" placeholder="Titulo"/>
                 </div>
@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-    <div class="panel-body no-padding">
-        <ul ng-repeat="comment in comments" class="media-list">
+    <div class="panel-body no-padding col-xs-12">
+        <ul ng-repeat="comment in comments" class="media-list no-padding col-xs-12" style="padding-top: 30px;">
             <li class="media">
                 <div class="media-left">
                     <a href="#">
@@ -53,22 +53,23 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-12 no-padding">
-                        <div ng-if="!comment.editing_reply" class="col-xs-offset-9">
-                            <span class="btn btn-success pull-right" ng-click="newReply(comment)">Responder</span> 
+                </div>
+                <div class="col-xs-12 no-padding">
+                    <div ng-if="!comment.editing_reply" class="col-xs-offset-9">
+                        <span class="btn btn-success pull-right" ng-click="newReply(comment)">Responder</span> 
+                    </div>
+                    <div ng-if="comment.editing_reply" class="new-conversation col-xs-12 no-padding">
+                        <div class="col-xs-10 col-xs-offset-1" style="padding-top: 10px;">
+                            <textarea class=""  rows="2" ng-model="reply.content" no-resize ng-required="true" style="width:100%" placeholder="">
+                            </textarea>
                         </div>
-                        <div ng-if="comment.editing_reply" class="row new-conversation col-xs-12 no-padding">
-                            <div class="col-xs-10 col-xs-offset-1" style="padding-top: 10px;">
-                                <textarea class=""  rows="2" ng-model="reply.content" no-resize ng-required="true" style="width:100%" placeholder="">
-                                </textarea>
-                            </div>
-                            <div class="col-xs-10 col-xs-offset-1" style="padding-top: 10px;">
-                               <span class="btn btn-success pull-right"  ng-click="submitReply(comment)" style="font-size:10px!important;">ENVIAR</span>
-                               <span class="btn pull-right"  ng-click="cancelReply(comment)" style="font-size:10px!important;">CANCELAR</span>
-                            </div>
+                        <div class="col-xs-10 col-xs-offset-1" style="padding-top: 10px;">
+                           <span class="btn btn-success pull-right"  ng-click="submitReply(comment)" style="font-size:10px!important;">ENVIAR</span>
+                           <span class="btn pull-right"  ng-click="cancelReply(comment)" style="font-size:10px!important;">CANCELAR</span>
                         </div>
                     </div>
                 </div>
+
             </li>
         </ul>
 

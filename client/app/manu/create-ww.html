@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>WinWins - Crear Winwin</title>
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Fon Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="css/winwins.css">
+      <!-- Font -->
+      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+
+   <form id="create-ww-form" name="createWW" ng-submit="createWW()">
+    <!--  / profile img + background img -->  
+    <div class="container">
+    <div class="row">
+    <div class="col-xs-12 create-title"> 
+    
+ 	CREA TU WINWIN <br> COMENZA UNA ACCION POSITIVA</div> </div> </div> 
+    
+         <div class="container ww-create">
+     <div class="form-back create">
+<div class="input-label">Dale un nombre a tu winwin <i class="fa fa-question-circle"></i></div>
+<input class="input-forms" class="active" name="" placeholder="Nombra tu winwin" type="text" />
+
+<div class="pad-20"></div>
+<div class="input-label">Plantea tu WinWin <i class="fa fa-question-circle"></i></div>
+<div class="pad-10"></div>
+
+<span class="si-supieras">¿Si supieras que somos </span> <input name=""  class="numero" type="number" placeholder="90" ng-model="form.howMany"/><span class="si-supieras">para</span>
+
+<div class="pad-10"></div>
+
+<textarea class="text-forms" name="" cols="" rows="4" placeholder="Ej: Hacer cosas divertidas y cambiar el mundo." ng-model="form.activity"></textarea><br>
+<span class="si-supieras">te sumarías?</span>
+<div class="pad-10"></div>
+
+<div class="input-label">Más Detalles del WinWin <i class="fa fa-question-circle"></i></div>
+<textarea class="text-forms" name="" cols="" rows="4" ng-model="form.details"></textarea>
+<div class="pad-10"></div>
+
+
+<div class="input-label">Fecha Límite (Si Aplica) <i class="fa fa-question-circle"></i></div>
+
+<div id="birth-date" class="input-group">
+				<span class="input-group-addon" id="last-name-label"><i class="fa fa-calendar"></i></span>
+			  	<input required type="number" class="form-control" ng-model="form.day" placeholder="Día"/>
+			  	<input required type="number" class="form-control" ng-model="form.month" placeholder="Mes"/>
+			  	<input required type="number" class="form-control" ng-model="form.year" placeholder="Año"/>
+			</div>
+
+<div class="pad-10"></div>
+
+<input name="crear-winwin" value="Crear WinWin" type="button" class="submit-create">  </div>
+
+
+
+    
+    <script>
+	$(document).ready(function() {
+$(".btn-pref .btn").click(function () {
+    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+    // $(".tab").addClass("active"); // instead of this do the below 
+    $(this).removeClass("btn-default").addClass("btn-primary");   
+});
+});</script>

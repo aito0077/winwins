@@ -12,7 +12,7 @@ angular.module('winwinsApp')
     }
  
 }])
-.controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor) {
+.controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor, api_host) {
 
     $scope.getSponsor = function() {
         $scope.sponsor = Sponsor.get({
@@ -25,7 +25,7 @@ angular.module('winwinsApp')
     $scope.getSponsor();
 
     $scope.follow = function() {
-        $http.get('/api/sponsors/follow/'+$scope.sponsor.id).success(function(data) {
+        $http.get(api_host+'/api/sponsors/follow/'+$scope.sponsor.id).success(function(data) {
             $scope.getSponsor();
             swal({
                 title: "info", 
@@ -47,7 +47,7 @@ angular.module('winwinsApp')
     };
 
     $scope.unfollow = function() {
-        $http.get('/api/sponsors/unfollow/'+$scope.sponsor.id).success(function(data) {
+        $http.get(api_host+'/api/sponsors/unfollow/'+$scope.sponsor.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'sponsor_left', 
