@@ -369,6 +369,10 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account) {
 
+        $scope.isAuthenticated = function() {
+            return $auth.isAuthenticated();
+        };
+
         $scope.show_closing_date = false;
 
         $scope.posts = [];
