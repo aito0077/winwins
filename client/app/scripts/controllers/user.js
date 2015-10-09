@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('user-list', ['$scope', '$state', '$http', '$auth', 'UserPaginate', 'api_host', function($scope, $state, $http, $auth, UserPaginate, api_host) {
+.controller('user-list', ['$scope', '$state', '$http', '$auth', 'UserPaginate', function($scope, $state, $http, $auth, UserPaginate) {
    
     $scope.users = new UserPaginate();
 
@@ -17,7 +17,7 @@ angular.module('winwinsApp')
 
 
     $scope.follow = function(id) {
-        $http.get(api_host+'/api/users/follow/'+id).success(function(data) {
+        $http.get('/api/users/follow/'+id).success(function(data) {
             $scope.getUser();
             swal({
                 title: "info", 
@@ -41,7 +41,7 @@ angular.module('winwinsApp')
 
  
 }])
-.controller('user-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$rootScope', 'User', 'Post', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $rootScope, User, Post, api_host) {
+.controller('user-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$rootScope', 'User', 'Post', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $rootScope, User, Post) {
 
     $scope.comments = [];
     $scope.followers = [];
@@ -62,7 +62,7 @@ angular.module('winwinsApp')
     $scope.getUser();
 
     $scope.follow = function() {
-        $http.get(api_host+'/api/users/follow/'+$scope.user.id).success(function(data) {
+        $http.get('/api/users/follow/'+$scope.user.id).success(function(data) {
             $scope.getUser();
             swal({
                 title: "info", 
@@ -84,7 +84,7 @@ angular.module('winwinsApp')
     };
 
     $scope.unfollow = function() {
-        $http.get(api_host+'/api/users/unfollow/'+$scope.user.id).success(function(data) {
+        $http.get('/api/users/unfollow/'+$scope.user.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'user_left', 
@@ -109,7 +109,7 @@ angular.module('winwinsApp')
     $scope.comment = new Post({});
     $scope.submitComment = function() {
         console.log('submit');
-        $http.post(api_host+'/api/users/'+$scope.user.id+'/comment',{
+        $http.post('/api/users/'+$scope.user.id+'/comment',{
             content: $scope.comment.content
         }).success(function(data) {
             $scope.comments = data;
@@ -168,7 +168,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Upload', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Upload, User, Account, api_host) {
+.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Upload', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Upload, User, Account) {
 
     $scope.followers = [];
     $scope.following = [];
@@ -199,7 +199,7 @@ angular.module('winwinsApp')
     $scope.getUser();
 
     $scope.follow = function(id) {
-        $http.get(api_host+'/api/users/follow/'+id).success(function(data) {
+        $http.get('/api/users/follow/'+id).success(function(data) {
             $scope.getUser();
             swal({
                 title: "info", 
@@ -221,7 +221,7 @@ angular.module('winwinsApp')
     };
 
     $scope.unfollow = function(user_id) {
-        $http.get(api_host+'/api/users/unfollow/'+user_id).success(function(data) {
+        $http.get('/api/users/unfollow/'+user_id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'user_left', 
@@ -386,7 +386,7 @@ angular.module('winwinsApp')
     $scope.saveProfile = function() {
         $scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
 
-        $http.post(api_host+'/api/profile', $scope.edit_user)
+        $http.post('/api/profile', $scope.edit_user)
         .success(function(data) {
             $scope.getUser();
             swal({
@@ -418,7 +418,7 @@ angular.module('winwinsApp')
     };
 
 }])
-.controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {
+.controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account) {
 
 
 
@@ -434,7 +434,7 @@ angular.module('winwinsApp')
 
         });
 
-        $http.get(api_host+'/api/me/notificactions/read').success(function(data) {
+        $http.get('/api/me/notificactions/read').success(function(data) {
 
         });
 

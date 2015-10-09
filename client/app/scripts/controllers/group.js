@@ -75,7 +75,7 @@ angular.module('winwinsApp')
 
 
 })
-.controller('group-list', ['$scope', '$http', '$auth', '$state', 'GroupPaginate', 'api_host', function($scope, $http, $auth, $state, GroupPaginate, api_host) {
+.controller('group-list', ['$scope', '$http', '$auth', '$state', 'GroupPaginate', function($scope, $http, $auth, $state, GroupPaginate) {
    
     $scope.groups = new GroupPaginate();
 
@@ -85,7 +85,7 @@ angular.module('winwinsApp')
 
     $scope.join = function(group_id) {
         if($auth.isAuthenticated()) {
-            $http.get(api_host+'/api/group/join/'+group_id).success(function(data) {
+            $http.get('/api/group/join/'+group_id).success(function(data) {
                 swal({
                     title: "info", 
                     text: 'group_join', 
@@ -121,7 +121,7 @@ angular.module('winwinsApp')
 
  
 }])
-.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post, api_host) {
+.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post) {
 
     $scope.getGroup = function() {
         $scope.group = Group.get({
@@ -134,7 +134,7 @@ angular.module('winwinsApp')
     $scope.getGroup();
 
     $scope.join = function() {
-        $http.get(api_host+'/api/groups/join/'+$scope.group.id).success(function(data) {
+        $http.get('/api/groups/join/'+$scope.group.id).success(function(data) {
             $scope.getGroup();
             swal({
                 title: "info", 
@@ -156,7 +156,7 @@ angular.module('winwinsApp')
     };
 
     $scope.left = function() {
-        $http.get(api_host+'/api/groups/left/'+$scope.group.id).success(function(data) {
+        $http.get('/api/groups/left/'+$scope.group.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'group_left', 
@@ -178,7 +178,7 @@ angular.module('winwinsApp')
     };
 
     $scope.addToGroup = function(winwinId) {
-        $http.get(api_host+'/api/groups/'+$scope.group.id+'/add_winwin/'+winwinId).success(function(data) {
+        $http.get('/api/groups/'+$scope.group.id+'/add_winwin/'+winwinId).success(function(data) {
             swal({
                 title: "info", 
                 text: 'winwin_added_to_group', 
@@ -200,7 +200,7 @@ angular.module('winwinsApp')
     };
 
     $scope.removeFromGroup = function(winwinId) {
-        $http.get(api_host+'/api/groups/'+$scope.group.id+'/remove_winwin/'+winwinId).success(function(data) {
+        $http.get('/api/groups/'+$scope.group.id+'/remove_winwin/'+winwinId).success(function(data) {
             swal({
                 title: "info", 
                 text: 'winwin_removed_from_group', 
@@ -273,7 +273,7 @@ angular.module('winwinsApp')
 
     $scope.submitConversation = function() {
         console.log('submit');
-        $http.post(api_host+'/api/groups/'+$scope.group.id+'/conversation',{
+        $http.post('/api/groups/'+$scope.group.id+'/conversation',{
             content: $scope.conversation.content,
             title: $scope.conversation.title
         }).success(function(data) {
@@ -297,7 +297,7 @@ angular.module('winwinsApp')
 
     $scope.submitReply = function(conversation) {
         console.log('submit');
-        $http.post(api_host+'/api/groups/'+$scope.group.id+'/conversation/'+conversation.id,{
+        $http.post('/api/groups/'+$scope.group.id+'/conversation/'+conversation.id,{
             content: $scope.reply.content
         }).success(function(data) {
             $scope.comments = data;
@@ -318,14 +318,14 @@ angular.module('winwinsApp')
 
 
     $scope.getThread = function(group_id) {
-        $http.get(api_host+'/api/group_thread/'+group_id).success(function(data) {
+        $http.get('/api/group_thread/'+group_id).success(function(data) {
             $scope.comments = data;
         })
     };
 
 
     $scope.follow = function(member) {
-        $http.get(api_host+'/api/users/follow/'+member.id).success(function(data) {
+        $http.get('/api/users/follow/'+member.id).success(function(data) {
             $scope.getUser();
             swal({
                 title: "info", 
@@ -347,7 +347,7 @@ angular.module('winwinsApp')
     };
 
     $scope.unfollow = function(member) {
-        $http.get(api_host+'/api/users/unfollow/'+member.id).success(function(data) {
+        $http.get('/api/users/unfollow/'+member.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'user_unfollow', 
@@ -370,7 +370,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('group-config', function($scope, $state, $auth, $timeout, $http,  Upload, Group, Interest, api_host) {
+.controller('group-config', function($scope, $state, $auth, $timeout, $http,  Upload, Group, Interest) {
 
     $scope.doValidate = function() {
         $scope.group.gallery_image = $scope.image_gallery_selected;
@@ -379,7 +379,7 @@ angular.module('winwinsApp')
 
     $scope.doSave = function() {
         if($scope.doValidate()) {
-            $http.post(api_host+'/api/group/'+$scope.group.id, $scope.group)
+            $http.post('/api/group/'+$scope.group.id, $scope.group)
             .success(function(data) {
                 swal({
                     title: "info", 

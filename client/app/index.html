@@ -20,14 +20,24 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link  rel="stylesheet" href="styles/image-picker.css">
-    <link  rel="stylesheet" href="styles/searchBar.css">
-    <link  rel="stylesheet" href="styles/tags-input.css">
     <link  rel="stylesheet" href="styles/winwin.css">
-    <link  rel="stylesheet" href="styles/winwins.css">
+    <link  rel="stylesheet" href="styles/winwin-only.css">
+    <link  rel="stylesheet" href="styles/searchBar.css">
+    <link  rel="stylesheet" href="styles/speechBubbles.css">
+    <link  rel="stylesheet" href="styles/tags-input.css">
+    <link  rel="stylesheet" href="styles/styles.css">
     <!-- endbuild -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <base href="/">
+    <!--
+    link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/signUp.css">
+    <link rel="stylesheet" href="styles/winwin.css"> 
+    <link rel="stylesheet" href="styles/createWW.css">
+    <link rel="stylesheet" href="styles/searchBar.css">
+    -->
+        <base href="/">
   </head>
 
   <body ng-app="winwinsApp">
@@ -106,7 +116,9 @@
     <!-- / End Navigation -->
 
     <!-- Page Content -->
-    <div ui-view class="main-view" autoscroll="false"></div>
+    <div ui-view class="main-view container" autoscroll="false"></div>
+
+    <!--div class="footer"></div-->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID >
      <script>

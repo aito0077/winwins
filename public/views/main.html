@@ -1,53 +1,36 @@
-<div class="container">
-    <div class="row">
 
-        <div class="col-xs-12 reel">
-            <iframe width="100%" height="280" src="https://www.youtube.com/embed/HlAxAciOeP8" frameborder="0" allowfullscreen></iframe>
+    <div class="col-xs-12 no-padding portada" style="background-color:red">
+        <iframe width="100%" height="280" src="https://www.youtube.com/embed/HlAxAciOeP8" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div  ng-if="!isAuthenticated()" ng-click="goControlPanel()"  class="col-xs-12 no-padding title-home back-winwin border-bottom" style="cursor: pointer;">
+        <span>comenzar ahora!</span>
+    </div>
+
+    <div ng-repeat="winwin in winwins" class="col-xs-12 no-padding" >
+        <div class=" img-misc no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
+                <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999; cursor:pointer;"  ng-click="view(winwin.id)" >
+                    {{::winwin.title}}
+                </div>
         </div>
-        <div  ng-if="!isAuthenticated()" ng-click="goControlPanel()"  class="col-xs-12 comenzar" style="cursor: pointer;"> COMENZAR </div>    
-        
-        <div ng-repeat="winwin in winwins" class="col-xs-12" >
-            <div class="row">
-                <div class="panel-body">
-                    <div class="col-xs-12-card">
-                        <div class="img-misc no-padding text-center padding-top-txt-sponsor" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
-                            <div class="winwin-title" ng-click="view(winwin.id)" >
-                                {{::winwin.title}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-buttons">
-                    <div class="col-xs-1 card-profile-img"><img src="/images/profile_card.png"  class="img-circle"></div>
-                    <div class="col-xs-1 card-profile-img"><img src="/images/sponsor_card.png"  class="img-circle"></div>
-                    <div class="col-xs-3 card-somos">
-                        <i class="fa fa-users"></i><span style="font-size:1em;">	<span style="font-family:montserrat; color: #6D6E6F; padding-left: 1px; "> 1345
-                    </div>
-                    <div class="col-xs-3 card-join">
-                        <div class="col-xs-2"><a href="#" class="btn join" role="button" ng-click="join(winwin.id)" style=""> ME SUMO</a>
-                    </div>
-                </div>
-
-
-                <div class="col-xs-2 card-share">
-                    <a href="#" class="btn share-card" role="button"  data-toggle="dropdown">
-                        <i class="fa fa-share"></i>
-                    </a>
-                </div>       
+        <div class="col-xs-12 no-padding">
+            <div class="col-xs-4 no-padding btn4 btn-share">
+                <a href="#" data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
+                    <i class="fa fa-share-alt fa-inverse"></i>
+                </a>
                 <ul class="dropdown-menu col-xs-12">
                     <li class="center-block">
                         <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
-                            socialshare-provider="twitter"
-                            socialshare-text="{{::winwin.title}}"
-                            socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
-                                <i class="fa fa-twitter"></i> Twitter
+socialshare-provider="twitter"
+socialshare-text="{{::winwin.title}}"
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+                            <i class="fa fa-twitter"></i> Twitter
                         </span>
                     </li>
                     <li>
                         <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
-                            socialshare-provider="facebook"
-                            socialshare-text="{{::winwin.title}}"
-                            socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+socialshare-provider="facebook"
+socialshare-text="{{::winwin.title}}"
+socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
                             <i class="fa fa-facebook"></i> Facebook
                         </span>
                     </li>                   
@@ -58,10 +41,19 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="col-xs-4 no-padding btn4 btn-share like">
+                <a href="#" class="no-padding" ng-click="view(winwin.id)">
+                    <h5>Me Interesa</h5>
+                </a>
+            </div>
+            <div class="col-xs-4 no-padding btn4 btn-share mesumo">
+                <a href="#" class="no-padding"  ng-click="join(winwin.id)">
+                    <h5>Me Sumo</h5>
+                </a>
+            </div>
         </div>
     </div>
 
-</div>
+
 <search-bar/>
-
-
