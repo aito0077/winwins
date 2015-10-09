@@ -1,70 +1,86 @@
 
-<form method="post" ng-submit="login()" name="loginForm">
-<div class="container">
-   <div class="row">
-      <div class="login-txt"> INGRESA A TU CUENTA </div>
-   </div>
+<div ng-show="show_login">
+    <form method="post" ng-submit="login()" name="loginForm">
+        <div class="container">
+           <div class="row">
+              <div class="login-txt"> INGRESA A TU CUENTA </div>
+           </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-back">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
+                            <input type="text" class="form-control" placeholder="Tu e-mail" aria-describedby="sizing-addon1" ng-model="email" autofocus required>
+                        </div>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key"></i></span>
+                            <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" ng-model="password" required>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">
+                                <span class="remember"> Recordarme</span>
+                            </label>
+                        </div>
+                        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-register">INGRESAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+               <div class="forgot"> ¿Olvidaste tu contraseña?</div>
+            </div>
+        </div>
+
+        <div class="container">
+           <div class="row">
+              <div class="login-txt"> O INGRESA CON </div>
+           </div>
+        </div>
+
+        <div class="container social">
+            <div class="row">
+                <div class="col-xs-3"><a href="#" class="btn btn-fbk-big" role="button" style="border-radius: 5px;"  ng-click="authenticate('facebook')"><i class="fa fa-facebook"></i></a></div>
+                <div class="col-xs-3"><a href="#" class="btn btn-twitter-big"  style="border-radius: 5px;"role="button"  ng-click="authenticate('twitter')"><i class="fa fa-twitter"></i></a></div>
+                <div class="col-xs-3"><a href="#" class="btn btn-google-big" role="button" style="border-radius: 5px;"   ng-click="authenticate('google')"><i class="fa fa-google-plus"></i></a></div>
+                <div class="col-xs-3"><a href="#" class="btn btn-yahoo-big" role="button" style="border-radius: 5px;"  ng-click="authenticate('yahoo')"><i class="fa fa-yahoo"></i></a></div>
+            </div>
+        </div>
+
+
+        <div class="pad-100"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h6 style="text-align: center; font-family: montserrat; font-size: 9px;">Winwins 2.0 - <a style="color: #06C; padding-top: 3px;"  href="#">Política de Privacidad</a> </h6>
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        </div>
+
+    </form>
+
 </div>
-<div class="container">
-<div class="row">
-   <div class="col-xs-12">
-      <div class="form-back">
-         <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o"></i></span>
-            <input type="text" class="form-control" placeholder="Tu e-mail" aria-describedby="sizing-addon1" ng-model="email" autofocus required>
-         </div>
-         <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key"></i></span>
-            <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="sizing-addon1" ng-model="password" required>
-         </div>
-         <div class="checkbox">
-            <label>
-            <input type="checkbox" value="">
-            <span class="remember"> Recordarme</span>
-            </label>
-         </div>
-         <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-register">INGRESAR</button>
-      </div>
-   </div>
+
+<div class="container" ng-show="redirect_message">
+    <div class="row">
+        <div class="pad-50"> </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div style="text-align: center;"> 
+                <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                <h1 style="font-family: montserrat;"> ¡GENIAL! </h1>
+                <h4 style="font-family: montserrat;"> Vamos a tu cuenta</h4>
+                <div class="pad-80"></div>
+                <img src="/images/loading.gif" width="150" height="110" alt="loading"> </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="container">
-<div class="row">
-   <div class="forgot"> ¿Olvidaste tu contraseña?</span>
-   </div>
-</div>
-
-<!-- /Signup Form -->   
-<div class="container">
-   <div class="row">
-      <div class="login-txt"> O INGRESA CON </div>
-   </div>
-</div>
-<!-- social login -->   
-<div class="container social">
-   <div class="row">
-      <div class="col-xs-3"><a href="#" class="btn btn-fbk-big" role="button" style="border-radius: 5px;"  ng-click="authenticate('facebook')"><i class="fa fa-facebook"></i></a></div>
-      <div class="col-xs-3"><a href="#" class="btn btn-twitter-big"  style="border-radius: 5px;"role="button"  ng-click="authenticate('twitter')"><i class="fa fa-twitter"></i></a></div>
-      <div class="col-xs-3"><a href="#" class="btn btn-google-big" role="button" style="border-radius: 5px;"   ng-click="authenticate('google')"><i class="fa fa-google-plus"></i></a></div>
-      <div class="col-xs-3"><a href="#" class="btn btn-yahoo-big" role="button" style="border-radius: 5px;"  ng-click="authenticate('yahoo')"><i class="fa fa-yahoo"></i></a></div>
-   </div>
-</div>
-<!--  / social login -->  
-
-
-
-
-
-
-
-<div class="pad-100"></div>
-<div class="container">
-   <div class="row">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-4">
-         <h6 style="text-align: center; font-family: montserrat; font-size: 9px;">Winwins 2.0 - <a style="color: #06C; padding-top: 3px;"  href="#">Política de Privacidad</a> </h6>
-      </div>
-      <div class="col-sm-4"></div>
-   </div>
-</div>
-
-
+ 

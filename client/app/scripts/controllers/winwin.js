@@ -289,7 +289,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, Winwin, Account) {
+.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', '$timeout', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, $timeout, Winwin, Account) {
     $scope.profile = {};
     $scope.winwin = {};
 
@@ -304,10 +304,17 @@ angular.module('winwinsApp')
     });
 
     $scope.goView = function() {
-        $state.go('winwin-view', {
-            winwinId: $scope.winwin.id
-        }); 
+        $scope.promote = false;
+        $scope.success = true;
+        $timeout(function() {
+            $state.go('winwin-view', {
+                winwinId: $scope.winwin.id
+            }); 
+        }, 3000);
     };
+
+    $scope.promote = true;
+    $scope.success = false;
 
 }])
 .controller('winwin-list', ['$scope', '$http', '$auth', '$state', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, WinwinPaginate, api_host) {
@@ -379,6 +386,11 @@ angular.module('winwinsApp')
 .controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
 
         $scope.show_closing_date = false;
+        $scope.show_description = false;
+
+        $scope.show_details = function(show) {
+            $scope.show_description = show;
+        };
 
         $scope.posts = [];
         $scope.last = {};
