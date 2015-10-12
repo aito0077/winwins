@@ -48,6 +48,7 @@ class WinwinController extends Controller {
 	public function index() {
         $winwins = Winwin::where('selected', 1)->where('published', 1)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
 
+        Log::info($winwins);
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             $users_count = count($winwin->users);
