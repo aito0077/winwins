@@ -1,4 +1,74 @@
 <div ng-show="first_stage">
+
+    <form id="create-ww-form" role="form" ng-submit="persistBasic()" name="wwBasicForm">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 create-title"> 
+    
+                    CREA TU WINWIN <br> COMENZA UNA ACCION POSITIVA
+                </div> 
+            </div> 
+        </div> 
+    
+        <div class="container ww-create">
+            <div class="form-back create">
+                <div class="input-label">Dale un nombre a tu winwin <i class="fa fa-question-circle"></i></div>
+
+                <input class="input-forms" class="active" placeholder="Nombra tu winwin" type="text"  ng-model="winwin.title" required/>
+
+                <div class="pad-20"></div>
+                <div class="input-label">Plantea tu WinWin <i class="fa fa-question-circle"></i></div>
+                <div class="pad-10"></div>
+                <span class="si-supieras">¿Si supieras que somos </span> 
+
+                <input class="numero" type="number" placeholder="2"  ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
+
+                <span class="si-supieras">para</span>
+                <div class="pad-10"></div>
+
+                <textarea class="text-forms" name="" cols="" rows="4" placeholder="Ej: Hacer cosas divertidas y cambiar el mundo."  ng-model="winwin.what_we_do" required></textarea>
+
+                <br>
+                <span class="si-supieras">te sumarías?</span>
+                <div class="pad-10"></div>
+                <div class="input-label">Más Detalles del WinWin <i class="fa fa-question-circle"></i></div>
+
+                <textarea class="text-forms" rows="4" ng-model="winwin.description"></textarea>
+
+                <div class="pad-10"></div>
+
+                <div class="input-label">Fecha Límite (Si Aplica) <i class="fa fa-question-circle"></i></div>
+
+
+
+                <div class="col-xs-8 col-xs-offset-2 ">
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1">
+                            <input type="text" class="form-control"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pad-10"></div>
+
+                <button name="crear-winwin" type="submit" ng-disabled="wwBasicForm.$invalid"  class="submit-create btn " style="color:#FFF; text-transform:uppercase;" ng-click="persistBasic()">
+                    Crear winwin
+                </button>   
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+
+
+</div>
+<div ng-show="false && first_stage">
     <form role="form" ng-submit="persistBasic()" name="wwBasicForm">
         <div class="container">
 
@@ -85,76 +155,88 @@
 
 <div ng-show="second_stage">
     <form role="form" data-ng-submit="doSave()" name="wwAdditionalForm">
-        <div class="container">
 
-            <div class="col-xs-12 msj-bienvenida back-winwin">
-                <h1 class="txt-welcome text-center">
-                    DALE INDENTIDAD A TU WINWIN
-                    <p class="bajada-winwin"><i>Comenzá una acción positiva, por más chica que sea que sientas que úede llegar a mejorar aunque sea algo. Algo que te inspire y te motive. Por más pequeño o GIGANTESCO que sea!</i></p>
-                </h1>            
-            </div>
-
-            <div class="col-xs-12 icons-id border-grey" style="margin-top: 30px; padding-bottom: 10px;">
-
-                <div class="col-xs-4">
-                    <i style="cursor:pointer" ng-show="!winwin.video" class="fa fa-youtube-play" ng-click="setVideoUrl()"></i>
-                    <a ng-show="winwin.video" href="https://www.youtube.com/watch?v={{winwin.video}}" target="_blank">
-                        <img class="img-responsive" src="http://img.youtube.com/vi/{{winwin.video}}/default.jpg" height="75" />
-                    <a/>
-                </div>
-
-                <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4" ngf-accept="'image/*'">
-                        <div>
-                            <i ng-show="!winwin.image && !uploading" class="fa fa-camera"></i>
+        <div class="row">
+            <div class="col-xs-12 create-title"> <i class="fa fa-flag-o"></i> <br> Dale identidad a tu WinWin </div>
+            <div style="col-xs-2"> </div>
+            <div class="panel-body">
+                <div class="col-xs-12 img-misc no-padding text-center padding-top-txt-sponsor" dynamic-background="" background-size="cover" background-image="{{preview_image}}">
+                    Nombre del WinWin
+                    <div class="container ww-id">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5>Elegí un video o una foto</h5>
+                            </div>
                         </div>
-                        <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
-                        <img class="img-responsive" ng-show="winwin.image" ng-src="http://images.dev-winwins.net/smart/{{winwin.image}}" height="75px"  style="padding:7px">
-                        <span class="small" ng-show="errorMsg">{{errorMsg}}</span>
-                </div>
-
-                <div class="col-xs-4">
-                    <span ng-click="select_gallery()" style="cursor:pointer">
-                        <i class="fa fa-picture-o" ng-show="!image_gallery_selected"></i>
-                        <img class="img-responsive" ng-src="http://images.dev-winwins.net/75x100/smart/{{image_gallery_selected}}" ng-show="image_gallery_selected">
-                    </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 border-grey" style="min-height: 200px;" ng-show="gallery_picker">
-                <div class="picker no-padding">
-                    <select id="image-gallery" class="image-picker"  ng-model="image_gallery_selected">
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-6.jpg" value="ww-default-5.jpg">Gente</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-7.jpg" value="ww-default-5.jpg">Trabajo</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-8.jpg" value="ww-default-5.jpg">Oficio</option>
-                        <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-9.jpg" value="ww-default-5.jpg">Colaborar</option>
-                    </select>
+            <div class="container">
+                <div class="row">
+                    <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders" ngf-accept="'image/*'">
+                        <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro"></i>
+                        <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading">
+                    </div>
+                    <div style="cursor:pointer" class="col-xs-4 uploaders" ng-click="setVideoUrl()">
+                        <i class="fa fa-youtube"></i>
+                    </div>
+                    <div class="col-xs-4 uploaders" ng-click="select_gallery()" style="cursor:pointer">
+                        <i class="fa fa-image"></i>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-10 col-xs-push-1 mb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4 id-txt">FOTO</div>
+                    <div class="col-xs-4 id-txt">VIDEO</div>
+                    <div class="col-xs-4 id-txt">GALERÍA</div>
+                </div>
+            </div>
 
+            <div class="container" ng-show="gallery_picker">
+                <div class="row">
+
+                    <div class="col-xs-12 border-grey" style="min-height: 200px;">
+                        <div class="picker no-padding">
+                            <select id="image-gallery" class="image-picker"  ng-model="image_gallery_selected">
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-6.jpg" value="ww-default-5.jpg">Gente</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-7.jpg" value="ww-default-5.jpg">Trabajo</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-8.jpg" value="ww-default-5.jpg">Oficio</option>
+                                <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-9.jpg" value="ww-default-5.jpg">Colaborar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="form-back create-id">
+            <div class="pad-10"></div>
+                <div class="input-label">Escala del WinWin <i class="fa fa-question-circle" style="color: red;"></i></div>
+                <select ng-options="item as item for item in scopes track by item.id" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
+                </select>
+                <div class="pad-10"></div>
+
+                <div class="input-label">En que categoría? <i class="fa fa-question-circle" style="color: red;"></i></div>
                 <select ng-options="item as item.description for item in interests track by item.id" ng-model="winwin.interest" class="form-control" placeholder="Seleccioná una categoría">
                 </select>
 
+                <div class="pad-10"></div>
+                <div class="input-label">Palabras Clave <i class="fa fa-question-circle" style="color: red;"></i></div>
+                <tags-input  class="bootstrap" ng-model="winwin.tags" placeholder="Agrega palabras claves"></tags-input>
             </div>
-            <div class="col-xs-10 col-xs-push-1 mb-20">
-
-                <select ng-options="item as item for item in scopes track by item.id" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
-                </select>
-
-            </div>
-
-            <div class="col-xs-10 col-xs-push-1 mb-20">
-                 <tags-input  class="bootstrap" ng-model="winwin.tags" placeholder="Ingresa palabras claves"></tags-input>
-            </div>
-
-            <div class="col-xs-10 col-xs-push-1">
-                <button type="submit" ng-disabled="wwAdditionalForm.$invalid" class="btn btn-default btn-sponsor btn-second mb-20" style="color:#FFF; text-transform:uppercase;">
-                    ir a mi winwin!
-                </button>   
+            <div class="pad-10"></div>
+            <div class="form-back  create-id">
+                <button name="crear-winwin" type="submit" class="submit-create"  ng-disabled="wwAdditionalForm.$invalid">  Guardar y continuar</button>
             </div>
         </div>
     </form>

@@ -274,6 +274,7 @@ class UserController extends Controller {
                     $followedsUsers->follower_id = $user->id;
                     $followedsUsers->followed_id = $followed->id;
                     $followedsUsers->save();
+                    DB::table('users')->whereId($user->id)->increment('followers_amount');
 
                     $followed->newNotification()
                         ->from($user)
@@ -298,6 +299,7 @@ class UserController extends Controller {
             return response()->json(['message' => 'You have to follow in order to unfollow'], 400);
         } else {
             DB::table('followers')->where('follower_id', $user->id )->where('followed_id', $followed->id)->delete();
+            DB::table('users')->whereId($user->id)->decrement('followers_amount');
         }
 	}
 

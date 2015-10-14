@@ -56,6 +56,8 @@ class WinwinController extends Controller {
             if($winwin->users_amount) {
                 $winwin->users_left = ($winwin->users_amount - $users_count);
             }
+            $winwin->sponsors;
+            $winwin->user;
         });
         return $collection;
 	}
@@ -235,7 +237,7 @@ class WinwinController extends Controller {
                     $winwinsUsers->save();
 
                     DB::table('winwins')->whereId($winwin->id)->increment('users_joined');
-
+                    DB::table('users')->whereId($user->id)->increment('winwins_amount');
 
                     $user->newActivity()
                         ->from($user)
@@ -268,6 +270,7 @@ class WinwinController extends Controller {
 
                     DB::table('winwins_users')->where('user_id', $user->id )->where('winwin_id', $winwin->id)->delete();
                     DB::table('winwins')->whereId($winwin->id)->decrement('users_joined');
+                    DB::table('users')->whereId($user->id)->decrement('winwins_amount');
 
                     $user->newActivity()
                         ->from($user)

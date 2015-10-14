@@ -130,6 +130,10 @@ class SponsorController extends Controller {
 	public function follow(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $sponsor = Sponsor::find($id);
+
+        if(!isset($sponsor) ) {
+            return response()->json(['message' => 'sponsor not found'], 400);
+        }
         $sponsor->user();
         if($user->id == $sponsor->user->id) {
             return response()->json(['message' => 'As owner you are already following'], 400);

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->string('twitter')->nullable();
 
             $table->string('photo')->default('placeholder-square.jpg');
+            $table->string('cover_photo')->default('default_cover.jpg');
 
 			$table->dateTime('last_access')->nullable();
             $table->boolean('canceled')->default(FALSE);
@@ -25,7 +26,9 @@ class CreateUsersTable extends Migration {
             $table->boolean('active')->default(FALSE);
             $table->boolean('accept_terms')->default(FALSE);
 
-
+			$table->string('displayname')->nullable();
+            $table->integer('followers_amount')->unsigned();
+            $table->integer('winwins_amount')->unsigned();
 
 			$table->timestamps();
 		});

@@ -1,0 +1,61 @@
+    <div ng-include="'views/winwin-view/navbar.html'"></div>
+
+      
+    <div class="row">
+        <button type="button" ng-click="filter('all')" class="col-xs-4 active filter" ng-class="{active: current == 'all'}">Todos</button>
+        <button type="button" ng-click="filter('activator')" class="col-xs-4  filter" ng-class="{active: current == 'activator'}">Activadores</button>
+        <button type="button" ng-click="filter('creator')" class="col-xs-4  filter" ng-class="{active: current == 'creator'}">Creador</button>
+    </div>
+
+    <div class="grid grid-participantes">
+        <div class="grid-item participante-item {{classType(participante)}}"  ng-repeat="participante in winwin.users">
+
+    
+            <div class="col-xs-12 no-padding">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{participante.cover_photo}}" style="height: 220px;">
+              
+                    <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
+                        <img ng-src="http://images.dev-winwins.net/smart/{{::participante.photo}}" class="img-responsive img-circle"  style="margin-left: auto; margin-right:auto; dislay:block; width:100px;"/>
+                    </div>
+                    <div style="margin-left:auto; margin-right: auto; display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
+                        <h4> 
+                            {{::participante.displayname}} 
+                        </h4>
+                  
+                    </div>
+                </div>
+
+   
+   
+                <div class="container">
+                    <div class="row">
+                        <div class="buttons-profile">
+                            <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::participante.winwins_amount}}</a>
+                            <a ng-show="!participante.my_self && !participante.following" role="button" class="col-xs-6 btn-join"  ng-click="follow(participante)"> SEGUIR</a>
+                            <a ng-show="!participante.my_self && participante.following" role="button" class="col-xs-6 btn-join"  ng-click="follow(participante)"> SEGUIR</a>
+                            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::participante.followers_amount}}</a>
+                        </div>
+          
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
