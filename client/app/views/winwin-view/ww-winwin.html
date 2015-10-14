@@ -1,8 +1,9 @@
 <div class="container">
+    <div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-200"></div>
 
     <div class="row">
         <div class="col-xs-12 no-padding">
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{winwin.image}}" style="height: 250px;">
+            <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 250px;">
                 <div style="margin-left:auto; margin-right: auto; padding-top:50px;display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
                     <h4>
                         {{::winwin.title}}
@@ -145,29 +146,13 @@
     </div>
 </div>
 
-<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="400"></div>
 <div class="container winwin-menu col-xs-12 navbar navbar-top-fixed" ng-class="{fixed: wpPreview.name.down}" ng-show="wpPreview.name.down">
     <div ng-include="'views/winwin-view/navbar.html'"/>
 </div> 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="subview-body container">
+<div class="_subview-body container">
 
     <div class="row">
         <div class="col-xs-12 text-center bajada-onscroll">
