@@ -13,16 +13,16 @@ angular.module('winwinsApp')
         }
     });
 }])
-.factory('Account', ['$http', 'api_host', function($http, api_host) {
+.factory('Account', ['$http', function($http) {
     return {
         getProfile: function() {
-            return $http.get(api_host+'/api/me');
+            return $http.get('/api/me');
         },
         getStatus: function() {
-            return $http.get(api_host+'/api/me/status');
+            return $http.get('/api/me/status');
         },
         updateProfile: function(profileData) {
-            return $http.put(api_host+'/api/me', profileData);
+            return $http.put('/api/me', profileData);
         }
     };
 }]).factory('User',['$resource', 'api_host', function($resource, api_host){

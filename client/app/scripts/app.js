@@ -17,8 +17,7 @@ angular.module('winwinsApp', [
     'zumba.angular-waypoints',
     'oitozero.ngSweetAlert',
     'pascalprecht.translate',
-//    '720kb.background',
-    'headroom',
+    '720kb.background',
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
@@ -99,27 +98,23 @@ angular.module('winwinsApp', [
     })
     .state('winwin-view', {
         url: '/winwin-view/:winwinId',
-        //templateUrl: 'views/winwin/view.html',
-        templateUrl: 'views/winwin-view/ww-winwin.html',
+        templateUrl: 'views/winwin/view.html',
         controller: 'winwin-view'
     })
     .state('winwin-view.muro', {
         templateUrl: 'views/winwin/muro.html',
         controller: 'winwin-muro'
     })
-    .state('winwin-members', {
-        templateUrl: 'views/winwin-view/ww-users.html',
-        url: '/winwin-view/:winwinId',
+    .state('winwin-view.members', {
+        templateUrl: 'views/winwin/participantes.html',
         controller: 'winwin-members'
     })
-    .state('winwin-sponsors', {
-        templateUrl: 'views/winwin-view/ww-sponsors.html',
-        url: '/winwin-view/:winwinId',
+    .state('winwin-view.sponsors', {
+        templateUrl: 'views/winwin/sponsors.html',
         controller: 'winwin-sponsors'
     })
-    .state('admin_campanada', {
-        templateUrl: 'views/winwin-view/ww-campanada.html',
-        url: '/winwin-view/:winwinId',
+    .state('winwin-view.admin_campanada', {
+        templateUrl: 'views/winwin/admin_campanada.html',
         controller: 'winwin-campanada'
     })
     .state('winwin-view.admin_configuracion', {
@@ -313,61 +308,4 @@ angular.module('winwinsApp', [
         $window.history.forward();
     };
 })
-.directive('dynamicBackground', [function dynamicBackgroundDirective() {
-  return {
-    'restrict': 'A',
-    'link': function linkingFunction($scope, element, attrs) {
-
-      $scope.setBg = function manageSetBg() {
-
-       angular.element(element[0]).css({
-        'background-color': attrs.backgroundColor,
-        'background-repeat': attrs.backgroundRepeat,
-        'background-position': attrs.backgroundPosition,
-        'background-attachment': attrs.backgroundAttachment,
-        'background-origin': attrs.backgroundOrigin,
-        'background-clip': attrs.backgroundClip,
-        'background': 'linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(' + attrs.backgroundImage + ')',
-        'background-size': 'cover',
-       });
-      };
-
-      $scope.launchDynamicBg = function manageLaunchDynamicBg () {
-
-        if (attrs.backgroundOnEvent) {
-
-          angular.element(element[0]).bind(attrs.backgroundOnEvent, function onBackgroundEvent() {
-
-            $scope.setBg();
-          });
-        } else {
-
-          $scope.setBg();
-        }
-      };
-
-      angular.forEach([
-        'backgroundImage',
-        'backgroundColor',
-        'backgroundSize',
-        'backgroundPosition',
-        'backgroundClip',
-        'backgroundAttachment',
-        'backgroundOnEvent',
-        'backgroundRepeat',
-        'backgroundOrigin',
-        'background'
-        ], function iterator(value) {
-
-        attrs.$observe(value, function onChange(val){
-
-          if (val) {
-
-            $scope.launchDynamicBg();
-          }
-        });
-      });
-    }
-  };
-}])
 ;

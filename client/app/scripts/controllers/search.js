@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('search-list', ['$scope', '$stateParams', '$state', '$http', '$auth', 'api_host', function($scope, $stateParams, $state, $http, $auth, api_host) {
+.controller('search-list', ['$scope', '$stateParams', '$state', '$http', '$auth', function($scope, $stateParams, $state, $http, $auth) {
     console.dir($stateParams); 
     $scope.hits = [];
     $scope.winwins = [];
@@ -10,7 +10,7 @@ angular.module('winwinsApp')
     $scope.groups = [];
 
     
-    $http.get(api_host+'/api/ww/search/', {
+    $http.get('/api/ww/search/', {
         params: {
             q: $stateParams.query
         }
@@ -48,7 +48,7 @@ angular.module('winwinsApp')
 
     $scope.join = function(winwin_id) {
         if($auth.isAuthenticated()) {
-            $http.get(api_host+'/api/winwins/join/'+winwin_id).success(function(data) {
+            $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
                 swal({
                     title: "info", 
                     text: 'winwin_join', 

@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', 'api_host', function($scope, $auth, $http, $state, Winwin, api_host) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', function($scope, $auth, $http, $state, Winwin) {
     $scope.winwins = [];
 
     Winwin.query(function(data) {
@@ -19,7 +19,7 @@ angular.module('winwinsApp')
 
     $scope.join = function(winwin_id) {
         if($auth.isAuthenticated()) {
-            $http.get(api_host+'/api/winwins/join/'+winwin_id).success(function(data) {
+            $http.get('/api/winwins/join/'+winwin_id).success(function(data) {
                 swal({
                     title: "info", 
                     text: 'winwin_join', 

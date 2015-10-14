@@ -1,5 +1,7 @@
-<div class="winwin" zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-200px">
+<div class="winwin" _zum-waypoint="wpPreview" down="name.down" up="name.up" offset="-200px" _ng-swipe-right="previous()"  _ng-swipe-left="next()" >
+    <a id="winwin-top"></a>
 
+    <div _ng-show="wpPreview.name.down">
         <div id="menu-winwin" class="col-xs-12 no-padding navbar navbar-fixed-top">
             <div class="col-xs-20">
                 <span class="btn" ng-click="goWinwin()"><i class="fa fa-comments"></i></span>
@@ -37,9 +39,11 @@
                 <span class="btn" ng-click="goConfiguracion()"><i class="fa fa-server"></i></span>
             </div>
         </div>
+    </div>
 
 
-    <section id="winwin-view">
+
+    <section id="winwin-view" ng-show="!wpPreview.name.down" class="cssFade">
 
         <div class="col-xs-12 no-padding">
 
@@ -51,9 +55,35 @@
             </div>
             <div class="col-xs-12 no-padding shadow-border">
                 <div class="col-xs-3 no-padding btn5 btn-share">
-                    <a href="#" class=" no-padding">
-                        <i class="fa fa-share-alt share4"></i>
-                    </a>
+                    <span data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
+                        <i class="fa fa-share-alt share4 fa-inverse"></i>
+                    </span>
+                    <ul class="dropdown-menu col-xs-12">
+                        <li class="center-block">
+                            <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
+    socialshare-provider="twitter"
+    socialshare-text="{{::winwin.title}}"
+    socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+                                <i class="fa fa-twitter"></i> Twitter
+                            </span>
+                        </li>
+                        <li>
+                            <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
+    socialshare-provider="facebook"
+    socialshare-text="{{::winwin.title}}"
+    socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
+                                <i class="fa fa-facebook"></i> Facebook
+                            </span>
+                        </li>                   
+                        <li>
+                            <span  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
+                                <i class="fa fa-envelope"></i> Mail
+                            </span>
+                        </li>
+                    </ul>
+
+
+
                 </div>
                 <div class="col-xs-3 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
                     <span>Somos</span><br>
