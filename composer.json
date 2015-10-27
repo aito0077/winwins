@@ -14,10 +14,10 @@
 		"predis/predis": "^1.0",
 		"nesbot/carbon": "^1.20",
 		"graham-campbell/flysystem": "^3.1",
-		"guzzlehttp/oauth-subscriber": "dev-master",
 		"league/flysystem-aws-s3-v3": "^1.0@dev",
 		"flowjs/flow-php-server": "dev-master",
 		"pda/pheanstalk": "^3.0@dev",
+		"guzzlehttp/oauth-subscriber": "^0.3.0@dev",
 		"guzzlehttp/guzzle": "^6.1@dev"
 	},
 	"require-dev": {
