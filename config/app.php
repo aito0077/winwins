@@ -160,7 +160,6 @@ return [
 
         'Terbium\DbConfig\DbConfigServiceProvider',
 
-
 	],
 
 	/*

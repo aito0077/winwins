@@ -103,8 +103,9 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin-view/ww-winwin.html',
         controller: 'winwin-view'
     })
-    .state('winwin-view.muro', {
-        templateUrl: 'views/winwin/muro.html',
+    .state('winwin-muro', {
+        templateUrl: 'views/winwin-view/ww-wall.html',
+        url: '/winwin-view/:winwinId',
         controller: 'winwin-muro'
     })
     .state('winwin-members', {

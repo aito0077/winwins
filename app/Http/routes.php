@@ -21,6 +21,7 @@ Route::get('api/winwins/activate/{id}', ['middleware' => 'auth', 'uses' => 'Winw
 Route::post('api/winwins/campanada/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@campanada']);
 Route::post('api/winwins/sponsor_request/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorRequest']);
 
+Route::get('api/winwins/{id}/sponsors', ['middleware' => 'auth', 'uses' => 'WinwinController@winwinSponsors']);
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@storeImage']);

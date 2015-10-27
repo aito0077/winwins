@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary', 'winwinSponsors']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
@@ -120,6 +120,46 @@ class WinwinController extends Controller {
 
         return $winwin;
 	}
+
+	public function winwinSponsors(Request $request, $id) {
+        $winwin = Winwin::find($id);
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
+
+        $ww_user = $winwin->user;
+        $ww_user->detail;
+        $users = $winwin->users;
+        $sponsors = $winwin->sponsors;
+        $sponsors->each(function($sponsor) use($user) {
+
+            $sponsor->followers_count  = count($sponsor->users);
+            $sponsor->winwins_count  = count($sponsor->winwins);
+            $sponsor->groups_count  = count($sponsor->groups);
+
+            $sponsor->already_following = false;
+
+            if($user) {
+                $sponsor->already_following = count($sponsor->users->filter(function($model) use ($user) {
+                    $model->detail;
+                    return $model->id == $user->id;
+                })) > 0;
+            }
+
+
+        });
+
+        return $winwin;
+
+    }
+
 
 	public function store(Request $request) {
         Log::info($request['user']);
