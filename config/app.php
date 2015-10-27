@@ -158,6 +158,8 @@ return [
 
         'Barryvdh\Cors\ServiceProvider',
 
+        'Terbium\DbConfig\DbConfigServiceProvider',
+
 
 	],
 
@@ -207,6 +209,8 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'Carbon'    => 'Carbon\Carbon',
+        'DbConfig'  => 'Terbium\DbConfig\Facade',
+
 
 	],
 
