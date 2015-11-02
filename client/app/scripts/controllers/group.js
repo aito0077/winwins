@@ -162,13 +162,26 @@ angular.module('winwinsApp')
 
  
 }])
-.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post, api_host) {
+.controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post, Account, api_host) {
 
     $scope.edit_user = {};
 
     $scope.is_admin = false;
 
     $scope.current_view = 'home';
+
+    $scope.isSponsor = false;
+    Account.getProfile().success(function(data) {
+        if(data) {
+            $scope.account = data.account;
+            $scope.profile = data.profile;
+            $scope.sponsor = data.sponsor;
+            $scope.isSponsor = data.is_sponsor;
+    
+        }
+    });
+
+
 
     $scope.setCurrentView = function(view) {
         $scope.current_view = view;
@@ -438,7 +451,64 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.askForSponsored = function() {
+        swal({
+            title: "SOLICITAR PATROCINIO",
+            text: "Envia un mensaje de solicitud al administrador del Grupo",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            inputPlaceholder: "Mensaje de solicitud" 
+        },
+        function(inputValue){   
+            if (inputValue === false) 
+                return false;      
+            if (inputValue === "") {     
+                return false;  
+            }      
+            $http.post('/api/groups/sponsor_request/'+$scope.group.id, {
+                body: inputValue
+            })
+            .success(function(data) {
+                $state.go('group-sponsored', {
+                    groupId: $scope.group.id,
+                }); 
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+            return true;
 
+        });
+    };
+
+
+}])
+.controller('group-sponsored', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Group', function($scope, $http, $state, $stateParams, $timeout, Group) {
+
+    $scope.getGroup = function() {
+        $scope.group = Group.get({
+            id: $stateParams.groupId
+        }, function(data) {
+            $scope.name = data.name;
+            $timeout(function() {
+                $state.go('group-view', {
+                    groupId: $stateParams.groupId
+                }); 
+            }, 5000);
+
+        });
+    };
+
+    $scope.getGroup();
+
+    
 }])
 .controller('group-config', function($scope, $state, $auth, $timeout, $http,  Upload, Group, Interest, api_host) {
 

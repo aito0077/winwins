@@ -16,8 +16,9 @@
     <div class="row">
         <div class="buttons-profile">
             <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::group.winwins.length}}</a>
-            <a href="#" ng-show="!group.already_joined" ng-click="join()" role="button" class="col-xs-6 btn-join"> UNIRSE</a>
-            <a href="#" ng-show="group.already_joined" ng-click="left()" role="button" class="col-xs-6 btn-join"> ABANDONAR</a>
+            <a href="#" ng-if="!isSponsor" ng-show="!group.already_joined" ng-click="join()" role="button" class="col-xs-6 btn-join"> UNIRSE</a>
+            <a href="#" ng-if="!isSponsor" ng-show="group.already_joined" ng-click="left()" role="button" class="col-xs-6 btn-join"> ABANDONAR</a>
+            <a href="#" ng-if="isSponsor" ng-click="askForSponsored()" role="button" class="col-xs-6 btn-join"> SPONSOREAR </a>
             <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Miembros </span> <span class="falta">{{::group.members_count}}</a>
         </div>
     </div>

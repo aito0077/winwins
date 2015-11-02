@@ -13,6 +13,7 @@ use Winwins\Model\Group;
 use Winwins\Model\GroupsUser;
 use Winwins\Model\GroupsWinwin;
 use Winwins\Model\Repository\GroupRepository;
+use Winwins\Model\SponsorsGroup;
 use Winwins\Model\Winwin;
 use Winwins\Model\Post;
 
@@ -354,6 +355,68 @@ class GroupController extends Controller {
                                     
 	}
 
+
+	public function sponsorRequest(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = $user->sponsor;
+
+        $group = Group::find($id);
+        $group_user = $group->user;
+        $request_body = $request->input('body');
+
+        if(!isset($sponsor)) {
+            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
+        } else {
+            $already_sponsored = count($group->sponsors->filter(function($model) use ($sponsor) {
+                return $model->id == $sponsor->id;
+            })) > 0;
+
+            if($already_sponsored) {
+                return response()->json(['message' => 'you_are_already_sponsored_this_group'], 400);
+            } else {
+                DB::transaction(function() use ($group, $user, $sponsor, $request_body) {
+                    $groupsSponsors = new SponsorsGroup;
+                    $groupsSponsors->sponsor_id = $sponsor->id;
+                    $groupsSponsors->group_id = $group->id;
+                    $groupsSponsors->sponsor_message = $request_body;
+                    $groupsSponsors->sponsor_accept = 1;
+
+                    $groupsSponsors->save();
+                });
+                $group_user->newNotification()
+                    ->from($user)
+                    ->withType('SPONSOR_REQUEST')
+                    ->withSubject('Sponsor_request')
+                    ->withBody($request_body)
+                    ->regarding($group)
+                    ->deliver();
+
+                return response()->json(['message' => 'sponsor_request_sent'], 200);
+            }
+        }
+
+
+
+
+
+        if($user->id == $winwin->user->id) {
+            $users = $winwin->users;
+            foreach($users as $member) {
+                //if($member->id != $user->id)
+
+                $member->newNotification()
+                    ->from($user)
+                    ->withType('CAMPANADA')
+                    ->withSubject('New campanada')
+                    ->withBody($campanada_body)
+                    ->regarding($winwin)
+                    ->deliver();
+            }
+            return response()->json(['message' => 'campanada_sent', 'amount' => count($users)], 200);
+        } else {
+            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
+        }
+	}
 
 
 

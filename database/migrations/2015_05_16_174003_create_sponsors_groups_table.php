@@ -17,6 +17,14 @@ class CreateSponsorsGroupsTable extends Migration {
 
             $table->boolean('moderator')->default(FALSE);
 
+            $table->longText('group_message')->nullable();
+            $table->longText('sponsor_message')->nullable();
+            $table->longText('sponsor_text')->nullable();
+
+            $table->boolean('group_accept')->default(FALSE);
+            $table->boolean('sponsor_accept')->default(FALSE);
+            $table->integer('order')->unsigned();
+
 			$table->timestamps();
 		});
 	}
