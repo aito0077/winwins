@@ -68,7 +68,8 @@ angular.module('winwinsApp')
 
             $scope.account = data.account;
             $scope.profile = data.profile;
-            $scope.isSponsor = data.sponsor;
+            $scope.sponsor = data.sponsor;
+            $scope.isSponsor = data.is_sponsor;
         }
     });
 
@@ -164,11 +165,66 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.askForSponsored = function() {
+        swal({
+            title: "SOLICITAR PATROCINIO",
+            text: "Envia un mensaje de solicitud al creador del Winwin",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            inputPlaceholder: "Mensaje de solicitud" 
+        },
+        function(inputValue){   
+            if (inputValue === false) 
+                return false;      
+            if (inputValue === "") {     
+                return false;  
+            }      
+            $http.post('/api/winwins/sponsor_request/'+$scope.winwin.id, {
+                body: inputValue
+            })
+            .success(function(data) {
+                $state.go('winwin-sponsored', {
+                    winwinId: $scope.winwin.id,
+                    winwinName: $scope.winwin.title
+                }); 
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+            return true;
+
+        });
+    };
 
 }])
+.controller('winwin-sponsored', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
+    $scope.getWinwin = function() {
+        $scope.winwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.title = data.title;
+            $timeout(function() {
+                $state.go('winwin-view', {
+                    winwinId: $stateParams.winwinId
+                }); 
+            }, 5000);
 
+        });
+    };
 
+    $scope.getWinwin();
+
+    
+
+}])
 .controller('winwin-navbar', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
 
         $scope.isAdmin = true;

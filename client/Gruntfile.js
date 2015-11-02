@@ -333,8 +333,8 @@ module.exports = function (grunt) {
       dist: {
         options: {
           module: 'winwinsApp',
-          htmlmin: '<%= htmlmin.dist.options %>',
-          usemin: 'scripts/scripts.js'
+          //htmlmin: '<%= htmlmin.dist.options %>',
+          //usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
         src: 'views/{,*/}*.html',

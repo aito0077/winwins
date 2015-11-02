@@ -109,6 +109,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin-view/ww-winwin.html',
         controller: 'winwin-view'
     })
+    .state('winwin-sponsored', {
+        templateUrl: 'views/winwin-tabs/ww-sponsored.html',
+        url: '/winwin-sponsored/:winwinId',
+        controller: 'winwin-sponsored'
+    })
     .state('winwin-muro', {
         templateUrl: 'views/winwin-view/ww-wall.html',
         url: '/winwin-view/:winwinId',

@@ -103,7 +103,7 @@
 
 <!-- Winwin CTA-->
 <div class="container">
-    <div class="row">
+    <div class="row" ng-if="!isSponsor">
         <div class="col-xs-7 cta-join">
             <a href="#" class="no-padding" ng-click="join()">
                 <h6>SI! ME SUMO</h6>
@@ -115,6 +115,14 @@
             </a>
         </div>
     </div>
+    <div class="row" ng-if="isSponsor">
+        <div class="col-xs-8 col-xs-offset-2 somos-txt text-center" style="cursor:pointer"  ng-click="askForSponsored()">
+            <div class="no-padding"> 
+                <h6>SPONSOREAR WINWIN</h6>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

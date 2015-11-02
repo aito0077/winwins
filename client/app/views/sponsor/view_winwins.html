@@ -1,53 +1,29 @@
-    <div ng-repeat="winwin in sponsor.winwins" class="col-xs-12 no-padding" >
-        <div class=" img-misc no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}">
-                <div class="winwin-title" style="padding: 5px;position: absolute; z-index: 999; cursor:pointer;"  ng-click="view(winwin.id)" >
-                    {{::winwin.title}}
-                </div>
-        </div>
+<div class="container" ng-repeat="winwin in sponsor.winwins">
+    <div class="row">
         <div class="col-xs-12 no-padding">
-            <div class="col-xs-4 no-padding btn4 btn-share">
-                <a href="#" data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
-                    <i class="fa fa-share-alt fa-inverse"></i>
-                </a>
-                <ul class="dropdown-menu col-xs-12">
-                    <li class="center-block">
-                        <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
-socialshare-provider="twitter"
-socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
-                            <i class="fa fa-twitter"></i> Twitter
-                        </span>
-                    </li>
-                    <li>
-                        <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
-socialshare-provider="facebook"
-socialshare-text="{{::winwin.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}">
-                            <i class="fa fa-facebook"></i> Facebook
-                        </span>
-                    </li>                   
-                    <li>
-                        <span  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
-                            <i class="fa fa-envelope"></i> Mail
-                        </span>
-                    </li>
-                </ul>
+            <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
+                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
             </div>
-
-            <div class="col-xs-4 no-padding btn4 btn-share like">
-                <a href="#" class="no-padding" ng-click="view(winwin.id)">
-                    <h5>Me Interesa</h5>
-                </a>
+            <div class="ww-popular" ng-if="winwin.mark == 'popular'"> 
+                <div class="ww-popular pop"> Pop</div>
             </div>
-            <div class="col-xs-4 no-padding btn4 btn-share mesumo">
-                <a href="#" class="no-padding"  ng-click="join(winwin.id)">
-                    <h5>Me Sumo</h5>
-                </a>
+            <div class="ww-finishing" ng-if="winwin.mark == 'finishing'"> 
+                <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
+            </div>
+        </div>
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer;"  ng-click="viewWinwin(winwin.id)">
+            <div class="username-cards text-uppercase">{{::winwin.title}}</div>
+        </div>
+        <div class="card-buttons" >
+            <div class=" col-xs-1 profile">
+                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
+            </div>
+            <div class="col-xs-1 profile"> 
+                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
             </div>
         </div>
     </div>
-
-
+</div>
 
 
 

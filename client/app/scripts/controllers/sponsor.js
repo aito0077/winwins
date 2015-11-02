@@ -14,6 +14,25 @@ angular.module('winwinsApp')
 }])
 .controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor, api_host) {
 
+    $scope.is_admin = false;
+
+    $scope.current_view = 'home';
+
+    $scope.setCurrentView = function(view) {
+        $scope.current_view = view;
+        $scope.is_admin = view == 'admin';
+    };
+
+    $scope.setNormal = function() {
+        $scope.is_admin = false;
+    };
+
+    $scope.setAdmin = function() {
+        if($scope.user_detail.myself) {
+            $scope.is_admin = true;
+        }
+    };
+
     $scope.getSponsor = function() {
         $scope.sponsor = Sponsor.get({
             id: $stateParams.sponsorId
