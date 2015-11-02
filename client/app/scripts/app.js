@@ -100,6 +100,11 @@ angular.module('winwinsApp', [
     })
     .state('winwin-view', {
         url: '/winwin-view/:winwinId',
+        templateUrl: 'views/winwin-tabs/view.html',
+        controller: 'winwin-tabs'
+    })
+    .state('_winwin-view', {
+        url: '/winwin-view/:winwinId',
         //templateUrl: 'views/winwin/view.html',
         templateUrl: 'views/winwin-view/ww-winwin.html',
         controller: 'winwin-view'
@@ -195,6 +200,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/group/edit.html',
         controller: 'group-edit'
     })
+    .state('group-promote', {
+        url: '/group-promote/:groupId',
+        templateUrl: 'views/group/promote.html',
+        controller: 'group-promote'
+    })
     .state('group-list',{
         url: '/group-list',
         templateUrl: 'views/group/list.html',
@@ -224,7 +234,25 @@ angular.module('winwinsApp', [
         url: '/sponsor-list',
         templateUrl: 'views/sponsor/list.html',
         controller: 'sponsor-list'
-    });
+    })
+    .state('terms',{
+        url: '/site/terms',
+        templateUrl: 'views/site/terms.html'
+    })
+    .state('contact',{
+        url: '/site/contact',
+        templateUrl: 'views/site/contact.html',
+        controller: 'contact-controller'
+    })
+    .state('how',{
+        url: '/site/how',
+        templateUrl: 'views/site/how.html'
+    })
+    .state('about',{
+        url: '/site/about',
+        templateUrl: 'views/site/about.html'
+    })
+    ;
 
 
     function loginRequired($q, $location, $auth, $state) {

@@ -1,6 +1,174 @@
 'use strict';
 
 angular.module('winwinsApp')
+
+.controller('winwin-tabs', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
+
+
+    $scope.is_admin = false;
+
+    $scope.current_view = 'home';
+
+    $scope.setCurrentView = function(view) {
+        $scope.current_view = view;
+        $scope.is_admin = false;
+    };
+
+    $scope.setNormal = function() {
+        $scope.is_admin = false;
+    };
+
+    $scope.setAdmin = function() {
+        console.log('is admin? '+$scope.isAdmin);
+        if($scope.isAdmin) {
+            $scope.is_admin = true;
+        }
+    };
+
+    $scope.isAdmin = false;
+
+    $scope.winwin_view = true;
+
+    $scope.show_closing_date = false;
+    $scope.show_description = false;
+
+    $scope.show_details = function(show) {
+        $scope.show_description = show;
+    };
+
+    $scope.posts = [];
+    $scope.last = {};
+
+    $scope.getPosts = function() {
+        $http.get(api_host+'/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+            $scope.posts = data.posts;
+            $scope.last = data.last;
+        });
+
+    }
+
+
+    $scope.winwin = {};
+    $scope.getWinwin = function() {
+        $scope.winwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.winwin = data;
+            $scope.calculate_time();
+            if($scope.winwin.is_moderator) {
+                $scope.isAdmin = true;
+            }
+            //$scope.getPosts();
+        });
+    }
+
+    $scope.isSponsor = false;
+    Account.getProfile().success(function(data) {
+        if(data) {
+
+            $scope.account = data.account;
+            $scope.profile = data.profile;
+            $scope.isSponsor = data.sponsor;
+        }
+    });
+
+
+
+    $scope.duration_days = 0;
+    $scope.duration_hours = 0;
+    $scope.duration_minutes = 0;
+
+    $scope.calculate_time = function() {
+        var now = moment(),
+            closing_date = moment($scope.winwin.closing_date);
+
+        $scope.show_closing_date = false;
+
+        if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
+            $scope.duration_days = closing_date.diff(now, 'days');
+            console.log($scope.duration_days);
+            $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
+            console.log($scope.duration_hours);
+            var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
+            $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
+
+            console.log($scope.duration_minutes);
+            $scope.show_closing_date = true;
+        }
+    };
+
+    $scope.getWinwin();
+
+    $scope.viewProfile = function(user_id) {
+        console.log('User id: '+user_id);
+        $state.go('user-view', {
+            userId: user_id
+        }); 
+
+    };
+
+    $scope.join = function() {
+        if($auth.isAuthenticated()) {
+            $http.get(api_host+'/api/winwins/join/'+$scope.winwin.id).success(function(data) {
+                //ToDo: Te uniste
+                $scope.getWinwin();
+                swal({
+                    title: "info", 
+                    text: 'winwin_join', 
+                    type: "info",
+                    showcancelbutton: false,
+                    closeonconfirm: true 
+                });
+
+            })
+            .error(function(error) {
+                swal({
+                    title: "ADVERTENCIA", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+        } else {
+            $state.go('signIn');
+        }
+    };
+
+    $scope.pass = function() {
+        $state.go('winwin-list'); 
+    };
+
+    $scope.left = function() {
+        $http.get(api_host+'/api/winwins/left/'+$scope.winwin.id).success(function(data) {
+            //ToDo: dejaste el ww
+            $scope.getWinwin();
+            swal({
+                title: "info", 
+                text: 'winwin_left', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+
+}])
+
+
+
 .controller('winwin-navbar', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
 
         $scope.isAdmin = true;
@@ -132,7 +300,7 @@ angular.module('winwinsApp')
             }, function(data) {
                 $scope.winwin = data;
                 $scope.calculate_time();
-                $scope.getPosts();
+                //$scope.getPosts();
             });
         }
 
@@ -924,6 +1092,7 @@ angular.module('winwinsApp')
     };
 
     $scope.submitPost = function() {
+        console.log('submit post');
         $scope.post.reference_id = $scope.winwin.id;
         $scope.post.type = 'WINWIN';
         console.dir($scope.post);

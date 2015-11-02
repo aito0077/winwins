@@ -1,3 +1,44 @@
+<div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" class="col-xs-12 no-padding portada mb-20" style="background-color:red">
+
+    <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
+            <img src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle logo-sponsors-landscape" />
+            <h4 class="text-white">{{::sponsor.name}}</h4>
+        </div>
+    </div>
+    <div class="col-xs-12 text-center">
+        <div class="col-xs-4 col-sm-4">
+            <span class="title-somos title-main-sponsor">Seguidores</span>
+            <span class="num-somos sponsor back-winwin num-somos-seguidore-main">{{::sponsor.followers_count}}</span>
+        </div>
+        <div class="col-xs-4 col-sm-4">
+            <button type="button" ng-show="sponsor.already_following" ng-click="unfollow()" class="btn btn-sponsor sponsor main">
+                UNFOLLOW
+            </button>
+            <button type="button" ng-show="!sponsor.already_following" ng-click="follow()" class="btn btn-sponsor sponsor main">
+                FOLLOW
+            </button>
+        </div>
+        <div class="col-xs-4 col-sm-4 no-padding ">
+            <span class="title-somos title-main-sponsor wwpatrocinados">WW Patrocinados</span>
+            <span class="num-somos sponsor back-winwin num-somos-sponsor-main">{{::sponsor.winwins_count}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 font-light mb-20">
+    {{::sponsor.about}}
+</div>
+
+
+
+
+
+
+
+
+
+
         <div class="bs-example">
 
                 <div class="panel panel-default">

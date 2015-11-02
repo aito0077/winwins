@@ -11,12 +11,10 @@ angular.module('winwinsApp')
 
     $scope.first_stage = true;
     $scope.second_stage = false;
-    $scope.third_stage = false;
 
     $scope.doFirstStage = function() {
         $scope.first_stage = false;
         $scope.second_stage = true;
-        $scope.third_stage = false;
     };
 
     $scope.doSave = function() {
@@ -24,16 +22,13 @@ angular.module('winwinsApp')
             $scope.group.$save(function(data) {
                 $scope.first_stage = false;
                 $scope.second_stage = false;
-                $scope.third_stage = true;
-                $timeout(function() {
-                    $state.go('group-view', {
-                        groupId: $scope.group.id
-                    }); 
-                }, 3000);
+                $state.go('group-promote', {
+                    groupId: $scope.group.id
+                }); 
+
             });
         }
     };
-
 
     $scope.uploading = false;
 
@@ -53,8 +48,8 @@ angular.module('winwinsApp')
                 $timeout(function () {
                     file.result = response.data;
                     $scope.group.photo = response.data.filename;
+                    $scope.group.prephoto = response.data.filename;
                     console.log($scope.group.photo);
-
                 });
             }, function (response) {
                 console.log(response);
@@ -81,6 +76,8 @@ angular.module('winwinsApp')
                 changed: function(old, new_value) {
                     $scope.$apply(function(){
                         $scope.gallery_picker = false;
+                        console.log(new_value);
+                        $scope.group.prephoto = new_value[0];
                     });
                 }
             });
@@ -88,8 +85,37 @@ angular.module('winwinsApp')
     };
 
 
+})
+.controller('group-promote', function($scope, $state, $stateParams, $timeout, Group) {
+    $scope.group = new Group({});
+
+    $scope.third_stage = true;
+    $scope.four_stage = false;
+
+    $scope.goToView = function() {
+        $scope.third_stage = false;
+        $scope.four_stage = true;
+        $timeout(function() {
+            $state.go('group-view', {
+                groupId: $scope.group.id
+            }); 
+        }, 3000);
+
+    };
+
+    $scope.getGroup = function() {
+        $scope.group = Group.get({
+            id: $stateParams.groupId
+        }, function(data) {
+        });
+    }
+
+    $scope.getGroup();
 
 })
+
+
+
 .controller('group-list', ['$scope', '$http', '$auth', '$state', 'GroupPaginate', 'api_host', function($scope, $http, $auth, $state, GroupPaginate, api_host) {
    
     $scope.groups = new GroupPaginate();
@@ -138,9 +164,10 @@ angular.module('winwinsApp')
 }])
 .controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post, api_host) {
 
+    $scope.edit_user = {};
+
     $scope.is_admin = false;
 
-    $scope.edit_user = {};
     $scope.current_view = 'home';
 
     $scope.setCurrentView = function(view) {

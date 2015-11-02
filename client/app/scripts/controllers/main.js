@@ -58,4 +58,7 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
+}])
+.controller('contact-controller', ['$scope','$auth', '$http', '$state', 'api_host', function($scope, $auth, $http, $state, api_host) {
+
 }]);
