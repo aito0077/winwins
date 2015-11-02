@@ -22,6 +22,7 @@ angular.module('winwinsApp', [
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
+    'frapontillo.bootstrap-switch', 
     'tmh.dynamicLocale'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/flickity/css/flickity.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -35,44 +36,35 @@
     <![endif]-->
 
     <!-- Navigation -->
-    <nav ng-controller="NavController" class="navbar navbar-inverse navbar-fixed-top back-winwin border-bottom " role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                 <div class="pull-left back-buttom btn-toogle" style="margin-left:8px; cursor: pointer" ng-click="do_back()">
-                    <i class="fa fa-arrow-left fa-lg" style="width:20px; height:16px"></i>
-                </div>
-                <div class="col-xs-1" style="cursor:pointer" ng-click="goNotifications()">
-                    <i ng-if="is_logged" class="fa fa-bell" style="color: rgb(255, 255, 255); font-size: 20px; margin-top: 18px; margin-right: auto; margin-left: -10px; display: block; width: 99%;" ng-cloak></i>
-                    <span style="background-color:red; border-radius:50%; padding: 0px 3px 0px 3px; border: 1px solide #fff; font-size:9pt; color: #fff; top: 8px; position:absolute" ng-show="unreadNotifications > 0" ng-cloak>{{unreadNotifications}}</span>
-
-                </div>
-                <div class="col-xs-2">
-                    <a class="navbar-brand" ui-sref="main">
-                        <img class="_img-responsive" src="http://images.dev-winwins.net/logo_winwins.png"  />
-                    </a>
-                </div>
-                <div class="col-xs-1 col-xs-push-2">
-                    <img  ng-if="is_logged" ng-show="profile" ng-src="http://images.dev-winwins.net/30x/{{getProfile().photo}}" class="img-responsive img-circle img-no-border" style="margin-top:10px; margin-left:0; cursor: pointer;" ng-click="goProfile()" ng-cloak>
-                </div>
-                <button type="button" class="navbar-toggle btn-toogle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1 "  ng-click="isCollapsed = !isCollapsed">
-                    <span class="sr-only">Navigation Menu</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<!--
+    <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999">
+        <div class="row">
+            <div class="col-xs-2">
+                <i class="fa fa-arrow-left fa-lg imenu" ng-click="do_back()"></i>
             </div>
+            <div class="col-xs-1" ng-if="!is_logged"></div>
+            <div class="col-xs-1" ng-click="goNotifications()" ng-if="is_logged">
+                <i class="fa fa-bell-o fa-lg imenu">
+                    <span class="notificaciones" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>
+                </i> 
+            </div>
+            <div class="col-xs-6 col-xs-pull">
+                <a class="navbar-brand" ui-sref="main">
+                    <img class="ww-logo" alt="logo-winwins" width="112" height="34" src="http://images.dev-winwins.net/logo-winwins.png"  />
+                </a>
+            </div>
+            <div class="col-xs-2 perfil">
+                <img  ng-if="is_logged" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="navbar-collapse" ng-class="isCollapsed ? 'collapse' : 'in'" ng-cloak>
-                <ul class="nav navbar-nav text-center menu-style">
+            </div>
+            <div class="col-xs-1"></div>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"  ng-click="isCollapsed = !isCollapsed">
+                <i class="fa fa-bars fa-lg imenu"></i>
+            </a>
+            <div class="dropdown"  ng-class="isCollapsed ? 'collapse' : 'in'" ng-cloak>
+                <ul class="dropdown-menu pull-right" >
                     <li ng-if="!isAuthenticated()">
-                        <a ng-href="/#/signin">Login</a>
-                    </li>
-                    <li ng-if="isAuthenticated()">
-                        <a href="/#/account">Ir a mi cuenta</a>
-                    </li>
-                    <li ng-if="!isAuthenticated()">
-                        <a ng-href="/#/signup">Creá una cuenta en WinWins</a>
+                        <a ng-href="/#/signin">Ingresar</a>
                     </li>
                     <li ng-if="isAuthenticated()">
                         <a ng-href="/#/winwin-new">Creá un WinWin</a>
@@ -81,26 +73,19 @@
                         <a ng-href="/#/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
                     </li>
                     <li>
-                        <a href="/#/group-list">Encontrá grupos y unite!</a>
+                        <a href="/#/group-list">Encuentra grupos y únete!</a>
                     </li>
-                    <!--li>
-                        <a href="#">Historias con final feliz :)</a>
-                    </li-->
                     <li>
                         <a href="#">¿Cómo funciona?</a>
                     </li>
-                    <!--li>
-                        <div ng-translate-language-select></div>
-                    </li-->
                     <li ng-if="isAuthenticated()">
-                        <a ng-href="/#/logout">Cerrar Sesión</a>
+                        <a ng-href="/#/logout">Salir</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
-
         </div>
-    </nav>
+    </div>
+-->
 
     <!-- / End Navigation -->
 
@@ -184,6 +169,8 @@
     <script src="bower_components/headroom.js/dist/headroom.js"></script>
     <script src="bower_components/headroom.js/dist/jQuery.headroom.js"></script>
     <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
+    <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+    <script src="bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

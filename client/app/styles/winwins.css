@@ -1,4 +1,4 @@
-/*
+	/*
  * WinWins 1.0
  *
  * Description: Winwins, acuerdos en Acción.
@@ -18,7 +18,73 @@
 /**
  * typography
  * --------------------------------------------------
+ 
+ 
  */
+ 
+ .notificaciones   {
+ font-family: montserrat;
+ font-size: 13px;
+ color: white;
+ padding: 0px 2px 2px 2px;
+ margin-left:-4px;
+ background-color: red;
+ border-radius: 50%;
+ }
+ 
+  .perfil  {
+
+ margin-left:-30px;}
+ 
+ 
+  .navbar-container  {
+ color: white;background-color: #1762C3;border-bottom: 3px solid #1B4782; padding-top: 10px; padding-bottom:10px;position:fixed;}
+  .imenu  {
+ padding-top:10px; padding-top:10px; 
+ }
+ 
+ 
+ .ww-logo {
+ margin-left:auto; margin-right: auto; display:block; }
+ 
+ .dropdown-menu li a {
+    padding: 5px 20px;
+    color: white;
+    background-color: #1762C3;}
+  
+   .dropdown-menu {
+position: fixed !important;
+display: block;
+cursor: pointer;
+float: left;
+left: 0 !important;
+top: 40px;
+height: 35px;
+z-index: 99999;
+display: none;
+list-style: none;
+width: 100%;
+background-color: #58e137;
+}
+
+   .dropdown-menu {
+position: fixed !important;
+display: block;
+float: left;
+left: 0 !important;
+top: 40px;
+height: 35px;
+z-index: 200000;
+display: none;
+list-style: none;
+width: 100%;
+background-color: #58e137;
+}
+
+//the following style is left in from your code
+.dropdown-menu li {
+float:left;    
+}
 body {
   font-family: 'Montserrat', Verdana, Helvetica, Arial, sans-serif;
   color: #434a54;
@@ -358,6 +424,25 @@ blockquote {
 .btn-group-vertical .btn:not(.btn-default):first-child, .btn-group-vertical .btn-primary:first-child, .btn-group-vertical .btn-success:first-child, .btn-group-vertical .btn-warning:first-child, .btn-group-vertical .btn-danger:first-child, .btn-group-vertical .btn-info:first-child {
   border-top: none;
 }
+
+
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 160px;
+        text-align: center;
+		/* Da error en la compilacion
+        4px solid #174d93!important;
+        */
+    }
+    .navbar>.container .navbar-brand-centered, 
+    .navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -80px;
+    }
+	
+	
+
 
 /**
  * labels and badges
@@ -1525,8 +1610,8 @@ blockquote {
 }
 
 .navbar-default {
-  background-color: #37bc9b;
-  border-color: #37bc9b;
+  background-color: #1762C3;
+  border-bottom: 3px solid #060D92;
   
 }
 .navbar-default .navbar-brand, .navbar-default .navbar-link, .navbar-default .btn-link {
@@ -1537,7 +1622,7 @@ blockquote {
   background-color: transparent;
 }
 .navbar-default .navbar-text, .navbar-default .navbar-nav > li > a {
-  color: #26816a;
+  color: white;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: white;
@@ -1551,15 +1636,15 @@ blockquote {
   background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  background-color: #26816a;
-  border-color: #26816a;
+background-color: #1762C3;
+    border-color: #1762C3;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #2b957a;
-  border-color: #2b957a;
+      background-color: #1762C3;
+    border-color: #1762C3;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #37bc9b;
+background-color: #F4F7F6;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   border-color: #48cfad;
@@ -1570,7 +1655,7 @@ blockquote {
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: #48cfad;
+   background-color: #2929BD;
 	
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .divider {
@@ -1611,7 +1696,7 @@ blockquote {
 }
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
   color: white;
-  background-color: black;
+     background-color: #FF8000;
 }
 .navbar-inverse .btn-link[disabled]:hover, fieldset[disabled] .navbar-inverse .btn-link:hover, .navbar-inverse .btn-link[disabled]:focus, fieldset[disabled] .navbar-inverse .btn-link:focus, .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus {
   color: #666;
@@ -1639,17 +1724,17 @@ background-color: #1762C3;
 }
 @media (max-width: 767px) {
   .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    background-color: black;
+    background-color: #FF8000;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .divider {
-    background-color: black;
+ background-color: #FF8000;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #8c8c8c;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: white;
-    background-color: black;
+ background-color: #FF8000;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     color: #bfbfbf;
@@ -2400,8 +2485,9 @@ background-color:#DCDCDC ; padding: 10px;
  * --------------------------------------------------
  */
 .dropdown-menu {
-  background-color: #434a54;
-  border: none;
+    background-color: #1762C3;
+    border: none;
+    width: 100%
 }
 .dropdown-menu .dropdown-header {
   padding: 5px 20px;
@@ -2415,7 +2501,7 @@ background-color:#DCDCDC ; padding: 10px;
 }
 .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus {
   color: white;
-  background-color: #656d78;
+  background-color: #1762C3;
   outline: none;
 }
 .dropdown-menu .disabled a, .dropdown-menu .disabled a:hover, .dropdown-menu .disabled a:focus {
@@ -3323,21 +3409,20 @@ width: 35px;
 text-align:center; 
 border-radius: 50%;
 }
-.featured
- {
+.featured {
 
-font-size: 2em; 
-color: #EC7007; 
-float: right; 
-margin-right: 10px; 
-margin-top:0px;
-width: 35px; 
-text-align:center; 
-
+    font-size: 1em;
+    color: #EC7007;
+    float: right;
+    margin-right: 10px;
+    margin-top: 0;
+    width: 35px;
+    text-align: center;
 }
 
 .profile {
-padding-right: 5px; padding-left: 5px; padding-top: 5px;
+    padding-right: 5px;
+    margin-left: 10px;
 }
 
 .ww-users {
@@ -3458,7 +3543,7 @@ color: white;
 text-align:center; 
 font-size: 1.7em;
 padding: 3px 15px 3px 15px; 
-border-radius: 1px;
+border-radius: 3px;
 font-weight: bold;}
  
 span.faltan{
@@ -3467,7 +3552,7 @@ color: white;
 text-align:center;
 font-size: 1.8em;
 padding: 1px 5px 1px 5px; 
-border-radius: 2px;}
+border-radius: 3px;}
 
 span.falta{
 background-color:#097FFC;
@@ -3496,6 +3581,8 @@ font-family:montserrat;
 font-size: 13px; 
 color:#434a54; 
 font-weight:100;}
+
+
 
 .no-padding {
 padding:0px;}
@@ -3578,12 +3665,11 @@ span.remember {
 
 .comenzar {
     background-color: #3B6FE4;
-    font-family: montserrat;
     font-size: 20px;
-    color: white;
-	padding:15px;
-    text-align: center;
-	border-bottom: 4px solid #06C;
+    color: #fff;
+    border-bottom: 4px solid #06C;
+    margin-top: -5px;
+
 }
 
 
@@ -3974,6 +4060,7 @@ background-color: blue;
 	border: 0px;
 }
 
+.col-xs-3-3.active,
 .col-xs-3-3:hover {
     width: 25%;
     float: left;
@@ -3984,6 +4071,7 @@ background-color: blue;
     color: #FFF;
     font-size: 20px;
 	border: 0px;
+    cursor:pointer;
 }
 .col-xs-3-3:active {
     background-color: #043F7B;
@@ -4377,3 +4465,13 @@ background-color: #F5F5F5; padding: 10px; ;}
 .terms {text-align: center; font-family: montserrat; font-size: 9px;}
 
 .acordeon {margin:12px 0;}
+
+.profile-tabs.tab-content {
+    padding: 0px;
+    margin: 0px;
+}
+
+#config .tab-content {
+    padding: 0px;
+    margin: 0px;
+}

@@ -174,7 +174,25 @@ angular.module('winwinsApp')
     $scope.following = [];
     $scope.comments = [];
 
+    $scope.is_admin = false;
+
     $scope.edit_user = {};
+    $scope.current_view = 'home';
+
+    $scope.setCurrentView = function(view) {
+        $scope.current_view = view;
+        $scope.is_admin = view == 'admin';
+    };
+
+    $scope.setNormal = function() {
+        $scope.is_admin = false;
+    };
+
+    $scope.setAdmin = function() {
+        if($scope.user_detail.myself) {
+            $scope.is_admin = true;
+        }
+    };
 
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
@@ -318,7 +336,7 @@ angular.module('winwinsApp')
             format: 'DD - MM - YYYY'
         });
         console.log($scope.edit_user.birthdate);
-        $('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
+        //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
     };
 

@@ -1,89 +1,42 @@
-<div zum-waypoint="userScroll" down="name.down" up="name.up" offset="-200"></div>
+<div zum-waypoint="userScroll" down="name.down" up="name.up" offset="5"></div>
 
-<div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" class="col-xs-12 no-padding portada mb-20">
-
-    <div class="col-xs-12 no-padding">
-
-        <div class="col-xs-4 img-misc no-padding text-center"  style="padding-top: 20px!important;">
-            <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto" />
-        </div>
-
-        <div class="col-xs-12 no-padding shadow-border">
-            <div class="col-xs-3 col-xs-push-1 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
-                <span>Seguidores</span><br>
-                <span>{{user_detail.followers.length}}</span>
-            </div>
-            <div class="col-xs-3 col-xs-push-1 btn5 btn-follow no-padding" style="padding-top: 12px!important; background-color: #FFF; cursor: pointer;" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following">
-                SEGUIR
-            </div>
-            <div class="col-xs-3 col-xs-push-1 btn5 no-padding text-center" style="padding-top: 12px!important; background-color: #FFF; cursor: pointer;" ng-click="unfollow()" ng-show="user_detail.already_following">
-                DEJAR DE SEGUIR
-            </div>
-            <div class="col-xs-3 col-xs-push-1" ng-show="user_detail.myself">
-            </div>
-            <div class="col-xs-3 col-xs-push-1 no-padding btn5" style="text-align:center; font-size:10px; padding-top: 12px!important;">
-                <span>WinWins</span><br>
-                <span>{{user_detail.winwins.length}}</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="accordion-main">
-            <div class="panel-heading no-padding">
-                <div class="col-xs-12 no-padding subcat">
-                    <div class="col-xs-10 valign">
-                        informacion personal
-                    </div>
+<div id="menu-profile" class="container"  ng-show="userScroll.name.down" ng-class="{fixed: userScroll.name.down}">
+    <div class="row">
+        <div class="container col-xs-12 no-padding">
+            <a data-toggle="tab" data-target="#home" ng-click="setCurrentView('home')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
+                    <i class="fa fa-user"></i>
                 </div>
-            </div>
-        </a>
-        <div id="collapse1" class="panel-collapse collapse in">
-            <div class="panel-body">
-                <p class="text-destacados lista" style="margin-top:10px">
-                    {{user_detail.about}}
-                </p>
-                <p class="text-destacados lista" style="margin-top:10px">
-                    Soy usuario de Winwins desde el {{user_detail.created_at |moment: 'DD/MM/YYYY'}}
-                </p>
-            </div>
+            </a>
+            <a data-toggle="tab" data-target="#winwins" ng-click="setCurrentView('winwins')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'winwins'}">
+                    <i class="fa fa-comments"></i>
+                </div>
+            </a>
+            <a data-toggle="tab" data-target="#notificaciones" ng-click="setCurrentView('notifications')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'notifications'}">
+                    <i class="fa fa-comments"></i>
+                </div>
+            </a>
+            <a data-toggle="tab" data-target="#config" ng-click="setCurrentView('admin')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'admin'}" ng-cloak>
+                    <i ng-if="user_detail.myself"  class="fa fa-gear"></i>
+                </div>
+            </a>
         </div>
-    </div>
-</div>
-
-<div id="menu-profile" class="menu-profile col-xs-12 no-padding navbar" ng-show="userScroll.name.down" ng-class="{fixed: userScroll.name.down}">
-    <ul class="nav nav-tabs" role="tablist" id="menu-profile-tabs">
-        <li class="col-xs-20">
-            <a data-toggle="tab" data-target="#home">
-                <i class="fa fa-comments"></i>
+        <div class="col-xs-6 submenu-icons" ng-if="is_admin">
+            <a data-toggle="tab" data-target="#config_user">
+                <i class="fa fa-user"></i>
             </a>
-        </li>
-        <li class="col-xs-20">
-            <a data-toggle="tab" data-target="#users">
-                <i class="fa fa-users"></i>
-            </a>
-        </li>
-        <li class="col-xs-20">
-            <a data-toggle="tab" data-target="#winwins">
-                <i class="fa fa-star"></i>
-            </a>
-        </li>
-        <li class="col-xs-20">
-            <a data-toggle="tab" data-target="#notificaciones">
-                <i class="fa fa-comment"></i>
-            </a>
-        </li>
-        <li class="col-xs-20">
-            <a  ng-if="user_detail.myself" data-toggle="tab" data-target="#config">
+        </div>
+        <div class="col-xs-6 submenu-icons" ng-if="is_admin">
+            <a data-toggle="tab" data-target="#config_setting">
                 <i class="fa fa-gear"></i>
             </a>
-        </li>
+        </div>
 
-    </ul>
+    </div>
 </div>
-
 
 <div class="profile-tabs tab-content">
     <div id="home" role="tabpanel" class="tab-pane fade in active">
@@ -100,7 +53,6 @@
 
         <div ng-include="'/views/user/profile_winwins.html'"></div>
 
-
     </div>
     <div id="notificaciones" class="tab-pane">
 
@@ -113,11 +65,4 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
 

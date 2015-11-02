@@ -9,12 +9,27 @@ angular.module('winwinsApp')
         return true;
     };
 
+    $scope.first_stage = true;
+    $scope.second_stage = false;
+    $scope.third_stage = false;
+
+    $scope.doFirstStage = function() {
+        $scope.first_stage = false;
+        $scope.second_stage = true;
+        $scope.third_stage = false;
+    };
+
     $scope.doSave = function() {
         if($scope.doValidate()) {
             $scope.group.$save(function(data) {
-                $state.go('group-view', {
-                    groupId: $scope.group.id
-                }); 
+                $scope.first_stage = false;
+                $scope.second_stage = false;
+                $scope.third_stage = true;
+                $timeout(function() {
+                    $state.go('group-view', {
+                        groupId: $scope.group.id
+                    }); 
+                }, 3000);
             });
         }
     };
@@ -123,6 +138,27 @@ angular.module('winwinsApp')
 }])
 .controller('group-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Group', 'Post', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Group, Post, api_host) {
 
+    $scope.is_admin = false;
+
+    $scope.edit_user = {};
+    $scope.current_view = 'home';
+
+    $scope.setCurrentView = function(view) {
+        $scope.current_view = view;
+        $scope.is_admin = view == 'admin';
+    };
+
+    $scope.setNormal = function() {
+        $scope.is_admin = false;
+    };
+
+    $scope.setAdmin = function() {
+        if($scope.user_detail.myself) {
+            $scope.is_admin = true;
+        }
+    };
+
+
     $scope.getGroup = function() {
         $scope.group = Group.get({
             id: $stateParams.groupId
@@ -220,6 +256,13 @@ angular.module('winwinsApp')
             });
         });
     };
+
+    $scope.viewSponsor= function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
 
     $scope.viewWinwin = function(id) {
         $state.go('winwin-view', {
