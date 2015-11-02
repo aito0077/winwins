@@ -1,0 +1,89 @@
+<div zum-waypoint="sponsorScroll" down="name.down" up="name.up" offset="-200"></div>
+
+
+<div id="menu-sponsor" class="menu-profile col-xs-12 no-padding navbar" ng-show="sponsorScroll.name.down" ng-class="{fixed: sponsorScroll.name.down}">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_summary">
+                <i class="fa fa-comments"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_winwins">
+                <i class="fa fa-star"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_groups">
+                <i class="fa fa-users"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_followers">
+                <i class="fa fa-user"></i>
+            </a>
+        </li>
+        <li class="col-xs-20">
+            <a data-toggle="tab" data-target="#sponsor_config">
+                <i class="fa fa-gear"></i>
+            </a>
+        </li>
+
+    </ul>
+
+<div id="menu-profile" class="container"  ng-show="sponsorScroll.name.down" ng-class="{fixed: sponsorScroll.name.down}">
+    <div class="row">
+            <div class="container col-xs-12 no-padding">
+               <a href="#">
+                  <div class="col-xs-3-3">
+                     <i class="fa fa-comments"></i>
+                  </div>
+               </a>
+               <a href="#">
+                  <div class="col-xs-3-3">
+                     <i class="fa fa-users"></i>
+                  </div>
+               </a>
+               <a href="#">
+                  <div class="col-xs-3-3">
+                     <i class="fa fa-user"></i>
+                  </div>
+               </a>
+               <a href="#">
+                  <div class="col-xs-3-3 active">
+                     <i class="fa fa-gear"></i>
+                  </div>
+               </a>
+            </div>
+             <!-- submenu-->
+            <div class="col-xs-6 submenu-icons txt">
+               Solicitudes
+            </div>
+            <div class="col-xs-6 submenu-icons txt">
+               WinWins Patrocinados 
+            </div>
+         </div>
+
+
+
+</div>
+
+
+<div class="profile-tabs tab-content">
+    <div id="sponsor_summary" role="tabpanel" class="tab-pane fade in active">
+        <div ng-include="'/views/sponsor/view_summary.html'"></div>
+    </div>
+    <div id="sponsor_winwins" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_winwins.html'"></div>
+    </div>
+    <div id="sponsor_groups" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_groups.html'"></div>
+    </div>
+    <div id="sponsor_followers" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_followers.html'"></div>
+    </div>
+    <div id="sponsor_config" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_config.html'"></div>
+    </div>
+</div>
+

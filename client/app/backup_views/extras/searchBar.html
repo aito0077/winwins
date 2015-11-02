@@ -1,0 +1,44 @@
+<div class="_container col-xs-12 _container-search">
+
+    <div class="search-bar container col-xs-12">
+        <div class="search-bar-button center-block" ng-click="toggleSearchBar()"></div>
+
+        <div id="search-body" ng-if="searchActive" class="animate-if">
+            <div class="input-group">
+                <input id="query" type="text" class="form-control" placeholder="" ng-model="term" aria-describedby="search-lbl"  ng-enter="search()">
+                <span class="input-group-addon" id="search-lbl" ng-click="search()" >Buscar</span>
+            </div>
+            <div class="search-filters">
+                <div class="checkbox-grp">
+                    <div class="checkbox">
+                        <label>
+                            <input id="search_winwins" ng-model="search_winwins" type="checkbox"/> 
+                            <span>WinWins</span>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="search_groups"  ng-model="search_groups" type="checkbox"/> 
+                            <span>Grupos</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="checkbox-grp">
+                    <div class="checkbox">
+                        <label>
+                            <input id="search_users"  ng-model="search_users" type="checkbox"/> 
+                            <span>Personas</span>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="search_sponsors"  ng-model="search_sponsors" type="checkbox"/> 
+                            <span>Sponsors</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -36,7 +36,8 @@
     <![endif]-->
 
     <!-- Navigation -->
-    <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999">
+    <!--
+    div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999">
         <div class="row">
             <div class="col-xs-2">
                 <i class="fa fa-arrow-left fa-lg imenu" ng-click="do_back()"></i>
@@ -57,10 +58,10 @@
 
             </div>
             <div class="col-xs-1"></div>
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"  ng-click="isCollapsed = !isCollapsed">
-                <i class="fa fa-bars fa-lg imenu"></i>
-            </a>
-            <div class="dropdown"  ng-class="isCollapsed ? 'collapse' : 'in'" ng-cloak>
+            <div class="dropdown" >
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle" >
+                    <i class="fa fa-bars fa-lg imenu"></i>
+                </a>
                 <ul class="dropdown-menu pull-right" >
                     <li ng-if="!isAuthenticated()">
                         <a ng-href="/#/signin">Ingresar</a>
@@ -75,7 +76,7 @@
                         <a href="/#/group-list">Encuentra grupos y únete!</a>
                     </li>
                     <li>
-                        <a href="#">¿Cómo funciona?</a>
+                        <a ui-sref="how">¿Cómo funciona?</a>
                     </li>
                     <li ng-if="isAuthenticated()">
                         <a ng-href="/#/logout">Salir</a>
@@ -84,6 +85,7 @@
             </div>
         </div>
     </div>
+    -->
 
     <!-- / End Navigation -->
 
