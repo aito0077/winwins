@@ -1,84 +1,118 @@
-<div class="container">
+<style>
+header {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    -webkit-transition: height 0.4s;
+    -moz-transition: height 0.4s;
+    -ms-transition: height 0.4s;
+    -o-transition: height 0.6s; 
+    transition: height 0.6s;
+    position:fixed;
+    margin-top:250px;
+}
+
+
+   
+    header.smaller {
+        height: 0px;
+
+}
+</style>
+
+<div class="container" style="padding-top: 50px;">
+   
     <div class="row">
+               <!-- Header -->
+
+
+<!-- /header -->
         <div class="col-xs-12 no-padding">
+            <header style="margin-top:55px;">
+
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 250px;">
                 <div class="winwin-title">
-                    <h4>
+                 
                         {{::winwin.title}}
-                    </h4>
+                  
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="col-xs-12">
+                       <div class="buttons-winwins" style="z-index: 999999;">
+                    <div class="col-xs-2 btn-fbk-big" socialshare socialshare-provider="facebook" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
+                        <i class="fa fa-facebook fa-inverse" style="margin-left: -3px;"></i> 
+                    </div>
+                
+                
+                    <div class="col-xs-2 btn-twitter-big" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
+                        <i class="fa fa-twitter fa-inverse" style="margin-left: -7px; font-size:1.1em;"></i> 
+                    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="buttons-winwins">
-                <div class="col-xs-2 col-sm-2">
-                    <span class="col-xs-2 btn-fbk-big " socialshare socialshare-provider="facebook" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
-                        <i class="fa fa-facebook fa-inverse"></i> 
-                    </span>
-                </div>
-                <div class="col-xs-2 col-sm-2">
-                    <a href="#" class="col-xs-2 "> </a> 
-                    <span class="col-xs-2 btn-twitter-big " socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
-                        <i class="fa fa-twitter fa-inverse"></i> 
-                    </span>
-                </div>
-                <div class="col-xs-2 col-sm-2">
-                    <a href="#" class="col-xs-2 btn-email"><i class="fa fa-envelope-o left "></i></a> 
-                </div>
-                <div class="col-xs-3 col-sm-3">
-                    <a href="#" class="col-xs-3 ww-somos">
+                    <div class="col-xs-2 btn-email"> 
+                        <i class="fa fa-envelope-o fa-inverse" style="margin-left: -7px; font-size:1.2em;"></i> 
+                    </div>
+                
+
+                
+                    <div class="col-xs-4 ww-somos">
                         <span class="bubble-label"> 
                             Somos 
                         </span> 
                         <span class="somos">
                             {{::winwin.users_already_joined}}
                         </span>
-                    </a>
-                </div>
-                <div class="col-xs-3 col-sm-3">  
-                    <a href="#" class="col-xs-3 ww-somos">
+                    </div>
+                
+              
+                    <div class="col-xs-2 ww-somos">
                         <span class="bubble-label"> 
                             Faltan 
                         </span> 
                         <span class="falta">
                             {{::winwin.users_left}}
                         </span> 
-                    </a> 
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+        </div>
+ 
+
+
       <!-- Winwin Text-->
-<div class="container">
+<div class="container" style="text-align:center; margin-top: 250px;">
     <div class="row">
-        <div class="col-xs-12 ww-text-">
+        <div class="col-xs-12">
             <div class="pad-20"></div>
             <span class="sisupieras">¿Si supieras que somos </span>
             <span class="somos-txt">{{::winwin.users_amount}}</span> 
-            <span class="ww-text"> para {{::winwin.what_we_do}} </span>
+            <div class="ww-text"> para {{::winwin.what_we_do}} </div>
             <span class="tesumarias"> te sumarías? </span>
         </div>
     </div>
 </div>
-<div class="pad-20"></div>
+
   <!-- Winwin More Details-->
 <div class="container">
     <div class="row">
         <div class="col-xs-3"></div>
         <div class="col-xs-6"> 
-            <button  class="mas-detalles" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                MAS DETALLES 
-                <span class="caret"></span>
-            </button></div>
+            <button class="mas-detalles" type="button"  onclick="toggler('mas-detalles');">MAS DETALLES 
+                <span class="caret"></span></button>
+                
+              </div>
             <div class="col-xs-3"></div>
         </div>
     </div>
 </div>
+
+<div id="mas-detalles"style="display:none;">
 <!-- Details-->
 <div class="container">
     <div class="row">
@@ -93,18 +127,41 @@
 <!-- Winwin Attributes-->
 <div class="container">
     <div class="row" style="font-family: montserrat; font-size:10px; text-align:center;">
-        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published"<i class="fa fa-check" style="color: green;"></i> Active </span><span ng-show="winwin.published"<i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe"></i> {{::winwin.scope}}</span> </div>
-        <div class="col-xs-3 ww-attributte">Category:<br> Medio Ambiente</span> </div>
-        <div class="col-xs-3 ww-attributte"> <span style="text-align: center;">Report <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </div>
+        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}</span> </div> 
+        <div class="col-xs-3 ww-attributte">Categoria:<br> Medio Ambiente</span> </div>
+        <!-- Button trigger modal -->
+        <div class="col-xs-3 ww-attributte"> <span style="text-align: center; color:#333;"><a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </a></div>
     </div>
 </div>
+</div>
 
+           
+        <!-- Modal Report-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Reportar WinWin</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button"  data-dismiss="modal">Cerrar</button>
+        <button type="button" >Reportar</button>
+      </div>
+    </div>
+  </div>
+</div>        
+            
 
 <!-- Winwin CTA-->
 <div class="container">
     <div class="row" ng-if="!isSponsor">
-        <div class="col-xs-7 cta-join">
+        <div class="col-xs-12">
+        <div class="col-xs-5 cta-join">
             <a href="#" class="no-padding" ng-click="join()">
                 <h6>SI! ME SUMO</h6>
             </a>
@@ -122,33 +179,38 @@
             </div>
         </div>
     </div>
-
 </div>
 
 
   <!-- Winwin People-->
-<div class="container">
+<div class="container no-padding">
     <div class="row">
         <div class="col-xs-12 mb-20" style="background-color: #f1f1f1; padding: 10px 10px 20px;"> 
-            <div class="col-xs-6 no-padding" style="cursor: pointer" ng-click="viewProfile(winwin.user.id)"> 
-                <img ng-src="http://images.dev-winwins.net/42x42/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile">
-                <h5 style="padding: 10px 10px 10px 10px;">{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</h5>
+            <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
+                <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%;">
             </div>
+               <div class="col-xs-3 no-padding" style="cursor: pointer; font-family: montserrat; font-size:12px; text-transform: capitalize;" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</br><span style="color:#1762C3">creador</span> </div>
+      
             <div class="col-xs-6">
-                <ul class="list-inline">
-                    <li ng-repeat="member in winwin.users">
-                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/42x42/{{::member.detail.photo}}" class="img-responsive img-circle-second"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-xs-12 mb-20">
-            <div class="col-xs-4" ng-repeat="sponsor in winwin.sponsors">
-                    <img alt="{{::sponsor.name}}" title="{{::sponsor.name}}" ng-src="http://images.dev-winwins.net/x42/{{::sponsor.photo}}" width="100" height="42">
+              <div class="col-xs-1" ng-repeat="member in winwin.users">
+                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-circle-second"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+             
             </div>
         </div>
     </div>
 </div>
+
+
+        <div class="col-xs-12 no-padding">
+            <div class="col-xs-4 no-padding" ng-repeat="sponsor in winwin.sponsors">
+                    <img alt="{{::sponsor.name}}" title="{{::sponsor.name}}" ng-src="http://images.dev-winwins.net/x30/{{::sponsor.photo}}" width="100" height="30" style="margin-top:20px; margin-bottom:20px; float:left;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</header>
 
 <!-- Winwin Activity Wall-->            
 
@@ -156,20 +218,27 @@
 
 
 
-<div data-ng-controller="winwin-muro">
+<div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
 
+
+
+<div class="col-xs-12 wall-header" style="background: #1762C3; width:100%; padding: 10px; font-size: 9px; color:white; font-family:montserrat; text-align:center; margin-bottom:20px;">Ultima actividad 17/1/15</div>
     <div class="container" ng-repeat="item_post in posts">
-
         <div class="row">
+ <div class="col-xs-12 no-padding">
+            <div class="ww-featured"> 
+                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+            </div>
+        </div>
             <div class="panel-body post">
-                <div class="col-xs-12 no-padding">
-                    <div class="col-xs-12 no-padding">
-                        <div class="col-xs-3 no-padding text-center">
-                            <img ng-src="http://images.dev-winwins.net/38x38/{{::item_post.user.detail.photo}}" class="img-circle-simple" width="38" height="38" style="margin-left:0" />
-                            <span class="nombre"> {{::item_post.user.detail.name}}</span>
-                            <span class="date">{{::item_post.created_at | moment: 'DD/MM/YYYY'}}</span>
-                        </div>
-                        <div class="col-xs-9 no-padding-left">
+
+                 <div class="col-xs-12 no-padding">
+                    <div class="col-xs-3 no-padding text-center">
+                            <img ng-src="http://images.dev-winwins.net/38x38/{{::item_post.user.detail.photo}}" class="img-responsive img-circle" width="38" height="38" style="margin-left: 5px;   mARGIN-TOP:10PX" />
+                            <div class="nombre"> {{::item_post.user.detail.name}}</div></br>
+                            <div class="date">{{::item_post.created_at | moment: 'DD/MM/YYYY'}}</div>
+                    </div>
+                            <div class="col-xs-9 no-padding-left">
                             <p class="p-lista" style="">
                                 {{::item_post.content}}
                             </p>
@@ -178,10 +247,12 @@
                 </div>
             </div>
 
+
             <!-- Media -->
+            
             <div class="media-post"> </div>
-            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:220px;"></div>
-            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="220">
+            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px;"></div>
+            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240">
                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
             </div>
 
@@ -198,9 +269,9 @@
                 </div>
             </div>
             <!-- Commments PostBox-->
-            <div class="container comments-box" ng-show="item_post.isReplying">
+            <div class="container comments-box reply" ng-show="item_post.isReplying">
                 <div class="col-xs-2 post-image">
-                    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle-simple" width="38" height="38"/>
+                    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
                 </div>
                 <div class="col-xs-6 ">
                     <div class="bubbles">
@@ -214,9 +285,12 @@
         </div>
     </div>
 
+
+
+<div id="footer">
     <div class="container comments-box">
         <div class="col-xs-2 post-image">
-            <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle-simple" width="38" height="38"/>
+            <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
         </div>
         <div class="col-xs-6 ">
             <div class="bubbles">
@@ -230,7 +304,45 @@
 
 </div>
 
+</div>
+
+<script>
+function toggler(divId) {
+    $("#" + divId).toggle();
+}
+</script>
 
 
+<script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 100)
+{    
+      $('#footer').addClass("show");
+}
+else
+{
+    $('#footer').removeClass("show");
+}
+        });
+    })
+</script>
 
-
+     <!-- Your jQuery/Javascript code -->
+     <script  type="text/javascript">
+function init() {
+    window.addEventListener('scroll', function(e){
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+            shrinkOn =50,
+            header = document.querySelector("header");
+        if (distanceY > shrinkOn) {
+            classie.add(header,"smaller");
+        } else {
+            if (classie.has(header,"smaller")) {
+                classie.remove(header,"smaller");
+            }
+        }
+    });
+}
+window.onload = init();
+     </script>

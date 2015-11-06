@@ -1,16 +1,133 @@
 
+<style>
+header {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    -webkit-transition: height 0.4s;
+    -moz-transition: height 0.4s;
+    -ms-transition: height 0.4s;
+    -o-transition: height 0.6s; 
+    transition: height 0.6s;
+    position:fixed;
+    margin-top:55px;
+}
+
+
+   
+    header.smaller {
+        height: 0px;
+
+}
+
+#loader {
+    background: transparent;
+    width:30;
+    height:25px;
+    margin-top: -10px;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    
+    -moz-animation-name: glow;
+    -moz-animation-duration: .3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+}
+
+@-moz-keyframes glow {
+    from { font-size:10px; }
+    to   { font-size:11px; }
+}
+@-webkit-keyframes glow {
+    from { font-size:10px; }
+    to   { font-size:11px; }
+
+}
+
+#share {
+    background: transparent;
+    width:30;
+    height:25px;
+    margin-top: -10px;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    
+    -moz-animation-name: glow;
+    -moz-animation-duration: .5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -moz-animation-direction: alternate;
+
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+}
+
+@-moz-keyframes glow {
+    from { font-size:1em; }
+    to   { font-size:1.2em; }
+}
+@-webkit-keyframes glow {
+    from { font-size:1em; }
+    to   { font-size:1.2em; }
+
+}
+
+   #slider {
+    position:fixed;
+    left: 0px;
+    margin-top: -400px;
+    width: 100%;
+    z-index:10;
+    margin-bottom:50px;
+
+
+}
+
+
+</style>
+
+
 <div class="container">
-    <div class="row">
-         <iframe width="100%" height="280" src="https://www.youtube.com/embed/LaWODK2jUYQ" frameborder="0" allowfullscreen></iframe>
+    <div class="row" style="margin-top:55px;">
+
+
+<div id="slider">
+
+         <button type="button" ng-click="filter('all')" class="col-xs-3 active filter-ww" ng-class="{active: current == 'all'}">Todos</button>
+   <button type="button" ng-click="filter('all')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Destacados</button>
+   <button type="button" ng-click="filter('all')" class="col-xs-3 filter-ww" ng-class="{active: current == 'all'}">Populares</button>
+      <button type="button" ng-click="filter('all')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Finalizando</button>
+</div>   
+        <header>
+         <iframe width="100%" height="280" src="https://www.youtube.com/embed/i0z606_lgOQ" frameborder="0" ></iframe>
     </div>
 </div>    
+  
 
    
 <div class="container">
-    <div class="row"> 
+    <div class="row" style="margin-top: 250px;"> 
          <div class="comenzar" ng-click="goControlPanel()" style="cursor: pointer;">  COMENZA HOY </div>
     </div>
 </div> 
+
+
+      </header>
 
 <div class="container" ng-repeat="winwin in winwins">
     <div class="row">
@@ -18,6 +135,7 @@
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
                 <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
             </div>
+
             <div class="ww-popular" ng-if="winwin.mark == 'popular'"> 
                 <div class="ww-popular pop"> Pop</div>
             </div>
@@ -25,19 +143,90 @@
                 <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
             </div>
         </div>
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer;"  ng-click="view(winwin.id)">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 240px; cursor:pointer;"  ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
         </div>
         <div class="card-buttons" >
             <div class=" col-xs-1 profile">
-                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
+                <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}"  class="img-circle">
             </div>
             <div class="col-xs-1 profile"> 
-                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
+                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle">
             </div>
+            <div class="col-xs-7"> </div>
+             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white;
+    margin-top: 20px;
+    margin-left: -5px;"></i> </div></div></a>
         </div>
     </div>
 </div>
+
+   
+        <!-- Social Modals-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" STYLE=" TOP:10%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: transparent;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
+      </div>
+      <div class="modal-body">
+   <div class="container">
+ <div class="row">
+    margin-top: -15p"><i class="fa fa-facebook"></i></a>
+<a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em;    padding-top: 15PX; margin-top: -35px;"><i class="fa fa-facebook"></i></a>
+<a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;"><i class="fa fa-twitter"></i></a>
+<a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;"><i class="fa fa-google"></i></a>
+<a href="#" class="col-xs-3 btn btn-yahoo-big" role="button" style="width:100%; height: 100%;    box-shadow: NONE;"><i class="fa fa-yahoo"></i></a>
+         </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>        
+            <!-- /Social Modals-->       
+
+<div id="footer">
+ <div id="flip" style="
+     position:fixed;
+     left:37%;
+     display: block;
+     bottom:0px;
+     height:45px;
+     width:90px;
+     border-radius: 90px 90px 0 0;
+     -moz-border-radius: 90px 90px 0 0;
+     -webkit-border-radius: 90px 90px 0 0;
+     background:#1762C3;
+">    <span class="glyphicon glyphicon-search" style="left: 35px;top: 15px; color: white; font-size: 2rem;"></span></div>
+<div id="panel" >
+    <div class="col-sm-6 col-sm-offset-3" style="background-color:#1762C3; padding:13px;">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group" style="height:39px; font-size: 12px;">
+                    <input type="text" class="form-control"  placeholder="Busca Winwins, Personas, Grupos o Sponsors" style="height:39px; border-radius:1px; font-size:10px;" >
+                    <span class="input-group-addon">
+                        <button type="submit" style="background-color: #FF8000;
+    box-shadow: none;
+    background-color: #FF8000;
+    box-shadow: none;
+    border: 0px;
+    font-size: 1.6rem;
+    height: 39px;
+    margin-top: -7px;
+    margin-left: -12px;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 <!--div class="container">
     <div class="row">
         <div class="sponsor-image">
@@ -46,10 +235,70 @@
     </div>
 </div--> 
    
- 
+ <script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 100)
+{    
+      $('#footer').addClass("show");
+}
+else
+{
+    $('#footer').removeClass("show");
+}
+        });
+    })
+</script>
 
 
 
 
 
 
+<script> 
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideDown("slow");
+    });
+});
+</script>
+
+
+     <script  type="text/javascript">
+function init() {
+    window.addEventListener('scroll', function(e){
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+            shrinkOn =50,
+            header = document.querySelector("header");
+        if (distanceY > shrinkOn) {
+            classie.add(header,"smaller");
+        } else {
+            if (classie.has(header,"smaller")) {
+                classie.remove(header,"smaller");
+            }
+        }
+    });
+}
+window.onload = init();
+     </script>
+
+
+
+<script>
+
+$(document).ready(function () {
+    slider();
+});
+
+$(window).scroll(function () {
+    slider();
+});
+
+function slider() {
+    if (document.body.scrollTop > 50)
+        $('#slider').stop().animate({"margin-top": '0'})>10;
+    else
+        $('#slider').stop().animate({"margin-top": '-100'})>10;
+}
+
+</script>

@@ -1,27 +1,27 @@
 <div ng-show="first_stage">
 
     <form id="create-ww-form" role="form" ng-submit="persistBasic()" name="wwBasicForm">
-        <div class="container">
+        <div class="container" >
             <div class="row">
-                <div class="col-xs-12 create-title"> 
+                <div class="col-xs-12 create-title bubble-big" style="margin-top:55px;"> 
     
                     CREA TU WINWIN <br> COMENZA UNA ACCION POSITIVA
                 </div> 
             </div> 
         </div> 
-    
+     <div class="pad-20"></div>
         <div class="container ww-create">
             <div class="form-back create">
-                <div class="input-label">Dale un nombre a tu winwin <i class="fa fa-question-circle"></i></div>
+                <div class="bubble-xs">Dale un nombre a tu winwin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Nombra a tu WinWin con menos de 50 caracteres"><i class="fa fa-question-circle red"></i></a></div>
 
-                <input class="input-forms" class="active" placeholder="Nombra tu winwin" type="text"  ng-model="winwin.title" required/>
+                <input class="input-forms" class="active" placeholder="" type="text"  ng-model="winwin.title" required/>
 
                 <div class="pad-20"></div>
-                <div class="input-label">Plantea tu WinWin <i class="fa fa-question-circle"></i></div>
+                <div class="bubble-xs">Plantea tu WinWin <a type="button"  data-toggle="tooltip" data-placement="top" title="Plantea tu winwin, la consigna es que puedas hacer lo que quieras"><i class="fa fa-question-circle red"></i></a></div>
                 <div class="pad-10"></div>
                 <span class="si-supieras">¿Si supieras que somos </span> 
 
-                <input class="numero" type="number" placeholder="2"  ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
+                <input class="numero" type="number" placeholder="Ej: 200"  ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
 
                 <span class="si-supieras">para</span>
                 <div class="pad-10"></div>
@@ -31,17 +31,17 @@
                 <br>
                 <span class="si-supieras">te sumarías?</span>
                 <div class="pad-10"></div>
-                <div class="input-label">Más Detalles del WinWin <i class="fa fa-question-circle"></i></div>
+                <div class="bubble-xs">Más Detalles del WinWin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Describi los detalles, la hora, las personas, y toda la info que pueda servir"><i class="fa fa-question-circle red"></i></a></div>
 
                 <textarea class="text-forms" rows="4" ng-model="winwin.description"></textarea>
 
                 <div class="pad-10"></div>
 
-                <div class="input-label">Fecha Límite (Si Aplica) <i class="fa fa-question-circle"></i></div>
+                <div class="bubble-xs">Fecha Límite (Si Aplica)  <a type="button"  data-toggle="tooltip" data-placement="top" title="Algunos WinWins tienen fecha de concrecion, si el tuyo es uno de ellos, seleccionala."><i class="fa fa-question-circle red"></i></a></div>
 
 
 
-                <div class="col-xs-8 col-xs-offset-2 ">
+                <div class="col-xs-12">
                     <div class="form-group">
                         <div class="input-group date" id="datetimepicker1">
                             <input type="text" class="form-control"/>
@@ -234,11 +234,22 @@
                 <div class="input-label">Palabras Clave <i class="fa fa-question-circle" style="color: red;"></i></div>
                 <tags-input  class="bootstrap" ng-model="winwin.tags" placeholder="Agrega palabras claves"></tags-input>
             </div>
-            <div class="pad-10"></div>
+     
             <div class="form-back  create-id">
-                <button name="crear-winwin" type="submit" class="submit-create"  ng-disabled="wwAdditionalForm.$invalid">  Guardar y continuar</button>
+                <button name="crear-winwin" type="submit" class="submit-create" style="margin-top: 30px;"  ng-disabled="wwAdditionalForm.$invalid">  Guardar y continuar</button>
             </div>
         </div>
     </form>
 
 </div>
+
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+width: 350px;
+    margin-left: 40px;
+    margin-top: 30px;
