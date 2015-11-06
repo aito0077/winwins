@@ -4,6 +4,8 @@ angular.module('winwinsApp')
     $scope.unreadNotifications = 0;
     $scope.profile = false;
     $scope.is_logged = false;
+    $scope.isSponsor = false;
+    $scope.sponsor = false;
 
     $scope.profile_image = 0;
 
@@ -15,7 +17,6 @@ angular.module('winwinsApp')
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
                 $scope.unreadNotifications = response.data.notifications_unread;
-                console.log($scope.unreadNotifications);
             });
         } else {
             $scope.unreadNotifications = 0;
@@ -23,7 +24,6 @@ angular.module('winwinsApp')
     });
 
     $rootScope.$on('is_logged',function(event, logged){
-        console.log('logged: '+logged);
         $scope.is_logged = logged;
         if(logged) {
             if(!$scope.fetching_profile && !$scope.profile) {
@@ -31,6 +31,8 @@ angular.module('winwinsApp')
                 Account.getProfile().then(function(response) {
                     $scope.fetching_profile = false;
                     $scope.profile = response.data.profile;
+                    $scope.sponsor = response.sponsor;
+                    $scope.isSponsor = response.is_sponsor;
                     $rootScope.account = $scope.profile;
                 });
             }
@@ -38,6 +40,8 @@ angular.module('winwinsApp')
             $scope.profile = false;
             $scope.is_logged = false;
             $scope.profile_image = 0;
+            $scope.sponsor = false;
+            $scope.isSponsor = false;
             $rootScope.account = {};
         }
 
@@ -46,7 +50,6 @@ angular.module('winwinsApp')
 
     $rootScope.$on('$stateChangeSuccess',function(data, other){
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
-            console.log('not scroll at all');
             $("html, body").animate({ scrollTop: 430 }, 0);
         } else {
             console.log('scroll to top');
@@ -65,6 +68,8 @@ angular.module('winwinsApp')
             Account.getProfile().then(function(response) {
                 $scope.fetching_profile = false;
                 $scope.profile = response.data.profile;
+                $scope.sponsor = response.data.sponsor;
+                $scope.isSponsor = response.data.is_sponsor;
                 $rootScope.$broadcast('is_logged', true);
             });
         }
@@ -85,7 +90,13 @@ angular.module('winwinsApp')
     };
 
     $scope.goProfile = function() {
-        $state.go('profile');
+        if($scope.isSponsor) {
+            $state.go('sponsor-view', {
+                sponsorId: $scope.sponsor.id
+            });
+        } else {
+            $state.go('profile');
+        }
     };
 
     $scope.goNotifications = function() {

@@ -19,9 +19,15 @@ Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
 Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
 Route::get('api/winwins/activate/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@activate']);
 Route::post('api/winwins/campanada/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@campanada']);
+Route::post('api/winwins/{id}/sponsor/{sponsorId}/accept', ['middleware' => 'auth', 'uses' => 'WinwinController@acceptSponsor']);
 Route::post('api/winwins/sponsor_request/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorRequest']);
+Route::post('api/winwins/{id}/sponsor/request/{sponsorId}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorForRequest']);
 
+Route::post('api/winwins/{id}/state/activator/{participanteId}', ['middleware' => 'auth', 'uses' => 'WinwinController@makeActivator']);
+Route::post('api/winwins/{id}/state/normal/{participanteId}', ['middleware' => 'auth', 'uses' => 'WinwinController@makeNormal']);
 Route::get('api/winwins/{id}/sponsors', ['middleware' => 'auth', 'uses' => 'WinwinController@winwinSponsors']);
+Route::get('api/winwins/{id}/sponsors/candidates', ['middleware' => 'auth', 'uses' => 'WinwinController@winwinSponsorsCandidates']);
+
 Route::get('api/winwins/join/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@join']);
 Route::get('api/winwins/left/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@left']);
 Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@storeImage']);
@@ -51,13 +57,15 @@ Route::get('api/sponsors/paginate/{page}/{amount}', ['uses' => 'SponsorControlle
 Route::get('api/sponsors/search', ['uses' => 'SponsorController@search']);
 Route::get('api/sponsors/follow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@follow']);
 Route::get('api/sponsors/unfollow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@unfollow']);
+Route::post('api/sponsor/upload', ['middleware' => 'auth', 'uses' => 'SponsorController@storeImage']);
+Route::post('api/sponsor/profile', ['middleware' => 'auth', 'uses' => 'SponsorController@updateProfile']);
 Route::resource('api/sponsors', 'SponsorController');
 
 Route::get('api/me/status', ['middleware' => 'auth', 'uses' => 'UserController@getUserStatus']);
 Route::get('api/me', ['middleware' => 'auth', 'uses' => 'UserController@getUser']);
 Route::get('api/me/notificactions/read', ['middleware' => 'auth', 'uses' => 'UserController@markNotificationsAsRead']);
 Route::put('api/me', ['middleware' => 'auth', 'uses' => 'UserController@updateUser']);
-
+Route::post('api/me/cancel', ['middleware' => 'auth', 'uses' => 'UserController@cancelAccount']);
 Route::post('api/me/upload', ['middleware' => 'auth', 'uses' => 'UserController@storeImage']);
 
 Route::get('api/users/paginate/{page}/{amount}', ['uses' => 'UserController@paginate']);

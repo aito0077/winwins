@@ -57,6 +57,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/user/user_notificaciones.html',
         controller: 'ProfileNotificaciones'
     })
+    .state('cancel-account',{
+        url: '/cancel-account',
+        templateUrl: 'views/user/cancel_account.html',
+        controller: 'cancel-account'
+    })
     .state('account',{
         url: '/account',
         templateUrl: 'views/user/account.html',

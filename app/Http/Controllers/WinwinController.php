@@ -18,6 +18,7 @@ use Winwins\Model\Repository\WinwinRepository;
 use Winwins\Model\WinwinsUser;
 use Winwins\Model\SponsorsWinwin;
 use Winwins\Model\Media;
+use Winwins\Model\Sponsor;
 use Winwins\Model\InterestsInterested;
 use Winwins\User;
 
@@ -95,16 +96,17 @@ class WinwinController extends Controller {
 
         $winwin->already_joined = false;
         if($user) {
+            $winwin->is_moderator = ( $winwin->user_id == $user->id );
             $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin) {
                 $model->detail;
                 $result = $model->id == $user->id;
-                if($result && $model->pivot->moderator) {
+                if($result && $model->pivot->moderator ) {
                    $winwin->is_moderator = true; 
+                    Log::info($winwin);
                 }
                 $model->following = false;
                 if(!$result) {
                     $model->following = count($model->followers->filter(function($user_model) use ($user) {
-                        Log::info($user_model->follower_id.' - '.$user->id);
                         return $user_model->follower_id == $user->id;
                     })) > 0;
                 } else {
@@ -156,7 +158,55 @@ class WinwinController extends Controller {
 
         });
 
-        return $winwin;
+        return $sponsors;
+
+    }
+
+    
+	public function winwinSponsorsCandidates(Request $request, $id) {
+        $winwin = Winwin::find($id);
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
+
+        $ww_user = $winwin->user;
+        $ww_user->detail;
+        $users = $winwin->users;
+        $wwSponsors = $winwin->sponsors;
+        $sponsorsIds = array();
+        foreach($wwSponsors as $wwSponsor) {
+            array_push($sponsorsIds, $wwSponsor->id);
+        }
+
+        //$sponsors = DB::table('sponsors')->whereNotIn('id', $sponsorsIds)->get();
+        $sponsors = Sponsor::whereNotIn('id', $sponsorsIds)->get();
+
+        foreach($sponsors as $sponsor) {
+
+            $sponsor->followers_count  = count($sponsor->users);
+            $sponsor->winwins_count  = count($sponsor->winwins);
+            $sponsor->groups_count  = count($sponsor->groups);
+
+            $sponsor->already_following = false;
+
+            if($user) {
+                $sponsor->already_following = count($sponsor->users->filter(function($model) use ($user) {
+                    $model->detail;
+                    return $model->id == $user->id;
+                })) > 0;
+            }
+
+
+        }
+
+        return $sponsors;
 
     }
 
@@ -375,6 +425,31 @@ class WinwinController extends Controller {
         }
 	}
 
+	public function acceptSponsor(Request $request, $id, $sponsorId) {
+        DB::transaction(function() use ($id, $sponsorId) {
+            DB::table('sponsors_winwins')->where('winwin_id', $id)->where('sponsor_id', $sponsorId)->update(['ww_accept' => 1]);
+        });
+        return response()->json(['message' => 'sponsor_accepted'], 200);
+    }
+
+
+
+	public function makeActivator(Request $request, $id, $participanteId) {
+        DB::transaction(function() use ($id, $participanteId) {
+            DB::table('winwins_users')->where('winwin_id', $id)->where('user_id', $participanteId)->update(['moderator' => 1]);
+        });
+        return response()->json(['message' => 'user_activated'], 200);
+    }
+
+
+
+	public function makeNormal(Request $request, $id, $participanteId) {
+        DB::transaction(function() use ($id, $participanteId) {
+            DB::table('winwins_users')->where('winwin_id', $id)->where('user_id', $participanteId)->update(['moderator' => 0]);
+        });
+        return response()->json(['message' => 'user_activated'], 200);
+    }
+
 	public function sponsorRequest(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $sponsor = $user->sponsor;
@@ -414,29 +489,38 @@ class WinwinController extends Controller {
             }
         }
 
-
-
-
-
-        if($user->id == $winwin->user->id) {
-            $users = $winwin->users;
-            foreach($users as $member) {
-                //if($member->id != $user->id)
-
-                $member->newNotification()
-                    ->from($user)
-                    ->withType('CAMPANADA')
-                    ->withSubject('New campanada')
-                    ->withBody($campanada_body)
-                    ->regarding($winwin)
-                    ->deliver();
-            }
-            return response()->json(['message' => 'campanada_sent', 'amount' => count($users)], 200);
-        } else {
-            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
-        }
 	}
 
+
+	public function sponsorForRequest(Request $request, $id, $sponsorId) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = Sponsor::find($sponsorId);
+        $winwin = Winwin::find($id);
+
+        $ww_user = $winwin->user;
+        $request_body = $request->input('body');
+
+        $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+            return $model->id == $sponsor->id;
+        })) > 0;
+
+        if($already_sponsored) {
+            return response()->json(['message' => 'is_already_sponsored_this_winwin'], 400);
+        } else {
+            DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
+                $winwinsSponsors = new SponsorsWinwin;
+                $winwinsSponsors->sponsor_id = $sponsor->id;
+                $winwinsSponsors->winwin_id = $winwin->id;
+                $winwinsSponsors->ww_message = $request_body;
+                $winwinsSponsors->ww_accept = 1;
+
+                $winwinsSponsors->save();
+            });
+
+            return response()->json(['message' => 'ww_request_sent'], 200);
+        }
+
+	}
 
 
 	public function create() {

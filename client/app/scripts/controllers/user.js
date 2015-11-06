@@ -168,7 +168,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Upload', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Upload, User, Account, api_host) {
+.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Upload', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Upload, User, Account, api_host) {
 
     $scope.followers = [];
     $scope.following = [];
@@ -434,6 +434,47 @@ angular.module('winwinsApp')
         console.log('Key: '+key+' - value: '+value);
         console.log('user_edit: '+$scope.edit_user[key]);
     };
+
+
+    $scope.cancelAccount = function() {
+        swal({
+            title: "Cancelar Mi Cuenta",
+            text: "Contanos tus motivos",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            inputPlaceholder: "Mensaje de solicitud" 
+        },
+        function(inputValue){   
+            $http.post('/api/me/cancel', {
+                body: inputValue
+            })
+            .success(function(data) {
+                $state.go('cancel-account');
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+            return true;
+
+        });
+    };
+
+
+}])
+.controller('cancel-account', ['$scope', '$rootScope', '$state', '$stateParams', '$timeout', '$auth', function($scope, $rootScope, $state, $stateParams, $timeout, $auth) {
+
+    $timeout(function() {
+        $auth.logout().then(function() {
+            $rootScope.$broadcast('is_logged', false);
+        });
+    }, 4000);
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {

@@ -1,12 +1,9 @@
-<div data-ng-controller="winwin-sponsors">
 
-    <div class="row">
-        <button type="button" ng-click="filter('all')" class="col-xs-6 active filter" ng-class="{active: current == 'all'}">Todos</button>
-        <button type="button" ng-click="filter('promoted')" class="col-xs-6 active filter" ng-class="{active: current == 'promoted'}">Destacados</button>
-    </div>
+<div data-ng-controller="winwin-sponsors-to-request">
+    <div ng-if="!request_success">
 
     <div class="grid grid-sponsors">
-        <div class="grid-item sponsor-item {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors">
+        <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
 
     
             <div class="col-xs-12 no-padding">
@@ -29,8 +26,7 @@
                     <div class="row">
                         <div class="buttons-profile">
                             <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
-                            <a ng-show="!sponsor.following" role="button" class="col-xs-6 btn-join"  ng-click="follow(sponsor)"> SEGUIR</a>
-                            <a ng-show="sponsor.following" role="button" class="col-xs-6 btn-join"  ng-click="follow(sponsor)"> SIGUIENDO </a>
+                            <a role="button" class="col-xs-6 btn-join"  ng-click="requestSponsor(sponsor)"> SOLICITAR SPONSOREO</a>
                             <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
                         </div>
           
@@ -42,6 +38,27 @@
 
     </div>
 
-</div>
 
-      
+    <div ng-if="request_success">
+        <div class="container">
+            <div class="row">
+                <div class="pad-30"> </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <div style="text-align: center;"> 
+                        <i class="fa fa-check" style="background-color:green; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                        <h2 style="font-family: montserrat; line-height: 35px;"> Perfecto!</h2>
+                        <h5 style="font-family: montserrat; color:#444;"> Tu solicitud se ha enviado a {{sponsor_name}}</h5>  
+                        <div class="pad-80"></div>
+                        <img src="/images/loading.gif" width="110" height="80" alt="loading"> 
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

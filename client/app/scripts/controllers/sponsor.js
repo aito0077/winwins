@@ -12,7 +12,7 @@ angular.module('winwinsApp')
     }
  
 }])
-.controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor, api_host) {
+.controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', 'api_host', 'Upload', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor, api_host, Upload) {
 
     $scope.is_admin = false;
 
@@ -33,11 +33,14 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.edit_sponsor = {};
+
     $scope.getSponsor = function() {
         $scope.sponsor = Sponsor.get({
             id: $stateParams.sponsorId
         }, function(data) {
             $scope.sponsor = data;
+            $scope.edit_sponsor = data;
         });
     }
 
@@ -86,6 +89,94 @@ angular.module('winwinsApp')
             });
         });
     };
+
+
+    $scope.uploading = false;
+    $scope.uploadFiles = function(file) {
+        $scope.f = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: api_host+'/api/sponsor/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading = false;
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.edit_sponsor.photo = response.data.filename;
+                });
+            }, function (response) {
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
+
+    $scope.uploading_cover = false;
+    $scope.uploadFilesCover = function(file) {
+        $scope.fc = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: api_host+'/api/sponsor/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading_cover = false;
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.edit_sponsor.cover_photo = response.data.filename;
+                });
+            }, function (response) {
+                $scope.uploading_cover = false;
+                if (response.status > 0) {
+                    $scope.errorMsgCover = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading_cover = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
+
+    $scope.saveProfile = function() {
+        $http.post(api_host+'/api/sponsor/profile', $scope.edit_sponsor)
+        .success(function(data) {
+            $scope.getSponsor();
+            swal({
+                title: "info", 
+                text: 'sponsor_updated', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+
 
 
 }]);
