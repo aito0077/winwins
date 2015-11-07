@@ -137,7 +137,7 @@
             <div class="col-xs-6">
                 <ul class="list-inline">
                     <li ng-repeat="member in winwin.users">
-                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/42x42/{{::member.detail.photo}}" class="img-responsive img-circle-second"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+                        <img alt="{{::member.username}}" title="{{::member.username}}" ng-src="http://images.dev-winwins.net/42x42/{{::member.photo}}" class="img-responsive img-circle-second"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
                     </li>
                 </ul>
             </div>

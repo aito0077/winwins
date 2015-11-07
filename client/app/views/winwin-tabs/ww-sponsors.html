@@ -1,12 +1,12 @@
-<div ng-data-controller="winwin-sponsors">
+<div data-ng-controller="winwin-sponsors">
 
     <div class="row">
-        <button type="button" ng-click="filter('all')" class="col-xs-4 active filter" ng-class="{active: current == 'all'}">Todos</button>
-        <button type="button" ng-click="filter('promoted')" class="col-xs-4 active filter" ng-class="{active: current == 'promoted'}">Detacados</button>
+        <button type="button" ng-click="filter('all')" class="col-xs-6 active filter" ng-class="{active: current == 'all'}">Todos</button>
+        <button type="button" ng-click="filter('promoted')" class="col-xs-6 active filter" ng-class="{active: current == 'promoted'}">Destacados</button>
     </div>
 
     <div class="grid grid-sponsors">
-        <div class="grid-item sponsor-item {{classType(sponsor)}}"  ng-repeat="sponsor in winwin.sponsors">
+        <div class="grid-item sponsor-item {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors">
 
     
             <div class="col-xs-12 no-padding">

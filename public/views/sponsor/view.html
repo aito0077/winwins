@@ -18,11 +18,13 @@
                     <i class="fa fa-users"></i>
                 </div>
             </a>
-            <a href="#">
+            <a ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
                 <div class="col-xs-3-3">
                     <i class="fa fa-gear"></i>
                 </div>
             </a>
+            <div class="col-xs-3-3" ng-if="!sponsor.myself" >
+            </div>
         </div>
         <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'winwins'" ng-show="isAdmin">
             Solicitudes

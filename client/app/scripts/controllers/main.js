@@ -45,6 +45,19 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.viewProfile = function(id) {
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewSponsor = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
+
     $scope.view = function(id) {
         console.log('view '+id);
         $state.go('winwin-view', {

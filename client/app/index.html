@@ -28,7 +28,6 @@
     <!-- endbuild -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <base href="/">
   </head>
 
   <body ng-app="winwinsApp">
@@ -36,10 +35,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-   <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999; position:fixed;">
-        <div class="col-xs-1">
-                <i class="fa fa-chevron-left fa-lg imenu " ng-click="do_back()"></i>
-            </div>
+
         <div class="col-xs-2" ng-if="!is_logged"></div>
             <div class="col-xs-1" ng-click="goNotifications()" ng-if="is_logged">
                 <i class="fa fa-bell-o fa-lg imenu">
@@ -349,6 +345,13 @@ if ( typeof define === 'function' && define.amd ) {
 
     <!--[if lt IE 7]>
   <div class="col-xs-2">
+=======
+    <!-- Navigation -->
+    <!--
+    <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999">
+        <div class="row">
+            <div class="col-xs-2">
+>>>>>>> 0ace085b4403e2304d2a7841d18e31cc29a02472
                 <i class="fa fa-arrow-left fa-lg imenu" ng-click="do_back()"></i>
             </div>
             <div class="col-xs-1" ng-if="!is_logged"></div>
@@ -476,6 +479,7 @@ if ( typeof define === 'function' && define.amd ) {
     <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
     <script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
     <script src="bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

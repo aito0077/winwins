@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration {
 
 			$table->dateTime('last_access')->nullable();
             $table->boolean('canceled')->default(FALSE);
+            $table->string('cancel_reason')->nullable();
             $table->boolean('suspend')->default(FALSE);
             $table->boolean('active')->default(FALSE);
             $table->boolean('accept_terms')->default(FALSE);

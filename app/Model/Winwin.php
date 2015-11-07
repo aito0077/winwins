@@ -22,7 +22,7 @@ class Winwin extends Model {
     }
 
     public function sponsors() {
-        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_winwins');
+        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_winwins')->withPivot('ww_accept', 'sponsor_accept', 'sponsor_text', 'sponsor_message', 'ww_message');
     }
 
 }

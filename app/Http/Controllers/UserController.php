@@ -154,6 +154,19 @@ class UserController extends Controller {
         return response()->json(['token' => $token]);
     }
 
+
+    public function cancelAccount(Request $request) {
+        $user = User::find($request['user']['sub']);
+
+        $user->cancel_reason =  $request->input('body');
+        $user->canceled = true;
+
+        $user->save();
+
+        return response()->json(['message' => 'user_cancel']);
+    }
+
+
     public function updateProfile(Request $request) {
         $user = User::find($request['user']['sub']);
 

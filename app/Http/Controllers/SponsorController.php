@@ -15,6 +15,11 @@ use Winwins\Model\SponsorsWinwin;
 use Winwins\Model\Repository\SponsorRepository;
 use Winwins\Model\Winwin;
 
+use Validator;
+use Response;
+use Storage;
+use Winwins\Model\Media;
+
 use Illuminate\Http\Request;
 
 class SponsorController extends Controller {
@@ -90,6 +95,9 @@ class SponsorController extends Controller {
         }
 
 
+        if($user) {
+            $sponsor->myself = ($sponsor->user_id == $user->id);
+        }
         $sponsor->followers_count  = count($sponsor->users);
         $sponsor->winwins_count  = count($sponsor->winwins);
         $sponsor->groups_count  = count($sponsor->groups);
@@ -174,6 +182,104 @@ class SponsorController extends Controller {
         }
 	}
 
+    public function updateProfile(Request $request) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = $user->sponsor;
+
+        if($sponsor->user_id != $user->id) {
+            return response()->json(['message' => 'not_sponsor_user']);
+        }
+        if (!$sponsor) {
+            return response()->json(['message' => 'sponsor_not_found']);
+        }
+
+        Log::info($sponsor);
+		if($request->has('name')) {
+            $sponsor->name = $request->input('name');
+        }
+		if($request->has('contact_name')) {
+            $sponsor->contact_name = $request->input('contact_name');
+        }
+		if($request->has('contact_phone')) {
+            $sponsor->contact_phone = $request->input('contact_phone');
+        }
+		if($request->has('contact_email')) {
+            $sponsor->contact_email = $request->input('contact_email');
+        }
+		if($request->has('photo')) {
+            $sponsor->photo = $request->input('photo');
+        }
+		if($request->has('cover_photo')) {
+            $sponsor->cover_photo = $request->input('cover_photo');
+        }
+		if($request->has('about')) {
+            $sponsor->about = $request->input('about');
+        }
+		if($request->has('type')) {
+            $sponsor->type = $request->input('type');
+        }
+
+        $current_password =  $request->input('current_password');
+        $password =  $request->input('password');
+
+        if(isset($current_password) && isset($password) ) {
+
+            if (Hash::check($current_password, $user->password)) {
+                $user->password = Hash::make($request->input('password'));
+                $user->save();
+            } else {
+                return response()->json(['message' => 'user_current_password_wrong'], 400);
+            }
+        }
+
+        $sponsor->save();
+
+        Log::info($sponsor);
+        
+        return $sponsor;
+    }
+
+    public function storeImage(Request $request, Media $media) {
+
+        $user = User::find($request['user']['sub']);
+
+        if(!$request->hasFile('file')) { 
+            return Response::json(['error' => 'No File Sent']);
+        }
+
+        if(!$request->file('file')->isValid()) {
+            return Response::json(['error' => 'File is not valid']);
+        }
+
+        $file = $request->file('file');
+
+        $v = Validator::make(
+            $request->all(),
+            ['file' => 'required|mimes:jpeg,jpg,png|max:8000']
+        );
+
+        if($v->fails()) {
+            return Response::json(['error' => $v->errors()]);
+        }
+
+        Log::info($request->file('file'));
+
+        $image = Media::create([
+            'name' => $request->file('file')->getClientOriginalName(),
+            'ext' => $request->file('file')->guessExtension(),
+            'user_id' => $user->id || 1,
+            'bucket' => 'S3',
+            'type' => 'IMAGE'
+        ]);
+        
+        $filename = $image->id . '.' . $image->ext;
+
+        Log::info('Uploading to S3 file '.$filename);
+        Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
+
+        return Response::json(['OK' => 1, 'filename' => $filename]);
+    }
+
 	public function create() {
 		//
 	}
@@ -181,6 +287,8 @@ class SponsorController extends Controller {
 	public function edit($id) {
 		//
 	}
+
+
 
 }
 

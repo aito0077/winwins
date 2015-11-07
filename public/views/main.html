@@ -30,10 +30,10 @@
         </div>
         <div class="card-buttons" >
             <div class=" col-xs-1 profile">
-                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
+                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer">
             </div>
             <div class="col-xs-1 profile"> 
-                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
+                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">
             </div>
         </div>
     </div>

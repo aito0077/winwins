@@ -114,25 +114,25 @@
             </div>
             <div ng-if="!isAdmin" class="col-xs-20">
             </div>
-
         </div>
+
         <div ng-show="is_admin" class="container no-padding">
-            <a data-toggle="tab" data-target="#config_winwin">
+            <a data-toggle="tab" data-target="#sponsors_requests">
                 <div class="col-xs-3 submenu-icons" >
-                    <i class="fa fa-star" ng-click="goRequestesPatrocinio()"></i>
+                    <i class="fa fa-star"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#config_winwin">
+            <a data-toggle="tab" data-target="#campanada">
                 <div class="col-xs-3 submenu-icons"  ng-class="{active: campanada_view}">
-                    <i class="fa fa-bell" ng-click="goCampanada()"></i>
+                    <i class="fa fa-bell"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#config_winwin">
+            <a data-toggle="tab" data-target="#sponsors_to_request">
                 <div class="col-xs-3 submenu-icons">
-                    <i class="fa fa-server" ng-click="goConfiguracion()"></i>
+                    <i class="fa fa-server"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#config_winwin">
+            <a data-toggle="tab" data-target="#config">
                 <div class="col-xs-3 submenu-icons active">
                     <i class="fa fa-bullhorn"></i>
                 </div>
@@ -150,15 +150,26 @@
         <div ng-include="'/views/winwin-tabs/ww-wall.html'"></div>
     </div>
     <div id="sponsors" class="tab-pane">
-
         <div ng-include="'/views/winwin-tabs/ww-sponsors.html'"></div>
-
     </div>
     <div id="users" class="tab-pane">
-
         <div ng-include="'/views/winwin-tabs/ww-users.html'"></div>
-
     </div>
+
+    <div id="sponsors_requests" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/ww-sponsors-requests.html'"></div>
+    </div>
+    <div id="sponsors_to_request" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/ww-sponsors-to-request.html'"></div>
+    </div>
+    <div id="campanada" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/ww-campanada.html'"></div>
+    </div>
+    <div id="config" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/ww-config.html'"></div>
+    </div>
+
+
 </div>
 
 
