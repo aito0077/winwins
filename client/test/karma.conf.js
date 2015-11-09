@@ -89,6 +89,7 @@ module.exports = function(config) {
       'bower_components/headroom.js/dist/angular.headroom.js',
       'bower_components/bootstrap-switch/dist/js/bootstrap-switch.js',
       'bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch.js',
+      'bower_components/underscore/underscore.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

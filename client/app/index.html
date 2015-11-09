@@ -35,7 +35,10 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
+   <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999; position:fixed;">
+        <div class="col-xs-1">
+                <i class="fa fa-chevron-left fa-lg imenu " ng-click="do_back()"></i>
+            </div>
         <div class="col-xs-2" ng-if="!is_logged"></div>
             <div class="col-xs-1" ng-click="goNotifications()" ng-if="is_logged">
                 <i class="fa fa-bell-o fa-lg imenu">
