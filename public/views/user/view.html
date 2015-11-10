@@ -1,5 +1,7 @@
     <div class="container no-padding">
 
+        <div id="menu" style="margin-top:55px;">
+
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" class="col-xs-12 no-padding portada mb-20">
             <div class="col-xs-12">
                 <div class="col-xs-4 col-xs-push-4 no-padding main text-center">
@@ -75,4 +77,22 @@
         </div-->
     <div>
  
+<div>
+ <script>
 
+$(document).ready(function () {
+    slider();
+});
+
+$(window).scroll(function () {
+    slider();
+});
+
+function slider() {
+    if (document.body.scrollTop > 50)
+        $('#slider').stop().animate({"margin-top": '55'})>10;
+    else
+        $('#slider').stop().animate({"margin-top": '-10'})>10;
+}
+
+</script>

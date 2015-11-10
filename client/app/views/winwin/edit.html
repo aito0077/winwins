@@ -161,7 +161,7 @@
             <div style="col-xs-2"> </div>
             <div class="panel-body">
                 <div class="col-xs-12 img-misc no-padding text-center padding-top-txt-sponsor" dynamic-background="" background-size="cover" background-image="{{preview_image}}">
-                    Nombre del WinWin
+                    {{winwin.title}}
                     <div class="container ww-id">
                         <div class="row">
                             <div class="col-xs-12">
@@ -176,6 +176,7 @@
                     <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders" ngf-accept="'image/*'">
                         <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro"></i>
                         <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading">
+                        <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/90x/smart/{{winwin.image}}" height="90" alt="loading">
                     </div>
                     <div style="cursor:pointer" class="col-xs-4 uploaders" ng-click="setVideoUrl()">
                         <i class="fa fa-youtube"></i>

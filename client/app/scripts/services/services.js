@@ -208,4 +208,13 @@ angular.module('winwinsApp')
     
     return SponsorPaginate; 
 
+}])
+.service('es_client',['esFactory', 'e_host', function(esFactory, e_host){
+    console.log(e_host);
+    return esFactory({
+        host: e_host,
+        log: 'trace',
+        requestTimeout: 30000 ,
+        apiVersion: '1.7'
+    });
 }]);

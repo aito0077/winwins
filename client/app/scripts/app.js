@@ -11,6 +11,7 @@ angular.module('winwinsApp', [
     'ngTagsInput',
     'ui.router',
     'ui.select',
+    'ui.bootstrap',
     'satellizer',
     'config',
     'infinite-scroll',
@@ -23,7 +24,8 @@ angular.module('winwinsApp', [
     'truncate',
     'angular-loading-bar',
     'frapontillo.bootstrap-switch', 
-    'tmh.dynamicLocale'
+    'tmh.dynamicLocale',
+    'elasticsearch'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 

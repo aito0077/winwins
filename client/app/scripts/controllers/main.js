@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', 'api_host', function($scope, $auth, $http, $state, Winwin, api_host) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', 'api_host', 'es_client', '$uibModal', function($scope, $auth, $http, $state, Winwin, api_host, es_client, $uibModal) {
     $scope.winwins = [];
 
     Winwin.query(function(data) {
@@ -71,7 +71,68 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
+    $scope.getEntities = function(query) {
+
+        console.log('query: '+query);
+        /*
+        es_client.search({
+            index: 'winwins',
+            size: 999,
+            body: {
+                query: { 
+                    bool: { 
+                        must: [
+                            {
+                                query_string : {
+                                    query : query
+                                }
+                            }
+                        ]
+                    },
+                },
+                aggs: {
+                    history: {
+                        "date_histogram": {
+                            "field": "closing_date",
+                            "interval": "day", 
+                            "format": "dd-MM-yyyy" 
+                        }
+                    }
+                },
+                "sort": { "closing_date": { "order": "desc" }}
+            }
+        }).then(function(response) {
+            console.dir(response);
+            return response.data.results.map(function(item){
+                return item.formatted_address;
+            });
+    
+        });
+        */
+
+    };
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
 }])
+.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, toShare) {
+
+  $scope.toShare = toShare;
+
+})
 .controller('contact-controller', ['$scope','$auth', '$http', '$state', 'api_host', function($scope, $auth, $http, $state, api_host) {
 
 }]);

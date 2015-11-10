@@ -4771,3 +4771,8 @@ font-family: montserrat;
     border-left: 1px dotted #1B4782;
     border-bottom: 3px solid #1B4782;
   font-size: 12px;}
+
+.modal-content,
+.modal-background {
+    background-color: transparent;
+}

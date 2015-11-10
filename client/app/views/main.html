@@ -114,7 +114,7 @@ header {
       <button type="button" ng-click="filter('all')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Finalizando</button>
 </div>   
         <header>
-         <iframe width="100%" height="280" src="https://www.youtube.com/embed/i0z606_lgOQ" frameborder="0" ></iframe>
+         <iframe width="100%" height="280" src="https://www.youtube.com/embed/i0z606_lgOQ?autoplay=0" frameborder="0" ></iframe>
     </div>
 </div>    
   
@@ -156,7 +156,7 @@ header {
 
             </div>
             <div class="col-xs-7"> </div>
-             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white;
+             <a style="color: #333;" type="button" ng-click="openSocialModal(winwin)">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white;
     margin-top: 20px;
     margin-left: -5px;"></i> </div></div></a>
         </div>
@@ -165,29 +165,37 @@ header {
 
    
         <!-- Social Modals-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" STYLE=" TOP:10%;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="background-color: transparent;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
-      </div>
-      <div class="modal-body">
-   <div class="container">
- <div class="row">
-    margin-top: -15p"><i class="fa fa-facebook"></i></a>
-<a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em;    padding-top: 15PX; margin-top: -35px;"><i class="fa fa-facebook"></i></a>
-<a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;"><i class="fa fa-twitter"></i></a>
-<a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;"><i class="fa fa-google"></i></a>
-<a href="#" class="col-xs-3 btn btn-yahoo-big" role="button" style="width:100%; height: 100%;    box-shadow: NONE;"><i class="fa fa-yahoo"></i></a>
-         </div>
-      </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>        
+<script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+        margin-top: -15p"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em;    padding-top: 15PX; margin-top: -35px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                                <i class="fa fa-google"></i>
+                            </a>
+                            <a href="#" class="col-xs-3 btn btn-yahoo-big" role="button" style="width:100%; height: 100%;    box-shadow: NONE;">
+                                <i class="fa fa-yahoo"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"> 
+                </div>
+
+</script>
+
+
+
             <!-- /Social Modals-->       
 
 <div id="footer">
@@ -206,8 +214,10 @@ header {
 <div id="panel" >
     <div class="col-sm-6 col-sm-offset-3" style="background-color:#1762C3; padding:13px;">
             <div id="imaginary_container"> 
+                <h1 ng-show="asynSelected">{{asyncSelected}}</h1>
                 <div class="input-group stylish-input-group" style="height:39px; font-size: 12px;">
-                    <input type="text" class="form-control"  placeholder="Busca Winwins, Personas, Grupos o Sponsors" style="height:39px; border-radius:1px; font-size:10px;" >
+                    <input type="text" ng-model="asyncSelected" placeholder="Busca Winwins, Personas, Grupos o Sponsors" uib-typeahead="entity for entity in getEntities($viewValue)" typeahead-loading="searching" typeahead-no-results="noResults" class="form-control" style="height:39px; border-radius:1px; font-size:10px;">
+
                     <span class="input-group-addon">
                         <button type="submit" style="background-color: #FF8000;
     box-shadow: none;

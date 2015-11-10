@@ -411,6 +411,7 @@ angular.module('winwinsApp')
             $scope.second_stage = true;
             console.log('First Stage: '+$scope.first_stage);
             console.log('Second Stage: '+$scope.second_stage);
+            $("html, body").animate({ scrollTop: 1 }, 0);
         }
     }
 
@@ -497,7 +498,8 @@ angular.module('winwinsApp')
     $scope.gallery_picker = false;
 
     $scope.select_gallery = function() {
-        $scope.gallery_picker = true;
+        $scope.gallery_picker = !$scope.gallery_picker;
+        
         if(!$scope.image_gallery_selected) {
             $('#image-gallery').imagepicker({
                 changed: function(old, new_value) {
@@ -511,8 +513,10 @@ angular.module('winwinsApp')
 
     $scope.preview_image = '';
     $scope.$watch('image_gallery_selected', function() {
+        console.log('image selected');
         if($scope.image_gallery_selected) {
             $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.image_gallery_selected;
+            $scope.$apply();
         }
     });
 

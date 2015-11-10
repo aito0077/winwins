@@ -220,7 +220,9 @@ class WinwinController extends Controller {
         $winwin = new Winwin;
         DB::transaction(function() use ($request, $winwin, $user) {
 
-            $winwin->closing_date = $request->input('closing_date');
+            $arr = explode(".", $request->input('closing_date'), 2);
+            $event_date = str_replace("T", " ", $arr[0]);
+            $winwin->closing_date = Carbon::createFromFormat('Y-m-d H:i:s', $event_date);
             $winwin->description = $request->input('description');
             $winwin->title = $request->input('title');
             $winwin->users_amount = $request->input('users_amount');

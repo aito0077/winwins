@@ -10,7 +10,8 @@ angular.module('winwinsApp')
     $scope.profile_image = 0;
 
     $scope.$on('$routeChangeSuccess', function () {
-        $scope.isCollapsed = true;
+        //$scope.isCollapsed = true;
+
     });
     $scope.$on('$stateChangeStart', function(){
         $scope.isCollapsed = true;
@@ -49,6 +50,19 @@ angular.module('winwinsApp')
 
 
     $rootScope.$on('$stateChangeSuccess',function(data, other){
+
+        if(menuStatus.isOpen) { 
+            document.closeMenu();
+        }
+        /*
+        classie.remove( document.body, 'show-menu' );
+        setTimeout( function() {
+            path.attr( 'd', initialPath );
+            isAnimating = false; 
+        }, 300 );
+        */
+
+
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
             $("html, body").animate({ scrollTop: 430 }, 0);
         } else {
