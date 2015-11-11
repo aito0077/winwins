@@ -449,7 +449,8 @@ module.exports = function (grunt) {
             wrap: '"use strict";\n\n{%= __ngModule %}',
             space: '  ',
             constants: {
-                api_host: '<%= cnf.api_host %>'
+                api_host: '<%= cnf.api_host %>',
+                e_host: '<%= cnf.e_host %>'
             },
             values: {
                 debug: true

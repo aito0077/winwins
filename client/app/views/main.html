@@ -1,4 +1,3 @@
-
 <style>
 header {
     width: 100%;
@@ -16,11 +15,9 @@ header {
     margin-top:55px;
 }
 
-
-   
-    header.smaller {
-        height: 0px;
-
+.pseudo-header.smaller,
+header.smaller {
+    height: 0px;
 }
 
 #loader {
@@ -87,47 +84,40 @@ header {
 
 }
 
-   #slider {
+#slider {
     position:fixed;
     left: 0px;
     margin-top: -400px;
     width: 100%;
     z-index:10;
     margin-bottom:50px;
-
-
 }
-
-
 </style>
 
 
 <div class="container">
     <div class="row" style="margin-top:55px;">
 
+        <div id="slider">
 
-<div id="slider">
-
-         <button type="button" ng-click="filter('all')" class="col-xs-3 active filter-ww" ng-class="{active: current == 'all'}">Todos</button>
-   <button type="button" ng-click="filter('all')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Destacados</button>
-   <button type="button" ng-click="filter('all')" class="col-xs-3 filter-ww" ng-class="{active: current == 'all'}">Populares</button>
-      <button type="button" ng-click="filter('all')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Finalizando</button>
-</div>   
+            <button type="button" ng-click="filter('all')" class="col-xs-3 active filter-ww" ng-class="{active: current == 'all'}">Todos</button>
+            <button type="button" ng-click="filter('remarkable')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Destacados</button>
+            <button type="button" ng-click="filter('popular')" class="col-xs-3 filter-ww" ng-class="{active: current == 'all'}">Populares</button>
+            <button type="button" ng-click="filter('finishing')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Finalizando</button>
+        </div>   
         <header>
-         <iframe width="100%" height="280" src="https://www.youtube.com/embed/i0z606_lgOQ?autoplay=1" frameborder="0" ></iframe>
+            <iframe width="100%" height="280" src="https://www.youtube.com/embed/i0z606_lgOQ?autoplay=0" frameborder="0" ></iframe>
+        </header>
     </div>
 </div>    
   
 
    
-<div class="container">
+<div class="container pseudo-header">
     <div class="row" style="margin-top: 250px;"> 
          <div class="comenzar" ng-click="goControlPanel()" style="cursor: pointer;">  COMENZA HOY </div>
     </div>
 </div> 
-
-
-      </header>
 
 <div class="container" ng-repeat="winwin in winwins">
     <div class="row">
@@ -156,89 +146,59 @@ header {
 
             </div>
             <div class="col-xs-7"> </div>
-             <a style="color: #333;" type="button" ng-click="openSocialModal(winwin)">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white;
-    margin-top: 20px;
-    margin-left: -5px;"></i> </div></div></a>
+             <a style="color: #333;" type="button" ng-click="openSocialModal(winwin)">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white; margin-top: 20px; margin-left: -5px;"></i> </div></div></a>
         </div>
     </div>
 </div>
 
-   
-        <!-- Social Modals-->
 <script type="text/ng-template" id="myModalContent.html">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row">
-        margin-top: -15p"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em;    padding-top: 15PX; margin-top: -35px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
-                                <i class="fa fa-google"></i>
-                            </a>
-                            <a href="#" class="col-xs-3 btn btn-yahoo-big" role="button" style="width:100%; height: 100%;    box-shadow: NONE;">
-                                <i class="fa fa-yahoo"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer"> 
-                </div>
-
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em; padding-top: 15PX; margin-top: -15px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                    <i class="fa fa-google"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer"> 
+    </div>
 </script>
 
 
-
-            <!-- /Social Modals-->       
-
 <div id="footer">
- <div id="flip" style="
-     position:fixed;
-     left:37%;
-     display: block;
-     bottom:0px;
-     height:45px;
-     width:90px;
-     border-radius: 90px 90px 0 0;
-     -moz-border-radius: 90px 90px 0 0;
-     -webkit-border-radius: 90px 90px 0 0;
-     background:#1762C3;
-">    <span class="glyphicon glyphicon-search" style="left: 35px;top: 15px; color: white; font-size: 2rem;"></span></div>
-<div id="panel" >
-    <div class="col-sm-6 col-sm-offset-3" style="background-color:#1762C3; padding:13px;">
+    <div id="flip" style="position:fixed; left:37%; display: block; bottom:0px; height:45px; width:90px; border-radius: 90px 90px 0 0; -moz-border-radius: 90px 90px 0 0; -webkit-border-radius: 90px 90px 0 0; background:#1762C3;">
+        <span class="glyphicon glyphicon-search" style="left: 35px;top: 15px; color: white; font-size: 2rem; cursor:pointer;" ng-click="showSearch()"></span>
+    </div>
+    <div id="panel" >
+        <div class="col-sm-6 col-sm-offset-3" style="background-color:#1762C3; padding:13px;">
             <div id="imaginary_container"> 
                 <h1 ng-show="asynSelected">{{asyncSelected}}</h1>
                 <div class="input-group stylish-input-group" style="height:39px; font-size: 12px;">
-                    <input type="text" ng-model="asyncSelected" placeholder="Busca Winwins, Personas, Grupos o Sponsors" uib-typeahead="entity for entity in getEntities($viewValue)" typeahead-loading="searching" typeahead-no-results="noResults" class="form-control" style="height:39px; border-radius:1px; font-size:10px;">
+                    <input id="query" type="text" class="form-control" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:39px; border-radius:1px; font-size:10px;">
+                    <!--input type="text" ng-model="asyncSelected" placeholder="Busca Winwins, Personas, Grupos o Sponsors" uib-typeahead="entity for entity in getEntities($viewValue)" typeahead-loading="searching" typeahead-no-results="noResults" class="form-control" style="height:39px; border-radius:1px; font-size:10px;"-->
 
                     <span class="input-group-addon">
-                        <button type="submit" style="background-color: #FF8000;
-    box-shadow: none;
-    background-color: #FF8000;
-    box-shadow: none;
-    border: 0px;
-    font-size: 1.6rem;
-    height: 39px;
-    margin-top: -7px;
-    margin-left: -12px;
-    padding: 10px;
-    padding-right: 15px;
-    padding-left: 15px;">
+                        <button type="submit" style="background-color: #FF8000; box-shadow: none; background-color: #FF8000; box-shadow: none; border: 0px; font-size: 1.6rem; height: 39px; margin-top: -7px; margin-left: -12px; padding: 10px; padding-right: 15px; padding-left: 15px;" ng-click="search()">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>  
                     </span>
                 </div>
             </div>
         </div>
-
     </div>
+</div>
+
 <!--div class="container">
     <div class="row">
         <div class="sponsor-image">
@@ -246,71 +206,3 @@ header {
         </div>
     </div>
 </div--> 
-   
- <script>
-    $(function(){
-    $(window).scroll(function() {  
-if($(document).scrollTop() > 100)
-{    
-      $('#footer').addClass("show");
-}
-else
-{
-    $('#footer').removeClass("show");
-}
-        });
-    })
-</script>
-
-
-
-
-
-
-<script> 
-$(document).ready(function(){
-    $("#flip").click(function(){
-        $("#panel").slideDown("slow");
-    });
-});
-</script>
-
-
-     <script  type="text/javascript">
-function init() {
-    window.addEventListener('scroll', function(e){
-        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-            shrinkOn =50,
-            header = document.querySelector("header");
-        if (distanceY > shrinkOn) {
-            classie.add(header,"smaller");
-        } else {
-            if (classie.has(header,"smaller")) {
-                classie.remove(header,"smaller");
-            }
-        }
-    });
-}
-window.onload = init();
-     </script>
-
-
-
-<script>
-
-$(document).ready(function () {
-    slider();
-});
-
-$(window).scroll(function () {
-    slider();
-});
-
-function slider() {
-    if (document.body.scrollTop > 50)
-        $('#slider').stop().animate({"margin-top": '0'})>10;
-    else
-        $('#slider').stop().animate({"margin-top": '-100'})>10;
-}
-
-</script>

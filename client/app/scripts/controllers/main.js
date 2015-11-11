@@ -2,11 +2,13 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', '$state', 'Winwin', 'api_host', 'es_client', '$uibModal', function($scope, $auth, $http, $state, Winwin, api_host, es_client, $uibModal) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', '$timeout', 'Winwin', 'api_host', 'es_client', '$uibModal', function($scope, $auth, $http, $state, $timeout, Winwin, api_host, es_client, $uibModal) {
     $scope.winwins = [];
+    $scope.all_winwins = [];
 
     Winwin.query(function(data) {
-        $scope.winwins = data;
+        $scope.all_winwins = data;
+        $scope.winwins = $scope.all_winwins;
     });
 
     $scope.isAuthenticated = function() {
@@ -71,9 +73,18 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
-    $scope.getEntities = function(query) {
+    $scope.search = function() {
 
-        console.log('query: '+query);
+        console.log('query: '+$scope.term);
+
+        $state.go('search-list', {
+            query: $scope.term,
+            winwin: true,
+            user: true,
+            group: true,
+            sponsor: true
+        }); 
+
         /*
         es_client.search({
             index: 'winwins',
@@ -125,6 +136,65 @@ angular.module('winwinsApp')
                 }
             }
         });
+    };
+
+    $scope.filter = function(filter) {
+        $scope.is_filtered = (filter !== 'all');
+        console.log(filter);
+        if($scope.is_filtered) {
+            console.log('filter');
+            $scope.winwins = _.filter($scope.all_winwins, function(item) {
+                return item.mark == filter;
+            });
+        } else {
+            $scope.winwins = $scope.all_winwins;
+        }
+    };
+
+    $scope.setup_components = function() {
+        $timeout(function() {
+            jQuery(window).scroll(function() {  
+
+                if(jQuery(document).scrollTop() > 100) {    
+                    jQuery('#footer').addClass("show");
+                } else {
+                    jQuery('#footer').removeClass("show");
+                }
+
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                    shrinkOn = 50,
+                    header = document.querySelector("header");
+                if (distanceY > shrinkOn) {
+                    classie.add(header,"smaller");
+                    //classie.add(document.querySelector(".pseudo-header"),"smaller");
+                } else {
+                    if (classie.has(header,"smaller")) {
+                        classie.remove(header,"smaller");
+                        //classie.remove(document.querySelector(".pseudo-header"),"smaller");
+                    }
+                }
+
+                if (document.body.scrollTop > 50 || $scope.visible_search) {
+                    jQuery('#slider').stop().animate({"margin-top": '0'}) > 10;
+                } else {
+                    jQuery('#slider').stop().animate({"margin-top": '-100'}) > 10;
+                }
+
+            });
+            jQuery("#flip").click(function(){
+                jQuery("#panel").slideDown("slow");
+            });
+
+        });
+    };
+
+    $scope.setup_components();
+
+    $scope.visible_search = false;
+    $scope.showSearch = function() {
+        $scope.visible_search = true;
+        jQuery('#slider').stop().animate({"margin-top": '0'}) > 10;
+        console.log('visible search');
     };
 
 }])
