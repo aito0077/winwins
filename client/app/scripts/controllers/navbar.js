@@ -1,5 +1,5 @@
 angular.module('winwinsApp')
-.controller('NavController', function ($scope, $rootScope, $state, $location, $auth, $window, Account) {
+.controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, Account) {
     $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
     $scope.profile = false;
@@ -8,6 +8,13 @@ angular.module('winwinsApp')
     $scope.sponsor = false;
 
     $scope.profile_image = 0;
+
+    $scope.isOpen = false;
+    $scope.menuStatus = {
+        isAnimating: false
+    };
+
+
 
     $scope.$on('$routeChangeSuccess', function () {
         //$scope.isCollapsed = true;
@@ -51,17 +58,10 @@ angular.module('winwinsApp')
 
     $rootScope.$on('$stateChangeSuccess',function(data, other){
 
-        if(menuStatus.isOpen) { 
-            document.closeMenu();
+        console.log('Menu abierto? '+$scope.isOpen);
+        if($scope.isOpen) { 
+            $scope.toggleMenu();
         }
-        /*
-        classie.remove( document.body, 'show-menu' );
-        setTimeout( function() {
-            path.attr( 'd', initialPath );
-            isAnimating = false; 
-        }, 300 );
-        */
-
 
         if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
             $("html, body").animate({ scrollTop: 430 }, 0);
@@ -116,5 +116,44 @@ angular.module('winwinsApp')
     $scope.goNotifications = function() {
         $state.go('profile_notificaciones');
     };
+
+    $scope.closeMenu = function() {
+        console.log('close menu');
+        setTimeout( function() {
+            $scope.path.attr( 'd', $scope.initialPath );
+            $scope.menuStatus.isAnimating = false; 
+        }, 300 );
+    }
+
+    $scope.toggleMenu = function() {
+        console.log('toggle menu');
+        if( $scope.menuStatus.isAnimating ) return false;
+
+        console.log('second step');
+
+        $scope.menuStatus.isAnimating = true;
+        if( $scope.isOpen) {
+            $scope.closeMenu();
+        } else {
+            $scope.path.animate( { 'path' : $scope.menuStatus.pathOpen }, 400, mina.easeinout, function() { $scope.menuStatus.isAnimating = false; } );
+        }
+        $scope.isOpen = !$scope.isOpen;
+    }
+
+
+    $scope.setupComponents = function() {
+        $scope.morphEl = document.getElementById( 'morph-shape' );
+        var s = Snap( $scope.morphEl.querySelector( 'svg' ) );
+        $scope.path = s.select( 'path' );
+        $scope.initialPath = $scope.path.attr('d');
+        $scope.menuStatus = {
+            pathOpen: $scope.morphEl.getAttribute( 'data-morph-open' ),
+            isAnimating: false
+        };
+    };
+
+    $timeout(function() {
+        $scope.setupComponents();
+    });
 
 });
