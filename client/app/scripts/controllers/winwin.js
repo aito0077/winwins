@@ -1101,9 +1101,11 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-muro', ['$scope','$http', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', 'api_host', function($scope, $http, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post, api_host) {
+.controller('winwin-muro', ['$scope','$http', '$auth', '$stateParams', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', 'api_host', function($scope, $http, $auth, $stateParams, $sce, $timeout, Winwin, Account, Upload, Post, api_host) {
 
     $scope.muro_view =  true;
+
+    $scope.isAuthenticated = $auth.isAuthenticated();
 
     $scope.winwin = {};
     $scope.getWinwin = function() {

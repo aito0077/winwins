@@ -4525,6 +4525,14 @@ background-color:#A2C7F7;
    -webkit-transition:all 0.5s ease-in-out;
 }
 
+#footer.show.media {
+    height: 280px;
+   -moz-transition:all 0.5s ease-in-out;
+   -o-transition:all 0.5s ease-in-out;
+   transition:all 0.5s ease-in-out;
+   -webkit-transition:all 0.5s ease-in-out;
+}
+ 
 
 
 .containermenu, 
