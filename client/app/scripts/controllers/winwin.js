@@ -374,7 +374,8 @@ angular.module('winwinsApp')
     $scope.winwin.closing_date = new Date();
 
     $scope.setup_components = function() {
-        $('[data-toggle="popover"]').popover();
+        jQuery('[data-toggle="popover"]').popover();
+        jQuery('[data-toggle="tooltip"]').tooltip()
         console.log('setup component');
     };
 
@@ -522,8 +523,8 @@ angular.module('winwinsApp')
 
 })
 .controller('winwin-first-post', ['$scope', '$stateParams', '$http', '$state', '$auth', '$sce', '$timeout', 'Winwin', 'Account', 'Upload', 'Post', 'api_host', function($scope, $stateParams, $http, $state, $auth, $sce, $timeout, Winwin, Account, Upload, Post, api_host) {
-    console.dir($stateParams); 
 
+    $scope.ww_saved = false;
     $scope.post = new Post({});
     $scope.profile = {};
     $scope.winwin = {};
@@ -545,16 +546,13 @@ angular.module('winwinsApp')
         console.dir($scope.post);
         $scope.post.$save(function(data) {
             $http.get(api_host+'/api/winwins/activate/'+$scope.winwin.id).success(function(data) {
-                swal({
-                    title: "Info", 
-                    text: 'winwin_activated', 
-                    type: "info",
-                    showcancelbutton: false,
-                    closeonconfirm: true 
-                });
-                $state.go('winwin-promote', {
-                    winwinId: $scope.winwin.id
-                }); 
+                $scope.ww_saved = true;
+
+                $timeout(function() {
+                    $state.go('winwin-promote', {
+                        winwinId: $scope.winwin.id
+                    }); 
+                }, 5000);
             })
             .error(function(error) {
                 swal({
@@ -676,7 +674,7 @@ angular.module('winwinsApp')
             $state.go('winwin-view', {
                 winwinId: $scope.winwin.id
             }); 
-        }, 3000);
+        }, 4000);
     };
 
     $scope.promote = true;
