@@ -13,6 +13,13 @@ angular.module('winwinsApp')
         }
     });
 }])
+.factory('Story',['$resource', 'api_host', function($resource, api_host){
+    return $resource(api_host+'/api/stories/:id', { id:'@id' }, {
+        update: {
+            method: 'POST'
+        }
+    });
+}])
 .factory('Account', ['$http', 'api_host', function($http, api_host) {
     return {
         getProfile: function() {

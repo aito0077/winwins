@@ -1,4 +1,5 @@
 <style>
+<<<<<<< HEAD
 header {
     width: 100%;
     height: 250px;
@@ -17,19 +18,31 @@ header {
 
 
    
+=======
+    header {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        -webkit-transition: height 0.4s;
+        -moz-transition: height 0.4s;
+        -ms-transition: height 0.4s;
+        -o-transition: height 0.6s; 
+        transition: height 0.6s;
+        position:fixed;
+        margin-top:250px;
+    }
+>>>>>>> 63adc33fdd8a0a636e6da8d414122ac1b8708a34
     header.smaller {
         height: 0px;
-
-}
+    }
 </style>
 
 <div class="container" style="padding-top: 50px;">
    
     <div class="row">
-               <!-- Header -->
-
-
-<!-- /header -->
         <div class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
 
@@ -227,7 +240,7 @@ header {
 
 <!-- Winwin CTA-->
 <div class="container">
-    <div class="row" ng-if="!isSponsor">
+    <div class="row" ng-if="!isSponsor" ng-show="!winwin.already_joined">
         <div class="col-xs-12">
         <div class="col-xs-5 cta-join">
             <a href="#" class="no-padding" ng-click="join()">
@@ -293,93 +306,8 @@ header {
 
 <!-- Winwin Activity Wall-->            
 
+<ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
 
-
-
-
-
-<div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
-
-
-    <div class="container" ng-repeat="item_post in posts">
-        <div class="row">
- <div class="col-xs-12 no-padding">
-  
-        </div>
-            <div class="panel-body post">
-
-                 <div class="col-xs-12 no-padding" style="background:white;">
-                    <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/></div>
-                            <div class="col-xs-10 no-padding">
-                            <p class="p-lista" style="padding-right: 15px;">
-                                {{::item_post.content}}
-                                    <!-- Toolbar -->
-            <div class="container buttons-post">
-                <div class="row">
-                    
-                    <div class="col-xs-3"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
-                    <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-3"></div>
-
-                </div>
-            </div>
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Media -->
-            
-            <div class="media-post"> </div>
-            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px;"></div>
-            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240">
-                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
-            </div>
-
-            
-            <!-- Commments PostBox-->
-            <div class="container comments-box reply" ng-show="item_post.isReplying">
-                <div class="col-xs-2 post-image">
-                    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
-                </div>
-                <div class="col-xs-6 ">
-                    <div class="bubbles">
-                        <textarea class="postbox" placeholder="Postear acá" rows="4" ></textarea>
-                    </div>
-                </div>
-                <a href="#" role="button" class="col-xs-2 button-send"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></a>
-                <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-youtube"></i></a>
-                <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-camera-retro"></i></a>
-            </div>
-        </div>
-    </div>
-
-
-
-<div id="footer">
-    <div class="container comments-box">
-        <div class="col-xs-2 post-image">
-            <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
-        </div>
-        <div class="col-xs-6 ">
-            <div class="bubbles">
-                <textarea class="postbox" placeholder="Postear acá" rows="4" ng-model="post.content" no-resize ng-required="true" ng-focus="max_size()" > </textarea>
-            </div>
-        </div>
-        <span type="button" class="col-xs-2 button-send" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
-        <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
-        <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></span>
-    </div>
-
-</div>
-
-</div>
 
 <script>
 function toggler(divId) {
@@ -393,7 +321,7 @@ function toggler(divId) {
     $(window).scroll(function() {  
 if($(document).scrollTop() > 150)
 {    
-      $('#footer').addClass("show");
+     $('#footer').addClass("show");
 }
 else
 {
@@ -403,8 +331,8 @@ else
     })
 </script>
 
-     <!-- Your jQuery/Javascript code -->
-     <script  type="text/javascript">
+ <!-- Your jQuery/Javascript code -->
+ <script  type="text/javascript">
 function init() {
     window.addEventListener('scroll', function(e){
         var distanceY = window.pageYOffset || document.documentElement.scrollTop,
@@ -420,4 +348,4 @@ function init() {
     });
 }
 window.onload = init();
-     </script>
+ </script>

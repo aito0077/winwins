@@ -11,42 +11,27 @@ use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Post;
+use Winwins\Model\Story;
 use Winwins\Model\Media;
 use Winwins\Model\Winwin;
 use Winwins\User;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller {
+class StoryController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show', 'posts']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
 	public function index() {
-        $posts = Post::all();
-        return $posts;
-	}
-
-	public function posts($type, $reference) {
-        $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
-        $collection = Collection::make($posts);
-        $collection->each(function($post) {
-            $user = $post->user;
-            $user->detail;
-            $post->media;
-        });
-        
-        return array(
-            'posts' => $collection,
-            'last' => $collection->last()
-        );
+        $stories = Story::all();
+        return $stories;
 	}
 
 	public function show(Request $request, $id) {
-        $post = Post::find($id);
-        return $post;
+        $story = Story::find($id);
+        return $story;
 	}
 
 	public function store(Request $request) {
@@ -54,14 +39,13 @@ class PostController extends Controller {
         $user = User::find($request['user']['sub']);
         Log::info($user);
 
-        $post = new Post;
-        DB::transaction(function() use ($request, $post, $user) {
-            $post->reference_id = $request->input('reference_id');
-            $post->type = $request->input('type');
-            $post->user_id = $user->id;
-            $post->title = $request->input('title');
-            $post->content = $request->input('content');
-            $post->media_id = $request->input('media_id');
+        $story = new Story;
+        DB::transaction(function() use ($request, $story, $user) {
+            $story->user_id = $user->id;
+            $story->title = $request->input('title');
+            $story->subtitle = $request->input('subtitle');
+            $story->content = $request->input('content');
+            $story->media_id = $request->input('media_id');
                  
             if($request->input('media_type')) {
                 if($request->input('media_type') == 'VIDEO') {
@@ -72,51 +56,49 @@ class PostController extends Controller {
                     $video->type = 'VIDEO';
                     $video->save();
 
-                    $post->media_id = $video->id;
+                    $story->media_id = $video->id;
 
                 }
             }
 
-            $post->save();
+            $story->save();
            
         });
 
-        return $post;
+        return $story;
 	}
 
 	public function comment(Request $request, $id) {
         $user = User::find($request['user']['sub']);
-        $post = Post::find($id);
-        $comment = new Post;
+        $story = new Story;
 
-        DB::transaction(function() use ($request, $post, $user, $comment) {
-            $comment->reference_id = $post->id;
-            $comment->type = 'WW_COMMENT';
-            $comment->user_id = $user->id;
-            $comment->title = '';
-            $comment->content = $request->input('content');
-            $comment->save();
+        DB::transaction(function() use ($request, $story, $user) {
+            $story->reference_id = $request->input('$id');
+            $story->type = 'WW_COMMENT';
+            $story->user_id = $user->id;
+            $story->title = '';
+            $story->content = $request->input('content');
+            $story->save();
         });
 
-        return $comment;
+        return $story;
 	}
 
 
 	public function update($id) {
-        $post = Post::find($id);
-
-        $post->save();
-        return $post;
+        $story = Story::find($id);
+        $story->title = $request->input('title');
+        $story->subtitle = $request->input('subtitle');
+        $story->content = $request->input('content');
+        $story->media_id = $request->input('media_id');
+        $story->save();
+        return $story;
 	}
 
 	public function destroy($id) {
-        Post::destroy($id);
+        Story::destroy($id);
 	}
 
-	public function dashboard($post_reference) {
-        $posts = Post::winwins()->where('reference_id', $post_reference);
-        return $posts;
-	}
 
     //Actions
 	public function create() {
@@ -174,4 +156,5 @@ class PostController extends Controller {
 
 
 }
+
 

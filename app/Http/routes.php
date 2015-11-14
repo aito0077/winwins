@@ -37,8 +37,11 @@ Route::resource('api/winwins', 'WinwinController');
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
 
 Route::resource('api/posts', 'PostController');
+Route::resource('api/stories', 'StoryController');
 Route::post('api/posts/upload', ['middleware' => 'auth', 'uses' => 'PostController@storeImage']);
+Route::post('api/stories/upload', ['middleware' => 'auth', 'uses' => 'StoryController@storeImage']);
 Route::post('api/posts/{id}/comment', ['middleware' => 'auth', 'uses' => 'PostController@comment']);
+Route::post('api/stories/{id}/comment', ['middleware' => 'auth', 'uses' => 'StoryController@comment']);
 
 
 Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);
