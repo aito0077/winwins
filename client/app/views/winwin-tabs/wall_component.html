@@ -8,10 +8,12 @@
 <div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
 
 
+
     <div class="container" ng-repeat="item_post in posts">
         <div class="row">
  <div class="col-xs-12 no-padding">
   
+
         </div>
             <div class="panel-body post">
 
@@ -42,7 +44,7 @@
             <div class="container  buttons-post" style="background: white;">
                 <div class="row" style=" margin-top: 10px;">
                     <div class="col-xs-12 no-padding">
-                                             <div class="col-xs-4" style="padding-left:10px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;">  10/11/15 | 10:20 </span></div>
+                                             <div class="col-xs-4" style="padding-left:10px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY'}} </span></div>
                     <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
                     <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
                     <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>

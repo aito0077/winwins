@@ -25,6 +25,9 @@ class CreatePostsTable extends Migration {
             $table->boolean('sticky')->default(FALSE);
             $table->datetime('sticky_date')->nullable();
 
+            $table->integer('up_votes')->unsigned()->default(0);
+            $table->integer('down_votes')->unsigned()->default(0);
+
             $table->integer('media_id')->unsigned()->nullable();
             $table->foreign('media_id')->references('id')->on('medias');
 

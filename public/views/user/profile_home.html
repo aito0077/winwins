@@ -23,7 +23,7 @@
 
 
     <div class="container">
-        <div class="row" style="height:500px;">
+        <div class="row" style="height:500px; background-color:#1762C3;">
             <div class="panel-group" id="accordion">
 
                 <div class="panel panel-default">
@@ -50,7 +50,7 @@
                             <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> MIS WINWINS <i class="fa fa-caret-down" style="float:right;"></i></a>
                         </h4>
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div id="collapseTwo" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="col-xs-12 no-padding"> 
                                 <div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.user_id} " class="col-xs-2 no-padding">
@@ -68,7 +68,7 @@
                             <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> WINWINS EN QUE PARTICIPO <i class="fa fa-caret-down" style="float:right;"></i> </a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
+                    <div id="collapseThree" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="col-xs-12 no-padding">
                                 <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-2 no-padding">
@@ -89,7 +89,7 @@
                         <div class="panel-body">
                             <div class="col-xs-12 no-padding acordeon">
                                 <div class="col-xs-2 followers no-padding" ng-repeat="follower in followers" >
-                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{follower.photo}}" width="35" height="35"  class="img-responsive img-circle"  alt="{{follower.name}}"  title="{{follower.name}}" style="cursor:pointer;" ng-click="viewUser(follower.user_id)">
+                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{follower.photo}}" width="35" height="35"  class="img-responsive"  alt="{{follower.name}}"  title="{{follower.name}}" style="cursor:pointer;" ng-click="viewUser(follower.user_id)">
                                 </div>
 
                             </div>
@@ -108,7 +108,7 @@
                         <div class="panel-body">
                             <div class="col-xs-12 no-padding acordeon">
                                 <div class="col-xs-2 followers no-padding" ng-repeat="followed in following" >
-                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{followed.photo}}" class="img-responsive img-circle" alt="{{followed.name}}"  title="{{followed.name}}" width="35" height="35" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />
+                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{followed.photo}}" class="img-responsive" alt="{{followed.name}}"  title="{{followed.name}}" width="35" height="35" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />
                                 </div>
                             </div>
                         </div>
