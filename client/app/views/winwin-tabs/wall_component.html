@@ -26,16 +26,31 @@
 
                                 {{::item_post.content}}
 
+
+
+                                  <!-- Media -->
+            
+            <div class="media-post"> </div>
+            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
+            </div>
+
+            
+         
                                   <!-- Toolbar -->
             <div class="container  buttons-post" style="background: white;">
                 <div class="row" style=" margin-top: 10px;">
-                    
-                    <div class="col-xs-3"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
+                    <div class="col-xs-12 no-padding">
+                                             <div class="col-xs-4" style="padding-left:10px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;">  10/11/15 | 10:20 </span></div>
+                    <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
+                    <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
                     <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                    <div class="col-xs-1" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
                     <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-3"></div>
+
+                   
+                    </div>
 
                 </div>
             </div>                                 
@@ -47,15 +62,7 @@
             </div>
 
 
-            <!-- Media -->
-            
-            <div class="media-post"> </div>
-            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px;"></div>
-            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240">
-                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
-            </div>
-
-            
+          
             <!-- Commments PostBox-->
             <div class="container comments-box reply" ng-show="item_post.isReplying">
                 <div class="col-xs-2 post-image">
