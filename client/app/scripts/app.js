@@ -374,10 +374,11 @@ angular.module('winwinsApp', [
         'background-attachment': attrs.backgroundAttachment,
         'background-origin': attrs.backgroundOrigin,
         'background-clip': attrs.backgroundClip,
-        'background': 'linear-gradient( rgba(0, 0, 0, 9), rgba(154, 148, 120, 0.1)),url(' + attrs.backgroundImage + ')',
+        'background': '  linear-gradient(rgb(0, 0, 0), rgba(154, 148, 120, 0.0980392)),url(' + attrs.backgroundImage + ')',
         'background-size': 'cover',
        });
       };
+	  
 	  
       $scope.launchDynamicBg = function manageLaunchDynamicBg () {
 

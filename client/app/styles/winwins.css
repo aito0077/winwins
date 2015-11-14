@@ -5,13 +5,11 @@
  *
  * Homepage: http://winwins.github.com/
  *
- * By  M-Linkway_Agency <agency@linkway.me>
- *
  * Last modify time: 2015
  *
  * Licensed under the MIT license. Please see LICENSE for more information.
  *
- * Copyright 2015 Linkway.
+ * Copyright 2015 Humanet.
  *
  */
 
@@ -49,7 +47,7 @@
   .perfil  {
 
  margin-left:0px;
-padding-top:3px;
+
 }
  
  
@@ -2267,6 +2265,7 @@ background-color:#DCDCDC ; padding: 10px;
 .panel-group-lists .panel-heading + .panel-collapse .panel-body {
   padding: 15px;
   border:0px;
+
 }
 .panel-group-lists .panel-title a {
   padding: 10px 15px;
@@ -2275,7 +2274,7 @@ background-color:#DCDCDC ; padding: 10px;
 .panel-group-lists .panel-title a:hover, .panel-group-lists .panel-title a:focus, .panel-group-lists .panel-title a:active {
   color: #aab2bd;
 }
-.panel-group .panel-heading+.panel-collapse>.panel-body{  border:0px;}
+.panel-group .panel-heading+.panel-collapse>.panel-body{  border:0px;      background: #D8D8D8;}
 /**
  * footer
  * --------------------------------------------------
@@ -2609,8 +2608,8 @@ background-color:#DCDCDC ; padding: 10px;
 }
 
 .card-buttons {
-    height: 50px;
-	margin-top:-50px;
+margin-top: -40px;
+
 	
 }
 
@@ -2779,6 +2778,7 @@ body {
 
 .panel-body {
     padding: 0px;
+    background: white;
 }
 
 col-xs-12 no-padding  {
@@ -2825,6 +2825,7 @@ padding-top: 10px;
     width: 40px;
     border-radius: 1px;
 	padding-top:3px;
+ border-top-left-radius: 15px;
 }
 
 
@@ -2846,12 +2847,15 @@ padding-top: 10px;
 
 .btn-twitter-big{
     height: 40px;
-	border-bottom: 2px solid #14809A;
-	background-color:#1dcaff;
-    font-size: 1.8em;
-	width: 40px;
-	border-radius: 1px;
-	padding-top: 5px;
+    border-bottom: 2px solid #14809A;
+    background-color: #1dcaff;
+    font-size: 1.4em;
+    width: 40px;
+    border-top-left-radius: 10px;
+    padding-top: 5px;
+    /* border-bottom-right-radius: 45%; */
+    /* border-bottom-left-radius: 45%; */
+    border-top-left-radius: 45%;
 }
 
 .btn-google-big {
@@ -2918,7 +2922,6 @@ a {
 
 .btn {
    border: transparent;
-       box-shadow: 2px 2px grey;
 }
 
 
@@ -3341,15 +3344,17 @@ padding: 30px;
 
 
 .ww-popular {
-    height:6px; 
+    height:2px; 
 	background-color: red;
+
 }
 
 
 
 .ww-featured {
-    height:6px; 
-	background-color: #EC7007;
+    height:2px; 
+        background-color: #EC7007;
+        overflow: hidden;
 }
 
 
@@ -3377,7 +3382,7 @@ border-radius: 50%;
     color: white;
     float: right;
     background-color: red;
-    margin-top: -10px;
+    margin-top: 8px;
     width: 33px;
     text-align: center;
     border-radius: 50%;
@@ -3389,13 +3394,16 @@ border-radius: 50%;
     float: right;
     margin-right: 20px;
     margin-top: 0;
-    /* width: 35px; */
+    width: 35px;
     text-align: center;
-    margin-top: -5px;
-}
+    margin-top: -7px;
+
+    }
 
 .profile {
  margin-left: 20px;
+  margin-top: -20px;
+
 
 }
 
@@ -3515,6 +3523,7 @@ height:60px;
 padding-top:10px;
 padding-bottom:10px;
 margin-top: -60px;
+    margin-left: 10px;
 }
 
 
@@ -3562,7 +3571,10 @@ font-weight:bold;}
 font-family:montserrat; 
 font-size: 13px; 
 color:#434a54; 
-font-weight:100;}
+font-weight:100;
+margin-left: 15px;
+margin-right: 15px;
+}
 
 
 
@@ -3579,6 +3591,7 @@ font-size: 11px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+    box-shadow: 0px 2px lightgrey;
 }
 	
 .detalles {
@@ -3611,6 +3624,7 @@ padding-bottom: 20px;
   font-size: 1.5em; 
   font-weight: bold;
   padding: 30px;
+  padding-bottom: 15px;
 }
 
 .form-back {
@@ -3635,7 +3649,7 @@ span.remember {
 }
 
 .social{
-	max-width:380px;
+	max-width:280px;
 }
 
 .create{
@@ -3650,7 +3664,6 @@ span.remember {
     font-size: 20px;
     color: #fff;
     border-bottom: 4px solid #06C;
-    margin-top: -5px;
     padding: 15px;
     text-align: center;
     font-family: montserrat;
@@ -3660,14 +3673,15 @@ span.remember {
 
 .winwin-title {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
   font-family: montserrat;
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-transform: uppercase;
+    width: 90%;
  }
  
  .card-profile-img{
@@ -3814,7 +3828,8 @@ background-color: #EC7007;
     color: white;
     font-family: montserrat;
     padding: 2px;
-    border-radius: 3px;
+      border-radius: 1px;
+
 	}
 	
 .mas-detalles {
@@ -3893,16 +3908,19 @@ background-color: #EC7007;
 
 
 	.upload-post {	
-	
 	background-color: #FFFFFF;
-    border-radius: 2px;
+    border-radius: 50%;
     text-align: center;
     margin-left: 10px;
-    margin-top:2px;
+    margin-top: 2px;
     color: #403B3B;
     font-size: 1.6em;
-    box-shadow: 2px 2px #1A4D8F;
-    padding: 3px; }
+    /* box-shadow: 2px 2px #1A4D8F; */
+    padding: 2px;
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+}
 	
 	.upload-post:hover {	
 	
@@ -3933,18 +3951,24 @@ padding:10px;
 }
 	 
 	 .date {
-	
-	 font-family: montserrat;
-    font-size: 10px;
+	font-family: montserrat;
+    font-size: 8px;
     float: left;
     /* letter-spacing: -1px; */
-    color: #999;
+    color: #3276C9;
+    text-align: center;
+    padding-left: 7px;
     }
 	  
 	 .p-lista {
-	  font-family: montserrat; font-size: 11px;
-        padding-top: 15px;
-    padding-bottom: 15px; }
+    font-family: montserrat;
+    font-size: 11px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+    padding-left: 20px;
+    box-shadow: 0px 3px 5px lightgrey;
+      border-top: 2px solid #EFEFEF;}
 	  
 	  .cta-join{
 	      background-color: #2DB200!important;
@@ -3970,7 +3994,7 @@ padding:10px;
 		  
 		  .ww-somos {
 		  
-		  font-family: montserrat; color: #fff; text-align:center; font-size:11px; margin-top:-2px;}
+		  font-family: montserrat; color: #fff; text-align:center; font-size:11px; margin-top:-2px; margin-left:12px;}
 		  
 		  .ww-attribute {
 			  text-align:center;
@@ -4018,7 +4042,7 @@ padding:10px;
     width: 55px;
     /* height: 15px; */
     /* padding: 2px 4px 3px 3px; */
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(0, 0, 0, 1);
     /* border-radius: 2px; */
     text-align: center;
     font-size: 0.9em;
@@ -4055,14 +4079,17 @@ background-color: blue;
     text-align: center;
     color: #FFF;
    font-size:20px;
+
 }
 .col-xs-20.active {
-   background-color: #FF8000;
-    border-bottom: 5px #BD5B00;
+background-color: #2AB467;
+    border-bottom: 5px #2AB467;
+        opacity: 1;
 }
 
 .col-xs-20 i {
     margin-top:  9px;
+        opacity: 0.7;
 }
 
 
@@ -4338,7 +4365,7 @@ font-size: 16px;}
 margin-left:auto; 
 margin-right: auto;
 display:block; 
-width:99%; 
+width:90%; 
 text-align:center; 
 font-family: montserrat; 
 color: white;
@@ -4447,8 +4474,7 @@ width: 99%;}
 
 
 .followers {
-padding: 5px;
-background-color: #f5f5f5;}
+}
 
 .solicitud {
 font-family:montserrat; 
@@ -4499,6 +4525,67 @@ background-color:#A2C7F7;
 
 
 }
+
+.ww-social-fb-btn {
+
+background-color: #3B5998;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 7px;
+    font-size: 1.4em;
+
+   }
+
+
+
+.ww-social-fb-btn:active {
+
+background-color: #3B5998;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 7px;
+    font-size: 1.4em;
+   }
+
+
+.ww-social-tw-btn {
+
+background-color: #1DCAFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 7px;
+    font-size: 1.4em;
+    margin-left: -10px;
+
+   }
+
+
+.ww-social-mail-btn {
+
+background-color: #FF8100;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 1.4em;
+    margin-left: -20px;
+
+   }
+
+
+
+
 
 #footer 
 {
@@ -4639,6 +4726,7 @@ background-color:#A2C7F7;
     z-index: 1001;
     background: transparent;
     color: transparent;
+    margin-top:55px;
 }
 
 .close-button::before,
@@ -4676,10 +4764,13 @@ background-color:#A2C7F7;
 }
 
 .menu {
-    background: #1762C3;
+background: #1762C3;
     width: calc (120% - 60px);
     height: 100%;
     padding: 2em 1em;
+    margin-top: 53px;
+    border-top: 3px solid #1B4782;
+    border-bottom: 3px solid orange;
 
 }
 
@@ -4772,7 +4863,12 @@ font-family: montserrat;
     border-bottom: 3px solid #1B4782;
   font-size: 12px;}
 
-.modal-content,
+
 .modal-background {
-    background-color: transparent;
+     background-color: white;
+    border-radius: 0px;
 }
+
+
+
+
