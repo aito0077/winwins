@@ -192,7 +192,7 @@ header.smaller {
     padding: 15px;
     background: rgb(247, 244, 244);
         box-shadow: 3px 3px 3px lightgrey;">
-        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
         <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}</span> </div> 
         <div class="col-xs-3 ww-attributte">Categoria:<br> Medio Ambiente</span> </div>
         <!-- Button trigger modal -->
