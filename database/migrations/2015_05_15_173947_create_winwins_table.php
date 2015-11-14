@@ -29,8 +29,10 @@ class CreateWinwinsTable extends Migration {
             $table->string('state')->nullable();
             $table->string('city')->nullable();
 
+            $table->boolean('is_video')->default(FALSE);
             $table->string('video')->nullable();
             $table->string('image')->nullable()->default('winwin-default.jpg');
+
 
             $table->boolean('canceled')->default(FALSE);
             $table->boolean('emailed')->default(FALSE);

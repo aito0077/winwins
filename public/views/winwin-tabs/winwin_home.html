@@ -1,39 +1,107 @@
 <style>
-    header {
-        width: 100%;
-        height: 250px;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        -webkit-transition: height 0.4s;
-        -moz-transition: height 0.4s;
-        -ms-transition: height 0.4s;
-        -o-transition: height 0.6s; 
-        transition: height 0.6s;
-        position:fixed;
-        margin-top:250px;
-    }
-    header.smaller {
-        height: 0px;
-    }
+header {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    -webkit-transition: height 0.4s;
+    -moz-transition: height 0.4s;
+    -ms-transition: height 0.4s;
+    -o-transition: height 0.6s; 
+    transition: height 0.6s;
+    position:fixed;
+    margin-top:250px;
+}
+
+header.smaller {
+    height: 0px;
+}
 </style>
 
 <div class="container" style="padding-top: 50px;">
    
-    <div class="row">
+    <div class="row"  ng-if="winwin.is_video">
         <div class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
+                <div class="row">
+                    <iframe width="100%" height="280" src="{{getIframeSrc(winwin.video)}}" frameborder="0" ></iframe>
+                </div>
+            </header>
+        </div>
+    </div>
 
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 250px;">
+
+    <div class="row">
+
+
+        <div ng-if="!winwin.is_video" class="col-xs-12 no-padding">
+            <header style="margin-top:55px;">
+
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 230px;    box-shadow:  rgb(152, 139, 139) 0px 1px 10px; padding-bottom:10px;">
                 <div class="winwin-title">
                  
                         {{::winwin.title}}
                   
                 </div>
             </div>
-            <div class="col-xs-12">
-                       <div class="buttons-winwins" style="z-index: 999999;">
+
+
+    <div class="container">
+        <div class="row">
+            <div style="z-index: 999999; margin-top:-50px; ">
+           
+            <div class="col-xs-2">    <span class="ww-social-fb-btn"><i class="fa fa-facebook fa-inverse"></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-tw-btn"> <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-mail-btn"> <i class="fa fa-envelope-o fa-inverse" ></i>   </span> </div>
+            <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
+                        <span class="bubble-label"> 
+                            Somos 
+                        </span> 
+                        <div  style="background-color: #23AD85;
+    font-size: 16px;
+    font-family: montserrat;
+    min-width: 55px;
+    padding: 3px;
+     
+  ">
+                            {{::winwin.users_already_joined}}
+                        </div>
+                    </div> </span> </div>
+            <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
+                        <span class="bubble-label"> 
+                            Faltan 
+                        </span> 
+                        <div  style="background-color:  #E91D2A;
+    font-size: 16px;
+    font-family: montserrat;
+    min-width: 55px;
+    padding: 3px;  "
+    >
+                     {{::winwin.users_left}}
+                        </div>
+                    </div>  </span> </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-xs-12" style="display:none;">
+                       
                     <div class="col-xs-2 btn-fbk-big" socialshare socialshare-provider="facebook" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
                         <i class="fa fa-facebook fa-inverse" style="margin-left: -3px;"></i> 
                     </div>
@@ -78,10 +146,10 @@
 
 
       <!-- Winwin Text-->
-<div class="container" style="text-align:center; margin-top: 250px;">
+<div class="container" style="text-align:center; margin-top: 220px;">
     <div class="row">
         <div class="col-xs-12">
-            <div class="pad-20"></div>
+            <div style="padding-top:30px;"></div>
             <span class="sisupieras">¿Si supieras que somos </span>
             <span class="somos-txt">{{::winwin.users_amount}}</span> 
             <div class="ww-text"> para {{::winwin.what_we_do}} </div>
@@ -118,12 +186,17 @@
 
 <!-- Winwin Attributes-->
 <div class="container">
-    <div class="row" style="font-family: montserrat; font-size:10px; text-align:center;">
+    <div class="row" style="font-family: montserrat;
+    font-size: 10px;
+    text-align: center;
+    padding: 15px;
+    background: rgb(247, 244, 244);
+        box-shadow: 3px 3px 3px lightgrey;">
         <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
         <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}</span> </div> 
         <div class="col-xs-3 ww-attributte">Categoria:<br> Medio Ambiente</span> </div>
         <!-- Button trigger modal -->
-        <div class="col-xs-3 ww-attributte"> <span style="text-align: center; color:#333;"><a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </a></div>
+        <div class="col-xs-3 ww-attributte"> <span style="text-align: center; color:#333;"><a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </a><br>Abandonar WinWin</div>
     </div>
 </div>
 </div>
@@ -186,15 +259,22 @@
   <!-- Winwin People-->
 <div class="container no-padding">
     <div class="row">
-        <div class="col-xs-12 mb-20" style="background-color: #f1f1f1; padding: 10px 10px 20px;"> 
+        <div class="col-xs-12 mb-20" style="background-color: #f1f1f1; padding: 10px 10px 10px;      box-shadow: 0px 3px 5px lightgrey;   margin-bottom: 15px;
+    margin-top: 10px;"> 
             <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
-                <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%;">
+                <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; line-height:17px;">
             </div>
-               <div class="col-xs-3 no-padding" style="cursor: pointer; font-family: montserrat; font-size:12px; text-transform: capitalize;" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</br><span style="color:#1762C3">creador</span> </div>
+               <div class="col-xs-3 no-padding" style="    cursor: pointer;
+    font-family: montserrat;
+    font-size: 12px;
+    margin-left: 18px;
+    text-transform: capitalize;
+    line-height: 12px;
+    padding-top: 7px;" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</br><span style="color:#1762C3;font-size:8px; text-transform: uppercase;">creador</span> </div>
       
             <div class="col-xs-6">
               <div class="col-xs-1" ng-repeat="member in winwin.users">
-                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-circle-second"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-show="member.id != winwin.user.id"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
              
             </div>
         </div>
@@ -204,7 +284,7 @@
 
         <div class="col-xs-12 no-padding">
             <div class="col-xs-4 no-padding" ng-repeat="sponsor in winwin.sponsors">
-                    <img alt="{{::sponsor.name}}" title="{{::sponsor.name}}" ng-src="http://images.dev-winwins.net/x30/{{::sponsor.photo}}" width="100" height="30" style="margin-top:20px; margin-bottom:20px; float:left;">
+                    <img alt="{{::sponsor.name}}" title="{{::sponsor.name}}" ng-src="http://images.dev-winwins.net/x30/{{::sponsor.photo}}" width="100" height="30" style="margin-top:10px; margin-bottom:20px; float:right;">
             </div>
         </div>
     </div>
@@ -213,8 +293,14 @@
 
 </header>
 
+
+
+
+
 <!-- Winwin Activity Wall-->            
+
 <ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
+
 
 <script>
 function toggler(divId) {
@@ -226,7 +312,7 @@ function toggler(divId) {
 <script>
     $(function(){
     $(window).scroll(function() {  
-if($(document).scrollTop() > 100)
+if($(document).scrollTop() > 150)
 {    
      $('#footer').addClass("show");
 }
@@ -243,7 +329,7 @@ else
 function init() {
     window.addEventListener('scroll', function(e){
         var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-            shrinkOn =50,
+            shrinkOn =100,
             header = document.querySelector("header");
         if (distanceY > shrinkOn) {
             classie.add(header,"smaller");

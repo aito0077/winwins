@@ -261,6 +261,8 @@ class WinwinController extends Controller {
                 
                     Storage::disk('s3-gallery')->put('/' .$request->input('video').'.jpg', file_get_contents($youtube_img), 'public');
 
+                    $winwin->is_video = true;
+                    $winwin->video = $request->input('video');
                     $winwin->image = $request->input('video').'.jpg';
                     $winwin->save();
                 }

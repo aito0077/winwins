@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('winwin-tabs', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
+.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
 
 
     $scope.is_admin = false;
@@ -199,6 +199,10 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.getIframeSrc = function (videoId) {
+        return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
+    };
+
 }])
 .controller('winwin-joined', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
@@ -208,7 +212,7 @@ angular.module('winwinsApp')
         }, function(data) {
             $scope.title = data.title;
             $timeout(function() {
-                $state.go('winwin-view', {
+                $state.go('winwin-promote', {
                     winwinId: $stateParams.winwinId
                 }); 
             }, 5000);
@@ -561,13 +565,13 @@ angular.module('winwinsApp')
         console.dir($scope.post);
         $scope.post.$save(function(data) {
             $http.get(api_host+'/api/winwins/activate/'+$scope.winwin.id).success(function(data) {
-                $scope.ww_saved = true;
+                //$scope.ww_saved = true;
 
-                $timeout(function() {
+                //$timeout(function() {
                     $state.go('winwin-promote', {
                         winwinId: $scope.winwin.id
                     }); 
-                }, 5000);
+                //}, 5000);
             })
             .error(function(error) {
                 swal({
@@ -689,7 +693,7 @@ angular.module('winwinsApp')
             $state.go('winwin-view', {
                 winwinId: $scope.winwin.id
             }); 
-        }, 4000);
+        }, 3000);
     };
 
     $scope.promote = true;

@@ -3,6 +3,7 @@ use Illuminate\Database\Seeder;
 use Winwins\Model\Winwin;
 use Winwins\Model\Post;
 use Winwins\Model\Media;
+use Carbon\Carbon;
 
 class WinwinsTableSeeder extends Seeder {
 
@@ -50,6 +51,8 @@ class WinwinsTableSeeder extends Seeder {
         $post->content = "Me parece que queda muy feo, y aparte es muy riesgoso para los niños que juegan, que tengamos los deshechos de los perros, en las veredas y jardines adentro del parque";
         $post->user_id = 76;
         $post->media_id = 1;
+        $post->sticky = 1;
+        $post->sticky_date  = Carbon::now();
         $post->save();
 
         $media = new Media();
@@ -64,6 +67,8 @@ class WinwinsTableSeeder extends Seeder {
         $post->type = "WINWIN";
         $post->content = "Esta red social es nueva, por lo tanto poco conocida y esta realidad dificulta su crecimiento";
         $post->user_id = 4;
+        $post->sticky = 1;
+        $post->sticky_date  = Carbon::now();
         $post->media_id = 2;
         $post->save();
 

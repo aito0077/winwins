@@ -1,12 +1,12 @@
 <div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
 
     <div class="col-xs-12 wall-header" style="background: #1762C3; width:100%; padding: 10px; font-size: 9px; color:white; font-family:montserrat; text-align:center; margin-bottom:20px;">
-        Ultima actividad 17/1/15
+        Ultima actividad {{::posts.last.created_at |moment: 'DD/MM/YYYY'}}
     </div>
     <div class="container" ng-repeat="item_post in posts">
         <div class="row">
             <div class="col-xs-12 no-padding">
-                <div class="ww-featured"> 
+                <div class="ww-featured" ng-if="item_post.sticky == 1"> 
                     <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
                 </div>
             </div>

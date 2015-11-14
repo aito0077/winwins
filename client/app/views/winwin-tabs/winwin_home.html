@@ -1,5 +1,4 @@
 <style>
-<<<<<<< HEAD
 header {
     width: 100%;
     height: 250px;
@@ -7,43 +6,37 @@ header {
     top: 0;
     left: 0;
     z-index: 999;
-    -webkit-transition: height 1s;
-    -moz-transition: height 1s;
-    -ms-transition: height 1s;
-    -o-transition: height 1s; 
-    transition: height 1s;
+    -webkit-transition: height 0.4s;
+    -moz-transition: height 0.4s;
+    -ms-transition: height 0.4s;
+    -o-transition: height 0.6s; 
+    transition: height 0.6s;
     position:fixed;
     margin-top:250px;
 }
 
-
-   
-=======
-    header {
-        width: 100%;
-        height: 250px;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        -webkit-transition: height 0.4s;
-        -moz-transition: height 0.4s;
-        -ms-transition: height 0.4s;
-        -o-transition: height 0.6s; 
-        transition: height 0.6s;
-        position:fixed;
-        margin-top:250px;
-    }
->>>>>>> 63adc33fdd8a0a636e6da8d414122ac1b8708a34
-    header.smaller {
-        height: 0px;
-    }
+header.smaller {
+    height: 0px;
+}
 </style>
 
 <div class="container" style="padding-top: 50px;">
    
-    <div class="row">
+    <div class="row"  ng-if="winwin.is_video">
         <div class="col-xs-12 no-padding">
+            <header style="margin-top:55px;">
+                <div class="row">
+                    <iframe width="100%" height="280" src="{{getIframeSrc(winwin.video)}}" frameborder="0" ></iframe>
+                </div>
+            </header>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div ng-if="!winwin.is_video" class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
 
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 230px;    box-shadow:  rgb(152, 139, 139) 0px 1px 10px; padding-bottom:10px;">

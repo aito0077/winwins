@@ -32,14 +32,27 @@ class PostController extends Controller {
 	public function posts($type, $reference) {
         $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
         $collection = Collection::make($posts);
-        $collection->each(function($post) {
+        $stickies = new Collection();
+        $regulars = new Collection();
+        $final = new Collection();
+
+        $collection->each(function($post) use($stickies, $regulars) {
             $user = $post->user;
             $user->detail;
             $post->media;
+            if($post->sticky) {
+                $stickies->push($post);
+            } else {
+                $regulars->push($post);
+            }
         });
+
+        
+
+        $final = $stickies->sortByDesc('sticky_date')->merge($regulars);
         
         return array(
-            'posts' => $collection,
+            'posts' => $final,
             'last' => $collection->last()
         );
 	}
