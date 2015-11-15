@@ -1276,12 +1276,21 @@ angular.module('winwinsApp')
         $scope.editing = true;
     };
 
-    $scope.voteUp = function(post) {
-
-    };
-
-    $scope.voteDown = function(post) {
-
+    $scope.vote = function(post, positive) {
+        $http.post(api_host+'/api/posts/'+post.id+'/vote',{
+            positive: positive
+        }).success(function(data) {
+            $scope.getPosts();
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
     };
 
     $scope.reply = function(post) {

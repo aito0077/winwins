@@ -32,4 +32,10 @@ class Post extends Model {
     public function scopeComments($query) {
         return $query->where('type', 'WW_COMMENT');
     }
+
+    public function votes() {
+        return $this->hasMany('Winwins\Model\PostVote');
+    }
+
+
 }

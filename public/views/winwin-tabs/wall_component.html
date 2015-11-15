@@ -37,8 +37,13 @@
         <div class="container buttons-post">
             <div class="row">
                 <div class="col-xs-3"></div>
-                <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(item_post)"></i> <span class="post-likes"> 10</span></div>
-                <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(item_post)"></i><span class="post-likes-"> 10</span></div>
+
+                <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+
+                <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+
                 <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
                 <div ng-if="!isAuthenticated" class="col-xs-2"></div>
                 <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
