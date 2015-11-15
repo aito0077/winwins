@@ -12,12 +12,12 @@
      <div class="pad-20"></div>
         <div class="container ww-create">
             <div class="form-back create">
-                <div class="bubble-xs">Dale un nombre a tu winwin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Nombra a tu WinWin con menos de 50 caracteres"><i class="fa fa-question-circle red"></i></a></div>
+                <div class="bubble-xs">Dale un nombre a tu winwin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Nombra a tu WinWin con menos de 50 caracteres"><i class="fa fa-question-circle form"></i></a></div>
 
                 <input class="input-forms" class="active" placeholder="" type="text"  ng-model="winwin.title" required/>
 
                 <div class="pad-20"></div>
-                <div class="bubble-xs">Plantea tu WinWin <a type="button"  data-toggle="tooltip" data-placement="top" title="Plantea tu winwin, la consigna es que puedas hacer lo que quieras"><i class="fa fa-question-circle red"></i></a></div>
+                <div class="bubble-xs">Plantea tu WinWin <a type="button"  data-toggle="tooltip" data-placement="top" title="Plantea tu winwin, la consigna es que puedas hacer lo que quieras"><i class="fa fa-question-circle form"></i></a></div>
                 <div class="pad-10"></div>
                 <span class="si-supieras">¿Si supieras que somos </span> 
 
@@ -31,13 +31,13 @@
                 <br>
                 <span class="si-supieras">te sumarías?</span>
                 <div class="pad-10"></div>
-                <div class="bubble-xs">Más Detalles del WinWin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Describi los detalles, la hora, las personas, y toda la info que pueda servir"><i class="fa fa-question-circle red"></i></a></div>
+                <div class="bubble-xs">Más Detalles del WinWin  <a type="button"  data-toggle="tooltip" data-placement="top" title="Describi los detalles, la hora, las personas, y toda la info que pueda servir"><i class="fa fa-question-circle form" ></i></a></div>
 
                 <textarea class="text-forms" rows="4" ng-model="winwin.description"></textarea>
 
                 <div class="pad-10"></div>
 
-                <div class="bubble-xs">Fecha Límite (Si Aplica)  <a type="button"  data-toggle="tooltip" data-placement="top" title="Algunos WinWins tienen fecha de concrecion, si el tuyo es uno de ellos, seleccionala."><i class="fa fa-question-circle red"></i></a></div>
+                <div class="bubble-xs">Fecha Límite (Si Aplica)  <a type="button"  data-toggle="tooltip" data-placement="top" title="Algunos WinWins tienen fecha de concrecion, si el tuyo es uno de ellos, seleccionala."><i class="fa fa-question-circle form"></i></a></div>
 
 
 
@@ -54,7 +54,7 @@
 
                 <div class="pad-10"></div>
 
-                <button name="crear-winwin" type="submit" ng-disabled="wwBasicForm.$invalid"  class="submit-create btn " style="color:#FFF; text-transform:uppercase;" ng-click="persistBasic()">
+                <button name="crear-winwin" type="submit" ng-disabled="wwBasicForm.$invalid"  class="submit-create btn " style="color:#FFF; margin-top: 20px;text-transform:uppercase;" ng-click="persistBasic()">
                     Crear winwin
                 </button>   
             </div>

@@ -241,13 +241,14 @@ blockquote {
   color: white;
 }
 .btn, .btn.disabled, .btn[disabled] {
-  background-color: #aab2bd;
-  border-color: #aab2bd;
-  background-color: #1762C3;
+background-color: #aab2bd;
+    border-color: #aab2bd;
+    background-color: lightgrey;
     border-color: #aab2bd;
     border-radius: 1px;
     font-family: montserrat;
     padding: 10px;
+    opacity: 1;
 	
 }
 
@@ -502,19 +503,21 @@ blockquote {
  */
 .tooltip-inner {
   color: white;
-  background-color: #434a54;
+  font-family: montserrat;
+  border-radius: 0px;
+  background-color:#FF8000;
 }
 .tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow {
-  border-top-color: #434a54;
+  border-top-color: #FF8000;
 }
 .tooltip.right .tooltip-arrow {
-  border-right-color: #434a54;
+  border-right-color:#FF8000;
 }
 .tooltip.left .tooltip-arrow {
-  border-left-color: #434a54;
+  border-left-color: #FF8000;
 }
 .tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow {
-  border-bottom-color: #434a54;
+  border-bottom-color: #FF8000;
 }
 
 /**
@@ -1943,6 +1946,7 @@ background-color:#DCDCDC ; padding: 10px;
 }
 .modal-footer {
   border-top: none;
+  padding:9px;
 }
 
 /**
@@ -2825,7 +2829,7 @@ padding-top: 10px;
     width: 40px;
     border-radius: 1px;
 	padding-top:3px;
- border-top-left-radius: 15px;
+
 }
 
 
@@ -2849,13 +2853,9 @@ padding-top: 10px;
     height: 40px;
     border-bottom: 2px solid #14809A;
     background-color: #1dcaff;
-    font-size: 1.4em;
+    font-size: 2em;
     width: 40px;
-    border-top-left-radius: 10px;
     padding-top: 5px;
-    /* border-bottom-right-radius: 45%; */
-    /* border-bottom-left-radius: 45%; */
-    border-top-left-radius: 45%;
 }
 
 .btn-google-big {
@@ -3352,9 +3352,9 @@ padding: 30px;
 
 
 .ww-featured {
-    height:2px; 
+    height:0px; 
         background-color: #EC7007;
-        overflow: hidden;
+
 }
 
 
@@ -3533,7 +3533,6 @@ span.somos{
     text-align: center;
     font-size: 1.7em;
     padding: 3px 15px 3px 15px;
-    border-radius: 3px;
     font-weight: bold;}
  
 span.faltan{
@@ -3542,7 +3541,7 @@ color: white;
 text-align:center;
 font-size: 1.8em;
 padding: 1px 5px 1px 5px; 
-border-radius: 3px;}
+}
 
 span.falta{
     background-color: #097FFC;
@@ -3550,8 +3549,7 @@ span.falta{
     text-align: center;
     font-size: 1.7em;
     padding: 3px 15px 3px 15px;
-    border-radius: 3px;
-  font-weight: bold;}
+}
  
  
 span.sisupieras {
@@ -3591,7 +3589,6 @@ font-size: 11px;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    box-shadow: 0px 2px lightgrey;
 }
 	
 .detalles {
@@ -3673,7 +3670,7 @@ span.remember {
 
 .winwin-title {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -3771,20 +3768,28 @@ font-size: 1em;
 	   
 	   
 	    .input-forms {	
-	 	   width: 100%; height:50px; border-color: transparent; font-family: montserrat; text-align: centeR; PADDING: 3px 3px 3px 3px; margin-top:3px; border:2px solid #ddd; border-radius:4px;
+	 	   width: 100%; height:50px; border-color: transparent; font-family: montserrat; text-align: centeR; PADDING: 3px 3px 3px 3px; margin-top:3px; border:2px solid #ddd; border-radius:4px;box-shadow: 2px 3px 5px lightgrey;
 }
 	  
-	  span.si-supieras { font-family: montserrat; color: #1862C3; font-size:14px; font-weight:800;}
+	  span.si-supieras { font-family: montserrat; color: #1B4782; font-size:14px; font-weight:800;}
 	  
 	  
 	  .numero {
 	  
 	  border:2px solid #ddd; border-radius:4px; width: 30%; height:35px;  font-family:montserrat; color: #333;}
 	  
-	  
+
 	  .text-forms {
-	  WIDTH:100%; BORDER-COLOR: transparent; font-family: montserrat; color: #444; border:2px solid #ddd; border-radius:4px;}
-	  
+    WIDTH: 100%;
+    BORDER-COLOR: transparent;
+    font-family: montserrat;
+    color: #444;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 1px 2px 2px lightgrey;
+    padding: 10px;
+}
+	
 	    .submit-create {
 	  width:100%; background-color:#093; border-bottom: 3px solid darkgreen; border-radius: 5px; font-family:montserrat; font-size: 20px; padding:10px; color: white;}
 	  
@@ -3878,7 +3883,8 @@ background-color: #EC7007;
 	    width: 100%;
 	padding: 15px;
     padding-bottom: 15px;
-    background-color: #1563C8;}
+        background-color: #fff;;
+  }
 	
 	.post-image  {
     height: 20px;
@@ -3941,23 +3947,28 @@ padding:10px;
     }
 	
 	.postbox{	
-	 padding-left:5px; 
-	 border-color: transparent;
-	 border-radius: 1px; 
-	 font-size:12px; 
-	 height:40px; 
-	 font-family: montserrat; 
-	 width:120%;
+	 padding-left: 5px;
+    border-color: transparent;
+    border-radius: 1px;
+    font-size: 12px;
+    height: 40px;
+    font-family: montserrat;
+    width: 120%;
+    box-shadow: 1px 5px 5px 2px lightgrey;
 }
 	 
 	 .date {
-	font-family: montserrat;
+    /* font-family: montserrat; */
     font-size: 8px;
     float: left;
-    /* letter-spacing: -1px; */
-    color: #3276C9;
+    letter-spacing: -1px;
+    /* color: #3276C9; */
     text-align: center;
-    padding-left: 7px;
+    /* padding-left: 7px; */
+    background: white;
+    box-shadow: 3px 3px 3px lightgrey;
+    /* width: 120%; */
+    border: 0px;
     }
 	  
 	 .p-lista {
@@ -3966,7 +3977,6 @@ padding:10px;
     padding-top: 15px;
     padding-bottom: 15px;
     background-color: white;
-    padding-left: 20px;
     min-height:70px;
     box-shadow: 0px 3px 5px lightgrey;
       border-top: 2px solid #EFEFEF;}
@@ -3981,12 +3991,13 @@ padding:10px;
     margin-left: 10px;}
 	  
     		 .cta-pass {
-    background-color: #86828A!important;
+    background-color: #CECDCE!important;
     height: 50px;
     margin-top: 15px;
-    border-bottom: 4px solid #524E4E;
+    border-bottom: 4px solid #A7A7A7;
     margin-left: 10px;
     border-radius: 3px;
+
 }
 		  
 		  .ww-sponsor  {
@@ -4032,7 +4043,7 @@ padding:10px;
 	.buttons-profile 
 {
     height: 60px;
-    /* padding-top: 10px; */
+  padding-top: 15px; 
     /* padding-bottom: 10px; */
     margin-top: -60px;
 }
@@ -4040,11 +4051,7 @@ padding:10px;
 .bubble-label
 {
     position: relative;
-    width: 55px;
-    /* height: 15px; */
-    /* padding: 2px 4px 3px 3px; */
     background: rgba(0, 0, 0, 1);
-    /* border-radius: 2px; */
     text-align: center;
     font-size: 0.9em;
     margin-left: auto;
@@ -4257,7 +4264,7 @@ left:50%;
 position: relative;
 width: 100%;
 padding: 5px;
-background: #1762C3;
+background: #1762C3 ;
 -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 2px;
@@ -4273,7 +4280,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 5px 5px 0;
-border-color: #1762C3 transparent;
+border-color: #2c87d6 transparent;
 display: block;
 width: 0;
 z-index: 1;
@@ -4486,7 +4493,7 @@ text-align:center;}
 font-family:montserrat; font-size: 1.5em; text-align:center; color: blue;}
 
 .solicitudes-mensaje {
-font-family:montserrat; font-size: 1em; text-align:center; ;}
+font-family:montserrat; font-size: 1em; text-align:center;}
 
 .solicitudes-aviso {
 font-family:montserrat; font-size: 0.5em; text-align:center; }
@@ -4529,13 +4536,13 @@ background-color:#A2C7F7;
 
 .ww-social-fb-btn {
 
-background-color: #3B5998;
+    background-color: #3B5998;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     float: left;
     text-align: center;
-    padding-top: 7px;
+    padding-top: 4px;
     font-size: 1.4em;
 
    }
@@ -4559,12 +4566,26 @@ background-color: #3B5998;
 
 background-color: #1DCAFF;
     border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    padding-top: 4px;
+    font-size: 1.4em;
+    margin-left: -10px;
+
+   }
+
+   .ww-social-tw-btn:active {
+
+background-color: #1DCAFF;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
     float: left;
     text-align: center;
-    padding-top: 7px;
-    font-size: 1.4em;
+    padding-top: 4px;
+    font-size: 1.5em;
     margin-left: -10px;
 
    }
@@ -4574,12 +4595,27 @@ background-color: #1DCAFF;
 
 background-color: #FF8100;
     border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    padding-top: 2px;
+    font-size: 1.4em;
+    margin-left: -20px;
+
+   }
+
+
+.ww-social-mail-btn:active {
+
+background-color: #FF8100;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
     float: left;
     text-align: center;
-    padding-top: 5px;
-    font-size: 1.4em;
+    padding-top: 2px;
+    font-size: 1.5em;
     margin-left: -20px;
 
    }
@@ -4872,12 +4908,10 @@ font-family: montserrat;
     border-bottom: 3px solid #1B4782;
   font-size: 12px;}
 
-
 .modal-background {
-     background-color: white;
+    /* background-color: white; */
     border-radius: 0px;
 }
-
 
 
 
@@ -4887,5 +4921,19 @@ font-family: montserrat;
 }
 
 
+.modal-content {
+    color: #434a54;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    margin-top: 30%;
+}
+.form {
+    float: right;
+    padding: 3px;
+    padding-left: 0px;
+    color: #B9C6CC;
 
-
+}

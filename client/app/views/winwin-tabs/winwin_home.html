@@ -1,6 +1,5 @@
 <style>
 
-
     header {
         width: 100%;
         height: 250px;
@@ -22,7 +21,7 @@
     }
 
 </style>
-
+     <!--
 <div class="container">
    
     <div class="row"  ng-if="winwin.is_video">
@@ -30,24 +29,30 @@
             <header style="margin-top:55px;">
                 <div class="row">
                     <iframe width="100%" height="280" src="{{getIframeSrc(winwin.video)}}" frameborder="0" ></iframe>
+
                 </div>
+
             </header>
+
         </div>
     </div>
 
+-->
+<div class="container">
+        <div class="col-xs-12 no-padding">
 
-    <div class="row">
 
-
-        <div ng-if="!winwin.is_video" class="col-xs-12 no-padding">
+        <div ng-if="!winwin.is_image" class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
 
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 230px;    box-shadow:  rgb(152, 139, 139) 0px 1px 10px; padding-bottom:10px;">
                 <div class="winwin-title">
                  
                         {{::winwin.title}}
+                                        <div style="font-size: 10px; font-family:montserrat; padding-top:10px;"><i class="fa fa-clock-o" style="background-color: #DA4453; border-radius:50%; width:12px; height:12px; "> </i> termina en <span style="background-color: #DA4453; color:white;padding: 3px; border-radius:2px;padding-top:1px;padding-bottom:1px;">20Hs 3M 22S</span></div>
                   
                 </div>
+
             </div>
 
 
@@ -59,7 +64,7 @@
             <div class="col-xs-2">    <span class="ww-social-tw-btn"> <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
             <div class="col-xs-2">    <span class="ww-social-mail-btn"> <i class="fa fa-envelope-o fa-inverse" ></i>   </span> </div>
             <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
-                        <span class="bubble-label"> 
+                        <span class="bubble-label"style="width:55px;"> 
                             Somos 
                         </span> 
                         <div  style="background-color: #23AD85;
@@ -73,13 +78,13 @@
                         </div>
                     </div> </span> </div>
             <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
-                        <span class="bubble-label"> 
+                        <span class="bubble-label" style="width:55px;"> 
                             Faltan 
                         </span> 
-                        <div  style="background-color:  #E91D2A;
+                        <div  style="background-color:  #DA4453;
     font-size: 16px;
     font-family: montserrat;
-    min-width: 55px;
+    width: 55px;
     padding: 3px;  "
     >
                      {{::winwin.users_left}}
@@ -192,14 +197,16 @@
     <div class="row" style="font-family: montserrat;
     font-size: 10px;
     text-align: center;
-    padding: 15px;
+    padding: 15px;.
+    padding-bottom:25px;
     background: rgb(247, 244, 244);
         box-shadow: 3px 3px 3px lightgrey;">
-        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: #DA4453; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
         <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}</span> </div> 
         <div class="col-xs-3 ww-attributte">Categoria:<br> Medio Ambiente</span> </div>
         <!-- Button trigger modal -->
-        <div class="col-xs-3 ww-attributte"> <span style="text-align: center; color:#333;"><a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </a><br>Abandonar WinWin</div>
+        <div class="col-xs-3 ww-attributte"> <span style="text-align: center; color:#333;"><a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">Reportar <br> <i class="fa fa-exclamation-circle" style="color: #DA4453;"></i>WinWin </span> </a></div>.
+        <div class="col-xs-12" style="margin-top:15px; border-top: 3px solid lightgrey; padding-top:15px;"><a href="#" role="button" style="color:#333;">Abandonar WinWin</a></div>
     </div>
 </div>
 </div>
@@ -244,7 +251,7 @@
             </a>
         </div>
         <div class="col-xs-5 cta-pass">
-            <a href="#" class="no-padding" ng-click="pass()">
+            <a href="#" role="button" class="no-padding" ng-click="pass()">
                 <h6>LA PROXIMA</h6>
             </a>
         </div>
