@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Post;
+use Winwins\Model\PostVote;
 use Winwins\Model\Media;
 use Winwins\Model\Winwin;
 use Winwins\User;
@@ -29,17 +30,46 @@ class PostController extends Controller {
         return $posts;
 	}
 
-	public function posts($type, $reference) {
+	public function posts(Request $request, $type, $reference) {
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
+
+
+
         $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
         $collection = Collection::make($posts);
         $stickies = new Collection();
         $regulars = new Collection();
         $final = new Collection();
 
+<<<<<<< HEAD
         $collection->each(function($post) use($stickies, $regulars) {
             $user = $post->user;
             $user->detail;
             $post->media;
+=======
+        $collection->each(function($post) use($stickies, $regulars, $user) {
+            $userPost = $post->user;
+            $userPost->detail;
+            $post->media;
+            $post->votes;
+            if($user && count($post->votes) > 0) {
+                $vote = $post->votes->search(function($item) use ($post, $user) {
+                    if($item->user_id == $user->id) {
+                        $post->self_vote = $item;
+                    }
+                });
+            }
+             
+>>>>>>> fef4c2fb3e17ee9f0b9bc0dfdabcfc7b5cfcb8fc
             if($post->sticky) {
                 $stickies->push($post);
             } else {
@@ -182,6 +212,39 @@ class PostController extends Controller {
 
         return Response::json(['OK' => 1, 'filename' => $filename, 'media_id' => $image->id]);
     }
+
+	public function vote(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $post = Post::find($id);
+
+        DB::transaction(function() use ($post, $user, $request) {
+            $positive = $request->input('positive');
+
+            $postVote = PostVote::firstOrNew([
+                'user_id' => $user->id,
+                'post_id' => $post->id,
+            ]);
+
+            $firstTime = !isset($postVote->id);
+            $changeVote = !$firstTime && $positive != $postVote->positive;
+
+            $postVote->positive = $positive;
+            $postVote->save();
+
+            Log::info('first time? '.$firstTime);
+            Log::info('changeVote? '.$changeVote);
+            if($firstTime) {
+                DB::table('posts')->whereId($post->id)->increment($positive ? 'up_votes' : 'down_votes');
+            } else {
+                if($changeVote) {
+                    DB::table('posts')->whereId($post->id)->increment($positive ? 'up_votes' : 'down_votes');
+                    DB::table('posts')->whereId($post->id)->decrement($positive ? 'down_votes' : 'up_votes');
+                }
+            }
+
+        });
+
+	}
 
 
 

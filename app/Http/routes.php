@@ -41,6 +41,7 @@ Route::resource('api/stories', 'StoryController');
 Route::post('api/posts/upload', ['middleware' => 'auth', 'uses' => 'PostController@storeImage']);
 Route::post('api/stories/upload', ['middleware' => 'auth', 'uses' => 'StoryController@storeImage']);
 Route::post('api/posts/{id}/comment', ['middleware' => 'auth', 'uses' => 'PostController@comment']);
+Route::post('api/posts/{id}/vote', ['middleware' => 'auth', 'uses' => 'PostController@vote']);
 Route::post('api/stories/{id}/comment', ['middleware' => 'auth', 'uses' => 'StoryController@comment']);
 
 

@@ -2619,7 +2619,6 @@ margin-top: -40px;
 
 .btn-join {
     padding-top: 8px;
-    margin-top: 3px;
     border: 0px;
     font-family: montserrat;
     background-color: #2DB200;
@@ -2635,7 +2634,6 @@ margin-top: -40px;
 
 .btn-join:active {
     padding-top: 8px;
-    margin-top: 3px;
     border: 0px;
     font-family: montserrat;
     background-color: #2DB200;
@@ -4028,7 +4026,7 @@ padding:10px;
 	
 	.panel-default > .panel-heading-b {
     color: #434a54;
-	background-color: #043F7B;
+	background-color: rgba(6, 108, 212, 0.69);
     color: white;
     border-radius: 0px;   }
 	

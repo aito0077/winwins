@@ -2,18 +2,12 @@
 
 
 
-
-
-
 <div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
 
-
-
-
     <div class="container no-padding" ng-repeat="item_post in posts" >
-            <div class="panel-body post no-padding">
+            <div class="panel-body post">
 
-                 <div class="col-xs-12 no-padding" style="background:white;">
+                 <div class="col-xs-12" style="background:white;">
                
                             <div class="col-xs-12 no-padding">
                                      <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px;
@@ -42,67 +36,19 @@
                 <div class="row" style=" margin-top: 10px;">
                     <div class="col-xs-12 no-padding">
                                              <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
-                    <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
-                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                    <div class="col-xs-1" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                    <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                    <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"></i><span class="post-likes-"> 10</span></div>
+                    <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+                    <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                   <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
+                <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
 
                    
                     </div>
 
                 </div>
-            </div>                                 
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-    <div class="container" ng-repeat="item_post in posts" >
-            <div class="panel-body post ">
-
-                 <div class="col-xs-12 no-padding" style="background:white;margin-top:-15px;">
-               
-                            <div class="col-xs-12 no-padding">
-                                     <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px;
-    margin-bottom: 10px;
-        margin-left: 15px;"
- /></div>
-                            <div class="p-lista" style="padding-bottom:10px;">
-
-                               <div style="padding-left: 15px; padding-right:15px;"> {{::item_post.content}}</div>
-
-
-
-                                  <!-- Media -->
-            
-            <div class="media-post"> </div>
-            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
-            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
-                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
-            </div>
-
-            
-         
-                                  <!-- Toolbar -->
-            <div class="container  buttons-post" style="background: white;">
-                <div class="row" style=" margin-top: 10px;">
-                    <div class="col-xs-12 no-padding">
-                                             <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
-                    <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
-                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                    <div class="col-xs-1" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
-
-                   
-                    </div>
-
-                </div>
-            </div>                                 
+            </div>                          
 
                             </div>
                         </div>
