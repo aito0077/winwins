@@ -16,7 +16,7 @@
 		"graham-campbell/flysystem": "^3.1",
 		"league/flysystem-aws-s3-v3": "^1.0@dev",
 		"pda/pheanstalk": "^3.0@dev",
-		"guzzlehttp/oauth-subscriber": "^0.3.0@dev",
+		"guzzlehttp/oauth-subscriber": "^0.3.0",
 		"guzzlehttp/guzzle": "^6.1@dev",
 		"terbium/db-config": "dev-master"
 	},
