@@ -1,4 +1,5 @@
 <style>
+
 header {
     width: 100%;
     height: 250px;
@@ -20,31 +21,42 @@ header.smaller {
 }
 </style>
 
-<div class="container" style="padding-top: 50px;">
+
+</style>
+     <!--
+<div class="container">
    
     <div class="row"  ng-if="winwin.is_video">
         <div class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
                 <div class="row">
                     <iframe width="100%" height="280" src="{{getIframeSrc(winwin.video)}}" frameborder="0" ></iframe>
+<<<<<<< HEAD
+
                 </div>
+
             </header>
+
         </div>
     </div>
 
+-->
+<div class="container">
 
     <div class="row">
 
 
-        <div ng-if="!winwin.is_video" class="col-xs-12 no-padding">
+        <div ng-if="!winwin.is_image" class="col-xs-12 no-padding">
             <header style="margin-top:55px;">
 
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 230px;    box-shadow:  rgb(152, 139, 139) 0px 1px 10px; padding-bottom:10px;">
                 <div class="winwin-title">
                  
                         {{::winwin.title}}
+                                        <div style="font-size: 10px; font-family:montserrat; padding-top:10px;"><i class="fa fa-clock-o" style="background-color: #DA4453; border-radius:50%; width:12px; height:12px; "> </i> termina en <span style="background-color: #DA4453; color:white;padding: 3px; border-radius:2px;padding-top:1px;padding-bottom:1px;">20Hs 3M 22S</span></div>
                   
                 </div>
+
             </div>
 
 
@@ -52,11 +64,11 @@ header.smaller {
         <div class="row">
             <div style="z-index: 999999; margin-top:-50px; ">
            
-            <div class="col-xs-2">    <span class="ww-social-fb-btn"><i class="fa fa-facebook fa-inverse"></i>   </span> </div>
-            <div class="col-xs-2">    <span class="ww-social-tw-btn"> <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
+            <div class="col-xs-2" >    <span class="ww-social-fb-btn" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}"><i class="fa fa-facebook fa-inverse"></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-tw-btn" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" > <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
             <div class="col-xs-2">    <span class="ww-social-mail-btn"> <i class="fa fa-envelope-o fa-inverse" ></i>   </span> </div>
             <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
-                        <span class="bubble-label"> 
+                        <span class="bubble-label"style="width:55px;"> 
                             Somos 
                         </span> 
                         <div  style="background-color: #23AD85;
@@ -70,13 +82,13 @@ header.smaller {
                         </div>
                     </div> </span> </div>
             <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
-                        <span class="bubble-label"> 
+                        <span class="bubble-label" style="width:55px;"> 
                             Faltan 
                         </span> 
-                        <div  style="background-color:  #E91D2A;
+                        <div  style="background-color:  #DA4453;
     font-size: 16px;
     font-family: montserrat;
-    min-width: 55px;
+    width: 55px;
     padding: 3px;  "
     >
                      {{::winwin.users_left}}
@@ -89,67 +101,15 @@ header.smaller {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            <div class="col-xs-12" style="display:none;">
-                       
-                    <div class="col-xs-2 btn-fbk-big" socialshare socialshare-provider="facebook" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
-                        <i class="fa fa-facebook fa-inverse" style="margin-left: -3px;"></i> 
-                    </div>
-                
-                
-                    <div class="col-xs-2 btn-twitter-big" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" style="cursor: pointer"> 
-                        <i class="fa fa-twitter fa-inverse" style="margin-left: -7px; font-size:1.1em;"></i> 
-                    </div>
-
-                    <div class="col-xs-2 btn-email"> 
-                        <i class="fa fa-envelope-o fa-inverse" style="margin-left: -7px; font-size:1.2em;"></i> 
-                    </div>
-                
-
-                
-                    <div class="col-xs-4 ww-somos">
-                        <span class="bubble-label"> 
-                            Somos 
-                        </span> 
-                        <span class="somos">
-                            {{::winwin.users_already_joined}}
-                        </span>
-                    </div>
-                
-              
-                    <div class="col-xs-2 ww-somos">
-                        <span class="bubble-label"> 
-                            Faltan 
-                        </span> 
-                        <span class="falta">
-                            {{::winwin.users_left}}
-                        </span> 
-                    </div> 
-                </div>
-            </div>
         </div>
-    </div>
-</div>
-
         </div>
  
 
 
       <!-- Winwin Text-->
-<div class="container" style="text-align:center; margin-top: 220px;">
+<div class="container" style="text-align:center; margin-top: 300px;">
     <div class="row">
         <div class="col-xs-12">
-            <div style="padding-top:30px;"></div>
             <span class="sisupieras">¿Si supieras que somos </span>
             <span class="somos-txt">{{::winwin.users_amount}}</span> 
             <div class="ww-text"> para {{::winwin.what_we_do}} </div>
@@ -189,9 +149,11 @@ header.smaller {
     <div class="row" style="font-family: montserrat;
     font-size: 10px;
     text-align: center;
-    padding: 15px;
+    padding: 15px;.
+    padding-bottom:25px;
     background: rgb(247, 244, 244);
         box-shadow: 3px 3px 3px lightgrey;">
+
         <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
         <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}</span> </div> 
         <div class="col-xs-3 ww-attributte">Categoria:<br> Medio Ambiente</span> </div>
@@ -200,10 +162,17 @@ header.smaller {
             <span style="text-align: center; color:#333;">
                 <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">
                     Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
-                </a><br>
-                <span ng-click="left()" style="cursor: pointer">Abandonar WinWin</span>
+                </a>
         </div>
     </div>
+    <div style="text-align:center; padding: 5px;"> <span ng-click="left()" style="cursor: pointer;
+    font-family: montserrat;
+    font-size: 11px;
+    /* box-shadow: 2px 3px 2px lightgrey; */
+    background: #F7F4F4;
+    color: #848181;
+    padding: 5px;
+    margin-top: 15px;"><i class="fa fa-sign-out"></i> Abandonar WinWin</span></div>
 </div>
 </div>
 
@@ -247,7 +216,7 @@ header.smaller {
             </a>
         </div>
         <div class="col-xs-5 cta-pass">
-            <a href="#" class="no-padding" ng-click="pass()">
+            <a href="#" role="button" class="no-padding" ng-click="pass()">
                 <h6>LA PROXIMA</h6>
             </a>
         </div>
@@ -294,7 +263,7 @@ header.smaller {
 
         <div class="col-xs-12 no-padding">
             <div class="col-xs-4 no-padding" ng-repeat="sponsor in winwin.sponsors">
-                    <img alt="{{::sponsor.name}}" title="{{::sponsor.name}}" ng-src="http://images.dev-winwins.net/x30/{{::sponsor.photo}}" width="100" height="30" style="margin-top:10px; margin-bottom:20px; float:right;">
+                    <img  ng-src="http://images.dev-winwins.net/x30/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" width="100" height="30" style="margin-top:10px; margin-bottom:20px; float:right;">
             </div>
         </div>
     </div>

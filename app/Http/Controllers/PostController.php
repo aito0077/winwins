@@ -50,6 +50,12 @@ class PostController extends Controller {
         $regulars = new Collection();
         $final = new Collection();
 
+<<<<<<< HEAD
+        $collection->each(function($post) use($stickies, $regulars) {
+            $user = $post->user;
+            $user->detail;
+            $post->media;
+=======
         $collection->each(function($post) use($stickies, $regulars, $user) {
             $userPost = $post->user;
             $userPost->detail;
@@ -63,6 +69,7 @@ class PostController extends Controller {
                 });
             }
              
+>>>>>>> fef4c2fb3e17ee9f0b9bc0dfdabcfc7b5cfcb8fc
             if($post->sticky) {
                 $stickies->push($post);
             } else {
