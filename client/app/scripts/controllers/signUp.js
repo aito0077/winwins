@@ -21,7 +21,7 @@ angular.module('winwinsApp')
 
     $scope.authenticate = function(provider) {
         $auth.authenticate(provider)
-        .then(function() {
+        .then(function(data) {
             $rootScope.currentUser = data;
             SweetAlert.swal('success_title', 'success_subtitle', 'success', function() {
                 $state.go('main');

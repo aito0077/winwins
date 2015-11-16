@@ -199,6 +199,9 @@ angular.module('winwinsApp')
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
     };
 
+    //$scope.setCurrentView('home');
+
+
 }])
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
@@ -783,6 +786,7 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-members', ['$scope','$http', '$timeout', '$stateParams', '$state', 'Winwin', 'api_host', function($scope, $http, $timeout, $stateParams, $state, Winwin, api_host) {
 
+    //$scope.setCurrentView('users');
     $scope.members_view = true;
 
     $scope.current = 'all';
@@ -910,6 +914,7 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-sponsors', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', 'api_host', function($scope, $http, $timeout, $stateParams, Winwin, api_host) {
 
+    //$scope.setCurrentView('sponsors');
     $scope.current = 'all';
     $scope.sponsors_view = true;
     $scope.sponsors = [];
@@ -1136,6 +1141,8 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-muro', ['$scope','$http', '$auth', '$stateParams', '$sce', '$timeout', '$uibModal', 'Winwin', 'Account', 'Upload', 'Post', 'api_host', function($scope, $http, $auth, $stateParams, $sce, $timeout, $uibModal, Winwin, Account, Upload, Post, api_host) {
+
+    //$scope.setCurrentView('wall');
 
     $scope.muro_view =  true;
 

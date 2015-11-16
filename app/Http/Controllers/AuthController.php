@@ -258,6 +258,9 @@ class AuthController extends Controller {
             $user->username = $profile['name'];
             $user->save();
 
+            $detail = new UserDetail;
+            $user->detail()->save($detail);
+
             return response()->json(['token' => $this->createToken($user)]);
         }
     }
@@ -398,6 +401,9 @@ class AuthController extends Controller {
                 $user->twitter = $profile['id'];
                 $user->username = $profile['screen_name'];
                 $user->save();
+
+                $detail = new UserDetail;
+                $user->detail()->save($detail);
 
                 return response()->json(['token' => $this->createToken($user)]);
             }

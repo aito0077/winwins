@@ -49,7 +49,6 @@ class WinwinController extends Controller {
 	public function index() {
         $winwins = Winwin::where('selected', 1)->where('published', 1)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
 
-        Log::info($winwins);
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             $users_count = count($winwin->users);
@@ -102,7 +101,6 @@ class WinwinController extends Controller {
                 $result = $model->id == $user->id;
                 if($result && $model->pivot->moderator ) {
                    $winwin->is_moderator = true; 
-                    Log::info($winwin);
                 }
                 $model->following = false;
                 if(!$result) {
@@ -212,10 +210,7 @@ class WinwinController extends Controller {
 
 
 	public function store(Request $request) {
-        Log::info($request['user']);
         $user = User::find($request['user']['sub']);
-        Log::info($user);
-
 
         $winwin = new Winwin;
         DB::transaction(function() use ($request, $winwin, $user) {
@@ -297,7 +292,6 @@ class WinwinController extends Controller {
             $winwin->image = $request->input('image');
 
             $interest = $request->input('interest');
-            Log::info($interest);
 
             $interestIntrested = new InterestsInterested;
             $interestIntrested->interest_id = $interest['id'];
@@ -538,7 +532,6 @@ class WinwinController extends Controller {
     public function storeImage(Request $request, Media $media) {
 
         $user = User::find($request['user']['sub']);
-        Log::info($user);
 
         if(!$request->hasFile('file')) { 
             return Response::json(['error' => 'No File Sent']);
@@ -559,7 +552,6 @@ class WinwinController extends Controller {
             return Response::json(['error' => $v->errors()]);
         }
 
-        Log::info($request->file('file'));
 
         $image = Media::create([
             'name' => $request->file('file')->getClientOriginalName(),

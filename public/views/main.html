@@ -133,23 +133,26 @@ header.smaller {
                 <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
             </div>
         </div>
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer; box-shadow: 5px  #999;"  ng-click="view(winwin.id)">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor:pointer; box-shadow: 5px  #999; rgb(212, 206, 206);"  ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
+            <div class=" col-xs-12" style="padding-top:80px;">
+    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
+    <div class=" col-xs-2">      <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   </div>
+    <div class=" col-xs-2">      </div>
+
+      </div>
         </div>
-        <div class="card-buttons" >
-            <div class=" col-xs-1 profile">
+
+         <!--    <div class=" col-xs-1 profile">
+
+                <div style="margin-top:-40px;">
 
                 <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer">
+                  <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">
             </div>
-            <div class="col-xs-1 profile"> 
-                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">
 
-            </div>
-            <div class="col-xs-7"> </div>
-             <a style="color: #333;" type="button" ng-click="openSocialModal(winwin)">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white; margin-top: 20px; margin-left: -5px;"></i> </div></div></a>
-        </div>
     </div>
-</div>
+</div>--> 
 
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
@@ -159,13 +162,21 @@ header.smaller {
     <div class="modal-body">
         <div class="container">
             <div class="row">
-                <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em; padding-top: 15PX; margin-top: -15px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
+                <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em; padding-top: 15PX; margin-top: -15px;" socialshare 
+                    socialshare-provider="facebook" 
+                    socialshare-text="{{::toShare.title}}" 
+                    socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare 
+                    socialshare-provider="twitter" 
+                    socialshare-text="{{::toShare.title}}" 
+                    socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" 
+                    socialshare-text="{{::toShare.title}}" 
+                    socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
                     <i class="fa fa-google"></i>
                 </a>
             </div>
