@@ -104,25 +104,30 @@ class AuthController extends Controller {
     }
 
     public function facebook(Request $request) {
-        $accessTokenUrl = 'https://graph.facebook.com/v2.4/oauth/access_token';
-        $graphApiUrl = 'https://graph.facebook.com/v2.4/me';
+        $accessTokenUrl = 'https://graph.facebook.com/v2.3/oauth/access_token';
+        $graphApiUrl = 'https://graph.facebook.com/v2.3/me';
 
         $params = [
             'code' => $request->input('code'),
             'client_id' => $request->input('clientId'),
             'redirect_uri' => $request->input('redirectUri'),
-            'client_secret' => Config::get('app.facebook_secret')
+            'client_secret' => Config::get('app.facebook_secret'),
+		'fields' => 'id,name,email,first_name,last_name,gender'
         ];
 
-	Log::info($params);
         $client = new GuzzleHttp\Client();
 
         // Step 1. Exchange authorization code for access token.
-        $accessToken = $client->get($accessTokenUrl, ['query' => $params])->json();
+
+        //$accessToken = $client->get($accessTokenUrl, ['query' => $params])->json();
+	Log::info('step 1');
+        $accessToken = json_decode($client->get($accessTokenUrl, ['query' => $params])->getBody(), true);
+	Log::info('step 2');
 
         // Step 2. Retrieve profile information about the current user.
-        $profile = $client->get($graphApiUrl, ['query' => $accessToken])->json();
+        $profile = json_decode($client->get($graphApiUrl, ['query' => $accessToken, 'fields' => 'id,name,email,first_name,last_name,gender'])->getBody(), true);
 
+	Log::info('step 3');
         $picture = 'https://graph.facebook.com/v2.3/'.$profile['id'].'/picture?type=normal';
 
         Log::info($picture);
@@ -170,16 +175,25 @@ class AuthController extends Controller {
             }
 
             $user = new User;
+		Log::info($profile);
             $user->facebook = $profile['id'];
             $user->username = $profile['name'];
 
+			if(isset($profile['email'])) {
             $user->email = $user->email ?: $profile['email'];
+		}
 
             $userDetail = new UserDetail;
+			if(isset($profile['first_name'])) {
             $userDetail->name = $userDetail->name ?: $profile['first_name'];
+		}
             $userDetail->photo = $userDetail->photo ?: $picture;
+			if(isset($profile['last_name'])) {
             $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
+			}
+			if(isset($profile['gender'])) {
             $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : ($profile['gender'] == 'female' ? 'F': 'M'));
+			}
             $user->save();
             $user->detail()->save($userDetail);
 
@@ -202,15 +216,16 @@ class AuthController extends Controller {
         $client = new GuzzleHttp\Client();
 
         // Step 1. Exchange authorization code for access token.
-        $accessTokenResponse = $client->post($accessTokenUrl, ['body' => $params]);
-        $accessToken = $accessTokenResponse->json()['access_token'];
+        //$accessTokenResponse = $client->post($accessTokenUrl, ['body' => $params]);
+        $accessTokenResponse = $client->request('POST', $accessTokenUrl, [ 'form_params' => $params ]);
+        $accessToken = json_decode($accessTokenResponse->getBody(), true)['access_token'];
 
         $headers = array('Authorization' => 'Bearer ' . $accessToken);
 
         // Step 2. Retrieve profile information about the current user.
         $profileResponse = $client->get($peopleApiUrl, ['headers' => $headers]);
 
-        $profile = $profileResponse->json();
+        $profile = json_decode($profileResponse->getBody(), true);
 
         Log::info('Google');
         Log::info($profile);
@@ -312,7 +327,7 @@ class AuthController extends Controller {
             $client->getEmitter()->attach($profileOauth);
 
             // Step 4. Retrieve profile information about the current user.
-            $profile = $client->get($profileUrl . $accessToken['screen_name'], ['auth' => 'oauth'])->json();
+            $profile = json_decode($client->get($profileUrl . $accessToken['screen_name'], ['auth' => 'oauth'])->getBody(), true);
 
             Log::info('Twitter');
             Log::info($profile);
