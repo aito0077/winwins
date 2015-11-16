@@ -104,8 +104,8 @@ class AuthController extends Controller {
     }
 
     public function facebook(Request $request) {
-        $accessTokenUrl = 'https://graph.facebook.com/v2.3/oauth/access_token';
-        $graphApiUrl = 'https://graph.facebook.com/v2.3/me';
+        $accessTokenUrl = 'https://graph.facebook.com/v2.4/oauth/access_token';
+        $graphApiUrl = 'https://graph.facebook.com/v2.4/me';
 
         $params = [
             'code' => $request->input('code'),
@@ -114,6 +114,7 @@ class AuthController extends Controller {
             'client_secret' => Config::get('app.facebook_secret')
         ];
 
+	Log::info($params);
         $client = new GuzzleHttp\Client();
 
         // Step 1. Exchange authorization code for access token.
@@ -264,6 +265,7 @@ class AuthController extends Controller {
         if (!$request->input('oauth_token') || !$request->input('oauth_verifier'))
         {
             Log::info(Config::get('app.twitter_callback'));
+            Log::info(Config::get('app.twitter_key'));
               
             $requestTokenOauth = new Oauth1([
               'consumer_key' => Config::get('app.twitter_key'),
