@@ -116,6 +116,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin-view/ww-winwin.html',
         controller: 'winwin-view'
     })
+    .state('winwin-left', {
+        templateUrl: 'views/winwin-tabs/ww-left.html',
+        url: '/winwin-left/:winwinId',
+        controller: 'winwin-left'
+    })
     .state('winwin-joined', {
         templateUrl: 'views/winwin-tabs/ww-joined.html',
         url: '/winwin-joined/:winwinId',

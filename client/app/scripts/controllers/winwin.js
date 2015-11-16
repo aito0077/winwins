@@ -139,14 +139,10 @@ angular.module('winwinsApp')
     $scope.left = function() {
         $http.get(api_host+'/api/winwins/left/'+$scope.winwin.id).success(function(data) {
             //ToDo: dejaste el ww
-            $scope.getWinwin();
-            swal({
-                title: "info", 
-                text: 'winwin_left', 
-                type: "info",
-                showcancelbutton: false,
-                closeonconfirm: true 
-            });
+            $state.go('winwin-left', {
+                winwinId: $scope.winwin.id,
+                winwinName: $scope.winwin.title
+            }); 
 
         })
         .error(function(error) {
@@ -202,6 +198,25 @@ angular.module('winwinsApp')
     $scope.getIframeSrc = function (videoId) {
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
     };
+
+}])
+.controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
+
+    $scope.getWinwin = function() {
+        $scope.winwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.title = data.title;
+            $timeout(function() {
+                $state.go('winwin-view', {
+                    winwinId: $stateParams.winwinId
+                }); 
+            }, 5000);
+
+        });
+    };
+
+    $scope.getWinwin();
 
 }])
 .controller('winwin-joined', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
