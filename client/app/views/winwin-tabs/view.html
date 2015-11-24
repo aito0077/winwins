@@ -30,11 +30,15 @@
                 </div>
             </a>
 
+            <div class="col-xs-20">
+            </div>
+            <!--
             <a data-toggle="tab" data-target="#wall">
                 <div class="col-xs-20" ng-class="{active: current_view == 'wall'}">
                     <i class="fa fa-comment"></i>
                 </div>
             </a>
+            -->
             <a data-toggle="tab" data-target="#sponsors">
                 <div class="col-xs-20" ng-class="{active: current_view == 'sponsors'}">
                     <i class="fa fa-star"></i>
@@ -90,9 +94,9 @@
     <div id="home" role="tabpanel" class="tab-pane fade in active">
         <div ng-include="'/views/winwin-tabs/winwin_home.html'"></div>
     </div>
-    <div id="wall" class="tab-pane">
-        <div ng-include="'/views/winwin-tabs/wall_component.html'"></div>
-    </div>
+    <!--div id="wall" class="tab-pane">
+        <div _ng-include="'/views/winwin-tabs/wall_component.html'"></div>
+    </div-->
     <div id="sponsors" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors.html'"></div>
     </div>
