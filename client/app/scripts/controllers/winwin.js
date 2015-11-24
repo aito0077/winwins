@@ -1390,6 +1390,40 @@ angular.module('winwinsApp')
     }
  
 }])
+.controller('winwin-poll', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Poll', 'api_host', function($scope, $http, $state, $stateParams, $timeout, Poll, api_host) {
+
+    $scope.poll_view = true;
+    $scope.poll_success = false;
+    $scope.poll = {
+        selected: 1
+    };
+
+    $scope.submitPoll = function() {
+        $http.post('/api/winwins/'+$scope.winwin.id+'/poll',
+            $scope.poll
+        )
+        .success(function(data) {
+            $scope.poll_success = true;
+            $timeout(function () {
+                $state.go('winwin-view', {
+                    winwinId: $scope.winwin.id
+                }, {reload: true}); 
+            }, 4000);
+
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    }
+ 
+}])
+
 .controller('winwin-miembros', ['$scope','$http', '$stateParams', 'Winwin', function($scope, $http, $stateParams, Winwin) {
 
 }])
