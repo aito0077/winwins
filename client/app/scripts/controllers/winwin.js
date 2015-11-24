@@ -222,13 +222,22 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ModalMailCtrl', function ($scope, $uibModalInstance, toShare, mails) {
+.controller('ModalMailCtrl', function ($scope, $uibModalInstance, $http, $timeout, api_host, toShare, mails) {
 
     $scope.toShare = toShare;
+    $scope.success = false;
+    $scope.mails = [];
 
     $scope.sentInvitations = function() {
-        console.dir($scope.mails);
-        $uibModalInstance.close();
+        $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
+            mails: $scope.mails
+        }).success(function(data) {
+            $scope.success = true;
+            $timeout(function() {
+                $scope.success = false;
+                $uibModalInstance.close();
+            }, 3000);
+        });
     };
 })
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {

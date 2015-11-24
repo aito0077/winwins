@@ -431,6 +431,11 @@ class WinwinController extends Controller {
     }
 
 
+	public function sentEmailInvitations(Request $request, $winwinId) {
+        Log::info($request->input('mails'));
+        return response()->json(['message' => 'emails_sent'], 200);
+    }
+
 
 	public function makeActivator(Request $request, $id, $participanteId) {
         DB::transaction(function() use ($id, $participanteId) {
