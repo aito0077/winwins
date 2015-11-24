@@ -100,12 +100,12 @@ header.smaller {
 
 
         </div>
-        </div>
+        </div> </div>
  
 
 
       <!-- Winwin Text-->
-<div class="container" style="text-align:center; margin-top: 300px;">
+<div class="container" style="text-align:center; margin-top: 280px;">
     <div class="row">
         <div class="col-xs-12">
             <span class="sisupieras">¿Si supieras que somos </span>
@@ -272,11 +272,13 @@ header.smaller {
 
 
 
-
+<div style="min-height:800px;">
 
 <!-- Winwin Activity Wall-->            
 
 <ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
+
+</div>
 
 
 <script type="text/ng-template" id="myMailShare.html">
@@ -289,14 +291,26 @@ header.smaller {
                 Ingresa las direcciones de las personas que quieres invitar. Recuerda separar por comas.
             </h6>
 
-            <textarea class="form-control" rows="3" style="margin: 40px 0" ng-model="mails"></textarea>
+            <tags-input  allowed-tags-pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" rows="3" style="margin: 40px 0" ng-model="mails"></tags-input>
             <button type="button" ng-click="sentInvitations()"  class="btn btn-default btn-sponsor btn-second block-center" style="color:#FFF;">
                 ENVIAR INVITACION!
             </button>
 
         </div>
         <div class="container" ng-show="success">
-
+            <div class="row">
+                <div class="pad-50"> </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <div style="text-align: center;"> 
+                        <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                        <h1 style="font-family: montserrat;"> ¡GENIAL! </h1>
+                       <h4 style="font-family: montserrat;"> Las invitaciones fueron enviadas!</h4>
+                       <div class="pad-80"></div>
+                       <img src="images/loading.gif" width="110" height="80" alt="loading"> 
+                    </div>
+                <div class="col-xs-2"></div>
+            </div>
         </div>
     </div>
     <div class="modal-footer"> 
