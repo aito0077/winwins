@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
+.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Winwin, Account, api_host) {
 
 
     $scope.is_admin = false;
@@ -202,7 +202,35 @@ angular.module('winwinsApp')
     //$scope.setCurrentView('home');
 
 
+    $scope.openMailModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'myMailShare.html',
+            controller: 'ModalMailCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                },
+                mails: function () {
+                    return {};
+                }
+            }
+        });
+    };
+
+
 }])
+.controller('ModalMailCtrl', function ($scope, $uibModalInstance, toShare, mails) {
+
+    $scope.toShare = toShare;
+
+    $scope.sentInvitations = function() {
+        console.dir($scope.mails);
+        $uibModalInstance.close();
+    };
+})
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
     $scope.getWinwin = function() {
@@ -413,17 +441,16 @@ angular.module('winwinsApp')
     $scope.setup_components = function() {
         jQuery('[data-toggle="popover"]').popover();
         jQuery('[data-toggle="tooltip"]').tooltip()
-        console.log('setup component');
+        jQuery('#datetimepicker1').datetimepicker({
+            minDate: new Date(),
+            format: 'DD - MM - YYYY'
+        });
+
     };
 
     $timeout(function() {
         $scope.setup_components();
     }, 1000);
-
-    $('#datetimepicker1').datetimepicker({
-        minDate: new Date(),
-        format: 'DD - MM - YYYY'
-    });
 
     Interest.query(function(data) {
         $scope.interests = data;
