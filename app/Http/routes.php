@@ -34,10 +34,12 @@ Route::post('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinCont
 //Route::post('api/winwins/upload', ['uses' => 'WinwinController@storeImage']);
 Route::get('api/winwins/upload', ['middleware' => 'auth', 'uses' => 'WinwinController@flowUpload']);
 Route::resource('api/winwins', 'WinwinController');
+Route::post('api/winwins/{id}/poll', ['middleware' => 'auth', 'uses' => 'PollController@createPoll']);
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
 
 Route::resource('api/posts', 'PostController');
 Route::resource('api/stories', 'StoryController');
+Route::resource('api/polls', 'PollController');
 Route::post('api/posts/upload', ['middleware' => 'auth', 'uses' => 'PostController@storeImage']);
 Route::post('api/stories/upload', ['middleware' => 'auth', 'uses' => 'StoryController@storeImage']);
 Route::post('api/posts/{id}/comment', ['middleware' => 'auth', 'uses' => 'PostController@comment']);

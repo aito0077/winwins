@@ -65,11 +65,17 @@
                     <i class="fa fa-bell"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#sponsors_to_request">
+            <!--a data-toggle="tab" data-target="#sponsors_to_request">
+                <div class="col-xs-3 submenu-icons">
+                    <i class="fa fa-server"></i>
+                </div>
+            </a-->
+            <a data-toggle="tab" data-target="#poll">
                 <div class="col-xs-3 submenu-icons">
                     <i class="fa fa-server"></i>
                 </div>
             </a>
+
             <a data-toggle="tab" data-target="#config">
                 <div class="col-xs-3 submenu-icons active">
                     <i class="fa fa-bullhorn"></i>
@@ -105,6 +111,9 @@
     </div>
     <div id="config" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-config.html'"></div>
+    </div>
+    <div id="poll" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
     </div>
 
 

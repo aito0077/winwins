@@ -6,6 +6,13 @@ angular.module('winwinsApp')
         }
     });
 }])
+.factory('Poll',['$resource', 'api_host', function($resource, api_host){
+    return $resource(api_host+'/api/polls/:id', { id:'@id' }, {
+        update: {
+            method: 'POST'
+        }
+    });
+}])
 .factory('Sponsor',['$resource', 'api_host', function($resource, api_host){
     return $resource(api_host+'/api/sponsors/:id', { id:'@id' }, {
         update: {
