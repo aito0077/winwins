@@ -139,14 +139,10 @@ angular.module('winwinsApp')
     $scope.left = function() {
         $http.get(api_host+'/api/winwins/left/'+$scope.winwin.id).success(function(data) {
             //ToDo: dejaste el ww
-            $scope.getWinwin();
-            swal({
-                title: "info", 
-                text: 'winwin_left', 
-                type: "info",
-                showcancelbutton: false,
-                closeonconfirm: true 
-            });
+            $state.go('winwin-left', {
+                winwinId: $scope.winwin.id,
+                winwinName: $scope.winwin.title
+            }); 
 
         })
         .error(function(error) {
@@ -202,6 +198,28 @@ angular.module('winwinsApp')
     $scope.getIframeSrc = function (videoId) {
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
     };
+
+    //$scope.setCurrentView('home');
+
+
+}])
+.controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
+
+    $scope.getWinwin = function() {
+        $scope.winwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.title = data.title;
+            $timeout(function() {
+                $state.go('winwin-view', {
+                    winwinId: $stateParams.winwinId
+                }); 
+            }, 5000);
+
+        });
+    };
+
+    $scope.getWinwin();
 
 }])
 .controller('winwin-joined', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
@@ -768,6 +786,7 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-members', ['$scope','$http', '$timeout', '$stateParams', '$state', 'Winwin', 'api_host', function($scope, $http, $timeout, $stateParams, $state, Winwin, api_host) {
 
+    //$scope.setCurrentView('users');
     $scope.members_view = true;
 
     $scope.current = 'all';
@@ -895,6 +914,7 @@ angular.module('winwinsApp')
 }])
 .controller('winwin-sponsors', ['$scope','$http', '$timeout', '$stateParams', 'Winwin', 'api_host', function($scope, $http, $timeout, $stateParams, Winwin, api_host) {
 
+    //$scope.setCurrentView('sponsors');
     $scope.current = 'all';
     $scope.sponsors_view = true;
     $scope.sponsors = [];
@@ -1121,6 +1141,8 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-muro', ['$scope','$http', '$auth', '$stateParams', '$sce', '$timeout', '$uibModal', 'Winwin', 'Account', 'Upload', 'Post', 'api_host', function($scope, $http, $auth, $stateParams, $sce, $timeout, $uibModal, Winwin, Account, Upload, Post, api_host) {
+
+    //$scope.setCurrentView('wall');
 
     $scope.muro_view =  true;
 
