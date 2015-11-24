@@ -1,7 +1,7 @@
 <div data-ng-controller="winwin-members">
     <div ng-if="!in_message">
 
-        <div class="row">
+        <div class="col-xs-12 no-padding">
             <button type="button" ng-click="filter('all')" class="col-xs-4 active filter" ng-class="{active: current == 'all'}">Todos</button>
             <button type="button" ng-click="filter('activator')" class="col-xs-4  filter" ng-class="{active: current == 'activator'}">Activadores</button>
             <button type="button" ng-click="filter('creator')" class="col-xs-4  filter" ng-class="{active: current == 'creator'}">Creador</button>
