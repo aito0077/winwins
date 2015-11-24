@@ -7497,3 +7497,8 @@ font-family: montserrat;
     border-radius: 0px;
 }
 
+
+
+.btn-default, .btn-default.disabled, .btn-default[disabled] {
+    background-color: #39A939;
+}
