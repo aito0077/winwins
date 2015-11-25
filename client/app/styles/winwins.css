@@ -23,6 +23,8 @@
  
  */
 
+
+
  .navbar-brand
 {
     float: right;
@@ -209,7 +211,7 @@ blockquote {
 .btn, .btn.disabled, .btn[disabled] {
 background-color: #aab2bd;
     border-color: #aab2bd;
-    background-color: lightgrey;
+    background-color:rgb(63, 66, 70);
     border-color: #aab2bd;
     border-radius: 1px;
     font-family: montserrat;
@@ -6545,7 +6547,7 @@ padding:10px;
       
       .ww-somos {
       
-      font-family: montserrat; color: #fff; text-align:center; font-size:11px; margin-top:-2px; margin-left:12px;}
+      font-family: montserrat; color: #fff; text-align:center; font-size:11px; margin-top:-2px; }
       
       .ww-attribute {
         text-align:center;
@@ -7500,5 +7502,60 @@ font-family: montserrat;
 
 
 .btn-default, .btn-default.disabled, .btn-default[disabled] {
-    background-color: #39A939;
+    background-color: #1762C3;
 }
+
+ .blue {
+background-color: #4380D0;
+    font-size: 1.3em;
+    padding-bottom: 4px;
+    height:40px;
+        padding-top: 6px;
+        text-align: center;}
+
+
+        .blue:active {
+    background-color: #4380D0;
+    font-size: 1.3em;
+    padding-bottom: 4px;
+    height: 40px;
+    padding-top: 6px;
+    text-align: center;
+}
+
+
+
+.dd-destacados{
+width: 100%;
+    background-color: white;
+    color: white;
+    font-size: 1em;
+    border-radius: 0px;
+    margin-top: -1px;
+    color: white;
+    border:0px;}
+
+
+    .dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #666;
+    white-space: nowrap;
+    box-shadow: 1px 1px #f5f5f5;
+    padding: 10px;
+}
+
+.bb {
+position: relative;
+    border-bottom: 3px solid darkblue;
+    line-height: 30px;
+    width: 100%;
+    height: 120px;
+    padding: 0px;
+    padding-top: 25px;
+    background: #1762C3;
+    border-radius: 0px;
+    }

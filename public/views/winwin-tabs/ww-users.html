@@ -1,13 +1,6 @@
 <div data-ng-controller="winwin-members">
     <div ng-if="!in_message">
-
-        <div class="row">
-            <button type="button" ng-click="filter('all')" class="col-xs-4 active filter" ng-class="{active: current == 'all'}">Todos</button>
-            <button type="button" ng-click="filter('activator')" class="col-xs-4  filter" ng-class="{active: current == 'activator'}">Activadores</button>
-            <button type="button" ng-click="filter('creator')" class="col-xs-4  filter" ng-class="{active: current == 'creator'}">Creador</button>
-        </div>
-
-        <div class="grid grid-participantes no-padding">
+        <div class="grid grid-participantes no-padding" style="margin-top:55px;">
             <div class="grid-item participante-item {{classType(participante)}}"  ng-repeat="participante in winwin.users">
 
         
@@ -55,8 +48,8 @@
                 <div class="pad-30"> </div>
                 <div class="col-xs-2"></div>
                 <div class="col-xs-8">
-                    <div style="text-align: center;"> 
-                        <i class="fa fa-check" style="background-color:green; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                    <div style="text-align: center; padding-bottom:50px;    "> 
+                        <i class="fa fa-check" style="background-color:green; color: #fff; width:150px; height: 150px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
                         <h2 style="font-family: montserrat; line-height: 35px;"> ¡GENIAL!</h2>
                         <h5 style="font-family: montserrat; color:#444;">Nombraste activador a {{activated_name}}</h5>  
                         <div class="pad-80"></div>
@@ -89,5 +82,29 @@
             </div>
         </div>
    
+    </div>
+</div>
+
+
+
+
+
+<div id="footer">
+    <div id="panel" >
+        <div class="col-sm-6 col-sm-offset-3" style="background-color:#1762C3; padding:13px;">
+            <div id="imaginary_container"> 
+                <h1 ng-show="asynSelected">{{asyncSelected}}</h1>
+                <div class="input-group stylish-input-group" style="height:39px; font-size: 12px;">
+                    <input id="query" type="text" class="form-control" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:39px; border-radius:1px; font-size:10px;">
+                    <!--input type="text" ng-model="asyncSelected" placeholder="Busca Winwins, Personas, Grupos o Sponsors" uib-typeahead="entity for entity in getEntities($viewValue)" typeahead-loading="searching" typeahead-no-results="noResults" class="form-control" style="height:39px; border-radius:1px; font-size:10px;"-->
+
+                    <span class="input-group-addon">
+                        <button type="submit" style="background-color: #FF8000; box-shadow: none; background-color: #FF8000; box-shadow: none; border: 0px; font-size: 1.6rem; height: 39px; margin-top: -7px; margin-left: -12px; padding: 10px; padding-right: 15px; padding-left: 15px;" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
