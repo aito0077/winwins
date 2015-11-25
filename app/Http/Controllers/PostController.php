@@ -55,6 +55,15 @@ class PostController extends Controller {
             $userPost->detail;
             $post->media;
             $post->votes;
+            $post->comments = Post::where('type', 'WW_COMMENT')->where('reference_id', $post->id)->orderBy('created_at', 'desc')->get();
+
+            $post->comments->each(function($comment) {
+                $userComment = $comment->user;
+                $userComment->detail;
+                $comment->media;
+                $comment->votes;
+            });
+
             if($user && count($post->votes) > 0) {
                 $vote = $post->votes->search(function($item) use ($post, $user) {
                     if($item->user_id == $user->id) {
@@ -131,10 +140,27 @@ class PostController extends Controller {
             $comment->user_id = $user->id;
             $comment->title = '';
             $comment->content = $request->input('content');
+            $comment->media_id = $request->input('media_id');
+                 
+            if($request->input('media_type')) {
+                if($request->input('media_type') == 'VIDEO') {
+                    $video = new Media();
+                    $video->path = $request->input('media_path');
+                    $video->bucket = 'youtube';
+                    $video->user_id = $user->id;
+                    $video->type = 'VIDEO';
+                    $video->save();
+
+                    $comment->media_id = $video->id;
+
+                }
+            }
+
             $comment->save();
         });
 
-        return $comment;
+        $post->comments;
+        return $post;
 	}
 
 
