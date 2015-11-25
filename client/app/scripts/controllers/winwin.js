@@ -232,11 +232,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
             mails: $scope.mails
         }).success(function(data) {
-            $scope.success = true;
-            $timeout(function() {
-                $scope.success = false;
-                $uibModalInstance.close();
-            }, 3000);
+            $uibModalInstance.close();
         });
     };
 })
@@ -1302,12 +1298,16 @@ angular.module('winwinsApp')
         $scope.editing = false;
     };
 
+    $scope.sendingPost = false;
     $scope.submitPost = function() {
-        console.log('submit post');
+        if($scope.sendingPost) {
+            return;
+        }
+        $scope.sendingPost = true;
         $scope.post.reference_id = $scope.winwin.id;
         $scope.post.type = 'WINWIN';
-        console.dir($scope.post);
         $scope.post.$save(function(data) {
+            $scope.sendingPost = false;
             swal({
                 title: "Info", 
                 text: 'post_send', 
@@ -1319,6 +1319,8 @@ angular.module('winwinsApp')
             $scope.editing = false;
 
             $scope.getPosts();
+        }, function(err) {
+            $scope.sendingPost = false;
         });
     };
 

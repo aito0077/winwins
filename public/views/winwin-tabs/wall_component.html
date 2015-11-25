@@ -77,7 +77,7 @@
                     <textarea class="postbox" placeholder="Postear acá" rows="4" ng-model="post.content" no-resize ng-required="true" ng-focus="max_size()" > </textarea>
                 </div>
             </div>
-            <span type="button" class="col-xs-2 button-send" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
+            <span type="button" class="col-xs-2 button-send" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
             <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
             <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></span>
         </div>
