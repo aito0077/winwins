@@ -182,7 +182,11 @@ class AuthController extends Controller {
 			if(isset($profile['first_name'])) {
                 $userDetail->name = $userDetail->name ?: $profile['first_name'];
             }
-            $userDetail->photo = $userDetail->photo ?: $picture;
+
+            $picture_name = 'fb_'.$user->facebook;
+            Storage::disk('s3-gallery')->put('/' . $picture_name, file_get_contents($picture), 'public');
+            $userDetail->photo = $picture_name;
+
 			if(isset($profile['last_name'])) {
                 $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
 			}
