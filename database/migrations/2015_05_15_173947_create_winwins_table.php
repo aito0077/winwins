@@ -39,6 +39,15 @@ class CreateWinwinsTable extends Migration {
             $table->boolean('published')->default(FALSE);
             $table->boolean('selected')->default(FALSE);
 
+            $table->mediumText('canceled_reason')->nullable();
+
+            $table->boolean('notification_user_post')->default(FALSE);
+            $table->boolean('notification_new_participant')->default(FALSE);
+            $table->boolean('notification_new_poll')->default(FALSE);
+            $table->boolean('notification_announce')->default(FALSE);
+            $table->boolean('notification_new_sponsor')->default(FALSE);
+            $table->boolean('notification_closing_date')->default(FALSE);
+
 
 		});
 	}

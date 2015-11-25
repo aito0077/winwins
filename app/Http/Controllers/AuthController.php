@@ -175,19 +175,19 @@ class AuthController extends Controller {
             $user->username = $profile['name'];
 
 			if(isset($profile['email'])) {
-            $user->email = $user->email ?: $profile['email'];
-		}
+                $user->email = $user->email ?: $profile['email'];
+            }
 
             $userDetail = new UserDetail;
 			if(isset($profile['first_name'])) {
-            $userDetail->name = $userDetail->name ?: $profile['first_name'];
-		}
+                $userDetail->name = $userDetail->name ?: $profile['first_name'];
+            }
             $userDetail->photo = $userDetail->photo ?: $picture;
 			if(isset($profile['last_name'])) {
-            $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
+                $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
 			}
 			if(isset($profile['gender'])) {
-            $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : ($profile['gender'] == 'female' ? 'F': 'M'));
+                $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : ($profile['gender'] == 'female' ? 'F': 'M'));
 			}
             $user->save();
             $user->detail()->save($userDetail);

@@ -31,7 +31,7 @@ class WinwinController extends Controller {
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
-        $winwins = DB::table('winwins')->where('published', '=', 1)->skip($page * $amount)->take($amount)->get();
+        $winwins = DB::table('winwins')->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {
@@ -47,7 +47,7 @@ class WinwinController extends Controller {
     }
 
 	public function index() {
-        $winwins = Winwin::where('selected', 1)->where('published', 1)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+        $winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
@@ -304,6 +304,25 @@ class WinwinController extends Controller {
         return $winwin;
 	}
 
+	public function updateNotifications(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $winwin = Winwin::find($id);
+
+        if($user->id == $winwin->user->id) {
+            DB::transaction(function() use ($request, $winwin) {
+
+                $winwin->notification_user_post = $request->input('notification_user_post');
+                $winwin->notification_new_participant = $request->input('notification_new_participant');
+                $winwin->notification_new_poll = $request->input('notification_new_poll');
+                $winwin->notification_announce = $request->input('notification_announce');
+                $winwin->notification_new_sponsor = $request->input('notification_new_sponsor');
+                $winwin->notification_closing_date = $request->input('notification_closing_date');
+                $winwin->save();
+            });
+        }
+        return $winwin;
+	}
+
 	public function destroy($id) {
         Winwin::destroy($id);
 	}
@@ -521,6 +540,27 @@ class WinwinController extends Controller {
             });
 
             return response()->json(['message' => 'ww_request_sent'], 200);
+        }
+
+	}
+
+	public function closeWinwin(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $winwin = Winwin::find($id);
+
+        $request_body = $request->input('body');
+
+        if($user->id == $winwin->user->id) {
+            DB::transaction(function() use ($winwin, $user, $request_body) {
+                $winwin->canceled = 1;
+                $winwin->published = 0;
+                $winwin->canceled_reason = $request_body;
+                $winwin->save();
+            });
+
+            return response()->json(['message' => 'ww_closed'], 200);
+        } else {
+            return response()->json(['message' => 'As owner you can not left this winwin'], 400);
         }
 
 	}

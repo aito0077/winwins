@@ -73,56 +73,6 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
-    $scope.search = function() {
-
-        console.log('query: '+$scope.term);
-
-        $state.go('search-list', {
-            query: $scope.term,
-            winwin: true,
-            user: true,
-            group: true,
-            sponsor: true
-        }); 
-
-        /*
-        es_client.search({
-            index: 'winwins',
-            size: 999,
-            body: {
-                query: { 
-                    bool: { 
-                        must: [
-                            {
-                                query_string : {
-                                    query : query
-                                }
-                            }
-                        ]
-                    },
-                },
-                aggs: {
-                    history: {
-                        "date_histogram": {
-                            "field": "closing_date",
-                            "interval": "day", 
-                            "format": "dd-MM-yyyy" 
-                        }
-                    }
-                },
-                "sort": { "closing_date": { "order": "desc" }}
-            }
-        }).then(function(response) {
-            console.dir(response);
-            return response.data.results.map(function(item){
-                return item.formatted_address;
-            });
-    
-        });
-        */
-
-    };
-
     $scope.openSocialModal = function(winwin) {
         $scope.toShare = winwin;
         var modalInstance = $uibModal.open({
@@ -203,6 +153,23 @@ angular.module('winwinsApp')
   $scope.toShare = toShare;
 
 })
+.controller('main-search-controller', ['$scope','$state', function($scope, $state) {
+
+
+    $scope.search = function() {
+
+        console.log('query: '+$scope.term);
+
+        $state.go('search-list', {
+            query: $scope.term,
+            winwin: true,
+            user: true,
+            group: true,
+            sponsor: true
+        }); 
+    };
+
+}])
 .controller('contact-controller', ['$scope','$auth', '$http', '$state', 'api_host', function($scope, $auth, $http, $state, api_host) {
 
 }]);

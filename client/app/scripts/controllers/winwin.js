@@ -1497,6 +1497,89 @@ angular.module('winwinsApp')
     }
  
 }])
+.controller('winwin-config', ['$scope','$http', '$state', '$stateParams', 'api_host', 'Winwin', function($scope, $http, $state, $stateParams, api_host, Winwin) {
+
+    $scope.all_notifications = false;
+
+    $scope.toggleNotifications = function() {
+        console.log('toggle');
+        $scope.all_notifications = !$scope.all_notifications;
+        if($scope.all_notifications) {
+            $scope.winwin.notification_user_post = true;
+            $scope.winwin.notification_new_participant = true;
+            $scope.winwin.notification_new_poll  = true;
+            $scope.winwin.notification_announce = true;
+            $scope.winwin.notification_new_sponsor = true;
+            $scope.winwin.notification_closing_date = true;
+        }
+        console.dir($scope.winwin);
+    };
+
+    $scope.updateNotifications = function() {
+        $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/notifications', {
+            notification_user_post: $scope.winwin.notification_user_post,
+            notification_new_participant: $scope.winwin.notification_new_participant,
+            notification_new : $scope.winwin.notification_new_poll,
+            notification_announce: $scope.winwin.notification_announce,
+            notification_new_sponsor: $scope.winwin.notification_new_sponsor,
+            notification_closing_date: $scope.winwin.notification_closing_date
+        })
+        .success(function(data) {
+            swal({
+                title: "Info", 
+                text: 'notifications updated', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+
+        })
+    };
+
+    $scope.closeWinwin = function() {
+        swal({
+            title: "SOLICITAR BAJA WINWIN",
+            text: "Contanos tus motivos",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            inputPlaceholder: "" 
+        },
+        function(inputValue){   
+            if (inputValue === false) 
+                return false;      
+            if (inputValue === "") {     
+                return false;  
+            }      
+            $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/close', {
+                body: inputValue
+            })
+            .success(function(data) {
+                swal({
+                    title: "Info", 
+                    text: 'winwin closed', 
+                    type: "info",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+                $state.go('main'); 
+            })
+            .error(function(error) {
+                swal({
+                    title: "Error", 
+                    text: error.message, 
+                    type: "warning",
+                    showCancelButton: false,
+                    closeOnConfirm: true 
+                });
+            });
+            return true;
+
+        });
+
+    };
+
+}])
 .controller('back_winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
 
         $scope.show_closing_date = false;
