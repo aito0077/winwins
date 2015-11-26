@@ -56,9 +56,14 @@
 }
  
  
-  .navbar-container  {
- color: white;background-color: #1762C3;border-bottom: 3px solid #1B4782; padding-top: 10px;}
 
+.navbar-container {
+    color: white;
+    background-color: #1762C3;
+    border-bottom: 3px solid #1B4782;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
   .imenu  {
  padding-top:10px;
  }
@@ -209,9 +214,9 @@ blockquote {
   color: white;
 }
 .btn, .btn.disabled, .btn[disabled] {
-background-color: #aab2bd;
+    background-color: #aab2bd;
     border-color: #aab2bd;
-    background-color:rgb(63, 66, 70);
+    background-color: #39BD4E;
     border-color: #aab2bd;
     border-radius: 1px;
     font-family: montserrat;
@@ -5057,8 +5062,13 @@ margin:0px;
 }
  
  
-  .navbar-container  {
- color: white;background-color: #1762C3;border-bottom: 3px solid #1B4782; padding-top: 10px;}
+.navbar-container {
+    color: white;
+    background-color: #1762C3;
+    border-bottom: 3px solid #1B4782;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
   .imenu  {
  padding-top:10px;
@@ -7514,7 +7524,7 @@ background-color: #4380D0;
         text-align: center;}
 
 
-        .blue:active {
+        .blue:active   {
     background-color: #4380D0;
     font-size: 1.3em;
     padding-bottom: 4px;

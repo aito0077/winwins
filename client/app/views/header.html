@@ -1,25 +1,23 @@
 <div ng-controller="NavController" id="winwin-menu" ng-class="{'show-menu': isOpen}">
     <div class="navbar-container col-xs-12 col-md-12 col-lg-12" style="z-index: 999; position:fixed;">
-        <div class="col-xs-1">
-            <i class="fa fa-chevron-left fa-lg imenu " ng-click="do_back()"></i>
+        <div class="col-xs-1"  style="padding-left:1px;">
+            <i class="fa fa-chevron-left fa-lg imenu" ng-click="do_back()"></i>
         </div>
         <div class="col-xs-2" ng-if="!is_logged"></div>
-        <div class="col-xs-1" ng-click="goNotifications()" ng-if="is_logged">
+        <div class="col-xs-2" ng-click="goNotifications()" ng-if="is_logged" align="center">
             <i class="fa fa-bell-o fa-lg imenu">
                 <span class="notificaciones" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>
             </i> 
         </div>
-        <div class="col-xs-6 push-xs-1">
-            <a class="navbar-brand" ui-sref="main">
-                <img class="ww-logo" alt="logo-winwins" width="112" height="34" src="http://images.dev-winwins.net/logo-winwins.png"/>
+        <div class="col-xs-5">
+            <a ui-sref="main">
+                <img class="ww-logo" ui-sref="main" alt="logo-winwins" width="112" height="34" src="images/logo-winwins.png" style="margin-top:3px;" align="center"/>
             </a>
         </div>
-        <div class="col-xs-1 perfil">
-            <img ng-if="is_logged" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak/>
+        <div class="col-xs-3 perfil" style="text-align:center;">
+            <img ng-if="is_logged" style="margin-top:2px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak/>
         </div>
-        <div class="col-sm-1">
 
-        </div>
 
     </div>
 
@@ -110,7 +108,7 @@
             </div>
         </div>
         <button class="menu-button" id="open-button" ng-click="toggleMenu()">
-            <i class="fa fa-bars" style="font-size:20px;padding-top:4px;"></i>
+            <i class="fa fa-bars" style="font-size:20px;padding-top:6px;"></i>
         </button>
             
     </div><!-- /content-wrap -->
