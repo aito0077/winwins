@@ -1355,30 +1355,29 @@ angular.module('winwinsApp')
 
     $scope.reply = function(post) {
         post.isReplying = true;
+        
+        $scope.toShare = post;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'commentModal.html',
+            controller: 'CommentCtrl',
+            resolve: {
+                post: function () {
+                    return post;
+                }
+            }
+        });
+        modalInstance.result.then(function (selectedItem) {
+            $scope.getPosts();
+        }, function () {
+
+        });
+        
     };
 
     $scope.cancelReply = function(post) {
         post.isReplying = false;
-    };
-
-    $scope.comment = new Post({});
-    $scope.submitComment = function(post) {
-        post.isReplying = false;
-        $http.post(api_host+'/api/posts/'+post.id+'/comment',{
-            content: $scope.comment.content
-        }).success(function(data) {
-            $scope.comment = new Post({});
-            $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
-        });
     };
 
 
@@ -1397,6 +1396,123 @@ angular.module('winwinsApp')
         });
     };
 }])
+.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, api_host, post, Post, Upload) {
+
+    $scope.post = post;
+
+    $scope.comment = new Post({});
+    $scope.sendingPost = false;
+
+    $scope.submitComment = function() {
+        if($scope.sendingPost) {
+            return;
+        }
+        $http.post(api_host+'/api/posts/'+$scope.post.id+'/comment',{
+            content: $scope.comment.content,
+            media_id: $scope.comment.media_id,
+            media_type: $scope.comment.media_type,
+            media_path: $scope.comment.media_path
+
+        }).success(function(data) {
+            $scope.sendingPost = false;
+            $scope.comment = new Post({});
+            $scope.post = data;
+            $scope.comment = new Post({});
+            $uibModalInstance.close(true);
+        })
+        .error(function(error) {
+            $scope.sendingPost = false;
+            swal({
+                title: "Error", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
+
+    $scope.setVideoUrl = function() {
+        console.log('set video');
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "url",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.comment.media_type = 'VIDEO';
+                        $scope.comment.media_path = result;
+                    });
+                } else {
+                    console.log('Wrong url');
+                    swal({
+                        title: "Incorrecto", 
+                        text: "La direccion ingresada no es correcta", 
+                        type: "warning"
+                    });
+                }
+            }
+        });
+    };
+
+    $scope.getIframeSrc = function (videoId) {
+        return $sce.trustAsResourceUrl('http://www.youtube.com/embed/'+videoId);
+    };
+
+
+    $scope.uploading = false;
+    $scope.uploadFiles = function(file) {
+        $scope.f = file;
+        console.log(file.$error);
+        if (file && !file.$error) {
+            console.log('enviando...');
+            file.upload = Upload.upload({
+                url: api_host+'/api/posts/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                console.log('success...');
+                $scope.uploading = false;
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.comment.media_id = response.data.media_id;
+                    $scope.comment.media_type  = 'IMAGE';
+                    $scope.comment.media_path = response.data.filename;
+                });
+            }, function (response) {
+                console.log('error...');
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                console.log('progress...');
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+    };
+
+
+
+})
 .controller('winwin-campanada', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', 'api_host', function($scope, $http, $state, $stateParams, $timeout, Winwin, api_host) {
 
     $scope.campanada_view = true;

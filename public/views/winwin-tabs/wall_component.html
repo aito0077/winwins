@@ -49,22 +49,48 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-                <!-- Commments PostBox-->
-        <div class="container comments-box reply" ng-show="item_post.isReplying">
-            <div class="col-xs-2 post-image">
-                <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
-            </div>
-            <div class="col-xs-6 ">
-                <div class="bubbles">
-                    <textarea class="postbox" placeholder="Postear acá" rows="4" ></textarea>
+            <div class="container no-padding" ng-repeat="comment in item_post.comments" >
+                <div class="panel-body post">
+                     <div class="col-xs-12" style="background:white;">
+                        <div class="col-xs-12 no-padding">
+                            <div class="col-xs-2 no-padding">    
+                                <img ng-src="http://images.dev-winwins.net/38x38/{{comment.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" />
+                            </div>
+                            <div class="p-lista" style="padding-bottom:10px;">
+                                <div style="padding-left: 15px; padding-right:15px;"> 
+                                    {{::comment.content}}
+                                </div>
+                                <div class="media-post"> </div>
+                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.id}}.{{::comment.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+                                <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
+                                </div>
+
+                                <div class="container  buttons-post" style="background: white;">
+                                    <div class="row" style=" margin-top: 10px;">
+                                        <div class="col-xs-12 no-padding">
+                                             <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span></div>
+                                            <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
+                                            <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"></i><span class="post-likes-"> 10</span></div>
+                                            <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
+                                            <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(comment, true)"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>                          
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="#" role="button" class="col-xs-2 button-send"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></a>
-            <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-youtube"></i></a>
-            <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-camera-retro"></i></a>
+
+
         </div>
+
+
+
     </div>
 
     <div id="footer">
@@ -106,6 +132,37 @@
             </div>
         </div>
         <div class="modal-footer"> 
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="commentModal.html">
+        <div class="modal-header">
+            Ingresá tu comentario
+        </div>
+        <div class="modal-body">
+            <div class="row" ng-show="comment.media_type">
+
+                <div ng-show="uploading" style="height:190px;">
+                    <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:30px"/>
+                </div>
+                <div ng-show="comment.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::comment.media_path}}" style="height:190px;">
+                </div>
+                <div ng-show="comment.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media_path)}}" allowfullscreen=""></iframe>
+                </div>
+            </div>
+
+            <div class="row container comments-box">
+                <div class="col-xs-8">
+                    <textarea class="postbox" placeholder="Postear acá" rows="4" ng-model="comment.content" ></textarea>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer"> 
+                <a href role="button" class="_col-xs-6 button-send"  ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane"></i>Enviar</a>
+                <a href role="button" class="_col-xs-1 upload-post"  ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></a>
+                <a href role="button" class="_col-xs-1 upload-post"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></a>
         </div>
     </script>
 
