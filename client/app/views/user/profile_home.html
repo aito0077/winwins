@@ -2,6 +2,8 @@
 <style>
 body  {
     background-color: #f1f1f1;
+    background-size: cover;
+    background-position: cover;
 }
 
 
@@ -12,9 +14,9 @@ width: 100%;
 height: 100%;
 padding: 20px;
 background: #1762C3;
--webkit-border-radius: 1px;
--moz-border-radius: 1px;
-border-radius: 1px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
 }
 
 .bubbles:after 
@@ -28,8 +30,35 @@ display: block;
 width: 0;
 z-index: 1;
 top: -15px;
-left: 150px;
+left: 45%;
 }
+
+.bubblexs 
+{
+position: relative;
+width: 100%;
+height: 45px;
+padding: 0px;
+background: #1762C3;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+}
+
+.bubblexs:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 9px 8px 0;
+border-color: #1762C3 transparent;
+display: block;
+width: 0;
+z-index: 1;
+bottom: -9px;
+left: 45%;
+}
+
 </style>
 
 
@@ -38,12 +67,12 @@ left: 150px;
             <div class="col s12 no-padding">
                 <div class="card hoverable no-padding">
                     <div class="card-image" style="background:rgba(11, 79, 136, 0.93)">
-                         <img src="http://www.alexrbn.com/wp-content/uploads/2014/04/bg-world.jpg" style="height:400px; overflow:hidden;" class="img-responsive">
+                         <img src="http://files.clioekumene.webnode.es/200000274-21d2a22cba/guernica_all.jpg" style="height:400px; overflow:hidden;" class="img-responsive">
                             <span class="col-md-1"></span>
-                                <span class="col-md-4 col-xs-12 no-padding" >   
+                                <span class="col-md-4 col-xs-12" >   
                                        <span class="card-title" style="background-color:rgba(10,101,176,0.93); box-shadow: 2px 2px 20px rgb(60, 58, 58); padding-top: 0px;">
-                                            <div class="profile-avatar avatar"> 
-                                             <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" height="100" width="100"              style="margin:5px auto; border-radius:50%;" />
+                                            <div class="profile-avatar avatar" style="width:120px; margin-left:20px; margin-right:20px;"> 
+                                             <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" height="100" width="100"              style="margin:5px auto; border-radius:50%; border:5px solid white;" />
                                          <span style="font-size:18px;">{{::user_detail.name}}</span>
                                     </span>
                                 </span>      
@@ -89,8 +118,11 @@ left: 150px;
                     </span>
                 </div>
             </div>
-         <div class="col s12 m4">   
-                <div class="card-panel teal">
+
+           <div class="col s12 m4">
+                <div class="card-panel teal ">
+                             <div class="col s12 m12 bubblexs left white-text"><span style="margin-top:8px; float:left;">  <i class="fa fa-clock-o"></i>    ACTIVIDAD RECIENTE   
+                 </div>
                     <span class="grey-text">
                             <ul class="collection left-align">
                               <li class="collection-item"><h6 style="font-size:12px; padding:10p border-radius:2px;"><i class="fa fa-users"></i> Leonardo se sumó al Grupo <span style="color: #1762C3  ;">"Unidos por el Universo"</h6></span><h6 style="font-size:9px;"> <i class="fa fa-clock-o"></i> 20/20/19 20:34</h6></li>
@@ -103,7 +135,8 @@ left: 150px;
                 </div>
             </div>
          <div class="col s12 m4 ">   
-                <div class="card-panel teal">
+                       <div class="card-panel teal ">
+                             <div class="col s12 m12 bubblexs left white-text"><span style="margin-top:8px; float:left;">  <i class="fa fa-comment"></i>    MENSAJES    </div>
                     <span class="grey-text">
                          <ul class="collection">
     <li class="collection-item avatar">
