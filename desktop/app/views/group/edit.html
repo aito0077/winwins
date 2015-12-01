@@ -1,0 +1,117 @@
+<div ng-show="first_stage">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 create-title bubble-big"> 
+        
+                <i class="fa fa-users"></i>
+                <br>CREA TU GRUPO <br> 
+                JUNTOS SOMOS MÁS
+            </div> 
+        </div> 
+    </div> 
+
+    <div class="pad-20"></div>
+        <div class="container ww-create">
+            <form role="form" ng-submit="doFirstStage()" name="groupForm">
+                <div class="create">
+                    <div class="bubble-xs">Nombre para el grupo <i class="fa fa-question-circle red"></i></div>
+                    <input class="input-forms" class="active" ng-model="group.name" placeholder="Nombra tu winwin" type="text" required/>
+
+                    <div class="pad-20"></div>
+                    <div class="bubble-xs">Una descripción de tu grupo <i class="fa fa-question-circle red"></i></div>
+                    <textarea class="text-forms" name="" cols="" rows="4" ng-model="group.description" ></textarea>
+                    <div class="pad-10"></div>
+                    <div class="pad-10"></div>
+                    <input name="crear-winwin" value="Crear Grupo" type="submit" class="submit-create" ng-disabled="groupForm.$invalid" >  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div ng-show="second_stage">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 create-title bubble-big"> 
+                <i class="fa fa-users"></i> <br> Dale identidad a tu grupo
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 no-padding">
+                        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::group.prephoto}}" style="height: 250px;">
+
+                            <div style="margin-left:auto; margin-right: auto; padding-top:50px;display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
+                                <h4 class="text-uppercase">
+                                    {{group.name}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>  
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="bubble-sm">
+                subi un video o una foto para tu grupo  
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 uploaders" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">
+                <i ng-show="!uploading && !group.photo" class="fa fa-camera-retro"></i>
+                <img ng-show="!uploading && group.photo" class="img-responsive col-xs-12" ng-src="http://images.dev-winwins.net/232x154/smart/{{group.photo}}" >
+                <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>
+            </div>
+            <div class="col-xs-4 uploaders">
+
+            </div>
+            <div class="col-xs-4 uploaders">
+                <span ng-click="select_gallery()" style="cursor:pointer">
+                    <i class="fa fa-picture-o" ng-show="!image_gallery_selected"></i>
+                    <img class="img-responsive" ng-src="http://images.dev-winwins.net/75x100/smart/{{image_gallery_selected}}" ng-show="image_gallery_selected">
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 border-grey" style="min-height: 200px;" ng-show="gallery_picker">
+            <div class="picker no-padding">
+                <select id="image-gallery" class="image-picker"  ng-model="image_gallery_selected">
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-6.jpg" value="ww-default-5.jpg">Gente</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-7.jpg" value="ww-default-5.jpg">Trabajo</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-8.jpg" value="ww-default-5.jpg">Oficio</option>
+                    <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-9.jpg" value="ww-default-5.jpg">Colaborar</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 id-txt">FOTO</div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4 id-txt">GALERÍA</div>
+        </div>
+    </div>
+
+    <div class="pad-10"></div>
+    <div class="bubble-xs">Palabras Clave <i class="fa fa-question-circle red"></i></div>
+    <tags-input ng-model="group.tags"></tags-input>
+    <!--input class="input-forms" class="active" name="" placeholder="Agregá palabras clave" type="text" /-->
+    <div class="pad-10"></div>
+    <div class="form-back  create-id">
+        <input name="crear-winwin" value="Guardar y continuar" type="button" class="submit-create" ng-click="doSave()">  
+    </div>
+</div>

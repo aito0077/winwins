@@ -1,0 +1,106 @@
+<div  data-ng-controller="winwin-config">
+    <div class="container">
+        <div class="pad-50"> </div>
+
+        <div class="container">
+            <div class="pad-50"> </div>
+
+            <div class="row">
+                <div class="col-xs-12">Configurar Notificaciones</div>
+            </div>
+         </div>
+  
+ 
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Todas las Notificaciones</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="all_notifications" ng-change="toggleNotifications()" type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">Seleccionar Notificaciones</div>
+            </div>
+        </div>
+ 
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Post de Usuarios</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_user_post"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Nuevos Participantes</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_new_participant"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Encuesta Activa</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_new_poll"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Campanadas</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_announce"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Nuevo Sponsor</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_new_sponsor"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">Notificar a punto de terminar</div>
+                <div class="col-xs-3">
+                    <input bs-switch ng-model="winwin.notification_closing_date"  type="checkbox"  ng-true-value="1" ng-false-value="0">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pad-50"></div>
+    <div class="col-xs-1"></div>
+    <a href ng-click="updateNotifications()" role="button" class="col-xs-10 btn-join" style="background-color: #f5f5f5; border-color: transparent; color: #333;"> Actualizar Notificaciones</a>
+    <div class="col-xs-1"></div>
+
+
+    <div class="pad-50"></div>
+    <div class="col-xs-1"></div>
+    <a href ng-click="closeWinwin()" role="button" class="btn-danger col-xs-10 btn"> Dar de Baja el Winwin</a>
+    <div class="col-xs-1"></div>
+
+</div>
