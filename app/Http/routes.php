@@ -97,4 +97,5 @@ Route::get('api/ww/search', ['uses' => 'SearchController@search']);
 
 // Initialize Angular.js Winwins Route.
 Route::get('/', 'HomeController@index');
+Route::get('/web/', 'HomeController@desktop');
 
