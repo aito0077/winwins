@@ -1,7 +1,7 @@
 <div data-ng-controller="winwin-members">
     <div ng-if="!in_message">
 
-        <div class="grid grid-participantes no-padding" style="margin-top:25px;">
+        <div class="grid grid-participantes no-padding">
             <div class="grid-item participante-item {{classType(participante)}}"  ng-repeat="participante in winwin.users">
 
         
@@ -24,14 +24,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="buttons-profile">
-                                <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::participante.winwins_amount}}</a>
-                                <div class="col-xs-6">
+                                <a href="#" class="col-xs-2 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::participante.winwins_amount}}</a>
+                                <div class="col-xs-7">
                                     <a ng-show="!participante.my_self && !participante.following" role="button" class="col-xs-12 btn-join"  ng-click="follow(participante)"> SEGUIR</a>
                                     <a ng-show="!participante.my_self && participante.following" role="button" class="col-xs-12 btn-join"  ng-click="follow(participante)"> SEGUIR</a>
                                     <a ng-show="isAdmin && participante.pivot.moderator == 0" role="button" class="col-xs-12 somos"  ng-click="makeActivator(participante)">ACTIVADOR</a>
                                     <a ng-show="isAdmin && participante.pivot.moderator == 1" role="button" class="col-xs-12 somos"  ng-click="makeNormal(participante)">NORMAL</a>
                                 </div>
-                                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::participante.followers_amount}}</a>
+                                <a href="#" class="col-xs-4 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::participante.followers_amount}}</a>
                             </div>
               
 
