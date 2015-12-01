@@ -3,6 +3,33 @@
 body  {
     background-color: #f1f1f1;
 }
+
+
+.bubbles 
+{
+position: relative;
+width: 100%;
+height: 100%;
+padding: 20px;
+background: #1762C3;
+-webkit-border-radius: 1px;
+-moz-border-radius: 1px;
+border-radius: 1px;
+}
+
+.bubbles:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 15px 15px;
+border-color: #1762C3 transparent;
+display: block;
+width: 0;
+z-index: 1;
+top: -15px;
+left: 150px;
+}
 </style>
 
 
@@ -34,23 +61,24 @@ body  {
     <div class="row">
         <div class="container no-padding"> 
             <div class="col s12 m4">   
-                <div class="card-panel teal indigo darken-2">
-                    <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.
+                <div class="card-panel teal indigo darken-2 bubbles">
+                    <span class="white-text">Mi nombre es <span style="text-transform: capitalize;"> {{::user_detail.name}} {{::user_detail.lastname}} </span> y soy miembro de Winwins desde el {{user_detail.created_at |moment: 'DD/MM/YYYY'}}</br>
+                                             {{user_detail.about}}
                     </span>
                 </div>
                    <div class="card-panel teal" style="height:130px;margin-top: 10px;">
-                    <span class="grey-text left"><i class="fa fa-comments"></i> Mis WinWins <span style="background-color: red; color:white; padding:2px; border-radius:2px;">112</span></span><br>    
+                    <span class="grey-text left"><i class="fa fa-comments"></i> Mis WinWins <span style="background-color: red; color:white; padding:2px; border-radius:2px;">{{user_detail.winwins.length}}</span></span><br>    
                         <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-3 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                                 </div>
                     </span>
                 </div>
                       <div class="card-panel teal" style="height:130px;margin-top: 10px;">
-                    <span class="grey-text left"><i class="fa fa-child"></i> Siguiendo <span style="background-color: red; color:white; padding:2px; border-radius:2px;">112</span> </span><br>    
-                        <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-3 no-padding">
-                                    <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
+                    <span class="grey-text left"><i class="fa fa-child"></i> Siguiendo <span style="background-color: red; color:white; padding:2px; border-radius:2px;">{{user_detail.followers.length}}</span> </span><br>    
+                   <div class="col-xs-2 no-padding" ng-repeat="followed in following" >
+                                    <img ng-src="http://images.dev-winwins.net/70x70/smart/{{followed.photo}}" class="img-responsive" alt="{{followed.name}}"  title="{{followed.name}}" width="60" height="50" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />
                                 </div>
+
                     </span>
                 </div>
                       <div class="card-panel teal" style="height:130px;margin-top: 10px;">
@@ -124,7 +152,7 @@ body  {
         
 <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
+      <i class="fa fa-plus x2"></i>
     </a>
     <ul>
       <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
