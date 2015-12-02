@@ -1,0 +1,37 @@
+<div class="container no-padding">
+    <div class="dropdown col-xs-12 no-padding">
+        <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+            Más Populares
+            <span class="caret pull-right caret-middle"></span>
+        </button>
+        <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Últimos Grupos Creados</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<div infinite-scroll='groups.nextPage()'>
+    <div class="container" ng-repeat="group in groups.items">
+        <div class="row">
+            <div class="col-xs-12 no-padding">
+                <div class="ww-featured" ng-if="group.selected"> 
+                    <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+                </div>
+            </div>
+            <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::group.photo}}" style="height: 200px; cursor:pointer;"  ng-click="view(group.id)">
+                <div class="username-cards text-uppercase">{{::group.name}}</div>
+            </div>
+            <div class="card-buttons" >
+                <div class=" col-xs-1 profile">
+                    <img ng-src="http://images.dev-winwins.net/31x31/{{::group.user.photo}}"  class="img-circle">
+                </div>
+                <div class="col-xs-1 profile"> 
+                    <img ng-repeat="sponsor in group.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

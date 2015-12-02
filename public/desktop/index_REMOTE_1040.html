@@ -1,0 +1,61 @@
+<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title>Winwins</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.4a4955a1.css"> <link rel="stylesheet" href="styles/main.a60121e1.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css"> <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> <base href="/"> </head> <body ng-app="winwinsApp"> <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <!-- Navigation --> <!--
+    <div class="navbar-container col-xs-12 col-md-12 col-lg-12" ng-controller="NavController" style="z-index: 999">
+        <div class="row">
+            <div class="col-xs-2">
+                <i class="fa fa-arrow-left fa-lg imenu" ng-click="do_back()"></i>
+            </div>
+            <div class="col-xs-1" ng-if="!is_logged"></div>
+            <div class="col-xs-1" ng-click="goNotifications()" ng-if="is_logged">
+                <i class="fa fa-bell-o fa-lg imenu">
+                    <span class="notificaciones" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>
+                </i> 
+            </div>
+            <div class="col-xs-6 col-xs-pull">
+                <a class="navbar-brand" ui-sref="main">
+                    <img class="ww-logo" alt="logo-winwins" width="112" height="34" src="http://images.dev-winwins.net/logo-winwins.png"  />
+                </a>
+            </div>
+            <div class="col-xs-2 perfil">
+                <img  ng-if="is_logged" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak>
+
+            </div>
+            <div class="col-xs-1"></div>
+            <div class="dropdown" >
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle" >
+                    <i class="fa fa-bars fa-lg imenu"></i>
+                </a>
+                <ul class="dropdown-menu pull-right" >
+                    <li ng-if="!isAuthenticated()">
+                        <a ng-href="/#/signin">Ingresar</a>
+                    </li>
+                    <li ng-if="isAuthenticated()">
+                        <a ng-href="/#/winwin-new">Creá un WinWin</a>
+                    </li>
+                    <li>
+                        <a ng-href="/#/winwin-list">Navegá los WinWins y sumáte al cambio!</a>
+                    </li>
+                    <li>
+                        <a href="/#/group-list">Encuentra grupos y únete!</a>
+                    </li>
+                    <li>
+                        <a ui-sref="how">¿Cómo funciona?</a>
+                    </li>
+                    <li ng-if="isAuthenticated()">
+                        <a ng-href="/#/logout">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    --> <!-- / End Navigation --> <!-- Page Content --> <div ui-view autoscroll="true"></div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID >
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script--> <script src="scripts/vendor.54f739b5.js"></script> <script src="scripts/scripts.cf32e108.js"></script> </body> </html>

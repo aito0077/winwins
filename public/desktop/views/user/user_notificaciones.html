@@ -1,0 +1,47 @@
+
+    <div class="container" style="padding-top:35px;">
+        <div class="row" >
+            <div class="col-xs-12 no-padding">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
+                    <div class="profile-avatar avatar"> 
+                        <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto" />
+                    </div>
+                    <div class="username">{{::user_detail.name}}</div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="accordion-main">
+            <div class="panel-heading no-padding">
+                <div class="col-xs-12 no-padding subcat">
+                    <div class="col-xs-10 valign">
+                        Notificaciones
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body no-padding">
+                <div class="row col-xs-12 no-padding" style="margin:12px 0;" ng-repeat="notification in user_detail.notifications">
+                    <div class="col-xs-2 no-padding">
+                        <i class="fa fa-comments" ng-if="notification.type == 'WW_CREATED'"></i>
+                        <i class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></i>
+                        <i class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></i>
+                        <i class="fa fa-users" ng-if="notification.type == 'GROUP_CREATED'"></i>
+                        <i class="fa fa-users" ng-if="notification.type == 'GROUP_JOIN'"></i>
+                        <i class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></i>
+                    </div>
+                    <div class="col-xs-10 no-padding-left">
+                        <p class="text-destacados lista">
+                            {{notification.body}}
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

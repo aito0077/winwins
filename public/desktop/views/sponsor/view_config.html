@@ -1,0 +1,71 @@
+    <div class="container">
+        <div class="row">
+    
+            <div class="col-xs-12 no-padding">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::edit_sponsor.cover_photo}}" style="height: 220px;">
+                    <div class="bubble-upload" style="cursor:pointer" ngf-select="uploadFilesCover($file)" accept="image/*" ngf-accept="'image/*'">Portada</div>
+                    <div class="profile-avatar avatar">
+                        <img src="http://images.dev-winwins.net/smart/{{edit_sponsor.photo}}" class="img-responsive img-circle avatar"/>
+                    </div>
+                    <div class="bubble-upload"  ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Avatar</div>
+                    <div class="username">{{edit_sponsor.name}}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-back create-id">
+    <form method="post" ng-submit="saveProfile()" name="signupForm">
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Nombre 
+            <i class="fa fa-question-circle red"></i>
+        </div>
+        <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_sponsor.name" >
+
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Descripcion
+            <i class="fa fa-question-circle red"></i>
+        </div>
+        <textarea ng-model="edit_sponsor.about" class="form-control" placeholder="acerca de"></textarea>
+
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Mis intereses 
+            <i class="fa fa-question-circle red"></i>
+        </div>
+        <textarea ng-model="edit_sponsor.interests" class="form-control" " no-resize placeholder="intereses"></textarea>
+
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Datos de contacto <i class="fa fa-question-circle red"></i></div>
+        <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_sponsor.contact_name" >
+        <div class="pad-10"></div>
+        <input type="text" class="form-control" placeholder="Telefono" aria-describedby="basic-addon1" name="phone" ng-model="edit_sponsor.contact_phone">
+        <input class="form-control" type="email" id="email" name="email" ng-model="edit_sponsor.contact_email" placeholder="E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1" required>
+
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Modificar Contraseña  
+            <i class="fa fa-question-circle red" ></i>
+        </div>
+        <input password-strength class="form-control" type="password" name="current_password" ng-model="edit_sponsor.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
+        <input password-strength class="form-control" type="password" name="password" ng-model="edit_sponsor.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
+        <input password-match="password" class="form-control" type="password" name="confirmPassword" ng-model="edit_sponsor.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_sponsor.password" >
+
+
+        <div class="pad-10"></div>
+        <div class="bubble-xs">Palabras Clave <i class="fa fa-question-circle red"></i></div>
+        <input class="input-forms" class="active" name="" placeholder="Agregá palabras clave" type="text" />
+
+
+        <div class="pad-10"></div>
+        <div class="form-back  create-id">
+            <button type="submit" ng-disabled="signupForm.$invalid" class="submit-create">
+                Actualizar
+            </button>
+        </div>
+
+    </form>
+    </div>
+
+
+
+
