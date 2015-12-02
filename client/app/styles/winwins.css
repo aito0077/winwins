@@ -438,10 +438,10 @@ blockquote {
  * button
  * --------------------------------------------------
  */
-.btn1{
+/*.btn {
   color: white;
 }
-.btn1.btn.disabled, .btn[disabled] {
+.btn, .btn.disabled, .btn[disabled] {
     background-color: #aab2bd;
     border-color: #aab2bd;
     background-color: #39BD4E;
@@ -584,7 +584,7 @@ blockquote {
 .open .dropdown-toggle.btn-danger {
   background-color: #ed5565;
   border-color: #ed5565;
-}
+}*/
 
 /**
  * button-group
@@ -3324,6 +3324,91 @@ padding: 30px;
 }
 
 
+/* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+
+
 
 .ww-finishing {
     height:4px; 
@@ -3633,7 +3718,6 @@ span.remember {
   font-family: montserrat;
   text-align: center;
   padding: 15px;
-  color: white;
 }
 
 .social{
@@ -4253,17 +4337,15 @@ left:50%;
 
 .bubble-xs
 {
-position: relative;
-width: 100%;
-padding: 5px;
-background: #1762C3 ;
--webkit-border-radius: 0px;
--moz-border-radius: 0px;
-border-radius: 2px;
-font-size:1em;
-color: white;
-font-family: montserrat;
-text-align:centeR;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    background: #F1F1F1;
+    border-radius: 2px;
+    font-size: 1em;
+    color: #AFB8C3;
+    font-family: montserrat;
+    text-align: left;
 }
 
 .bubble-xs:after 
@@ -4343,6 +4425,12 @@ display:block;
 width:99%;
 text-align:center; 
 padding-top:30px;}
+
+.avatar {
+margin-left: auto; 
+margin-right:auto; 
+dislay:block;
+width:100px;}
 
 
 .username {
@@ -7053,6 +7141,12 @@ width:99%;
 text-align:center; 
 padding-top:30px;}
 
+.avatar {
+margin-left: auto; 
+margin-right:auto; 
+dislay:block;
+width:100px;}
+
 
 .username {
 margin-left:auto; 
@@ -7713,30 +7807,3 @@ position: relative;
     background: #1762C3;
     border-radius: 0px;
     }
-
-
-
-
-
-
-
-    /* materialize */
-
-    .footer.page-footer {
-    margin-top: 20px;
-    padding-top: 20px;
-    background-color: #1762C3;
-}
-
-
-
-
-    /* materialize */
-
-    .isocial-big {
-   height: 40px;
-   width:40px;
-   text-align: center;
-   border-radius: 50%;
-   background-color: white;
-}
