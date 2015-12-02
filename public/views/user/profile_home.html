@@ -14,8 +14,8 @@
             <div class="buttons-profile">
                 <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{user_detail.winwins.length}}</a>
                 <span class="col-xs-6" ng-show="user_detail.myself"> </span>
-                <a href="#" role="button" class="col-xs-6 btn-join" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following"> SEGUIR</a>
-                <a href="#" role="button" class="col-xs-6 btn-join" ng-click="unfollow()" ng-show="user_detail.already_following"> DEJAR DE SEGUIR</a>
+                <a href="#" role="button" class="col-xs-5 btn-join" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following"> SEGUIR</a>
+                <a href="#" role="button" class="col-xs-5 btn-join" ng-click="unfollow()" ng-show="user_detail.already_following"> DEJAR DE SEGUIR</a>
                 <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{user_detail.followers.length}}</a>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     <div id="collapseFive" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div class="col-xs-12 no-padding acordeon">
-                                <div class="col-xs-2 followers no-padding" ng-repeat="followed in following" >
+                                <div class="col-xs-3 followers no-padding" ng-repeat="followed in following" >
                                     <img ng-src="http://images.dev-winwins.net/35x35/smart/{{followed.photo}}" class="img-responsive" alt="{{followed.name}}"  title="{{followed.name}}" width="35" height="35" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />
                                 </div>
                             </div>
@@ -235,6 +235,9 @@
         </div>
 
     </div>
+
+
+    
 
 
 <script>

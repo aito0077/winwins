@@ -1,6 +1,6 @@
-<div class="container no-padding" style="margin-top:55px">
-    <div class="dropdown col-xs-12 col-sm-12 no-padding">
-        <button class="btn col-xs-12 col-sm-12 " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+<div class="container no-padding">
+    <div class="dropdown col-xs-12 col-sm-12 no-padding" style="position:fixed;">
+        <button class="btn col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
             WinWins Destacados
             <span class="caret pull-right caret-middle"></span>
         </button>
@@ -16,23 +16,11 @@
 
 <div infinite-scroll='winwins.nextPage()'>
 
-    <div class="container" ng-repeat="winwin in winwins.items">
-        <div class="row">
-            <div class="col-xs-12 no-padding">
-                <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
-                    <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-                </div>
-                <div class="ww-popular" ng-if="winwin.mark == 'popular'"> 
-                    <div class="ww-popular pop"> Pop</div>
-                </div>
-                <div class="ww-finishing" ng-if="winwin.mark == 'finishing'"> 
-                    <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
-                </div>
+    <div class="container no-padding" ng-repeat="winwin in winwins.items">
         <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor:pointer; box-shadow: 5px  #999; rgb(212, 206, 206);"  ng-click="view(winwin.id)">
-            <div class="username-cards text-uppercase">{{::winwin.title}}</div>
-            <div class=" col-xs-12" style="padding-top:80px;">
-    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
-    <div class=" col-xs-2">      <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   </div>
+            <div class="username-cards text-uppercase" ng-click="view(winwin.id)">{{::winwin.title}}</div>
+            <div class=" col-xs-12" style="padding-top:20px;">
+
     <div class=" col-xs-2">      </div>
 
       </div>
@@ -42,4 +30,39 @@
     </div>
 </div>
 
+     <div id="footer" style="margin-bottom:-33px;">
+  <div class="row">
+    <form class="col s12 no-padding card-panel teal hoverable blue">
+      <div class="row">
+        <div class="input-field col-xs-7">
+          <input id="icon_prefix" type="text" class="validate" >
+          <label for="icon_prefix">Buscá</label> </div>
+          <div class="col xs-3 no-padding">
+        <button class="btn  waves-effect waves-light orange" type="submit" name="action"><i class="fa fa-search"></i>
+  </button>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
+
+    </div>
+
+</div>
+        
+
+<script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer').addClass("show");
+}
+else
+{
+    $('#footer').removeClass("show");
+}
+        });
+    })
+</script>
