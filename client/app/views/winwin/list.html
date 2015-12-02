@@ -1,5 +1,5 @@
-<div class="container no-padding" style="margin-top:55px">
-    <div class="dropdown col-xs-12 col-sm-12 no-padding">
+<div class="container no-padding">
+    <div class="dropdown col-xs-12 col-sm-12 no-padding" style="position:fixed;">
         <button class="btn col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
             WinWins Destacados
             <span class="caret pull-right caret-middle"></span>
@@ -30,4 +30,39 @@
     </div>
 </div>
 
+     <div id="footer" style="margin-bottom:-33px;">
+  <div class="row">
+    <form class="col s12 no-padding card-panel teal hoverable blue">
+      <div class="row">
+        <div class="input-field col-xs-7">
+          <input id="icon_prefix" type="text" class="validate" >
+          <label for="icon_prefix">Buscá</label> </div>
+          <div class="col xs-3 no-padding">
+        <button class="btn  waves-effect waves-light orange" type="submit" name="action"><i class="fa fa-search"></i>
+  </button>
+        </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
+
+    </div>
+
+</div>
+        
+
+<script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer').addClass("show");
+}
+else
+{
+    $('#footer').removeClass("show");
+}
+        });
+    })
+</script>

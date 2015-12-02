@@ -3959,7 +3959,8 @@ background-color: #EC7007;
       width: 100%;
   padding: 15px;
     padding-bottom: 15px;
-        background-color: #fff;;
+    border-top:2px solid #1762C3 ;
+        background-color: #2196F3;
   }
   
   .post-image  {
@@ -4029,9 +4030,7 @@ padding:10px;
     font-size: 12px;
     height: 40px;
     font-family: montserrat;
-    width: 100%;
-    box-shadow: 1px 5px 5px 2px lightgrey;
-}
+    width: 100%;}
    
    .date {
     /* font-family: montserrat; */
@@ -6672,7 +6671,8 @@ background-color: #EC7007;
       width: 100%;
   padding: 15px;
     padding-bottom: 15px;
-        background-color: #fff;;
+    border-top:2px solid #1762C3 ;
+        background-color: #2196F3;
   }
   
   .post-image  {
@@ -6742,9 +6742,7 @@ padding:10px;
     font-size: 12px;
     height: 40px;
     font-family: montserrat;
-    width: 100%;
-    box-shadow: 1px 5px 5px 2px lightgrey;
-}
+    width: 100%;}
    
    .date {
     /* font-family: montserrat; */

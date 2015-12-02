@@ -9,7 +9,7 @@
 </style>
 
 
-<div id="slider" style=" margin-top:35px;">
+<div id="slider">
 
     <div class="row">
         <div class="container col-xs-12 no-padding">
@@ -126,7 +126,7 @@ $(window).scroll(function () {
 
 function slider() {
     if (document.body.scrollTop > 50) {
-        $('#slider').stop().animate({"margin-top": '58'})>10;
+        $('#slider').stop().animate({"margin-top": '0'})>10;
     } else {
         $('#slider').stop().animate({"margin-top": '0'})>10;
     }
