@@ -10,7 +10,7 @@
    <div class="row">
    <div class="container">
       <div class="row">
-         <H3 class="white-text center">BIENVENIDO! </h3>
+         <H3 class="white-text center">¡BIENVENIDO! </h3>
       </div>
    </div>
    <div class="col-xs-12">
@@ -46,6 +46,7 @@
 <input id="rpassword" type="password" length="20"  class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
 <label for="password">Repeti Contraseña</label>
 </div>
+<div class="pad-20"></div>
 <div class="input-field col s12">
 <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
 <label for="filled-in-box">Acepto los términos y condiciones.</label>
@@ -59,9 +60,9 @@
 <!-- /Signup Form -->   
 <div class="container">
    <div class="row">
-      <H5 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
+      <H4 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
          O  INGRESA CON  
-      </h5>
+      </h4>
    </div>
 </div>
 <!-- social login -->   
@@ -95,7 +96,7 @@
 <div class="container">
    <div class="row">
       <H5 class="white-text text-lighten-6" style="text-align:centeR;;"><i class="fa fa-sign-in"></i>
-         YA TENES CUENTA? <a style="background-color:#FF8000; padding: 4px; border-radius:2px;" href="#">  INGRESÁ </a>
+         YA TENES CUENTA? <a style="background-color:#FF8000; padding: 4px; border-radius:2px;" ng-href="/#/login" ng-if="!isAuthenticated()">  INGRESÁ </a>
       </h5>
    </div>
 </div>
