@@ -5,15 +5,15 @@
     <li><a href="#!">Second Sidebar Link</a></li>
   </ul>
   <a href="#!" class="brand-logo center"><img src="images/logo-winwins.png"></a>
-  <ul id="slide-out" class="side-nav left">
+  <ul id="slide-out" class="side-nav left" style="margin-top:57px;">
+    <li></li>
     <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
     <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
     <li><a ng-href="/#/winwin-list"><i class="fa fa-comments"></i><span> Winwins</span></a>
     <li><a ng-href="/#/group-list" ng-if="!isAuthenticated()"><i class="fa fa-users"></i><span> Grupos</span></a>
     <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
-    <li><a ui-sref="how"><i class="fa fa-fw fa-cogs"></i><span> Como Funciona</a></span></a>
-    <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><i class="fa fa-login"></i>Registrate</a></li>
-
+    <li><a ui-sref="how"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></a>
+  <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #E89B0F  ; padding:7px; border-radius:1px;">Registrate</span></a></li>
   </ul>
   <a href="#" data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:21px;"></i></a>
     <a href="#!" class="brand-logo left" style="margin-top:-3px;"><i class="fa fa-bell-o"></i></a>
