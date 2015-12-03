@@ -1,4 +1,13 @@
 <div class="container no-padding">
+      <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+  </div>
     <div class="dropdown col-xs-12 col-sm-12 no-padding" style="position:fixed;">
         <button class="btn col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
             WinWins Destacados
@@ -19,10 +28,15 @@
     <div class="container no-padding" ng-repeat="winwin in winwins.items">
         <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor:pointer; box-shadow: 5px  #999; rgb(212, 206, 206);"  ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase" ng-click="view(winwin.id)">{{::winwin.title}}</div>
-            <div class=" col-xs-12" style="padding-top:20px;">
+             <div class=" col-xs-12" style="padding-top:80px;">
+    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
+    <div class=" col-xs-2">      <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   </div>
+    <div class=" col-xs-2">    </div>
 
-    <div class=" col-xs-2">      </div>
+  <div class=" col-xs-2">    </div>
+  <div class=" col-xs-4">  
 
+ </div>
       </div>
         </div>
             </div>
@@ -30,22 +44,7 @@
     </div>
 </div>
 
-     <div id="footer" style="margin-bottom:-33px;">
-  <div class="row">
-    <form class="col s12 no-padding card-panel teal hoverable blue">
-      <div class="row">
-        <div class="input-field col-xs-7">
-          <input id="icon_prefix" type="text" class="validate" >
-          <label for="icon_prefix">Buscá</label> </div>
-          <div class="col xs-3 no-padding">
-        <button class="btn  waves-effect waves-light orange" type="submit" name="action"><i class="fa fa-search"></i>
-  </button>
-        </div>
-        </div>
-      </div>
-    </form>
-  </div>
-
+    
 
     </div>
 

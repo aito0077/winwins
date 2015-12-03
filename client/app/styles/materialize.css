@@ -76,10 +76,10 @@ textarea {
 }
 
 .container {
-    /* padding-right: 15px; */
-    /* padding-left: 15px; */
-    /* margin-right: auto; */
-    /* margin-left: auto; */
+padding-right: 0px; 
+    padding-left: 0px; 
+  margin-right: auto; 
+  margin-left: auto; 
 }
 
 label {
@@ -101,3 +101,9 @@ background-color: #FF8000 !important;
     /* color: #9F9F9F !important; */
     cursor: default;
 }
+
+video {
+    background: #0E0303 url('../images/parrots.jpg') no-repeat 0 0;
+    background-size: cover;
+}
+

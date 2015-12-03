@@ -3,12 +3,12 @@
    body {
    background-repeat: no-repeat;
    background-size: cover;
-   background-color: #ccc;
+   background-color: #C3C3C3;
    }
 </style>
 <div class="container">
     <div class="row">
-     <video width="100%" controls poster="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ_I2x1hgC5eROT3Cp544IILOEhpCo1uMbCmJpLM1oltmsonaDw">
+     <video width="100%" controls poster="../images/parrots.fw.png">
   <source src="../video/winwins.mp4" type="video/mp4" >
   Your browser does not support HTML5 video.
 </video>
@@ -19,7 +19,7 @@
 <div class="container pseudo-header">
     <div class="row">
        <div ng-click="goControlPanel()" style="cursor: pointer;">
-            <button type="button" class="btn-large green" style="width:100%;">
+            <button type="button" class="btn-large green" style="width:100%; margin-bottom:-23px;">
 <i class="fa fa-chevron-right"></i></div></button>
 
     </div>
@@ -31,7 +31,7 @@
 </div>
    
 
-<div class="container card-panel teal hoverable" ng-repeat="winwin in winwins">
+<div class="container card-panel teal hoverable s12 m6" ng-repeat="winwin in winwins">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
@@ -51,7 +51,7 @@
  "  ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
             <div class=" col-xs-12" style="padding-top:80px;">
-    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;    BORDER: 3PX SOLID #1762C3;">  </div>
+    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
     <div class=" col-xs-2">      <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   </div>
     <div class=" col-xs-2">    </div>
 
