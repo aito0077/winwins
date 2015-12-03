@@ -1,6 +1,6 @@
 
 
-<div class="container no-padding" style="margin-top:-20px;margin-bottom:-30px;">
+<div class="container">
     <div class="row">
      <video width="100%" controls poster="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ_I2x1hgC5eROT3Cp544IILOEhpCo1uMbCmJpLM1oltmsonaDw">
   <source src="../video/winwins.mp4" type="video/mp4" >
@@ -10,11 +10,11 @@
 </div>    
   
 
-<div class="container pseudo-header no-padding">
+<div class="container pseudo-header">
     <div class="row">
        <div ng-click="goControlPanel()" style="cursor: pointer;">
-            <button type="button" class="btn btn-large" style="width:100%;">
-<i class="fa fa-chevron-right"></i><h6> COMENZA AHORA </h6></div></button>
+            <button type="button" class="btn-large green" style="width:100%;">
+<i class="fa fa-chevron-right"></i></div></button>
 
     </div>
 </div> 
@@ -27,7 +27,7 @@
 
 <div class="container" ng-repeat="winwin in winwins">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3 no-padding">
+        <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
                 <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
             </div>

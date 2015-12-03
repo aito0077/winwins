@@ -93,6 +93,7 @@ module.exports = function(config) {
       'bower_components/elasticsearch/elasticsearch.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/snap.svg/dist/snap.svg-min.js',
+      'bower_components/Materialize/bin/materialize.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
