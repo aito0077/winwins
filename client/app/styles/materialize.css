@@ -1,0 +1,103 @@
+/*
+ * WinWins 1.0
+ *
+ * Description: Winwins, acuerdos en Acción.
+ *
+ * Homepage: http://winwins.github.com/
+ *
+ * By  Linkway_Agency <agency@linkway.me>
+ *
+ * Last modify time: 2015
+ *
+ * Licensed under the MIT license. Please see LICENSE for more information.
+ *
+ * Copyright 2015 Humanet
+ *
+ */
+
+/**
+ * typography
+ * --------------------------------------------------
+ 
+ 
+ */
+
+nav {
+    color: #fff;
+    background-color: #1976d2;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    border-bottom: 3px solid #0d47a1 ;
+}
+
+.side-nav  {
+    background-color: #1976D2;
+}
+
+.side-nav a {
+    color: #fff;
+    display: block;
+    font-size: 1.5rem;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.side-nav li:hover, .side-nav li.active {
+    background-color: #FF8000;
+}
+
+.teal {
+    background-color: #FFFFFF !important;
+}
+
+.container {
+    width:100%;
+}
+
+.row {
+    padding:0px;
+    margin:0px;
+}
+
+
+.no-padding {
+    padding:0px;
+    margin:0px;
+}
+
+textarea {
+    width: 100%;
+    height: 3rem;
+    /* background-color: transparent; */
+    background-color: #fff;
+}
+
+.container {
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+}
+
+label {
+    font-size: 1.4rem;
+    color: #1762C3;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea
+ {
+
+    font-size: 1.5rem;
+
+}
+
+.btn-large:disabled, .btn-large:disabled, {
+
+background-color: #FF8000 !important;
+    box-shadow: none;
+    /* color: #9F9F9F !important; */
+    cursor: default;
+}
