@@ -10,9 +10,10 @@
     <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
     <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
     <li><a ng-href="/#/winwin-list"><i class="fa fa-comments"></i><span> Winwins</span></a>
+    <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
     <li><a ng-href="/#/group-list" ng-if="!isAuthenticated()"><i class="fa fa-users"></i><span> Grupos</span></a>
     <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
-    <li><a ui-sref="how"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></a>
+    <li><a ui-sref="how"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></li>
   <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;">Registrate</span></a></li>
   </ul>
   <div class="right" style="padding-right:10px;">
