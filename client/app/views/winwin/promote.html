@@ -12,7 +12,7 @@
     <div class="container no-padding">
         <div class="row">
             <div class="col-xs-12 no-padding">
-                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 250px;">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; MARGIN-TOP:.20PX;">
                     <div style="margin-left:auto; margin-right: auto; padding-top:50px;display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
                         <h4>
                            {{::winwin.title}}
@@ -22,19 +22,20 @@
             </div>
         </div>
     </div>
-    <div class="container no-padding">
+
+            <div class="container card-panel hoverable">
+                <div class="row">
+                    <a href="#" class="col-xs-4 btn-large btn-fbk-big" role="button"  style="width:70%;"socialshare socialshare-provider="facebook" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-facebook" style="font-size:2rem;"></i></a>
+                    <a href="#" class="col-xs-3 btn btn-twitter-big  card-panel hoverable" role="button"  socialshare socialshare-provider="twitter" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="col-xs-3 btn btn-google-big  card-panel hoverable" role="button"   socialshare socialshare-provider="google" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-google"></i></a>
+                </div>
+            </div>
+
+            <div class="container no-padding">
         <div class="row">
             <div class="col-xs-12 no-padding">
                 <div style=" font-family: montserrat; background-color: #1862C3; padding: 20px; font-size: .9em; color: #fff; text-align: center;">
                     Compartí tu WinWin en las redes sociales con tus amigos, familiares, colegas, compañeros y  todo el mundo!
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%; border: 4px solid #2A51A2;"  socialshare socialshare-provider="facebook" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%; border: 4px solid #0EB5C3;"  socialshare socialshare-provider="twitter" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; border:4px solid #CC2424;"  socialshare socialshare-provider="google" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-google"></i></a>
                 </div>
             </div>
 

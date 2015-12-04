@@ -1,10 +1,16 @@
-  <div class="input-field col s12 no-padding" style="margin-top: -5px;">
+
+
+  <div class="container no-padding">
+  <div class="input-field col s12" style="margin-top: -5px;">
     <select>
       <option value="1" >Todos los miembros</option>
       <option value="2">Nuevos</option>
       <option value="3">Populares</option>
     </select>   
   </div>
+    </div>
+
+
  <div infinite-scroll='users.nextPage()'>
         <div class="col-xs-12 no-padding card-panel teal hoverable" style="padding-top: 10px;" ng-repeat="user in users.items">
 <div class="container no-padding">
