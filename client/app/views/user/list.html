@@ -1,58 +1,72 @@
-    <div class="container no-padding">
-        <div class="dropdown col-xs-12 no-padding">
-            <button class="btn col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
-               Últimos usuarios
-                <span class="caret pull-right caret-middle"></span>
-            </button>
-            <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-            </ul>
-        </div>
-
-    <div infinite-scroll='users.nextPage()'>
-        <div class="col-xs-12 no-padding" ng-repeat="user in users.items">
-
-            <div class="col-xs-4 no-padding">
-                <img ng-src="http://images.dev-winwins.net/120x106/{{::user.photo}}" />
-                <div class="somos-grupo">
-                    <span class="title-somos sponsor fix-title-sponsors">Winwins Sumados</span>
-                    <span class="num-somos sponsor fix-num-sponsors">{{::user.winwin_count}}</span>
+  <div class="input-field col s12 no-padding" style="margin-top: -5px;">
+    <select>
+      <option value="1" >Todos los miembros</option>
+      <option value="2">Nuevos</option>
+      <option value="3">Populares</option>
+    </select>   
+  </div>
+ <div infinite-scroll='users.nextPage()'>
+        <div class="col-xs-12 no-padding card-panel teal hoverable" style="padding-top: 10px;" ng-repeat="user in users.items">
+<div class="container no-padding">
+    <div class="row no-padding">
+        <div class="col-xs-12 no-padding">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user.cover_photo}}" style="height: 220px;">
+                <div class="profile-avatar avatar">
+                    <img ng-src="http://images.dev-winwins.net/smart/{{::user.photo}}" class="img-responsive img-circle center"/>
                 </div>
-            </div>
-            <div class="col-xs-6 no-padding-left">
-                <h5 class="title-destacados sponsor">
-                    {{::user.name}} {{::user.lastname}}
-                </h5>
-                <p class="text-destacados lista">
-                    {{::user.about}}
-                </p>
-            </div>
-            <div class="col-xs-2 no-padding">
-                <div class="col-xs-12 no-padding">
-                    <div class="col-xs-4 no-padding btn-somos hidden-xs">
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="twitter no-padding">
-                            <i class="fa fa-twitter fa-6"></i>
-                        </button>
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="facebook no-padding">
-                            <i class="fa fa-facebook fa-6"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-xs-12 no-padding blank-space">
-                </div>
-                <div class="col-xs-12 no-padding me-interesa">
-                    <button type="button" class="btn btn-sponsor sponsor" ng-click="follow(user.id)">
-                        FOLLOW
-                    </button>
-                </div>
+                <div class="username"> {{::user.name}} </div>
             </div>
         </div>
     </div>
+    <div class="container no-padding">
+        <div class="row no-padding">
+            <div class="buttons-profile">
+                <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::user.winwin_count}}</a>
+                <a role="button" class="col-xs-5 btn-join" ng-show="user.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
+                <a role="button" class="col-xs-5 btn-join" ng-show="!user.already_following" ng-click="follow()"> SEGUIR</a>
+                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::user.followers_count}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+  <!--  <div infinite-scroll='users.nextPage()'>
+        <div class="col-xs-12 no-padding card-panel teal hoverable" style="    margin-top: 10px;" ng-repeat="user in users.items">
 
-        <search-bar/>
+            <div class="col-xs-4" style="padding:15px;">
+                <img ng-src="http://images.dev-winwins.net/90x90/{{::user.photo}}"  class="circle" />
+                <div class="somos-grupo">
+                    <span class="num-somos sponsor fix-num-sponsors left">{{::user.winwin_count}}</span>
+                </div>
+            </div>
+            <div class="col-xs-6" align="left">
+                <h5 style=    "text-align: left;">
+                    {{::user.name}} {{::user.lastname}}
+                </h5>
+                <p style="white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 340px; font-size:10px;">
+                    {{::user.about}}
+                </p>
+            </div>
+            <div class="col-xs-2 no-padding">                
+                <div class="col-xs-12 no-padding blank-space">
+                </div>
+             <!--   <div class="col-xs-12 no-padding me-interesa">
+                    <button type="button" class="btn-green" ng-click="follow(user.id)">
+                        Seguir
+                    </button>
+                </div>
+            </div>-->
+        </div>
+    </div>
 
+
+<script>
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+  </script>
