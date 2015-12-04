@@ -132,14 +132,26 @@ class UserController extends Controller {
     public function getUser(Request $request) {
         $user = User::find($request['user']['sub']);
 
-        return array(
-            'user' => $user,
-            'profile' => $user->detail,
-            'sponsor' => $user->sponsor,
-            'is_sponsor' => isset($user->sponsor),
-            'notifications' => $this->notifications($user->id),
-            'notifications_unread' => $this->countUnreadNotifications($user->id)
-        );
+	if(isset($user)) {
+		return array(
+		    'user' => $user,
+		    'profile' => $user->detail,
+		    'sponsor' => $user->sponsor,
+		    'is_sponsor' => isset($user->sponsor),
+		    'notifications' => $this->notifications($user->id),
+		    'notifications_unread' => $this->countUnreadNotifications($user->id)
+		);
+	} else {
+		return array(
+		    'user' => false,
+		    'profile' => false,
+		    'sponsor' => false,
+		    'is_sponsor' => false, 
+		    'notifications' => false,
+		    'notifications_unread' => false
+		);
+
+	}
     }
 
     public function updateUser(Request $request) {
