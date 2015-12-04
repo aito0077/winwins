@@ -25,6 +25,7 @@ class CreateSponsorsTable extends Migration {
             $table->mediumtext('cover_photo');
             $table->mediumtext('photo');
 
+            $table->boolean('is_main')->default(false);
 
 			$table->timestamps();
 		});
