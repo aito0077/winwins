@@ -107,3 +107,15 @@ video {
     background-size: cover;
 }
 
+.winwin-title {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: montserrat;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    width: 90%;
+}
