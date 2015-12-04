@@ -1,6 +1,7 @@
 <div class="container no-padding">
+
     <div class="dropdown col-xs-12 col-sm-12 no-padding" style="position:fixed;">
-        <button class="btn col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+        <button class="btn green  col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
             WinWins Destacados
             <span class="caret pull-right caret-middle"></span>
         </button>
@@ -19,10 +20,18 @@
     <div class="container no-padding" ng-repeat="winwin in winwins.items">
         <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor:pointer; box-shadow: 5px  #999; rgb(212, 206, 206);"  ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase" ng-click="view(winwin.id)">{{::winwin.title}}</div>
-            <div class=" col-xs-12" style="padding-top:20px;">
+             <div class=" col-xs-12" style="padding-top:80px;">
+    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
+    <div class=" col-xs-6">    <div class="col-xs-1" ng-repeat="member in winwin.users">
+                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+             
+            </div>
 
-    <div class=" col-xs-2">      </div>
 
+  <div class=" col-xs-2">    </div>
+  <div class=" col-xs-4">  
+
+ </div>
       </div>
         </div>
             </div>
@@ -30,22 +39,7 @@
     </div>
 </div>
 
-     <div id="footer" style="margin-bottom:-33px;">
-  <div class="row">
-    <form class="col s12 no-padding card-panel teal hoverable blue">
-      <div class="row">
-        <div class="input-field col-xs-7">
-          <input id="icon_prefix" type="text" class="validate" >
-          <label for="icon_prefix">Buscá</label> </div>
-          <div class="col xs-3 no-padding">
-        <button class="btn  waves-effect waves-light orange" type="submit" name="action"><i class="fa fa-search"></i>
-  </button>
-        </div>
-        </div>
-      </div>
-    </form>
-  </div>
-
+    
 
     </div>
 

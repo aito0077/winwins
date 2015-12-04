@@ -28,6 +28,11 @@ class SponsorController extends Controller {
         $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
     }
 
+	public function all() {
+        $sponsors = Sponsor::all();
+        return $sponsors;
+	}
+
     public function paginate(Request $request, $page = 0, $amount = 15) {
         $sponsors = DB::table('sponsors')->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($sponsors);

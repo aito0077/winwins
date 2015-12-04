@@ -27,8 +27,14 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'summary', 'winwinSponsors']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'socialShow', 'search', 'summary', 'winwinSponsors']]);
     }
+
+
+	public function all() {
+        $winwins = Winwin::all();
+        return $winwins;
+	}
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
         $winwins = DB::table('winwins')->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
@@ -633,5 +639,15 @@ class WinwinController extends Controller {
         return $summary;
     }
 
+	public function socialShow(Request $request, $id) {
+        $winwin = Winwin::find($id);
+        $ww_user = $winwin->user;
+        $ww_user->detail;
+        Log::info($winwin);
+        return view('winwins.view', [
+		'winwin' => $winwin,
+                'facebook_app_id' => Config::get('facebook_app_id')
+	]);
+	}
 
 }

@@ -64,8 +64,14 @@ header.smaller {
         <div class="row">
             <div style="z-index: 999999; margin-top:-50px; ">
            
-            <div class="col-xs-2" >    <span class="ww-social-fb-btn" socialshare socialshare-provider="facebook" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}"  socialshare-via="1082199191794840"><i class="fa fa-facebook fa-inverse"></i>   </span> </div>
-            <div class="col-xs-2">    <span class="ww-social-tw-btn" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins/ww/winwin/{{::winwin.id}}" > <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
+            <div class="col-xs-2" >    <span class="ww-social-fb-btn" socialshare 
+                socialshare-provider="facebook" 
+                socialshare-text="{{::winwin.title}}" 
+                socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
+                socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+                socialshare-via="1082199191794840">
+                    <i class="fa fa-facebook fa-inverse"></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-tw-btn" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" > <i class="fa fa-twitter fa-inverse" ></i>   </span> </div>
             <div class="col-xs-2">    <span class="ww-social-mail-btn" ng-click="openMailModal(winwin)"> <i class="fa fa-envelope-o fa-inverse" ></i>   </span> </div>
             <div class="col-xs-3">    <div class="col-xs-4 ww-somos" style=" margin-left: -20px;margin-top: -5px;">
                         <span class="bubble-label"style="width:55px;"> 

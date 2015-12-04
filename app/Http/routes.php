@@ -13,6 +13,7 @@ Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthCon
 // API Routes.
 Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);
 
+Route::get('api/winwins/all', ['uses' => 'WinwinController@all']);
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
 Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
@@ -63,6 +64,7 @@ Route::get('api/group_thread/{id}', ['middleware' => 'auth', 'uses' => 'GroupCon
 Route::post('api/groups/sponsor_request/{id}', ['middleware' => 'auth', 'uses' => 'GroupController@sponsorRequest']);
 Route::resource('api/groups', 'GroupController');
 
+Route::get('api/sponsors/all', ['uses' => 'SponsorController@all']);
 Route::get('api/sponsors/paginate/{page}/{amount}', ['uses' => 'SponsorController@paginate']);
 Route::get('api/sponsors/search', ['uses' => 'SponsorController@search']);
 Route::get('api/sponsors/follow/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@follow']);
@@ -98,4 +100,5 @@ Route::get('api/ww/search', ['uses' => 'SearchController@search']);
 // Initialize Angular.js Winwins Route.
 Route::get('/', 'HomeController@index');
 Route::get('/web/', 'HomeController@desktop');
+Route::get('/ww/{id}', 'WinwinController@socialShow');
 

@@ -4,9 +4,13 @@ return [
 
 	'token_secret' => env('JWT_TOKEN_SECRET', 'some random string'),
 	'facebook_secret' => env('FACEBOOK_SECRET', ''),
+	'facebook_app_id' => env('FACEBOOK_APP_ID', ''),
 	'google_secret' => env('GOOGLE_SECRET', ''),
 	'twitter_key' => env('TWITTER_KEY', ''),
 	'twitter_secret' => env('TWITTER_SECRET', ''),
+	'twitter_token' => env('TWITTER_TOKEN', ''),
+	'twitter_token_secret' => env('TWITTER_TOKEN_SECRET', ''),
+
 	'twitter_callback' => env('TWITTER_CALLBACK', ''),
 	'yahoo_secret' => env('TWITTER_CALLBACK', ''),
 

@@ -1,4 +1,4 @@
-<div zum-waypoint="userScroll" down="name.down" up="name.up" offset="5"></div>
+<div id="slider"></div>
 
 <div id="menu-profile" class="container"  ng-show="userScroll.name.down" ng-class="{fixed: userScroll.name.down}">
     <div class="row">
@@ -66,3 +66,22 @@
     </div>
 </div>
 
+<script>
+
+$(document).ready(function () {
+    slider();
+});
+
+$(window).scroll(function () {
+    slider();
+});
+
+function slider() {
+    if (document.body.scrollTop > 50) {
+        $('#slider').stop().animate({"margin-top": '55'})>10;
+    } else {
+        $('#slider').stop().animate({"margin-top": '55'})>10;
+    }
+}
+
+</script>
