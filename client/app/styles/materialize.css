@@ -38,7 +38,7 @@ nav {
 .side-nav a {
     color: #fff;
     display: block;
-    font-size: 1.5rem;
+    font-size: 1rem;
     height: 64px;
     line-height: 64px;
     padding: 0 15px;
@@ -57,16 +57,8 @@ nav {
     width:100%;
 }
 
-.row {
-    padding:0px;
-    margin:0px;
-}
 
 
-.no-padding {
-    padding:0px;
-    margin:0px;
-}
 
 textarea {
     width: 100%;
@@ -75,15 +67,9 @@ textarea {
     background-color: #fff;
 }
 
-.container {
-padding-right: 0px; 
-    padding-left: 0px; 
-  margin-right: auto; 
-  margin-left: auto; 
-}
 
 label {
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: #1762C3;
 }
 
@@ -118,4 +104,12 @@ video {
     font-size: 1.8rem;
     text-transform: uppercase;
     width: 90%;
+}
+
+.card-panel {
+    padding: 10px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    font-size: 1rem;
 }
