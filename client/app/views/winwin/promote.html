@@ -1,18 +1,18 @@
 <div ng-show="promote">
 
     <div class="container no-padding">
-        <div class="row">
+
             <div class="col-xs-12 create-title bubble-md"> 
                 <i class="fa fa-bullhorn"></i> 
                 <br>CONTALE AL MUNDO 
             </div>
-        </div>
+
     </div>
 
-    <div class="container no-padding">
-        <div class="row">
-            <div class="col-xs-12 no-padding">
-                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; MARGIN-TOP:.20PX;">
+
+
+            <div class="col-xs-12 no-padding" style="margin-top: -20px;">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; MARGIN-TOP:20PX;">
                     <div style="margin-left:auto; margin-right: auto; padding-top:50px;display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
                         <h4>
                            {{::winwin.title}}
@@ -20,29 +20,32 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-            <div class="container card-panel hoverable">
-                <div class="row">
-                    <a href="#" class="col-xs-4 btn-large btn-fbk-big" role="button"  style="width:70%;"socialshare socialshare-provider="facebook" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-facebook" style="font-size:2rem;"></i></a>
-                    <a href="#" class="col-xs-3 btn btn-twitter-big  card-panel hoverable" role="button"  socialshare socialshare-provider="twitter" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="col-xs-3 btn btn-google-big  card-panel hoverable" role="button"   socialshare socialshare-provider="google" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}"><i class="fa fa-google"></i></a>
-                </div>
-            </div>
-
-            <div class="container no-padding">
-        <div class="row">
-            <div class="col-xs-12 no-padding">
+               <div class="col-xs-12 no-padding bubble-md">
                 <div style=" font-family: montserrat; background-color: #1862C3; padding: 20px; font-size: .9em; color: #fff; text-align: center;">
                     Compartí tu WinWin en las redes sociales con tus amigos, familiares, colegas, compañeros y  todo el mundo!
                 </div>
             </div>
 
-            <div class="container no-padding">
-                <input name="crear-winwin" value="IR A MI WINWIN" type="button" style="width:100%; background-color:#093; border-bottom: 3px solid darkgreen; border-radius: 5px; font-family:montserrat; font-size: 20px; padding:10px; color: white;" ng-click="goView()"> 
-            </div>
 
+     <div class="container no-padding">
+        <div class="col-xs-1 no-padding"></div>
+                    <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="facebook" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}">
+                        <i class="fa fa-facebook"style="padding-top:0px;" ></i><br>
+                    </div>
+                    <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="twitter" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}">
+                        <i class="fa fa-twitter"style="padding-top:0px;" ></i><br>
+                    </div>
+                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="fa-google" socialshare-url="http://dev-winwins.net/winwin-view/{{::winwin.id}}">
+                        <i class="fa fa-google"style="padding-top:0px;" ></i><br>
+                    </div>
+                            <div class="col-xs-1 no-padding"></div>
+                </div>
+ <div class="pad-20"></div>
+            <div class="container no-padding">
+                <input name="crear-winwin" value="IR A MI WINWIN" class="btn-large green col-xs-12" ng-click="goView()"> 
+            </div>
+<div class="pad-20"></div>
         </div>
     </div>
 
