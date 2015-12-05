@@ -1,6 +1,6 @@
  <div ng-controller="NavController" id="winwin-menu" ng-class="{'show-menu': isOpen}">
 
-  <div class="navbar-fixed">
+  <div class="navbar-fixed" style="height:60px;">
   <nav>
   <ul class="right hide-on-med-and-down">
   </ul>
@@ -11,7 +11,7 @@
     <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
     <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-users"></i><span> Grupos</span></a>
     <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>
-    <li><a ng-href="/#/user-list"  ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
+    <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
     <li><a ng-href="/#/sponsor-list"ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
     <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></li>
         <li><a ng-click="goProfile()" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"> <i class="fa fa-user"></i><span> Mi perfil</a></span></a></li>
@@ -28,7 +28,14 @@
 </nav>
      
 </div>
+
+
+</div>
+
+
+</div>
         <script>
+        
   // Initialize collapse button
   $(".button-collapse").sideNav();
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)

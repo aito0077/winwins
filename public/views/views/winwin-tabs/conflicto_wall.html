@@ -1,0 +1,194 @@
+<!-- Winwin Activity Wall-->            
+
+
+
+
+
+
+<div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
+
+<<<<<<< HEAD
+
+
+
+    <div class="container no-padding" ng-repeat="item_post in posts" >
+            <div class="panel-body post no-padding">
+
+                 <div class="col-xs-12 no-padding" style="background:white;">
+               
+                            <div class="col-xs-12 no-padding">
+                                     <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+        margin-left: 10px;"
+ /></div>
+                            <div class="p-lista" style="padding-bottom:10px;">
+
+                               <div style="padding-left: 15px; padding-right:15px;"> {{::item_post.content}}</div>
+
+
+
+                                  <!-- Media -->
+            
+            <div class="media-post"> </div>
+            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
+=======
+    <div class="col-xs-12 wall-header" style="background: #1762C3; width:100%; padding: 10px; font-size: 9px; color:white; font-family:montserrat; text-align:center; margin-bottom:20px;">
+        Ultima actividad {{::posts.last.created_at |moment: 'DD/MM/YYYY'}}
+    </div>
+    <div class="container" ng-repeat="item_post in posts">
+        <div class="row">
+            <div class="col-xs-12 no-padding">
+                <div class="ww-featured" ng-if="item_post.sticky == 1"> 
+                    <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+                </div>
+>>>>>>> fef4c2fb3e17ee9f0b9bc0dfdabcfc7b5cfcb8fc
+            </div>
+
+            
+         
+                                  <!-- Toolbar -->
+            <div class="container  buttons-post" style="background: white;">
+                <div class="row" style=" margin-top: 10px;">
+                    <div class="col-xs-12 no-padding">
+                                             <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
+                    <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                    <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"></i><span class="post-likes-"> 10</span></div>
+                    <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+                    <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                   <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
+                <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+
+                   
+                    </div>
+
+                </div>
+            </div>                                 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<<<<<<< HEAD
+    <div class="container" ng-repeat="item_post in posts" >
+            <div class="panel-body post ">
+                 <div class="col-xs-12 no-padding" style="background:white;margin-top:-15px;">
+               
+                            <div class="col-xs-12 no-padding">
+                                     <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px;
+    margin-bottom: 10px;
+        margin-left: 15px;"
+ /></div>
+                            <div class="p-lista" style="padding-bottom:10px;">
+
+                               <div style="padding-left: 15px; padding-right:15px;"> {{::item_post.content}}</div>
+
+
+
+                                  <!-- Media -->
+            
+            <div class="media-post"> </div>
+            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
+            </div>
+
+            
+         
+                                  <!-- Toolbar -->
+            <div class="container  buttons-post" style="background: white;">
+                <div class="row" style=" margin-top: 10px;">
+                    <div class="col-xs-12 no-padding">
+                                             <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
+                    <div class="col-xs-2"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
+                    <div class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
+                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
+                    <div class="col-xs-1" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+
+                   
+                    </div>
+
+                </div>
+            </div>                                 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+          
+            <!-- Commments PostBox-->
+            <div class="container comments-box reply" ng-show="item_post.isReplying">
+                <div class="col-xs-2 post-image">
+                    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
+                </div>
+                <div class="col-xs-6 ">
+                    <div class="bubbles">
+                        <textarea class="postbox" placeholder="Postear acá" rows="4" ></textarea>
+                    </div>
+                </div>
+                <a href="#" role="button" class="col-xs-2 button-send"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></a>
+                <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-youtube"></i></a>
+                <a href="#" role="button" class="col-xs-1 upload-post"><i class="fa fa-camera-retro"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+
+<div id="footer">
+    <div class="container comments-box">
+        <div class="col-xs-2 post-image">
+            <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
+        </div>
+        <div class="col-xs-6 ">
+            <div class="bubbles">
+                <textarea class="postbox" placeholder="Postear acá" rows="4" ng-model="post.content" no-resize ng-required="true" ng-focus="max_size()" > </textarea>
+            </div>
+        </div>
+        <span type="button" class="col-xs-2 button-send" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
+        <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
+        <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></span>
+    </div>
+
+</div>
+
+</div>
+
+
+
+<script type="text/ng-template" id="postShareModal.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; font-size: 2em; padding-top: 15PX; margin-top: -15px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: NONE; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: NONE;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                    <i class="fa fa-google"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer"> 
+    </div>
+</script>
+
+
+

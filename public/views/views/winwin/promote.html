@@ -1,0 +1,62 @@
+<div ng-show="promote">
+
+    <div class="container no-padding">
+  <div class="col-xs-12 no-padding bubble-md">
+                <div style=" font-family: montserrat; background-color: #1862C3; padding: 20px; font-size: .9em; color: #fff; text-align: center;">
+                    Compartí tu WinWin en las redes sociales con tus amigos, familiares, colegas, compañeros y  todo el mundo!
+                </div>
+            </div>
+       
+    </div>
+<div class="pad-30"></div>
+
+     <div class="col-xs-12 center"> 
+                <i class="fa fa-bullhorn" style="font-size:90px; color:#FF8000;"></i> 
+                <br><h4>CONTALE AL MUNDO </h4>
+            </div>
+
+
+     <div class="container no-padding">
+        <div class="col-xs-1 no-padding"></div>
+                    <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px;"  class="col-xs-3 uploaders card-panel"  
+                socialshare-provider="facebook" 
+                socialshare-text="{{::winwin.title}}" 
+                socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
+                socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+                socialshare-via="1082199191794840">
+                        <i class="fa fa-facebook"style="padding-top:0px;" ></i><br>
+                    </div>
+                    <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
+                        <i class="fa fa-twitter"style="padding-top:0px;" ></i><br>
+                    </div>
+                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="fa-google" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+                        <i class="fa fa-google"style="padding-top:0px;" ></i><br>
+                    </div>
+                            <div class="col-xs-1 no-padding"></div>
+                </div>
+ <div class="pad-50"></div>
+            <div class="container ">
+                <input name="crear-winwin" value="IR A MI WINWIN" class="btn-large green col-xs-12" ng-click="goView()"> 
+            </div>
+<div class="pad-20"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" ng-show="success">
+    <div class="row">
+        <div class="pad-50"> </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8"><div style="text-align: center;"> 
+            <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+            <h1 style="font-family: montserrat;"> ¡GENIAL! </h1>
+            <h4 style="font-family: montserrat;"> Vamos a tu WinWin.</h4>
+            <div class="pad-80"></div>
+            <img src="/images/loading.gif" width="110" height="80" alt="loading"> </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+</div>
+
+

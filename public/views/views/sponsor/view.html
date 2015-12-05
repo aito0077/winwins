@@ -1,0 +1,62 @@
+<div id="menu-sponsor" class="container no-padding">
+    <div class="row  no-padding">
+        <div class="container col-xs-12 no-padding">
+            <a data-toggle="tab" data-target="#sponsor_summary" role="button" ng-click="setCurrentView('home')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
+                    <i class="fa fa-star"></i>
+                </div>
+            </a>
+            <a data-toggle="tab" data-target="#sponsor_winwins" ng-click="setCurrentView('winwins')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'winwins'}">
+                    <i class="fa fa-comments"></i>
+                </div>
+            </a>
+            <a data-toggle="tab" data-target="#sponsor_groups" ng-click="setCurrentView('groups')">
+                <div class="col-xs-3-3" ng-class="{active: current_view == 'groups'}">
+                    <i class="fa fa-users"></i>
+                </div>
+            </a>
+            <a ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
+                <div class="col-xs-3-3">
+                    <i class="fa fa-gear"></i>
+                </div>
+            </a>
+            <div class="col-xs-3-3" ng-if="!sponsor.myself" >
+            </div>
+        </div>
+        <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'winwins'" ng-show="isAdmin">
+            Solicitudes
+        </div>
+        <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'winwins'" ng-show="isAdmin">
+            WinWins Patrocinados 
+        </div>
+        <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'groups'" ng-show="isAdmin">
+            Solicitudes
+        </div>
+        <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'groups'" ng-show="isAdmin">
+            Grupos Patrocinados 
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="profile-tabs tab-content">
+    <div id="sponsor_summary" role="tabpanel" class="tab-pane fade in active">
+        <div ng-include="'/views/sponsor/view_summary.html'"></div>
+    </div>
+    <div id="sponsor_winwins" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_winwins.html'"></div>
+    </div>
+    <div id="sponsor_groups" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_groups.html'"></div>
+    </div>
+    <div id="sponsor_followers" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_followers.html'"></div>
+    </div>
+    <div id="sponsor_config" class="tab-pane">
+        <div ng-include="'/views/sponsor/view_config.html'"></div>
+    </div>
+</div>
+
