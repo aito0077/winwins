@@ -22,6 +22,8 @@
  
  */
 
+
+
 nav {
     color: #fff;
     background-color: #1976d2;
@@ -129,4 +131,70 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 
 .container {
     width:100%;
+}
+
+.lbl {
+position: relative;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.ww-social-fb-btn {
+    background-color: #3B5998;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    padding-top: 6px;
+    font-size: 1.4em;
+}
+
+    .ww-social-tw-btn
+    {
+
+    width: 40px;
+    height: 40px;
+     padding-top: 6px;
+
+}
+
+    .ww-social-google-btn
+    {
+
+    width: 40px;
+    height: 40px;
+     padding-top: 6px;
+
+}
+
+.ww-social-mail-btn {
+    background-color: #F53430;
+    border-radius: 50%;
+     width: 40px;
+    height: 40px;
+     padding-top: 4px;
+    float: left;
+    text-align: center;
+    font-size: 1.4em;
+    margin-left: -20px;
+}
+
+.winwin-title {
+    font-size: 1.6rem;
+padding-top:50px;
+}
+
+.somos-txt {
+    color:#1762C3;
+    font-weight: bold;
+    font-family: montserrat;
+    padding: 2px;
+    border-radius: 1px;
 }
