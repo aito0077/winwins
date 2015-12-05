@@ -1,12 +1,12 @@
 <style>
     body {
     background-repeat: no-repeat;
-    background-size: cover;
     background-color: #C3C3C3;
     }
-</style>
+    </style>
+
         <!-- Video -->
-        <video width="100%" poster="../images/parrots.fw.png" controls autoplay style="cursor: pointer; margin-top:-5px;">
+        <video width="100%" poster="../images/parrots.fw.png" controls autoplay loop style="cursor: pointer; margin-top:-5px;">
             <source src="../video/winwins.mp4"  type="video/mp4" >
             Your browser does not support HTML5 video
         </video>
@@ -18,7 +18,7 @@
         <div class="pad-30"></div>
 
         <!-- WW Cards-->
-        <div class="container card-panel teal hoverable s12 m6" ng-repeat="winwin in winwins">
+        <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
