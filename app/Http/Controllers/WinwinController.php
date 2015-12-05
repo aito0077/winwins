@@ -65,7 +65,6 @@ class WinwinController extends Controller {
             
             $winwin->popular = $winwin->users_joined > 1;
             $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
-
             $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
             $winwin->sponsors;
@@ -94,6 +93,12 @@ class WinwinController extends Controller {
         $users_count = count($users);
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
+
+        $winwin->popular = $winwin->users_joined > 1;
+        $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
+
+        $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
+
 
         $winwin->posts = DB::table('posts')
             ->where('type', '=', 'WINWIN')
