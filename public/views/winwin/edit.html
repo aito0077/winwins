@@ -197,7 +197,7 @@
             <div class="container center">
                  <h6 style="background: #f1f1f1; padding:10px; border-radius: 2px;" >CARGA UNA FOTO O ELEGI UN VIDEO<a type="button"  data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="fa fa-question right" style="color: #FF8000;"></i></a></h6>
                 <div class="row">
-                    <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders card-panel teal" ngf-accept="'image/*'">
+                    <div style="cursor:pointer"   name="uploader" ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders card-panel teal" ngf-accept="'image/*'">
                         <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro"style="padding-top:0px;" ></i><br>
                         <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading">
                         <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/90x/smart/{{winwin.image}}" height="90" alt="loading">

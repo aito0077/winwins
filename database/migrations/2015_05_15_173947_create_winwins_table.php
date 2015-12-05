@@ -34,6 +34,9 @@ class CreateWinwinsTable extends Migration {
             $table->string('image')->nullable()->default('winwin-default.jpg');
 
 
+            $table->boolean('finished')->default(FALSE);
+            $table->enum('status', ['PUBLISHED', 'PENDING', 'BANNED', 'CANCELED', 'FINISHED', 'SUCCESSFUL'])->default('PENDING');
+
             $table->boolean('canceled')->default(FALSE);
             $table->boolean('emailed')->default(FALSE);
             $table->boolean('published')->default(FALSE);

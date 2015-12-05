@@ -15,7 +15,7 @@ angular.module('winwinsApp')
             $timeout(function() {
                 console.log('redirect');
                 $state.go('main'); 
-            }, 5000);
+            }, 1000);
 
         })
         .catch(function(response) {
@@ -34,7 +34,7 @@ angular.module('winwinsApp')
             $timeout(function() {
                 console.log('redirect');
                 $state.go('main'); 
-            }, 5000);
+            }, 1000);
         })
         .catch(function(response) {
             SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
@@ -51,5 +51,5 @@ angular.module('winwinsApp')
 .controller('SuccessLogin', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
     $timeout(function() {
         $state.go('main');
-    }, 3000);
+    }, 1000);
 }]);

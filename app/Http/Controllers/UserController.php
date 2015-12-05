@@ -300,7 +300,7 @@ class UserController extends Controller {
                     $followedsUsers->follower_id = $user->id;
                     $followedsUsers->followed_id = $followed->id;
                     $followedsUsers->save();
-                    DB::table('users')->whereId($user->id)->increment('followers_amount');
+                    DB::table('users')->whereId($followed->id)->increment('followers_amount');
 
                     $followed->newNotification()
                         ->from($user)
@@ -399,7 +399,7 @@ class UserController extends Controller {
             'type' => 'IMAGE'
         ]);
         
-        $filename = $image->id . '.' . $image->ext;
+        $filename = 'user_'.md5(strtolower(trim($image->name))).'_'.$image->id . '.' . $image->ext;
 
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
