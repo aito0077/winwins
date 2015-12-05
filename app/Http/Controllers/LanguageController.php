@@ -3,10 +3,18 @@
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\Model\Language;
-
+use Winwins\Model\TranslateNamespace;
+use Winwins\Model\TranslateValue;
+use Log;
+use DB;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 
 class LanguageController extends Controller {
+
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['translation']]);
+    }
 
 	public function index() {
         $languages = Language::all();
@@ -42,5 +50,27 @@ class LanguageController extends Controller {
 	public function edit($id) {
 		//
 	}
+
+    public function translation(Request $request) {
+        $words = DB::table('translate_values')
+            ->join('translate_namespaces', function($join) {
+                 $join->on('translate_values.namespace_id', '=', 'translate_namespaces.id')->where('translate_namespaces.type', '=', 'GLOBAL');
+            })
+            ->join('languages', function($join) use($request) {
+                 $join->on('translate_values.language_id', '=', 'languages.id')->where('languages.iso_code', '=', $request->input('lang'));
+            })
+            ->select(DB::raw('translate_namespaces.module, translate_namespaces.sub_module, translate_namespaces.key, translate_values.text'))
+            ->get();
+
+
+        $collection = Collection::make($words);
+        $translations = $collection->map(function ($item, $key) {
+            $key_trans = $item->module.'.'.(isset($item->sub_module) && $item->sub_module != '' ? $item->sub_module.'.' : '').$item->key;
+            return array($key_trans => $item->text);
+        });
+        Log::info($translations);
+        
+        return $translations; 
+    }
 
 }

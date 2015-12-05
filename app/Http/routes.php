@@ -95,6 +95,7 @@ Route::resource('api/parametric/languages', 'LanguageController');
 Route::resource('api/parametric/activities', 'ActivityTypeController');
 
 Route::get('api/ww/search', ['uses' => 'SearchController@search']);
+Route::get('api/translation', ['uses' => 'LanguageController@translation']);
 
 
 // Initialize Angular.js Winwins Route.

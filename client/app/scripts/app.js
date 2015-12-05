@@ -16,15 +16,12 @@ angular.module('winwinsApp', [
     'config',
     'infinite-scroll',
     'zumba.angular-waypoints',
-    'oitozero.ngSweetAlert',
     'pascalprecht.translate',
-//    '720kb.background',
     'headroom',
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
     'frapontillo.bootstrap-switch', 
-    'tmh.dynamicLocale',
     'elasticsearch'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
@@ -319,17 +316,14 @@ angular.module('winwinsApp', [
 
 
 })
-.config(function ($translateProvider, tmhDynamicLocaleProvider) {
+.config(function ($translateProvider) {
+
     $translateProvider.useMissingTranslationHandlerLog();
 
-    $translateProvider.useStaticFilesLoader({
-        prefix: 'resources/locale-',// path to translations files
-        suffix: '.json'// suffix, currently- extension of the translations
-    });
-
+    $translateProvider.useUrlLoader('/api/translation');
     $translateProvider.preferredLanguage('es_ES');
-    $translateProvider.useLocalStorage();
-    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+
+    //$translateProvider.useLocalStorage();
 
 })
 .directive('ngEnter', function () {
