@@ -99,7 +99,7 @@ angular.module('winwinsApp')
             $state.go('group-view', {
                 groupId: $scope.group.id
             }); 
-        }, 3000);
+        }, 1000);
 
     };
 
@@ -501,7 +501,7 @@ angular.module('winwinsApp')
                 $state.go('group-view', {
                     groupId: $stateParams.groupId
                 }); 
-            }, 5000);
+            }, 1000);
 
         });
     };

@@ -300,7 +300,7 @@ class UserController extends Controller {
                     $followedsUsers->follower_id = $user->id;
                     $followedsUsers->followed_id = $followed->id;
                     $followedsUsers->save();
-                    DB::table('users')->whereId($user->id)->increment('followers_amount');
+                    DB::table('users')->whereId($followed->id)->increment('followers_amount');
 
                     $followed->newNotification()
                         ->from($user)

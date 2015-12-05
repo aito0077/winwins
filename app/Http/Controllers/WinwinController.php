@@ -99,6 +99,8 @@ class WinwinController extends Controller {
 
         $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
+        $winwin->is_successful = ($winwin->status == 'SUCCESSFUL');
+
 
         $winwin->posts = DB::table('posts')
             ->where('type', '=', 'WINWIN')
@@ -370,6 +372,20 @@ class WinwinController extends Controller {
                         ->withBody('you_have_join_ww_title_body')
                         ->regarding($winwin)
                         ->deliver();
+
+                    if(($winwin->users_joined + 1)== $winwin->users_amount) {
+                        $winwin->status = 'SUCCESSFUL';
+                        $winwin->save();
+                        $winwin->user->newActivity()
+                            ->from($winwin->user)
+                            ->withType('WW_SUCCESSFUL')
+                            ->withSubject('winwin_finished_successfully_title')
+                            ->withBody('winwin_finished_successfully_body')
+                            ->regarding($winwin)
+                            ->deliver();
+                    }
+
+
                 });
             }
         }
