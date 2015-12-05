@@ -1,100 +1,41 @@
- <div ng-controller="NavController" id="winwin-menu" ng-class="{'show-menu': isOpen}">
+<div ng-controller="NavController" id="winwin-menu" ng-class="{'show-menu': isOpen}">
+    <div class="navbar-fixed" style="height:56px;">
+        <nav>
+            <ul class="right hide-on-med-and-down">
+            </ul>
+            <a  class="brand-logo center" ui-sref="main" alt="logo-winwins"><img src="images/logo-winwins.png"></a>
 
-  <div class="navbar-fixed" style="height:56px;">
-  <nav>
-  <ul class="right hide-on-med-and-down">
-  </ul>
-  <a  class="brand-logo center" ui-sref="main" alt="logo-winwins"><img src="images/logo-winwins.png"></a>
-  <ul id="slide-out" class="side-nav left" style="margin-top:56px;">
-    <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
-    <li><a ng-href="/#/winwin-list"><i class="fa fa-comments"></i><span> Winwins</span></a>
-    <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
-    <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-users"></i><span> Grupos</span></a>
-    <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>
-    <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
-    <li><a ng-href="/#/sponsor-list"ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
-    <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></li>
-        <li><a ng-click="goProfile()" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"> <i class="fa fa-user"></i><span> Mi perfil</a></span></a></li>
-   <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a></li>
-  <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;">Registrate</span></a></li>
-  </ul>
-  <div class="right" style="padding-right:20px;">
-  <a href="#" data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:23px;"></i></a>
- <span style="padding-right:20px;"><img  ng-if="is_logged" style="margin-top:0px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak/></span>
-
-</div>
-   <div class="left" style="margin-left:10px;">
-    <a href="#!" class="left"  style="margin-left:10px; font-size:16px;">  <i class="fa fa-chevron-left fa-lg imenu" ng-click="do_back()"></i>    <i class="fa fa-bell-o fa-lg imenu" style="padding-left: 20px;"  ng-if="is_logged" ng-click="goNotifications()" >     <span class="notificaciones" style="background-color:red; width:5px; height:5px;" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>   <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto" /></i></a></div>
-</nav>
-     
-</div>
-
-
-</div>
-
-
-</div>
-        <script>
-
-  // Initialize collapse button
-  $(".button-collapse").sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
-        
-</script>
-
-
-
-
-<!--g-controller="NavController" id="winwin-menu" ng-class="{'show-menu': isOpen}">
-    <div class="navbar-container col-xs-12 col-md-12 col-lg-12" style="z-index: 999; position:fixed;">
-        <div class="col-xs-1"  style="padding-left:1px;">
-            <i class="fa fa-chevron-left fa-lg imenu" ng-click="do_back()"></i>
-        </div>
-        <div class="col-xs-2" ng-if="!is_logged"></div>
-        <div class="col-xs-2" ng-click="goNotifications()" ng-if="is_logged" align="center">
-            <i class="fa fa-bell-o fa-lg imenu">
-                <span class="notificaciones" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>
-            </i> 
-        </div>
-        <div class="col-xs-5">
-            <a ui-sref="main">
-                <img class="ww-logo" ui-sref="main" alt="logo-winwins" width="112" height="34" src="images/logo-winwins.png" style="margin-top:3px;" align="center"/>
-            </a>
-        </div>
-        <div class="col-xs-3 perfil" style="text-align:center;">
-            <img ng-if="is_logged" style="margin-top:2px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-click="goProfile()" ng-cloak/>
-        </div>
-
-
-    </div>
-
-
-    <div class="containermenu">
-        <div class="menu-wrap">
-            <nav class="menu">
-                <div class="icon-list">
-                    <a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-sign-in"></i><span>Ingresar</span></a>
-                    <a ng-href="/#/winwin-new" ng-if="isAuthenticated()"><span>Crea un Winwin</span></a>
-
-                    <a ng-href="/#/winwin-list"><i class="fa fa-plus-circle"></i><span>Mira los Winwins y sumate</span></a>
-                    <a href="#"><i class="fa fa-fw fa-users"></i><span>Unite a los grupos</span></a>
-                    <a ui-sref="how"><i class="fa fa-fw fa-cogs"></i><span>¿Cómo funciona?</a></span></a>
-                    <a ui-sref="how"><i class="fa fa-fw fa-smile-o"></i><span>Historias con final feliz.</a></span></a>
-                    <a ui-sref="how"><i class="fa fa-fw fa-star-o"></i><span>Convertite en Sponsor</a></span></a>
-                    <a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a>
-                </div> 
-                          
-            </nav>
-            <button class="close-button" id="close-button" ng-click="toggleMenu()">Close Menu</button>
-            <div class="morph-shape" id="morph-shape" data-morph-open="M-1,0h101c0,0,0-1,0,395c0,404,0,405,0,405H-1V0z">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
-                    <path d="M-1,0h101c0,0-97.833,153.603-97.833,396.167C2.167,627.579,100,800,100,800H-1V0z"/>
-                </svg>
+            <ul id="slide-out" class="side-nav left" style="margin-top:56px;">
+                <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
+                <li><a ng-href="/#/winwin-list"><i class="fa fa-comments"></i><span> Winwins</span></a>
+                <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
+                <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-users"></i><span> Grupos</span></a>
+                <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>
+                <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
+                <li><a ng-href="/#/sponsor-list"ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
+                <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></li>
+                <li><a ng-click="goProfile()" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"> <i class="fa fa-user"></i><span> Mi perfil</a></span></a></li>
+                <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a></li>
+                <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;">Registrate</span></a></li>
+            </ul>
+            <div class="right" style="padding-right:20px;">
+                <a href data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:23px;"></i></a>
+                <span style="padding-right:20px;" ng-click="goProfile()">
+                    <img  ng-if="is_logged" style="margin-top:0px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-cloak/>
+                </span>
             </div>
-        </div>
-        <button class="menu-button" id="open-button" ng-click="toggleMenu()">
-            <i class="fa fa-bars" style="font-size:20px;padding-top:6px;"></i>
-        </button>
-            
-    </div><!-- /content-wrap -->
+            <div class="left" style="margin-left:10px;">
+                <i class="fa fa-chevron-left fa-lg imenu" ng-click="do_back()"></i>    
+                <i class="fa fa-bell-o fa-lg imenu" style="padding-left: 20px;"  ng-if="is_logged" ng-click="goNotifications()" ></i>
+                    <span class="notificaciones" style="background-color:red; width:5px; height:5px;" ng-if="unreadNotifications > 0">{{unreadNotifications}}</span>   
+                    <!--img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto" ng-click="goProfile()"/-->
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+</div>
+<script>
+  $(".button-collapse").sideNav();
+</script>

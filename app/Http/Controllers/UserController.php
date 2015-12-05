@@ -399,7 +399,7 @@ class UserController extends Controller {
             'type' => 'IMAGE'
         ]);
         
-        $filename = $image->id . '.' . $image->ext;
+        $filename = 'user_'.md5(strtolower(trim($image->name))).'_'.$image->id . '.' . $image->ext;
 
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');

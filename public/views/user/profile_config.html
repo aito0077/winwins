@@ -7,11 +7,11 @@
                 
                         <div class="col-xs-12 no-padding">
                             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
-                                <div class="bubble-upload" style="cursor:pointer" ngf-select="uploadFilesCover($file)" accept="image/*" ngf-accept="'image/*'">Portada</div>
+                                <div class="bubble-upload" style="cursor:pointer" ngf-select="uploadFilesCover($file)" accept="image/*"  ngf-max-size="8MB" ngf-accept="'image/*'">Portada</div>
                                 <div class="profile-avatar avatar">
                                     <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle avatar"/>
                                 </div>
-                                <div class="bubble-upload"  ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Avatar</div>
+                                <div class="bubble-upload"  ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Avatar</div>
                                 <div class="username">{{user_detail.name}}</div>
                             </div>
                         </div>

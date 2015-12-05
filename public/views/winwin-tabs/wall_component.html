@@ -105,7 +105,7 @@
             </div>
             <span type="button" class="col-xs-2 button-send" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
             <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
-            <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></span>
+            <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></span>
         </div>
     </div>
 
@@ -162,7 +162,7 @@
         <div class="modal-footer"> 
                 <a href role="button" class="_col-xs-6 button-send"  ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane"></i>Enviar</a>
                 <a href role="button" class="_col-xs-1 upload-post"  ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></a>
-                <a href role="button" class="_col-xs-1 upload-post"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></a>
+                <a href role="button" class="_col-xs-1 upload-post"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></a>
         </div>
     </script>
 

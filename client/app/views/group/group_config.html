@@ -70,7 +70,7 @@
                         </h5>
 
                         <div class="col-xs-12 icons-id text-center mb-20">
-                            <div style="cursor:pointer"  ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-6" ngf-accept="'image/*'">
+                            <div style="cursor:pointer"   ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-6" ngf-accept="'image/*'">
                                 <i class="fa fa-arrow-circle-o-up"></i><br>
                                 <i ng-show="!uploading && !group.photo" class="fa fa-camera"></i>
                                 <img ng-show="!uploading && group.photo" class="img-responsive col-xs-12" ng-src="http://images.dev-winwins.net/232x154/smart/{{group.photo}}" >

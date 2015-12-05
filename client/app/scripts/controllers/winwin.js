@@ -501,9 +501,7 @@ angular.module('winwinsApp')
     $scope.uploadFiles = function(file) {
         console.dir(file);
         $scope.f = file;
-        console.log(file.$error);
         if (file && !file.$error) {
-            console.log('enviando...');
             file.upload = Upload.upload({
                 url: api_host+'/api/winwins/upload',
                 file: file
@@ -524,6 +522,14 @@ angular.module('winwinsApp')
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
                     console.log($scope.errorMsg);
+                    swal({
+                        title: "Error", 
+                        text: $scope.errorMsg,
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
+
                 }
             });
 
@@ -533,6 +539,15 @@ angular.module('winwinsApp')
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }   
+        if (file.$error == 'maxSize') {
+            swal({
+                title: "Error", 
+                text: "La imagen es demasiado grande",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        }
     };
 
 
