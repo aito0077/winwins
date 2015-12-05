@@ -279,7 +279,7 @@ class AuthController extends Controller {
         $accessTokenUrl = 'oauth/access_token';
         $profileUrl = '1.1/users/show.json?screen_name=';
 
-	$stack = HandlerStack::create();
+        $stack = HandlerStack::create();
 
         $client = new GuzzleHttp\Client();
 
@@ -371,6 +371,7 @@ class AuthController extends Controller {
             // Step 4. Retrieve profile information about the current user.
             $profile = json_decode($client->get($profileUrl . $accessToken['screen_name'], ['auth' => 'oauth'])->getBody(), true);
 
+            Log::info($profile);
 
             // Step 5a. Link user accounts.
             if ($request->header('Authorization'))
@@ -407,6 +408,17 @@ class AuthController extends Controller {
                 $user->save();
 
                 $detail = new UserDetail;
+                if(isset($profile['screen_name'])) {
+                    $detail->name = $detail->name ?: $profile['screen_name'];
+                }
+
+                $picture = $profile['profile_image_url'];
+                $picture_name = 'tw_'.$user->twitter;
+                Storage::disk('s3-gallery')->put('/' . $picture_name, file_get_contents($picture), 'public');
+                $detail->photo = $picture_name;
+
+                Log::info($detail);
+
                 $user->detail()->save($detail);
 
                 return response()->json(['token' => $this->createToken($user)]);
