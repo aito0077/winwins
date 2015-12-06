@@ -163,6 +163,8 @@ return [
         'Barryvdh\Cors\ServiceProvider',
 
         'Terbium\DbConfig\DbConfigServiceProvider',
+        'Snowfire\Beautymail\BeautymailServiceProvider',
+
 
 	],
 

@@ -18,7 +18,8 @@
 		"pda/pheanstalk": "^3.0@dev",
 		"guzzlehttp/oauth-subscriber": "^0.3.0",
 		"guzzlehttp/guzzle": "^6.1@dev",
-		"terbium/db-config": "dev-master"
+		"terbium/db-config": "dev-master",
+		"snowfire/beautymail": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",
