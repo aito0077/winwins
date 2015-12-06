@@ -25,6 +25,8 @@ class CreateNotificationsTable extends Migration {
             $table->boolean('is_read')->default(true);
             $table->boolean('is_activity')->default(false);
             $table->dateTime('sent_at')->nullable();
+            $table->boolean('sent_by_mail')->default(false);
+            $table->boolean('is_mail_sent')->default(false);
             $table->timestamps();
         });
     }

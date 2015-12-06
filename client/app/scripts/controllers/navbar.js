@@ -1,6 +1,5 @@
 angular.module('winwinsApp')
 .controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, Account) {
-    $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
     $scope.profile = false;
     $scope.is_logged = false;
@@ -9,17 +8,7 @@ angular.module('winwinsApp')
 
     $scope.profile_image = 0;
 
-    $scope.isOpen = false;
-    $scope.menuStatus = {
-        isAnimating: false
-    };
-
-
-    $scope.$on('$routeChangeSuccess', function () {
-
-    });
     $scope.$on('$stateChangeStart', function(){
-        $scope.isCollapsed = true;
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
                 console.log('get status');
@@ -56,20 +45,8 @@ angular.module('winwinsApp')
 
 
     $rootScope.$on('$stateChangeSuccess',function(data, other){
-
-        console.log('Menu abierto? '+$scope.isOpen);
-        if($scope.isOpen) { 
-            $scope.toggleMenu();
-        }
-
-        if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
-            $("html, body").animate({ scrollTop: 430 }, 0);
-        } else {
-            console.log('scroll to top');
-            $("html, body").animate({ scrollTop: 1 }, 0);
-
-        }
-
+        jQuery('.button-collapse').sideNav('hide');
+        jQuery("html, body").animate({ scrollTop: 1 }, 0);
     })
 
 
@@ -117,19 +94,10 @@ angular.module('winwinsApp')
         $state.go('profile_notificaciones');
     };
 
-    $scope.closeMenu = function() {
-        console.log('close menu');
-    }
-
-    $scope.toggleMenu = function() {
-        console.log('toggle menu');
-    }
-
-    $scope.setupComponents = function() {
-    };
-
     $timeout(function() {
-        $scope.setupComponents();
+        jQuery(".button-collapse").sideNav({
+            closeOnClick: true 
+        });
     });
 
 });
