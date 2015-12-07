@@ -12,15 +12,15 @@
                 <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
                 <li><a ng-href="/#/sponsor-list"ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
                 <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i><span> ¿Cómo Funciona?</a></span></li>
-                <li><a ng-click="goProfile()" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"> <i class="fa fa-user"></i><span> Mi perfil</a></span></a></li>
+                <li><a ng-click="goProfile()" ng-if="isAuthenticated()" ng-if="!isAuthenticated()"> <i class="fa fa-user"></i><span> Mi perfil</a></span></li>
                 <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a></li>
                 <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;">Registrate</span></a></li>
             </ul>
 
             <div class="right" style="padding-right:20px;">
-                <a href data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:23px;"></i></a>
+                <a href data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:23px;z-index"></i></a>
                 <span style="padding-right:20px;" ng-click="goProfile()">
-                    <img  ng-if="is_logged" style="margin-top:0px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-cloak/>
+                    <img  ng-if="is_logged"  ng-click="goProfile()" style="margin-top:0px;" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{getProfile().photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer;" ng-cloak/>
                 </span>
             </div>
             <div class="left" style="margin-left:10px;">

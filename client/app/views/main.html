@@ -10,12 +10,12 @@
     Your browser does not support HTML5 video
 </video>
         <!-- Button -->   
-<div ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
+<div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
     <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
         <i class="fa fa-chevron-right"></i>
     </button>
 </div>
-<div class="pad-30"></div>
+<div ng-if="!isAuthenticated()"class="pad-30"></div>
 
         <!-- WW Cards-->
 <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins">
