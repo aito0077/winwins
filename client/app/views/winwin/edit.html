@@ -14,23 +14,23 @@
             <div class="row">
                 <div class="card-panel teal">
                    
-                         <label for="email"> Un nombre para tu Winwin*</label>   <a  data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="fa fa-question right" style="color: #FF8000;"></i></a>
-                            <input class="input-field" class="active" placeholder="¿Ya pensaste un nombre para tu WinWin?" type="text" length="120"  ng-model="winwin.title" required/>
+                         <label for="email"> Un nombre para tu Winwin*</label>   <a  data-position="bottom" data-delay="50" data-tooltip="Nombra tu Winwin con algo que lo represente."><i class="fa fa-question right" style="color: #FF8000;"></i></a>
+                            <input class="input-field" class="active"  type="text" length="120"  ng-model="winwin.title" required/>
 
 
                </div>
                  <div class="pad-10"></div>
                 <div class="card-panel teal">
-                <label for="email"> Planteá tu Winwins*</label><a  data-position="bottom" data-delay="50" data-tooltip="I am tooltip">
+                <label for="email"> Planteá tu Winwins*</label><a  data-position="bottom" data-delay="50" data-tooltip="Describí tu causa y definí cuántas personas se necesitan para concretarla.">
                 <i class="fa fa-question right" style="color: #FF8000;"></i></a> <br>
                 <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">¿Si supieras que somos </span>  
 
-                <input class="numero" type="number" placeholder="Ej: 200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
+                <input class="numero" type="number" placeholder="200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
 
                 <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">para</span>
                 <div class="pad-10"></div>
 
-                 <textarea id="textarea1" class="materialize-textarea" length="120"   placeholder="Ej: Hacer cosas divertidas y cambiar el mundo."  ng-model="winwin.what_we_do" required></textarea>
+                 <textarea id="textarea1" class="materialize-textarea" length="120"  ng-model="winwin.what_we_do" required></textarea>
         <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">te sumarías?</span>
 
 
@@ -38,12 +38,12 @@
  <div class="pad-10">   </div>
 
 <div class="card-panel teal">
-                  <label for="email"> Más detalles de Winwin*</label>  <a type="button"  data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="fa fa-question right"style="color: #FF8000;"></i></a> <br>
+                  <label for="email"> Más detalles de Winwin*</label>  <a type="button"  data-position="bottom" data-delay="50" data-tooltip="Acá ingresa información detallada del WinWin, datos e información importante, lugares, fechas, acciones y toda lo que te resuelte relevante."><i class="fa fa-question right" style="color: #FF8000;"></i></a> <br>
 
 
                   
         
-                 <textarea id="textarea1" class="materialize-textarea" length="120"   placeholder="Ej: Hora, días, motivos, necesidad, causas que motivan el winwins etc."  ng-model="winwin.description" required></textarea>
+                 <textarea id="textarea1" class="materialize-textarea" length="120"     ng-model="winwin.description" required></textarea>
 
 
      </div>
@@ -58,7 +58,7 @@
                     </div>
 
              
-<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+<input type="checkbox" class="filled-in" id="filled-in-box" checked="unchecked" />
       <label for="filled-in-box" style="font-size:11px; font-family: montserrat;"> He leído y acepto los  <a class="modal-trigger" href="#modal1" style="color:grey;font-family:montserrat;"style="font-size:11px;">Términos y Condiciones.</a></span>
         </div></label>
  <div class="pad-10"></div>
