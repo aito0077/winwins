@@ -1,23 +1,23 @@
 <div ng-show="promote">
 
-    <div class="container no-padding">
-  <div class="col-xs-12 no-padding bubble-md">
-                <div style=" font-family: montserrat; background-color: #1862C3; padding: 20px; font-size: .9em; color: #fff; text-align: center;">
-                    Compartí tu WinWin en las redes sociales con tus amigos, familiares, colegas, compañeros y  todo el mundo!
-                </div>
-            </div>
-       
-    </div>
-<div class="pad-30"></div>
-
      <div class="col-xs-12 center"> 
-                <i class="fa fa-bullhorn" style="font-size:90px; color:#FF8000;"></i> 
-                <br><h4>CONTALE AL MUNDO </h4>
+                <i class="fa fa-bullhorn" style="    font-size: 120px;
+    background-color: #FFf;
+    color: #3B5998;
+    padding: 30px;
+    width:100%;
+    border: 10px solid #3B5998;"></i> 
+                <br><p> Compartí tu WinWin en las redes sociales con tus amigos, familiares, colegas, compañeros y  todo el mundo!</p>
             </div>
+
+
+
+<div class="pad-30"> </div>
 
 
      <div class="container no-padding">
         <div class="col-xs-1 no-padding"></div>
+       
                     <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px;"  class="col-xs-3 uploaders card-panel"  
                 socialshare
                 socialshare-provider="facebook" 
@@ -25,19 +25,25 @@
                 socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
                 socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
                 socialshare-via="1082199191794840">
-                        <i class="fa fa-facebook"style="padding-top:0px;" ></i><br>
+                        <i class="fa fa-facebook animated infinite bounce"style="padding-top:0px;" ></i><br>
                     </div>
                     <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
-                        <i class="fa fa-twitter"style="padding-top:0px;" ></i><br>
+                        <i class="fa fa-twitter animated infinite pulse"style="padding-top:0px;" ></i><br>
                     </div>
-                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="fa-google" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
-                        <i class="fa fa-google"style="padding-top:0px;" ></i><br>
+                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="google" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+                        <i class="fa fa-google animated infinite flash"style="padding-top:0px;" ></i><br>
                     </div>
                             <div class="col-xs-1 no-padding"></div>
                 </div>
+                  <div class="container ">
+                    <p> 
+                        Manda invitaciones a tu WinWin por email</p>
+                               <div class="btn-large green col-xs-12"><i class="fa fa-envelope-o"></i> </div>
+
+            </div>
  <div class="pad-50"></div>
             <div class="container ">
-                <input name="crear-winwin" value="IR A MI WINWIN" class="btn-large green col-xs-12" ng-click="goView()"> 
+                <input name="crear-winwin" value="No, gracias..." class="btn-large grey col-xs-12" ng-click="goView()"> 
             </div>
 <div class="pad-20"></div>
         </div>

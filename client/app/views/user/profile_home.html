@@ -1,12 +1,10 @@
 
+    
 
-
-
-<div class="pad-50"></div>
-            <div class="col-xs-12 no-padding card-panel teal" style="margin-top:-5px;" >
+   <div class="col-xs-12 no-padding card-panel teal" style="margin-top:-7px;" >
                 <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
                     <div class="profile-avatar avatar animated zoomIn"> 
-                        <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto" />
+                        <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto; width:100%;7px solid rgba(13, 71, 161, 0.52);" />
                     </div>
                     <div class="username"><div class="animated bounceInUp">{{::user_detail.name}}</div></div>
                 </div>
@@ -18,11 +16,7 @@
                 <a href="#" class="col-xs-3 ww-somos" style="margin-top: -20px;"  ><span class="bubble-label"> Seguidores </span> <span class="falta">{{user_detail.followers.length}}</a>
              </div>
              </div>
-   </div>
-   </div>
-   </div>
-   </div>
-   </div>
+ 
 
       <!-- Accordion -->
 
@@ -98,10 +92,13 @@
         
 </script>   
 
+<script>
 
-
-
-
+ $(document).ready(function(){
+    $('ul.tabs').tabs('select_tab', 'tab_id');
+  });
+        
+</script>   
         <!--
 
     <div class="container no-padding">
