@@ -5,69 +5,76 @@
     }
 </style>
 
-        <!-- Video -->
-        <video width="100%" poster="../images/parrots.fw.png" controls autoplay loop style="cursor: pointer; margin-top:-5px;">
-            <source src="../video/winwins.mp4"  type="video/mp4" >
-            Your browser does not support HTML5 video
-        </video>
+<video ng-if="!isAuthenticated()" width="100%" poster="../images/parrots.fw.png" controls autoplay loop style="cursor: pointer; margin-top:-5px;">
+    <source src="../video/winwins.mp4"  type="video/mp4" >
+    Your browser does not support HTML5 video
+</video>
         <!-- Button -->   
-        <div ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
-            <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-            <i class="fa fa-chevron-right"></i></button>
-        </div>
-        <div class="pad-30"></div>
+<div ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
+    <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
+        <i class="fa fa-chevron-right"></i>
+    </button>
+</div>
+<div class="pad-30"></div>
 
         <!-- WW Cards-->
-        <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
-                        <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-                    </div>
-                    <div class="ww-popular" ng-if="winwin.mark == 'popular'">
-                        <div class="ww-popular pop"> Pop</div>
-                    </div>
-                    <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
-                        <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
-                    </div>
-                </div>
-                <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="    height: 220px;
-                    cursor: pointer;
-                    background: linear-gradient(rgba(0, 0, 0, 0.729412), rgba(154, 148, 120, 0.0980392)), url(http://images.dev-winwins.net/ww-default-3.jpg);
-                    "  ng-click="view(winwin.id)">
-                    <div class="username-cards text-uppercase">{{::winwin.title}}</div>
-                </div>
-                <div class=" col-xs-12" style="margin-top: 10px;margin-bottom: -15px;">
-                    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
-                    <div class=" col-xs-2">      <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   </div>
-                    <div class=" col-xs-2" align="center"> <span style="font-size:9px;">SOMOS </span> <span style="line-height:7px;color:#26a69a; padding-left:3px;padding-right:3px; border-radius:2px; font-weight:bold; text-align:center; line-height:10px; background-color: #f1f1f1;"> {{::winwin.users_already_joined}}</span> </div>
-                    <div class="col-xs-4">
-                        <div class="col-xs-1" ng-repeat="member in winwin.users">
-                            <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
-                        </div>
-                    </div>
-                    <div class="col-xs-2">     
-          <!--    <i class="fa fa-share x2" style="margin-top:15px; font-size: 1.2rem; color:#666;"></i> </div>-->
-                </div>
+<div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
+                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+            </div>
+            <div class="ww-popular" ng-if="winwin.mark == 'popular'">
+                <div class="ww-popular pop"> Pop</div>
+            </div>
+            <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
+                <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
             </div>
         </div>
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor: pointer; background: linear-gradient(rgba(0, 0, 0, 0.729412), rgba(154, 148, 120, 0.0980392)), url(http://images.dev-winwins.net/ww-default-3.jpg); "  ng-click="view(winwin.id)">
+            <div class="username-cards text-uppercase">{{::winwin.title}}</div>
+        </div>
+        <div class=" col-xs-12" style="margin-top: 10px;margin-bottom: -15px;">
+            <div class=" col-xs-2">      
+                <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
+            </div>
+            <div class=" col-xs-2">      
+                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/40x40/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">   
+            </div>
+            <div class=" col-xs-2" align="center"> 
+                <span style="font-size:9px;">SOMOS </span> 
+                <span style="line-height:7px;color:#26a69a; padding-left:3px;padding-right:3px; border-radius:2px; font-weight:bold; text-align:center; line-height:10px; background-color: #f1f1f1;"> {{::winwin.users_already_joined}}</span> 
+            </div>
+            <div class="col-xs-4">
+                <div class="col-xs-1" ng-repeat="member in winwin.users">
+                    <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+                </div>
+            </div>
+            <div class="col-xs-2">     
+            </div>
+        </div>
+    </div>
+</div>
+
            <!-- search -->
-       <!--   <div id="footer" data-ng-controller="main-search-controller">
-            <div id="panel" >
-                <div class="col-sm-12 col-sm-offset-12">
-                    <div id="imaginary_container">
-                        <div class="input-field col s12 text-white">
-                            <input id="icon_prefix" type="text" class="validate" style="color:white; text-transform: uppercase;">
-                            <label for="icon_prefix" style="border-radius: 50%; background-color:#E41B26; color:white; padding-top:8px;width:50px; height:50px; padding-left:15px;font-size:1.5em;"> <i class="fa fa-search"></i></label>
-                        </div>
-                        <!-- <h1 ng-show="asynSelected">{{asyncSelected}}</h1>
-                            <div class="input-group stylish-input-group" style="height:39px; font-size: 12px; background-color:#fff;">
-                                <input id="query" type="text" class="" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:29px; border-radius:1px; font-size:10px;">
-                                <!--input type="text" ng-model="asyncSelected" placeholder="Busca Winwins, Personas, Grupos o Sponsors" uib-typeahead="entity for entity in getEntities($viewValue)" typeahead-loading="searching" typeahead-no-results="noResults" class="form-control" style="height:39px; border-radius:1px; font-size:10px;"-->
+   <!--   
+
+    <div id="footer" data-ng-controller="main-search-controller">
+        <div id="panel" >
+            <div class="col-sm-12 col-sm-offset-12">
+                <div id="imaginary_container">
+                    <div class="input-field col s12 text-white">
+                        <input id="icon_prefix" type="text" class="validate" style="color:white; text-transform: uppercase;">
+                        <label for="icon_prefix" style="border-radius: 50%; background-color:#E41B26; color:white; padding-top:8px;width:50px; height:50px; padding-left:15px;font-size:1.5em;"> <i class="fa fa-search"></i></label>
+                    </div>
+                    <div class="input-group stylish-input-group" style="height:39px; font-size: 12px; background-color:#fff;">
+                        <input id="query" type="text" class="" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:29px; border-radius:1px; font-size:10px;">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
+    -->
 

@@ -95,9 +95,7 @@ angular.module('winwinsApp')
     };
 
     $timeout(function() {
-        jQuery(".button-collapse").sideNav({
-            closeOnClick: true 
-        });
+        jQuery(".button-collapse").sideNav();
     });
 
 });

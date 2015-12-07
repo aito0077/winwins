@@ -116,11 +116,9 @@ angular.module('winwinsApp')
                     header = document.querySelector("header");
                 if (distanceY > shrinkOn) {
                     classie.add(header,"smaller");
-                    //classie.add(document.querySelector(".pseudo-header"),"smaller");
                 } else {
                     if (classie.has(header,"smaller")) {
                         classie.remove(header,"smaller");
-                        //classie.remove(document.querySelector(".pseudo-header"),"smaller");
                     }
                 }
 
@@ -138,7 +136,7 @@ angular.module('winwinsApp')
         });
     };
 
-    $scope.setup_components();
+    //$scope.setup_components();
 
     $scope.visible_search = false;
     $scope.showSearch = function() {
