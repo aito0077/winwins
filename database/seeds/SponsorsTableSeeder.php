@@ -18,6 +18,9 @@ class SponsorsTableSeeder extends Seeder {
         $sponsor->contact_email = 'info@cocacola.com'; 
         $sponsor->type = 'Industria - Comercial'; 
         $sponsor->cover_photo = 'cocacola.png'; 
+        $sponsor->is_active = 1; 
+        $sponsor->is_main = 1; 
+        $sponsor->status = 'ACTIVE'; 
         $sponsor->photo = 'cocacola.png'; 
 
         $sponsor->save();
@@ -78,6 +81,24 @@ class SponsorsTableSeeder extends Seeder {
         $sponsors_winwins->ww_accept = 1;
         $sponsors_winwins->sponsor_accept = 0;
         $sponsors_winwins->save();
+
+
+        $sponsor = new Sponsor();
+        $sponsor->name = 'Ford'; 
+        $sponsor->user_id = 100; 
+        $sponsor->about = 'Ford - Find your way'; 
+        $sponsor->contact_name = 'Mr. Ford'; 
+        $sponsor->contact_phone = '22222222'; 
+        $sponsor->contact_email = 'info@ford.com'; 
+        $sponsor->type = 'Automotriz'; 
+        $sponsor->cover_photo = 'ford-cover.jpg'; 
+        $sponsor->is_active = 1; 
+        $sponsor->is_main = 1; 
+        $sponsor->status = 'ACTIVE'; 
+        $sponsor->photo = 'ford.jpg'; 
+        $sponsor->save();
+
+
 
     }
 

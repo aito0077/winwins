@@ -71,7 +71,6 @@ class AuthController extends Controller {
     public function signup(Request $request) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
-            //'birthdate' => 'required',
             'name' => 'required',
             'lastname' => 'required',
             'email' => 'required|email|unique:users,email',
@@ -93,7 +92,6 @@ class AuthController extends Controller {
 
         $user->save();
         $detail = new UserDetail;
-        //$detail->birthdate = $request->input('birthdate');
         $detail->name = $request->input('name');
         $detail->lastname = $request->input('lastname');
         $detail->language_code = $request->input('language_code') || 'ES';
@@ -121,7 +119,6 @@ class AuthController extends Controller {
 
         // Step 1. Exchange authorization code for access token.
 
-        //$accessToken = $client->get($accessTokenUrl, ['query' => $params])->json();
         $accessToken = json_decode($client->get($accessTokenUrl, ['query' => $params])->getBody(), true);
 
         // Step 2. Retrieve profile information about the current user.
@@ -214,7 +211,6 @@ class AuthController extends Controller {
 
         $client = new GuzzleHttp\Client();
 
-        // Step 1. Exchange authorization code for access token.
         //$accessTokenResponse = $client->post($accessTokenUrl, ['body' => $params]);
         $accessTokenResponse = $client->request('POST', $accessTokenUrl, [ 'form_params' => $params ]);
         $accessToken = json_decode($accessTokenResponse->getBody(), true)['access_token'];
@@ -290,8 +286,6 @@ class AuthController extends Controller {
             $requestTokenOauth = new Oauth1([
               'consumer_key' => Config::get('app.twitter_key'),
               'consumer_secret' => Config::get('app.twitter_secret'),
-             // 'token' => $request->input('oauth_token'),
-             // 'token_secret' => $request->input('oauth_token_secret'),
               'token' => Config::get('app.twitter_token'),
               'token_secret' => Config::get('app.twitter_token_secret'),
               'callback' => Config::get('app.twitter_callback')
@@ -304,15 +298,11 @@ class AuthController extends Controller {
 		    'handler' => $stack
 		]);
 
-            //$client->getEmitter()->attach($requestTokenOauth);
 
             // Step 1. Obtain request token for the authorization popup.
-            //$requestTokenResponse = $client->post($requestTokenUrl, ['auth' => 'oauth']);
-		//$requestTokenResponse = json_decode($client->get($requestTokenUrl, ['auth' => 'oauth'])->getBody(), true);
 		$requestTokenResponse = $client->get($requestTokenUrl, ['auth' => 'oauth'])->getBody();
 
             $oauthToken = array();
-            //parse_str($requestTokenResponse->getBody(), $oauthToken);
             parse_str($requestTokenResponse, $oauthToken);
 
             // Step 2. Send OAuth token back to open the authorization screen.
@@ -339,11 +329,8 @@ class AuthController extends Controller {
 		]);
 
 
-            //$client->getEmitter()->attach($accessTokenOauth);
 
             // Step 3. Exchange oauth token and oauth verifier for access token.
-            //$accessTokenResponse = $client->post($accessTokenUrl, ['auth' => 'oauth'])->getBody();
-		//$accessTokenResponse = json_decode($client->get($accessTokenUrl, ['auth' => 'oauth'])->getBody(), true);
 		$accessTokenResponse = $client->get($accessTokenUrl, ['auth' => 'oauth'])->getBody();
 
             $accessToken = array();
@@ -366,7 +353,6 @@ class AuthController extends Controller {
 		]);
 
 
-            //$client->getEmitter()->attach($profileOauth);
 
             // Step 4. Retrieve profile information about the current user.
             $profile = json_decode($client->get($profileUrl . $accessToken['screen_name'], ['auth' => 'oauth'])->getBody(), true);

@@ -28,7 +28,13 @@
                     <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
                         <i class="fa fa-twitter"style="padding-top:0px;" ></i><br>
                     </div>
-                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare socialshare-provider="google" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+                    <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  
+                        socialshare 
+                        socialshare-provider="google" 
+                        socialshare-text="{{::winwin.title}}" 
+                        socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+                        socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+
                         <i class="fa fa-google"style="padding-top:0px;" ></i><br>
                     </div>
                             <div class="col-xs-1 no-padding"></div>
