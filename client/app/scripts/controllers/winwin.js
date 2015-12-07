@@ -248,9 +248,7 @@ angular.module('winwinsApp')
         }, function(data) {
             $scope.title = data.title;
             $timeout(function() {
-                $state.go('winwin-view', {
-                    winwinId: $stateParams.winwinId
-                }); 
+                $state.go('main'); 
             }, 1000);
 
         });

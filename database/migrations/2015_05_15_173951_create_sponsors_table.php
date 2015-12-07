@@ -15,6 +15,7 @@ class CreateSponsorsTable extends Migration {
             $table->string('name')->nullable();
 
             $table->longText('about')->nullable();
+            $table->enum('status', ['PENDING', 'ACTIVE', 'CANCELED'])->default('PENDING');
 
             $table->string('contact_name')->nullable();
             $table->string('contact_phone')->nullable();
@@ -25,6 +26,7 @@ class CreateSponsorsTable extends Migration {
             $table->mediumtext('cover_photo');
             $table->mediumtext('photo');
 
+            $table->boolean('is_active')->default(false);
             $table->boolean('is_main')->default(false);
 
 			$table->timestamps();

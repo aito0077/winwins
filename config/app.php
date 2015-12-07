@@ -159,6 +159,7 @@ return [
 		'Winwins\Providers\RouteServiceProvider',
 		'Winwins\Providers\ObserversServiceProvider',
 		'Winwins\Providers\RepositoriesServiceProvider',
+		'Winwins\Providers\MailServiceProvider',
 
         'Barryvdh\Cors\ServiceProvider',
 
