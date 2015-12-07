@@ -93,9 +93,12 @@
 <!-- Winwin Attributes-->
 <div class="container">
     <div class="row" style="font-family: montserrat; font-size:10px; text-align:center;">
-        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published"<i class="fa fa-check" style="color: green;"></i> Active </span><span ng-show="winwin.published"<i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe"></i> {{::winwin.scope}}</span> </div>
-        <div class="col-xs-3 ww-attributte">Category:<br> Medio Ambiente</span> </div>
+        <div class="col-xs-3 ww-attributte">Estado:<br>
+            <span ng-show="winwin.published"><i class="fa fa-check" style="color: green;"></i> Active </span>
+            <span ng-show="winwin.published"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> 
+        </div>
+        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe"></i> {{::winwin.scope}}</div>
+        <div class="col-xs-3 ww-attributte">Category:<br> Medio Ambiente</div>
         <div class="col-xs-3 ww-attributte"> <span style="text-align: center;">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </div>
     </div>
 </div>

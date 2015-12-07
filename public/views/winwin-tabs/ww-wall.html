@@ -16,11 +16,12 @@
                             <p class="p-lista" style="padding-right: 15px;">
                                 {{::item_post.content}}
                                     <!-- Toolbar -->
+
             <div class="container buttons-post">
                 <div class="row">
                     
                     <div class="col-xs-3"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
+                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
                     <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
                     <div class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
                     <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
