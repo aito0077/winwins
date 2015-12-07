@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 class SponsorController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'fetchMain']]);
     }
 
 	public function all() {
@@ -34,7 +34,7 @@ class SponsorController extends Controller {
 	}
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
-        $sponsors = DB::table('sponsors')->skip($page * $amount)->take($amount)->get();
+        $sponsors = DB::table('sponsors')->where('is_active', '=', 1)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($sponsors);
         $collection->each(function($sponsor) {
             $winwins_count = DB::table('winwins')
@@ -48,6 +48,21 @@ class SponsorController extends Controller {
         return $collection;
     }
 
+
+    public function fetchMain(Request $request) {
+        $sponsors = DB::table('sponsors')->where('is_active', '=', 1)->where('is_main', '=', 1)->orderByRaw('RAND()')->get();
+        $collection = Collection::make($sponsors);
+        $collection->each(function($sponsor) {
+            $winwins_count = DB::table('winwins')
+                ->leftJoin('sponsors_winwins', 'winwins.id', '=', 'sponsors_winwins.winwin_id')
+                ->where('sponsors_winwins.sponsor_id', '=', $sponsor->id)
+                ->where('sponsors_winwins.ww_accept', '=', 1)
+                ->where('sponsors_winwins.sponsor_accept', '=', 1)
+                ->count();
+            $sponsor->winwins_count = $winwins_count;
+        });
+        return $collection;
+    }
 
 
 	public function index() {

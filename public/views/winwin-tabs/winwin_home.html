@@ -339,42 +339,32 @@ header.smaller {
 
 
 <script>
-function toggler(divId) {
-    $("#" + divId).toggle();
-}
-</script>
-
-
-<script>
+    function toggler(divId) {
+        $("#" + divId).toggle();
+    }
     $(function(){
-    $(window).scroll(function() {  
-if($(document).scrollTop() > 150)
-{    
-     $('#footer').addClass("show");
-}
-else
-{
-    $('#footer').removeClass("show");
-}
+        $(window).scroll(function() {  
+            if($(document).scrollTop() > 150) {    
+                 $('#footer').addClass("show");
+            } else {
+                $('#footer').removeClass("show");
+            }
         });
     })
-</script>
 
- <!-- Your jQuery/Javascript code -->
- <script  type="text/javascript">
-function init() {
-    window.addEventListener('scroll', function(e){
-        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-            shrinkOn =100,
-            header = document.querySelector("header");
-        if (distanceY > shrinkOn) {
-            classie.add(header,"smaller");
-        } else {
-            if (classie.has(header,"smaller")) {
-                classie.remove(header,"smaller");
+    function init() {
+        window.addEventListener('scroll', function(e){
+            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                shrinkOn = 100,
+                header = document.querySelector("header");
+            if (distanceY > shrinkOn) {
+                classie.add(header,"smaller");
+            } else {
+                if (classie.has(header,"smaller")) {
+                    classie.remove(header,"smaller");
+                }
             }
-        }
-    });
-}
-window.onload = init();
+        });
+    }
+    window.onload = init();
  </script>

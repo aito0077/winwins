@@ -21,8 +21,7 @@ angular.module('winwinsApp', [
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
-    'frapontillo.bootstrap-switch', 
-    'elasticsearch'
+    'frapontillo.bootstrap-switch'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 

@@ -5,8 +5,8 @@
     }
 </style>
 
-<video ng-if="!isAuthenticated()" width="100%" poster="../images/parrots.fw.png" controls autoplay loop style="cursor: pointer; margin-top:-5px;">
-    <source src="../video/winwins.mp4"  type="video/mp4" >
+<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls autoplay loop style="cursor: pointer; margin-top:-5px;">
+    <source src="/video/winwins.mp4"  type="video/mp4" >
     Your browser does not support HTML5 video
 </video>
         <!-- Button -->   
@@ -15,11 +15,19 @@
         <i class="fa fa-chevron-right"></i>
     </button>
 </div>
-<div ng-if="!isAuthenticated()"class="pad-30"></div>
+
+<div ng-if="!isAuthenticated()" class="pad-30"></div>
 
         <!-- WW Cards-->
 <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins">
-    <div class="row">
+
+    <div ng-if="winwin.is_sponsor" class="row">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="height: 220px; cursor: pointer;" ng-click="viewSponsor(winwin.id)">
+            <div class="username-cards text-uppercase">{{::winwin.name}}</div>
+        </div>
+    </div>
+
+    <div class="row" ng-if="!winwin.is_sponsor">
         <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
                 <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
@@ -31,7 +39,8 @@
                 <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
             </div>
         </div>
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor: pointer; background: linear-gradient(rgba(0, 0, 0, 0.729412), rgba(154, 148, 120, 0.0980392)), url(http://images.dev-winwins.net/ww-default-3.jpg); "  ng-click="view(winwin.id)">
+
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
         </div>
         <div class=" col-xs-12" style="margin-top: 10px;margin-bottom: -15px;">
@@ -57,7 +66,6 @@
 </div>
 
            <!-- search -->
-   <!--   
 
     <div id="footer" data-ng-controller="main-search-controller">
         <div id="panel" >
@@ -76,5 +84,6 @@
     </div>
 
 
+   <!--   
     -->
 

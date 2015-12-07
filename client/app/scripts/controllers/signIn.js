@@ -21,12 +21,12 @@ angular.module('winwinsApp')
         .catch(function(response) {
             swal({
                 title: "ADVERTENCIA", 
-                text: response, 
+                text: 'El usuario y/o password son incorrectos', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
             });
-            $state.go('signin');
+            $state.go('signIn');
         });
     };
     $scope.authenticate = function(provider) {
