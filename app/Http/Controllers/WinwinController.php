@@ -496,7 +496,7 @@ class WinwinController extends Controller {
                 'sender' => array(
                     'name' => $detail->name,
                     'lastname' => $detail->lastname,
-                    'photo' => 'http;//images.dev-winwins.net/40x40/smart/'.$detail->photo,
+                    'photo' => 'http://images.dev-winwins.net/72x72/smart/'.$detail->photo,
                 ),
                 'winwin' => array(
                     'id' => $winwin->id,
