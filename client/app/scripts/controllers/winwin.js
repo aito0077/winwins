@@ -95,6 +95,10 @@ angular.module('winwinsApp')
 
             console.log($scope.duration_minutes);
             $scope.show_closing_date = true;
+        } else {
+            if($scope.winwin.closing_date && !closing_date.isAfter(now) ) {
+                $scope.is_finished = true;
+            }
         }
     };
 
