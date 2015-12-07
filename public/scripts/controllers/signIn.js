@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('LoginCtrl', function($scope, $rootScope, $auth, $state, $timeout, SweetAlert) {
+.controller('LoginCtrl', function($scope, $rootScope, $auth, $state, $timeout) {
     $scope.show_login = true;
     $scope.redirect_message = false;
 
@@ -15,13 +15,18 @@ angular.module('winwinsApp')
             $timeout(function() {
                 console.log('redirect');
                 $state.go('main'); 
-            }, 5000);
+            }, 1000);
 
         })
         .catch(function(response) {
-            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
-                $state.go('signin');
+            swal({
+                title: "ADVERTENCIA", 
+                text: response, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
             });
+            $state.go('signin');
         });
     };
     $scope.authenticate = function(provider) {
@@ -34,12 +39,17 @@ angular.module('winwinsApp')
             $timeout(function() {
                 console.log('redirect');
                 $state.go('main'); 
-            }, 5000);
+            }, 1000);
         })
         .catch(function(response) {
-            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
-                $state.go('signin');
+            swal({
+                title: "ADVERTENCIA", 
+                text: response, 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
             });
+            $state.go('signin');
 
         });
     };
@@ -51,5 +61,5 @@ angular.module('winwinsApp')
 .controller('SuccessLogin', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
     $timeout(function() {
         $state.go('main');
-    }, 3000);
+    }, 1000);
 }]);

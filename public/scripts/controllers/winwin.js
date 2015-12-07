@@ -95,6 +95,10 @@ angular.module('winwinsApp')
 
             console.log($scope.duration_minutes);
             $scope.show_closing_date = true;
+        } else {
+            if($scope.winwin.closing_date && !closing_date.isAfter(now) ) {
+                $scope.is_finished = true;
+            }
         }
     };
 
@@ -247,7 +251,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $stateParams.winwinId
                 }); 
-            }, 5000);
+            }, 1000);
 
         });
     };
@@ -266,7 +270,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-promote', {
                     winwinId: $stateParams.winwinId
                 }); 
-            }, 5000);
+            }, 1000);
 
         });
     };
@@ -285,7 +289,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $stateParams.winwinId
                 }); 
-            }, 5000);
+            }, 1000);
 
         });
     };
@@ -381,7 +385,7 @@ angular.module('winwinsApp')
                     $scope.getWinwin();
                     swal({
                         title: "info", 
-                        text: 'winwin_join', 
+                        text: 'Te has unido al Winwin', 
                         type: "info",
                         showcancelbutton: false,
                         closeonconfirm: true 
@@ -412,7 +416,7 @@ angular.module('winwinsApp')
                 $scope.getWinwin();
                 swal({
                     title: "info", 
-                    text: 'winwin_left', 
+                    text: 'Has dejado el Winwin', 
                     type: "info",
                     showcancelbutton: false,
                     closeonconfirm: true 
@@ -501,9 +505,7 @@ angular.module('winwinsApp')
     $scope.uploadFiles = function(file) {
         console.dir(file);
         $scope.f = file;
-        console.log(file.$error);
         if (file && !file.$error) {
-            console.log('enviando...');
             file.upload = Upload.upload({
                 url: api_host+'/api/winwins/upload',
                 file: file
@@ -524,6 +526,14 @@ angular.module('winwinsApp')
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
                     console.log($scope.errorMsg);
+                    swal({
+                        title: "Error", 
+                        text: $scope.errorMsg,
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
+
                 }
             });
 
@@ -533,6 +543,15 @@ angular.module('winwinsApp')
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }   
+        if (file.$error == 'maxSize') {
+            swal({
+                title: "Error", 
+                text: "La imagen es demasiado grande",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        }
     };
 
 
@@ -621,7 +640,7 @@ angular.module('winwinsApp')
                     $state.go('winwin-promote', {
                         winwinId: $scope.winwin.id
                     }); 
-                //}, 5000);
+                //}, 1000);
             })
             .error(function(error) {
                 swal({
@@ -743,7 +762,7 @@ angular.module('winwinsApp')
             $state.go('winwin-view', {
                 winwinId: $scope.winwin.id
             }); 
-        }, 3000);
+        }, 1000);
     };
 
     $scope.promote = true;
@@ -763,7 +782,7 @@ angular.module('winwinsApp')
             $http.get(api_host+'/api/winwins/join/'+winwin_id).success(function(data) {
                 swal({
                     title: "info", 
-                    text: 'winwin_join', 
+                    text: 'Te has unido al Winwin', 
                     type: "info",
                     showcancelbutton: false,
                     closeonconfirm: true 
@@ -853,7 +872,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
-            }, 3000);
+            }, 1000);
         })
         .error(function(error) {
             swal({
@@ -876,7 +895,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
-            }, 3000);
+            }, 1000);
         })
         .error(function(error) {
             swal({
@@ -895,7 +914,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/users/follow/'+participante.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_following', 
+                text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -923,7 +942,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/users/unfollow/'+participante.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_left', 
+                text: 'Has dejado de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -984,7 +1003,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/sponsors/follow/'+sponsor.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_following', 
+                text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -1012,7 +1031,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/users/unfollow/'+sponsor.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_left', 
+                text: 'Has dejado de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -1086,7 +1105,7 @@ angular.module('winwinsApp')
                     $state.go('winwin-view', {
                         winwinId: $scope.winwin.id
                     }, {reload: true}); 
-                }, 4000);
+                }, 1000);
 
 
 
@@ -1154,7 +1173,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
-            }, 4000);
+            }, 1000);
 
         })
         .error(function(error) {
@@ -1310,7 +1329,7 @@ angular.module('winwinsApp')
             $scope.sendingPost = false;
             swal({
                 title: "Info", 
-                text: 'post_send', 
+                text: 'Post enviado!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -1529,7 +1548,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
-            }, 4000);
+            }, 1000);
 
         })
         .error(function(error) {
@@ -1562,7 +1581,7 @@ angular.module('winwinsApp')
                 $state.go('winwin-view', {
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
-            }, 4000);
+            }, 1000);
 
         })
         .error(function(error) {
@@ -1594,7 +1613,7 @@ angular.module('winwinsApp')
         .success(function(data) {
             swal({
                 title: "Info", 
-                text: 'sponsor_request_sent', 
+                text: 'Solicitud al sponsor enviada', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -1645,7 +1664,7 @@ angular.module('winwinsApp')
         .success(function(data) {
             swal({
                 title: "Info", 
-                text: 'notifications updated', 
+                text: 'Notificaciones actualizadas', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -1675,7 +1694,7 @@ angular.module('winwinsApp')
             .success(function(data) {
                 swal({
                     title: "Info", 
-                    text: 'winwin closed', 
+                    text: 'Winwin cerrado', 
                     type: "info",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -1782,7 +1801,7 @@ angular.module('winwinsApp')
                     $scope.getWinwin();
                     swal({
                         title: "info", 
-                        text: 'winwin_join', 
+                        text: 'Te has unido al Winwin', 
                         type: "info",
                         showcancelbutton: false,
                         closeonconfirm: true 
@@ -1813,7 +1832,7 @@ angular.module('winwinsApp')
                 $scope.getWinwin();
                 swal({
                     title: "info", 
-                    text: 'winwin_left', 
+                    text: 'Dejaste el Winwin', 
                     type: "info",
                     showcancelbutton: false,
                     closeonconfirm: true 

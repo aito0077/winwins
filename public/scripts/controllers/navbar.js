@@ -1,6 +1,5 @@
 angular.module('winwinsApp')
 .controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, Account) {
-    $scope.isCollapsed = true;
     $scope.unreadNotifications = 0;
     $scope.profile = false;
     $scope.is_logged = false;
@@ -9,21 +8,10 @@ angular.module('winwinsApp')
 
     $scope.profile_image = 0;
 
-    $scope.isOpen = false;
-    $scope.menuStatus = {
-        isAnimating: false
-    };
-
-
-
-    $scope.$on('$routeChangeSuccess', function () {
-        //$scope.isCollapsed = true;
-
-    });
     $scope.$on('$stateChangeStart', function(){
-        $scope.isCollapsed = true;
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
+                console.log('get status');
                 $scope.unreadNotifications = response.data.notifications_unread;
             });
         } else {
@@ -57,20 +45,8 @@ angular.module('winwinsApp')
 
 
     $rootScope.$on('$stateChangeSuccess',function(data, other){
-
-        console.log('Menu abierto? '+$scope.isOpen);
-        if($scope.isOpen) { 
-            $scope.toggleMenu();
-        }
-
-        if(other.name.lastIndexOf('winwin-view.', 0) === 0) {
-            $("html, body").animate({ scrollTop: 430 }, 0);
-        } else {
-            console.log('scroll to top');
-            $("html, body").animate({ scrollTop: 1 }, 0);
-
-        }
-
+        jQuery('.button-collapse').sideNav('hide');
+        jQuery("html, body").animate({ scrollTop: 1 }, 0);
     })
 
 
@@ -104,6 +80,7 @@ angular.module('winwinsApp')
     };
 
     $scope.goProfile = function() {
+        console.log('go profile');
         if($scope.isSponsor) {
             $state.go('sponsor-view', {
                 sponsorId: $scope.sponsor.id
@@ -117,43 +94,8 @@ angular.module('winwinsApp')
         $state.go('profile_notificaciones');
     };
 
-    $scope.closeMenu = function() {
-        console.log('close menu');
-        setTimeout( function() {
-            $scope.path.attr( 'd', $scope.initialPath );
-            $scope.menuStatus.isAnimating = false; 
-        }, 300 );
-    }
-
-    $scope.toggleMenu = function() {
-        console.log('toggle menu');
-        if( $scope.menuStatus.isAnimating ) return false;
-
-        console.log('second step');
-
-        $scope.menuStatus.isAnimating = true;
-        if( $scope.isOpen) {
-            $scope.closeMenu();
-        } else {
-            $scope.path.animate( { 'path' : $scope.menuStatus.pathOpen }, 400, mina.easeinout, function() { $scope.menuStatus.isAnimating = false; } );
-        }
-        $scope.isOpen = !$scope.isOpen;
-    }
-
-
-    $scope.setupComponents = function() {
-        $scope.morphEl = document.getElementById( 'morph-shape' );
-        var s = Snap( $scope.morphEl.querySelector( 'svg' ) );
-        $scope.path = s.select( 'path' );
-        $scope.initialPath = $scope.path.attr('d');
-        $scope.menuStatus = {
-            pathOpen: $scope.morphEl.getAttribute( 'data-morph-open' ),
-            isAnimating: false
-        };
-    };
-
     $timeout(function() {
-        $scope.setupComponents();
+        jQuery(".button-collapse").sideNav();
     });
 
 });

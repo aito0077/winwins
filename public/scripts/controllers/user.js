@@ -21,7 +21,7 @@ angular.module('winwinsApp')
             $scope.getUser();
             swal({
                 title: "info", 
-                text: 'user_join', 
+                text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -66,7 +66,7 @@ angular.module('winwinsApp')
             $scope.getUser();
             swal({
                 title: "info", 
-                text: 'user_join', 
+                text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -87,7 +87,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/users/unfollow/'+$scope.user.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_left', 
+                text: 'Dejaste de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -221,7 +221,7 @@ angular.module('winwinsApp')
             $scope.getUser();
             swal({
                 title: "info", 
-                text: 'user_join', 
+                text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -242,7 +242,7 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/users/unfollow/'+user_id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'user_left', 
+                text: 'Dejaste de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -409,7 +409,7 @@ angular.module('winwinsApp')
             $scope.getUser();
             swal({
                 title: "info", 
-                text: 'user_updated', 
+                text: 'Datos actualizados!', 
                 type: "info",
                 showcancelbutton: false,
                 closeonconfirm: true 
@@ -474,7 +474,7 @@ angular.module('winwinsApp')
         $auth.logout().then(function() {
             $rootScope.$broadcast('is_logged', false);
         });
-    }, 4000);
+    }, 1000);
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {
