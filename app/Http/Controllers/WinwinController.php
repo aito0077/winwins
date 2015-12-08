@@ -55,7 +55,8 @@ class WinwinController extends Controller {
     }
 
 	public function index() {
-        $winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+        //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+        $winwins = Winwin::where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
@@ -507,8 +508,9 @@ class WinwinController extends Controller {
             ));
             $message->subject('WW - '.$winwin->title);
             $message->to(null, $recipient['text']);
+            /*
             $message_sent = $mailer->send($message);
-            Log::info($message_sent->toArray());
+            */
         }
 
 
