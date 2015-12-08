@@ -256,3 +256,32 @@ padding-top:50px;
     opacity: 0;
   }
 }
+
+.img-circle {
+    border-radius: 50%;
+    max-height: 105px;
+}
+
+@media (max-width: 325px) {
+.signup-buttons {
+      font-size:12px;
+   }
+   .title-320 {
+      font-size:22px;
+   }
+      .320 {
+      max-width: 300px;
+   }
+    .320hide {
+      display:none;
+   }
+   nav .brand-logo.center {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+}
+
