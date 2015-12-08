@@ -7,7 +7,7 @@
             <div class="animated bounceInUp">{{::user_detail.name}}</div>
         </div>
     </div>
-    <div class="col-xs-12 no-padding" style="padding-bottom:10px;margin-top:-30px;">
+    <div class="col-xs-12 no-padding" style="padding-bottom:10px;margin-top:-350px;">
         <a href="#" class="col-xs-3 ww-somos" style="margin-top: -20px;" >  
             <span class="bubble-label"> Winwins </span> 
             <span class="somos">{{user_detail.winwins.length}}</span>
@@ -107,6 +107,30 @@
   });
         
 </script>   
+
+ <script type="text/ng-template" id="postShareModal.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"><div class="bubble-md create-title"><i class="fa fa-thumbs-o-up"></i><br>Compartir es sumar!</div></h4>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <a href="#" class="col-xs-3 btn btn-fbk-big" role="button" style="width:100%; height: 100%;box-shadow: none; font-size: 2em; padding-top: 15PX; margin-top: -15px;" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="col-xs-3 btn btn-twitter-big" role="button" style="width:100%; height: 100%;box-shadow: none; padding:10px;" socialshare socialshare-provider="twitter" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="col-xs-3 btn btn-google-big" role="button" style="width:100%; height: 100%; box-shadow: none;" socialshare socialshare-provider="google" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins/ww/winwin/{{::toShare.id}}" >
+                        <i class="fa fa-google"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"> 
+        </div>
+    </script>
         <!--
 
     <div class="container no-padding">
