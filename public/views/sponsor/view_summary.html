@@ -3,14 +3,14 @@
         <div class="col-xs-12 no-padding">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" style="height: 220px;">
                 <div class="profile-avatar avatar">
-                    <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive img-circle"/>
+                    <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive"/>
                 </div>
                 <div class="username">{{::sponsor.name}}</div>
             </div>
 
     </div>
     <div class="container no-padding">
-        <div class="row no-padding">
+
             <div class="buttons-profile">
                 <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
                 <a role="button" class="col-xs-5 btn-join" ng-show="sponsor.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
@@ -18,78 +18,52 @@
                 <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
             </div>
         </div>
-    </div>
+
 </div>
 
-<div class="container no-padding">
-    <div class="container no-padding">
-        <div class="row">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> SOBRE NOSOTROS <i class="fa fa-caret-down" style="float:right;"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                                <div class="user-desc">
 
-                            {{::sponsor.about}}   </div>
+      <!-- Accordion -->
 
-                         </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading-b">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> WINWINS PATROCINADOS <i class="fa fa-caret-down" style="float:right;"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="row col-xs-12 no-padding"> 
-                                <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
+<ul class="collapsible" data-collapsible="accordion">
+
+     <!-- Sponsor about -->
+
+    <li>
+      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Bio</div>
+      <div class="collapsible-body"><p>    Somos <span style="text-transform: capitalize;"> {{::user_detail.name}} {{::user_detail.lastname}} </span>         {{::sponsor.about}}  </br>
+                                          </p></div>
+    </li>
+
+      <!--  Winwins Patrocinados-->
+
+      <li>
+      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>WinWins Patrocinados</div>
+      <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/64x45/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                </div></div>
+    </li>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> GRUPOS PATROCINADOS <i class="fa fa-caret-down" style="float:right;"></i> </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="col-xs-12 no-padding">
-                                <div ng-repeat="group in sponsor.groups" class="col-xs-2 no-padding">
-                                    <img ng-src="http://images.dev-winwins.net/64x/smart/{{group.photo}}" width="auto" height="auto" class="img-responsive" ng-click="viewGroup(group.id)" alt="{{group.name}}" title="{{group.name}}" style="cursor:pointer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       <!--  Grupos Patrocinados-->
 
-                <div class="panel panel-default">
-                    <div class="panel-heading-b">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> SEGUIDORES <i class="fa fa-caret-down" style="float:right;"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="col-xs-12 no-padding">
-                                <div class="col-xs-2 followers no-padding" ng-repeat="follower in sponsor.users">
-                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{follower.photo}}" class="img-responsive img-circle" width="35" height="35"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <li>
+      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Grupos Patrocinados</div>
+      <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
+                                    <img ng-src="http://images.dev-winwins.net/70x50/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
+                                </div></div>
+    </li>
+
+       <!--  Grupos Patrocinados-->
+
+      <li>
+      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Seguidores</div>
+      <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
+                                    <img ng-src="http://images.dev-winwins.net/64x45/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
+                                </div></div>
+    </li>
+
+          
+              
+
 
 
             </div>
@@ -98,3 +72,20 @@
     </div>
 </div>
 
+<script>
+         $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+        
+</script>   
+
+<script>
+
+ $(document).ready(function(){
+    $('ul.tabs').tabs('select_tab', 'tab_id');
+  });
+        
+</script>   
+        <!--

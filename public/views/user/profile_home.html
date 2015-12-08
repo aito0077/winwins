@@ -7,14 +7,15 @@
             <div class="animated bounceInUp">{{::user_detail.name}}</div>
         </div>
     </div>
-    <div class="col-xs-12" style="padding-bottom:10px;margin:10px;">
+    <div class="col-xs-12 no-padding" style="padding-bottom:10px;margin-top:-30px;">
         <a href="#" class="col-xs-3 ww-somos" style="margin-top: -20px;" >  
             <span class="bubble-label"> Winwins </span> 
             <span class="somos">{{user_detail.winwins.length}}</span>
         </a>
-        <span class="col-xs-6" ng-show="user_detail.myself"> </span>
+        <span class="col-xs-5" ng-show="user_detail.myself"> </span>
         <a href="#" role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following">
             <div class="animated flash"> SEGUIR</div>
+        </a>
         </a>
         <a href="#" role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="unfollow()" ng-show="user_detail.already_following"> DEJAR DE SEGUIR</a>
         <a href="#" class="col-xs-3 ww-somos" style="margin-top: -20px;">
