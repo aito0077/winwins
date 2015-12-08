@@ -1,6 +1,6 @@
 
- <div class="container no-padding" style="margin-top:-15px; margin-bottom:-25px;">
- <div class="input-field col s12">
+ <div class="container no-padding">
+ <div class="input-field col s12 no-padding">
     <select>
       <option value="" disabled selected><i class="fa fa-star">Seleccioná..</option>
       <option value="1">Populares</option>
@@ -9,37 +9,31 @@
     </select>
   </div>
 </div>
-    <div infinite-scroll='sponsors.nextPage()'>
-        <div class="col-xs-12" ng-repeat="sponsor in sponsors.items">
+    <div infinite-scroll='sponsors.nextPage()' style="margin-top:-25px;">
+        <div class="col-xs-12 no-padding card-panel hoverable" style="margin-top:10px;" ng-repeat="sponsor in sponsors.items">
 
-             <div class="col-xs-12 no-padding" ng-click="view(sponsor.id)">
-                <div dynamic-background=""  class="no-padding"background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{sponsor.cover_photo}}" style="height: 230px;">
+          <div class="col-xs-12 no-padding ng-click="view(sponsor.id)"">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}" style="height: 220px;">
+                <div class="profile-avatar avatar">
+                    <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive" />
+                </div>
+                <div class="username">{{::sponsor.name}}</div>
+            </div>
+   <div class="container no-padding">
+        <div class="row no-padding">
+            <div class="buttons-profile" style="margin-top:-70px;">
+                <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
+                <a role="button" class="col-xs-5 btn-join" ng-show="sponsor.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
+                <a role="button" class="col-xs-5 btn-join" ng-show="!sponsor.already_following" ng-click="follow()"> SEGUIR</a>
+                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+ 
 
-                         <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
-                        <img ng-src="http://images.dev-winwins.net/x100/{{::sponsor.photo}}" class="img-responsive img-circle"  style="margin-left: auto; margin-right:auto; dislay:block; width:100px;"/>
-                    </div>
-
-                     <div style="margin-left:auto; margin-right: auto; display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
-                        <h4> 
-                            {{::sponsor.name}} 
-                        </h4>
-                  
-                    </div>
-
-                           </div></div>
-
-
-
-
-
- <div class="container no-padding" style="margin-top:20px;" align="center">
-
-    <div class="col-xs-4" style="margin-top:10px; text-align:center; color:#666;"><i class="fa fa-comments orange-text" ></i> Winwins<span style="color: green; font-size:1.2rem"> {{::sponsor.winwins_count}}</span></div>
-               <a  align="center" ng-show="!sponsor.following" role="button" class="col-xs-4 btn green"  ng-click="follow(sponsor)"> SEGUIR</a>
-               <a  align="center" ng-show="sponsor.following" role="button" class="col-xs-4  btn green"  ng-click="follow(sponsor)"> SIGUIENDO </a>
-    <div class="col-xs-4" style="margin-top:10px;">Seguidores {{::sponsor.followers_count}}</div>
-
-
+            
 </div>
 
 
