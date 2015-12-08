@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show', 'posts']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'posts', 'socialShow']]);
     }
 
 	public function index() {
@@ -265,7 +265,18 @@ class PostController extends Controller {
 
 	}
 
-
+	public function socialShow(Request $request, $id) {
+        $post = Post::find($id);
+        $winwin = Winwin::find($post->reference_id);
+        $post_user = $post->user;
+        $post_user->detail;
+        Log::info($post);
+        return view('posts.view', [
+            'winwin' => $winwin,
+            'post' => $post,
+            'facebook_app_id' => Config::get('facebook_app_id')
+        ]);
+	}
 
 
 }

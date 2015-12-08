@@ -103,4 +103,5 @@ Route::get('api/translation', ['uses' => 'LanguageController@translation']);
 Route::get('/', 'HomeController@index');
 Route::get('/web/', 'HomeController@desktop');
 Route::get('/ww/{id}', 'WinwinController@socialShow');
+Route::get('/ww-post/{id}', 'PostController@socialShow');
 

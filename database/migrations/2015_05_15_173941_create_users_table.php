@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->string('twitter')->nullable();
 
             $table->string('photo')->default('placeholder-square.jpg');
-            $table->string('cover_photo')->default('default_cover.jpg');
+            $table->string('cover_photo')->default('ww-main-default.jpg');
 
 			$table->dateTime('last_access')->nullable();
             $table->boolean('canceled')->default(FALSE);

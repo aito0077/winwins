@@ -1435,7 +1435,7 @@ angular.module('winwinsApp')
         });
     };
 }])
-.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, api_host, post, Post, Upload) {
+.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, $timeout, api_host, post, Post, Upload) {
 
     $scope.post = post;
 
