@@ -11,7 +11,7 @@
                    
                     <div class="col-xs-12 no-padding">
                         <div class="col-xs-2 no-padding">    
-                            <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" />
+                            <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="       margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" >
                         </div>
                         <div class="p-lista" style="padding-bottom:10px;">
 
@@ -23,7 +23,7 @@
                 
                             <div class="media-post"> </div>
                             <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
-                            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:10px;">
                                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                             </div>
 
@@ -33,8 +33,8 @@
                                     <div class="col-xs-12 no-padding">
                                          <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
                                         <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
-                                        <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"></i><span class="post-likes-"> 10</span></div>
-                                        <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+                                        <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"><span class="post-likes-"> 10</span></div>
+                                        <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
                                         <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
                                        <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
                                         <div ng-if="isAuthenticated" class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
@@ -55,7 +55,7 @@
                      <div class="col-xs-11 col-xs-offset-1" style="background:white;">
                         <div class="col-xs-12 no-padding">
                             <div class="col-xs-2 no-padding right">    
-                                <img ng-src="http://images.dev-winwins.net/38x38/{{comment.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 25px; border: 3px solid rgba(117, 114, 114, 0.59);" />
+                                <img ng-src="http://images.dev-winwins.net/38x38/{{comment.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 25px; border: 3px solid rgba(117, 114, 114, 0.59);" alt="user" />
                             </div>
                             <div class="p-lista" style="padding-bottom:10px;">
                                 <div style="padding-left: 20px; padding-right:15px;"> 
@@ -72,8 +72,8 @@
                                         <div class="col-xs-12 no-padding">
                                              <div class="col-xs-4" style="padding-left:25px;"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span></div>
                                             <div ng-if="!isAuthenticated" class="col-xs-2"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
-                                            <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"></i><span class="post-likes-"> 10</span></div>
-                                            <div ng-if="isAuthenticated"class="col-xs-2"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"  style="cursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
+                                            <div ng-if="!isAuthenticated" class="col-xs-2"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"> 10</span></div>
+                                            <div ng-if="isAuthenticated" lass="col-xs-2"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; ursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
                                             <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(comment, true)"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
                                         </div>
                                     </div>
@@ -96,19 +96,18 @@
     <div id="footer">
         <div class="container comments-box">
             <div class="col-xs-2 post-image">
-                <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
+                <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38">
             </div>
             <div class="col-xs-6 no-padding">
                 <div class="bubbles">
-                    <textarea class="postbox no-padding" placeholder="Postear acá" rows="4" ng-model="post.content" no-resize ng-required="true" ng-focus="max_size()" > </textarea>
+                    <textarea class="postbox no-padding" placeholder="Postear acá" rows="4" ng-model="post.content" ng-required="true" ng-focus="max_size()" > </textarea>
                 </div>
             </div>
-            <span type="button" class="col-xs-2 button-send" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
+            <span class="col-xs-2 button-send" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
             <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
-            <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></span>
+            <button type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></button>
         </div>
     </div>
-
 </div>
 
 
@@ -166,7 +165,7 @@
                 <div ng-show="comment.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::comment.media_path}}" style="height:190px;">
                 </div>
                 <div ng-show="comment.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media_path)}}" allowfullscreen=""></iframe>
+                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media_path)}}" allowfullscreen="true"></iframe>
                 </div>
             </div>
 
@@ -179,9 +178,9 @@
 
       <div class="container no-padding">
            
-                <div class="col-xs-12 no-padding"> <a href role="button" class="_col-xs-12 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
-                <div class="col-xs-6 card-panel"> <a href role="button" class="_col-xs-6 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
-             <div class="col-xs-6 card-panel">    <a href role="button" class="_col-xs-6 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
+                <div class="col-xs-12 no-padding"> <a role="button" class="_col-xs-12 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
+                <div class="col-xs-6 card-panel"> <a  role="button" class="_col-xs-6 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
+             <div class="col-xs-6 card-panel">    <a  role="button" class="_col-xs-6 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
         </div>
     </script>
 
