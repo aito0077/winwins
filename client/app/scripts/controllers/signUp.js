@@ -12,7 +12,18 @@ angular.module('winwinsApp')
             name: $scope.name,
             lastname: $scope.lastname,
             language_code: 'ES' //ToDo: Obtener del sitio
-        }).catch(function(response) {
+        })
+        .then(function(data) {
+            $rootScope.currentUser = data;
+            $rootScope.$broadcast('is_logged', true);
+            $scope.show_login = false;
+            $scope.redirect_message = true;
+            $timeout(function() {
+                console.log('redirect');
+                $state.go('main'); 
+            }, 1000);
+        })
+        .catch(function(response) {
             swal({
                 title: "ADVERTENCIA", 
                 text: 'Error en su registracion', 
@@ -20,7 +31,7 @@ angular.module('winwinsApp')
                 showCancelButton: false,
                 closeOnConfirm: true 
             });
-            $state.go('signup');
+            $state.go('signUp');
         });
     };
 
