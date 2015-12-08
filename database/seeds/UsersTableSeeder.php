@@ -9,6 +9,23 @@ class UsersTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         $user = new User();
+        $user->email = 'aito0077@gmail.com'; 
+        $user->username = 'aito0077@gmail.com'; 
+        $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
+        $user->facebook = 'facebook'; 
+        $user->active = 1;
+        $user->save();
+        $detail = new UserDetail();
+        $detail->user_id = $user->id;
+        $detail->lastname = 'Garcia'; 
+        $detail->name = 'Leonardo'; 
+        $detail->sex = 'M'; 
+        $detail->photo = 'placeholder-square.jpg'; 
+        $detail->save();
+
+
+/*
+        $user = new User();
         $user->email = 'mariana.berruezo@gmail.com'; 
         $user->username = 'mariana.berruezo@gmail.com'; 
         $user->password = '$2y$10$0cUA3QaSO9oTc27fpr1hHOS0hdofKTJrUOis5TAN4/MDh9ZauQiDC'; 
@@ -1718,6 +1735,8 @@ class UsersTableSeeder extends Seeder {
         $detail->lastname = 'Interactivista'; 
         $detail->photo = 'jpg'; 
         $detail->save();
+
+    */
 
     }
 

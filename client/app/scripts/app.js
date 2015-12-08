@@ -102,7 +102,7 @@ angular.module('winwinsApp', [
         controller: 'winwin-search'
     })
     .state('winwin-view', {
-        url: '/winwin-view/:winwinId',
+        url: '/winwin-view/:winwinId?actionJoin',
         templateUrl: 'views/winwin-tabs/view.html',
         controller: 'winwin-tabs'
     })
@@ -291,6 +291,10 @@ angular.module('winwinsApp', [
 
     
 })
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
+}])
 .config(function ($authProvider, api_host) {
 
     $authProvider.baseUrl = api_host+'/';
@@ -421,4 +425,8 @@ angular.module('winwinsApp', [
     }
   };
 }])
+.run(function() {
+    console.log('run');
+    window.loading_screen.finish();
+})
 ;

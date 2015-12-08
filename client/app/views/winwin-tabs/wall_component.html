@@ -126,21 +126,25 @@
         <div style="cursor:pointer; background-color:#3b5998; color:#fff;  margin-top:1px;margin-right:3px;"  class="col-xs-3 animated  wobble uploaders card-panel circle"  
             socialshare
             socialshare-provider="facebook" 
-            socialshare-text="{{::winwin.title}}" 
-            socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
-            socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+            socialshare-text="{{::toShare.content}}" 
+            socialshare-url="http://dev-winwins.net/ww-post/{{::toShare.id}}"  
+            socialshare-media="http://images.dev-winwins.net/{{::toShare.media.name}}"
             socialshare-via="1082199191794840">
             <i class="fa fa-facebook" style="padding-top:0px;" ></i><br>
         </div>
-        <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:3px;"  class="col-xs-3  animated  wobble uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
+        <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:3px;"  class="col-xs-3  animated  wobble uploaders card-panel"  
+            socialshare  
+            socialshare-text="{{::toShare.content}}" 
+            socialshare-url="http://dev-winwins.net/ww-post/{{::toShare.id}}" 
+            socialshare-provider="twitter">
             <i class="fa fa-twitter" style="padding-top:0px;" ></i><br>
         </div>
         <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:3px;"  class="col-xs-3 animated  wobble uploaders card-panel"  
             socialshare 
             socialshare-provider="google+" 
-            socialshare-text="{{::winwin.title}}" 
-            socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
-            socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+            socialshare-text="{{::toShare.content}}" 
+            socialshare-media="http://images.dev-winwins.net/{{::toShare.media.name}}"
+            socialshare-url="http://dev-winwins.net/ww-post/{{::toShare.id}}">
 
             <i class="fa fa-google" style="padding-top:0px;"></i><br>
         </div>
@@ -149,40 +153,5 @@
  
     </script>
 
-    <script type="text/ng-template" id="commentModal.html">
-         <div class="container center">
-
-        <i class="fa fa-comments  pulse " style="font-size: 50px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i> 
-        <i class="fa fa-caret-down " style="font-size: 3rem;margin-top:-23px; color:#3B5998;"></i>
-    </div>
-
-
-            <div class="container" ng-show="comment.media_type">
-
-                <div ng-show="uploading" style="height:190px;">
-                    <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:30px"/>
-                </div>
-                <div ng-show="comment.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::comment.media_path}}" style="height:190px;">
-                </div>
-                <div ng-show="comment.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media_path)}}" allowfullscreen="true"></iframe>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="col-xs-12 no-padding">
-                    <textarea class="materialize-textarea" style="border:1px solid lightgrey;" placeholder="Comentá acá" rows="8" ng-model="comment.content" ></textarea>
-                </div>
-        
-
-
-      <div class="container no-padding">
-           
-                <div class="col-xs-12 no-padding"> <a role="button" class="_col-xs-12 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
-                <div class="col-xs-6 card-panel"> <a  role="button" class="_col-xs-6 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
-             <div class="col-xs-6 card-panel">    <a  role="button" class="_col-xs-6 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
-        </div>
-    </script>
-
-
-
+   
+   

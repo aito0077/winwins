@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Winwin, Account, api_host) {
+.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', '$rootScope', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, $rootScope, Winwin, Account, api_host) {
 
 
     $scope.is_admin = false;
@@ -45,8 +45,7 @@ angular.module('winwinsApp')
             $scope.last = data.last;
         });
 
-    }
-
+    };
 
     $scope.winwin = {};
     $scope.getWinwin = function() {
@@ -58,7 +57,12 @@ angular.module('winwinsApp')
             if($scope.winwin.is_moderator) {
                 $scope.isAdmin = true;
             }
-            //$scope.getPosts();
+
+
+            console.log($stateParams.actionJoin);
+            if($stateParams.actionJoin) {
+                $scope.join();
+            }
         });
     }
 
@@ -87,13 +91,10 @@ angular.module('winwinsApp')
 
         if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
             $scope.duration_days = closing_date.diff(now, 'days');
-            console.log($scope.duration_days);
             $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-            console.log($scope.duration_hours);
             var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
             $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
 
-            console.log($scope.duration_minutes);
             $scope.show_closing_date = true;
         } else {
             if($scope.winwin.closing_date && !closing_date.isAfter(now) ) {
@@ -105,7 +106,6 @@ angular.module('winwinsApp')
     $scope.getWinwin();
 
     $scope.viewProfile = function(user_id) {
-        console.log('User id: '+user_id);
         $state.go('user-view', {
             userId: user_id
         }); 
@@ -125,13 +125,21 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al unirse.',
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
                 });
             });
         } else {
+
+            $rootScope.returnState = {
+                state: 'ww-join',
+                parameters: {
+                    winwinId: $scope.winwin.id
+                }
+            };
+
             $state.go('signIn');
         }
     };
@@ -152,7 +160,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al abandonar.',
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -188,7 +196,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error en la peticion.',
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -202,9 +210,6 @@ angular.module('winwinsApp')
     $scope.getIframeSrc = function (videoId) {
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
     };
-
-    //$scope.setCurrentView('home');
-
 
     $scope.openMailModal = function(winwin) {
         $scope.toShare = winwin;
@@ -236,7 +241,10 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
             mails: $scope.mails
         }).success(function(data) {
-            $uibModalInstance.close();
+            $scope.success = true;
+            $timeout(function() {
+                $uibModalInstance.close();
+            }, 2000);
         });
     };
 })
@@ -355,13 +363,10 @@ angular.module('winwinsApp')
 
             if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
                 $scope.duration_days = closing_date.diff(now, 'days');
-                console.log($scope.duration_days);
                 $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-                console.log($scope.duration_hours);
                 var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
                 $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
 
-                console.log($scope.duration_minutes);
                 $scope.show_closing_date = true;
             }
         };
@@ -369,7 +374,6 @@ angular.module('winwinsApp')
         $scope.getWinwin();
 
         $scope.viewProfile = function(user_id) {
-            console.log('User id: '+user_id);
             $state.go('user-view', {
                 userId: user_id
             }); 
@@ -393,7 +397,7 @@ angular.module('winwinsApp')
                 .error(function(error) {
                     swal({
                         title: "ADVERTENCIA", 
-                        text: error.message, 
+                        text: 'Error al unirse', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
@@ -424,7 +428,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al abandonar', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -448,11 +452,14 @@ angular.module('winwinsApp')
     $scope.setup_components = function() {
         jQuery('[data-toggle="popover"]').popover();
         jQuery('[data-toggle="tooltip"]').tooltip()
-        jQuery('#datetimepicker1').datetimepicker({
-            minDate: new Date(),
-            format: 'DD - MM - YYYY'
-        });
 
+        jQuery('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        jQuery('input#input_text, textarea#textarea1').characterCounter();
+        jQuery('input#input_text, textarea#textarea2').characterCounter();
+        jQuery('.modal-trigger').leanModal();
     };
 
     $timeout(function() {
@@ -465,7 +472,6 @@ angular.module('winwinsApp')
 
 
     $scope.doValidateBasic = function() {
-        $scope.winwin.closing_date =  $('#datetimepicker1').data("DateTimePicker").date();
         return true;
     };
 
@@ -477,18 +483,15 @@ angular.module('winwinsApp')
 
 
     $scope.persistBasic = function() {
-        console.log('persist basic');
         if($scope.doValidateBasic()) {
             $scope.first_stage = false;
             $scope.second_stage = true;
-            console.log('First Stage: '+$scope.first_stage);
             console.log('Second Stage: '+$scope.second_stage);
             $("html, body").animate({ scrollTop: 1 }, 0);
         }
     }
 
     $scope.doSave = function() {
-        console.log('do save');
         if($scope.doValidateWinwin()) {
             $scope.saving = true;
             $scope.winwin.$save(function(data) {
@@ -501,7 +504,6 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
         $scope.f = file;
         if (file && !file.$error) {
             file.upload = Upload.upload({
@@ -510,7 +512,6 @@ angular.module('winwinsApp')
             });
 
             file.upload.then(function (response) {
-                console.log('success...');
                 $scope.uploading = false;
 
                 $timeout(function () {
@@ -519,14 +520,12 @@ angular.module('winwinsApp')
                     $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.winwin.image;
                 });
             }, function (response) {
-                console.log('error...');
                 $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
-                    console.log($scope.errorMsg);
                     swal({
                         title: "Error", 
-                        text: $scope.errorMsg,
+                        text: 'Error al subir archivo', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
@@ -536,7 +535,6 @@ angular.module('winwinsApp')
             });
 
             file.upload.progress(function (evt) {
-                console.log('progress...');
                 $scope.uploading = true;
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
@@ -559,7 +557,6 @@ angular.module('winwinsApp')
     }
 
     $scope.setVideoUrl = function() {
-        console.log('set video');
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
@@ -576,7 +573,6 @@ angular.module('winwinsApp')
                         $scope.preview_image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
                     });
                 } else {
-                    console.log('Wrong url');
                 }
             }
         });
@@ -600,7 +596,6 @@ angular.module('winwinsApp')
 
     $scope.preview_image = '';
     $scope.$watch('image_gallery_selected', function() {
-        console.log('image selected');
         if($scope.image_gallery_selected) {
             $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.image_gallery_selected;
             $scope.$apply();
@@ -628,8 +623,6 @@ angular.module('winwinsApp')
     });
 
     $scope.submitPost = function() {
-        console.log('submit');
-        console.dir($scope.post);
         $scope.post.$save(function(data) {
             $http.get(api_host+'/api/winwins/activate/'+$scope.winwin.id).success(function(data) {
                 //$scope.ww_saved = true;
@@ -643,7 +636,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error al enviar post', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -665,7 +658,6 @@ angular.module('winwinsApp')
     }
 
     $scope.setVideoUrl = function() {
-        console.log('set video');
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
@@ -683,7 +675,6 @@ angular.module('winwinsApp')
                         $scope.post.media_path = result;
                     });
                 } else {
-                    console.log('Wrong url');
                     swal({
                         title: "Incorrecto", 
                         text: "La direccion ingresada no es correcta", 
@@ -701,9 +692,7 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
         $scope.f = file;
-        console.log(file.$error);
         if (file && !file.$error) {
             console.log('enviando...');
             file.upload = Upload.upload({
@@ -813,7 +802,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al unirse', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -897,7 +886,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al quitar privilegios', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -920,7 +909,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al agregar privilegios', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -944,7 +933,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -972,7 +961,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al dejar de seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1033,7 +1022,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1061,7 +1050,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al dejar de seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1137,7 +1126,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error al solicitar sponsoreo', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -1295,7 +1284,6 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
         $scope.f = file;
         console.log(file.$error);
         if (file && !file.$error) {
@@ -1435,7 +1423,7 @@ angular.module('winwinsApp')
         });
     };
 }])
-.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, api_host, post, Post, Upload) {
+.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, $timeout, api_host, post, Post, Upload) {
 
     $scope.post = post;
 
@@ -1669,7 +1657,6 @@ angular.module('winwinsApp')
             $scope.winwin.notification_new_sponsor = true;
             $scope.winwin.notification_closing_date = true;
         }
-        console.dir($scope.winwin);
     };
 
     $scope.updateNotifications = function() {
@@ -1940,7 +1927,6 @@ angular.module('winwinsApp')
         $scope.goAdmin = function() {
             if($scope.winwin.is_moderator) {
                 $scope.isAdmin = true;
-                console.dir($scope.profile);
             } else {
                 swal({
                     title: "warning", 

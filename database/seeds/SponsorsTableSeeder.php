@@ -11,20 +11,21 @@ class SponsorsTableSeeder extends Seeder {
 
         $sponsor = new Sponsor();
         $sponsor->name = 'Coca Cola'; 
-        $sponsor->user_id = 2; 
+        $sponsor->user_id = 1; 
         $sponsor->about = 'The Coca Cola Company'; 
         $sponsor->contact_name = 'Mr. Coca'; 
         $sponsor->contact_phone = '111111111111'; 
         $sponsor->contact_email = 'info@cocacola.com'; 
         $sponsor->type = 'Industria - Comercial'; 
-        $sponsor->cover_photo = 'cocacola.png'; 
+        $sponsor->cover_photo = 'cocacola2.png'; 
         $sponsor->is_active = 1; 
         $sponsor->is_main = 1; 
         $sponsor->status = 'ACTIVE'; 
-        $sponsor->photo = 'cocacola.png'; 
+        $sponsor->photo = 'cocacola2.png'; 
 
         $sponsor->save();
 
+/*
         $sponsors_user = new SponsorsUser();
         $sponsors_user->user_id = 3;
         $sponsors_user->sponsor_id = 1;
@@ -91,13 +92,14 @@ class SponsorsTableSeeder extends Seeder {
         $sponsor->contact_phone = '22222222'; 
         $sponsor->contact_email = 'info@ford.com'; 
         $sponsor->type = 'Automotriz'; 
-        $sponsor->cover_photo = 'ford-cover.jpg'; 
+        $sponsor->cover_photo = 'ford.png'; 
         $sponsor->is_active = 1; 
         $sponsor->is_main = 1; 
         $sponsor->status = 'ACTIVE'; 
         $sponsor->photo = 'ford.jpg'; 
         $sponsor->save();
 
+*/
 
 
     }

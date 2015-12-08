@@ -18,7 +18,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "";
         $winwin->what_we_do = "Apagar las luces de nuestros hogares y marcha a pie a la plaza principal de cada cuidad el jueves 27 de septiembre del 2012 clamando por la responsabilidad ambiental de nuestros Estados, empresas y compatriotas.";
         $winwin->users_amount = "1000";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "velas.png";
         $winwin->published = 1;
         $winwin->selected = 1;
         $winwin->closing_date= '2015-11-13'; 
@@ -1272,7 +1272,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "M";
         $winwin->what_we_do = "M";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1284,7 +1284,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "ni siquiera acá mamá";
         $winwin->what_we_do = "que no haya problemas con las á";
         $winwin->users_amount = "2";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1296,7 +1296,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English";
         $winwin->what_we_do = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content her";
         $winwin->users_amount = "3";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1308,7 +1308,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Memoria";
         $winwin->what_we_do = "para armar un poemario sobre los muertos en las inundaciones del 2013";
         $winwin->users_amount = "30";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1320,7 +1320,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Perritos";
         $winwin->what_we_do = "para organizar una venta solidaria y recaudar fondos para la Asociación Perritos";
         $winwin->users_amount = "35";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 
@@ -1332,7 +1332,7 @@ class WinwinsTableSeeder extends Seeder {
         $winwin->description= "Perritos";
         $winwin->what_we_do = "para organizar una venta solidaria y recaudar fondos para la Asociación Perritos";
         $winwin->users_amount = "35";
-        $winwin->image = "ww-default.jpg";
+        $winwin->image = "ww-main-default.jpg";
         $winwin->published = 1;
         $winwin->save();
 

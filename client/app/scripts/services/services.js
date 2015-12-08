@@ -30,6 +30,7 @@ angular.module('winwinsApp')
 .factory('Account', ['$http', 'api_host', function($http, api_host) {
     return {
         getProfile: function() {
+            console.log('get profile');
             return $http.get(api_host+'/api/me');
         },
         getStatus: function() {
