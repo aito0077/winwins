@@ -44,7 +44,7 @@ angular.module('winwinsApp')
         .catch(function(response) {
             swal({
                 title: "ADVERTENCIA", 
-                text: response, 
+                text: 'Error en la autenticación con la red social', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 

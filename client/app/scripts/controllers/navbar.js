@@ -21,6 +21,7 @@ angular.module('winwinsApp')
 
     $rootScope.$on('is_logged',function(event, logged){
         $scope.is_logged = logged;
+        console.log('is logged? '+logged);
         if(logged) {
             if(!$scope.fetching_profile && !$scope.profile) {
                 $scope.fetching_profile = true;
@@ -55,6 +56,7 @@ angular.module('winwinsApp')
 
         if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
             $scope.fetching_profile = true;
+            console.log('is Authenticated');
             Account.getProfile().then(function(response) {
                 $scope.fetching_profile = false;
                 $scope.profile = response.data.profile;

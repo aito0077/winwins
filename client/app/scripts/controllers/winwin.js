@@ -125,7 +125,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al unirse.',
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -152,7 +152,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al abandonar.',
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -188,7 +188,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error en la peticion.',
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -393,7 +393,7 @@ angular.module('winwinsApp')
                 .error(function(error) {
                     swal({
                         title: "ADVERTENCIA", 
-                        text: error.message, 
+                        text: 'Error al unirse', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
@@ -424,7 +424,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al abandonar', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -526,7 +526,7 @@ angular.module('winwinsApp')
                     console.log($scope.errorMsg);
                     swal({
                         title: "Error", 
-                        text: $scope.errorMsg,
+                        text: 'Error al subir archivo', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
@@ -643,7 +643,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error al enviar post', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -813,7 +813,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "ADVERTENCIA", 
-                    text: error.message, 
+                    text: 'Error al unirse', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 
@@ -897,7 +897,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al quitar privilegios', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -920,7 +920,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al agregar privilegios', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -944,7 +944,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -972,7 +972,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al dejar de seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1033,7 +1033,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1061,7 +1061,7 @@ angular.module('winwinsApp')
         .error(function(error) {
             swal({
                 title: "ADVERTENCIA", 
-                text: error.message, 
+                text: 'Error al dejar de seguir', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -1137,7 +1137,7 @@ angular.module('winwinsApp')
             .error(function(error) {
                 swal({
                     title: "Error", 
-                    text: error.message, 
+                    text: 'Error al solicitar sponsoreo', 
                     type: "warning",
                     showCancelButton: false,
                     closeOnConfirm: true 

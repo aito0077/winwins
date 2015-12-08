@@ -15,7 +15,7 @@ angular.module('winwinsApp')
         }).catch(function(response) {
             swal({
                 title: "ADVERTENCIA", 
-                text: response, 
+                text: 'Error en su registracion', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
@@ -34,7 +34,7 @@ angular.module('winwinsApp')
             $state.go('failure-login');
             swal({
                 title: "ADVERTENCIA", 
-                text: response, 
+                text: 'Error en su autenticación', 
                 type: "warning",
                 showCancelButton: false,
                 closeOnConfirm: true 
