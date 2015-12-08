@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('SignUpCtrl', function($scope, $state, $auth) {
+.controller('SignUpCtrl', function($scope, $rootScope, $timeout, $state, $auth) {
 
     $scope.signup = function() {
         $auth.signup({
@@ -16,12 +16,7 @@ angular.module('winwinsApp')
         .then(function(data) {
             $rootScope.currentUser = data;
             $rootScope.$broadcast('is_logged', true);
-            $scope.show_login = false;
-            $scope.redirect_message = true;
-            $timeout(function() {
-                console.log('redirect');
-                $state.go('main'); 
-            }, 1000);
+            $state.go('main'); 
         })
         .catch(function(response) {
             swal({
