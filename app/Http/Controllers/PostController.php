@@ -269,11 +269,13 @@ class PostController extends Controller {
         $post = Post::find($id);
         $winwin = Winwin::find($post->reference_id);
         $post_user = $post->user;
+	$post->media;
         $post_user->detail;
         Log::info($post);
         return view('posts.view', [
             'winwin' => $winwin,
             'post' => $post,
+            'media' => $post->media,
             'facebook_app_id' => Config::get('facebook_app_id')
         ]);
 	}
