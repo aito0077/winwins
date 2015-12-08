@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('SignUpCtrl', function($scope, $auth) {
+.controller('SignUpCtrl', function($scope, $state, $auth) {
 
     $scope.signup = function() {
         $auth.signup({
