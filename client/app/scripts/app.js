@@ -102,7 +102,7 @@ angular.module('winwinsApp', [
         controller: 'winwin-search'
     })
     .state('winwin-view', {
-        url: '/winwin-view/:winwinId',
+        url: '/winwin-view/:winwinId?actionJoin',
         templateUrl: 'views/winwin-tabs/view.html',
         controller: 'winwin-tabs'
     })

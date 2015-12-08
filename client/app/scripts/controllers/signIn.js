@@ -13,8 +13,20 @@ angular.module('winwinsApp')
             $scope.show_login = false;
             $scope.redirect_message = true;
             $timeout(function() {
-                console.log('redirect');
-                $state.go('main'); 
+                if($rootScope.returnState) {
+                    switch($rootScope.returnState.state) {
+                        case 'ww-join': 
+                            $state.go('winwin-view', {
+                                winwinId: $rootScope.returnState.parameters.winwinId,
+                                actionJoin: true
+                            }); 
+                            break;
+                        default:
+                            $state.go('main'); 
+                    }
+                } else {
+                    $state.go('main'); 
+                }
             }, 1000);
 
         })

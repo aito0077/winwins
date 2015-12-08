@@ -95,19 +95,19 @@
         <div ng-include="'/views/winwin-tabs/ww-users.html'"></div>
     </div>
 
-    <div id="sponsors_requests" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_requests" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-requests.html'"></div>
     </div>
-    <div id="sponsors_to_request" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_to_request" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-to-request.html'"></div>
     </div>
-    <div id="campanada" class="tab-pane">
+    <div ng-if="is_admin" id="campanada" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-campanada.html'"></div>
     </div>
-    <div id="config" class="tab-pane">
+    <div ng-if="is_admin" id="config" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-config.html'"></div>
     </div>
-    <div id="poll" class="tab-pane">
+    <div ng-if="is_admin" id="poll" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
     </div>
 

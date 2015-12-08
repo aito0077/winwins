@@ -176,14 +176,10 @@ header.smaller {
                 </a>
         </div>
     </div>
-    <div style="text-align:center; padding: 5px;"> <span ng-click="left()" style="cursor: pointer;
-    font-family: montserrat;
-    font-size: 11px;
-    /* box-shadow: 2px 3px 2px lightgrey; */
-    background: #F7F4F4;
-    color: #848181;
-    padding: 5px;
-"><i class="fa fa-sign-out"></i> Abandonar WinWin</span></div>
+    
+    <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
+        <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
+    </div>
 </div>
 </div>
 
