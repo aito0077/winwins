@@ -236,7 +236,10 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
             mails: $scope.mails
         }).success(function(data) {
-            $uibModalInstance.close();
+            $scope.success = true;
+            $timeout(function() {
+                $uibModalInstance.close();
+            }, 2000);
         });
     };
 })
@@ -448,11 +451,14 @@ angular.module('winwinsApp')
     $scope.setup_components = function() {
         jQuery('[data-toggle="popover"]').popover();
         jQuery('[data-toggle="tooltip"]').tooltip()
-        jQuery('#datetimepicker1').datetimepicker({
-            minDate: new Date(),
-            format: 'DD - MM - YYYY'
-        });
 
+        jQuery('.datepicker').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        jQuery('input#input_text, textarea#textarea1').characterCounter();
+        jQuery('input#input_text, textarea#textarea2').characterCounter();
+        jQuery('.modal-trigger').leanModal();
     };
 
     $timeout(function() {
@@ -465,7 +471,6 @@ angular.module('winwinsApp')
 
 
     $scope.doValidateBasic = function() {
-        $scope.winwin.closing_date =  $('#datetimepicker1').data("DateTimePicker").date();
         return true;
     };
 

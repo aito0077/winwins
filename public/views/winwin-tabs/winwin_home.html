@@ -350,19 +350,16 @@ header.smaller {
     </div>
     <div class="modal-body">
         <div class="container" ng-show="!success">
-            <h6>
-                Ingresa las direcciones de las personas que quieres invitar. Recuerda separar por comas.
-            </h6>
-
             <tags-input  allowed-tags-pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" rows="3" style="margin: 40px 0" ng-model="mails" placeholder="Correos"></tags-input>
             <button type="button" ng-click="sentInvitations()"  class="btn btn-primary">
                 ENVIAR INVITACION!
             </button>
-
+            <h6 class="text-center">
+                Ingresa las direcciones de las personas que quieres invitar. Recuerda separar por comas.
+            </h6>
         </div>
         <div class="container" ng-show="success">
             <div class="row">
-                <div class="pad-50"> </div>
                 <div class="col-xs-2"></div>
                 <div class="col-xs-8">
                     <div style="text-align: center;"> 

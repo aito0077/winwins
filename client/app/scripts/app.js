@@ -291,6 +291,10 @@ angular.module('winwinsApp', [
 
     
 })
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
+}])
 .config(function ($authProvider, api_host) {
 
     $authProvider.baseUrl = api_host+'/';
@@ -421,4 +425,8 @@ angular.module('winwinsApp', [
     }
   };
 }])
+.run(function() {
+    console.log('run');
+    window.loading_screen.finish();
+})
 ;
