@@ -739,7 +739,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', '$timeout', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, $timeout, Winwin, Account) {
+.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', '$timeout', '$uibModal', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, $timeout, $uibModal, Winwin, Account) {
     $scope.profile = {};
     $scope.winwin = {};
 
@@ -765,6 +765,28 @@ angular.module('winwinsApp')
 
     $scope.promote = true;
     $scope.success = false;
+
+
+    $scope.openMailModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'myMailShare.html',
+            controller: 'ModalMailCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                },
+                mails: function () {
+                    return {};
+                }
+            }
+        });
+    };
+
+
+
 
 }])
 .controller('winwin-list', ['$scope', '$http', '$auth', '$state', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, WinwinPaginate, api_host) {

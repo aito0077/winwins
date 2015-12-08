@@ -7805,3 +7805,12 @@ position: relative;
     background: #1762C3;
     border-radius: 0px;
     }
+
+.modal .modal-content {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    padding: 5px !important;
+}
+.modal .modal-header {
+    padding: 5px !important;
+}

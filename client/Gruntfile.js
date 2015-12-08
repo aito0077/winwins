@@ -22,6 +22,9 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn'
   });
 
+    grunt.loadNpmTasks('grunt-html-angular-validate');
+
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -466,7 +469,24 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    htmlangular: {
+        options: {
+        // Task-specific options go here.
+            customattrs: [
+                'socialshare*',
+                'background-*',
+                'dynamic-*',
+                'ngf-*'
+            ]
+        },
+        files: {
+            src: ['<%= yeoman.app %>/index.html','<%= yeoman.app %>/views/{,*/}*.html']
+        },
     }
+
+
   });
 
 
