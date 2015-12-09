@@ -1,7 +1,7 @@
 
 
   <div class="container no-padding">
-  <div class="input-field col s12" style="margin-top: -5px;">
+  <div class="input-field col s12 no-padding" style="margin-top: 5px; margin:-15px;">
     <select>
       <option value="1" >Todos los miembros</option>
       <option value="2">Nuevos</option>
@@ -12,7 +12,7 @@
 
 
  <div infinite-scroll='users.nextPage()'>
-        <div class="col-xs-12 no-padding card-panel teal hoverable" style="padding-top: 10px;" ng-repeat="user in users.items">
+        <div class="col-xs-12 no-padding card-panel teal hoverable" ng-repeat="user in users.items">
 <div class="container no-padding">
     <div class="row no-padding">
         <div class="col-xs-12 no-padding">
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="container no-padding">
-        <div class="row no-padding">
+        <div class="container no-padding">
             <div class="buttons-profile">
                 <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::user.winwin_count}}</a>
                 <a role="button" class="col-xs-5 btn-join" ng-show="user.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
@@ -35,38 +35,6 @@
         </div>
     </div>
 </div>
-</div>
-  <!--  <div infinite-scroll='users.nextPage()'>
-        <div class="col-xs-12 no-padding card-panel teal hoverable" style="    margin-top: 10px;" ng-repeat="user in users.items">
-
-            <div class="col-xs-4" style="padding:15px;">
-                <img ng-src="http://images.dev-winwins.net/90x90/{{::user.photo}}"  class="circle" />
-                <div class="somos-grupo">
-                    <span class="num-somos sponsor fix-num-sponsors left">{{::user.winwin_count}}</span>
-                </div>
-            </div>
-            <div class="col-xs-6" align="left">
-                <h5 style=    "text-align: left;">
-                    {{::user.name}} {{::user.lastname}}
-                </h5>
-                <p style="white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 340px; font-size:10px;">
-                    {{::user.about}}
-                </p>
-            </div>
-            <div class="col-xs-2 no-padding">                
-                <div class="col-xs-12 no-padding blank-space">
-                </div>
-             <!--   <div class="col-xs-12 no-padding me-interesa">
-                    <button type="button" class="btn-green" ng-click="follow(user.id)">
-                        Seguir
-                    </button>
-                </div>
-            </div>-->
-        </div>
-    </div>
 
 
 <script>
