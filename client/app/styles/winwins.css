@@ -4188,22 +4188,6 @@ background-color: #2AB467;
   border: 0px;
 }
 
-.col-xs-3-3.active,
-.col-xs-3-3:hover {
-    width: 25%;
-    float: left;
-    height: 40px;
-    background-color: #FF7F0A;
-    border-bottom: 2px solid #134c99;
-    text-align: center;
-    color: #FFF;
-    font-size: 20px;
-  border: 0px;
-    cursor:pointer;
-}
-.col-xs-3-3:active {
-    background-color: #043F7B;
-}
 
 .col-xs-3-3 i {
     margin-top: 8px;
@@ -6898,24 +6882,9 @@ background-color: #2AB467;
     color: #FFF;
     font-size: 20px;
   border: 0px;
+  cursor: pointer;
 }
 
-.col-xs-3-3.active,
-.col-xs-3-3:hover {
-    width: 25%;
-    float: left;
-    height: 40px;
-    background-color: #FF7F0A;
-    border-bottom: 2px solid #134c99;
-    text-align: center;
-    color: #FFF;
-    font-size: 20px;
-  border: 0px;
-    cursor:pointer;
-}
-.col-xs-3-3:active {
-    background-color: #043F7B;
-}
 
 .col-xs-3-3 i {
     margin-top: 8px;

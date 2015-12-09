@@ -333,6 +333,7 @@ padding:0px;
     .320hide {
       display:none;
    }
+   
    nav .brand-logo.center {
     left: 50%;
     -webkit-transform: translateX(-50%);

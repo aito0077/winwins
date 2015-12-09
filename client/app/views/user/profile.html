@@ -1,7 +1,5 @@
-<div id="slider"></div>
 
-<div id="menu-profile" class="container">
-    <div class="row">
+<div id="menu-profile" class="container no-padding">
         <div class="container col-xs-12 no-padding">
             <a data-toggle="tab" data-target="#home" ng-click="setCurrentView('home')">
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
@@ -34,8 +32,6 @@
                 <i class="fa fa-gear"></i>
             </a>
         </div>
-
-    </div>
 </div>
 
 <div class="profile-tabs tab-content">
@@ -58,20 +54,3 @@
 
 <script>
 
-$(document).ready(function () {
-    slider();
-});
-
-$(window).scroll(function () {
-    slider();
-});
-
-function slider() {
-    if (document.body.scrollTop > 50) {
-        $('#slider').stop().animate({"margin-top": '0'})>10;
-    } else {
-        $('#slider').stop().animate({"margin-top": '0'})>10;
-    }
-}
-
-</script>
