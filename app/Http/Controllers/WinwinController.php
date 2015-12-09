@@ -56,7 +56,8 @@ class WinwinController extends Controller {
 
 	public function index() {
         //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
-        $winwins = Winwin::where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+//        $winwins = Winwin::where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+        $winwins = Winwin::all();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
@@ -675,6 +676,8 @@ class WinwinController extends Controller {
 
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
+        $image->name = $filename;
+        $image->save();
 
         return Response::json(['OK' => 1, 'filename' => $filename]);
     }
