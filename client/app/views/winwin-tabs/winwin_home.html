@@ -34,8 +34,8 @@
        </div>
    
    -->
-<div class="container">
-   <div class="row">
+<div class="container no-padding">
+   <div  class="col-xs-12 no-padding">
       <div ng-if="!winwin.is_image" class="col-xs-12 no-padding card-panel teal" style="z-index:99;">
          <header class="white" style="margin-top:45px;  box-shadow: rgba(62, 55, 55, 0.42) 2px 2px 15px;">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px;
@@ -50,7 +50,7 @@
                   </div>
                </div>
             </div>
-            <div style="z-index: 999999; margin-top:10px;margin-bottom:10px; ">
+            <div style="margin-top:10px;margin-bottom:10px; ">
                <div class="col-xs-2" >    <span class="ww-social-fb-btn" socialshare 
                   socialshare-provider="facebook" 
                   socialshare-text="{{::winwin.title}}" 
@@ -98,7 +98,7 @@
    </div>
 </div>
 <!-- Winwin Text-->
-<div class="container" style="text-align:center; margin-top: 270px;">
+<div class="container" style="text-align:center; margin-top: 280px;">
    <div class="col-xs-12">
       <span class="sisupieras">¿Si supieras que somos </span>
       <span class="somos-txt">{{::winwin.users_amount}} personas</span> 
