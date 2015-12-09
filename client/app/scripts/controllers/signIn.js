@@ -27,7 +27,7 @@ angular.module('winwinsApp')
                 } else {
                     $state.go('main'); 
                 }
-            }, 1000);
+            }, 3000);
 
         })
         .catch(function(response) {
@@ -47,11 +47,13 @@ angular.module('winwinsApp')
             $rootScope.currentUser = data;
             $rootScope.$broadcast('is_logged', true);
             $scope.show_login = false;
+            $scope.provider = provider;
             $scope.redirect_message = true;
+            
             $timeout(function() {
                 console.log('redirect');
                 $state.go('main'); 
-            }, 1000);
+            }, 3000);
         })
         .catch(function(response) {
             swal({

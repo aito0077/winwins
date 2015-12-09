@@ -116,7 +116,7 @@ class AuthController extends Controller {
         return redirect('/');
     }
 
-    public function facebook(Request $request) {
+    public function facebook(Request $request, Mailer $mailer) {
         $accessTokenUrl = 'https://graph.facebook.com/v2.3/oauth/access_token';
         $graphApiUrl = 'https://graph.facebook.com/v2.3/me';
 
@@ -205,6 +205,10 @@ class AuthController extends Controller {
 			}
             $user->save();
             $user->detail()->save($userDetail);
+    
+            if(isset($user->email)) {
+                $this->sentEmailWelcome($mailer, $user);
+            }
 
             return response()->json(['token' => $this->createToken($user)]);
         }

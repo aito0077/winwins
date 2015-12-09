@@ -57,7 +57,15 @@ angular.module('winwinsApp')
         $auth.authenticate(provider)
         .then(function(data) {
             $rootScope.currentUser = data;
-            $state.go('main');
+            $rootScope.$broadcast('is_logged', true);
+            $scope.show_signup = false;
+            $scope.provider = provider;
+            $scope.redirect_message = true;
+
+            $timeout(function() {
+                $state.go('main'); 
+            }, 3000);
+
         })
         .catch(function(response) {
             $state.go('failure-login');
