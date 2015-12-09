@@ -7,6 +7,7 @@ Route::post('auth/facebook', 'AuthController@facebook');
 Route::post('auth/google', 'AuthController@google');
 Route::post('auth/login', 'AuthController@login');
 Route::post('auth/signup', 'AuthController@signup');
+Route::get('auth/signup', 'AuthController@signup');
 Route::get('auth/token', 'AuthController@getToken');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
