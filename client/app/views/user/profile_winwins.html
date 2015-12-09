@@ -1,6 +1,5 @@
-<h3>Winwins</h3>
-<div class="container" ng-repeat="winwin in user_detail.winwins">
-    <div class="row">
+<div class="container no-padding" ng-repeat="winwin in user_detail.winwins">
+
         <div class="col-xs-12 no-padding">
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
                 <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
@@ -23,7 +22,6 @@
                 <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
             </div>
         </div>
-    </div>
 </div>
 
 

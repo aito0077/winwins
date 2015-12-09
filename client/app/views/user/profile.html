@@ -1,33 +1,34 @@
 
 <div id="menu-profile" class="container no-padding">
         <div class="container col-xs-12 no-padding">
-            <a data-toggle="tab" data-target="#home" ng-click="setCurrentView('home')">
+            <a href data-toggle="tab" data-target="#home">
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
                     <i class="fa fa-user"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#winwins" ng-click="setCurrentView('winwins')">
+            <a href data-toggle="tab" data-target="#winwins">
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'winwins'}">
                     <i class="fa fa-comments"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#notificaciones" ng-click="setCurrentView('notifications')">
+            <a href data-toggle="tab" data-target="#notificaciones">
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'notifications'}">
-                    <i class="fa fa-comments"></i>
+                 <i class="fa fa-eye"></i>
                 </div>
             </a>
-            <a data-toggle="tab" data-target="#config" ng-click="setCurrentView('admin')">
+            <a  href data-toggle="tab" data-target="#config" >
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'admin'}" ng-cloak>
+                      <i class="fa fa-pencil"></i>
                     <i ng-if="user_detail.myself"  class="fa fa-gear"></i>
                 </div>
             </a>
         </div>
-        <div class="col-xs-6 submenu-icons" ng-if="is_admin">
+        <div href class="col-xs-6 submenu-icons" ng-if="is_admin">
             <a data-toggle="tab" data-target="#config_user">
                 <i class="fa fa-user"></i>
             </a>
         </div>
-        <div class="col-xs-6 submenu-icons" ng-if="is_admin">
+        <div href class="col-xs-6 submenu-icons" ng-if="is_admin">
             <a data-toggle="tab" data-target="#config_setting">
                 <i class="fa fa-gear"></i>
             </a>
