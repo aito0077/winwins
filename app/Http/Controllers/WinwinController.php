@@ -56,9 +56,10 @@ class WinwinController extends Controller {
 
 	public function index() {
         //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
-        $winwins = Winwin::where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
+        $winwins = Winwin::all();
 
         $collection = Collection::make($winwins);
+	Log::info($collection);
         $collection->each(function($winwin) {
             $users_count = count($winwin->users);
             $winwin->users_already_joined = $users_count;
