@@ -676,6 +676,8 @@ class WinwinController extends Controller {
 
         Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
+        $image->name = $filename;
+        $image->save();
 
         return Response::json(['OK' => 1, 'filename' => $filename]);
     }
