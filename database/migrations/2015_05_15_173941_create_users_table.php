@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration {
             $table->boolean('canceled')->default(FALSE);
             $table->string('cancel_reason')->nullable();
             $table->boolean('suspend')->default(FALSE);
+            $table->string('activation_code')->nullable();
             $table->boolean('active')->default(FALSE);
             $table->boolean('accept_terms')->default(FALSE);
 

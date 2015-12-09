@@ -509,9 +509,7 @@ class WinwinController extends Controller {
             ));
             $message->subject('WW - '.$winwin->title);
             $message->to(null, $recipient['text']);
-            /*
             $message_sent = $mailer->send($message);
-            */
         }
 
 

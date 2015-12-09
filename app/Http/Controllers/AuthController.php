@@ -14,6 +14,8 @@ use Winwins\User;
 use Winwins\Model\UserDetail;
 use Winwins\Jobs\UpdateProfilePicture;
 use Storage;
+use Winwins\Message\Mailer;
+use Winwins\Message\Message;
 
 class AuthController extends Controller {
 
@@ -68,7 +70,7 @@ class AuthController extends Controller {
         }
     }
 
-    public function signup(Request $request) {
+    public function signup(Request $request, Mailer $mailer) {
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'name' => 'required',
@@ -89,7 +91,7 @@ class AuthController extends Controller {
         $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-
+        $user->activation_code = str_random(60) . $request->input('email');
         $user->save();
         $detail = new UserDetail;
         $detail->name = $request->input('name');
@@ -100,7 +102,18 @@ class AuthController extends Controller {
 
         $this->dispatch(new UpdateProfilePicture($user));
 
+        $this->sentEmailConfirmation($mailer, $user);
+
         return response()->json(['token' => $this->createToken($user)]);
+    }
+
+    public function activateAccount(Request $request, Mailer $mailer, $code) {
+        $user = User::where('activation_code', '=', $code)->first();
+        $user->active = 1;
+        $user->activation_code = '';
+        $user->save();
+        $this->sentEmailWelcome($mailer, $user);
+        return redirect('/');
     }
 
     public function facebook(Request $request) {
@@ -412,5 +425,37 @@ class AuthController extends Controller {
         }
     }
 
-    
+	public function sentEmailConfirmation($mailer, $user) {
+        $template_name = 'winwin_confirm_registration';
+        $message = new Message($template_name, array(
+            'meta' => array(
+                'base_url' => 'http://dev-winwins.net',
+                'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+            ),
+            'registration_link' => 'http://dev-winwins.net/auth/activate/'.$user->activation_code
+        ));
+        $message->subject('WinWin - Confirma tu nueva cuenta');
+        $message->to(null, $user->email);
+        $message_sent = $mailer->send($message);
+
+        return $message_sent;
+    }
+
+   	public function sentEmailWelcome($mailer, $user) {
+        $template_name = 'winwin_welcome';
+        $message = new Message($template_name, array(
+            'meta' => array(
+                'base_url' => 'http://dev-winwins.net',
+                'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+            ),
+            'registration_link' => 'http://dev-winwins.net/auth/activate/'.$user->activation_code
+        ));
+        $message->subject('WinWin - Bienvenido');
+        $message->to(null, $user->email);
+        $message_sent = $mailer->send($message);
+
+        return $message_sent;
+    }
+
+ 
 }
