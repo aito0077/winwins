@@ -231,23 +231,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ModalMailCtrl', function ($scope, $uibModalInstance, $http, $timeout, api_host, toShare, mails) {
 
-    $scope.toShare = toShare;
-    $scope.success = false;
-    $scope.mails = [];
-
-    $scope.sentInvitations = function() {
-        $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
-            mails: $scope.mails
-        }).success(function(data) {
-            $scope.success = true;
-            $timeout(function() {
-                $uibModalInstance.close();
-            }, 2000);
-        });
-    };
-})
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
     $scope.getWinwin = function() {
@@ -1998,6 +1982,43 @@ angular.module('winwinsApp')
 
 }])
 
+.controller('ModalMailCtrl', function ($scope, $uibModalInstance, $http, $timeout, api_host, toShare, mails) {
+
+    $scope.toShare = toShare;
+    $scope.success = false;
+    $scope.mails = [];
+    $scope.current_mail = '';
+
+    $scope.addMail = function() {
+        if(!$scope.current_mail) {
+            return;
+        }
+        if($scope.matchEmail($scope.current_mail)) {
+            $scope.mails.push($scope.current_mail);
+            $scope.current_mail = ''; 
+        }
+    };
+    $scope.removeMail = function(mail) {
+        $scope.mails = _.without($scope.mails, mail);
+    };
+
+    $scope.sentInvitations = function() {
+        $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
+            mails: $scope.mails
+        }).success(function(data) {
+            $scope.success = true;
+            $timeout(function() {
+                $uibModalInstance.close();
+            }, 2000);
+        });
+    };
+
+    $scope.matchEmail = function(email){
+        var p = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        return (email.match(p));
+    }
+
+})
 
 ;
 

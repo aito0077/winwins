@@ -59,7 +59,6 @@ class WinwinController extends Controller {
         $winwins = Winwin::all();
 
         $collection = Collection::make($winwins);
-	Log::info($collection);
         $collection->each(function($winwin) {
             $users_count = count($winwin->users);
             $winwin->users_already_joined = $users_count;
@@ -488,6 +487,8 @@ class WinwinController extends Controller {
         $winwin = Winwin::find($winwinId);
         $detail = $user->detail;
 
+        Log::info($request->input('mails'));
+
         foreach($request->input('mails') as $recipient) {
             $message = new Message($template_name, array(
                 'meta' => array(
@@ -508,7 +509,7 @@ class WinwinController extends Controller {
 
             ));
             $message->subject('WW - '.$winwin->title);
-            $message->to(null, $recipient['text']);
+            $message->to(null, $recipient);
             $message_sent = $mailer->send($message);
         }
 
