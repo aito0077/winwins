@@ -172,7 +172,7 @@
             <div class="row">
                 <div style="cursor:pointer" name="uploader" ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders card-panel teal" ngf-accept="'image/*'">
                     <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro" style="padding-top:0px;" ></i><br>
-                    <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading">
+                    <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading" style="width:90%; height:80%;">
                     <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/90x/smart/{{winwin.image}}" height="90" alt="loading">
                 </div>
                 <div style="cursor:pointer" class="col-xs-4 uploaders card-panel teal" ng-click="setVideoUrl()">

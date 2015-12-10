@@ -8,24 +8,17 @@
   <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
 
 
-  <div class="container no-padding"  ng-repeat="notification in user_detail.notifications">
+  <div class="container no-padding"  style="margin:0px;" ng-repeat="notification in user_detail.notifications">
 
-        <div class="collection">
-        <a href="#!" class="collection-item"><i class="fa fa-comments" ng-if="notification.type == 'WW_CREATED'"></i></a>
-        <a href="#!" class="collection-item active">       <i class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></i></a>
-        <a href="#!" class="collection-item">      <i class="fa fa-users" ng-if="notification.type == 'GROUP_CREATED'"></i></a>
-        <a href="#!" class="collection-item"><i class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></i></a>
-        <a href="#!" class="collection-item">      <i class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></i></a>
-          <a href="#!" class="collection-item">      <i class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></i></a>
+             
+           
+<a  ng-if="notification.type == 'WW_CREATED'"></a>
+ <a  ng-if="notification.type == 'WW_JOIN'"></a>
+ <a ng-if="notification.type == 'GROUP_CREATED'"></a>
+ <a class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></a>
+ <a class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></a>
+<a class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></a>
 
-  <p class="text-destacados lista"> 
-                            {{notification.body}}
-                        </p>
-  
-      </div>
-
-
-
-            
-    </div>
-</div>
+<ul class="collection">
+ <li class="collection-item"><i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i><span style="color:#0277BD !important;"> {{notification.body}}</div></li>               
+</ul>

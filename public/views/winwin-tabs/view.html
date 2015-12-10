@@ -76,6 +76,11 @@
                     <i class="fa fa-bullhorn"></i>
                 </div>
             </a>
+               <a data-toggle="tab" data-target="#config">
+                <div class="col-xs-3 submenu-icons active">
+                    <i class="fa fa-edit"></i>
+                </div>
+            </a>
         </div> 
 
     </div>
@@ -109,6 +114,9 @@
     </div>
     <div ng-if="is_admin" id="poll" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
+    </div>
+    <div ng-if="is_admin" id="edit" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/edit_ww.html'"></div>
     </div>
 
 

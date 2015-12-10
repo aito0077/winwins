@@ -22,7 +22,7 @@
                                       <!-- Media -->
                 
                             <div class="media-post"> </div>
-                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.name}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
                             <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:10px;">
                                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                             </div>
@@ -62,7 +62,7 @@
                                     {{::comment.content}}
                                 </div>
                                 <div class="media-post"> </div>
-                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.id}}.{{::comment.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.name}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
                                 <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
                                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
                                 </div>
@@ -93,8 +93,21 @@
 
     </div>
 
-    <div id="footer">
-        <div class="container comments-box">
+    <div id="footer" ng-class="{'with_media': post.media_type}">
+       <div class="container comments-box" >
+            <div class="row no-padding">
+                <div class="container" ng-show="post.media_type">
+                    <div ng-show="uploading" class=" col-xs-12">
+                        <img class="img-responsive" ng-show="uploading" src="/images/loading.gif" style="height:auto;width:auto;padding:30px"/>
+                    </div>
+                    <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
+                    </div>
+                    <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(post.media_path)}}" allowfullscreen="true"></iframe>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-xs-2 post-image">
                 <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38">
             </div>
@@ -164,7 +177,7 @@
             <div class="container" ng-show="comment.media_type">
 
                 <div ng-show="uploading" style="height:190px;">
-                    <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:30px"/>
+                    <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loading.gif" height="75" style="padding:30px"/>
                 </div>
                 <div ng-show="comment.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::comment.media_path}}" style="height:190px;">
                 </div>

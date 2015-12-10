@@ -1268,9 +1268,11 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
+        $scope.post.media_type  = 'IMAGE';
         $scope.f = file;
         console.log(file.$error);
         if (file && !file.$error) {
+            $scope.uploading = true;
             console.log('enviando...');
             file.upload = Upload.upload({
                 url: api_host+'/api/posts/upload',
@@ -1283,9 +1285,11 @@ angular.module('winwinsApp')
 
                 $timeout(function () {
                     file.result = response.data;
-                    $scope.post.media_id = response.data.media_id;
-                    $scope.post.media_type  = 'IMAGE';
-                    $scope.post.media_path = response.data.filename;
+                    $scope.$apply(function(){
+                        $scope.post.media_id = response.data.media_id;
+                        $scope.post.media_type  = 'IMAGE';
+                        $scope.post.media_path = response.data.filename;
+                    });
                 });
             }, function (response) {
                 console.log('error...');

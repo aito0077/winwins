@@ -6,8 +6,8 @@
 </style>
 <div ng-show="show_login">
    <form method="post" ng-submit="login()" name="loginForm">
-      <div class="container" style="margin-top:20px;">
-         <div class="row 320hide" >
+      <div class="container">
+         <div class="320hide" >
             <H4 class="white-text text-lighten-6 320hide" style="text-align:center;"><i class="fa fa-sign-in"></i>
                VAMOS A TU CUENTA 
             </h4>
@@ -39,51 +39,44 @@
             </button>
          </div>
    </form>
-   <div class="pad-20"></div>
    <!-- /Signup Form -->   
    <div class="container">
-   <div class="row">
-   <H4 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
-   O  INGRESA CON  
-   </h4>
-   </div>
+   <H6 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
+  <span stlye="font-size: 19px;"> ¿No tenes cuenta? </span><br>Ingresa con un clic con red social preferida:
+   </h6>
    </div>
    <!-- social login -->   
-   <div class="container">
-   <div class="row">
-   <div class="col-md-offset-4 col-md-1 col-xs-3"><a class="i" ng-click="authenticate('facebook')" ><i class="fa fa-facebook" style="background-color: #3B5998;
+   <div class="container no-padding">
+   <div class="col-md-offset-4 col-md-1 col-xs-2 col-xs-offset-2 col-sm-offset-2"><a class="i" ng-click="authenticate('facebook')" ><i class="fa fa-facebook" style="background-color: #3B5998;
       font-size: 2rem;
       padding: 15px 20px;
       border-radius: 50%;
       "></i></a></div>
-   <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('twitter')" ><i class="fa fa-twitter" style="background-color:  #54ABEE;
+   <div class="col-md-1 col-xs-2"><a class="i" ng-click="authenticate('twitter')" ><i class="fa fa-twitter" style="background-color:  #54ABEE;
       font-size: 2rem;
       padding: 15px 15px;
       border-radius: 50%;
       "></i></a></div>
-   <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('google')" ><i class="fa fa-google" style="background-color: #D50F25;
+   <div class="col-md-1 col-xs-2"><a class="i" ng-click="authenticate('google')" ><i class="fa fa-google" style="background-color: #D50F25;
       font-size: 2rem;
       padding: 15px 20px;
       border-radius: 50%;
       "></i></a></div>
-   <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('yahoo')" ><i class="fa fa-yahoo" style="background-color: #3B5998;
+   <div class="col-md-1 col-xs-2 "><a class="i" ng-click="authenticate('yahoo')" ><i class="fa fa-yahoo" style="background-color: #7B0099;
       font-size: 2rem;
-      padding: 15px 15px;
+      padding: 15px 17px;
       border-radius: 50%;
       "></i></a></div>
-   <div class="col-md-offset-4"></div>
+   <div class="col-md-offset-3"></div>
+
    </div>
-   </div>
-   <!---->  
-   <div class="pad-20"></div>
+
    <div class="container">
-   <div class="row">
-   <H5 class="white-text text-lighten-6" style="text-align:centeR;;"><i class="fa fa-sign-in"></i>
-   ¿No tenes cuenta? <a style="background-color:#FF8000; padding: 4px; border-radius:2px;" ng-href="/#/signup" ng-if="!isAuthenticated()"> Crea una </a>
-   </h5>
+   <H6 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
+  <span stlye="font-size: 19px;"> O registrate haciendo <span style="background-color: #FF8000; padding:3px; border-radius:2px;">clic aquí:</span>
+   </h6>
    </div>
-   </div>
-   <!---->  
+
    <!--  footer -->  
    <div class="footer-copyright center">
    <h6 style="font-size:10px; color: orange;">   © 2015 - Humanet - WinWins.Org- </span> Acuerdos en Acción</h6>
