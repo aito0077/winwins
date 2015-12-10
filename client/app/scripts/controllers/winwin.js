@@ -568,8 +568,9 @@ angular.module('winwinsApp')
         $scope.gallery_picker = !$scope.gallery_picker;
         
         if(!$scope.image_gallery_selected) {
-            $('#image-gallery').imagepicker({
+            jQuery('#image-gallery').imagepicker({
                 changed: function(old, new_value) {
+                    $scope.image_gallery_selected = new_value;
                     $scope.$apply(function(){
                         $scope.gallery_picker = false;
                     });

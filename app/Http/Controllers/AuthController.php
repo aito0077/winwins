@@ -163,6 +163,7 @@ class AuthController extends Controller {
             $userDetail = $user->detail;
             $userDetail->name = $userDetail->name ?: $profile['first_name'];
             $userDetail->photo = $userDetail->photo ?: $picture;
+            $user->photo = $userDetail->photo;
             $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
             $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : $profile['gender'] == 'female'? 'F': '');
 
@@ -196,6 +197,7 @@ class AuthController extends Controller {
             $picture_name = 'fb_'.$user->facebook;
             Storage::disk('s3-gallery')->put('/' . $picture_name, file_get_contents($picture), 'public');
             $userDetail->photo = $picture_name;
+            $user->photo = $userDetail->photo;
 
 			if(isset($profile['last_name'])) {
                 $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
@@ -408,20 +410,18 @@ class AuthController extends Controller {
                 $user = new User;
                 $user->twitter = $profile['id'];
                 $user->username = $profile['screen_name'];
-                $user->save();
 
                 $detail = new UserDetail;
                 if(isset($profile['screen_name'])) {
                     $detail->name = $detail->name ?: $profile['screen_name'];
                 }
-
                 $picture = $profile['profile_image_url'];
                 $picture_name = 'tw_'.$user->twitter;
                 Storage::disk('s3-gallery')->put('/' . $picture_name, file_get_contents($picture), 'public');
                 $detail->photo = $picture_name;
+                $user->photo = $detail->photo;
 
-                Log::info($detail);
-
+                $user->save();
                 $user->detail()->save($detail);
 
                 return response()->json(['token' => $this->createToken($user)]);
