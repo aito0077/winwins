@@ -1,8 +1,8 @@
-<h3>Notificaciones</h3>
+
 <div class="container no-padding">
-    <div class="row">
         <div class="col-xs-12 no-padding">
-            <div ng-class-odd="media"  ng-class-even="media-b" ng-repeat="notification in user_detail.notifications">
+             <ul class="collection">
+      <li class="collection-item"> <div ng-class-odd="media"  ng-class-even="media-b" ng-repeat="notification in user_detail.notifications">
                 <div class="media-left">
                     <i class="fa fa-bell-o"></i>
                 </div>
@@ -12,19 +12,8 @@
                         {{notification.created_at | moment: 'DD/MM/YYYY HH:mm'}}
                     </span>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<hr/>
-
-
-<div class="container no-padding">
-    <div class="row">
-        <div class="col-xs-12 no-padding">
-
-            <div ng-class-odd="media" ng-class-even="media-b" ng-repeat="comment in comments">
+            </div></li>
+      <li class="collection-item"> <div ng-class-odd="media" ng-class-even="media-b" ng-repeat="comment in comments">
                 <div class="media-left">
                         <img  ng-src="http://images.dev-winwins.net/30x30/smart/{{comment.photo}}" class="media-object img-circle"  width="30" height="30"/>
                     </a>
@@ -38,7 +27,34 @@
                     </span>
                 </div>
             </div>
+</li>
+      <li class="collection-item"><div class="container comments-box"  ng-if="!user_detail.myself">
+        <div class="col-xs-2 post-image">
+            <img ng-src="http://images.dev-winwins.net/38x38/{{user_detail.photo}}" class="img-circle-simple" width="38" height="38"/>
         </div>
+            <div class="col-xs-6 ">
+                <div class="bubbles">
+                    <textarea class="postbox" rows="4" ng-model="comment.content" ng-required="true" placeholder="Enviar un comentario">
+                </div>
+            </div>
+
+            <a href="#" role="button" class="col-xs-2 button-send" ng-click="submitComment()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></a>
+        </div>
+    </div></li>
+      <li class="collection-item">Alvin</li>
+    </ul>
+
+           
+        </div>
+</div>
+
+
+
+<div class="container no-padding">
+
+        <div class="col-xs-12 no-padding">
+
+           
     </div>
     <div class="container comments-box"  ng-if="!user_detail.myself">
         <div class="col-xs-2 post-image">
