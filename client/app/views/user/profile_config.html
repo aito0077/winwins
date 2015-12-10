@@ -1,10 +1,21 @@
         <div class="tab-content">
 
 
-                <div class="container no-padding">
+                <div class="container no-padding" >
+
+                    
+                                  <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="z-index: 9999;box-shadow: 2px 2px 5px #999">
+                     <h1 style="font-size:20px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-pencil animated infinite wobble"></i></h1>
+                      <h4 class="white-text"> Editar Perfil<H4>
+
+                    </div>
+      
+  <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;z-index:99999;"></i>
+
+       
 
                 
-                        <div class="col-xs-12 no-padding card-panel">
+                        <div class="col-xs-12 no-padding card-panel" style="margin-top:-35px;">
                             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
                             
                                 <div class="profile-avatar avatar animated fadeInUp">
@@ -17,18 +28,11 @@
 
                         </div>
 
-        <div
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 card-panel  light-blue darken-3 white-text center">
-                         <h4> <i class="fa fa-pencil animated infinite wobble"></i> Editar perfil  <h4>
-                        </div>
-                    </div>
-                </div>
+        <div>
+       <div>
 
        
-            <div class="col-xs-12" style="margin-top:-20px;">
+            <div class="col-xs-12">
                 <form method="post" ng-submit="saveProfile()" name="signupForm">
                      <div class="col-xs-12 card-panel teal">  <label for="textarea1">Nombre</label>
                     <input type="text" class="form-control" disabled placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
