@@ -320,8 +320,6 @@ padding:0px;
     height: 50px;
 }
 
-
-
 .comments-box {
     width: 100%;
     padding: 15px;
@@ -360,6 +358,12 @@ padding:0px;
 .post-content {
     padding-left: 60px;
     padding-right: 15px;
+}
+
+
+.iso-width {
+width:112px;
+height: 34px;
 }
 }
 
