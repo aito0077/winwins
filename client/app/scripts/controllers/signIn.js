@@ -16,10 +16,13 @@ angular.module('winwinsApp')
                 if($rootScope.returnState) {
                     switch($rootScope.returnState.state) {
                         case 'ww-join': 
+                            var winwinId = $rootScope.returnState.parameters.winwinId;
+                            $rootScope.returnState = null;
                             $state.go('winwin-view', {
-                                winwinId: $rootScope.returnState.parameters.winwinId,
+                                winwinId: winwinId,
                                 actionJoin: true
                             }); 
+            
                             break;
                         default:
                             $state.go('main'); 
@@ -54,8 +57,10 @@ angular.module('winwinsApp')
                 if($rootScope.returnState) {
                     switch($rootScope.returnState.state) {
                         case 'ww-join': 
+                            var winwinId = $rootScope.returnState.parameters.winwinId;
+                            $rootScope.returnState = null;
                             $state.go('winwin-view', {
-                                winwinId: $rootScope.returnState.parameters.winwinId,
+                                winwinId: winwinId,
                                 actionJoin: true
                             }); 
                             break;
@@ -79,6 +84,10 @@ angular.module('winwinsApp')
             $state.go('signin');
 
         });
+    };
+
+    $scope.goSignup = function() {
+        $state.go('signUp');
     };
 
 })

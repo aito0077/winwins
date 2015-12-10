@@ -374,6 +374,7 @@ angular.module('winwinsApp')
                         text: 'Te has unido al Winwin', 
                         type: "info",
                         showcancelbutton: false,
+                        animation: false, 
                         closeonconfirm: true 
                     });
 
@@ -405,6 +406,7 @@ angular.module('winwinsApp')
                     text: 'Has dejado el Winwin', 
                     type: "info",
                     showcancelbutton: false,
+                    animation: false, 
                     closeonconfirm: true 
                 });
 
@@ -779,6 +781,7 @@ angular.module('winwinsApp')
                     text: 'Te has unido al Winwin', 
                     type: "info",
                     showcancelbutton: false,
+                    animation: false, 
                     closeonconfirm: true 
                 });
                 $scope.view(winwin_id);
@@ -911,9 +914,11 @@ angular.module('winwinsApp')
                 text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
+                animation: false, 
                 closeonconfirm: true 
             });
             participante.following = true;
+            participante.followers_amount = participante.followers_amount + 1;
         })
         .error(function(error) {
             swal({
@@ -939,9 +944,11 @@ angular.module('winwinsApp')
                 text: 'Has dejado de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
+                animation: false, 
                 closeonconfirm: true 
             });
             participante.following = false;
+            participante.followers_amount = participante.followers_amount - 1;
         })
         .error(function(error) {
             swal({
@@ -1000,6 +1007,7 @@ angular.module('winwinsApp')
                 text: 'Siguiendo!', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             sponsor.following = true;
@@ -1028,6 +1036,7 @@ angular.module('winwinsApp')
                 text: 'Has dejado de seguir al usuario', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             sponsor.following = false;
@@ -1329,6 +1338,7 @@ angular.module('winwinsApp')
                 text: 'Post enviado!', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             $scope.normal_size = true;
@@ -1613,6 +1623,7 @@ angular.module('winwinsApp')
                 text: 'Solicitud al sponsor enviada', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             $state.go('winwin-view', {
@@ -1663,6 +1674,7 @@ angular.module('winwinsApp')
                 text: 'Notificaciones actualizadas', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
 
@@ -1800,6 +1812,7 @@ angular.module('winwinsApp')
                         text: 'Te has unido al Winwin', 
                         type: "info",
                         showcancelbutton: false,
+                        animation: false, 
                         closeonconfirm: true 
                     });
 
@@ -1810,6 +1823,7 @@ angular.module('winwinsApp')
                         text: error.message, 
                         type: "warning",
                         showCancelButton: false,
+                        animation: false, 
                         closeOnConfirm: true 
                     });
                 });
@@ -1831,6 +1845,7 @@ angular.module('winwinsApp')
                     text: 'Dejaste el Winwin', 
                     type: "info",
                     showcancelbutton: false,
+                        animation: false, 
                     closeonconfirm: true 
                 });
 
@@ -1922,6 +1937,7 @@ angular.module('winwinsApp')
                     text: 'not_is_a_moderator', 
                     type: "warning",
                     showcancelbutton: false,
+                        animation: false, 
                     closeonconfirm: true 
                 });
             }
