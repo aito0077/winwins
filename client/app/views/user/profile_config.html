@@ -21,55 +21,52 @@
         
                 </div>
 
-                <div class="form-back create-id">
+       
+            <div class="col-xs-12">
                 <form method="post" ng-submit="saveProfile()" name="signupForm">
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Nombre 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Apellido 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname">
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Sobre Mi 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <textarea ng-model="edit_user.about" class="form-control" placeholder="contanos algo sobre vos"></textarea>
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Mis intereses 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <textarea ng-model="edit_user.interests" class="form-control" " no-resize placeholder="contanos tus intereses"></textarea>
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Email 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <input class="form-control" type="email" id="email" name="email" ng-model="edit_user.email" placeholder="Tu E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1" required>
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Fecha de Nacimiento 
-                        <i class="fa fa-question-circle red"></i>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group date" id="datetimepicker1">
-                            <input type="text" class="form-control">
-                            <span class="input-group-addon">
-                                <span class="fa fa-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pad-10"></div>
-                    <div class="bubble-xs">Modificar Contraseña  
-                        <i class="fa fa-question-circle red" ></i>
-                    </div>
-                    <input password-strength class="form-control" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
-                    <input password-strength class="form-control" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
-                    <input password-match="password" class="form-control" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
+                     <div class="col-xs-12 card-panel teal">  <label for="textarea1">Nombre</label>
+                    <input type="text" class="form-control" disabled placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
+                           </div>
+                   
+                      <div class="col-xs-12 card-panel teal"><label for="textarea1">Apellido</label>
+                    <input type="text" class="form-control" disabled placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname"> 
 
-                    <div class="pad-10"></div>
-                    <div class="form-back  create-id">
+           
+                       </div>
+                       <div class="col-xs-12 card-panel teal">
+                                       <label for="textarea1">Sobre vos</label>
+                    <textarea ng-model="edit_user.about" class="materialize-textarea"  placeholder="contanos algo sobre vos"></textarea>
+       
+                    </div>
+             
+
+                     <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Intereses</label>
+                    <textarea ng-model="edit_user.interests" class="materialize-textarea"   no-resize placeholder="contanos tus intereses"></textarea>
+         
+         
+                    </div>
+                     <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Email</label>
+                    <input class="form-control" type="email" id="email" name="email" ng-model="edit_user.email" placeholder="Tu E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1" required>
+                    </div>
+    
+
+
+<div class="col-xs-12 card-panel teal">
+    <label for="textarea1">Cuándo naciste?</label>
+                      <input type="date" class="datepicker">
+              </div>
+
+                    <div class="col-xs-12 card-panel teal">
+
+                    <input password-strength class="col-xs-12 card-panel teal" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
+                    <input password-strength class="col-xs-12 card-panel teal" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
+                    <input password-match="password" class="col-xs-12 card-panel teal" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
+
+
+
+
                         <button type="submit" ng-disabled="signupForm.$invalid" class="submit-create">
                             Actualizar
                         </button>
@@ -172,4 +169,10 @@
             </div>
         </div>
 
-
+<script>
+ $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+ </script>
+        

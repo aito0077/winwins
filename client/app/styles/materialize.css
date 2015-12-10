@@ -320,6 +320,11 @@ padding:0px;
     height: 50px;
 }
 
+#footer {
+
+ height: 0;
+}
+
 @media (max-width: 325px) {
 .signup-buttons {
       font-size:12px;
