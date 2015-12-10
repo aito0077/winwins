@@ -24,7 +24,7 @@
 <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index">
 
     <div ng-if="winwin.is_sponsor" class="row">
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="height: 220px; cursor: pointer;" ng-click="viewSponsor(winwin.id)">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
         </div>
     </div>
 
