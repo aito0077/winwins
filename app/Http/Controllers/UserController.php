@@ -312,6 +312,7 @@ class UserController extends Controller {
                 });
             }
         }
+        return response()->json(['follow']);
 	}
 
 	public function unfollow(Request $request, $id) {
@@ -325,8 +326,11 @@ class UserController extends Controller {
             return response()->json(['message' => 'You have to follow in order to unfollow'], 400);
         } else {
             DB::table('followers')->where('follower_id', $user->id )->where('followed_id', $followed->id)->delete();
-            DB::table('users')->whereId($user->id)->decrement('followers_amount');
+            if($user->followers_amount > 0) {
+                DB::table('users')->whereId($user->id)->decrement('followers_amount');
+            }
         }
+        return response()->json(['unfollow']);
 	}
 
 	public function comment(Request $request, $id) {
