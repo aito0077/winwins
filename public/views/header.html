@@ -1,7 +1,7 @@
 <div ng-controller="NavController" id="winwin-menu">
-    <div class="navbar-fixed no-padding" style="height:56px;">
+    <div class="navbar-fixed no-padding iso-width" style="height:56px;">
         <nav>
-            <a class="brand-logo center" style="width:60%;" ng-href="/#/main"><img src="images/logo-winwins.png" alt="winwins"></a>
+            <a class="brand-logo center" style="width:112px;" ng-href="/#/main"><img src="images/logo-winwins.png" alt="winwins"></a>
 
             <ul id="slide-out" class="side-nav left" style="margin-top:56px;">
                 <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
@@ -17,8 +17,8 @@
                 <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;">Registrate</span></a></li>
             </ul>
 
-            <div class="right" style="padding-right:20px; z-index:99999999; height: 50px;">
-                                    <a ng-href="/#/signin" style="font-size: 20px; padding-left: 25px; padding-top:3px;" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i></a>
+            <div class="right" style="padding-right:20px; z-index:999; height: 50px;">
+                                    <a ng-href="/#/signin" style="font-size: 20px; padding-top:3px;" ng-if="!isAuthenticated()"><i class="fa fa-sign-in sign-btn"></i></a>
 
                 <a href data-activates="slide-out" class="button-collapse right"><i class="fa fa-bars" style="font-size:23px;z-index"></i></a>
                 <span style="padding-right:20px;" ng-click="goProfile()">
