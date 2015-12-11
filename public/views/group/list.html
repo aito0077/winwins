@@ -26,11 +26,14 @@
                     <img ng-repeat="sponsor in group.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
                 </div>
   <div style="col-xs-12" style="padding-bottom:10px;margin:-60px;">
-                <a href="#" class="col-xs-3 ww-somos"style="margin-top: -20px;" >  <span class="bubble-label"> Winwins </span> <span class="somos">{{user_detail.winwins.length}}</a>
+                <a href class="col-xs-3 ww-somos"style="margin-top: -20px;" >  <span class="bubble-label"> Winwins </span> <span class="somos">{{group.winwins.length || 0}}</a>
                 <span class="col-xs-6" ng-show="user_detail.myself"> </span>
-                <a href="#" role="button" class="col-xs-5 btn-join" style="margin-top: -20px;"ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following"><div class="animated flash"> UNIRSE</div></a>
-                <a href="#" role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="unfollow()" ng-show="user_detail.already_following"> ABANDONAR</a>
-                <a href="#" class="col-xs-3 ww-somos" style="margin-top: -20px;"  ><span class="bubble-label"> Miembros </span> <span class="falta">{{user_detail.followers.length}}</a>
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="view(group.id)"><div class="animated flash"> VER </div></a>
+                <!--
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following"><div class="animated flash"> UNIRSE</div></a>
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="unfollow()" ng-show="user_detail.already_following"> ABANDONAR</a>
+                -->
+                <a href class="col-xs-3 ww-somos" style="margin-top: -20px;"  ><span class="bubble-label"> Miembros </span> <span class="falta">{{group.users_already_joined}}</a>
              </div>
     </div>
 </div>
