@@ -9,8 +9,10 @@
                 <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
                 <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li>
                 <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>
-                <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Personas</a></li>
+                <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Miembros </a></li>
+                 <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"><i class="fa fa-user"></i> Miembros </a></li>
                 <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
+                <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><i class="fa fa-star"></i> Sponsors</a></li>
                 <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i>¿Cómo Funciona?</a></li>
                 <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <i class="fa fa-user"></i> Mi perfil</a></li>
                 <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span> Salir</span></a></li>

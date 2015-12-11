@@ -230,7 +230,7 @@
     <span class="col-xs-12" style="margin-top:10px; margin-bottom: 10px; float: left; text-align: left;
     border-radius: 3px;"><i class="fa fa-star yellow-text" style="font-size: 10px;border-radius: 50%; padding:2px; background-color:#1976D2;"></i> <span style="color:#1976D2; font-size: 10px;">SPONSORS </span> </span>
       <div class="col-xs-3" ng-repeat="sponsor in winwin.sponsors">
-         <img  ng-src="http://images.dev-winwins.net/x50/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="    float: left;
+         <img  ng-src="http://images.dev-winwins.net/x50/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
     border-radius: 3px;
     height: 100%;
     box-shadow: 2px 2px 3px #9DA09F;
@@ -241,6 +241,7 @@
 </div>
 </div>
 <div style="min-height:800px;">
+
    <!-- Winwin Activity Wall-->            
    <ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
 </div>
