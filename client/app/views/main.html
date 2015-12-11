@@ -41,11 +41,11 @@
             </div>
         </div>
 <!-- WW Img -->
-        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
+        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer; border-radius:4px;" ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase" style="padding-top:50px;">{{::winwin.title}}</div>
         </div>
 <!-- Info Bar -->
-        <div class="col-xs-12 no-padding" style="margin-top: 10px;margin-bottom: 5px;">
+        <div class="col-xs-12 no-padding" style="margin-top: 10px;">
             <div class="col-xs-2 no-padding">      
                 <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
             </div>
@@ -58,7 +58,7 @@
          <!-- somos -->
             <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
                 <span style="font-size:9px;">SOMOS </span> <br>
-                <span style="color:#26a69a; padding-left:3px;padding-right:3px; font-size: 17px;border-radius:2px; font-weight:bold; text-align:center; background-color: #f1f1f1;"> {{::winwin.users_already_joined}}</span> 
+                <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #f1f1f1;"> {{::winwin.users_already_joined}}</span> 
             </div>
     <!-- share button -->
              <div class="col-xs-2"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
