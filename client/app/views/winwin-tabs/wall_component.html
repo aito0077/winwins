@@ -7,7 +7,7 @@
         <div class="container no-padding" ng-repeat="item_post in posts" >
             <div class="panel-body post">
 
-                 <div class="col-xs-12" style="background:white;">
+                 <div class="col-xs-12" style="background:white; padding:0px;">
                    
                     <div class="col-xs-12 no-padding">
                         <div class="col-xs-2 no-padding">    
@@ -22,7 +22,7 @@
                                       <!-- Media -->
                 
                             <div class="media-post"> </div>
-                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.name}}" class="responsive-img" style="min-height:220px;margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.name}}" class="responsive-img" style="height:270px;margin-top:20px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
                             <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:10px;">
                                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                             </div>
@@ -97,7 +97,7 @@
        <div class="container comments-box" >
             <div class="row no-padding">
                 <div class="container" ng-show="post.media_type">
-                    <div ng-show="uploading" class=" col-xs-12">
+                    <div ng-show="uploading" class="col-xs-12">
                         <img class="img-responsive" ng-show="uploading" src="/images/loading.gif" style="height:auto;width:auto;padding:30px"/>
                     </div>
                     <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
