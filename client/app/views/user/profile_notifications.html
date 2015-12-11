@@ -1,57 +1,36 @@
-              <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999">
-                     <h1 style="font-size:60px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-comment animated fadeInRight"></i></h1>
-                      <h4 class="white-text"> NOTIFICACIONES<H4>
+<div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999">
+    <h1 style="font-size:60px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-clock-o animated fadeInLeft"></i></h1>
+    <h4 class="white-text"> TIMELINE </h4>
+    <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
+</div>
 
-                    </div>
-      
-  <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
-
-                    </div>
 <div class="container no-padding">
-        <div class="col-xs-12 no-padding">
-      <li class="collection-item"> 
-            <div ng-class-odd="media" ng-class-even="media-b" ng-repeat="comment in comments">
-                <div class="media-left">
-                        <img  ng-src="http://images.dev-winwins.net/30x30/smart/{{comment.photo}}" class="media-object img-circle"  width="30" height="30"/>
-                    </a>
-                </div>
-                <div class="media-body">
-                    Este es el mensaje de algun usuario
-                    {{comment.content}}
-                    <span class="date">
-                       <i class="fa fa-clock-o"></i> 
-                       {{comment.created_at | moment: 'DD/MM/YYYY HH:mm'}}
-                    </span>
-                </div>
-            </div>
-</li>
-    </ul>
+    <div class="col-xs-12 no-padding">
+        <div ng-class-odd="media" ng-class-even="media-b"  ng-repeat="notification in notifications">
+            <div class="media-left">
 
-           
+            </div>
+            <div class="media-body">
+                <div ng-switch="notification.type">
+                    <div ng-switch-when="WW_JOIN">
+                        Te uniste al WinWin <a ng-href="/#/winwin-view/{{notification.object_id}}" style="color: #000"> '{{notification.object.title}}'</a>
+                    </div>
+                    <div ng-switch-when="WW_CREATED">
+                        Creaste el WinWin <a ng-href="/#/winwin-view/{{notification.object_id}}" style="color: #000"> '{{notification.object.title}}'</a>
+                    </div>
+                    <div ng-switch-when="GROUP_JOIN">
+                        Te uniste al Grupo <a ng-href="/#/group-view/{{notification.object_id}}" style="color: #000"> '{{notification.object.name}}'</a>
+                    </div>
+                    <div ng-switch-when="GROUP_CREATED">
+                        Creaste el Grupo <a ng-href="/#/group-view/{{notification.object_id}}" style="color: #000"> '{{notification.object.name}}'</a>
+                    </div>
+                </div>
+                <span class="date">
+                   <i class="fa fa-clock-o"></i> 
+                   {{notification.created_at | moment: 'DD/MM/YYYY HH:mm'}}
+                </span>
+            </div>
         </div>
-</div>
-</div>
-
-  <div  ng-if="!user_detail.myself">
-
-    <div class="container light-blue darken-3">
-   <div class="col-xs-12">
-  <div class="col-xs-2"><img ng-src="http://images.dev-winwins.net/38x38/{{user_detail.photo}}" class="circle" width="38" height="38"/></div>
- <div class="col-xs-8"><textarea class="materialize-textarea no-padding" style="background-color:#fff"rows="4" ng-model="comment.content" ng-required="true" placeholder="Enviar un comentario"></textarea></div>
- <div class="col-xs-2"> <button class="btn green" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane animated infinte pulse"></i></button>
-
-      </div>
-            </div>
-
+    </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-                       

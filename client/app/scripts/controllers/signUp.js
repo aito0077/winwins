@@ -47,6 +47,7 @@ angular.module('winwinsApp')
                 text: 'Error en su registracion', 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
             $state.go('signUp');
@@ -89,6 +90,7 @@ angular.module('winwinsApp')
                 text: 'Error en su autenticación', 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });

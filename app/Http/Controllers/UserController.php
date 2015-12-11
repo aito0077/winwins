@@ -72,6 +72,12 @@ class UserController extends Controller {
             $userDetail->winwins = $winwins;
             $userDetail->groups = $user->groups;
             $userDetail->notifications = $user->notifications;
+
+            $user->notifications->each(function($notification) {
+                $notification->object = $notification->getObject();
+                $notification->formatted = trans('busca.'.$notification->body, $notification->object->toArray());
+            });
+
             //$userDetail->followers = $user->followers;
             //$userDetail->following = $user->following;
 

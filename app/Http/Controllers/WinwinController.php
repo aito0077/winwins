@@ -39,7 +39,8 @@ class WinwinController extends Controller {
 	}
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
-        $winwins = DB::table('winwins')->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        //$winwins = DB::table('winwins')->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        $winwins = DB::table('winwins')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {

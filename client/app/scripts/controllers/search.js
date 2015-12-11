@@ -54,6 +54,7 @@ angular.module('winwinsApp')
                     text: 'winwin_join', 
                     type: "info",
                     showcancelbutton: false,
+                        animation: false, 
                     closeonconfirm: true 
                 });
                 $scope.view(winwin_id);

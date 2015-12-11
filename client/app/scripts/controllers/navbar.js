@@ -6,8 +6,6 @@ angular.module('winwinsApp')
     $scope.isSponsor = false;
     $scope.sponsor = false;
 
-    $scope.profile_image = 0;
-
     $scope.$on('$stateChangeStart', function(){
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
@@ -31,12 +29,15 @@ angular.module('winwinsApp')
                     $scope.sponsor = response.sponsor;
                     $scope.isSponsor = response.is_sponsor;
                     $rootScope.account = $scope.profile;
+                    console.log('Fetching profile');
+                    $rootScope.profile_photo = $scope.profile.photo;
+                    console.log($rootScope.profile_photo);
                 });
             }
         } else {
+            $rootScope.profile_photo = false;
             $scope.profile = false;
             $scope.is_logged = false;
-            $scope.profile_image = 0;
             $scope.sponsor = false;
             $scope.isSponsor = false;
             $rootScope.account = {};
@@ -62,6 +63,7 @@ angular.module('winwinsApp')
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;
                 $scope.isSponsor = response.data.is_sponsor;
+                $rootScope.profile_photo = $scope.profile.photo;
                 $rootScope.$broadcast('is_logged', true);
             });
         }
@@ -73,7 +75,6 @@ angular.module('winwinsApp')
     $scope.fetching_profile = false;
 
     $scope.getProfile = function() {
-        var is_authenticated = $auth.isAuthenticated();
         return $scope.profile;
     };
 

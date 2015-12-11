@@ -25,35 +25,35 @@
 
 <ul class="collapsible" data-collapsible="accordion">
 
-     <!-- Sobre Nosotros -->
-
+    <!-- Sobre Nosotros -->
     <li>
-      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Sobre Nosotros</div>
-      <div class="collapsible-body"><p>       {{::group.description}}</p></div>
+        <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Sobre Nosotros</div>
+        <div class="collapsible-body"><p>       {{::group.description}}</p></div>
     </li>
+
+
+    <!-- Miembros -->
+    <li>
+        <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Miembros</div>
+        <div class="collapsible-body" STYLE="MIN-HEIGHT:97px;">  
+            <div ng-repeat="member in group.users" class="col-xs-3 no-padding">
+                <img ng-src="http://images.dev-winwins.net/100x70/smart/{{member.photo}}" width="auto" height="auto" class="img-responsive" ng-click="viewUser(member.id)" alt="{{member.username}}" title="{{member.name}}" style="cursor:pointer">
+            </div>
+        </div>
+    </li>
+
+
 
       <!-- Nuestros  Winwins -->
 
 
     <li>
-          <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Winwins</div>
+          <div class="collapsible-header light-blue darken-2 white-text active"><i class="fa fa-chevron-right"></i>Winwins</div>
       <div class="collapsible-body" STYLE="MIN-HEIGHT:68PX;"><div ng-repeat="ww in group.winwins" class="col-xs-3 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                                 </div>
                                 </div>
 </div>
-    </li>
-
-    <!-- Miembros -->
-
-    <li>
-      <div class="collapsible-header light-blue darken-2 white-text active"><i class="fa fa-chevron-right"></i>Miembros</div>
-      <div class="collapsible-body" STYLE="MIN-HEIGHT:97px;">  
-                                <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-3 no-padding">
-                                    <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
-                                </div>
-                            </div>
-                            </div>
     </li>
 
 
@@ -76,78 +76,14 @@
  <!-- Initialize --> 
 
 <script>
-         $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+            accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+        $('ul.tabs').tabs('select_tab', 'tab_id');
+
+
   });
         
 </script>   
-
-<script>
-
- $(document).ready(function(){
-    $('ul.tabs').tabs('select_tab', 'tab_id');
-  });
-        
-</script>   
-<!--
-
-
-<div class="container">
-    <div class="container no-padding">
-        <div class="row">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> SOBRE NOSOTROS <i class="fa fa-caret-down" style="float:right;"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            {{::group.description}}
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading-b">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> WINWINS A LOS QUE NOS SUMAMOS <i class="fa fa-caret-down" style="float:right;"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row col-xs-12 no-padding"> 
-                                <div ng-repeat="ww in group.winwins" class="col-xs-2 no-padding">
-                                    <img ng-src="http://images.dev-winwins.net/64x45/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree"><i class="fa fa-chevron-right" style="font-size: 0.8em;"></i> NUESTROS SPONSORS <i class="fa fa-caret-down" style="float:right;"></i> </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="col-xs-12 no-padding">
-                                <div ng-repeat="sponsor in group.sponsors" class="col-xs-2 no-padding">
-                                    <img ng-src="http://images.dev-winwins.net/64x/smart/{{sponsor.photo}}" width="auto" height="auto" class="img-responsive" ng-click="viewSponsor(sponsor.id)" alt="{{sponsor.name}}" title="{{sponsor.name}}" style="cursor:pointer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
 

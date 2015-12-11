@@ -33,6 +33,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -54,6 +55,7 @@ angular.module('winwinsApp')
         }, function(data) {
             $scope.user_detail = data;
             $scope.comments = data.comments;
+            $scope.notifications = data.notifications;
             $scope.followers = data.followers;
             $scope.following = data.following;
         });
@@ -78,6 +80,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -100,6 +103,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -121,6 +125,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -168,11 +173,12 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Upload', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Upload, User, Account, api_host) {
+.controller('ProfileCtrl', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Upload, User, Account, api_host) {
 
     $scope.followers = [];
     $scope.following = [];
     $scope.comments = [];
+    $scope.notifications = [];
 
     $scope.is_admin = false;
 
@@ -205,6 +211,7 @@ angular.module('winwinsApp')
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
                 $scope.comments = user_data.comments;
+                $scope.notifications = user_data.notifications;
                 $scope.edit_user = user_data;
                 $scope.setup_components();
 
@@ -233,6 +240,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -255,6 +263,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -345,6 +354,7 @@ angular.module('winwinsApp')
     $scope.uploadFiles = function(file) {
         $scope.f = file;
         if (file && !file.$error) {
+            $scope.uploading = true;
             file.upload = Upload.upload({
                 url: '/api/me/upload',
                 file: file
@@ -371,38 +381,38 @@ angular.module('winwinsApp')
         }   
     };
 
-    $scope.uploading_cover = false;
     $scope.uploadFilesCover = function(file) {
         $scope.fc = file;
         if (file && !file.$error) {
+            $scope.uploading = true;
             file.upload = Upload.upload({
                 url: '/api/me/upload',
                 file: file
             });
 
             file.upload.then(function (response) {
-                $scope.uploading_cover = false;
+                $scope.uploading = false;
 
                 $timeout(function () {
                     file.result = response.data;
                     $scope.edit_user.cover_photo = response.data.filename;
                 });
             }, function (response) {
-                $scope.uploading_cover = false;
+                $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsgCover = response.status + ': ' + response.data;
                 }
             });
 
             file.upload.progress(function (evt) {
-                $scope.uploading_cover = true;
+                $scope.uploading = true;
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }   
     };
 
     $scope.saveProfile = function() {
-        $scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
+        //$scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
 
         $http.post(api_host+'/api/profile', $scope.edit_user)
         .success(function(data) {
@@ -414,6 +424,7 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
+            $rootScope.profile_photo = $scope.edit_user.photo;
 
         })
         .error(function(error) {
@@ -422,6 +433,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -442,6 +454,7 @@ angular.module('winwinsApp')
             text: "Contanos tus motivos",
             type: "input",
             showCancelButton: true,
+                        animation: false, 
             closeOnConfirm: true,
             inputPlaceholder: "Mensaje de solicitud" 
         },
@@ -458,6 +471,7 @@ angular.module('winwinsApp')
                     text: error.message, 
                     type: "warning",
                     showCancelButton: false,
+                        animation: false, 
                     closeOnConfirm: true 
                 });
             });
