@@ -1,45 +1,39 @@
-        <div class="tab-content">
+<div class="tab-content">
+    <div class="container no-padding" >
+        <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="z-index: 9999;box-shadow: 2px 2px 5px #999">
+            <h1 style="font-size:20px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-pencil animated infinite wobble"></i></h1>
+            <h4 class="white-text"> Editar Perfil</h4>
+        </div>
+        <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;z-index:99999;"></i>
 
 
-                <div class="container no-padding" >
+    <div class="col-xs-12 no-padding card-panel" style="margin-top:-35px;">
+        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{user_detail.cover_photo}}" style="height: 220px;">
+            <div class="profile-avatar avatar animated fadeInUp">
+                <img ng-hide="uploading" src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle avatar"/>
+                <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loading.gif" height="75" style="padding:30px"/>
+            </div>
+            <div class="bubble-upload"  ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Cambiar</div>
 
-                    
-                                  <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="z-index: 9999;box-shadow: 2px 2px 5px #999">
-                     <h1 style="font-size:20px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-pencil animated infinite wobble"></i></h1>
-                      <h4 class="white-text"> Editar Perfil<H4>
+            <div class="bubble-upload" style="cursor:pointer; margin-top:40px;" ngf-select="uploadFilesCover($file)" accept="image/*"  ngf-max-size="8MB" ngf-accept="'image/*'">Cambiar</div>
+        </div>
 
-                    </div>
-      
-  <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;z-index:99999;"></i>
+    </div>
 
-       
+<div>
 
-                
-                        <div class="col-xs-12 no-padding card-panel" style="margin-top:-35px;">
-                            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
-                            
-                                <div class="profile-avatar avatar animated fadeInUp">
-                                    <img src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle avatar"/>
-                                </div>
-                                <div class="bubble-upload"  ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Avatar</div>
-              
-                                 <div class="bubble-upload" style="cursor:pointer; margin-top:40px;" ngf-select="uploadFilesCover($file)" accept="image/*"  ngf-max-size="8MB" ngf-accept="'image/*'">Portada</div>
-                            </div>
 
-                        </div>
-
-        <div>
-       <div>
+<div>
 
        
             <div class="col-xs-12">
                 <form method="post" ng-submit="saveProfile()" name="signupForm">
                      <div class="col-xs-12 card-panel teal">  <label for="textarea1">Nombre</label>
-                    <input type="text" class="form-control" disabled placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
+                    <input type="text" class="form-control" placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
                            </div>
                    
                       <div class="col-xs-12 card-panel teal"><label for="textarea1">Apellido</label>
-                    <input type="text" class="form-control" disabled placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname"> 
+                    <input type="text" class="form-control" placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname"> 
 
            
                        </div>
@@ -65,42 +59,41 @@
 
 <div class="col-xs-12 card-panel teal">
     <label for="textarea1">Cuándo naciste?</label>
-                      <input type="date" class="datepicker">
-              </div>
-
-                    <div class="col-xs-12 card-panel teal">
-
-                    <input password-strength class="col-xs-12 card-panel teal" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
-                    <input password-strength class="col-xs-12 card-panel teal" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
-                    <input password-match="password" class="col-xs-12 card-panel teal" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
+    <input type="date" class="datepicker">
 </div>
-                        <button type="submit" ng-disabled="signupForm.$invalid" class="btn-large green col-xs-12">
-                            Actualizar
-                        </button>
-                    </div>
+
+<div class="col-xs-12 card-panel teal">
+    <input password-strength class="col-xs-12 card-panel teal" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
+    <input password-strength class="col-xs-12 card-panel teal" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
+    <input password-match="password" class="col-xs-12 card-panel teal" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
+</div>
+
+<button type="submit" ng-disabled="signupForm.$invalid" class="btn-large green col-xs-12">
+    Actualizar
+</button>
 
                 </form>
                 </div>
 
 
                               </div>
-</hr>
+<hr/>
 <div class="pad-20"></div>
-                <div class="container">
-                        <div class="col-xs-12 card-panel  light-blue darken-3 white-text center">
-                         <h4> <i class="fa fa-bullhorn animated infinite pulse"></i> Seleccionar Notificaciones  <h4>
-                    </div>
-                </div>
-                <div class="col-xs-12 card-panel">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-6">
-                            <h6>Invitacion a WinWins</h6>
-                        </div>
-                        <div class="col-xs-3">
-                            <input bs-switch ng-model="edit_user.invite_ww" type="checkbox"  ng-true-value="1" ng-false-value="0">
-                        </div>
-                        <div class="col-xs-2"></div>
-                    </div>
+<div class="container">
+    <div class="col-xs-12 card-panel  light-blue darken-3 white-text center">
+         <h4> <i class="fa fa-bullhorn animated infinite pulse"></i> Seleccionar Notificaciones  </h4>
+    </div>
+</div>
+<div class="col-xs-12 card-panel">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+        <h6>Invitacion a WinWins</h6>
+    </div>
+    <div class="col-xs-3">
+        <input bs-switch ng-model="edit_user.invite_ww" type="checkbox"  ng-true-value="1" ng-false-value="0">
+    </div>
+    <div class="col-xs-2"></div>
+</div>
                 </div>
                 <div class="col-xs-12 card-panel teal">
 
