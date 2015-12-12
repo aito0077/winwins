@@ -7,11 +7,11 @@
         <div class="container no-padding" ng-repeat="item_post in posts" >
             <div class="panel-body post">
 
-                 <div class="col-xs-12" style="background:white;">
+                 <div class="col-xs-12" style="background:white; padding:0px;">
                    
                     <div class="col-xs-12 no-padding">
                         <div class="col-xs-2 no-padding">    
-                            <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" >
+                            <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(winwin.user.id)" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" >
                         </div>
                         <div class="p-lista" style="padding-bottom:10px;">
 
@@ -22,8 +22,8 @@
                                       <!-- Media -->
                 
                             <div class="media-post"> </div>
-                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::item_post.media.name}}" class="responsive-img" style="min-height:px;margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
-                            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:10px;">
+                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::item_post.media.name}}" class="embed-responsive embed-responsive-16by9" style="width:100%;height:auto;margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));"></div>
+                            <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
                                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                             </div>
 
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="media-post"> </div>
                                 <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.name}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));class="responsive-img""></div>
-                                <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                                <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:30px;">
                                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
                                 </div>
 
@@ -97,12 +97,12 @@
        <div class="container comments-box" >
             <div class="row no-padding">
                 <div class="container" ng-show="post.media_type">
-                    <div ng-show="uploading" class=" col-xs-12">
+                    <div ng-show="uploading" class="col-xs-12">
                         <img class="img-responsive" ng-show="uploading" src="/images/loading.gif" style="height:auto;width:auto;padding:30px"/>
                     </div>
                     <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/190x/{{::post.media_path}}" style="height:190px;">
                     </div>
-                    <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9">
+                    <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
                         <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(post.media_path)}}" allowfullscreen="true"></iframe>
                     </div>
                 </div>
@@ -169,8 +169,6 @@
    
  <script type="text/ng-template" id="commentModal.html">
          <div class="container center">
-        <i class="fa fa-comments  pulse " style="font-size: 50px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i> 
-        <i class="fa fa-caret-down " style="font-size: 3rem;margin-top:-23px; color:#3B5998;"></i>
     </div>
 
 
@@ -199,10 +197,11 @@
         </div>
 
 
-        <div class="container no-padding">
-            <div class="col-xs-12 no-padding"> <a  role="button" class="_col-xs-12 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
-            <div class="col-xs-6 card-panel"> <a  role="button" class="_col-xs-6 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
-            <div class="col-xs-6 card-panel">    <a  role="button" class="_col-xs-6 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
+        <div class="container no-padding" style="margin-bottom:-10px;">
+            <div class="col-xs-12"> 
+            <a  role="button" class="col-xs-6 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
+            <div class="col-xs-2 card-panel"> <a  role="button" class="col-xs-2 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
+            <div class="col-xs-2 card-panel">    <a  role="button" class="col-xs-2 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
 
         </div>
 
