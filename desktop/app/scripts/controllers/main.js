@@ -2,13 +2,41 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', '$state', '$timeout', 'Winwin', 'api_host', 'es_client', '$uibModal', function($scope, $auth, $http, $state, $timeout, Winwin, api_host, es_client, $uibModal) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', '$timeout', 'Winwin', 'api_host', '$uibModal', function($scope, $auth, $http, $state, $timeout, Winwin, api_host, $uibModal) {
     $scope.winwins = [];
+    $scope.main_sponsors = [];
+
     $scope.all_winwins = [];
 
-    Winwin.query(function(data) {
-        $scope.all_winwins = data;
-        $scope.winwins = $scope.all_winwins;
+
+    $scope.popSponsor = function() {
+        if($scope.main_sponsors.length) {
+            return $scope.main_sponsors.pop();
+        } else {
+            return false;
+        }
+    };
+
+    $http.get(api_host+'/api/sponsors/main').success(function(main_sponsors) {
+        $scope.main_sponsors = main_sponsors; 
+        Winwin.query(function(data) {
+            $scope.all_winwins = data;
+            
+            $scope.winwins = [];
+            var index = 0;
+            _.each($scope.all_winwins, function(item) {
+                index = index +1;
+                if(index % 3 == 0) {
+                    $scope.winwins.push(_.extend($scope.popSponsor(), {
+                        is_sponsor: true
+                    }));
+                }
+                $scope.winwins.push(_.extend(item, {
+                    is_sponsor: false
+                }));
+            });
+
+        });
     });
 
     $scope.isAuthenticated = function() {
@@ -27,6 +55,7 @@ angular.module('winwinsApp')
                     text: 'winwin_join', 
                     type: "info",
                     showcancelbutton: false,
+                        animation: false, 
                     closeonconfirm: true,
                 }, function() {
                     $scope.view(winwin_id);
@@ -39,6 +68,7 @@ angular.module('winwinsApp')
                     text: error.message, 
                     type: "warning",
                     showCancelButton: false,
+                        animation: false, 
                     closeOnConfirm: true 
                 });
             });
@@ -101,6 +131,7 @@ angular.module('winwinsApp')
         }
     };
 
+    /*
     $scope.setup_components = function() {
         $timeout(function() {
             jQuery(window).scroll(function() {  
@@ -116,11 +147,9 @@ angular.module('winwinsApp')
                     header = document.querySelector("header");
                 if (distanceY > shrinkOn) {
                     classie.add(header,"smaller");
-                    //classie.add(document.querySelector(".pseudo-header"),"smaller");
                 } else {
                     if (classie.has(header,"smaller")) {
                         classie.remove(header,"smaller");
-                        //classie.remove(document.querySelector(".pseudo-header"),"smaller");
                     }
                 }
 
@@ -137,8 +166,9 @@ angular.module('winwinsApp')
 
         });
     };
+    */
 
-    $scope.setup_components();
+    //$scope.setup_components();
 
     $scope.visible_search = false;
     $scope.showSearch = function() {

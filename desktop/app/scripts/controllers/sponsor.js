@@ -54,6 +54,7 @@ angular.module('winwinsApp')
                 text: 'sponsor_join', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
         })
@@ -63,6 +64,7 @@ angular.module('winwinsApp')
                 text: error.message, 
                 type: "warning",
                 showCancelButton: false,
+                        animation: false, 
                 closeOnConfirm: true 
             });
         });
@@ -75,6 +77,7 @@ angular.module('winwinsApp')
                 text: 'sponsor_left', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             $scope.getSponsor();
@@ -160,6 +163,7 @@ angular.module('winwinsApp')
                 text: 'sponsor_updated', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
 

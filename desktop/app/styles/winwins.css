@@ -438,10 +438,10 @@ blockquote {
  * button
  * --------------------------------------------------
  */
-.btn1{
+/*.btn {
   color: white;
 }
-.btn1.btn.disabled, .btn[disabled] {
+.btn, .btn.disabled, .btn[disabled] {
     background-color: #aab2bd;
     border-color: #aab2bd;
     background-color: #39BD4E;
@@ -584,7 +584,7 @@ blockquote {
 .open .dropdown-toggle.btn-danger {
   background-color: #ed5565;
   border-color: #ed5565;
-}
+}*/
 
 /**
  * button-group
@@ -3324,6 +3324,91 @@ padding: 30px;
 }
 
 
+/* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+
+
 
 .ww-finishing {
     height:4px; 
@@ -3342,7 +3427,7 @@ padding: 30px;
 
 .ww-featured {
     height:0px; 
-        background-color: #EC7007;
+        background-color: #F53430;
 
 }
 
@@ -3379,7 +3464,7 @@ border-radius: 50%;
 }
 .featured {
     font-size: 1.9em;
-    color: #EC7007;
+    color: #F53430;
     float: right;
     margin-right: 20px;
     margin-top: 0;
@@ -3633,7 +3718,6 @@ span.remember {
   font-family: montserrat;
   text-align: center;
   padding: 15px;
-  color: white;
 }
 
 .social{
@@ -3821,7 +3905,7 @@ padding:0px;}
 font-family: montserrat; color: #fff; text-align:center; font-size:11px;}
 
 .somos-txt {
-background-color: #EC7007;
+background-color: #F5430;
     color: white;
     font-family: montserrat;
     padding: 2px;
@@ -3875,13 +3959,15 @@ background-color: #EC7007;
       width: 100%;
   padding: 15px;
     padding-bottom: 15px;
-        background-color: #fff;;
+    border-top:2px solid #1762C3 ;
+        background-color: #2196F3;
   }
   
   .post-image  {
     height: 20px;
     margin-left: -12px;}
   
+
   .comment-box {  
   background-color:blue; height:20px;padding:0px;}
   
@@ -3945,9 +4031,7 @@ padding:10px;
     font-size: 12px;
     height: 40px;
     font-family: montserrat;
-    width: 100%;
-    box-shadow: 1px 5px 5px 2px lightgrey;
-}
+    width: 100%;}
    
    .date {
     /* font-family: montserrat; */
@@ -4105,22 +4189,6 @@ background-color: #2AB467;
   border: 0px;
 }
 
-.col-xs-3-3.active,
-.col-xs-3-3:hover {
-    width: 25%;
-    float: left;
-    height: 40px;
-    background-color: #FF7F0A;
-    border-bottom: 2px solid #134c99;
-    text-align: center;
-    color: #FFF;
-    font-size: 20px;
-  border: 0px;
-    cursor:pointer;
-}
-.col-xs-3-3:active {
-    background-color: #043F7B;
-}
 
 .col-xs-3-3 i {
     margin-top: 8px;
@@ -4200,7 +4268,7 @@ width: 100%;
 height: 100px;
 padding: 0px;
 padding-top: 20px;
-background: #EC7007;
+background: #F5430;
 -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
@@ -4212,7 +4280,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 15px 15px 0;
-border-color: #EC7007 transparent;
+border-color: #F5430 transparent;
 display: block;
 width: 0;
 z-index: 1;
@@ -4253,17 +4321,15 @@ left:50%;
 
 .bubble-xs
 {
-position: relative;
-width: 100%;
-padding: 5px;
-background: #1762C3 ;
--webkit-border-radius: 0px;
--moz-border-radius: 0px;
-border-radius: 2px;
-font-size:1em;
-color: white;
-font-family: montserrat;
-text-align:centeR;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    background: #F1F1F1;
+    border-radius: 2px;
+    font-size: 1em;
+    color: #AFB8C3;
+    font-family: montserrat;
+    text-align: left;
 }
 
 .bubble-xs:after 
@@ -4343,6 +4409,12 @@ display:block;
 width:99%;
 text-align:center; 
 padding-top:30px;}
+
+.avatar {
+margin-left: auto; 
+margin-right:auto; 
+dislay:block;
+width:100px;}
 
 
 .username {
@@ -4639,6 +4711,9 @@ background-color: #FF8100;
    -o-transition:all 0.5s ease-in-out;
    transition:all 0.5s ease-in-out;
    -webkit-transition:all 0.5s ease-in-out;
+}
+#footer.show.with_media {  
+    height:270px;
 }
 
 #footer.show.media {
@@ -6045,7 +6120,7 @@ padding: 30px;
 
 .ww-featured {
     height:0px; 
-        background-color: #EC7007;
+        background-color: #F53430;
 
 }
 
@@ -6082,7 +6157,7 @@ border-radius: 50%;
 }
 .featured {
     font-size: 1.9em;
-    color: #EC7007;
+    color: #F53430;
     float: right;
     margin-right: 20px;
     margin-top: 0;
@@ -6530,7 +6605,7 @@ padding:0px;}
 font-family: montserrat; color: #fff; text-align:center; font-size:11px;}
 
 .somos-txt {
-background-color: #EC7007;
+background-color: #F5430;
     color: white;
     font-family: montserrat;
     padding: 2px;
@@ -6584,7 +6659,8 @@ background-color: #EC7007;
       width: 100%;
   padding: 15px;
     padding-bottom: 15px;
-        background-color: #fff;;
+    border-top:2px solid #1762C3 ;
+        background-color: #2196F3;
   }
   
   .post-image  {
@@ -6654,9 +6730,7 @@ padding:10px;
     font-size: 12px;
     height: 40px;
     font-family: montserrat;
-    width: 100%;
-    box-shadow: 1px 5px 5px 2px lightgrey;
-}
+    width: 100%;}
    
    .date {
     /* font-family: montserrat; */
@@ -6812,24 +6886,9 @@ background-color: #2AB467;
     color: #FFF;
     font-size: 20px;
   border: 0px;
+  cursor: pointer;
 }
 
-.col-xs-3-3.active,
-.col-xs-3-3:hover {
-    width: 25%;
-    float: left;
-    height: 40px;
-    background-color: #FF7F0A;
-    border-bottom: 2px solid #134c99;
-    text-align: center;
-    color: #FFF;
-    font-size: 20px;
-  border: 0px;
-    cursor:pointer;
-}
-.col-xs-3-3:active {
-    background-color: #043F7B;
-}
 
 .col-xs-3-3 i {
     margin-top: 8px;
@@ -6909,7 +6968,7 @@ width: 100%;
 height: 100px;
 padding: 0px;
 padding-top: 20px;
-background: #EC7007;
+background: #F5430;
 -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
@@ -6921,7 +6980,7 @@ content: '';
 position: absolute;
 border-style: solid;
 border-width: 15px 15px 0;
-border-color: #EC7007 transparent;
+border-color: #F5430 transparent;
 display: block;
 width: 0;
 z-index: 1;
@@ -7052,6 +7111,12 @@ display:block;
 width:99%;
 text-align:center; 
 padding-top:30px;}
+
+.avatar {
+margin-left: auto; 
+margin-right:auto; 
+dislay:block;
+width:100px;}
 
 
 .username {
@@ -7714,29 +7779,11 @@ position: relative;
     border-radius: 0px;
     }
 
-
-
-
-
-
-
-    /* materialize */
-
-    .footer.page-footer {
-    margin-top: 20px;
-    padding-top: 20px;
-    background-color: #1762C3;
+.modal .modal-content {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    padding: 5px !important;
 }
-
-
-
-
-    /* materialize */
-
-    .isocial-big {
-   height: 40px;
-   width:40px;
-   text-align: center;
-   border-radius: 50%;
-   background-color: white;
+.modal .modal-header {
+    padding: 5px !important;
 }

@@ -1,6 +1,8 @@
 /*!
- * classie - class helper functions
+ * classie v1.0.1
+ * class helper functions
  * from bonzo https://github.com/ded/bonzo
+ * MIT license
  * 
  * classie.has( elem, 'my-class' ) -> true/false
  * classie.add( elem, 'my-new-class' )
@@ -8,8 +10,8 @@
  * classie.toggle( elem, 'my-class' )
  */
 
-/*jshint browser: true, strict: true, undef: true */
-/*global define: false */
+/*jshint browser: true, strict: true, undef: true, unused: true */
+/*global define: false, module: false */
 
 ( function( window ) {
 
@@ -27,12 +29,15 @@ var hasClass, addClass, removeClass;
 
 if ( 'classList' in document.documentElement ) {
   hasClass = function( elem, c ) {
+    if(elem == null)  return false;
     return elem.classList.contains( c );
   };
   addClass = function( elem, c ) {
+    if(elem == null)  return false;
     elem.classList.add( c );
   };
   removeClass = function( elem, c ) {
+    if(elem == null)  return false;
     elem.classList.remove( c );
   };
 }
@@ -72,6 +77,9 @@ var classie = {
 if ( typeof define === 'function' && define.amd ) {
   // AMD
   define( classie );
+} else if ( typeof exports === 'object' ) {
+  // CommonJS
+  module.exports = classie;
 } else {
   // browser global
   window.classie = classie;

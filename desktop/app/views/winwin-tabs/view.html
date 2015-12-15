@@ -9,7 +9,7 @@
 </style>
 
 
-<div id="slider" style=" margin-top:35px;">
+<div id="slider">
 
     <div class="row">
         <div class="container col-xs-12 no-padding">
@@ -76,6 +76,12 @@
                     <i class="fa fa-bullhorn"></i>
                 </div>
             </a>
+               <a data-toggle="tab" data-target="#edit">
+                <div class="col-xs-3 submenu-icons active">
+                    <i class="fa fa-edit"></i>
+                         </a>
+                </div>
+            </a>
         </div> 
 
     </div>
@@ -95,20 +101,23 @@
         <div ng-include="'/views/winwin-tabs/ww-users.html'"></div>
     </div>
 
-    <div id="sponsors_requests" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_requests" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-requests.html'"></div>
     </div>
-    <div id="sponsors_to_request" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_to_request" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-to-request.html'"></div>
     </div>
-    <div id="campanada" class="tab-pane">
+    <div ng-if="is_admin" id="campanada" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-campanada.html'"></div>
     </div>
-    <div id="config" class="tab-pane">
+    <div ng-if="is_admin" id="config" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-config.html'"></div>
     </div>
-    <div id="poll" class="tab-pane">
+    <div ng-if="is_admin" id="poll" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
+    </div>
+    <div ng-if="is_admin" id="edit" class="tab-pane">
+        <div ng-include="'/views/winwin-tabs/edit_ww.html'"></div>
     </div>
 
 
@@ -126,7 +135,7 @@ $(window).scroll(function () {
 
 function slider() {
     if (document.body.scrollTop > 50) {
-        $('#slider').stop().animate({"margin-top": '58'})>10;
+        $('#slider').stop().animate({"margin-top": '0'})>10;
     } else {
         $('#slider').stop().animate({"margin-top": '0'})>10;
     }

@@ -93,9 +93,12 @@
 <!-- Winwin Attributes-->
 <div class="container">
     <div class="row" style="font-family: montserrat; font-size:10px; text-align:center;">
-        <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published"<i class="fa fa-check" style="color: green;"></i> Active </span><span ng-show="winwin.published"<i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe"></i> {{::winwin.scope}}</span> </div>
-        <div class="col-xs-3 ww-attributte">Category:<br> Medio Ambiente</span> </div>
+        <div class="col-xs-3 ww-attributte">Estado:<br>
+            <span ng-show="winwin.published"><i class="fa fa-check" style="color: green;"></i> Active </span>
+            <span ng-show="winwin.published"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> 
+        </div>
+        <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe"></i> {{::winwin.scope}}</div>
+        <div class="col-xs-3 ww-attributte">Category:<br> Medio Ambiente</div>
         <div class="col-xs-3 ww-attributte"> <span style="text-align: center;">Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> </div>
     </div>
 </div>
@@ -217,7 +220,7 @@
         </div>
         <span type="button" class="col-xs-2 button-send" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
         <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
-        <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="3MB"><i class="fa fa-camera-retro"></i></span>
+        <span type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></span>
     </div>
 
 </div>

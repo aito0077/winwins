@@ -89,8 +89,9 @@
     <div class="nav-wrapper">
       <form>
         <div class="input-field">
-          <input id="search" type="search" required>
-          <label for="search"><i class="fa fa-search" style="font-size: 1.6rem;"><span style="font-family: montserrat: color: #999;">Buscar Winwins, Sponsors, Personas...</i></label>
+             <label for="search"><i class="fa fa-search" style="font-size: 1.6rem;"></i><span style="font-family: montserrat; color: #fff;">Buscar Winwins, Sponsors, Personas...</label>
+          <input id="query"  type="search" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+         
           <i class="fa fa-close"></i>
         </div>
       </form>

@@ -30,6 +30,7 @@ angular.module('winwinsApp')
 .factory('Account', ['$http', 'api_host', function($http, api_host) {
     return {
         getProfile: function() {
+            console.log('get profile');
             return $http.get(api_host+'/api/me');
         },
         getStatus: function() {
@@ -223,6 +224,7 @@ angular.module('winwinsApp')
     return SponsorPaginate; 
 
 }])
+/*
 .service('es_client',['esFactory', 'e_host', function(esFactory, e_host){
     console.log(e_host);
     return esFactory({
@@ -231,4 +233,6 @@ angular.module('winwinsApp')
         requestTimeout: 30000 ,
         apiVersion: '1.7'
     });
-}]);
+}])
+*/
+;

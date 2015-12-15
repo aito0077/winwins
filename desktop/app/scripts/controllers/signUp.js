@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('SignUpCtrl', function($scope, $auth, SweetAlert) {
+.controller('SignUpCtrl', function($scope, $rootScope, $timeout, $state, $auth) {
+    $scope.show_signup = true;
+    $scope.redirect_message = false;
 
     $scope.signup = function() {
         $auth.signup({
@@ -12,10 +14,43 @@ angular.module('winwinsApp')
             name: $scope.name,
             lastname: $scope.lastname,
             language_code: 'ES' //ToDo: Obtener del sitio
-        }).catch(function(response) {
-            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
-                $state.go('signup');
+        })
+        .then(function(redata) {
+            $auth.login({ email: $scope.email, password: $scope.password })
+            .then(function(data) {
+                $rootScope.currentUser = data;
+                $rootScope.$broadcast('is_logged', true);
+                $scope.show_signup = false;
+                $scope.redirect_message = true;
+                $timeout(function() {
+                    if($rootScope.returnState) {
+                        switch($rootScope.returnState.state) {
+                            case 'ww-join': 
+                                $state.go('winwin-view', {
+                                    winwinId: $rootScope.returnState.parameters.winwinId,
+                                    actionJoin: true
+                                }); 
+                                break;
+                            default:
+                                $state.go('main'); 
+                        }
+                    } else {
+                        $state.go('main'); 
+                    }
+                }, 3000);
             });
+
+        })
+        .catch(function(response) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: 'Error en su registracion', 
+                type: "warning",
+                showCancelButton: false,
+                        animation: false, 
+                closeOnConfirm: true 
+            });
+            $state.go('signUp');
         });
     };
 
@@ -23,16 +58,41 @@ angular.module('winwinsApp')
         $auth.authenticate(provider)
         .then(function(data) {
             $rootScope.currentUser = data;
-            SweetAlert.swal('success_title', 'success_subtitle', 'success', function() {
-                $state.go('main');
-            });
+            $rootScope.$broadcast('is_logged', true);
+            $scope.show_signup = false;
+            $scope.provider = provider;
+            $scope.redirect_message = true;
+
+            $timeout(function() {
+                if($rootScope.returnState) {
+                    switch($rootScope.returnState.state) {
+                        case 'ww-join': 
+                            $state.go('winwin-view', {
+                                winwinId: $rootScope.returnState.parameters.winwinId,
+                                actionJoin: true
+                            }); 
+                            break;
+                        default:
+                            $state.go('main'); 
+                    }
+                } else {
+                    $state.go('main'); 
+                }
+            }, 3000);
+
+
+
         })
         .catch(function(response) {
             $state.go('failure-login');
-            SweetAlert.swal(response.data.message, 'try_again', 'warning', function() {
-                $state.go('signup');
+            swal({
+                title: "ADVERTENCIA", 
+                text: 'Error en su autenticación', 
+                type: "warning",
+                showCancelButton: false,
+                        animation: false, 
+                closeOnConfirm: true 
             });
-
         });
     };
 

@@ -65,7 +65,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-4 uploaders" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">
+            <div class="col-xs-4 uploaders"  ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">
                 <i ng-show="!uploading && !group.photo" class="fa fa-camera-retro"></i>
                 <img ng-show="!uploading && group.photo" class="img-responsive col-xs-12" ng-src="http://images.dev-winwins.net/232x154/smart/{{group.photo}}" >
                 <img class="img-responsive col-xs-12" ng-show="uploading" src="/images/loader.gif" height="75" style="padding:7px"/>

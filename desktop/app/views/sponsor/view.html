@@ -1,9 +1,6 @@
-<div zum-waypoint="sponsorScroll" down="name.down" up="name.up" offset="5"></div>
-
-<div id="menu-sponsor" class="container" ng-show="sponsorScroll.name.down" ng-class="{fixed: sponsorScroll.name.down}">
-    <div class="row">
+<div id="menu-sponsor" class="container no-padding">
         <div class="container col-xs-12 no-padding">
-            <a data-toggle="tab" data-target="#sponsor_summary" ng-click="setCurrentView('home')">
+            <a data-toggle="tab" data-target="#sponsor_summary" role="button" ng-click="setCurrentView('home')">
                 <div class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
                     <i class="fa fa-star"></i>
                 </div>
@@ -38,9 +35,6 @@
         <div class="col-xs-6 submenu-icons txt" ng-if="current_view == 'groups'" ng-show="isAdmin">
             Grupos Patrocinados 
         </div>
-    </div>
-
-
 </div>
 
 

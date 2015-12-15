@@ -16,16 +16,12 @@ angular.module('winwinsApp', [
     'config',
     'infinite-scroll',
     'zumba.angular-waypoints',
-    'oitozero.ngSweetAlert',
     'pascalprecht.translate',
-//    '720kb.background',
     'headroom',
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
-    'frapontillo.bootstrap-switch', 
-    'tmh.dynamicLocale',
-    'elasticsearch'
+    'frapontillo.bootstrap-switch'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
@@ -106,7 +102,7 @@ angular.module('winwinsApp', [
         controller: 'winwin-search'
     })
     .state('winwin-view', {
-        url: '/winwin-view/:winwinId',
+        url: '/winwin-view/:winwinId?actionJoin',
         templateUrl: 'views/winwin-tabs/view.html',
         controller: 'winwin-tabs'
     })
@@ -252,6 +248,12 @@ angular.module('winwinsApp', [
         templateUrl: 'views/sponsor/view.html',
         controller: 'sponsor-view'
     })
+    .state('sponsor-signup', {
+        url: '/sponsor-signup',
+        templateUrl: 'views/sponsor/signup.html',
+        controller: 'sponsor-signup'
+    })
+
     .state('search-list', {
         url: '/search/:query',
         templateUrl: 'views/search/list.html',
@@ -295,6 +297,10 @@ angular.module('winwinsApp', [
 
     
 })
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
+}])
 .config(function ($authProvider, api_host) {
 
     $authProvider.baseUrl = api_host+'/';
@@ -319,17 +325,14 @@ angular.module('winwinsApp', [
 
 
 })
-.config(function ($translateProvider, tmhDynamicLocaleProvider) {
+.config(function ($translateProvider) {
+
     $translateProvider.useMissingTranslationHandlerLog();
 
-    $translateProvider.useStaticFilesLoader({
-        prefix: 'resources/locale-',// path to translations files
-        suffix: '.json'// suffix, currently- extension of the translations
-    });
-
+    $translateProvider.useUrlLoader('/api/translation');
     $translateProvider.preferredLanguage('es_ES');
-    $translateProvider.useLocalStorage();
-    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+
+    //$translateProvider.useLocalStorage();
 
 })
 .directive('ngEnter', function () {
@@ -428,4 +431,16 @@ angular.module('winwinsApp', [
     }
   };
 }])
+.run(function($rootScope, $templateCache, $timeout) {
+    console.log('run');
+    $timeout(function() {
+        window.loading_screen.finish();
+    }, 2000);
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        if (typeof(current) !== 'undefined'){
+            $templateCache.remove(current.templateUrl);
+        }
+    });
+
+})
 ;
