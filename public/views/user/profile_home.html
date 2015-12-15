@@ -1,7 +1,7 @@
 <div class="col-xs-12 no-padding card-panel teal" style="margin-top:-7px;" >
     <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user_detail.cover_photo}}" style="height: 220px;">
         <div class="profile-avatar avatar animated zoomIn"> 
-            <img ng-src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto; width:100%;7px solid rgba(13, 71, 161, 0.52);" />
+            <img ng-src="http://images.dev-winwins.net/smart/{{user_detail.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto; width:100%; height:100px; 7px solid rgba(13, 71, 161, 0.52);" />
         </div>
         <div class="username">
             <div class="animated bounceInUp">{{::user_detail.name}}</div>
@@ -27,12 +27,12 @@
 
       <!-- Accordion -->
 
-<ul class="collapsible" data-collapsible="accordion">
+<ul class="collapsible" data-collapsible="expandable">
 
      <!-- Bio -->
 
     <li>
-      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Bio</div>
+      <div class="collapsible-header active light-blue darken-2 white-text " ><i class="fa fa-chevron-right"></i>Bio</div>
       <div class="collapsible-body"><p>    Mi nombre es <span style="text-transform: capitalize;"> {{::user_detail.name}} {{::user_detail.lastname}} </span> y soy miembro de Winwins desde el {{user_detail.created_at |moment: 'DD/MM/YYYY'}}<br/>
                                              {{user_detail.about}}</p></div>
     </li>
@@ -41,8 +41,8 @@
 
 
     <li>
-          <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Mis Winwins</div>
-      <div class="collapsible-body" STYLE="MIN-HEIGHT:68PX;"><div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.user_id} " class="col-xs-3 no-padding">
+          <div class="collapsible-header light-blue white-text active "><i class="fa fa-chevron-right"></i>Mis Winwins</div>
+      <div class="collapsible-body" STYLE="MIN-HEIGHT:67PX;"><div ng-repeat="ww in user_detail.winwins | filter: {user_id: user_detail.user_id} " class="col-xs-3 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer;width:auto;height:auto">
                                 </div>
 </div>
@@ -51,8 +51,8 @@
     <!-- Winwins en los que participo -->
 
     <li>
-        <div class="collapsible-header light-blue darken-2 white-text active"><i class="fa fa-chevron-right"></i>Winwins en los que participo</div>
-        <div class="collapsible-body" STYLE="MIN-HEIGHT:97px;">  
+        <div class="collapsible-header  active light-blue darken-2 white-text "><i class="fa fa-chevron-right"></i>Winwins en los que participo</div>
+        <div class="collapsible-body" STYLE="MIN-HEIGHT:67px;">  
             <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-3 no-padding">
                 <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
             </div>
@@ -62,9 +62,9 @@
     <!-- Seguidores -->
 
         <li>
-      <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Seguidores</div>
-      <div class="collapsible-body">  <div class="col-xs-2 followers no-padding" ng-repeat="follower in followers" >
-                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{follower.photo}}" width="35" height="35"  class="img-responsive"  alt="{{follower.name}}"  title="{{follower.name}}" style="cursor:pointer;" ng-click="viewUser(follower.user_id)">
+      <div class="collapsible-header active light-blue white-text "><i class="fa fa-chevron-right"></i>Seguidores</div>
+      <div class="collapsible-body" style="min-height: 65px;" >  <div class="col-xs-2 followers no-padding" ng-repeat="follower in followers" >
+                                    <img ng-src="http://images.dev-winwins.net/70x70/smart/{{follower.photo}}" width="70" height="70"  class="img-responsive"  alt="{{follower.name}}"  title="{{follower.name}}" style="cursor:pointer;" ng-click="viewUser(follower.user_id)">
                                 </div>
                             </div>
     </li>
@@ -72,15 +72,15 @@
     <!-- Siguiendo -->
 
         <li>
-      <div class="collapsible-header light-blue darken-2 white-text active"><i class="fa fa-chevron-right"></i>Siguiendo</div>
-      <div class="collapsible-body" STYLE="MIN-HEIGHT:68PX;">      <div class="col-xs-3 followers no-padding" ng-repeat="followed in following" >
-                                    <img ng-src="http://images.dev-winwins.net/35x35/smart/{{followed.photo}}" class="img-responsive" alt="{{followed.name}}"  title="{{followed.name}}" width="35" height="35" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />                                </div>
+      <div class="collapsible-header light-blue darken-2 white-text "><i class="fa fa-chevron-right"></i>Siguiendo</div>
+      <div class="collapsible-body" STYLE="MIN-HEIGHT:65PX;">      <div class="col-xs-2 followers no-padding" ng-repeat="followed in following" >
+                                    <img ng-src="http://images.dev-winwins.net/70x70/smart/{{followed.photo}}" class="img-responsive" alt="{{followed.name}}"  title="{{followed.name}}" width="70" height="70" style="cursor:pointer;"  ng-click="viewUser(followed.user_id)" />                                </div>
                             </div>
     </li>
 
     <li>
-        <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Grupos</div>
-        <div class="collapsible-body" STYLE="MIN-HEIGHT:68PX;">   
+        <div class="collapsible-header light-blue white-text "><i class="fa fa-chevron-right"></i>Grupos</div>
+        <div class="collapsible-body" STYLE="MIN-HEIGHT:65PX;">   
             <div ng-repeat="group in user_detail.groups" class="col-xs-2 no-padding">
                 <img ng-src="http://images.dev-winwins.net/64x45/smart/{{group.photo}}" width="auto" class="img-responsive" height="auto" style="cursor: pointer;" ng-click="viewGroup(group.id)"/>
             </div>

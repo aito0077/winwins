@@ -22,7 +22,7 @@
                                       <!-- Media -->
                 
                             <div class="media-post"> </div>
-                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::item_post.media.name}}" class="embed-responsive embed-responsive-16by9" style="width:100%;height:auto;margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));"></div>
+                            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/trim/fit-in/{{::item_post.media.name}}" class="materialboxed embed-responsive embed-responsive-16by9" style="width:100%;min-height:250px;margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));"></div>
                             <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
                                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
                             </div>
@@ -62,7 +62,7 @@
                                     {{::comment.content}}
                                 </div>
                                 <div class="media-post"> </div>
-                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.name}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));class="responsive-img""></div>
+                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.name}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));" class="responsive-img"></div>
                                 <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:30px;">
                                     <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
                                 </div>
@@ -70,7 +70,7 @@
                                 <div class="container buttons-post" style="background: white;">
                                     <div class="container" style="margin-top: 10px;">
                                         <div class="col-xs-12 no-padding">
-                                             <div class="col-xs-4 no-padding left"> <i class="fa fa-clock-o"></i><span style="font-size: 9px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span></div>
+                                             <div class="col-xs-4 no-padding left"> <i class="fa fa-clock-o"style="font-size: 8px;"></i><span style="font-size: 8px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span></div>
                                             <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
                                             <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"> 10</span></div>
                                             <div ng-if="isAuthenticated" lass="col-xs-2 no-padding"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; ursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
@@ -206,4 +206,9 @@
         </div>
 
     </script>
-
+<script>
+ $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+ </script>
+        

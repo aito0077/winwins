@@ -1,13 +1,13 @@
 <div class="container no-padding">
 
         <div class="col-xs-12 no-padding">
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" style="height: 220px;">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" style="height: 220px; margin-bottom:-10px;">
                 <div class="username" style="padding-top:50px; font-size:2rem; text-shadow: 1px 2px black;">{{::sponsor.name}}</div>
             </div>
 
     <div class="container no-padding">
 
-            <div class="buttons-profile">
+            <div class="buttons-profile ">
                 <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
                 <a role="button" class="col-xs-5 btn-join" ng-show="sponsor.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
                 <a role="button" class="col-xs-5 btn-join" ng-show="!sponsor.already_following" ng-click="follow()"> SEGUIR</a>
@@ -15,25 +15,24 @@
             </div>
         </div>
 
-</div>
 
 
-      <!-- Accordion -->
+  <div class="col-xs-12 no-padding">     <!-- Accordion -->
 
 <ul class="collapsible" data-collapsible="accordion">
 
      <!-- Sponsor about -->
 
     <li>
-      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Bio</div>
-      <div class="collapsible-body"><p>    Somos <span style="text-transform: capitalize;"> {{::user_detail.name}} {{::user_detail.lastname}} </span>         {{::sponsor.about}}  </br>
+      <div class="collapsible-header  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Bio</div>
+      <div class="collapsible-body"><p>    Somos <span style="text-transform: capitalize;"> {{::user_detail.name}} {{::user_detail.lastname}} </span>         {{::sponsor.about}}
                                           </p></div>
     </li>
 
       <!--  Winwins Patrocinados-->
 
       <li>
-      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>WinWins Patrocinados</div>
+      <div class="collapsible-header light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>WinWins Patrocinados</div>
       <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/64x45/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                                 </div></div>
@@ -42,7 +41,7 @@
        <!--  Grupos Patrocinados-->
 
       <li>
-      <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Grupos Patrocinados</div>
+      <div class="collapsible-header light-blue white-text active" ><i class="fa fa-chevron-right"></i>Grupos Patrocinados</div>
       <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/70x50/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                                 </div></div>
@@ -51,7 +50,7 @@
        <!--  Grupos Patrocinados-->
 
       <li>
-      <div class="collapsible-header active      darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Seguidores</div>
+      <div class="collapsible-header       darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Seguidores</div>
       <div class="collapsible-body"> <div ng-repeat="ww in sponsor.winwins" class="col-xs-2 no-padding">
                                     <img ng-src="http://images.dev-winwins.net/64x45/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                                 </div></div>
@@ -63,10 +62,7 @@
 
 
             </div>
-
-        </div>
-    </div>
-</div>
+  </div>
 
 <script>
          $(document).ready(function(){
@@ -84,4 +80,3 @@
   });
         
 </script>   
-        <!--

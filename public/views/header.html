@@ -8,6 +8,7 @@
                 <li><a ng-href="/#/winwin-list"><i class="fa fa-comments"></i><span> Winwins</span></a></li>
                 <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"><i class="fa fa-plus-circle"></i> Crear un WinWin</a></li>
                 <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li>
+                <li><a ng-href="/#/group-list" ng-if="!isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li>
                 <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>
                 <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-user"></i> Miembros </a></li>
                  <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"><i class="fa fa-user"></i> Miembros </a></li>
