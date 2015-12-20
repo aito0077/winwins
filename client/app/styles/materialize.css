@@ -419,12 +419,30 @@ font-size: 1rem;
 
 
 
+.h7 {
+    font-size: 12px;
+}
+
+.h8 {
+    font-size: 9px;
+}
+
+.del {
+ font-size:30px; 
+ margin-top:-10px;
+}
 
 
 
 
+.embed-responsive-16by9 {
+    padding-bottom: 100%;
+}
 
 
+.blue {
+    color: #1976D2;
+}
 
 
 

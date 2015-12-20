@@ -5,9 +5,10 @@
 </div>
       
 <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
-
+<div class="container no-padding">
+    <div class="col-xs-12 no-padding">
 <div class="container no-padding"  style="margin:0px;" ng-repeat="notification in user_detail.notifications">
-
+   <ul class="collection card-panel">
     <a  ng-if="notification.type == 'WW_CREATED'"></a>
     <a  ng-if="notification.type == 'WW_JOIN'"></a>
     <a ng-if="notification.type == 'GROUP_CREATED'"></a>
@@ -23,3 +24,6 @@
         </span>
     </li>               
 </ul>
+
+
+
