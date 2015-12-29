@@ -64,12 +64,30 @@ textarea {
     background-color: #fff;
 }
 
+.input-field input[type=search]{
+    /* display: block; */
+    line-height: inherit;
+    padding-left: 4rem;
+    width: calc(100% - 4rem);
+    height: 40px;
+    background: transparent;
+}
+
+.input-field input[type=search]:focus{
+color: aliceblue;
+    background: transparent;
+}
 
 label {
     font-size: 1rem;
     color: #1762C3;
 }
-
+nav .input-field input {
+    height: 100%;
+    font-size: 1rem;
+    border: none;
+    padding-left: 2rem;
+}
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea
  {
 
@@ -553,6 +571,7 @@ min-height:95px;
     padding: 1px 0 0 0;
     z-index: 2;
 }
+
 
 
 #nav-mobile li.search .search-wrapper {

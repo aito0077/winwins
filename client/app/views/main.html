@@ -86,13 +86,27 @@
 <div id="footer" data-ng-controller="main-search-controller">
 
 <nav>
+    <div class="nav-wrapper  blue darken-4">
+      <form>
+        <div class="col-xs-12">
+          <div class="input-field">
+          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+          <!-- I've put "red-text" class to emphasize -->
+          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
+                      <label for="query"></span></label>
+
+        </div>
+      </form>
+    </div>
+</div>
+  </nav><!--
+<<nav>
     <div class="nav-wrapper">
       <form>
         <div class="input-field">
-             <label for="search"><i class="fa fa-search" style="font-size: 1.6rem;"></i><span style="font-family: montserrat; color: #fff;">Buscar Winwins, Sponsors, Personas...</label>
-          <input id="query"  type="search" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-         
-          <i class="fa fa-close"></i>
+            
+          <input id="query"  class="col-xs-10 no-padding" type="search" placeholder="Busca Winwins, Sponsors, Miembros.." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()" style="padding-left: 10px; padding-right: 0px;">
+          <a class="btn-large waves-effect waves-light red col-xs-2 no-padding " id="query" ng-click="search()"><i class="fa fa-search"></i></a>
         </div>
       </form>
     </div>
