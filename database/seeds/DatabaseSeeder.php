@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UsersTableSeeder');
         $this->command->info('Users seeded!');
 
-/*
 		$this->call('WinwinsTableSeeder');
         $this->command->info('Winwins seeded!');
 
@@ -39,7 +38,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('GroupTableSeeder');
         $this->command->info('Group seeded!');
 
-*/
 		$this->call('SponsorsTableSeeder');
         $this->command->info('Sponsors seeded!');
 

@@ -12,6 +12,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Winwins\User;
 use Winwins\Model\UserDetail;
+use Winwins\Model\Sponsor;
 use Winwins\Jobs\UpdateProfilePicture;
 use Storage;
 use Winwins\Message\Mailer;
@@ -97,13 +98,32 @@ class AuthController extends Controller {
         $detail->name = $request->input('name');
         $detail->lastname = $request->input('lastname');
         $detail->language_code = $request->input('language_code') || 'ES';
-
         $user->detail()->save($detail);
-
         $this->dispatch(new UpdateProfilePicture($user));
 
-        $this->sentEmailConfirmation($mailer, $user);
+        if($request->has('is_sponsor')) {
 
+            $sponsor = new Sponsor();
+            $sponsor->name = $request->input('sponsor_organization');
+            $sponsor->user_id = $user->id;
+            $sponsor->contact_name = $request->input('name').' '. $request->input('lastname');
+            $sponsor->contact_phone = '';
+            $sponsor->contact_email = $user->email;
+            $sponsor->cover_photo = 'placeholder-square.jpg';
+            $sponsor->is_active = 0;
+            $sponsor->is_main = 0;
+            $sponsor->status = 'PENDING';
+            $sponsor->photo = 'placeholder-square.jpg';
+
+            $sponsor->save();
+
+            $this->sentEmailConfirmationSponsor($mailer, $user, $sponsor);
+
+        } else {
+
+            $this->sentEmailConfirmation($mailer, $user);
+
+        }
         return response()->json(['token' => $this->createToken($user)]);
     }
 
@@ -444,6 +464,24 @@ class AuthController extends Controller {
 
         return $message_sent;
     }
+
+	public function sentEmailConfirmationSponsor($mailer, $user, $sponsor) {
+        $template_name = 'winwin_confirm_registration_sponsor';
+        $message = new Message($template_name, array(
+            'meta' => array(
+                'base_url' => 'http://dev-winwins.net',
+                'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+            ),
+            'registration_link' => 'http://dev-winwins.net/auth/activate/'.$user->activation_code,
+            'organization_name' => $sponsor->name
+        ));
+        $message->subject('WinWin - Solicitud de Sponsor');
+        $message->to(null, $user->email);
+        $message_sent = $mailer->send($message);
+
+        return $message_sent;
+    }
+
 
    	public function sentEmailWelcome($mailer, $user) {
         $template_name = 'winwin_welcome';

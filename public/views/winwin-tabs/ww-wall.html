@@ -2,44 +2,44 @@
 
 <div data-ng-controller="winwin-muro" style="margin-bottom:80px;">
 
-
     <div class="container" ng-repeat="item_post in posts">
         <div class="row">
- <div class="col-xs-12 no-padding">
-  
-        </div>
+            <div class="col-xs-12 no-padding">
+            </div>
             <div class="panel-body post">
 
-                 <div class="col-xs-12 no-padding" style="background:white;">
-                    <div class="col-xs-2 no-padding">    <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/></div>
-                            <div class="col-xs-10 no-padding">
-                            <p class="p-lista" style="padding-right: 15px;">
-                                {{::item_post.content}}
-                                    <!-- Toolbar -->
+                <div class="col-xs-12 no-padding" style="background:white;">
+                    <div class="col-xs-2 no-padding">    
+                        <img ng-src="http://images.dev-winwins.net/38x38/{{profile.photo}}" class="img-circle profile-ww" width="38" height="38"/>
+                    </div>
+                    <div class="col-xs-10 no-padding">
+                        <p class="p-lista" style="padding-right: 15px;">
+                            {{::item_post.content}}
+                                <!-- Toolbar -->
 
-            <div class="container buttons-post">
-                <div class="row">
+                            <div class="container buttons-post">
+                                <div class="row">
                     
-                    <div class="col-xs-3"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
-                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
-                    <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                    <div class="col-xs-3"></div>
+                                    <div class="col-xs-3"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="voteUp(post)"></i> <span class="post-likes"> 10</span></div>
+                                    <div class="col-xs-3"><i class="fa fa-thumbs-o-down" style="padding-top:2px;cursor:pointer;" ng-click="voteDown(post)"></i><span class="post-likes-"> 10</span></div>
+                                    <div class="col-xs-2"><span class="share-ico"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
+                                    <div class="col-xs-2" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                                    <div class="col-xs-2" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                                    <div class="col-xs-3"></div>
 
-                </div>
-            </div>
+                                </div>
+                            </div>
 
-                            </p>
-                        </div>
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
 
 
             <!-- Media -->
             
-            <div class="media-post"> </div>
+        <div class="media-post"> </div>
             <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::item_post.media.id}}.{{::item_post.media.ext}}" style="height:240px;"></div>
             <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240">
                 <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>

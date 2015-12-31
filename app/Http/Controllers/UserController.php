@@ -139,11 +139,15 @@ class UserController extends Controller {
         $user = User::find($request['user']['sub']);
 
 	if(isset($user)) {
+        $is_sponsor = false;
+        if(isset($user->sponsor)) {
+            $is_sponsor = ($user->sponsor->status == 'ACTIVE');
+        }
 		return array(
 		    'user' => $user,
 		    'profile' => $user->detail,
 		    'sponsor' => $user->sponsor,
-		    'is_sponsor' => isset($user->sponsor),
+		    'is_sponsor' => $is_sponsor,
 		    'notifications' => $this->notifications($user->id),
 		    'notifications_unread' => $this->countUnreadNotifications($user->id)
 		);

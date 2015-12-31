@@ -14,7 +14,7 @@
     "angular-ui-router": "~0.2.15",
     "matchmedia-ng": "~1.0.5",
     "angular-waypoints": "~1.0.1",
-    "satellizer": "~0.12",
+    "satellizer": "~0.13.1",
     "angular-date-dropdowns": "~0.1.1",
     "moment": "~2.10.3",
     "moment-timezone": "~0.4.0",

@@ -24,7 +24,6 @@ class UsersTableSeeder extends Seeder {
         $detail->save();
 
 
-/*
         $user = new User();
         $user->email = 'mariana.berruezo@gmail.com'; 
         $user->username = 'mariana.berruezo@gmail.com'; 
@@ -1736,7 +1735,6 @@ class UsersTableSeeder extends Seeder {
         $detail->photo = 'jpg'; 
         $detail->save();
 
-    */
 
     }
 

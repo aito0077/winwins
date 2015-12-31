@@ -482,7 +482,7 @@ module.exports = function (grunt) {
             ]
         },
         files: {
-            src: ['<%= yeoman.app %>/index.html','<%= yeoman.app %>/views/winwin-tabs/wall_component.html']
+            src: ['<%= yeoman.app %>/views/user/profile_notifications.html']
         },
     }
 

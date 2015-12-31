@@ -1,34 +1,15 @@
 <?xml version="1.0"?>
 <checkstyle encoding="UTF-8" version="6.9">
-   <file name="C:\Users\LinkWay\winwins\winwins\client/app/index.html"/>
-   <file name="C:\Users\LinkWay\winwins\winwins\client/app/views/winwin-tabs/wall_component.html">
-      <error line="3" col="38" severity="error" source="html-angular-validate" message="Start tag seen without seeing a doctype first. Expected e.g. &#8220;&lt;&#33;DOCTYPE html&gt;&#8221;."/>
-      <error line="3" col="38" severity="error" source="html-angular-validate" message="Element &#8220;head&#8221; is missing a required instance of child element &#8220;title&#8221;."/>
-      <error line="14" col="251" severity="error" source="html-angular-validate" message="Element &#8220;img&#8221; is missing required attribute &#8220;src&#8221;."/>
-      <error line="14" col="251" severity="error" source="html-angular-validate" message="An &#8220;img&#8221; element must have an &#8220;alt&#8221; attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."/>
-      <error line="36" col="215" severity="error" source="html-angular-validate" message="End tag &#8220;div&#8221; seen, but there were open elements."/>
-      <error line="36" col="173" severity="error" source="html-angular-validate" message="Unclosed element &#8220;span&#8221;."/>
-      <error line="37" col="69" severity="error" source="html-angular-validate" message="No space between attributes."/>
-      <error line="37" col="207" severity="error" source="html-angular-validate" message="Duplicate attribute &#8220;style&#8221;."/>
-      <error line="58" col="283" severity="error" source="html-angular-validate" message="Element &#8220;img&#8221; is missing required attribute &#8220;src&#8221;."/>
-      <error line="66" col="167" severity="error" source="html-angular-validate" message="Attribute &#8220;max-height&#8221; not allowed on element &#8220;div&#8221; at this point."/>
-      <error line="76" col="146" severity="error" source="html-angular-validate" message="Attribute &#8220;lass&#8221; not allowed on element &#8220;div&#8221; at this point."/>
-      <error line="99" col="138" severity="error" source="html-angular-validate" message="Element &#8220;img&#8221; is missing required attribute &#8220;src&#8221;."/>
-      <error line="99" col="138" severity="error" source="html-angular-validate" message="An &#8220;img&#8221; element must have an &#8220;alt&#8221; attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."/>
-      <error line="103" col="169" severity="error" source="html-angular-validate" message="Attribute &#8220;no-resize&#8221; not allowed on element &#8220;textarea&#8221; at this point."/>
-      <error line="108" col="124" severity="error" source="html-angular-validate" message="Bad value &#8220;file&#8221; for attribute &#8220;type&#8221; on element &#8220;a&#8221;: Subtype missing."/>
-      <error line="108" col="124" severity="error" source="html-angular-validate" message="Attribute &#8220;accept&#8221; not allowed on element &#8220;a&#8221; at this point."/>
-      <error line="108" col="165" severity="error" source="html-angular-validate" message="Stray end tag &#8220;span&#8221;."/>
-      <error line="109" col="14" severity="error" source="html-angular-validate" message="End tag &#8220;div&#8221; seen, but there were open elements."/>
-      <error line="108" col="124" severity="error" source="html-angular-validate" message="Unclosed element &#8220;a&#8221;."/>
-      <error line="109" col="15" severity="error" source="html-angular-validate" message="Bad value &#8220;file&#8221; for attribute &#8220;type&#8221; on element &#8220;a&#8221;: Subtype missing."/>
-      <error line="109" col="15" severity="error" source="html-angular-validate" message="Attribute &#8220;accept&#8221; not allowed on element &#8220;a&#8221; at this point."/>
-      <error line="110" col="10" severity="error" source="html-angular-validate" message="End tag &#8220;div&#8221; seen, but there were open elements."/>
-      <error line="110" col="11" severity="error" source="html-angular-validate" message="Bad value &#8220;file&#8221; for attribute &#8220;type&#8221; on element &#8220;a&#8221;: Subtype missing."/>
-      <error line="110" col="11" severity="error" source="html-angular-validate" message="Attribute &#8220;accept&#8221; not allowed on element &#8220;a&#8221; at this point."/>
-      <error line="111" col="6" severity="error" source="html-angular-validate" message="End tag &#8220;div&#8221; seen, but there were open elements."/>
-      <error line="111" col="7" severity="error" source="html-angular-validate" message="Bad value &#8220;file&#8221; for attribute &#8220;type&#8221; on element &#8220;a&#8221;: Subtype missing."/>
-      <error line="111" col="7" severity="error" source="html-angular-validate" message="Attribute &#8220;accept&#8221; not allowed on element &#8220;a&#8221; at this point."/>
-      <error line="188" col="1" severity="error" source="html-angular-validate" message="End of file seen and there were open elements."/>
+   <file name="/root/Local/PROJECTS/WINWINS/winwins/client/app/views/user/profile_notifications.html">
+      <error line="1" col="122" severity="error" source="html-angular-validate" message="Start tag seen without seeing a doctype first. Expected e.g. &#8220;&lt;&#33;DOCTYPE html&gt;&#8221;."/>
+      <error line="1" col="122" severity="error" source="html-angular-validate" message="Element &#8220;head&#8221; is missing a required instance of child element &#8220;title&#8221;."/>
+      <error line="2" col="71" severity="error" source="html-angular-validate" message="Empty heading."/>
+      <error line="13" col="156" severity="error" source="html-angular-validate" message="Element &#8220;img&#8221; is missing required attribute &#8220;src&#8221;."/>
+      <error line="13" col="156" severity="error" source="html-angular-validate" message="An &#8220;img&#8221; element must have an &#8220;alt&#8221; attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."/>
+      <error line="32" col="141" severity="error" source="html-angular-validate" message="Element &#8220;img&#8221; is missing required attribute &#8220;src&#8221;."/>
+      <error line="32" col="141" severity="error" source="html-angular-validate" message="An &#8220;img&#8221; element must have an &#8220;alt&#8221; attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."/>
+      <error line="33" col="110" severity="error" source="html-angular-validate" message="No space between attributes."/>
+      <error line="50" col="24" severity="error" source="html-angular-validate" message="End of file seen and there were open elements."/>
+      <error line="28" col="34" severity="error" source="html-angular-validate" message="Unclosed element &#8220;div&#8221;."/>
    </file>
 </checkstyle>
