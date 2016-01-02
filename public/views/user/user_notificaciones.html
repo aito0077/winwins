@@ -5,25 +5,63 @@
 </div>
       
 <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
+
 <div class="container no-padding">
     <div class="col-xs-12 no-padding">
-<div class="container no-padding"  style="margin:0px;" ng-repeat="notification in user_detail.notifications">
-   <ul class="collection card-panel">
-    <a  ng-if="notification.type == 'WW_CREATED'"></a>
-    <a  ng-if="notification.type == 'WW_JOIN'"></a>
-    <a ng-if="notification.type == 'GROUP_CREATED'"></a>
-    <a class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></a>
-    <a class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></a>
-    <a class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></a>
+        <div class="container no-padding"  style="margin:0px;">
+            <ul class="collection card-panel">
+                <li class="collection-item" ng-switch on="notification.type"  ng-repeat="notification in user_detail.notifications">
+                    <div ng-switch-when="WW_SUCCESSFUL">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> se ha completado con éxito! <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+                    <div ng-switch-when="WW_CREATED">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            Creaste <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+                    <div ng-switch-when="WW_JOIN">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            Te uniste a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
 
-<ul class="collection">
-    <li class="collection-item">
-        <i ng-class="{'fa-comments': '}" class="fa  light-blue-text" style="font-family: 2.5rem;"></i>{{notification.type}} - 
-        <span style="color:#0277BD !important;"> 
-            {{notification.body}}
-        </span>
-    </li>               
-</ul>
+                    <div ng-switch-when="SPONSOR_REQUEST">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            Han solicitado patrocinar a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+
+                    <div ng-switch-when="CAMPANADA">
+                        <span > 
+                            <i class="fa fa-bell light-blue-text" style="font-family: 2.5rem;"></i> 
+                            Recibiste una campanada de <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+
+                    <div ng-switch-when="FOLLOWING">
+                        <span > 
+                            <i class="fa fa-user light-blue-text" style="font-family: 2.5rem;"></i> 
+                            <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewProfile(notification.object.id)">{{notification.object.username}}</span> comenzó a seguirte </span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+
+
+                    <div ng-switch-default>
+                        <span style="color:#0277BD !important;"> 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> {{notification.body}}
+                        </span>
+                    </div>
+                </li>               
+            </ul>
+        </div>
+    </div>
+</div>
 
 
 
