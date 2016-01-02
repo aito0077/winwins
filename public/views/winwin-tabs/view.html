@@ -51,7 +51,7 @@
 
         <div ng-show="is_admin" class="container no-padding">
             <a data-toggle="tab" data-target="#sponsors_requests">
-                <div class="col-xs-3 submenu-icons" >
+                <div class="col-xs-2 submenu-icons" >
                     <i class="fa fa-star"></i>
                 </div>
             </a>
@@ -61,23 +61,23 @@
                 </div>
             </a>
             <a data-toggle="tab" data-target="#campanada">
-                <div class="col-xs-3 submenu-icons"  ng-class="{active: campanada_view}">
+                <div class="col-xs-2 submenu-icons"  ng-class="{active: campanada_view}">
                     <i class="fa fa-bell"></i>
                 </div>
             </a>
             <a data-toggle="tab" data-target="#poll">
-                <div class="col-xs-3 submenu-icons">
+                <div class="col-xs-2 submenu-icons">
                     <i class="fa fa-server"></i>
                 </div>
             </a>
 
             <a data-toggle="tab" data-target="#config">
-                <div class="col-xs-3 submenu-icons active">
+                <div class="col-xs-2 submenu-icons active">
                     <i class="fa fa-bullhorn"></i>
                 </div>
             </a>
                <a data-toggle="tab" data-target="#edit">
-                <div class="col-xs-3 submenu-icons active">
+                <div class="col-xs-2 submenu-icons active">
                     <i class="fa fa-edit"></i>
                          </a>
                 </div>
@@ -117,7 +117,7 @@
         <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
     </div>
     <div ng-if="is_admin" id="edit" class="tab-pane">
-        <div ng-include="'/views/winwin-tabs/edit_ww.html'"></div>
+        <div ng-include="'/views/winwins/edit.html'"></div>
     </div>
 
 

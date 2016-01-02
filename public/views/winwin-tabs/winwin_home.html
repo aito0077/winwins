@@ -222,12 +222,12 @@
             text-transform: capitalize;
             line-height: 12px;
             padding-top: 7px;" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</br><span style="color:#1762C3;font-size:10px; text-transform: uppercase;">creador</span> </div>
-         <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"  ng-repeat="member in winwin.users |filter: {pivot :{ moderator : 1}}"> 
-            <img ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; line-height:17px;" ng-click="viewProfile(member.id)"  alt="{{::member.detail.name}}" title="{{::member.detail.name}}" >
+         <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-repeat="member in winwin.users |filter: {pivot :{ creator: 0, moderator: 1}}"> 
+            <img ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; line-height:17px;" ng-click="viewProfile(member.id)"  alt="{{::member.username}}" title="{{::member.username}}" >
          </div>
          <div class="col-xs-6">
             <div class="col-xs-1" ng-repeat="member in winwin.users">
-               <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
+               <img alt="{{::member.username}}" title="{{::member.usernamename}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
             </div>
          </div>
       </div>
