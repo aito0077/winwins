@@ -1,92 +1,49 @@
-<div class="container no-padding" style="position:fixed; margin-top:-8px; padding:8px; z-index:99999999;">
-    
-    
-    <button class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-bookmark white-text"></i></button>
-       <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-fire white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('last')" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('next_to_close')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
-    
+<div class="container no-padding">
 
-    
-<!--TODO: filtrar por categorias con select multiple 
-
- <div class="input-field col-xs-12 no-padding white">
-    <select class="white"> 
-      <option value="" disabled selected>Intereses</option>
-      <option value="1">Solidaridad / Cooperación</option>
-      <option value="2">Solidaridad / Cooperación</option>
-      <option value="3">Solidaridad / Cooperación</option>
-    </select>
-  </div>
-
--->
-  
+    <div class="dropdown col-xs-12 col-sm-12 no-padding" style="position:fixed;">
+        <button class="btn green  col-xs-12 col-sm-12  no-padding" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+            WinWins Destacados
+            <span class="caret pull-right caret-middle"></span>
+        </button>
+        <ul class="dropdown-menu dd-destacados" aria-labelledby="dropdownMenu1">
+            <li><a ng-click="doFilter('popular')">WinWins Populares</a></li>
+            <li><a ng-click="doFilter('last')">Últimos WinWins Creados</a></li>
+                <li><a ng-click="doFilter('popular')">WinWins Destacados</a></li>
+            <li><a  ng-click="doFilter('next_to_close')">Por concretarse</a></li>
+            <!--li><a href="#">Solidaridad / Cooperación</a></li-->
+        </ul>
+    </div>
 </div>
-<div class="pad-50"</div>
 
 <div infinite-scroll='winwins.nextPage()'>
 
-         <!-- WW Cards-->
-    <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
-    <div ng-if="winwin.is_sponsor" class="container">
-       <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
-       </div>
-    </div>
-    <!-- labels -->
-    <div class="container no-padding" ng-if="!winwin.is_sponsor">
-       <div class="col-xs-12 no-padding">
-          <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
-             <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-          </div>
-          <div class="ww-popular" ng-if="winwin.mark == 'popular'">
-             <div class="ww-popular pop right">Pop</div>
-          </div>
-          <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
-             <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
-          </div>
-       </div>
-       <!-- WW Img -->
-       <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-          <div class="username-cards text-uppercase" style="padding-top:50px;">{{::winwin.title}}</div>
-       </div>
-       <!-- Info Bar -->
-       <div class="col-xs-12" style="margin-top: 10px;">
-          <div class="col-xs-2 no-padding">      
-             <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
-          </div>
-          <div class="col-xs-6 no-padding">  
-             <img ng-repeat="sponsor in winwin.sponsors" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
-          </div>
-          <!-- somos -->
-          <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
-             <span style="font-size:9px;">SOMOS </span> <br>
-             <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #eee;"> {{::winwin.users_already_joined}}</span> 
-          </div>
-          <!-- share button -->
-          <div class="col-xs-2"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
-          </div>
-       </div>
-    </div>
-
+    <div class="container no-padding" ng-repeat="winwin in winwins.items">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 220px; cursor:pointer; box-shadow: 5px  #999; rgb(212, 206, 206);"  ng-click="view(winwin.id)">
+            <div class="username-cards text-uppercase" ng-click="view(winwin.id)">{{::winwin.title}}</div>
+             <div class=" col-xs-12" style="padding-top:80px;">
+    <div class=" col-xs-2">      <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  </div>
+    <div class=" col-xs-6">    <div class="col-xs-1" ng-repeat="member in winwin.users">
+                        <img alt="{{::member.detail.name}}" title="{{::member.detail.name}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.detail.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
              
-<div id="footer" data-ng-controller="main-search-controller">
+            </div>
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
 
+  <div class=" col-xs-2">    </div>
+  <div class=" col-xs-4">  
+
+ </div>
+      </div>
         </div>
-      </form>
+            </div>
+        </div>
     </div>
 </div>
-  </nav>
-  </div>
+
+    
+
+    </div>
+
+</div>
         
 
 <script>
@@ -103,10 +60,3 @@ else
         });
     })
 </script>
-    
-    <script>
-    
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-            </script>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div data-ng-controller="winwin-sponsors" >
     <div class="grid grid-sponsors">
         <div class="pad-30"></div>
@@ -23,21 +24,51 @@
       </div>
    </div>
 </div>
+=======
+<div data-ng-controller="winwin-sponsors">
+>>>>>>> 7624c3aa8c7220ff9aef7767e1e5e903b337cad8
 
+    <div class="grid grid-sponsors">
+        <div class="grid-item sponsor-item {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors" style="margin-top: 40px;">
 
-      
-<div id="footer" data-ng-controller="main-search-controller">
+    
+            <div class="col-xs-12 no-padding card-panel hoverable">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{sponsor.cover_photo}}" style="height: 230px;">
+              
+                   <!-- <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
+                        <img ng-src="http://images.dev-winwins.net/x100/{{::sponsor.photo}}" class="img-responsive"  style="margin-left: auto; margin-right:auto; dislay:block; width:100px;    border-radius: 5px;"/>
+                    </div>-->
+                    <div style="margin-left:auto; margin-right: auto; display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px; padding-top:50px;">
+                        <h4> 
+                            {{::sponsor.name}} 
+                        </h4>
+                  
+                    </div>
+                </div>
 
-<nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-             <label for="search"><i class="fa fa-search" style="font-size: 1.6rem;"></i><span style="font-family: montserrat; color: #fff;">Buscar Winwins, Sponsors, Personas...</label>
-          <input id="query"  type="search" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-         
-          <i class="fa fa-close"></i>
+   
+   
+                <div class="container no-padding">
+                        <div class="buttons-profile">
+                            <a href="#" class="col-xs-3  ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
+                            <a ng-show="!sponsor.following" role="button" class="col-xs-5 btn-join"  ng-click="follow(sponsor)"> SEGUIR</a>
+                            <a ng-show="sponsor.following" role="button" class="col-xs-5  btn-join"  ng-click="follow(sponsor)"> SIGUIENDO </a>
+                            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+                        </div>
+          
+
+                    </div>
+                </div>
+            </div>
         </div>
-      </form>
+
     </div>
+<<<<<<< HEAD
   </nav>
   </div>
+=======
+
+</div>
+
+      
+>>>>>>> 7624c3aa8c7220ff9aef7767e1e5e903b337cad8

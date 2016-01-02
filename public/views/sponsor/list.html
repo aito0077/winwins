@@ -41,57 +41,28 @@
 
 </div>
 
-<div id="footer" data-ng-controller="main-search-controller">
+<!--
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+     
+
+   
+   
+                <div class="container no-padding">
+                                          <div class="buttons-profile">
+                            <a href="#" class="col-xs-2 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
+                            <a ng-show="!sponsor.following" role="button" class="col-xs-6 btn-join"  ng-click="follow(sponsor)"> SEGUIR</a>
+                            <a ng-show="sponsor.following" role="button" class="col-xs-6  btn-join"  ng-click="follow(sponsor)"> SIGUIENDO </a>
+                            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+                        </div>
+          
+
+                    </div>
+                </div>
+            </div>
 
         </div>
-      </form>
-    </div>
-     </nav>
-  </div>
-</div>
- 
-        
 
-<script>
-    $(function(){
-    $(window).scroll(function() {  
-if($(document).scrollTop() > 150)
-{    
-     $('#footer').addClass("show");
-}
-else
-{
-    $('#footer').removeClass("show");
-}
-        });
-    })
-</script>
-    
-    <script>
-    
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-            </script>
-
-
-
-
-
-
-
-
-
+    </div>-->
 
 <script>
   $(document).ready(function() {

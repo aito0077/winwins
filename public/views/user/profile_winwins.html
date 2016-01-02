@@ -1,41 +1,27 @@
-    <!-- WW Cards-->
-    <div class="container card-panel teal hoverable s12" ng-repeat="winwin in user_detail.winwins" style="padding:0px; padding-bottom:10px;">
-    <div ng-if="winwin.is_sponsor" class="container">
-       <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
-       </div>
-    </div>
-    <!-- labels -->
-    <div class="container no-padding" ng-if="!winwin.is_sponsor">
-       <div class="col-xs-12 no-padding">
-          <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
-             <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-          </div>
-          <div class="ww-popular" ng-if="winwin.mark == 'popular'">
-             <div class="ww-popular pop right">Pop</div>
-          </div>
-          <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
-             <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
-          </div>
-       </div>
-       <!-- WW Img -->
-       <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-          <div class="username-cards text-uppercase" style="padding-top:50px;">{{::winwin.title}}</div>
-       </div>
-       <!-- Info Bar -->
-       <div class="col-xs-12" style="margin-top: 10px;">
-          <div class="col-xs-2 no-padding">      
-             <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
-          </div>
-          <div class="col-xs-6 no-padding">  
-             <img ng-repeat="sponsor in winwin.sponsors" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
-          </div>
-          <!-- somos -->
-          <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
-             <span style="font-size:9px;">SOMOS </span> <br>
-             <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #eee;"> {{::winwin.users_already_joined}}</span> 
-          </div>
-          <!-- share button -->
-          <div class="col-xs-2"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
-          </div>
-       </div>
-    </div>
+<div class="container no-padding" ng-repeat="winwin in user_detail.winwins">
+
+        <div class="col-xs-12 no-padding">
+            <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
+                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+            </div>
+            <div class="ww-popular" ng-if="winwin.mark == 'popular'"> 
+                <div class="ww-popular pop"> Pop</div>
+            </div>
+            <div class="ww-finishing" ng-if="winwin.mark == 'finishing'"> 
+                <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
+            </div>
+        </div>
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer;"  ng-click="viewWinwin(winwin.id)">
+            <div class="username-cards text-uppercase">{{::winwin.title}}</div>
+        </div>
+        <div class="card-buttons" >
+            <div class=" col-xs-1 profile">
+                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
+            </div>
+            <div class="col-xs-1 profile"> 
+                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
+            </div>
+        </div>
+</div>
+
+

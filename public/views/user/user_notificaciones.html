@@ -6,6 +6,7 @@
       
 <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
 
+<<<<<<< HEAD
 <div class="container no-padding">
     <div class="col-xs-12 no-padding">
         <div class="container no-padding"  style="margin:0px;">
@@ -65,3 +66,22 @@
 
 
 
+=======
+<div class="container no-padding"  style="margin:0px;" ng-repeat="notification in user_detail.notifications">
+
+    <a  ng-if="notification.type == 'WW_CREATED'"></a>
+    <a  ng-if="notification.type == 'WW_JOIN'"></a>
+    <a ng-if="notification.type == 'GROUP_CREATED'"></a>
+    <a class="fa fa-comments" ng-if="notification.type == 'WW_LEFT'"></a>
+    <a class="fa fa-comments" ng-if="notification.type == 'WW_JOIN'"></a>
+    <a class="fa fa-users" ng-if="notification.type == 'GROUP_LEFT'"></a>
+
+<ul class="collection">
+    <li class="collection-item">
+        <i ng-class="{'fa-comments': '}" class="fa  light-blue-text" style="font-family: 2.5rem;"></i>{{notification.type}} - 
+        <span style="color:#0277BD !important;"> 
+            {{notification.body}}
+        </span>
+    </li>               
+</ul>
+>>>>>>> 7624c3aa8c7220ff9aef7767e1e5e903b337cad8
