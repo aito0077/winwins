@@ -1,33 +1,17 @@
-<div class="container no-padding">
+<div class="container">
+    <div class="row" style="margin-top:55px;">
 
-        
-          <button class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
-       <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-star white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('last')" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('next_to_close')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
-    
-        
-        
-           <h5 class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No encontramos resultados<br> para tu búsqueda!<br> </h5>
-     
-      <div class="container">
-  
-  <nav>
-    <div class="nav-wrapper  white" data-ng-controller="main-search-controller">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right black-text"id="query" ng-click="search()" style="padding-top:15px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+        <div id="slider">
 
-        </div>
-      </form>
+            <button type="button" ng-click="filter('all')" class="col-xs-3 active filter-ww" ng-class="{active: current == 'all'}">Todos</button>
+            <button type="button" ng-click="filter('remarkable')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Destacados</button>
+            <button type="button" ng-click="filter('popular')" class="col-xs-3 filter-ww" ng-class="{active: current == 'all'}">Populares</button>
+            <button type="button" ng-click="filter('finishing')" class="col-xs-3  filter-ww" ng-class="{active: current == 'all'}">Finalizando</button>
+        </div>   
+
     </div>
-  </nav>
-</div>
-
+</div>    
+  
 <div class="container" ng-repeat="winwin in winwins">
     <div class="row">
         <div class="col-xs-12 no-padding">
@@ -42,8 +26,20 @@
                 <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
             </div>
         </div>
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin._source.image}}" style="height: 200px; cursor:pointer;"  ng-click="view(winwin._type, winwin._id)">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin._source.image}}" style="height: 240px; cursor:pointer;"  ng-click="view(winwin._type, winwin._id)">
             <div class="username-cards text-uppercase">{{::winwin._source.title}}</div>
+        </div>
+        <div class="card-buttons" >
+            <div class=" col-xs-1 profile">
+
+                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin._source.user.photo}}" title="{{::winwin._source.user.username}}" alt="{{::winwin._source.user.username}}" ng-click="viewProfile(winwin._source.user.id)" class="img-circle" style="cursor:pointer">
+            </div>
+            <div class="col-xs-1 profile"> 
+                <img ng-repeat="sponsor in winwin._source.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle"  ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer">
+
+            </div>
+            <div class="col-xs-7"> </div>
+             <a style="color: #333;" type="button" ng-click="openSocialModal(winwin)">  <div class="col-xs-2" style="background-color:#1762C3; border-radius:50%; width:35px; height:35px;"> <div id="share"><i class="fa fa-thumbs-o-up" style="color: white; margin-top: 20px; margin-left: -5px;"></i> </div></div></a>
         </div>
     </div>
 </div>
@@ -144,43 +140,4 @@ socialshare-url="http://dev-winwins/ww/winwin/{{::winwin._id}}">
             </div>
         </div>
 
-<div id="footer" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
-
-        </div>
-      </form>
-    </div>
-</div>
-  </nav>
-  </div>
-
-<script>
-    $(function(){
-    $(window).scroll(function() {  
-if($(document).scrollTop() > 150)
-{    
-     $('#footer').addClass("show");
-}
-else
-{
-    $('#footer').removeClass("show");
-}
-        });
-    })
-</script>
-    
-    <script>
-    
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-            </script>

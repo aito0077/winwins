@@ -28,16 +28,16 @@
          </a>
       </div>
       <div class="container no-padding">
-         <div class="col-xs-2 submenu-icons">
+         <div class="col-xs-3 submenu-icons">
             <i class="fa fa-star"></i>
          </div>
-         <div class="col-xs-2 submenu-icons">
+         <div class="col-xs-3 submenu-icons">
             <i class="fa fa-bell"></i>
          </div>
-         <div class="col-xs-2 submenu-icons">
+         <div class="col-xs-3 submenu-icons">
             <i class="fa fa-server"></i>
          </div>
-         <div class="col-xs-2 submenu-icons active">
+         <div class="col-xs-3 submenu-icons active">
             <i class="fa fa-bullhorn"></i>
          </div>
 
@@ -45,28 +45,45 @@
 <div class="grid">
   <div class="grid-item">
       
-  <div infinite-scroll='sponsors.nextPage()' style="margin-top:-25px;">
-        <div class="col-xs-12 no-padding card-panel hoverable" style="margin-top:10px;" ng-repeat="sponsor in sponsors.items">
-
-          <div class="col-xs-12 no-padding ng-click="view(sponsor.id)"">
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}" style="height: 220px;">
-                <div class="profile-avatar avatar">
-                    <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="responsive-img" style="background-color: #fff; border-radius:50%; min-height:100px;" />
+            <!-- sponsors-->
+         
+         <div class="col-xs-12 no-padding">
+        <div  style="background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(img/cocacola.jpg);
+  background-size: cover;
+  height: 220px;
+  ">
+              
+               <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
+               <img src="img/coca2.jpe" class="img-responsive img-circle"  style="margin-left: auto; margin-right:auto; dislay:block; width:100px;"/></div>
+                    <div style="margin-left:auto; margin-right: auto; display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">The Coca-Cola Co </h4>
+                  
                 </div>
-                <div class="username">{{::sponsor.name}}</div>
             </div>
-   <div class="container no-padding">
-
-            <div class="buttons-profile" style="margin-top:-70px;">
-                <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
-                <a role="button" class="col-xs-5 btn-join" ng-show="sponsor.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
-                <a role="button" class="col-xs-5 btn-join" ng-show="!sponsor.already_following" ng-click="follow()"> SEGUIR</a>
-                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+         </div>
+      </div>
+   </div>
+   
+   
+      <div class="container">
+      <div class="row">
+         <div class="buttons-profile">
+               <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">120</a>
+             
+<!-- Trigger the modal with a button -->
+  <a href="#" role="button" class="col-xs-6 btn-join"  data-toggle="modal" data-target="#myModal"> Solicitar Sponsoreo</a>
+         
+               <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">239</a>
             </div>
-        
-    </div>
+          
+         </div>
+      </div>
+   </div>
 </div>
-    </div>
     
 
 <!-- Modal -->

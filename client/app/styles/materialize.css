@@ -247,13 +247,31 @@ padding-top:50px;
    border-bottom: 0px;
 }
 
-.tooltip.top {
-    padding: 5px 0;
-    margin-top: -3px;
-    padding-left: 65%;
+
+.tooltip {
+    /* position: absolute; */
+    z-index: 999;
+    display: block;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: normal;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    line-break: auto;
+        margin-left: 30%;
 }
-
-
 .modal .modal-content {
  padding: 0px;
 }

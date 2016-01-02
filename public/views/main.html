@@ -1,114 +1,23 @@
-
-<style>
-    body {
-        background-repeat: no-repeat;
-        background-color: #C3C3C3;
-    }
-</style>
-
-
-<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-5px;">
-    <source src="/video/winwins.mp4"  type="video/mp4" >
-    Your browser does not support HTML5 video
-</video>
-        <!-- Button -->   
-<div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
-    <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-        <i class="fa fa-chevron-right"></i>
-    </button>
-</div>
-
-<div ng-if="!isAuthenticated()" class="pad-30"></div>
-
-<!-- WW Cards-->
-<div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
-
-    <div ng-if="winwin.is_sponsor" class="container">
-        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
-        </div>
+<div ng-controller="AppCtrl as ctrl" class="md-padding" ng-cloak>
+  <div>
+    <h1 class="md-title">Enter an address</h1>
+    <div layout="row">
+      <md-input-container>
+        <label>Street Name</label>
+        <input>
+      </md-input-container>
+      <md-input-container>
+        <label>City</label>
+        <input>
+      </md-input-container>
+      <md-input-container>
+        <label>State</label>
+        <md-select ng-model="ctrl.userState">
+          <md-option ng-repeat="state in ctrl.states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>
+      </md-input-container>
     </div>
-<!-- labels -->
-    <div class="container no-padding" ng-if="!winwin.is_sponsor">
-        <div class="col-xs-12 no-padding">
-            <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
-                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-            </div>
-            <div class="ww-popular" ng-if="winwin.mark == 'popular'">
-                <div class="ww-popular pop right">Pop</div>
-            </div>
-            <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
-                <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
-            </div>
-        </div>
-<!-- WW Img -->
-        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-            <div class="username-cards text-uppercase" style="padding-top:50px;">{{::winwin.title}}</div>
-        </div>
-<!-- Info Bar -->
-        <div class="col-xs-12" style="margin-top: 10px;">
-            <div class="col-xs-2 no-padding">      
-                <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
-            </div>
-
-            <div class="col-xs-6 no-padding">  
-                <img ng-repeat="sponsor in winwin.sponsors" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
-            </div>
-
-        
-         <!-- somos -->
-            <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
-                <span style="font-size:9px;">SOMOS </span> <br>
-                <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #eee;"> {{::winwin.users_already_joined}}</span> 
-            </div>
-    <!-- share button -->
-             <div class="col-xs-2"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
-        </div>
-    </div>
-</div>
-
-           <!-- search 
-<div id="footer" data-ng-controller="main-search-controller">
-    <div id="panel" >
-        <div class="col-sm-12 col-sm-offset-12">
-            <div id="imaginary_container">
-                <div class="input-field col s12 text-white">
-                    <input id="icon_prefix" type="text" class="validate" style="color:white; text-transform: uppercase;">
-                    <label for="icon_prefix" style="border-radius: 50%; background-color:#E41B26; color:white; padding-top:8px;width:50px; height:50px; padding-left:15px;font-size:1.5em;"> <i class="fa fa-search"></i></label>
-                </div>
-                <div class="input-group stylish-input-group" style="height:39px; font-size: 12px; background-color:#fff;">
-                    <input id="query" type="text" class="" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:29px; border-radius:1px; font-size:10px;">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
-<div id="footer" data-ng-controller="main-search-controller">
-
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
-
-        </div>
-      </form>
-    </div>
-</div>
-  </nav><!--
-<<nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-            
-          <input id="query"  class="col-xs-10 no-padding" type="search" placeholder="Busca Winwins, Sponsors, Miembros.." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()" style="padding-left: 10px; padding-right: 0px;">
-          <a class="btn-large waves-effect waves-light red col-xs-2 no-padding " id="query" ng-click="search()"><i class="fa fa-search"></i></a>
-        </div>
-      </form>
-    </div>
-  </nav>
   </div>
+</div>
