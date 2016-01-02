@@ -1,10 +1,11 @@
 <div data-ng-controller="winwin-sponsors" >
-   <div class="grid grid-sponsors">
+    <div class="grid grid-sponsors">
         <div class="pad-30"></div>
-            <h5 class="grey-text card-panel"><br><i class="fa fa-star orange-text animated infinite pulse" style="font-size: 40px;"></i><br><br>Sé el primero en sponsorear este WinWin!<br></h5>
-      <div class="col-xs-12 no-padding card-panel hoverable white {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors">
-         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/200x/smart/{{sponsor.cover_photo}}">
-            <div class="profile-avatar center">
+        <h5 nf-if="!winwin.active_sponsors.length" class="grey-text card-panel"><br><i class="fa fa-star orange-text animated infinite pulse" style="font-size: 40px;"></i><br><br>Sé el primero en sponsorear este WinWin!<br></h5>
+
+        <div class="col-xs-12 no-padding card-panel hoverable white {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/200x/smart/{{sponsor.cover_photo}}">
+                <div class="profile-avatar center">
                <img ng-src="http://images.dev-winwins.net/x100/{{::sponsor.photo}}" class="img-responsive avatar-img" >
             </div>
                <h4 class="center white-text"> 

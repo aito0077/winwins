@@ -24,7 +24,7 @@ use Illuminate\Http\Request;
 class PollController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show', 'polls']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
 	public function index() {
@@ -32,7 +32,9 @@ class PollController extends Controller {
         return $polls;
 	}
 
-	public function polls(Request $request, $type, $reference) {
+	public function show(Request $request, $id) {
+        $poll = Poll::find($id);
+
         $user = false;
 		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
 		if ( $token )  {
@@ -44,46 +46,26 @@ class PollController extends Controller {
             }
         }
 
-
-
-        $polls = Poll::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
-        $collection = Collection::make($polls);
-        $stickies = new Collection();
-        $regulars = new Collection();
-        $final = new Collection();
-
-        $collection->each(function($poll) use($stickies, $regulars, $user) {
-            $userPoll = $poll->user;
-            $userPoll->detail;
-            $poll->media;
-            $poll->votes;
-            if($user && count($poll->votes) > 0) {
-                $vote = $poll->votes->search(function($item) use ($poll, $user) {
-                    if($item->user_id == $user->id) {
-                        $poll->self_vote = $item;
-                    }
-                });
+        $total = 0;
+        foreach($poll->answers as $answer) {
+            $answer->vote_count = count($answer->votes);
+            $total = $total + $answer->vote_count;
+            if($user) {
+                foreach($answer->votes as $vote) {
+                    Log::info($vote->user_id);
+                    Log::info($user->id);
+                    if($vote->user_id == $user->id) {
+                        $poll->has_answered = true;
+                        Log::info($poll);
+                        break;
+                    } 
+                    Log::info($poll);
+                }
             }
-             
-            if($poll->sticky) {
-                $stickies->push($poll);
-            } else {
-                $regulars->push($poll);
-            }
-        });
+        }
+        $poll->total_votes = $total;
 
-        
-
-        $final = $stickies->sortByDesc('sticky_date')->merge($regulars);
-        
-        return array(
-            'polls' => $final,
-            'last' => $collection->last()
-        );
-	}
-
-	public function show(Request $request, $id) {
-        $poll = Poll::find($id);
+        Log::info($poll);
         return $poll;
 	}
 
@@ -214,6 +196,19 @@ class PollController extends Controller {
 	public function edit($id) {
 		//
 	}
+
+
+	public function votePoll(Request $request, $id, $answerId) {
+        $user = User::find($request['user']['sub']);
+        $answer = PollAnswer::find($answerId);
+        DB::transaction(function() use ($answer, $user) {
+            $pollVote = PollVote::firstOrCreate([
+                'user_id' => $user->id,
+                'answer_id' => $answer->id,
+            ]);
+        });
+        return response()->json(['message' => 'poll_voted'], 200);
+    }
 
 	public function vote(Request $request, $id) {
         $user = User::find($request['user']['sub']);

@@ -160,7 +160,7 @@ angular.module('winwinsApp')
             $scope.getSponsor();
             swal({
                 title: "info", 
-                text: 'sponsor_updated', 
+                text: 'Los datos fueron actualizados', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 

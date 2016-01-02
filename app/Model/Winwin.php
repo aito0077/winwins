@@ -25,4 +25,8 @@ class Winwin extends Model {
         return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_winwins')->withPivot('ww_accept', 'sponsor_accept', 'sponsor_text', 'sponsor_message', 'ww_message');
     }
 
+    public function polls() {
+        return $this->hasMany('Winwins\Model\Poll');
+    }
+
 }

@@ -46,6 +46,9 @@ Route::resource('api/winwins', 'WinwinController');
 Route::post('api/winwins/{id}/poll', ['middleware' => 'auth', 'uses' => 'PollController@createPoll']);
 Route::post('api/winwins/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@update']);
 
+Route::post('api/poll/{id}/vote/{answerId}', ['middleware' => 'auth', 'uses' => 'PollController@votePoll']);
+
+
 Route::resource('api/posts', 'PostController');
 Route::resource('api/stories', 'StoryController');
 Route::resource('api/polls', 'PollController');

@@ -24,7 +24,7 @@
                                                 <table cellspacing="0" cellpadding="0" style="border-collapse:collapse">
                                                    <tbody>
                                                       <tr>
-                                                         <td valign="middle" align="left"><span style="display:block;min-height:32px;overflow:hidden;width:32px"><a href="{{meta.base_url}}" target="_blank" style="border:0;"><img width="32px" height="32px" src="LOGO_URL" alt="Winwins logo" border="0" style="border:0;display:block;"></a></span></td>
+                                                          <td valign="middle" align="left"><span style="display:block;min-height:32px;overflow:hidden;width:32px"><a href="{{meta.base_url}}" target="_blank" style="border:0;"><img src="{{meta.logo_url}}" alt="Winwins logo" border="0" style="border:0;display:block;"></a></span></td>
                                                          <td valign="middle" style="padding:12px;width:100%"><span style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:18px;color:#ec7007">Invitación</span></td>
                                                       </tr>
                                                    </tbody>

@@ -140,6 +140,7 @@ class UserController extends Controller {
 
 	if(isset($user)) {
         $is_sponsor = false;
+        $user->sponsor;
         if(isset($user->sponsor)) {
             $is_sponsor = ($user->sponsor->status == 'ACTIVE');
         }

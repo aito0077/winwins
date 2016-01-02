@@ -84,6 +84,7 @@ angular.module('winwinsApp')
 
     $scope.goProfile = function() {
         console.log('go profile');
+        console.log('is sponsor? '+$scope.isSponsor);
         if($scope.isSponsor) {
             $state.go('sponsor-view', {
                 sponsorId: $scope.sponsor.id

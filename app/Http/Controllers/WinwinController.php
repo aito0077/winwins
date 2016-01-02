@@ -104,6 +104,7 @@ class WinwinController extends Controller {
         $ww_user->detail;
         $users = $winwin->users;
         $sponsors = $winwin->sponsors;
+
         $users_count = count($users);
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
@@ -140,7 +141,27 @@ class WinwinController extends Controller {
 
                 return $result;
             })) > 0;
+
+
+            $user->sponsor;
+            $is_sponsor = isset($user->sponsor);
+            $active_sponsors = array();
+            foreach($sponsors as $sponsor) {
+                Log::info($sponsor);
+                if($sponsor->pivot->ww_accept == 1 && $sponsor->pivot->sponsor_accept == 1) {
+                    array_push($active_sponsors, $sponsor);
+                }
+                
+                if($is_sponsor && ($sponsor->user_id == $user->id)) {
+                    $winwin->already_sponsored = true;
+                }
+            }
+
+            $winwin->active_sponsors = $active_sponsors;
         }
+
+        $winwin->polls;
+
 
         $winwin->previous_id = Winwin::where('id', '<', $winwin->id)->max('id');
         $winwin->next_id = Winwin::where('id', '>', $winwin->id)->min('id');
