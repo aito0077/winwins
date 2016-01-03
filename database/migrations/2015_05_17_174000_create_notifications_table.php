@@ -22,7 +22,7 @@ class CreateNotificationsTable extends Migration {
             $table->integer('sender_id')->nullable()->unsigned();
             $table->foreign('sender_id')->references('id')->on('users');
 
-            $table->boolean('is_read')->default(true);
+            $table->boolean('is_read')->default(false);
             $table->boolean('is_activity')->default(false);
             $table->dateTime('sent_at')->nullable();
             $table->boolean('sent_by_mail')->default(false);
