@@ -25,7 +25,7 @@ angular.module('winwinsApp')
             $scope.winwins = [];
             var index = 0;
             _.each($scope.all_winwins, function(item) {
-                index = index +1;
+                index = index + 1;
                 if(index % 3 == 0) {
                     $scope.winwins.push(_.extend($scope.popSponsor(), {
                         is_sponsor: true

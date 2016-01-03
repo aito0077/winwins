@@ -44,7 +44,7 @@
             <div class="left" style="margin-left:20px;">
                 <i class="fa fa-chevron-left fa-lg imenu" ng-click="do_back()"></i>    
                 <i class="fa fa-bell-o fa-lg imenu" style="padding-left: 20px; font-size:1.3em;"  ng-if="is_logged" ng-click="goNotifications()"></i>
-                <span style="background-color:red; border-radius: 50%;padding-left:3px;padding-bottom:1px; padding-right: 3px; font-size: .8rem; margin-left:-9px; margin-top: -5px;" ng-if="is_logged" ng-show="unreadNotifications > 0">{{unreadNotifications}}</span>   
+                <span style="background-color:red; border-radius: 50%;padding-left:3px;padding-bottom:1px; padding-right: 3px; font-size: .8rem; margin-left:-9px; margin-top: -5px;" ng-if="is_logged">{{unreadNotifications}}</span>   
             </div>
         </nav>
     </div>

@@ -67,7 +67,7 @@ class WinwinController extends Controller {
 
 	public function index() {
         //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
-        $winwins = Winwin::all();
+        $winwins = Winwin::where('published', 1)->where('canceled', 0)->orderBy('selected', 'desc')->get();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
@@ -79,6 +79,7 @@ class WinwinController extends Controller {
             
             $winwin->popular = $winwin->users_joined > 1;
             $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
+            $winwin->remarkable = $winwin->selected;
             $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
             $winwin->sponsors;
