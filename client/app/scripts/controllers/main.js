@@ -199,6 +199,16 @@ angular.module('winwinsApp')
         }); 
     };
 
+    $scope.searchUsers = function() {
+
+        $state.go('user-search-list', {
+            query: $scope.term
+        }); 
+    };
+
+
+
+
 }])
 .controller('contact-controller', ['$scope','$auth', '$http', '$state', 'api_host', function($scope, $auth, $http, $state, api_host) {
 

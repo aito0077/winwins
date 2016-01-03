@@ -59,9 +59,23 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
-        </div>
+<div id="footer" data-ng-controller="main-search-controller">
 
+<nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+             <label for="search"><i class="fa fa-search" style="font-size: 1.6rem;"></i><span style="font-family: montserrat; color: #fff;">Buscá Miembros</label>
+          <input id="query"  type="search" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+         
+          <i class="fa fa-close"></i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  </div>
+    
+       </div>

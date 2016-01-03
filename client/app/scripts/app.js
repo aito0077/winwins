@@ -252,7 +252,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/sponsor/signup.html',
         controller: 'sponsor-signup'
     })
-
+    .state('user-search-list', {
+        url: '/search/user/:query',
+        templateUrl: 'views/search/list_user.html',
+        controller: 'search-list-user'
+    })
     .state('search-list', {
         url: '/search/:query',
         templateUrl: 'views/search/list.html',

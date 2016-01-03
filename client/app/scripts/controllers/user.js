@@ -16,9 +16,8 @@ angular.module('winwinsApp')
     };
 
 
-    $scope.follow = function(id) {
-        $http.get(api_host+'/api/users/follow/'+id).success(function(data) {
-            $scope.getUser();
+    $scope.follow = function(member) {
+        $http.get(api_host+'/api/users/follow/'+member.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'Siguiendo!', 
@@ -26,6 +25,8 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
+            member.following = true;
+            member.followers_count = member.followers_count + 1;
         })
         .error(function(error) {
             swal({
@@ -492,6 +493,26 @@ angular.module('winwinsApp')
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {
+
+    $scope.viewProfile = function(id) {
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewSponsor = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
+
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
 
 
 

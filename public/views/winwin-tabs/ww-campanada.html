@@ -1,36 +1,30 @@
-<div  data-ng-controller="winwin-campanada">
-    <div class="container" ng-show="!campanada_success">
-        <div class="pad-50"> </div>
-
-        <div class="col-xs-12 bubble-big campanada">
-            <i class="fa fa-bell campana"></i>
-
-            <h4> ENVIA UNA CAMPANADA</h4>
-
-            <h6>
-                Envia un mensaje importante a todos los miembros de tu WinWins!
-            </h6>
-
-            <textarea class="form-control" rows="3" style="margin: 40px 0" ng-model="body"></textarea>
-            <button type="button" ng-click="sentCampanada()"  class="btn btn-default btn-sponsor btn-second" style="color:#FFF;">
-                ENVIAR CAMPANADA!
-            </button>
-        </div>
-
+    <div  data-ng-controller="winwin-campanada">
+       <div class="container" ng-show="!campanada_success">
+          <h1 style="font-size:60px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-bell-o animated infinite wobble"></i></h1>
+          <h4 class="white-text">
+          CAMPANADA
+          <H4>
+       </div>
+       <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
+       <textarea class="form-control" rows="3" style="margin: 40px 0" ng-model="body"></textarea>
+       <button type="button" ng-click="sentCampanada()"  class="btn-large green">
+       ENVIAR CAMPANADA!
+       </button>
     </div>
-
+    </div>
     <div class="container" ng-show="campanada_success">
-        <div class="row">
-            <div class="pad-50"> </div>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8"><div style="text-align: center;"> 
-                <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+       <div class="row">
+          <div class="pad-50"> </div>
+          <div class="col-xs-2"></div>
+          <div class="col-xs-8">
+             <div style="text-align: center;">
+                <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top:   20px; text-align:center;"></i>
                 <h1 style="font-family: montserrat;"> ¡GENIAL! </h1>
-                <h4 style="font-family: montserrat;"> Se envío tu campanada a todos los miembros!</h4>
+                <h4 style="font-family: montserrat;"> Se envío tu campanada a todos los miembros.!</h4>
                 <div class="pad-80"></div>
-                    <img src="/images/loading.gif" width="110" height="80" alt="loading"> </div>
-                <div class="col-xs-2"></div>
-            </div>
+                <img src="/images/loading.gif" width="110" height="80" alt="loading"> 
+             </div>
+             <div class="col-xs-2"></div>
+          </div>
+       </div>
     </div>
-
-</div> 

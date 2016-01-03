@@ -24,18 +24,32 @@ class UserController extends Controller {
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
+        $current_user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $current_user = User::find($payload['sub']);
+            }
+        }
+
         $users = DB::table('user_details')
                                     ->join('users', 'user_details.user_id', '=', 'users.id')
                                     ->where('users.active', '=', 1)
+                                    ->where('users.is_sponsor', '=', NULL)
                                     ->where('users.suspend', '=', 0)
+                                    ->select('user_details.photo', 'user_details.cover_photo', 'users.id', 'user_details.name') 
                                     ->skip($page * $amount)
                                     ->take($amount)->get();
         $collection = Collection::make($users);
         $collection->each(function($user) {
-            $winwins_count = DB::table('winwins')
-                ->join('winwins_users', 'winwins.id', '=', 'winwins_users.user_id')
-                ->where('winwins_users.user_id', '=', $user->id)->count();
-            $user->winwins_count = $winwins_count;
+            $user->winwins_count = DB::table('winwins_users')
+                ->where('user_id', '=', $user->id)->count();
+            $user->followers_count = DB::table('followers')
+                ->where('followed_id', '=', $user->id)->count();
+
         });
         return $collection;
     }
@@ -75,7 +89,7 @@ class UserController extends Controller {
 
             $user->notifications->each(function($notification) {
                 $notification->object = $notification->getObject();
-                $notification->formatted = trans('busca.'.$notification->body, $notification->object->toArray());
+                //$notification->formatted = trans('ww.'.$notification->body, $notification->object->toArray());
             });
 
             //$userDetail->followers = $user->followers;
@@ -293,6 +307,9 @@ class UserController extends Controller {
         $followed = User::find($id);
 
         $already_following = false;
+        if(!$user) {
+            return response()->json(['message' => 'Debe ingresar para seguir a alguien'], 401);
+        }
 
         if($user->id == $followed->id) {
             return response()->json(['message' => 'Can not follow yourself'], 400);

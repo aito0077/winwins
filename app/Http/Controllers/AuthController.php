@@ -93,6 +93,9 @@ class AuthController extends Controller {
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->activation_code = str_random(60) . $request->input('email');
+        if($request->has('is_sponsor')) {
+            $user->is_sponsor = 1;
+        }
         $user->save();
         $detail = new UserDetail;
         $detail->name = $request->input('name');

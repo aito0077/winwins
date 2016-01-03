@@ -58,6 +58,10 @@ class SearchController extends Controller {
     //Search
 	public function search(Request $request) {
         $query = $request->input('q');
+        $winwin = $request->input('winwin');
+        $user = $request->input('user');
+        $group = $request->input('group');
+        $sponsor = $request->input('sponsor');
 
         $items = $this->elasticsearch->search([
             'index' => 'winwins',
