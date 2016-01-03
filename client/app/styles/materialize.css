@@ -585,6 +585,19 @@ min-height:95px;
     background-color: #1976D2;
 }
 
+.featured {
+    margin-right:30px;
+    font-size: 15px;
+}
+
+.clock {
+    height: 35px;
+    color: #fff;
+    margin-right: 30px;
+    background-color: #206DC7;
+    margin-top: 0;
+}
+
 #nav-mobile li.search {
     position: absolute;
     left: 0;
