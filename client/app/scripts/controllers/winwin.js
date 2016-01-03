@@ -1571,7 +1571,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/notifications', {
             notification_user_post: $scope.winwin.notification_user_post,
             notification_new_participant: $scope.winwin.notification_new_participant,
-            notification_new : $scope.winwin.notification_new_poll,
+            notification_new_poll: $scope.winwin.notification_new_poll,
             notification_announce: $scope.winwin.notification_announce,
             notification_new_sponsor: $scope.winwin.notification_new_sponsor,
             notification_closing_date: $scope.winwin.notification_closing_date
@@ -1670,6 +1670,186 @@ angular.module('winwinsApp')
     }
 
 })
+.controller('winwin-modify', function($scope, $state, $stateParams, $http, $auth, $timeout, Upload, Winwin, Interest, api_host) {
+    $scope.interests = [];
+    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
+    $scope.preview_image = '';
 
+    $scope.ewinwin = {};
+
+
+    $scope.getWinwin = function() {
+        $scope.ewinwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.ewinwin = data;
+            $scope.setup_components();
+        });
+    }
+
+
+
+    $scope.getWinwin();
+
+    $scope.setup_components = function() {
+        Interest.query(function(data) {
+            $scope.interests = data;
+        });
+
+        $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.ewinwin.image;
+
+
+        jQuery('[data-toggle="popover"]').popover();
+        jQuery('[data-toggle="tooltip"]').tooltip()
+
+        jQuery('#picker_closing_date').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        jQuery('#picker_closing_date').pickadate().pickadate('picker').set('select', $scope.ewinwin.closing_date);
+        jQuery('#what_we_do_textarea').val($scope.ewinwin.what_we_do);
+        jQuery('#description_textarea').val($scope.ewinwin.description);
+        
+    };
+
+
+
+    $scope.doValidateWinwin = function() {
+        return true && !$scope.saving;
+    };
+
+    $scope.updateWinwin = function() {
+        if($scope.doValidateWinwin()) {
+            $scope.saving = true;
+            $http.post(api_host+'/api/winwins/'+$scope.ewinwin.id, $scope.ewinwin)
+            .success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'Los datos han sido actualizados', 
+                    type: "info",
+                    showcancelbutton: false,
+                    animation: false, 
+                    closeonconfirm: true 
+                });
+                $scope.saving = false;
+            })
+            .error(function(error) {
+                $scope.saving = false;
+                swal({
+                    title: "Error", 
+                    text: "Hubo un problema al actualizar los datos",
+                    type: "warning",
+                    showCancelButton: false,
+                    animation: false, 
+                    closeOnConfirm: true 
+                });
+            });
+
+        }
+    };
+
+    $scope.uploading = false;
+    $scope.uploadFiles = function(file) {
+        $scope.f = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: api_host+'/api/winwins/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading = false;
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.ewinwin.image = response.data.filename;
+                    $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.ewinwin.image;
+                });
+            }, function (response) {
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                    swal({
+                        title: "Error", 
+                        text: 'Error al subir archivo', 
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
+
+                }
+            });
+
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+        if (file.$error == 'maxSize') {
+            swal({
+                title: "Error", 
+                text: "La imagen es demasiado grande",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        }
+    };
+
+
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
+
+    $scope.setVideoUrl = function() {
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "url",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.ewinwin.video = result;
+                        $scope.ewinwin.image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
+                        $scope.preview_image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
+                    });
+                } else {
+                }
+            }
+        });
+    };
+
+    $scope.gallery_picker = false;
+
+    $scope.select_gallery = function() {
+        $scope.gallery_picker = !$scope.gallery_picker;
+        
+        if(!$scope.image_gallery_selected) {
+            jQuery('#image-gallery').imagepicker({
+                changed: function(old, new_value) {
+                    $scope.image_gallery_selected = new_value;
+                    $scope.$apply(function(){
+                        $scope.gallery_picker = false;
+                    });
+                }
+            });
+        }
+    };
+
+    $scope.$watch('image_gallery_selected', function() {
+        if($scope.image_gallery_selected) {
+            $scope.ewinwin.image = $scope.image_gallery_selected[0];
+            console.log($scope.ewinwin.image);
+            $scope.$apply();
+        }
+    });
+
+})
 ;
 

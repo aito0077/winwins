@@ -1,6 +1,8 @@
 
 <div data-ng-controller="winwin-sponsors-to-request">
     <div ng-if="!request_success">
+        <div class="pad-30"></div>
+        <h5 ng-if="!sponsors.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No se encontraron <br> sponsors nuevos <br> </h5>
 
     <div class="grid grid-sponsors" style="padding-top: 50px;">
         <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
@@ -25,7 +27,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="buttons-profile">
-                            <a role="button" class="col-xs-6 btn-join"  ng-click="requestSponsor(sponsor)"> SOLICITAR</a>
+                            <a role="button" class="col-xs-offset-3 col-xs-6 btn-join"  ng-click="requestSponsor(sponsor)"> SOLICITAR</a>
                         </div>
           
 

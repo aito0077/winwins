@@ -260,6 +260,11 @@ class WinwinController extends Controller {
 	public function store(Request $request) {
         $user = User::find($request['user']['sub']);
 
+        
+        if($request->has('id')) {
+            return $this->update($request, $request->input('id'));
+        }
+
         $winwin = new Winwin;
         DB::transaction(function() use ($request, $winwin, $user) {
 
@@ -325,6 +330,9 @@ class WinwinController extends Controller {
 
 	public function update(Request $request, $id) {
         $winwin = Winwin::find($id);
+        if(!isset($winwin)) {
+            $winwin = Winwin::find($request->input('id'));
+        }
 
         DB::transaction(function() use ($request, $winwin) {
             $winwin->closing_date = $request->input('closing_date');
@@ -339,14 +347,17 @@ class WinwinController extends Controller {
             $winwin->city = $request->input('city');
             $winwin->image = $request->input('image');
 
-            $interest = $request->input('interest');
+            if($request->has('interest')) {
+                $interest = $request->input('interest');
+                $interestIntrested = new InterestsInterested;
+                $interestIntrested->interest_id = $interest['id'];
+                $interestIntrested->interested_id = $winwin->id;
+                $interestIntrested->type = 'WINWIN';
 
-            $interestIntrested = new InterestsInterested;
-            $interestIntrested->interest_id = $interest['id'];
-            $interestIntrested->interested_id = $winwin->id;
-            $interestIntrested->type = 'WINWIN';
+                $interestIntrested->save();
 
-            $interestIntrested->save();
+            }
+
             $winwin->save();
         });
         return $winwin;

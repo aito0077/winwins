@@ -40,7 +40,7 @@
                     <div ng-switch-when="CAMPANADA">
                         <span > 
                             <i class="fa fa-bell light-blue-text" style="font-family: 2.5rem;"></i> 
-                            Recibiste una campanada de <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                            Recibiste una campanada de <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span>: "{{notification.body}}" <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
 
