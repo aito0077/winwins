@@ -2,7 +2,7 @@
 <div data-ng-controller="winwin-sponsors-to-request">
     <div ng-if="!request_success">
 
-    <div class="grid grid-sponsors">
+    <div class="grid grid-sponsors" style="padding-top: 50px;">
         <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
 
     
@@ -25,9 +25,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="buttons-profile">
-                            <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
-                            <a role="button" class="col-xs-6 btn-join"  ng-click="requestSponsor(sponsor)"> SOLICITAR SPONSOREO</a>
-                            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+                            <a role="button" class="col-xs-6 btn-join"  ng-click="requestSponsor(sponsor)"> SOLICITAR</a>
                         </div>
           
 
