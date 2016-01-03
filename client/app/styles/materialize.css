@@ -521,7 +521,7 @@ height: 34px;
 }
 }
 
-
+    
 .submenu-icons {
     height: 35px;
     background-color: rgba(255, 141, 0, 0.96);
@@ -588,8 +588,13 @@ min-height:95px;
     z-index: 2;
 }
 
+.somoscards { color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; }
 
-
+    .rating-input {
+    font-size: 29px;
+    color: orange;
+}
+    
 #nav-mobile li.search .search-wrapper {
     margin: 0 12px;
     transition: margin .25s ease;

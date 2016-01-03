@@ -58,7 +58,7 @@
          <!-- somos -->
             <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
                 <span style="font-size:9px;">SOMOS </span> <br>
-                <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #eee;"> {{::winwin.users_already_joined}}</span> 
+                <span class="somoscards"> {{::winwin.users_already_joined}}</span> 
             </div>
     <!-- share button -->
              <div class="col-xs-2"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
@@ -66,23 +66,7 @@
     </div>
 </div>
 
-           <!-- search 
-<div id="footer" data-ng-controller="main-search-controller">
-    <div id="panel" >
-        <div class="col-sm-12 col-sm-offset-12">
-            <div id="imaginary_container">
-                <div class="input-field col s12 text-white">
-                    <input id="icon_prefix" type="text" class="validate" style="color:white; text-transform: uppercase;">
-                    <label for="icon_prefix" style="border-radius: 50%; background-color:#E41B26; color:white; padding-top:8px;width:50px; height:50px; padding-left:15px;font-size:1.5em;"> <i class="fa fa-search"></i></label>
-                </div>
-                <div class="input-group stylish-input-group" style="height:39px; font-size: 12px; background-color:#fff;">
-                    <input id="query" type="text" class="" placeholder="Busca Winwins, Personas, Grupos o Sponsors" ng-model="term" aria-describedby="search-lbl" ng-enter="search()"  style="height:29px; border-radius:1px; font-size:10px;">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
+           <!-- search -->
 <div id="footer" data-ng-controller="main-search-controller">
 
 <nav>
@@ -99,16 +83,4 @@
       </form>
     </div>
 </div>
-  </nav><!--
-<<nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-            
-          <input id="query"  class="col-xs-10 no-padding" type="search" placeholder="Busca Winwins, Sponsors, Miembros.." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()" style="padding-left: 10px; padding-right: 0px;">
-          <a class="btn-large waves-effect waves-light red col-xs-2 no-padding " id="query" ng-click="search()"><i class="fa fa-search"></i></a>
-        </div>
-      </form>
-    </div>
   </nav>
-  </div>
