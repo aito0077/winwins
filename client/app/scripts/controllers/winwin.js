@@ -294,7 +294,7 @@ angular.module('winwinsApp')
 .controller('winwin-edit', function($scope, $state, $auth, $timeout, Upload, Winwin, Interest, api_host) {
     $scope.winwin = new Winwin({});
     $scope.interests = [];
-    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
+    $scope.scopes = [ 'GLOBAL','LOCAL'];
 
     $scope.first_stage = true;
     $scope.second_stage = false;
@@ -631,12 +631,14 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-list', ['$scope', '$http', '$auth', '$state', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, WinwinPaginate, api_host) {
+.controller('winwin-list', ['$scope', '$http', '$auth', '$state', '$uibModal', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, $uibModal, WinwinPaginate, api_host) {
    
     $scope.winwins = new WinwinPaginate();
 
     $scope.doFilter = function(filter) {
         console.log(filter);
+        $scope.winwins.setFilter(filter);
+        $scope.winwins.nextPage();
     };
 
     $scope.join = function(winwin_id) {
@@ -675,6 +677,20 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
 
 
 }])

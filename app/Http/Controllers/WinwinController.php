@@ -38,10 +38,28 @@ class WinwinController extends Controller {
         return $winwins;
 	}
 
-    public function paginate(Request $request, $page = 0, $amount = 15) {
+    public function paginate(Request $request, $page = 0, $amount = 15, $filter = 'all') {
         //$winwins = DB::table('winwins')->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
-        $winwins = Winwin::where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        $winwins = [];
+
+        switch ($filter) {
+            case 'next_to_close':
+                $winwins = Winwin::where('closing_date', '<', Carbon::now()->addDay(2))->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                break;
+            case 'popular':
+                $winwins = Winwin::where('users_joined', '>', 1)->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                break;
+            case 'select':
+                $winwins = Winwin::where('published', '=', 1)->where('selected', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                break;
+            default:
+                $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        }
+
+        //$winwins = Winwin::where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         //$winwins = DB::table('winwins')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        Log::info($filter);
+        Log::info($winwins);
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {

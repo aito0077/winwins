@@ -120,6 +120,7 @@ angular.module('winwinsApp')
     var WinwinPaginate = function() {
         this.items = [];
         this.busy = false;
+        this.filter = 'all';
         this.current_page = 0;
     };
 
@@ -130,7 +131,7 @@ angular.module('winwinsApp')
         this.busy = true;
 
         var self = this;
-        $http.get(api_host+'/api/winwins/paginate/'+(this.current_page || '0')+'/15')
+        $http.get(api_host+'/api/winwins/paginate/'+(this.current_page || '0')+'/15/'+this.filter)
         .success(function(data) {
             self.current_page = self.current_page + 1;
             for (var i = 0; i < data.length; i++) {
@@ -140,6 +141,13 @@ angular.module('winwinsApp')
         });
     };
     
+    WinwinPaginate.prototype.setFilter = function(filter) {
+        this.filter = filter;
+        this.items = [];
+        this.busy = false;
+        this.current_page = 0;
+    };
+ 
     return WinwinPaginate; 
 
 }])
