@@ -14,7 +14,7 @@ class Winwin extends Model {
     }
 
     public function users() {
-        return $this->belongsToMany('Winwins\User', 'winwins_users')->withPivot('creator', 'moderator');
+        return $this->belongsToMany('Winwins\User', 'winwins_users')->withPivot('creator', 'moderator', 'process_rate');
     }
 
     public function groups() {

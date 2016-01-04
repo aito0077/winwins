@@ -58,8 +58,6 @@ class WinwinController extends Controller {
 
         //$winwins = Winwin::where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         //$winwins = DB::table('winwins')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
-        Log::info($filter);
-        Log::info($winwins);
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {
@@ -158,6 +156,10 @@ class WinwinController extends Controller {
                     $model->my_self = true;
                 }
 
+                if($result && $model->pivot->process_rate > 0) {
+                    $winwin->already_rated = true;
+                }
+
                 return $result;
             })) > 0;
 
@@ -166,7 +168,6 @@ class WinwinController extends Controller {
             $is_sponsor = isset($user->sponsor);
             $active_sponsors = array();
             foreach($sponsors as $sponsor) {
-                Log::info($sponsor);
                 if($sponsor->pivot->ww_accept == 1 && $sponsor->pivot->sponsor_accept == 1) {
                     array_push($active_sponsors, $sponsor);
                 }
@@ -549,7 +550,6 @@ class WinwinController extends Controller {
         $winwin = Winwin::find($winwinId);
         $detail = $user->detail;
 
-        Log::info($request->input('mails'));
 
         foreach($request->input('mails') as $recipient) {
             $message = new Message($template_name, array(
@@ -735,7 +735,6 @@ class WinwinController extends Controller {
         
         $filename = 'winwin_'.md5(strtolower(trim($image->name))).'_'.$image->id . '.' . $image->ext;
 
-        Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
         $image->name = $filename;
         $image->save();
@@ -766,11 +765,32 @@ class WinwinController extends Controller {
         $winwin = Winwin::find($id);
         $ww_user = $winwin->user;
         $ww_user->detail;
-        Log::info($winwin);
         return view('winwins.view', [
 		'winwin' => $winwin,
                 'facebook_app_id' => Config::get('facebook_app_id')
 	]);
 	}
+
+	public function rate(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $winwin = Winwin::find($id);
+
+        DB::transaction(function() use ($winwin, $user, $request) {
+            $rate = $request->input('rate');
+            $winwinUser = WinwinsUser::firstOrNew([
+                'user_id' => $user->id,
+                'winwin_id' => $winwin->id,
+            ]);
+            WinwinsUser::where('user_id', $user->id)
+                        ->where('winwin_id', $winwin->id)
+                        ->update(['process_rate' => $rate]);
+
+        });
+
+        return response()->json(['message' => 'winwin_rated'], 200);
+        
+	}
+
+
 
 }

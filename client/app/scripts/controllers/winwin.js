@@ -63,6 +63,14 @@ angular.module('winwinsApp')
             if($stateParams.actionJoin) {
                 $scope.join();
             }
+
+            if($scope.winwin.status == 'SUCCESSFUL') {
+                $timeout(function() {
+                    $scope.setup_components(); 
+                }, 1000);
+
+            }
+
         });
     }
 
@@ -231,6 +239,160 @@ angular.module('winwinsApp')
         });
     };
 
+
+    $scope.setup_components = function() {
+        jQuery.fn.rating = function () {
+            var element;
+            function _paintValue(ratingInput, value, active_icon, inactive_icon) {
+                var selectedStar = jQuery(ratingInput).find('[data-value="' + value + '"]');
+                selectedStar.removeClass(inactive_icon).addClass(active_icon);
+                selectedStar.prevAll('[data-value]').removeClass(inactive_icon).addClass(active_icon);
+                selectedStar.nextAll('[data-value]').removeClass(active_icon).addClass(inactive_icon);
+            }
+
+            function _clearValue(ratingInput, active_icon, inactive_icon) {
+                var self = jQuery(ratingInput);
+                self.find('[data-value]').removeClass(active_icon).addClass(inactive_icon);
+            }
+
+            function _updateValue(input, val) {
+                input.val(val).trigger('change');
+                if (val === input.data('empty-value')) {
+                    input.siblings('.rating-clear').hide();
+                } else {
+                    input.siblings('.rating-clear').show();
+                }
+            }
+
+            for (element = this.length - 1; element >= 0; element--) {
+                var el, i,
+                    originalInput = jQuery(this[element]),
+                    max = originalInput.data('max') || 5,
+                    min = originalInput.data('min') || 0,
+                    def_val = originalInput.val() || 0,
+                    lib = originalInput.data('icon-lib') || 'glyphicon',
+                    active = originalInput.data('active-icon') || 'glyphicon-star',
+                    inactive = originalInput.data('inactive-icon') || 'glyphicon-star-empty',
+                    clearable = originalInput.data('clearable') || null,
+                    clearable_i = originalInput.data('clearable-icon') || 'glyphicon-remove',
+                    stars = '';
+
+                for (i = min; i <= max; i++) {
+                    if(i  <= def_val) {
+                        stars += ['<i class="',lib, ' ', active, '" data-value="', i, '"></i>'].join('');
+                    } else {
+                        stars += ['<i class="',lib, ' ', inactive, '" data-value="', i, '"></i>'].join('')
+                    }
+                }
+
+                if (clearable) {
+                    stars += [
+                    ' <a class="rating-clear" style="display:none;" href="javascript:void">',
+                    '<span class="',lib,' ',clearable_i,'"></span> ',
+                    clearable,
+                    '</a>'].join('');
+                }
+
+                var newInput = originalInput.clone(true)
+                    .addClass('hidden')
+                    .data('max', max)
+                    .data('min', min)
+                    .data('icon-lib', lib)
+                    .data('active-icon', active)
+                    .data('inactive-icon', inactive);
+
+                el = [
+                    '<div class="rating-input">',
+                    stars,
+                    '</div>'].join('');
+
+                if (originalInput.parents('.rating-input').length <= 0) {
+                    originalInput.replaceWith(jQuery(el).append(newInput));
+                }
+
+            }
+
+            jQuery('.rating-input')
+            .on('mouseenter', '[data-value]', function () {
+                var self = jQuery(this),
+                input = self.siblings('input');
+                _paintValue(self.closest('.rating-input'), self.data('value'), input.data('active-icon'), input.data('inactive-icon'));
+            })
+            .on('mouseleave', '[data-value]', function () {
+                var self = jQuery(this),
+                    input = self.siblings('input'),
+                    val = input.val(),
+                    min = input.data('min'),
+                    max = input.data('max'),
+                    active = input.data('active-icon'),
+                    inactive = input.data('inactive-icon');
+                if (val >= min && val <= max) {
+                    _paintValue(self.closest('.rating-input'), val, active, inactive);
+                } else {
+                    _clearValue(self.closest('.rating-input'), active, inactive);
+                }
+            })
+            .on('click', '[data-value]', function (e) {
+                var self = jQuery(this),
+                    val = self.data('value'),
+                    input = self.siblings('input');
+                _updateValue(input,val);
+                e.preventDefault();
+                return false;
+            })
+            .on('click', '.rating-clear', function (e) {
+                var self = jQuery(this),
+                    input = self.siblings('input'),
+                    active = input.data('active-icon'),
+                    inactive = input.data('inactive-icon');
+
+                _updateValue(input, input.data('empty-value'));
+                _clearValue(self.closest('.rating-input'), active, inactive);
+                e.preventDefault();
+                return false;
+            })
+            .each(function () {
+                var input = jQuery(this).find('input'),
+                val = input.val(),
+                min = input.data('min'),
+                max = input.data('max');
+                if (val !== "" && +val >= min && +val <= max) {
+                    _paintValue(this, val);
+                    jQuery(this).find('.rating-clear').show();
+                } else {
+                    input.val(input.data('empty-value'));
+                    _clearValue(this);
+                }
+            });
+
+        };
+
+        jQuery('#review').rating();
+
+        jQuery('#review').on('change', function(val, val2){
+            $scope.winwin_rate = jQuery('#review').val();
+            $scope.$apply();
+            $scope.rateIt();
+        });
+    };
+
+    $scope.rateIt = function() {
+        $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/rate',{
+            rate: $scope.winwin_rate
+        }).success(function(data) {
+            $scope.winwin.already_rated = true;
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: 'Error al concretar la operación', 
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+
+    };
 
 }])
 
