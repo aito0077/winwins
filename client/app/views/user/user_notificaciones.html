@@ -10,7 +10,7 @@
     <div class="col-xs-12 no-padding">
         <div class="container no-padding"  style="margin:0px;">
             <ul class="collection card-panel">
-                <li class="collection-item" ng-switch on="notification.type"  ng-repeat="notification in user_detail.notifications">
+                <li class="collection-item" ng-switch on="notification.type"  ng-repeat="notification in user_detail.notifications | orderBy: '-id'">
                     <div ng-switch-when="WW_SUCCESSFUL">
                         <span > 
                             <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
