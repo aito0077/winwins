@@ -138,6 +138,13 @@ class WinwinController extends Controller {
             ->where('type', '=', 'WINWIN')
             ->where('reference_id', '=', $winwin->id)->get();
 
+        $winwin->interests = DB::table('interests')
+            ->join('interests_interested', 'interests.id', '=', 'interests_interested.interest_id')
+            ->where('type', '=', 'WINWIN')
+            ->where('interested_id', '=', $winwin->id)
+            ->select('interests.name','interests.description')
+            ->get();
+
         $winwin->already_joined = false;
         if($user) {
             $winwin->is_moderator = ( $winwin->user_id == $user->id );
@@ -303,7 +310,7 @@ class WinwinController extends Controller {
             $winwin->image = $request->input('image');
 
             if( !isset($winwin->image) ) {
-                $winwin->image = $request->input('gallery_image');
+                $winwin->image = $request->input('gallery_image')[0];
             }
 
             $winwin->user_id = $user->id;
@@ -334,6 +341,17 @@ class WinwinController extends Controller {
                     $winwin->image = $request->input('video').'.jpg';
                     $winwin->save();
                 }
+            }
+
+            $interests = $request->input('interests');
+            Log::info($interests);
+            foreach($interests as $interest) {
+
+                $interestsInterested = InterestsInterested::firstOrCreate([
+                    'interest_id' => $interest['id'],
+                    'interested_id' => $winwin->id,
+                    'type' => 'WINWIN'
+                ]);
             }
 
             $user->newActivity()

@@ -394,6 +394,13 @@ angular.module('winwinsApp')
 
     };
 
+    $scope.formattedCategories = function(categories) {
+        if(categories) {
+            return _.pluck(categories, 'description').join('\n');
+        }
+        return '';
+    };
+
 }])
 
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
