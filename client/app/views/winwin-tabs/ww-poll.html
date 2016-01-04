@@ -1,3 +1,13 @@
+    <div class="pad-30"></div>
+
+    <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999">
+        <h1 style="font-size:60px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-server animated infinite wobble"></i></h1>
+        <h4 class="white-text"> Encuestas </h4>
+        <p class="white-text">Crea una encuesta para tu winwin.</p>
+    </div>
+      
+    <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
+
 <div data-ng-controller="winwin-poll">
     <div class="container" ng-show="poll_success">
         <div class="row">
@@ -17,16 +27,6 @@
     </div>
 
     <div class="container" ng-show="!poll_success">
-        <div class="pad-50"> </div>
-        <div class="container">
-            <div class="pad-50"> </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <h4 style="text-align:center;">NUEVA ENCUESTA</h4>
-                </div>
-            </div>
-        </div>
-          
         <form id="create-poll" role="form" ng-submit="submitPoll()" name="pollForm">
             <div class="container">
                 <div class="row">
