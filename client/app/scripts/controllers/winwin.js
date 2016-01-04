@@ -71,6 +71,7 @@ angular.module('winwinsApp')
     Account.getProfile().success(function(data) {
         if(data) {
 
+            $scope.user_id = data.user ? data.user.id : false;
             $scope.account = data.account;
             $scope.profile = data.profile;
             $scope.sponsor = data.sponsor;
@@ -1329,6 +1330,62 @@ angular.module('winwinsApp')
             }
         });
     };
+
+    $scope.setSticky = function(item_post) {
+        $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
+            sticky: true
+        }).success(function(data) {
+            $scope.getPosts();
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: "No se pudo concretar la operación",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+
+    };
+    
+    $scope.unSticky = function(item_post) {
+        $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
+            sticky: false
+        }).success(function(data) {
+            $scope.getPosts();
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: "No se pudo concretar la operación",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+
+    };
+ 
+    $scope.removePost = function(item_post) {
+        $http.post(api_host+'/api/posts/'+item_post.id+'/remove',{
+            sticky: false
+        }).success(function(data) {
+            $scope.getPosts();
+        })
+        .error(function(error) {
+            swal({
+                title: "Error", 
+                text: "No se pudo concretar la operación",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        });
+    };
+
+
+
 }])
 .controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, $timeout, api_host, post, Post, Upload) {
 

@@ -57,6 +57,8 @@ Route::post('api/stories/upload', ['middleware' => 'auth', 'uses' => 'StoryContr
 Route::post('api/posts/{id}/comment', ['middleware' => 'auth', 'uses' => 'PostController@comment']);
 Route::post('api/posts/{id}/vote', ['middleware' => 'auth', 'uses' => 'PostController@vote']);
 Route::post('api/stories/{id}/comment', ['middleware' => 'auth', 'uses' => 'StoryController@comment']);
+Route::post('api/posts/{id}/sticky', ['middleware' => 'auth', 'uses' => 'PostController@sticky']);
+Route::post('api/posts/{id}/remove', ['middleware' => 'auth', 'uses' => 'PostController@remove']);
 
 
 Route::get('api/groups/paginate/{page}/{amount}', ['uses' => 'GroupController@paginate']);

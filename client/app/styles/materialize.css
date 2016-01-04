@@ -585,6 +585,21 @@ min-height:95px;
     background-color: #1976D2;
 }
 
+.featured {
+    margin-right:33px;
+    font-size: 2.2rem   ;
+}
+
+.clock {
+    height:28px;
+    width: 28px;
+    color: #fff;
+    margin-right: 40px;
+    background-color: #206DC7;
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
 #nav-mobile li.search {
     position: absolute;
     left: 0;
@@ -602,6 +617,23 @@ min-height:95px;
     color: orange;
 }
     
+.pop {
+    margin-top: 0px;
+    margin-right: 0px;
+    height: 30px;
+    font-size: 11px;
+    font-family: montserrat;
+    color: white;
+    float: right;
+    background-color: red;
+    width: 30px;
+    text-align: center;
+    border-top-right-radius: 0px;
+}
+.right {
+    float: right;
+}
+
 #nav-mobile li.search .search-wrapper {
     margin: 0 12px;
     transition: margin .25s ease;

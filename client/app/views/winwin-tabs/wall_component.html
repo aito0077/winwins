@@ -49,9 +49,9 @@
          </div>
       </div>
    </div>
-
-
 </div>
+<!-- Fin Polls -->
+
 <div class="row">
    <div class="container no-padding" ng-repeat="item_post in posts" >
       <div class="col s12 m7">
@@ -60,11 +60,17 @@
                <li class="collection-item avatar" style="width: 100%;">
                   <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(winwin.user.id)" class="img-circle profile-ww" width="38" height="38"> 
                     <span class="h7 grey-text"> {{item_post.user.username}}</span>
-                  <a class="button-del">
+                        
+                  <a href class="button-del" ng-if="!item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
                      <h4><i class="fa fa-bookmark right grey-text" style="margin-top: -60px;"></i> </h4>
+                  </a>
+                  <a href class="button-del" ng-if="item_post.sticky && !isAdmin">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a class="button-del">
+                  <a href class="button-del" ng-if="item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
+                     <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
+                  </a>
+                  <a href class="button-del" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
                      <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -30px;"></i> </h4>
                   </a>
                   <span class="title" style="font-size:12px;">Title</span>
@@ -74,7 +80,10 @@
                {{::item_post.content}}
             </div>
             <div class="media-post"> </div>
-            <div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/300x/{{::item_post.media.name}}" class="materialboxed embed-responsive embed-responsive-16by9" style="width:100%; min-margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));"></div>
+            <!--div ng-show="item_post.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/300x/smart/{{::item_post.media.name}}" class="materialboxed embed-responsive embed-responsive-16by9" style="width:100%; min-margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));"></div-->
+            <div ng-show="item_post.media.type == 'IMAGE'" class="materialboxed _embed-responsive _embed-responsive-16by9" style="width:100%; min-margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));">
+                <img ng-src="http://images.dev-winwins.net/400x/smart/{{::item_post.media.name}}" class="img-responsive">
+            </div>
             <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
             </div>

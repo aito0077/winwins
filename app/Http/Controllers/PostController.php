@@ -7,6 +7,7 @@ use DB;
 use Config;
 use Storage;
 use Validator;
+use Carbon;
 use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
@@ -44,7 +45,7 @@ class PostController extends Controller {
 
 
 
-        $posts = Post::where('type', strtoupper($type))->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
+        $posts = Post::where('type', strtoupper($type))->where('canceled', '<>', 1)->where('reference_id', $reference)->orderBy('created_at', 'desc')->get();
         $collection = Collection::make($posts);
         $stickies = new Collection();
         $regulars = new Collection();
@@ -282,6 +283,32 @@ class PostController extends Controller {
         ]);
 	}
 
+	public function sticky(Request $request, $id) {
+        $post = Post::find($id);
+
+        DB::transaction(function() use ($post, $request) {
+            $sticky = $request->input('sticky');
+            $post->sticky = $sticky;
+            if($sticky) {
+                $post->sticky_date = Carbon::now();
+            }
+            $post->save();
+
+        });
+
+        return response()->json(['message' => 'sticky_set'], 200);
+	}
+
+	public function remove(Request $request, $id) {
+        $post = Post::find($id);
+
+        DB::transaction(function() use ($post, $request) {
+            $sticky = $request->input('sticky');
+            $post->canceled = true;
+            $post->save();
+        });
+        return response()->json(['message' => 'post_removed'], 200);
+	}
 
 }
 
