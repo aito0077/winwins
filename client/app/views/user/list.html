@@ -16,7 +16,7 @@
 <div class="container no-padding">
 
         <div class="col-xs-12 no-padding">
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user.cover_photo}}" style="height: 220px;">
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::user.cover_photo}}" style="height: 220px;" ng-click="view(user.id)">
                 <div class="profile-avatar avatar">
                     <img ng-src="http://images.dev-winwins.net/smart/{{::user.photo}}" class="img-responsive img-circle center"/>
                 </div>

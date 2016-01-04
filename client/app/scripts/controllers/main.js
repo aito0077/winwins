@@ -103,21 +103,6 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
-    $scope.openSocialModal = function(winwin) {
-        $scope.toShare = winwin;
-        var modalInstance = $uibModal.open({
-            animation: false,
-            windowTopClass: 'modal-background',
-            templateUrl: 'myModalContent.html',
-            controller: 'ModalInstanceCtrl',
-            resolve: {
-                toShare: function () {
-                    return $scope.toShare;
-                }
-            }
-        });
-    };
-
     $scope.filter = function(filter) {
         $scope.is_filtered = (filter !== 'all');
         console.log(filter);
@@ -176,6 +161,23 @@ angular.module('winwinsApp')
         jQuery('#slider').stop().animate({"margin-top": '0'}) > 10;
         console.log('visible search');
     };
+
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
 
 }])
 .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, toShare) {
