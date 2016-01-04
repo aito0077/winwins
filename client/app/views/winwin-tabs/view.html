@@ -39,9 +39,9 @@
                     <i class="fa fa-users"></i>
                 </div>
             </a>
-            <div ng-click="setAdmin()" ng-if="!isAdmin">
+            <div ng-click="setAdmin()" ng-if="isAdmin">
                 <div class="col-xs-3 blue" ng-class="{active: current_view == 'admin'}">
-                    <i class="fa fa-gear" style="color:white; font-size: 1.1em;"></i>
+                    <i class="fa fa-gear" style="color:white; font-size: 1.1em;"></i>></i>
                 </div>
             </div>
             <div ng-if="!isAdmin" class="col-xs-3 blue">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div ng-show="!is_admin" class="container no-padding">
+        <div ng-show="is_admin" class="container no-padding">
             <a data-toggle="tab" data-target="#sponsors_requests">
                 <div class="col-xs-2 submenu-icons" >
                     <i class="fa fa-star"></i>
@@ -101,22 +101,22 @@
         <div ng-include="'/views/winwin-tabs/ww-users.html'"></div>
     </div>
 
-    <div ng-if="!is_admin" id="sponsors_requests" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_requests" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-requests.html'"></div>
     </div>
-    <div ng-if="!is_admin" id="sponsors_to_request" class="tab-pane">
+    <div ng-if="is_admin" id="sponsors_to_request" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-sponsors-to-request.html'"></div>
     </div>
-    <div ng-if="!is_admin" id="campanada" class="tab-pane">
+    <div ng-if="is_admin" id="campanada" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-campanada.html'"></div>
     </div>
-    <div ng-if="!is_admin" id="config" class="tab-pane">
+    <div ng-if="is_admin" id="config" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-config.html'"></div>
     </div>
-    <div ng-if="!is_admin" id="poll" class="tab-pane">
+    <div ng-if="is_admin" id="poll" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/ww-poll.html'"></div>
     </div>
-    <div ng-if="!is_admin" id="edit" class="tab-pane">
+    <div ng-if="is_admin" id="edit" class="tab-pane">
         <div ng-include="'/views/winwin-tabs/edit.html'"></div>
     </div>
 

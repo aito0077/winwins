@@ -10,7 +10,7 @@
     <div class="col-xs-12 no-padding">
         <div class="container no-padding"  style="margin:0px;">
             <ul class="collection card-panel">
-                <li class="collection-item" ng-switch on="notification.type"  ng-repeat="notification in user_detail.notifications">
+                <li class="collection-item card-panel" ng-switch on="notification.type"  ng-repeat="notification in user_detail.notifications">
                     <div ng-switch-when="WW_SUCCESSFUL">
                         <span > 
                             <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
@@ -19,20 +19,20 @@
                     </div>
                     <div ng-switch-when="WW_CREATED">
                         <span > 
-                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
-                            Creaste <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                            <i class="fa fa-comments orange-text" style="font-family: 2.5rem;"></i> 
+                           <span class="h7">Creaste el winwin</span> <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small><i class="fa fa-clock"></i>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
                     <div ng-switch-when="WW_JOIN">
                         <span > 
                             <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
-                            Te uniste a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                            <span class="h7"> Te uniste a </span><span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
 
                     <div ng-switch-when="SPONSOR_REQUEST">
                         <span > 
-                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            <i class="fa fa-star yellow-text" style="font-family: 2.5rem;"></i> 
                             Han solicitado patrocinar a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
