@@ -174,7 +174,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ProfileCtrl', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Upload, User, Account, api_host) {
+.controller('ProfileCtrl', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Upload, User, Account, api_host) {
 
     $scope.followers = [];
     $scope.following = [];
@@ -480,6 +480,23 @@ angular.module('winwinsApp')
 
         });
     };
+
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
 
 
 }])

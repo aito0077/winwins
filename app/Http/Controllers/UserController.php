@@ -80,6 +80,9 @@ class UserController extends Controller {
 
         if($user) {
             $winwins = $user->winwins;
+            foreach($winwins as $winwin) {
+                $winwin->user;
+            }
 
             $userDetail = $user->detail;
             $userDetail->email = $user->email;
