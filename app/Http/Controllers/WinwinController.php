@@ -287,6 +287,9 @@ class WinwinController extends Controller {
 	public function store(Request $request) {
         $user = User::find($request['user']['sub']);
 
+        if($user->active == 0) {
+            return response()->json(['message' => 'Yo have to activate your account'], 400);
+        }
         
         if($request->has('id')) {
             return $this->update($request, $request->input('id'));
@@ -427,6 +430,11 @@ class WinwinController extends Controller {
     //Actions
 	public function join(Request $request, $id) {
         $user = User::find($request['user']['sub']);
+        if($user->active == 0) {
+            return response()->json(['message' => 'Yo have to activate your account'], 400);
+        }
+
+
         $winwin = Winwin::find($id);
         $winwin->user();
         if($user->id == $winwin->user->id) {
@@ -791,6 +799,12 @@ class WinwinController extends Controller {
 
 	public function rate(Request $request, $id) {
         $user = User::find($request['user']['sub']);
+
+        if($user->active == 0) {
+            return response()->json(['message' => 'Yo have to activate your account'], 400);
+        }
+
+
         $winwin = Winwin::find($id);
 
         DB::transaction(function() use ($winwin, $user, $request) {

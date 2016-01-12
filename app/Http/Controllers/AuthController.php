@@ -228,6 +228,7 @@ class AuthController extends Controller {
 			if(isset($profile['gender'])) {
                 $userDetail->sex = $userDetail->sex ?: ($profile['gender'] == 'male' ? 'M' : ($profile['gender'] == 'female' ? 'F': 'M'));
 			}
+            $user->active = 1;
             $user->save();
             $user->detail()->save($userDetail);
     
@@ -295,6 +296,7 @@ class AuthController extends Controller {
                 return response()->json(['token' => $this->createToken($user->first())]);
             }
 
+            $user->active = 1;
             $user = new User;
             $user->google = $profile['sub'];
             $user->username = $profile['name'];
@@ -434,6 +436,8 @@ class AuthController extends Controller {
                 $user->twitter = $profile['id'];
                 $user->username = $profile['screen_name'];
 
+            
+
                 $detail = new UserDetail;
                 if(isset($profile['screen_name'])) {
                     $detail->name = $detail->name ?: $profile['screen_name'];
@@ -444,6 +448,7 @@ class AuthController extends Controller {
                 $detail->photo = $picture_name;
                 $user->photo = $detail->photo;
 
+                $user->active = 1;
                 $user->save();
                 $user->detail()->save($detail);
 
