@@ -653,3 +653,10 @@ min-height:95px;
 .select-wrapper input.select-dropdown {
     width: 100%; 
 }
+
+.aviso  {
+    padding:8px;
+    position: fixed; 
+    width:101%;
+    z-index: 99;
+    }
