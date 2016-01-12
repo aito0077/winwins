@@ -72,7 +72,7 @@ angular.module('winwinsApp')
             }
 
         });
-    }
+    };
 
 
     $scope.isSponsor = false;
@@ -189,8 +189,9 @@ angular.module('winwinsApp')
             inputPlaceholder: "Mensaje de solicitud" 
         },
         function(inputValue){   
-            if (inputValue === false) 
+            if (inputValue === false) {
                 return false;      
+            }
             if (inputValue === "") {     
                 return false;  
             }      
