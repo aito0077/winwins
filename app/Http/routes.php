@@ -12,6 +12,7 @@ Route::get('auth/token', 'AuthController@getToken');
 Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthController@unlink']);
 
 Route::get('auth/activate/{code}', 'AuthController@activateAccount');
+Route::get('api/users/resend/activation', ['middleware' => 'auth', 'uses' => 'AuthController@resendActivationMail']);
 
 // API Routes.
 Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);

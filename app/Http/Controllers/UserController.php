@@ -166,6 +166,7 @@ class UserController extends Controller {
 		    'profile' => $user->detail,
 		    'sponsor' => $user->sponsor,
 		    'is_sponsor' => $is_sponsor,
+		    'active' => $user->active == 1,
 		    'notifications' => $this->notifications($user->id),
 		    'notifications_unread' => $this->countUnreadNotifications($user->id)
 		);
