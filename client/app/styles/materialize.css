@@ -173,6 +173,25 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     width:100%;
 }
 
+header {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: height 0.6s;
+    position: fixed;
+    margin-top: 55px;
+}
+
+
+   header.smaller {
+   height: 0px;
+   }
+
+
+
 .lbl {
 position: relative;
     background: rgb(255, 255, 255);
@@ -468,7 +487,11 @@ font-size: 1rem;
  margin-top:-10px;
 }
 
-
+.ww-text-220 {
+text-align:center; 
+margin-top: 230px;
+    
+   }
 
 
 .embed-responsive-16by9 {
@@ -486,13 +509,19 @@ font-size: 1rem;
       font-size:12px;
    }
    .title-320 {
-      font-size:22px;
+      font-size:18px;
    }
       .320 {
       max-width: 300px;
    }
     .320hide {
       display:none;
+   }
+    
+       .ww-text- {
+text-align:center; 
+margin-top: 230px;
+    
    }
    
    nav .brand-logo.center {
@@ -519,8 +548,64 @@ display:none;
 width:112px;
 height: 34px;
 }
+    
+
+ .img-circle {
+    border-radius: 50%;
+    max-height: 105px;  
+     
 }
 
+    
+    
+       header {
+   width: 100%;
+   height: 220px;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+   z-index: 99;
+   -webkit-transition: height 0.4s;
+   -moz-transition: height 0.4s;
+   -ms-transition: height 0.4s;
+   -o-transition: height 0.6s; 
+   transition: height 0.6s;
+   position:fixed;
+   margin-top:280px;
+   }
+   header.smaller {
+   height: 0px;
+   }
+    
+    .post-image {
+display:none;
+}
+    
+    .ww-img-220 {
+min-height: 160px;
+}
+   
+
+    
+    
+        .ww-img- {
+min-height: 220px;
+}
+   
+    
+    
+    
+    .ww-img-220 {
+max-height: 150px;
+}
+    
+    
+    .ww-title-320 {
+    padding-top: 40px;
+    
+  }  
+    
+      }  
     
 .submenu-icons {
     height: 35px;
@@ -530,8 +615,13 @@ height: 34px;
 }
 
 
+.collection .collection-item.avatar {
+    max-height: 50px;
+padding-left: 10px; 
+    position: relative;
+}
 
-
+    
 .collection .collection-item.avatar {
     max-height: 50px;
 padding-left: 10px; 
@@ -660,3 +750,10 @@ min-height:95px;
     width:101%;
     z-index: 99;
     }
+    
+    
+    .ww-text- {
+text-align:center; 
+margin-top: 290px;
+    
+   }
