@@ -57,7 +57,7 @@
                   {{::winwin.title}}
                     <div class="col-xs-12" style="padding-top:10px;">
             <div class="col-xs-4 "></div>
-                <div class="col-xs-2 center white-text"> <span ng-if="winwin.popular" style="background-color: red;
+                <div class="col-xs-2 center white-text"><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"> <span ng-if="winwin.popular" style="background-color: red;
     /* width: 20px; */
     /* height: 20px; */
     opacity: 0.6;
@@ -425,3 +425,12 @@
       </div>
    </div>
 </div> 
+    
+    <script>
+    
+    
+    
+  $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+        </script>

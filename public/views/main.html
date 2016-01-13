@@ -35,19 +35,21 @@
     <div class="container no-padding" ng-if="!winwin.is_sponsor">
         <div class="col-xs-12 no-padding">
             <div class="ww-featured" ng-if="winwin.remarkable">
-                <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+                <div class="ww-featured right"><img src="images/postit.png" class="right" style="padding-right:25px;"></div>
             </div>
-            <div class="ww-popular" ng-if="winwin.popular">
-                <div class="ww-popular pop right">Pop</div>
-            </div>
-            <div class="ww-finishing" ng-if="winwin.finishing">
-                <div class="ww-finishing clock"> <i class="fa fa-clock-o" style="font-size: 1.6rem;"></i></div>
-            </div>
+      
         </div>
 <!-- WW Img -->
         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
             <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
+            <div class="col-xs-12" style="padding-top:10px;">
+            <div class="col-xs-4 "></div>
+                <div class="col-xs-2 center white-text"> <span ng-if="winwin.popular" style="background-color: red;  width:20px; height:20px; opacity: 0.9; text-align:center; border-radius:50%; padding: 5px; padding-left: 6px;"> <i  class="fa fa-fire" style="font-size: 16px;"></i> </span><span ng-if="winwin.finishing" style="background-color: #07900C; opacity: 0.9; border-radius:50%; padding: 5px; margin:5px;"> <i  class="fa fa-calendar-check-o" style="font-size: 16px;  width:20px; height:20px; background-color:transparent; color:#1976D2; border-radius: 50%; color:white;">   </i></span></div>
+                    <div class="col-xs-2 center grey-text"></div>
+                   <div class="col-xs-4"></div>
+            </div>
         </div>
+    
 <!-- Info Bar -->
         <div class="col-xs-12" style="margin-top: 10px;">
             <div class="col-xs-2 no-padding">      

@@ -11,33 +11,56 @@
      
         <div class="container" style="padding:20px;margin-top:-20px;">
             <div class="row">
-                <div class="card-panel teal">
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.title.$touched && wwBasicForm.title.$invalid ,  'has-success': wwBasicForm.title.$touched && wwBasicForm.title.$valid }">
                     <label for="title"> Un nombre para tu Winwin*</label>   <a  data-position="left" data-delay="50" data-tooltip="Nombra tu Winwin con algo que lo represente."><i class="fa fa-question right" style="color: #FF8000;"></i></a>
+                     
                     <input name="title" class="input-field active"  type="text" length="120"  ng-model="winwin.title" required/>
+                    <div ng-messages="wwBasicForm.title.$error" ng-if="wwBasicForm.title.$touched" class="help-block">
+                        <p class="small" ng-message="required">El titulo es requerido.</p>
+                    </div>
                 </div>
+
+                <!--div class="form-group no-padding mb-0 mt-0 col-xs-12" style="margin:20px 0" ng-class="{ 'has-error': wwBasicForm.title.$touched && wwBasicForm.title.$invalid ,  'has-success': wwBasicForm.title.$touched && wwBasicForm.title.$valid }">
+                    <input type="text" class="form-control" placeholder="Nombra tu Winwin" aria-describedby="basic-addon1" name="title" ng-model="winwin.title" required>
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"  ng-if="wwBasicForm.title.$touched  && wwBasicForm.title.$valid "></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"  ng-if="wwBasicForm.title.$touched  && wwBasicForm.title.$invalid "></span>
+                    <div ng-messages="wwBasicForm.title.$error" ng-if="wwBasicForm.title.$touched" class="help-block">
+                        <p class="small" ng-message="required">El titulo es requerido.</p>
+                    </div>
+                </div-->
+
                 <div class="pad-10"></div>
-                <div class="card-panel teal">
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$invalid ,  'has-success': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$valid }">
                     <label> Planteá tu Winwins*</label>
                     <a data-position="bottom" data-delay="50" data-tooltip="Describí tu causa y definí cuántas personas se necesitan para concretarla.">
                         <i class="fa fa-question right" style="color: #FF8000;"></i>
                     </a> <br>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">¿Si supieras que somos </span>  
-                    <input class="numero" type="number" placeholder="200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
+                    <input class="numero" type="number" name="users_amount" placeholder="200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">para</span>
                     <div class="pad-10"></div>
 
-                    <textarea id="textarea1" class="materialize-textarea" length="120"  ng-model="winwin.what_we_do" required></textarea>
+                    <textarea id="textarea1" name="what_we_do" class="materialize-textarea" length="120"  ng-model="winwin.what_we_do" required></textarea>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">te sumarías?</span>
+                    <div ng-messages="wwBasicForm.what_we_do.$error" ng-if="wwBasicForm.what_we_do.$touched" class="help-block">
+                        <p class="small" ng-message="required">Debes completar el propósito del Winwin.</p>
+                    </div>
+                    <div ng-messages="wwBasicForm.users_amount.$error" ng-if="wwBasicForm.users_amount.$touched" class="help-block">
+                        <p class="small" ng-message="required">Ingresa la cantidad de personas.</p>
+                    </div>
 
                 </div>
                 <div class="pad-10">   </div>
-                <div class="card-panel teal">
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.description.$touched && wwBasicForm.description.$invalid ,  'has-success': wwBasicForm.description.$touched && wwBasicForm.description.$valid }">
                     <label for="email"> Más detalles de Winwin*</label>  
                     <a type="button" data-position="bottom" data-delay="50" data-tooltip="Acá ingresa información detallada del WinWin, datos e información importante, lugares, fechas, acciones y toda lo que te resuelte relevante.">
                         <i class="fa fa-question right" style="color: #FF8000;"></i>
                     </a> 
                     <br>
-                    <textarea id="textarea2" class="materialize-textarea" length="120" ng-model="winwin.description" required></textarea>
+                    <textarea id="textarea2" name="description" class="materialize-textarea" length="120" ng-model="winwin.description" required></textarea>
+                    <div ng-messages="wwBasicForm.description.$error" ng-if="wwBasicForm.description.$touched" class="help-block">
+                        <p class="small" ng-message="required">Debes completar los detalles del Winwin.</p>
+                    </div>
                  </div>
 
                 <div class="pad-10">   </div>

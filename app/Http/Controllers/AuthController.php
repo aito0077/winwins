@@ -130,6 +130,12 @@ class AuthController extends Controller {
         return response()->json(['token' => $this->createToken($user)]);
     }
 
+    public function resendActivationMail(Request $request, Mailer $mailer) {
+        $user = User::find($request['user']['sub']);
+        $this->sentEmailConfirmation($mailer, $user);
+        return response()->json(['message' => 'email_sent']);
+    }
+
     public function activateAccount(Request $request, Mailer $mailer, $code) {
         $user = User::where('activation_code', '=', $code)->first();
         $user->active = 1;

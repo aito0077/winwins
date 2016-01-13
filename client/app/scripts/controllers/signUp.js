@@ -42,9 +42,17 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
+            console.dir(response);
+            var message = "Error en su registracion";
+            if(response.data) {
+                if(response.data.message == 'email_already_taken') {
+                    message = 'El email ya existe en nuestra base. Intenta ingresar con él';
+                }
+            }
+
             swal({
                 title: "ADVERTENCIA", 
-                text: 'Error en su registracion', 
+                text: message,
                 type: "warning",
                 showCancelButton: false,
                         animation: false, 

@@ -73,7 +73,7 @@
                   <a href class="button-del" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
                      <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -30px;"></i> </h4>
                   </a>
-                  <span class="title" style="font-size:12px;">Title</span>
+                  <span class="title" style="font-size:12px;">{{item_post.title}}</span>
                </li>
             </ul>
             <div class="post-content" style="padding: 10px;font-size: 12px; padding-top:0px;"> 
@@ -89,15 +89,15 @@
             </div>
             <div class="card-action">
                <!-- Toolbar -->
-               <div class="col-xs-12 no-padding">
-                  <div class="col-xs-3 no-padding left"> <i class="fa fa-clock-o" ></i><span style="font-size: 8px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
+               <div class="col-xs-12 no-padding" style="margin-top:-5px;">
+                  <div class="col-xs-4 no-padding left" style="text-align: left;"> <i class="fa fa-clock-o" ></i><span style="font-size: 8px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
                   <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
-                  <div ng-if="!isAuthenticated" class="col-xs-3 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
+                  <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
                   <div ng-if="isAuthenticated"class="col-xs-2 no-padding"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
                   <div ng-if="isAuthenticated" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
                   <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                  <div ng-if="isAuthenticated" class="col-xs-2 no-padding" style="cursor:pointer;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                  <div ng-if="isAuthenticated" class="col-xs-2 no-padding" style="cursor:pointer;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                  <div ng-if="isAuthenticated" class="col-xs-2 no-padding right" style="cursor:pointer;    text-align: right;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                  <div ng-if="isAuthenticated" class="col-xs-1 right no-padding" style="cursor:pointer;    text-align: right;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
                </div>
             </div>
          </div>

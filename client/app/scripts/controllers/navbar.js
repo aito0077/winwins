@@ -1,9 +1,10 @@
 angular.module('winwinsApp')
-.controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, Account) {
+.controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, $http, api_host, Account) {
     $scope.unreadNotifications = 0;
     $scope.profile = false;
     $scope.is_logged = false;
     $scope.isSponsor = false;
+    $scope.isActive = true;
     $scope.sponsor = false;
 
     $scope.$on('$stateChangeStart', function(){
@@ -28,6 +29,8 @@ angular.module('winwinsApp')
                     $scope.profile = response.data.profile;
                     $scope.sponsor = response.sponsor;
                     $scope.isSponsor = response.is_sponsor;
+                    $scope.isActive = response.data.active;
+                    $scope.email = response.data.user.email;
                     $rootScope.account = $scope.profile;
                     console.log('Fetching profile');
                     $rootScope.profile_photo = $scope.profile.photo;
@@ -39,6 +42,7 @@ angular.module('winwinsApp')
             $scope.profile = false;
             $scope.is_logged = false;
             $scope.sponsor = false;
+            $scope.isActive = false;
             $scope.isSponsor = false;
             $rootScope.account = {};
         }
@@ -63,6 +67,8 @@ angular.module('winwinsApp')
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;
                 $scope.isSponsor = response.data.is_sponsor;
+                $scope.isActive = response.data.active;
+                $scope.email = response.data.user.email;
                 $rootScope.profile_photo = $scope.profile.photo;
                 $rootScope.$broadcast('is_logged', true);
             });
@@ -96,6 +102,22 @@ angular.module('winwinsApp')
 
     $scope.goNotifications = function() {
         $state.go('profile_notificaciones');
+    };
+
+    $scope.resendActivationMail = function() {
+        $http.get(api_host+'/api/users/resend/activation').success(function(data) {
+            $scope.sentActivationMail = true;
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                animation: false, 
+                closeOnConfirm: true 
+            });
+        });
     };
 
     $timeout(function() {
