@@ -658,7 +658,9 @@ margin-top: 290px;
 
 
 
-
+#footer.show.with_media {
+    height: auto;
+}
 
 
 
@@ -778,3 +780,5 @@ max-height: 150px;
   }  
     
       }  
+
+
