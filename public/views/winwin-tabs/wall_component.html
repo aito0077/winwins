@@ -70,7 +70,7 @@
                   <a href class="button-del" ng-if="item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a href class="button-del" ng-if="!isAuthenticated()" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
+                  <a href class="button-del" ng-if="!isAuthenticated" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
                      <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -30px;"></i> </h4>
                   </a>
                   <span class="title" style="font-size:12px;">{{item_post.title}}</span>
@@ -153,9 +153,9 @@
       </div>
        <div class="col s2 left blue white-text" style="border-radius: 50%;  border-bottom-right-radius: 0px;width:40px; height:40px; margin:3px; margin-bottom:-15px; margin-top: 14px;"><img ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/33x33/{{profile_photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer; margin-top: -2px; " ng-cloak/></div>
   <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:10px">
-      <button class="btn right white-text orange darken-2  no-padding" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
+      <button class="btn right white-text red  no-padding" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
                 <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:12px ">
-       <button class="btn right white-text red  darken-3 no-padding" ng-click="setVideoUrl()"><i class="fa fa-youtube" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
+       <button class="btn right white-text orange darken-3 no-padding" ng-click="setVideoUrl()"><i class="fa fa-youtube" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
   <div class="row" style="height:auto; margin-top:10px;">        
       
     <form class="col s12 blue darken-3" style="

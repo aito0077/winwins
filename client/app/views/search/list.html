@@ -1,34 +1,37 @@
-<div class="container no-padding">
-
-        
-          <button class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
-       <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-star white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('last')" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
-       <button class="col-xs-3 blue darken-1" ng-click="doFilter('next_to_close')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
+<!--div class="container no-padding" style="z-index:99999999;">
     
-        
-        
-           <h5 class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No encontramos resultados<br> para tu búsqueda!<br> </h5>
-     
-      <div class="container">
-  
-  <nav>
-    <div class="nav-wrapper  white" data-ng-controller="main-search-controller">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right black-text"id="query" ng-click="search()" style="padding-top:15px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+    <button ng-click="doFilter('select')" class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-bookmark white-text"></i></button>
+    <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-fire white-text"></i></button>
+    <button ng-click="doFilter('next_to_close')"  class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
+    <button class="col-xs-3 blue darken-1" ng-click="doFilter('all')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
+</div-->
+<div class="pad-50"</div>
 
-        </div>
-      </form>
+<div ng-if="!winwins.length">
+    <h5 class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No encontramos resultados<br> para tu búsqueda!<br> </h5>
+     
+    <div class="container">
+  
+        <nav>
+            <div class="nav-wrapper  white" data-ng-controller="main-search-controller">
+                <form>
+                    <div class="col-xs-12">
+                        <div class="input-field">
+                            <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                            <!-- I've put "red-text" class to emphasize -->
+                            <i class="fa fa-search right black-text"id="query" ng-click="search()" style="padding-top:15px; font-size: 20px;"></i>
+                            <label for="query"></label>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </nav>
     </div>
-  </nav>
 </div>
 
-<div class="container" ng-repeat="winwin in winwins">
+
+<div ng-if="winwins.length" class="container" ng-repeat="winwin in winwins">
     <div class="row">
         <div class="col-xs-12 no-padding">
             <div class="ww-featured" ng-if="winwin._source.mark == 'remarkable'"> 
@@ -48,120 +51,23 @@
     </div>
 </div>
 
-        <!--div class="col-xs-12 no-padding" ng-repeat="winwin in winwins">
-
-            <div class=" {{winwin._source.selected ? 'img-misc' : ''}} no-padding text-center" style="padding-top: 20px!important;"  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin._source.image}}">
-                {{::winwin._source.title}}
-            </div>
-            <div class="col-xs-12 no-padding">
-                <div class="col-xs-4 no-padding btn4 btn-share">
-                    <a href="#" data-toggle="dropdown" class="no-padding dropdown-toggle" style="cursor: pointer">
-                        <i class="fa fa-share-alt fa-inverse"></i>
-                    </a>
-                    <ul class="dropdown-menu col-xs-12">
-                        <li class="center-block">
-                            <span data-original-title="Twitter" rel="tooltip"  class="btn btn-twitter" data-placement="left" socialshare
-socialshare-provider="twitter"
-socialshare-text="{{::winwin._source.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin._id}}">
-                                <i class="fa fa-twitter"></i> Twitter
-                            </span>
-                        </li>
-                        <li>
-                            <span data-original-title="Facebook" rel="tooltip"  class="btn btn-facebook" data-placement="left"  socialshare
-socialshare-provider="facebook"
-socialshare-text="{{::winwin._source.title}}"
-socialshare-url="http://dev-winwins/ww/winwin/{{::winwin._id}}">
-                                <i class="fa fa-facebook"></i> Facebook
-                            </span>
-                        </li>                   
-                        <li>
-                            <span  data-original-title="Email" rel="tooltip" class="btn btn-mail" data-placement="left">
-                                <i class="fa fa-envelope"></i> Mail
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-xs-4 no-padding btn4 btn-share like">
-                    <a href="#" class="no-padding" ng-click="view(winwin._type, winwin._id)">
-                        <h5>Like</h5>
-                    </a>
-                </div>
-                <div class="col-xs-4 no-padding btn4 btn-share mesumo">
-                    <a href="#" class="no-padding"  ng-click="join(winwin._id)">
-                        <h5>Me Sumo</h5>
-                    </a>
-                </div>
-            </div>
-        </div-->
-
-
-
-
-
-
-
-        <div class="col-xs-12 no-padding" ng-repeat="user in users">
-
-            <div ng-click="view(user._type, user._id)" class="col-xs-4 no-padding" style="cursor:pointer">
-                <img ng-src="http://images.dev-winwins.net/120x106/{{::user._source.photo}}" />
-                <div class="somos-grupo">
-                    <span class="title-somos sponsor fix-title-sponsors">Winwins Sumados</span>
-                    <span class="num-somos sponsor fix-num-sponsors">{{::user._source.winwin_count}}</span>
-                </div>
-            </div>
-            <div ng-click="view(user._type, user._id)" style="cursor:pointer" class="col-xs-6 no-padding-left">
-                <h5 class="title-destacados sponsor">
-                    {{::user._source.name}} {{::user._source.lastname}}
-                </h5>
-                <p class="text-destacados lista">
-                    {{::user._source.about}}
-                </p>
-            </div>
-            <div class="col-xs-2 no-padding">
-                <div class="col-xs-12 no-padding">
-                    <div class="col-xs-4 no-padding btn-somos hidden-xs">
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="twitter no-padding">
-                            <i class="fa fa-twitter fa-6"></i>
-                        </button>
-                    </div>
-                    <div class="col-xs-4 no-padding btn-somos">
-                        <button type="button" class="facebook no-padding">
-                            <i class="fa fa-facebook fa-6"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-xs-12 no-padding blank-space">
-                </div>
-                <div class="col-xs-12 no-padding me-interesa">
-                    <button type="button" class="btn btn-sponsor sponsor" ng-click="follow(user.id)">
-                        FOLLOW
-                    </button>
-                </div>
-            </div>
-        </div>
-
 <div id="footer" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+          <form>
+            <div class="col-xs-12">
+              <div class="input-field">
+                  <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                  <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
+                  <label for="query"></label>
 
-        </div>
-      </form>
-    </div>
-</div>
+              </div>
+            </div>
+         </form>
+      </div>
   </nav>
-  </div>
+</div>
 
 <script>
     $(function(){

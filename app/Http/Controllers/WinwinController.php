@@ -44,10 +44,10 @@ class WinwinController extends Controller {
 
         switch ($filter) {
             case 'next_to_close':
-                $winwins = Winwin::where('closing_date', '<', Carbon::now()->addDay(2))->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                $winwins = Winwin::where('closing_date', '<', Carbon::now()->addDay(2))->where('closing_date', '>', Carbon::now())->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
                 break;
             case 'popular':
-                $winwins = Winwin::where('users_joined', '>', 1)->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                $winwins = Winwin::where('users_joined', '>', 5)->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
                 break;
             case 'select':
                 $winwins = Winwin::where('published', '=', 1)->where('selected', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
@@ -528,6 +528,7 @@ class WinwinController extends Controller {
                 ->where('reference_id', '=', $winwin->id)->count();
             if($post_count > 0) {
                 $winwin->published = 1;
+                $winwin->save();
                 return response()->json(['message' => 'winwin_activated'], 200);
             } else {
                 return response()->json(['message' => 'at_least_one_post_to_activate'], 400);
