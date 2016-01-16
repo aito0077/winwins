@@ -21,10 +21,13 @@ angular.module('winwinsApp')
     })
     .success(function(data) {
         $scope.hits = data;
-        $scope.winwins =  $stateParams.winwin ? data['winwins'] || [] : [];
-        $scope.users =  $stateParams.user ? data['users'] || [] : [];
-        $scope.groups =  $stateParams.group ? data['groups'] || [] : [];
-        $scope.sponsors =  $stateParams.sponsor ? data['sponsors'] || [] : [];
+        $scope.winwins = data['winwins'];
+        /*
+        $scope.winwins =  $stateParams.winwin ? data['winwins'] : [];
+        $scope.users =  $stateParams.user ? data['users'] : [];
+        $scope.groups =  $stateParams.group ? data['groups'] : [];
+        $scope.sponsors =  $stateParams.sponsor ? data['sponsors'] : [];
+        */
     })
     .error(function(error) {
         console.log(error);
