@@ -794,3 +794,8 @@ max-height: 150px;
     filter: alpha(opacity=100);
      opacity: 1; 
 }
+
+
+.upload-post {
+    background: transparent;
+}

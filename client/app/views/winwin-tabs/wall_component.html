@@ -11,6 +11,8 @@
             <ul class="collection">
                 <li class="collection-item dismissable black-text" ng-repeat="answer in poll.data.answers">
                     <div>
+                        <div class="determinate" style="width: {{percentage_votes(poll, answer)}}%"></div>
+
                         <span class="h7 grey-text"> {{answer.content}}</span>
                         <span class="secondary-content">
                             <input class="with-gap" name="poll_{{poll.id}}" type="radio" ng-value="answer.id" ng-checked="poll.selected_answer" ng-model="poll.selected_answer" ng-checked="true"/>
@@ -138,7 +140,7 @@
 </div>
     
 
-<div id="footer" ng-class="{'with_media': post.media_type}">
+<div id="footer" ng-if="!isAuthenticated" ng-class="{'with_media': post.media_type}">
       <div class="row no-padding">
          <div class="container" ng-show="post.media_type">
             <div ng-show="uploading" class="col-xs-12">
