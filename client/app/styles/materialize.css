@@ -799,3 +799,12 @@ max-height: 150px;
 .upload-post {
     background: transparent;
 }
+
+.modal .modal-footer {
+    border-radius: 0 0 2px 2px;
+    background-color: #fff;
+    padding: 4px 6px;
+    height: 56px;
+    width: 100%;
+}
+.moda
