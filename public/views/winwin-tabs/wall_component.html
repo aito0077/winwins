@@ -11,6 +11,8 @@
             <ul class="collection">
                 <li class="collection-item dismissable black-text" ng-repeat="answer in poll.data.answers">
                     <div>
+                        <div class="determinate" style="width: {{percentage_votes(poll, answer)}}%"></div>
+
                         <span class="h7 grey-text"> {{answer.content}}</span>
                         <span class="secondary-content">
                             <input class="with-gap" name="poll_{{poll.id}}" type="radio" ng-value="answer.id" ng-checked="poll.selected_answer" ng-model="poll.selected_answer" ng-checked="true"/>
@@ -138,7 +140,7 @@
 </div>
     
 
-<div id="footer"  ng-class="{'with_media': post.media_type}">
+<div id="footer" ng-if="!isAuthenticated" ng-class="{'with_media': post.media_type}">
       <div class="row no-padding">
          <div class="container" ng-show="post.media_type">
             <div ng-show="uploading" class="col-xs-12">
@@ -153,13 +155,12 @@
       </div>
        <div class="col s2 left blue white-text" style="border-radius: 50%;  border-bottom-right-radius: 0px;width:40px; height:40px; margin:3px; margin-bottom:-15px; margin-top: 14px;"><img ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/33x33/{{profile_photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer; margin-top: -2px; " ng-cloak/></div>
   <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:10px">
-      <button class="btn right white-text red  no-padding" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
+      <button class="btn right white-text orange darken-2  no-padding" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
                 <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:12px ">
-       <button class="btn right white-text orange darken-3 no-padding" ng-click="setVideoUrl()"><i class="fa fa-youtube" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
+       <button class="btn right white-text red  darken-3 no-padding" ng-click="setVideoUrl()"><i class="fa fa-youtube" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
   <div class="row" style="height:auto; margin-top:10px;">        
       
-    <form class="col s12 blue darken-3" style="
-    height: 67px;">
+    <form class="col s12 blue darken-3" style="height: 67px;">
       <div class="row">
         <div class="input-field col s9">
           <textarea class="no-padding h7" style="background: white; border-radius: 3px;" placeholder="Escribi aca"></textarea>
@@ -173,63 +174,8 @@
    </div>
 </div>
     
-    
  
-<!--
-
-      <div class="col-xs-6 no-padding">
-         <div class="bubbles">
-            <textarea class="postbox no-padding" placeholder="Postear acá" rows="4" ng-model="post.content" ng-required="true" ng-focus="max_size()" > </textarea>
-         </div>
-      </div>
-      <span class="col-xs-2 button-send" ng-disabled="sendingPost" ng-click="submitPost()"><i class="fa fa-paper-plane" style="margin-left: -3px;"></i></span>
-      <span class="col-xs-1 upload-post" ng-click="setVideoUrl()"><i class="fa fa-youtube"></i></span>
-      <button type="file" class="col-xs-1 upload-post" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro"></i></button>
-   </div>
-</div>
-
--->
-   <!--
-    
-    <div id="footer"  ng-class="{'with_media': post.media_type}">
-        
-        
-        
-          <div class="col s2 left blue white-text" style="border-radius: 50%;  border-bottom-right-radius: 0px;width:40px; height:40px; margin:3px; margin-bottom:-15px; margin-top: 14px;"><img ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/33x33/{{profile_photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer; margin-top: -2px; " ng-cloak/></div>
-           
-           <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:10px">
-      <button class="btn right white-text red  no-padding"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
-                <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:12px ">
-       <button class="btn right white-text orange darken-3 no-padding"><i class="fa fa-youtube" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
-  <div class="row" style="height:auto; margin-top:10px;">        
-      
-    <form class="col s12 blue darken-3" style="
-    height: 67px;">
-      <div class="row">
-        <div class="input-field col s9">
-          <textarea class="no-padding h7" style="background: white; border-radius: 3px;" placeholder="Escribi aca"></textarea>
-        </div>
-             <div class="col s3 no-padding waves-effect waves-light btn green" style="margin-top:15px; height: 40px;">
-        <a class=""><i class="fa fa-paper-plane animated pulse"></i></a>
-        </div>
-      </div>
-       
-    </form> -->
-
-  </div>
-        <!--
-   <div class="container no-padding blue darken-4" style="height: 80px">
-       
-       <div class="col-xs-10 no-padding">
-                   <textarea class="postbox no-padding" placeholder="Postear acá" rows="4" ng-model="post.content" ng-required="true" ng-focus="max_size()" > </textarea>
-           
-           </div>
-              <div class="col-xs-2 no-padding"><a class="waves-effect waves-light btn green no-padding"><i class="fa fa-paper-plane"></i></a>
-                  
-
-   </div>
-</div>
-
+  
 
 <script type="text/ng-template" id="postShareModal.html">
    <div class="container center">
@@ -297,9 +243,9 @@
    </div>
    <div class="container no-padding" style="margin-bottom:-10px;">
    <div class="col-xs-12"> 
-   <a  role="button" class="col-xs-6 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a></div><br>
-   <div class="col-xs-2 card-panel"> <a  role="button" class="col-xs-2 upload-post center"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
-   <div class="col-xs-2 card-panel">    <a  role="button" class="col-xs-2 upload-post center"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div>
+   <a  role="button" class="col-xs-6 btn-large green" style="width:100%;" ng-disabled="sendingPost" ng-click="submitComment()"><i class="fa fa-paper-plane animated infinite wobble"></i></a><br>
+   <div class="col-xs-6 card-panel red"> <a  role="button" class="col-xs-6 upload-post center white-text"  ng-click="setVideoUrl()"><i class="fa fa-youtube"  style="font-size:1.5em;"></i></a></div>
+   <div class="col-xs-6 card-panel  orange">    <a  role="button" class="col-xs-6 upload-post center white-text"  ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="font-size:1.5em;"></i></a></div></div>
    </div>
 </script>
 <script>
