@@ -52,8 +52,9 @@
          <header class="white" style="margin-top:45px;  box-shadow: rgba(62, 55, 55, 0.42) 2px 2px 15px;">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" class="responsive-img"style="min-height: 220px;
                padding-bottom:50px;">
-               <div class="col-xs-10 col-xs-offset-2 center white-text ww-title" style="z-index:999; margin-top: -30px;">
-                                                      <div ng-show="winwin.is_successful" class="no-padding center"><i class="fa fa-check white-text  green animated infinite wobble" style="font-size: 50px; border-radius: 50%; padding:10px; margin:10px;"></i></div>
+                 
+               <div class="col-xs-10 col-xs-offset-2 center white-text ww-title" style="z-index:999; margin-top: 0px;">
+                                                 
 
 
                   {{::winwin.title}}
@@ -258,9 +259,9 @@
 <!-- Winwin Concretado Desaparecen los CTA me sumo, share  & solicitud de sponsoreo-->
 <div ng-show="winwin.is_successful">
 
-    <div class="col-xs-12  indigo accent-2" style="padding-bottom:20px;">
+    <div class="col-xs-12  green darken-1" style="padding-bottom:20px;">
         <div style="font-size:15px; color:white; text-align:center;">
-            <h4><i class="fa fa-star animated bounceInLeft"></i> CALIFICA ESTE WINWIN</h4></div>
+            <h5 class="white-text"><i class="fa fa-star animated bounceInLeft"></i> CALIFICA ESTE WINWIN</h5></div>
 
 <!-- Se activa la review del winwin-->
         <div class="container center white black-text" style="border-radius: 5px;" ><br>
@@ -274,7 +275,7 @@
       No
     </label>
   </div>
-            
+            </hr>
   <!-- Si se concreto el WW entonces evalua tu experiencia -->          
               <p class="small">Por favor, valora tu experiencia en el proceso:</p>
             <input type="number" name="wwreview" id="review" class="rating" data-clearable=""/>
@@ -286,23 +287,12 @@
         </div>
     </div>
     <br>
-    <button class="col-xs-12 btn-large grey lighten-1">Ver todas las calificaciones</button>
-    
-    
-    <div class="card-panel teal">
-    
-     <ul class="collection">
-    <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-        </ul>
-        </div>
+    <button class="col-xs-12 btn-large orange">Ver todas las calificaciones</button>
 </div>
+
+</div>
+
+
 
 <!-- Winwin People-->
 <div class="container no-padding">
