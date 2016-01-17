@@ -782,3 +782,7 @@ max-height: 150px;
       }  
 
 
+.tooltip.in {
+    filter: alpha(opacity=100);
+     opacity: 1; 
+}

@@ -12,11 +12,11 @@
         <div class="container" style="padding:20px;margin-top:-20px;">
             <div class="row">
                 <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.title.$touched && wwBasicForm.title.$invalid ,  'has-success': wwBasicForm.title.$touched && wwBasicForm.title.$valid }">
-                    <label for="title"> Un nombre para tu Winwin*</label>   <a  data-position="left" data-delay="50" data-tooltip="Nombra tu Winwin con algo que lo represente."><i class="fa fa-question right" style="color: #FF8000;"></i></a>
+                    <label for="title"> Un nombre para tu Winwin*</label>   <a  data-position="left" data-delay="50" data-tooltip="Nombra tu Winwin con algo que lo represente."><i class="fa fa-question-circle red-text right"></i></a>
                      
                     <input name="title" class="input-field active"  type="text" length="120"  ng-model="winwin.title" required/>
                     <div ng-messages="wwBasicForm.title.$error" ng-if="wwBasicForm.title.$touched" class="help-block">
-                        <p class="small" ng-message="required">El titulo es requerido.</p>
+                        <p class="small" ng-message="required"> <i class="fa fa-exclamation-circle red-text animated infinite wobble"></i> No se puede crear un WinWin sin nombre!</p>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                 <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$invalid ,  'has-success': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$valid }">
                     <label> Planteá tu Winwins*</label>
                     <a data-position="bottom" data-delay="50" data-tooltip="Describí tu causa y definí cuántas personas se necesitan para concretarla.">
-                        <i class="fa fa-question right" style="color: #FF8000;"></i>
+                        <i class="fa fa-question-circle red-text right"></i>
                     </a> <br>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">¿Si supieras que somos </span>  
                     <input class="numero" type="number" name="users_amount" placeholder="200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
@@ -43,7 +43,7 @@
                     <textarea id="textarea1" name="what_we_do" class="materialize-textarea" length="120"  ng-model="winwin.what_we_do" required></textarea>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">te sumarías?</span>
                     <div ng-messages="wwBasicForm.what_we_do.$error" ng-if="wwBasicForm.what_we_do.$touched" class="help-block">
-                        <p class="small" ng-message="required">Debes completar el propósito del Winwin.</p>
+                        <p class="small" ng-message="required">  <i class="fa fa-exclamation-circle red-text animated infinite wobble"></i> Tu Winwin tienen que tener un proposito! Completalo.</p>
                     </div>
                     <div ng-messages="wwBasicForm.users_amount.$error" ng-if="wwBasicForm.users_amount.$touched" class="help-block">
                         <p class="small" ng-message="required">Ingresa la cantidad de personas.</p>
@@ -54,7 +54,7 @@
                 <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.description.$touched && wwBasicForm.description.$invalid ,  'has-success': wwBasicForm.description.$touched && wwBasicForm.description.$valid }">
                     <label for="email"> Más detalles de Winwin*</label>  
                     <a type="button" data-position="bottom" data-delay="50" data-tooltip="Acá ingresa información detallada del WinWin, datos e información importante, lugares, fechas, acciones y toda lo que te resuelte relevante.">
-                        <i class="fa fa-question right" style="color: #FF8000;"></i>
+                        <i class="fa fa-question-circle red-text right"></i>
                     </a> 
                     <br>
                     <textarea id="textarea2" name="description" class="materialize-textarea" length="120" ng-model="winwin.description" required></textarea>
@@ -70,7 +70,7 @@
                         <span style="color: #ddd; font-size:9px;"> (Si aplica a tu WinWin)</span>
                     </label>  
                     <a type="button" data-position="bottom" data-delay="50" data-tooltip="Algunos WinWins tienen una fecha límite para su concreción, si el tuyo es uno de ellos, ingresala aquí.">
-                        <i class="fa fa-question right" style="color: #FF8000;"></i>
+                        <i class="fa fa-question-circle red-text right"></i>
                     </a> 
                     <br>
                     <input type="date" class="datepicker">
@@ -79,13 +79,13 @@
 
             <input type="checkbox" id="test5" />
 
-            <label for="test5" style="font-size:11px; font-family: montserrat;"> He leído y acepto los  <a class="modal-trigger" href="#modal1" style="color:grey;font-family:montserrat;font-size:11px;">Términos y Condiciones.</a></label>
+            <label for="test5" class="grey-text" style="font-size:11px; font-family: montserrat;"> He leído y acepto los  <a class="modal-trigger" href="#modal1" style="color:blue;font-family:montserrat;font-size:11px; text-decoration: underline;">Términos y Condiciones.</a></label>
 
             <div class="pad-10"></div>
 
 
                 <button class="btn waves-effect green" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwBasicForm.$invalid" ng-click="persistBasic()"> 
-                    Continuar <i class="fa fa-play  animated infinite flash"></i>
+                       Continuar <i class="fa fa-play  animated infinite flash"></i>
                 </button>
                <div class="pad-10">   </div>
 
@@ -228,7 +228,7 @@
         </div>
 
 
-        <div class="form-back create-id">
+
             <!-- Comentar hasta tanto lo resolvamos -->
             <!--
             <div class="card-panel teal">
@@ -240,14 +240,16 @@
             <div class="pad-10"></div>
             -->
             <div class="card-panel teal">
-                <div class="input-label">Escala del WinWin <i class="fa fa-question-circle" style="color: red;"></i></div>
-                    <select ng-options="item as item for item in scopes track by item.id" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
+                <div class="input-label">Escala del WinWin <a  data-position="left" data-delay="50" data-tooltip="Que alcance geografico tiene tu winwin?"><i class="fa fa-question-circle red-text right"></i></a></div>
+                    <select  ng-options="item as item for item in scopes track by item.id" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
+                        
+                        
                     </select>
-                </div>
-            </div>
+                </div>  
+
             <div class="pad-10"></div>
             <div class="card-panel teal">
-                <div class="input-label">En que categoría? <i class="fa fa-question-circle" style="color: red;"></i></div>
+                <div class="input-label">En que categoría? <a  data-position="left" data-delay="50" data-tooltip="Clasifica a tu winwin con las categorias disponibles!"><i class="fa fa-question-circle red-text right"></i></a></div>
                 <select ng-options="item as item.description for item in interests track by item.id" ng-model="winwin.interests" class="form-control" placeholder="Categorías" multiple>
                 </select>
 
