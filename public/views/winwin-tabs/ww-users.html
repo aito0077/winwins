@@ -4,7 +4,7 @@
             <div class="grid-item participante-item {{classType(participante)}}"  ng-repeat="participante in winwin.users" >
                      <div style="margin-top:40px;"></div>
                      <div class="col-xs-12 no-padding">
-                    <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{participante.cover_photo}}" style="height: 220px;" ng-click="view(participante.id)">
+                    <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{participante.detail.cover_photo}}" style="height: 220px;" ng-click="view(participante)">
                   
                         <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
                             <img ng-src="http://images.dev-winwins.net/smart/{{::participante.photo}}" class="img-circle"  style="min-height: 95px;margin-left: auto; margin-right:auto; dislay:block; width:100px;"/>

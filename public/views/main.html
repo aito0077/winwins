@@ -23,13 +23,23 @@
 <!-- WW Cards-->
 <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
 
-    <div ng-if="winwin.is_sponsor" class="container no-padding">
+    <!-- WW main sponsor card -->
+    <!--div ng-if="winwin.is_sponsor" class="container no-padding">
         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.cover_photo}}" style="height: 220px; cursor: pointer;" ng-click="viewSponsor(winwin.id)">
             <div class="profile-avatar avatar "> 
                 <img ng-src="http://images.dev-winwins.net/smart/{{winwin.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto; width:100%; height:100px; 7px solid rgba(13, 71, 161, 0.52);" />
             </div>
         </div>
+    </div-->
+    <div ng-if="winwin.is_sponsor" class="card-panel col-xs-12 no-padding">
+        <img ng-src="http://images.dev-winwins.net/220x/{{::winwin.cover_photo}}" class="responsive-img center-block" style="max-height:200px;"/>
+        <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
     </div>
+   <!-- / WW main sponsor --> 
+
+
+
+
 <!-- labels -->
 
     <div class="container no-padding" ng-if="!winwin.is_sponsor">
@@ -64,7 +74,7 @@
          <!-- somos -->
             
             <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
-                <span style="font-size:9px;">SOMOS </span> <br>
+                <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span> <br>
                 <span class="somoscards"> {{::winwin.users_already_joined}}</span> 
             </div>
     <!-- share button -->
@@ -74,15 +84,6 @@
 </div>
 
 </div>
-    <!-- WW main sponsor card -->
-<div class="card-panel col-xs-12 no-padding">
- <!-- WW main sponsor image --> 
-    <img src="../images/coca-cola.jpg" class="responsive-img" style="max-height:200px;"/>
-    
-        <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
-
-</div>
-       <!-- / WW main sponsor --> 
 
            <!-- search -->
 <div id="footer" data-ng-controller="main-search-controller" >
