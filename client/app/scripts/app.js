@@ -328,12 +328,37 @@ angular.module('winwinsApp', [
 })
 .config(function ($translateProvider) {
 
-    $translateProvider.useMissingTranslationHandlerLog();
+    //$translateProvider.useMissingTranslationHandlerLog();
 
     $translateProvider.useUrlLoader('/api/translation');
     $translateProvider.preferredLanguage('es_ES');
 
     //$translateProvider.useLocalStorage();
+
+})
+.config(function ($httpProvider) {
+    $httpProvider.interceptors.push(function($q, $translate) {
+      return {
+        'responseError': function(rejection) {
+            if(rejection && rejection.data && rejection.data.message) {
+                var mensaje = $translate('error.'+rejection.data.message);
+                $translate('error.'+rejection.data.message).then(function(message) {
+                    console.dir(message);
+                    swal({
+                        title: "ADVERTENCIA", 
+                        text: message,
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
+                }).catch(function(err) {
+                });
+
+            }
+            return $q.reject(rejection);
+        }
+      };
+    });
 
 })
 .directive('ngEnter', function () {
@@ -432,6 +457,9 @@ angular.module('winwinsApp', [
     }
   };
 }])
+
+
+
 .run(function($rootScope, $templateCache, $timeout) {
     console.log('run');
     $timeout(function() {

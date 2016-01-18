@@ -61,16 +61,6 @@ angular.module('winwinsApp')
                     $scope.view(winwin_id);
                 });
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                        animation: false, 
-                    closeOnConfirm: true 
-                });
             });
         } else {
             $state.go('signIn');

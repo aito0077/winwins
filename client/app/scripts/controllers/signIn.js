@@ -34,6 +34,7 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
+            /*
             swal({
                 title: "ADVERTENCIA", 
                 text: 'El usuario y/o password son incorrectos', 
@@ -42,6 +43,7 @@ angular.module('winwinsApp')
                         animation: false, 
                 closeOnConfirm: true 
             });
+            */
             $state.go('signIn');
         });
     };
@@ -75,6 +77,7 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
+            /*
             swal({
                 title: "ADVERTENCIA", 
                 text: 'Error en la autenticación con la red social', 
@@ -83,6 +86,7 @@ angular.module('winwinsApp')
                         animation: false, 
                 closeOnConfirm: true 
             });
+            */
             $state.go('signin');
 
         });

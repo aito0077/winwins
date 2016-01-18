@@ -37,7 +37,7 @@ class AuthController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if (!$user) {
-            return response()->json(['message' => 'User not found']);
+            return response()->json(['message' => 'user_not_found']);
         }
 
         $user->$provider = '';
@@ -53,7 +53,7 @@ class AuthController extends Controller {
         $user = User::where('email', '=', $email)->first();
 
         if (!$user) {
-            return response()->json(['message' => 'Wrong email and/or password'], 401);
+            return response()->json(['message' => 'auth_wrong_email_password'], 401);
         }
 
         if (Hash::check($password, $user->password)) {
@@ -67,7 +67,7 @@ class AuthController extends Controller {
 
             return response()->json(['token' => $this->createToken($user)]);
         } else {
-            return response()->json(['message' => 'Wrong email and/or password.'], 401);
+            return response()->json(['message' => 'auth_wrong_email_password'], 401);
         }
     }
 

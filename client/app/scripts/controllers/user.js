@@ -27,16 +27,6 @@ angular.module('winwinsApp')
             });
             member.following = true;
             member.followers_count = member.followers_count + 1;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -74,16 +64,6 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -97,16 +77,6 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $scope.getUser();
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -119,16 +89,6 @@ angular.module('winwinsApp')
         }).success(function(data) {
             $scope.comments = data;
             $scope.comment = new Post({});
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -234,16 +194,6 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -257,16 +207,6 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $scope.getUser();
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -427,16 +367,6 @@ angular.module('winwinsApp')
             });
             $rootScope.profile_photo = $scope.edit_user.photo;
 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -465,16 +395,6 @@ angular.module('winwinsApp')
             })
             .success(function(data) {
                 $state.go('cancel-account');
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                        animation: false, 
-                    closeOnConfirm: true 
-                });
             });
             return true;
 

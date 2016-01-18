@@ -183,14 +183,14 @@ class GroupController extends Controller {
         $group = Group::find($id);
         $group->user();
         if($user->id == $group->user->id) {
-            return response()->json(['message' => 'As owner you are already joined'], 400);
+            return response()->json(['message' => 'join_as_owner_already_joined'], 400);
         } else {
             $already_joined = count($group->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if($already_joined) {
-                return response()->json(['message' => 'You are already joined'], 400);
+                return response()->json(['message' => 'join_already_joined'], 400);
             } else {
                 DB::transaction(function() use ($group, $user) {
                     $groupsUsers = new GroupsUser;
@@ -218,14 +218,14 @@ class GroupController extends Controller {
         $group = Group::find($id);
         $group->user();
         if($user->id == $group->user->id) {
-            return response()->json(['message' => 'As owner you can not left this group'], 400);
+            return response()->json(['message' => 'left_owner_cant'], 400);
         } else {
             $already_joined = count($group->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if(!$already_joined) {
-                return response()->json(['message' => 'You have to join in order to left'], 400);
+                return response()->json(['message' => 'left_first_join'], 400);
             } else {
                 DB::transaction(function() use ($group, $user) {
                     DB::table('groups_users')->where('user_id', $user->id )->where('group_id', $group->id)->delete();
@@ -255,7 +255,7 @@ class GroupController extends Controller {
         })) > 0;
 
         if($already_joined) {
-            return response()->json(['message' => 'This winwin is already joined'], 400);
+            return response()->json(['message' => 'group_add_winwin_already_joined'], 400);
         } else {
             DB::transaction(function() use ($group, $winwin) {
                 $groupsWinwins = new GroupsWinwin;
@@ -276,7 +276,7 @@ class GroupController extends Controller {
         })) > 0;
 
         if(!$already_joined) {
-            return response()->json(['message' => 'This winwin is not joined'], 400);
+            return response()->json(['message' => 'group_remove_winwin_not_joined'], 400);
         } else {
             DB::table('groups_winwins')->where('winwin_id', $winwin->id )->where('group_id', $group->id)->delete();
         }

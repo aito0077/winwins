@@ -131,15 +131,6 @@ angular.module('winwinsApp')
                     winwinName: $scope.winwin.title
                 }); 
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: 'Error al unirse.',
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         } else {
 
@@ -166,15 +157,6 @@ angular.module('winwinsApp')
                 winwinName: $scope.winwin.title
             }); 
 
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al abandonar.',
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -203,15 +185,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id,
                     winwinName: $scope.winwin.title
                 }); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: 'Error en la peticion.',
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -382,15 +355,6 @@ angular.module('winwinsApp')
             rate: $scope.winwin_rate
         }).success(function(data) {
             $scope.winwin.already_rated = true;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al concretar la operación', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
 
     };
@@ -482,7 +446,24 @@ angular.module('winwinsApp')
         jQuery('input#input_text, textarea#textarea1').characterCounter();
         jQuery('input#input_text, textarea#textarea2').characterCounter();
         jQuery('.modal-trigger').leanModal();
+
     };
+
+    $scope.setup_geo_component = function () {
+        var input = document.getElementById('winwin_location'),
+        options = {
+            types: ['address']
+        };
+        var searchBox = new google.maps.places.Autocomplete(input, options);
+
+        searchBox.addListener('place_changed', function() {
+            var place = searchBox.getPlace();
+            $scope.winwin.location = _.extend(place, {
+                coordinates: place.geometry.location.toJSON()
+            });
+        });
+    };
+
 
     $timeout(function() {
         $scope.setup_components();
@@ -510,6 +491,7 @@ angular.module('winwinsApp')
             $scope.second_stage = true;
             console.log('Second Stage: '+$scope.second_stage);
             $("html, body").animate({ scrollTop: 1 }, 0);
+            $scope.setup_geo_component();
         }
     }
 
@@ -655,15 +637,6 @@ angular.module('winwinsApp')
                         winwinId: $scope.winwin.id
                     }); 
                 //}, 1000);
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: 'Error al enviar post', 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         
         });
@@ -824,15 +797,6 @@ angular.module('winwinsApp')
                 });
                 $scope.view(winwin_id);
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: 'Error al unirse', 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         } else {
             $state.go('signIn');
@@ -876,9 +840,6 @@ angular.module('winwinsApp')
                 })
                 .success(function(data) {
                     $scope.winwins = data;
-                })
-                .error(function(error) {
-                    //ToDo: error
                 });
         };
 
@@ -922,15 +883,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
             }, 1000);
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al quitar privilegios', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -945,15 +897,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
             }, 1000);
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al agregar privilegios', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -971,15 +914,6 @@ angular.module('winwinsApp')
             });
             participante.following = true;
             participante.followers_amount = participante.followers_amount + 1;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al seguir', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1001,15 +935,6 @@ angular.module('winwinsApp')
             });
             participante.following = false;
             participante.followers_amount = participante.followers_amount - 1;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al dejar de seguir', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1063,15 +988,6 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             sponsor.following = true;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al seguir', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1092,15 +1008,6 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             sponsor.following = false;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error al dejar de seguir', 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1168,15 +1075,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id,
                     winwinName: $scope.winwin.title
                 }); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: 'Error al solicitar sponsoreo', 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -1230,15 +1128,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1294,15 +1183,6 @@ angular.module('winwinsApp')
             positive: true 
         }).success(function(data) {
             $scope.loadPolls();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
  
     };
@@ -1462,15 +1342,6 @@ angular.module('winwinsApp')
             positive: positive
         }).success(function(data) {
             $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1522,15 +1393,6 @@ angular.module('winwinsApp')
             sticky: true
         }).success(function(data) {
             $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: "No se pudo concretar la operación",
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
 
     };
@@ -1540,15 +1402,6 @@ angular.module('winwinsApp')
             sticky: false
         }).success(function(data) {
             $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: "No se pudo concretar la operación",
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
 
     };
@@ -1558,15 +1411,6 @@ angular.module('winwinsApp')
             sticky: false
         }).success(function(data) {
             $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: "No se pudo concretar la operación",
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1596,16 +1440,6 @@ angular.module('winwinsApp')
             $scope.post = data;
             $scope.comment = new Post({});
             $uibModalInstance.close(true);
-        })
-        .error(function(error) {
-            $scope.sendingPost = false;
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1708,15 +1542,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1741,15 +1566,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1780,15 +1596,6 @@ angular.module('winwinsApp')
             $state.go('winwin-view', {
                 winwinId: $scope.winwin.id
             }); 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1859,15 +1666,6 @@ angular.module('winwinsApp')
                     closeOnConfirm: true 
                 });
                 $state.go('main'); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -1897,14 +1695,20 @@ angular.module('winwinsApp')
     };
 
     $scope.sentInvitations = function() {
-        $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
-            mails: $scope.mails
-        }).success(function(data) {
-            $scope.success = true;
-            $timeout(function() {
-                $uibModalInstance.close();
-            }, 2000);
-        });
+        $scope.addMail();
+
+        if($scope.mails.length) {
+            $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
+                mails: $scope.mails
+            }).success(function(data) {
+                $scope.success = true;
+                $timeout(function() {
+                    $uibModalInstance.close();
+                }, 2000);
+            });
+        } else {
+            $uibModalInstance.close();
+        }
     };
 
     $scope.matchEmail = function(email){
@@ -1975,17 +1779,6 @@ angular.module('winwinsApp')
                     closeonconfirm: true 
                 });
                 $scope.saving = false;
-            })
-            .error(function(error) {
-                $scope.saving = false;
-                swal({
-                    title: "Error", 
-                    text: "Hubo un problema al actualizar los datos",
-                    type: "warning",
-                    showCancelButton: false,
-                    animation: false, 
-                    closeOnConfirm: true 
-                });
             });
 
         }

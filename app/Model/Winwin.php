@@ -29,4 +29,9 @@ class Winwin extends Model {
         return $this->hasMany('Winwins\Model\Poll');
     }
 
+    public function location() {
+        return $this->belongsTo('Winwins\Model\Location');
+    }
+
+
 }

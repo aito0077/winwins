@@ -19,6 +19,7 @@ use Winwins\Model\WinwinsUser;
 use Winwins\Model\SponsorsWinwin;
 use Winwins\Model\Media;
 use Winwins\Model\Sponsor;
+use Winwins\Model\Location;
 use Winwins\Model\InterestsInterested;
 use Winwins\User;
 use Winwins\Message\Mailer;
@@ -83,11 +84,15 @@ class WinwinController extends Controller {
 
 	public function index() {
         //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
-        $winwins = Winwin::where('published', 1)->where('canceled', 0)->orderBy('selected', 'desc')->get();
+        $winwins = Winwin::where('published', 1)->where('canceled', 0)->orderBy('selected', 'desc')->orderBy('created_at', 'desc')->take(15)->get();
 
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
+            /*
             $users_count = count($winwin->users);
+            $winwin->users_already_joined = $users_count;
+            */
+            $users_count = $winwin->users_joined;
             $winwin->users_already_joined = $users_count;
             if($winwin->users_amount) {
                 $winwin->users_left = ($winwin->users_amount - $users_count);
@@ -121,6 +126,7 @@ class WinwinController extends Controller {
         $ww_user->detail;
         $users = $winwin->users;
         $sponsors = $winwin->sponsors;
+        $location = $winwin->location;
 
         $users_count = count($users);
         $winwin->users_already_joined = $users_count;
@@ -288,7 +294,7 @@ class WinwinController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if($user->active == 0) {
-            return response()->json(['message' => 'Yo have to activate your account'], 400);
+            return response()->json(['message' => 'operation_not_until_activate_account'], 400);
         }
         
         if($request->has('id')) {
@@ -305,12 +311,15 @@ class WinwinController extends Controller {
             $winwin->title = $request->input('title');
             $winwin->users_amount = $request->input('users_amount');
             $winwin->what_we_do = $request->input('what_we_do');
-            $winwin->scope = $request->input('scope') || 'GLOBAL';
-            $winwin->region = $request->input('region');
-            $winwin->country = $request->input('country');
-            $winwin->state = $request->input('state');
-            $winwin->city = $request->input('city');
+            $winwin->scope = $request->input('scope');
             $winwin->image = $request->input('image');
+
+            if($request->has('location')) {
+                $geo = $this->processGeoValue($request->input('location'));
+                $location = Location::firstOrCreate($geo);
+                $location->save();
+                $winwin->location_id = $location->id;
+            }
 
             if( !isset($winwin->image) ) {
                 $winwin->image = $request->input('gallery_image')[0];
@@ -381,11 +390,7 @@ class WinwinController extends Controller {
             $winwin->title = $request->input('title');
             $winwin->users_amount = $request->input('users_amount');
             $winwin->what_we_do = $request->input('what_we_do');
-            $winwin->scope = $request->input('scope') ? : 'GLOBAL';
-            $winwin->region = $request->input('region');
-            $winwin->country = $request->input('country');
-            $winwin->state = $request->input('state');
-            $winwin->city = $request->input('city');
+            $winwin->scope = $request->input('scope');
             $winwin->image = $request->input('image');
 
             if($request->has('interest')) {
@@ -431,21 +436,21 @@ class WinwinController extends Controller {
 	public function join(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         if($user->active == 0) {
-            return response()->json(['message' => 'Yo have to activate your account'], 400);
+            return response()->json(['message' => 'operation_not_until_activate_account'], 400);
         }
 
 
         $winwin = Winwin::find($id);
         $winwin->user();
         if($user->id == $winwin->user->id) {
-            return response()->json(['message' => 'As owner you are already joined'], 400);
+            return response()->json(['message' => 'join_as_owner_already_joined'], 400);
         } else {
             $already_joined = count($winwin->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if($already_joined) {
-                return response()->json(['message' => 'You are already joined'], 400);
+                return response()->json(['message' => 'join_already_join'], 400);
             } else {
                 DB::transaction(function() use ($winwin, $user) {
                     $winwinsUsers = new WinwinsUser;
@@ -488,14 +493,14 @@ class WinwinController extends Controller {
         $winwin = Winwin::find($id);
         $winwin->user();
         if($user->id == $winwin->user->id) {
-            return response()->json(['message' => 'As owner you can not left this winwin'], 400);
+            return response()->json(['message' => 'left_owner_cant'], 400);
         } else {
             $already_joined = count($winwin->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if(!$already_joined) {
-                return response()->json(['message' => 'You have to join in order to left'], 400);
+                return response()->json(['message' => 'left_first_join'], 400);
             } else {
                 DB::transaction(function() use ($winwin, $user) {
 
@@ -531,10 +536,10 @@ class WinwinController extends Controller {
                 $winwin->save();
                 return response()->json(['message' => 'winwin_activated'], 200);
             } else {
-                return response()->json(['message' => 'at_least_one_post_to_activate'], 400);
+                return response()->json(['message' => 'winwin_at_least_one_post_to_activate'], 400);
             }
         } else {
-            return response()->json(['message' => 'you_are_not_the_admin'], 400);
+            return response()->json(['message' => 'winwin_you_are_not_the_admin'], 400);
         }
 	}
 
@@ -556,9 +561,9 @@ class WinwinController extends Controller {
                     ->regarding($winwin)
                     ->deliver();
             }
-            return response()->json(['message' => 'campanada_sent', 'amount' => count($users)], 200);
+            return response()->json(['message' => 'winwin_campanada_sent', 'amount' => count($users)], 200);
         } else {
-            return response()->json(['message' => 'you_are_not_the_admin'], 400);
+            return response()->json(['message' => 'winwin_you_are_not_the_admin'], 400);
         }
 	}
 
@@ -566,7 +571,7 @@ class WinwinController extends Controller {
         DB::transaction(function() use ($id, $sponsorId) {
             DB::table('sponsors_winwins')->where('winwin_id', $id)->where('sponsor_id', $sponsorId)->update(['ww_accept' => 1]);
         });
-        return response()->json(['message' => 'sponsor_accepted'], 200);
+        return response()->json(['message' => 'winwin_sponsor_accepted'], 200);
     }
 
 
@@ -606,7 +611,7 @@ class WinwinController extends Controller {
 
 
 
-        return response()->json(['message' => 'emails_sent'], 200);
+        return response()->json(['message' => 'winwin_emails_sent'], 200);
     }
 
 
@@ -614,7 +619,7 @@ class WinwinController extends Controller {
         DB::transaction(function() use ($id, $participanteId) {
             DB::table('winwins_users')->where('winwin_id', $id)->where('user_id', $participanteId)->update(['moderator' => 1]);
         });
-        return response()->json(['message' => 'user_activated'], 200);
+        return response()->json(['message' => 'winwin_user_activated'], 200);
     }
 
 
@@ -623,7 +628,7 @@ class WinwinController extends Controller {
         DB::transaction(function() use ($id, $participanteId) {
             DB::table('winwins_users')->where('winwin_id', $id)->where('user_id', $participanteId)->update(['moderator' => 0]);
         });
-        return response()->json(['message' => 'user_activated'], 200);
+        return response()->json(['message' => 'winwin_user_activated'], 200);
     }
 
 	public function sponsorRequest(Request $request, $id) {
@@ -635,14 +640,14 @@ class WinwinController extends Controller {
         $request_body = $request->input('body');
 
         if(!isset($sponsor)) {
-            return response()->json(['message' => 'you_are_not_an_sponsor'], 400);
+            return response()->json(['message' => 'winwin_you_are_not_an_sponsor'], 400);
         } else {
             $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
                 return $model->id == $sponsor->id;
             })) > 0;
 
             if($already_sponsored) {
-                return response()->json(['message' => 'you_are_already_sponsored_this_winwin'], 400);
+                return response()->json(['message' => 'winwin_you_are_already_sponsored_this_winwin'], 400);
             } else {
                 DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
                     $winwinsSponsors = new SponsorsWinwin;
@@ -661,7 +666,7 @@ class WinwinController extends Controller {
                     ->regarding($winwin)
                     ->deliver();
 
-                return response()->json(['message' => 'sponsor_request_sent'], 200);
+                return response()->json(['message' => 'winwin_sponsor_request_sent'], 200);
             }
         }
 
@@ -681,7 +686,7 @@ class WinwinController extends Controller {
         })) > 0;
 
         if($already_sponsored) {
-            return response()->json(['message' => 'is_already_sponsored_this_winwin'], 400);
+            return response()->json(['message' => 'winwin_is_already_sponsored_this_winwin'], 400);
         } else {
             DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
                 $winwinsSponsors = new SponsorsWinwin;
@@ -693,7 +698,7 @@ class WinwinController extends Controller {
                 $winwinsSponsors->save();
             });
 
-            return response()->json(['message' => 'ww_request_sent'], 200);
+            return response()->json(['message' => 'winwin_request_sent'], 200);
         }
 
 	}
@@ -712,9 +717,9 @@ class WinwinController extends Controller {
                 $winwin->save();
             });
 
-            return response()->json(['message' => 'ww_closed'], 200);
+            return response()->json(['message' => 'winwin_closed'], 200);
         } else {
-            return response()->json(['message' => 'As owner you can not left this winwin'], 400);
+            return response()->json(['message' => 'winwin_only_owner_can_close'], 400);
         }
 
 	}
@@ -733,11 +738,11 @@ class WinwinController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if(!$request->hasFile('file')) { 
-            return Response::json(['error' => 'No File Sent']);
+            return Response::json(['error' => 'no_file_sent']);
         }
 
         if(!$request->file('file')->isValid()) {
-            return Response::json(['error' => 'File is not valid']);
+            return Response::json(['error' => 'file_not_valid']);
         }
 
         $file = $request->file('file');
@@ -802,7 +807,7 @@ class WinwinController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if($user->active == 0) {
-            return response()->json(['message' => 'Yo have to activate your account'], 400);
+            return response()->json(['message' => 'operation_not_until_activate_account'], 400);
         }
 
 
@@ -824,6 +829,45 @@ class WinwinController extends Controller {
         
 	}
 
+    public function processGeoValue($geo) {
+        $result = array(
+            'formatted_address' => $geo['formatted_address'],
+            'google_id' => $geo['id'],
+            'place_id' => $geo['place_id'],
+            'name' => $geo['name']
+        );
+        $values_allowed = array(
+            'sublocality' => true,
+            'locality' => true,
+            'sublocality_level_1',
+            'administrative_area_level_2' => true,
+            'administrative_area_level_1' => true,
+            'country' => true,
+            'latitude ' => true,
+            'longitude' => true
+        );
+
+        $address_components = $geo['address_components'];
+        if(is_array($address_components)) {
+            foreach($address_components as $component) {
+                $key_code =  $component['types'][0];
+                if(isset($values_allowed[$key_code])) {
+                    if($key_code == 'sublocality_level_1') {
+                        $key_code = 'sublocality';
+                    }
+                    $result[$key_code] = $component['short_name']; 
+                }
+            }
+        }
+        $coordinates = $geo['coordinates'];
+        if(is_array($coordinates)) {
+            $result['latitude'] = $coordinates['lat'];
+            $result['longitude'] = $coordinates['lng'];
+        }
+    
+        Log::info($result);
+        return $result;
+    }
 
 
 }

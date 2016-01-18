@@ -24,15 +24,12 @@ class CreateWinwinsTable extends Migration {
             $table->date('closing_date')->nullable();
 
             $table->enum('scope', ['GLOBAL', 'REGION', 'COUNTRY', 'STATE', 'CITY'])->default('GLOBAL');
-            $table->string('region')->nullable();
-            $table->string('country')->nullable();
-            $table->string('state')->nullable();
-            $table->string('city')->nullable();
+            $table->integer('location_id')->unsigned()->nullable();
+            $table->foreign('location_id')->references('id')->on('locations');
 
             $table->boolean('is_video')->default(FALSE);
             $table->string('video')->nullable();
             $table->string('image')->nullable()->default('ww-main-default.jpg');
-
 
             $table->boolean('finished')->default(FALSE);
             $table->enum('status', ['PUBLISHED', 'PENDING', 'BANNED', 'CANCELED', 'FINISHED', 'SUCCESSFUL'])->default('PENDING');
@@ -44,12 +41,12 @@ class CreateWinwinsTable extends Migration {
 
             $table->mediumText('canceled_reason')->nullable();
 
-            $table->boolean('notification_user_post')->default(FALSE);
-            $table->boolean('notification_new_participant')->default(FALSE);
-            $table->boolean('notification_new_poll')->default(FALSE);
-            $table->boolean('notification_announce')->default(FALSE);
-            $table->boolean('notification_new_sponsor')->default(FALSE);
-            $table->boolean('notification_closing_date')->default(FALSE);
+            $table->boolean('notification_user_post')->default(TRUE);
+            $table->boolean('notification_new_participant')->default(TRUE);
+            $table->boolean('notification_new_poll')->default(TRUE);
+            $table->boolean('notification_announce')->default(TRUE);
+            $table->boolean('notification_new_sponsor')->default(TRUE);
+            $table->boolean('notification_closing_date')->default(TRUE);
 
 
 		});

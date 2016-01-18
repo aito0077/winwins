@@ -91,7 +91,10 @@ class UserController extends Controller {
             $userDetail->notifications = $user->notifications;
 
             $user->notifications->each(function($notification) {
-                $notification->object = $notification->getObject();
+                try {
+                    $notification->object = $notification->getObject();
+                } catch(\Exception $e) {
+                }
                 //$notification->formatted = trans('ww.'.$notification->body, $notification->object->toArray());
             });
 
@@ -155,32 +158,32 @@ class UserController extends Controller {
     public function getUser(Request $request) {
         $user = User::find($request['user']['sub']);
 
-	if(isset($user)) {
-        $is_sponsor = false;
-        $user->sponsor;
-        if(isset($user->sponsor)) {
-            $is_sponsor = ($user->sponsor->status == 'ACTIVE');
-        }
-		return array(
-		    'user' => $user,
-		    'profile' => $user->detail,
-		    'sponsor' => $user->sponsor,
-		    'is_sponsor' => $is_sponsor,
-		    'active' => $user->active == 1,
-		    'notifications' => $this->notifications($user->id),
-		    'notifications_unread' => $this->countUnreadNotifications($user->id)
-		);
-	} else {
-		return array(
-		    'user' => false,
-		    'profile' => false,
-		    'sponsor' => false,
-		    'is_sponsor' => false, 
-		    'notifications' => false,
-		    'notifications_unread' => false
-		);
+        if(isset($user)) {
+            $is_sponsor = false;
+            $user->sponsor;
+            if(isset($user->sponsor)) {
+                $is_sponsor = ($user->sponsor->status == 'ACTIVE');
+            }
+            return array(
+                'user' => $user,
+                'profile' => $user->detail,
+                'sponsor' => $user->sponsor,
+                'is_sponsor' => $is_sponsor,
+                'active' => $user->active == 1,
+                'notifications' => $this->notifications($user),
+                'notifications_unread' => $this->countUnreadNotifications($user)
+            );
+        } else {
+            return array(
+                'user' => false,
+                'profile' => false,
+                'sponsor' => false,
+                'is_sponsor' => false, 
+                'notifications' => false,
+                'notifications_unread' => false
+            );
 
-	}
+        }
     }
 
     public function updateUser(Request $request) {
@@ -212,7 +215,7 @@ class UserController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if (!$user) {
-            return response()->json(['message' => 'User not found']);
+            return response()->json(['message' => 'user_not_found']);
         }
 
         $userDetail = UserDetail::find($user->id);
@@ -288,14 +291,12 @@ class UserController extends Controller {
         return $userRepository->search($query);
     }
 
-	public function notifications($id) {
-        $user = User::find($id);
+	public function notifications($user) {
         $notifications = $user->notifications;
         return $notifications;
 	}
 
-	public function countUnreadNotifications($id) {
-        $user = User::find($id);
+	public function countUnreadNotifications($user) {
         $notificationsCount = $user->notifications()->unread()->count();
         return $notificationsCount;
     }
@@ -312,11 +313,11 @@ class UserController extends Controller {
 
         $already_following = false;
         if(!$user) {
-            return response()->json(['message' => 'Debe ingresar para seguir a alguien'], 401);
+            return response()->json(['message' => 'follow_not_logged'], 401);
         }
 
         if($user->id == $followed->id) {
-            return response()->json(['message' => 'Can not follow yourself'], 400);
+            return response()->json(['message' => 'follow_not_himself'], 400);
         } else {
             Log::info($followed->followers);
             $already_following = count($followed->followers->filter(function($model) use ($user) {
@@ -325,7 +326,7 @@ class UserController extends Controller {
             })) > 0;
 
             if($already_following) {
-                return response()->json(['message' => 'You are already following'], 400);
+                return response()->json(['message' => 'follow_already_folllowing'], 400);
             } else {
                 DB::transaction(function() use ($followed, $user) {
                     $followedsUsers = new Follower;
@@ -355,7 +356,7 @@ class UserController extends Controller {
         })) > 0;
 
         if(!$already_following) {
-            return response()->json(['message' => 'You have to follow in order to unfollow'], 400);
+            return response()->json(['message' => 'follow_follow_first_to_unfollow'], 400);
         } else {
             DB::table('followers')->where('follower_id', $user->id )->where('followed_id', $followed->id)->delete();
             if($user->followers_amount > 0) {
@@ -407,11 +408,11 @@ class UserController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if(!$request->hasFile('file')) { 
-            return Response::json(['error' => 'No File Sent']);
+            return Response::json(['error' => 'no_file_sente']);
         }
 
         if(!$request->file('file')->isValid()) {
-            return Response::json(['error' => 'File is not valid']);
+            return Response::json(['error' => 'file_not_valid']);
         }
 
         $file = $request->file('file');

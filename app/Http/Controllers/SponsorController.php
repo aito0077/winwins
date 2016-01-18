@@ -160,18 +160,18 @@ class SponsorController extends Controller {
         $sponsor = Sponsor::find($id);
 
         if(!isset($sponsor) ) {
-            return response()->json(['message' => 'sponsor not found'], 400);
+            return response()->json(['message' => 'sponsor_not_found'], 400);
         }
         $sponsor->user();
         if($user->id == $sponsor->user->id) {
-            return response()->json(['message' => 'As owner you are already following'], 400);
+            return response()->json(['message' => 'sponsor_as_owner_you_are_aleady_following'], 400);
         } else {
             $already_following = count($sponsor->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if($already_following) {
-                return response()->json(['message' => 'You are already following'], 400);
+                return response()->json(['message' => 'sponsor_already_following'], 400);
             } else {
                 DB::transaction(function() use ($sponsor, $user) {
                     $sponsorsUsers = new SponsorsUser;
@@ -188,14 +188,14 @@ class SponsorController extends Controller {
         $sponsor = Sponsor::find($id);
         $sponsor->user();
         if($user->id == $sponsor->user->id) {
-            return response()->json(['message' => 'As owner you can not left this sponsor'], 400);
+            return response()->json(['message' => 'sponsor_owner_cant_left'], 400);
         } else {
             $already_following = count($sponsor->users->filter(function($model) use ($user) {
                 return $model->id == $user->id;
             })) > 0;
 
             if(!$already_following) {
-                return response()->json(['message' => 'You have to follow in order to unfollow'], 400);
+                return response()->json(['message' => 'sponsor_left_first_follow'], 400);
             } else {
                 DB::table('sponsors_users')->where('user_id', $user->id )->where('sponsor_id', $sponsor->id)->delete();
             }
@@ -264,11 +264,11 @@ class SponsorController extends Controller {
         $user = User::find($request['user']['sub']);
 
         if(!$request->hasFile('file')) { 
-            return Response::json(['error' => 'No File Sent']);
+            return Response::json(['error' => 'no_file_sent']);
         }
 
         if(!$request->file('file')->isValid()) {
-            return Response::json(['error' => 'File is not valid']);
+            return Response::json(['error' => 'file_not_valid']);
         }
 
         $file = $request->file('file');

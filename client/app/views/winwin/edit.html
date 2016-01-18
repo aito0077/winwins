@@ -77,14 +77,14 @@
                 </div>
             </div>
 
-            <input type="checkbox" id="test5" />
+            <input type="checkbox" id="test5" ng-model="accept_terms"/>
 
             <label for="test5" class="grey-text" style="font-size:11px; font-family: montserrat;"> He leído y acepto los  <a class="modal-trigger" href="#modal1" style="color:blue;font-family:montserrat;font-size:11px; text-decoration: underline;">Términos y Condiciones.</a></label>
 
             <div class="pad-10"></div>
 
 
-                <button class="btn waves-effect green" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwBasicForm.$invalid" ng-click="persistBasic()"> 
+                <button class="btn waves-effect green" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwBasicForm.$invalid || !accept_terms" ng-click="persistBasic()"> 
                        Continuar <i class="fa fa-play  animated infinite flash"></i>
                 </button>
                <div class="pad-10">   </div>
@@ -235,12 +235,17 @@
             <div class="pad-10"></div>
             -->
             <div class="card-panel teal">
-                <div class="input-label">Escala del WinWin <a  data-position="left" data-delay="50" data-tooltip="Que alcance geografico tiene tu winwin?"><i class="fa fa-question-circle red-text right"></i></a></div>
-                    <select  ng-options="item as item for item in scopes track by item.id" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
-                        
-                        
+                <div class="input-label">Escala del WinWin <a  data-position="left" data-delay="50" data-tooltip="Que alcance geografico tiene tu winwin?"><i class="fa fa-question-circle red-text right"></i></a>
+                    <select  ng-options="item as item for item in scopes" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial" required>
                     </select>
                 </div>  
+                <div ng-show="winwin.scope == 'LOCAL'">
+                    <div class="input-label">Lugar </div>
+                    <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="winwin.location_formatted" />
+                </div>
+
+            </div>
+
 
             <div class="pad-10"></div>
             <div class="card-panel teal">

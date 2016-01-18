@@ -42,7 +42,7 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
-            console.dir(response);
+            /*
             var message = "Error en su registracion";
             if(response.data) {
                 if(response.data.message == 'email_already_taken') {
@@ -58,6 +58,7 @@ angular.module('winwinsApp')
                         animation: false, 
                 closeOnConfirm: true 
             });
+            */
             $state.go('signUp');
         });
     };
@@ -93,6 +94,7 @@ angular.module('winwinsApp')
         })
         .catch(function(response) {
             $state.go('failure-login');
+            /*
             swal({
                 title: "ADVERTENCIA", 
                 text: 'Error en su autenticación', 
@@ -101,6 +103,7 @@ angular.module('winwinsApp')
                         animation: false, 
                 closeOnConfirm: true 
             });
+            */
         });
     };
 
