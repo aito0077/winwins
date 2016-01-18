@@ -267,19 +267,26 @@
          <br>
       </div>
    </div>
-   <br>
+   <br>   <br>
 
 <!-- Winwin Users Review-->   
    <ul class="collapsible" data-collapsible="accordion">
       <li>
-         <div class="collapsible-header orange darken-1 white-text"><i class="fa fa-star"></i>Ver todas las calificaciones</div>
+         <div class="collapsible-header orange darken-3 white-text"><i class="fa fa-chevron-right"></i>Ver calificaciones de usuarios.</div>
          <div class="collapsible-body">
             <div class="container no-padding" style="min-height:50px; margin-top:10px;">
                <div class="col-xs-2 no-padding">
+                   
+<!--User Img-->   
                   <span class="col-xs-2 no-padding center" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
                   <img ng-src="http://images.dev-winwins.net/30x30/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style=" border-radius: 50%; margin-left:15px; line-height:17px;"></span>
                </div>
+                
+<!--User Review-->                   
                <div class="col-xs-6 small">Estuvo buenisimo, lo vamos a repetir! </div>
+                
+<!--User Stars Rating-->                   
+
                <div class="col-xs-4">         
                   <i class="fa fa-star orange-text"></i>
                   <i class="fa fa-star orange-text"></i>
@@ -332,7 +339,8 @@
    </div>
 </div>
 </div>
-<div style="min-height:800px;">
+
+<div ng-hide="winwin.is_successful" style="min-height:800px;">
 </div>
 </div>  
 <!-- Winwin Activity Wall-->            
