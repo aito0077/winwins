@@ -884,18 +884,7 @@ text-align:center;
 padding-bottom: 10px;
 }
 
-.ww-atts {
-   font-family: montserrat;
-         font-size: 10px;
-         text-align: center;
-         padding: 15px;.
-         padding-bottom:25px;
-         background: rgb(247, 244, 244);
-         box-shadow: 3px 3px 3px lightgrey;
-}
 
-.ww-people {
-background-color: #f1f1f1; padding: 10px 10px; box-shadow: 0px 3px 5px lightgrey;   margin-top: 10px;}
 
 .ww-creator {
         cursor: pointer;
