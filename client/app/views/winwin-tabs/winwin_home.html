@@ -277,12 +277,12 @@
     </div>
     <script type="text/ng-template" id="myMailShare.html">
       <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">
+          <div class="modal-title" id="myModalLabel">
               <div class="bubble-md create-title">
                   <i class="fa fa-envelope-o"></i><br/>
-                  Invita amigos por mail.
+             <p class="small center">Invita amigos por mail.</p> 
               </div>
-          </h4>
+          </div>
       </div>
       <div class="modal-body">
           <div class="container" ng-show="!success">
@@ -296,24 +296,21 @@
                   </span>
               </div>
               <div class="row">
+                  <p class="h7 grey-text"> *Apreta enter para agregar mas de uno.</p>
                   <button type="button" ng-click="sentInvitations()"  class="btn-large green" style="width:100%;">
                      <i class="fa fa-paper-plane" style="font-size: 16px;"></i>   ENVIAR INVITACION!
                  </button>
               </div>
          </div>
-         <div class="container" ng-show="success">
-             <div class="row">
-                 <div class="col-xs-2"></div>
-                 <div class="col-xs-8">
+         <div class="row" ng-show="success">
+     
                      <div style="text-align: center;"> 
                          <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:100px; height: 100px; border-radius: 50%; font-size:5em; padding-top: 0px; text-align:center;"></i>
                         <h6 style="font-family: montserrat;"> Las invitaciones fueron enviadas!</h6>
                      </div>
-                 <div class="col-xs-2"></div>
-             </div>
-         </div>
-      </div>
-      
+                </div>
+
+
       
     </script>
     <script>
