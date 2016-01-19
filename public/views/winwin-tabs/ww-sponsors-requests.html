@@ -2,7 +2,7 @@
     
     
     <div ng-if="!accept_success">
-        <div class="pad-30"></div>
+
         <h5 ng-if="!sponsors.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">Actualmente no tienes<br> peticiones de sponsors<br> </h5>
 
         <div class="grid grid-sponsors">
@@ -39,7 +39,8 @@
                 </div>
 
 
-                <div class="solicitud" style="font-family:montserrat; font-size: 1em; text-align:center;"> {{sponsor.pivot.sponsor_message}}</div>
+                <div class="solicitud small center">"{{sponsor.pivot.sponsor_message}}"</div>
+
 
      
             </div>
@@ -47,6 +48,9 @@
         </div>
 
     </div>
+            
+            
+            
 
     <div ng-if="accept_success">
         <div class="container">
@@ -59,7 +63,7 @@
                         <h2 style="font-family: montserrat; line-height: 35px;"> Perfecto!</h2>
                         <h5 style="font-family: montserrat; color:#444;"> Has aceptado la solicitud de {{sponsor_name}}</h5>  
                         <div class="pad-80"></div>
-                        <img src="/images/loading.gif" width="110" height="80" alt="loading"> 
+                        <div class="spinner"></div>
                     </div>
                     <div class="col-xs-2"></div>
                 </div>
