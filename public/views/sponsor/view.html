@@ -1,21 +1,21 @@
 <div id="menu-sponsor" class="container no-padding">
    <div class="container col-xs-12 no-padding">
-      <a data-toggle="tab" data-target="#sponsor_summary" role="button" ng-click="setCurrentView('home')">
+      <a href data-toggle="tab" data-target="#sponsor_summary" role="button" ng-click="setCurrentView('home')">
          <span class="col-xs-3-3" ng-class="{active: current_view == 'home'}">
             <i class="fa fa-star"></i>
          </span>
       </a>
-      <a data-toggle="tab" data-target="#sponsor_winwins" ng-click="setCurrentView('winwins')">
+      <a href data-toggle="tab" data-target="#sponsor_winwins" ng-click="setCurrentView('winwins')">
          <span class="col-xs-3-3" ng-class="{active: current_view == 'winwins'}">
             <i class="fa fa-comments"></i>
          </span>
       </a>
-      <a data-toggle="tab" data-target="#sponsor_groups" ng-click="setCurrentView('groups')">
+      <a href data-toggle="tab" data-target="#sponsor_followers" ng-click="setCurrentView('followers')">
          <span class="col-xs-3-3" ng-class="{active: current_view == 'groups'}">
             <i class="fa fa-users"></i>
          </span>
       </a>
-      <a ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
+      <a href ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
          <span class="col-xs-3-3">
             <i class="fa fa-gear"></i>
          </span>

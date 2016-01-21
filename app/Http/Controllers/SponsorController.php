@@ -118,9 +118,17 @@ class SponsorController extends Controller {
         if($user) {
             $sponsor->myself = ($sponsor->user_id == $user->id);
         }
-        $sponsor->followers_count  = count($sponsor->users);
         $sponsor->winwins_count  = count($sponsor->winwins);
         $sponsor->groups_count  = count($sponsor->groups);
+
+        $followers = DB::table('user_details')
+        ->select('user_details.name', 'user_details.lastname', 'user_details.photo', 'user_details.user_id')
+        ->join('sponsors_users', 'user_details.user_id', '=', 'sponsors_users.user_id')
+        ->where('sponsors_users.sponsor_id', '=', $sponsor->id)->get();
+
+        $sponsor->followers = $followers;
+        $sponsor->followers_count  = count($followers);
+
 
         $sponsor->already_following = false;
 
@@ -131,6 +139,7 @@ class SponsorController extends Controller {
             })) > 0;
         }
 
+        Log::info($sponsor);
 
         return $sponsor;
 	}

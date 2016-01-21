@@ -151,7 +151,7 @@ class UserController extends Controller {
     public function getUserStatus(Request $request) {
         $user = User::find($request['user']['sub']);
         return array(
-            'notifications_unread' => $this->countUnreadNotifications($user->id)
+            'notifications_unread' => $this->countUnreadNotifications($user)
         );
     }
 
@@ -297,6 +297,7 @@ class UserController extends Controller {
 	}
 
 	public function countUnreadNotifications($user) {
+        Log::info("USER: ".$user);
         $notificationsCount = $user->notifications()->unread()->count();
         return $notificationsCount;
     }
