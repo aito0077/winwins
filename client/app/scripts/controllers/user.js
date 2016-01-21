@@ -281,10 +281,12 @@ angular.module('winwinsApp')
             }
         });
         */
+        /*
         $('#datetimepicker1').datetimepicker({
             maxDate: new Date(),
             format: 'DD - MM - YYYY'
         });
+        */
         console.log($scope.edit_user.birthdate);
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
