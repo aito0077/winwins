@@ -141,18 +141,21 @@
     
 
 <div id="footer" ng-if="isAuthenticated" ng-class="{'with_media': post.media_type}">
+
       <div class="row no-padding">
          <div class="container" ng-show="post.media_type">
             <div ng-show="uploading" class="col-xs-12">
-               <img class="img-responsive white" ng-show="uploading"/>      <div class="spinner blue"></div>
+               <img class="img-responsive white" ng-show="uploading"/><div class="spinner blue"></div>
             </div>
-            <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/400x/smart/{{::item_post.media.path}}" class="img-responsive" style="auto;">
+            <div ng-show="post.media_type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/400x/smart/{{::post.media_path}}" style="min-height: 300px" class="img-responsive">
+
             </div>
             <div ng-show="post.media_type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
                <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(post.media_path)}}" allowfullscreen="true"></iframe>
             </div>
          </div>
       </div>
+
        <div class="col s2 left blue white-text" style="border-radius: 50%;  border-bottom-right-radius: 0px;width:40px; height:40px; margin:3px; margin-bottom:-15px; margin-top: 14px;"><img ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/33x33/{{profile_photo}}" class="img-circle img-no-border" alt="profile" style="cursor: pointer; margin-top: -2px; " ng-cloak/></div>
   <div class="col s2 right no-padding"  style="margin-top: 10px; margin-right:10px">
       <button class="btn right white-text orange darken-2  no-padding" ngf-select="uploadFiles($file)" accept="image/*" ngf-max-size="8MB"><i class="fa fa-camera-retro" style="padding:10px; padding-top:0px; padding-bottom:0px;"></i></button>       </div> 
