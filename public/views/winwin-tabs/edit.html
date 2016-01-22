@@ -76,7 +76,7 @@
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">para</span>
                     <div class="pad-10"></div>
 
-                    <textarea id="what_we_do_textarea" class="_materialize-textarea" length="120" ng-model="ewinwin.what_we_do" required></textarea>
+                    <textarea id="what_we_do_textarea" class="materialize-textarea" length="120" ng-model="ewinwin.what_we_do" required></textarea>
                     <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">te sumarías?</span><br>
 
                     <div class="pad-10">   </div>
@@ -85,7 +85,7 @@
                         <i class="fa fa-question right" style="color: #FF8000;"></i>
                     </a> 
                     <br>
-                    <textarea id="description_textarea" class="_materialize-textarea" length="120" ng-model="ewinwin.description" required></textarea>
+                    <textarea id="description_textarea" class="materialize-textarea" length="400" ng-model="ewinwin.description" required></textarea>
                  </div>
 
 
@@ -105,8 +105,15 @@
                     <select ng-options="item as item for item in scopes track by item.id" ng-model="ewinwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
                     </select>
 
+                    <h2>{{ewinwin.scope}}</h2>
+                    <div ng-show="ewinwin.scope == 'LOCAL'">
+                        <div class="input-label">Lugar </div>
+                        <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="winwin.location_formatted" />
+                    </div>
+
+
                     <div class="input-label">En que categoría? <i class="fa fa-question-circle" style="color: red;"></i></div>
-                    <select ng-options="item as item.description for item in interests track by item.id" ng-model="ewinwin.interest" class="form-control" placeholder="Seleccioná una categoría">
+                    <select ng-options="item as item.description for item in interests track by item.id" ng-model="ewinwin.interest" class="form-control" placeholder="Seleccioná una categoría" multiple>
                     </select>
                 </div>
             </div>

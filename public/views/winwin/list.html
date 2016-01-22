@@ -1,11 +1,13 @@
 <div class="container no-padding" style="position:fixed; margin-top:-8px; padding:8px; z-index:99999999;">
-    
+ 
     <button ng-click="doFilter('select')" class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-bookmark white-text"></i></button>
     <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-fire white-text"></i></button>
     <button ng-click="doFilter('next_to_close')"  class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
-    <button class="col-xs-3 blue darken-1" ng-click="doFilter('all')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button>
+    <button class="col-xs-3 blue darken-1" ng-click="doFilter('all')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button> 
 
 
+
+    
     
 <!--TODO: filtrar por categorias con select multiple 
 
@@ -54,7 +56,7 @@
              <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
           </div>
           <div class="col-xs-6 no-padding">  
-             <img ng-repeat="sponsor in winwin.sponsors" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
+             <img ng-repeat="sponsor in winwin.sponsors |limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
           </div>
           <!-- somos -->
           <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
