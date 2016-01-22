@@ -12,7 +12,7 @@
     <div infinite-scroll='sponsors.nextPage()' style="margin-top:-25px;">
         <div class="col-xs-12 no-padding card-panel hoverable" style="margin-top:10px;" ng-repeat="sponsor in sponsors.items">
 
-          <div class="col-xs-12 no-padding ng-click="view(sponsor.id)"">
+          <div class="col-xs-12 no-padding" ng-click="view(sponsor.id)">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}" style="height: 220px;">
                 <div class="profile-avatar avatar">
                     <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="responsive-img" style="background-color: #fff; border-radius:50%; min-height:100px;" />

@@ -13,14 +13,13 @@
         </div>
         <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer;"  ng-click="viewWinwin(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
+            <div class="username-cards">{{::winwin.pivot.sponsor_text}} {{::winwin.pivot.sponsor_message}}</div>
+
         </div>
-        <div class="card-buttons" >
-            <div class=" col-xs-1 profile">
-                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
-            </div>
-            <div class="col-xs-1 profile"> 
-                <img ng-repeat="sponsor in winwin.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
-            </div>
+    </div>
+    <div class="row" ng-if="sponsor.myself">
+        <div class="block-center center-block"> 
+            <span class="btn btn-primary" ng-click="cancelSponsored(winwin)">Cancelar Sponsoreo</span>
         </div>
     </div>
 </div>

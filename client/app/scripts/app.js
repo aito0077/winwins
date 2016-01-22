@@ -94,6 +94,11 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/list.html',
         controller: 'winwin-list'
     })
+    .state('winwin-own', {
+        url: '/winwin-own',
+        templateUrl: 'views/user/own_winwins.html',
+        controller: 'user-winwins-own'
+    })
     .state('winwin-search', {
         url: '/winwin-search',
         templateUrl: 'views/winwin/search.html',

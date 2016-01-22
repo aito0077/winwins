@@ -366,6 +366,12 @@ angular.module('winwinsApp')
         return '';
     };
 
+    $scope.viewSponsor = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
 }])
 
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {

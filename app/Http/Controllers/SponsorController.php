@@ -317,6 +317,41 @@ class SponsorController extends Controller {
 		//
 	}
 
+	public function sponsorCancel(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = $user->sponsor;
+
+        $winwin = Winwin::find($id);
+        $ww_user = $winwin->user;
+        $request_body = $request->input('body');
+
+        if(!isset($sponsor)) {
+            return response()->json(['message' => 'winwin_you_are_not_an_sponsor'], 400);
+        } else {
+            $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+                return $model->id == $sponsor->id;
+            })) > 0;
+
+            if($already_sponsored) {
+                DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
+                    DB::table('sponsors_winwins')->where('sponsor_id', $sponsor->id )->where('winwin_id', $winwin->id)->delete();
+                });
+                $ww_user->newNotification()
+                    ->from($user)
+                    ->withType('SPONSOR_CANCEL')
+                    ->withSubject('Sponsor_cancel')
+                    ->withBody($request_body)
+                    ->regarding($winwin)
+                    ->deliver();
+
+                return response()->json(['message' => 'winwin_sponsor_cancel'], 200);
+            } else {
+                return response()->json(['message' => 'winwin_you_are_not_sponsored_this_winwin'], 400);
+            }
+        }
+
+	}
+
 
 
 }

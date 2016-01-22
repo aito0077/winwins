@@ -63,16 +63,16 @@
                   <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
                     <span class="h7 grey-text"> {{item_post.user.username}}</span>
                         
-                  <a href class="button-del" ng-if="!item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                  <a href class="button-del" ng-if="isAuthenticated && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
                      <h4><i class="fa fa-bookmark right grey-text" style="margin-top: -60px;"></i> </h4>
                   </a>
                   <a href class="button-del" ng-if="item_post.sticky && !isAdmin">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a href class="button-del" ng-if="item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
+                  <a href class="button-del" ng-if="isAuthenticated && item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a href class="button-del" ng-if="!isAuthenticated" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
+                  <a href class="button-del" ng-if="isAuthenticated" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
                      <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -30px;"></i> </h4>
                   </a>
                   <span class="title" style="font-size:12px;">{{item_post.title}}</span>
