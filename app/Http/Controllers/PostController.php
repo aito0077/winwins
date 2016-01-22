@@ -130,7 +130,7 @@ class PostController extends Controller {
 
             if($post->type == 'WINWIN') {
                 $winwin = Winwin::find($post->reference_id);
-                $this->sentNewPost(Request $request, Mailer $mailer, $winwin, $post) {
+                $this->sentNewPost($request, $mailer, $winwin, $post);
             }
 
            
