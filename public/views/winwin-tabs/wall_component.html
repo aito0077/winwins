@@ -63,16 +63,16 @@
                   <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
                     <span class="h7 grey-text"> {{item_post.user.username}}</span>
                         
-                  <a href class="button-del" ng-if="isAuthenticated && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                  <a href class="button-del" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
                      <h4><i class="fa fa-bookmark right grey-text" style="margin-top: -60px;"></i> </h4>
                   </a>
                   <a href class="button-del" ng-if="item_post.sticky && !isAdmin">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a href class="button-del" ng-if="isAuthenticated && item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
+                  <a href class="button-del" ng-if="winwin.already_joined && item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
-                  <a href class="button-del" ng-if="isAuthenticated" ng-click="removePost(item_post)" ng-if="isAdmin || item.post.user.id == user_id">
+                  <a href class="button-del" ng-click="removePost(item_post)" ng-if="winwin.already_joined && (isAdmin || item.post.user.id == user_id)">
                      <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -30px;"></i> </h4>
                   </a>
                   <span class="title" style="font-size:12px;">{{item_post.title}}</span>
@@ -93,13 +93,13 @@
                <!-- Toolbar -->
                <div class="col-xs-12 no-padding" style="margin-top:-5px;">
                   <div class="col-xs-4 no-padding left" style="text-align: left;"> <i class="fa fa-clock-o" ></i><span style="font-size: 8px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span></div>
-                  <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
-                  <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
-                  <div ng-if="isAuthenticated"class="col-xs-2 no-padding"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
-                  <div ng-if="isAuthenticated" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                  <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
+                  <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
+                  <div ng-if="winwin.already_joined"class="col-xs-2 no-padding"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
+                  <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
                   <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
-                  <div ng-if="isAuthenticated" class="col-xs-2 no-padding right" style="cursor:pointer;    text-align: right;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
-                  <div ng-if="isAuthenticated" class="col-xs-1 right no-padding" style="cursor:pointer;    text-align: right;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                  <div ng-if="winwin.already_joined" class="col-xs-2 no-padding right" style="cursor:pointer;    text-align: right;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
+                  <div ng-if="winwin.already_joined" class="col-xs-1 right no-padding" style="cursor:pointer;    text-align: right;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
                </div>
             </div>
          </div>
@@ -126,10 +126,10 @@
                   <div class="container" style="margin-top: 10px;">
                      <div class="col-xs-12 no-padding">
                         <div class="col-xs-4 no-padding left"> <i class="fa fa-clock-o"style="font-size: 8px;"></i><span style="font-size: 8px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span></div>
-                        <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
-                        <div ng-if="!isAuthenticated" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"> 10</span></div>
-                        <div ng-if="isAuthenticated" lass="col-xs-2 no-padding"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; ursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
-                        <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(comment, true)"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
+                        <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"> <i class="fa fa-thumbs-o-up"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
+                        <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-"> 10</span></div>
+                        <div ng-if="winwin.already_joined" lass="col-xs-2 no-padding"  ng-class="{'text-danger': !comment.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; ursor:pointer;" ng-click="vote(comment, false)"></i><span class="post-likes-"> {{::comment.down_votes}}</span></div>
+                        <div ng-if="winwin.already_joined" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(comment, true)"></i> <span class="post-likes"> {{::comment.up_votes}}</span></div>
                      </div>
                   </div>
                </div>
@@ -140,7 +140,7 @@
 </div>
     
 
-<div id="footer" ng-if="isAuthenticated" ng-class="{'with_media': post.media_type}">
+<div id="footer" ng-if="winwin.already_joined" ng-class="{'with_media': post.media_type}">
 
       <div class="row no-padding">
          <div class="container" ng-show="post.media_type">

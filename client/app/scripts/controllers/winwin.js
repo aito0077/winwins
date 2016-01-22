@@ -1725,7 +1725,7 @@ angular.module('winwinsApp')
 })
 .controller('winwin-modify', function($scope, $state, $stateParams, $http, $auth, $timeout, Upload, Winwin, Interest, api_host) {
     $scope.interests = [];
-    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
+    $scope.scopes = [ 'GLOBAL','LOCAL'];
     $scope.preview_image = '';
 
     $scope.ewinwin = {};
@@ -1762,7 +1762,24 @@ angular.module('winwinsApp')
         jQuery('#picker_closing_date').pickadate().pickadate('picker').set('select', $scope.ewinwin.closing_date);
         jQuery('#what_we_do_textarea').val($scope.ewinwin.what_we_do);
         jQuery('#description_textarea').val($scope.ewinwin.description);
+
+        $scope.setup_geo_component();
         
+    };
+
+    $scope.setup_geo_component = function () {
+        var input = document.getElementById('winwin_location'),
+        options = {
+            types: ['address']
+        };
+        var searchBox = new google.maps.places.Autocomplete(input, options);
+
+        searchBox.addListener('place_changed', function() {
+            var place = searchBox.getPlace();
+            $scope.winwin.location = _.extend(place, {
+                coordinates: place.geometry.location.toJSON()
+            });
+        });
     };
 
 
