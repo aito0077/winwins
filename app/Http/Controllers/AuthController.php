@@ -120,6 +120,9 @@ class AuthController extends Controller {
 
             $sponsor->save();
 
+            $user->is_sponsor = 1;
+            $user->save();
+
             $this->sentEmailConfirmationSponsor($mailer, $user, $sponsor);
 
         } else {

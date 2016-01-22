@@ -26,11 +26,11 @@ angular.module('winwinsApp')
                 $scope.fetching_profile = true;
                 Account.getProfile().then(function(response) {
                     $scope.fetching_profile = false;
-                    $scope.profile = response.data.profile;
+                    $scope.profile = response.profile;
                     $scope.sponsor = response.sponsor;
                     $scope.isSponsor = response.is_sponsor;
-                    $scope.isActive = response.data.active;
-                    $scope.email = response.data.user.email;
+                    $scope.isActive = response.active;
+                    $scope.email = response.user.email;
                     $rootScope.account = $scope.profile;
                     console.log('Fetching profile');
                     $rootScope.profile_photo = $scope.profile.photo;
@@ -63,6 +63,7 @@ angular.module('winwinsApp')
             $scope.fetching_profile = true;
             console.log('is Authenticated');
             Account.getProfile().then(function(response) {
+                console.dir(response);
                 $scope.fetching_profile = false;
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;

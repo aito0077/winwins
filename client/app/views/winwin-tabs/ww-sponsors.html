@@ -8,7 +8,7 @@
         
         <!-- WW no sponsors -->
 
-        <div class="col-xs-12 no-padding card-panel hoverable white {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors">
+        <div class="col-xs-12 no-padding card-panel hoverable white {{classType(sponsor)}}"  ng-repeat="sponsor in sponsors" ng-click="viewSponsor(sponsor.id)">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/200x/smart/{{sponsor.cover_photo}}">
                 <div class="profile-avatar center">
                <img ng-src="http://images.dev-winwins.net/x100/{{::sponsor.photo}}" class="img-responsive avatar-img" >
@@ -20,7 +20,7 @@
                <div class="buttons-profile" style="margin-top:0px;">
                   <a href="#" class="col-xs-3  ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
                   <a ng-show="!sponsor.following" role="button" class="col-xs-5 btn-join"  ng-click="follow(sponsor)"> SEGUIR</a>
-                  <a ng-show="sponsor.following" role="button" class="col-xs-5  btn-join"  ng-click="follow(sponsor)"> SIGUIENDO </a>
+                  <a ng-show="sponsor.following" role="button" class="col-xs-5  btn-join"  ng-click="unfollow(sponsor)"> SIGUIENDO </a>
                   <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
                </div>
             </div>

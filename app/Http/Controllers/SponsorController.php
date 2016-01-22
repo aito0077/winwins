@@ -118,9 +118,17 @@ class SponsorController extends Controller {
         if($user) {
             $sponsor->myself = ($sponsor->user_id == $user->id);
         }
-        $sponsor->followers_count  = count($sponsor->users);
         $sponsor->winwins_count  = count($sponsor->winwins);
         $sponsor->groups_count  = count($sponsor->groups);
+
+        $followers = DB::table('user_details')
+        ->select('user_details.name', 'user_details.lastname', 'user_details.photo', 'user_details.user_id')
+        ->join('sponsors_users', 'user_details.user_id', '=', 'sponsors_users.user_id')
+        ->where('sponsors_users.sponsor_id', '=', $sponsor->id)->get();
+
+        $sponsor->followers = $followers;
+        $sponsor->followers_count  = count($followers);
+
 
         $sponsor->already_following = false;
 
@@ -131,6 +139,7 @@ class SponsorController extends Controller {
             })) > 0;
         }
 
+        Log::info($sponsor);
 
         return $sponsor;
 	}
@@ -306,6 +315,41 @@ class SponsorController extends Controller {
 
 	public function edit($id) {
 		//
+	}
+
+	public function sponsorCancel(Request $request, $id) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = $user->sponsor;
+
+        $winwin = Winwin::find($id);
+        $ww_user = $winwin->user;
+        $request_body = $request->input('body');
+
+        if(!isset($sponsor)) {
+            return response()->json(['message' => 'winwin_you_are_not_an_sponsor'], 400);
+        } else {
+            $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+                return $model->id == $sponsor->id;
+            })) > 0;
+
+            if($already_sponsored) {
+                DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
+                    DB::table('sponsors_winwins')->where('sponsor_id', $sponsor->id )->where('winwin_id', $winwin->id)->delete();
+                });
+                $ww_user->newNotification()
+                    ->from($user)
+                    ->withType('SPONSOR_CANCEL')
+                    ->withSubject('Sponsor_cancel')
+                    ->withBody($request_body)
+                    ->regarding($winwin)
+                    ->deliver();
+
+                return response()->json(['message' => 'winwin_sponsor_cancel'], 200);
+            } else {
+                return response()->json(['message' => 'winwin_you_are_not_sponsored_this_winwin'], 400);
+            }
+        }
+
 	}
 
 

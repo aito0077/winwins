@@ -180,6 +180,20 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.cancelSponsored = function(winwin) {
+        $http.post(api_host+'/api/sponsor/cancel/winwin/'+winwin.id, {})
+        .success(function(data) {
+            $scope.getSponsor();
+            swal({
+                title: "info", 
+                text: 'Sponsoreo cancelado', 
+                type: "info",
+                showcancelbutton: false,
+                        animation: false, 
+                closeonconfirm: true 
+            });
+        })
+    };
 
 
 

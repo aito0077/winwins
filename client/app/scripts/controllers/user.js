@@ -281,10 +281,12 @@ angular.module('winwinsApp')
             }
         });
         */
+        /*
         $('#datetimepicker1').datetimepicker({
             maxDate: new Date(),
             format: 'DD - MM - YYYY'
         });
+        */
         console.log($scope.edit_user.birthdate);
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
@@ -420,6 +422,49 @@ angular.module('winwinsApp')
 
 
 }])
+.controller('user-winwins-own', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Upload, User, Account, api_host) {
+
+    $scope.is_admin = false;
+    $scope.getUser = function() {
+        Account.getProfile().then(function(response) {
+            $scope.account = response.data;
+
+            User.get({
+                id: $scope.account.user.id
+            }, function(user_data) {
+                $scope.user_detail = user_data;
+            });
+
+        });
+
+    };
+
+    $scope.getUser();
+
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
+
+
+}])
 .controller('cancel-account', ['$scope', '$rootScope', '$state', '$stateParams', '$timeout', '$auth', function($scope, $rootScope, $state, $stateParams, $timeout, $auth) {
 
     $timeout(function() {
@@ -430,6 +475,8 @@ angular.module('winwinsApp')
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {
+
+    $scope.notifications = [];
 
     $scope.viewProfile = function(id) {
         $state.go('user-view', {
@@ -461,6 +508,9 @@ angular.module('winwinsApp')
                 id: $scope.account.user.id
             }, function(user_data) {
                 $scope.user_detail = user_data;
+                $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
+                    return Math.sin(notification.id); 
+                });
             });
 
         });
