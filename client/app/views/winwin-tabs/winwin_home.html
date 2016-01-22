@@ -101,6 +101,30 @@
           </div>
         </div>
         <!-- Winwin Attributes-->
+          <div class="col s12 no-padding">
+           <ul class="collection">
+        <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
+        
+          <li class="collection-item"><div class="left small">Escala:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
+
+  <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
+
+
+  <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
+     
+        
+        
+        
+        
+      </ul>
+            
+          </div>
+          
+                    
+          </div>  
+          
+          
+          
         <div class="row ww-atts grey lighten-4" style="padding:10px;">
           <div class="col-xs-3 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
           <div class="col-xs-3 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
@@ -195,34 +219,6 @@
             <br>
           </div>
         </div>
-        <br>   <br>
-        <!-- Winwin Users Review-->   
-        <ul class="collapsible" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header orange darken-3 white-text"><i class="fa fa-chevron-right"></i>Ver calificaciones de usuarios.</div>
-            <div class="collapsible-body">
-              <div class="container no-padding" style="min-height:50px; margin-top:10px;">
-                <div class="col-xs-2 no-padding">
-                  <!--User Img-->   
-                  <span class="col-xs-2 no-padding center" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
-                  <img ng-src="http://images.dev-winwins.net/30x30/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style=" border-radius: 50%; margin-left:15px; line-height:17px;"></span>
-                </div>
-                <!--User Review-->                   
-                <div class="col-xs-6 small">Estuvo buenisimo, lo vamos a repetir! </div>
-                <!--User Stars Rating-->                   
-                <div class="col-xs-4">         
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </li>
-        </ul>
-      </div>
       <!-- Winwin People-->
       <div class="row">
         <div class="col-xs-12 mb-20">
