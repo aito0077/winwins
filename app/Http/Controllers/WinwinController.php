@@ -905,9 +905,9 @@ class WinwinController extends Controller {
         }
     }
 
-	public function sentNewPost(Request $request, Mailer $mailer, $winwin) {
+	public function sentNewPost(Request $request, Mailer $mailer, $winwin, $post) {
         Log::info("Enviando mails nuevo Post");
-        $template_name = 'winwin_ww_total_users_joined';
+        $template_name = 'winwin_ww_new_post';
         foreach($winwin->users as $user) {
             $recipient = $user->email;
             Log::info("Mail: ".$recipient);

@@ -18,6 +18,9 @@ use Winwins\Model\Media;
 use Winwins\Model\Winwin;
 use Winwins\User;
 
+use Winwins\Message\Mailer;
+use Winwins\Message\Message;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller {
@@ -95,13 +98,13 @@ class PostController extends Controller {
         return $post;
 	}
 
-	public function store(Request $request) {
+	public function store(Request $request, Mailer $mailer) {
         Log::info($request['user']);
         $user = User::find($request['user']['sub']);
         Log::info($user);
 
         $post = new Post;
-        DB::transaction(function() use ($request, $post, $user) {
+        DB::transaction(function() use ($request, $post, $user, $mailer) {
             $post->reference_id = $request->input('reference_id');
             $post->type = $request->input('type');
             $post->user_id = $user->id;
@@ -124,6 +127,12 @@ class PostController extends Controller {
             }
 
             $post->save();
+
+            if($post->type == 'WINWIN') {
+                $winwin = Winwin::find($post->reference_id);
+                $this->sentNewPost(Request $request, Mailer $mailer, $winwin, $post) {
+            }
+
            
         });
 
@@ -309,6 +318,41 @@ class PostController extends Controller {
         });
         return response()->json(['message' => 'post_removed'], 200);
 	}
+
+	public function sentNewPost(Request $request, Mailer $mailer, $winwin, $post) {
+        Log::info("Enviando mails nuevo Post");
+        $template_name = 'winwin_ww_new_post';
+        foreach($winwin->users as $user) {
+            $recipient = $user->email;
+            Log::info("Mail: ".$recipient);
+            if(isset($recipient)) {
+                $message = new Message($template_name, array(
+                    'meta' => array(
+                        'base_url' => 'http://dev-winwins.net',
+                        'winwin_link' => 'http://dev-winwins.net/#/winwin-view/'.$winwin->id,
+                        'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+                    ),
+                    'sender' => array(
+                        'post_username' => $user->username,
+                        'username' => $user->username,
+                        'name' => $user->detail->name,
+                        'photo' => 'http://images.dev-winwins.net/72x72/smart/'.$user->photo,
+                    ),
+                    'winwin' => array(
+                        'id' => $winwin->id,
+                        'users_amount' => $winwin->users_amount,
+                        'winwin_title' => $winwin->title,
+                        'what_we_do' => $winwin->what_we_do,
+                    ),
+
+                ));
+                $message->subject('WW - '.$winwin->title);
+                $message->to(null, $recipient);
+                $message_sent = $mailer->send($message);
+                Log::info("Mail enviado");
+            }
+        }
+    }
 
 }
 
