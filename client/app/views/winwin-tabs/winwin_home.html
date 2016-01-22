@@ -58,7 +58,6 @@
                   {{::winwin.users_already_joined}}
                 </div>
               </div>
-              </span> 
             </div>
             <div class="col-xs-3">
               <div class="col-xs-4 ww-somos" style=" margin-left: -20px;">
@@ -74,12 +73,10 @@
                   {{::winwin.users_left}}
                 </div>
               </div>
-              </span> 
             </div>
           </div>
         </header>
       </div>
-    </div>
     </div>
     <!-- Winwin Text-->
     <div class="row wwtxt no-padding">
@@ -104,21 +101,20 @@
           </div>
         </div>
         <!-- Winwin Attributes-->
-        <div class="row ww-atts">
-          <div class="col-xs-3 ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-          <div class="col-xs-3 ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
+        <div class="row ww-atts grey lighten-4" style="padding:10px;">
+          <div class="col-xs-3 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+          <div class="col-xs-3 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
             <br>
             {{winwin.location.formatted_address}}
           </div>
-          <div class="col-xs-3 ww-attributte">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
+          <div class="col-xs-3 small ww-attributte">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
           <!-- Button trigger modal -->
-          <div class="col-xs-3 ww-attributte"> 
+          <div class="col-xs-3 small ww-attributte"> 
             <span style="text-align: center; color:#333;">
             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">
             Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
-            </a>
           </div>
-        </div>
+        </div>  
         <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
           <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
         </div>
@@ -187,19 +183,10 @@
           <!-- Se activa la review del winwin-->
           <div class="container center white black-text" style="border-radius: 5px;" >
             <br>
-            <p class="small"> Se concreto este winwin?</p>
-            <!-- Switch -->
-            <div class="switch">
-              <label>
-              Si
-              <input type="checkbox">
-              <span class="lever"></span>
-              No
-              </label>
+      
             </div>
-            </hr>
             <!-- Evalua tu experiencia -->          
-            <p class="small">Por favor, valora tu experiencia en el proceso:</p>
+            <p class="small">Por favor, califica tu experiencia en este Winwin:</p>
             <input type="number" name="wwreview" id="review" class="rating" data-clearable=""/>
             <br>
           </div>
@@ -243,7 +230,7 @@
             <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; line-height:17px;">
           </div>
           <!-- Creadores-->   
-          <div class="col-xs-3 no-padding ww-creator left" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}</br><span class="small light-blue-text left">CREADOR</span> </div>
+          <div class="col-xs-3 no-padding ww-creator left" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}<br><span class="small">CREADOR</span> </div>
           <!-- Activadores-->   
           <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-repeat="member in winwin.users |filter: {pivot :{ creator: 0, moderator: 1}}"> 
             <img ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle profile-ww creator-img" ng-click="viewProfile(member.id)"  alt="{{::member.username}}" title="{{::member.username}}" >
@@ -269,12 +256,11 @@
         </div>
       </div>
     </div>
-    </div>  
     <!-- Winwin Activity Wall-->            
     <ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
     <div ng-hide="winwin.is_successful" style="min-height:70px;"></div>
     <div ng-hide="!winwin.is_successful" style="min-height:70px;"></div>
-    </div>
+    <!-- Modal Share-->        
     <script type="text/ng-template" id="myMailShare.html">
       <div class="modal-header">
           <div class="modal-title" id="myModalLabel">
@@ -309,10 +295,9 @@
                         <h6 style="font-family: montserrat;"> Las invitaciones fueron enviadas!</h6>
                      </div>
                 </div>
-
-
-      
     </script>
+        
+      <!-- Initialize Toggle-->              
     <script>
       function toggler(divId) {
           $("#" + divId).toggle();

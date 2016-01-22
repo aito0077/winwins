@@ -3003,7 +3003,7 @@ a {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    width: 90%%;
+    width: 90%;
     text-align: center;
    }
    
@@ -3037,10 +3037,6 @@ a {
   }
 
 }
-
-
-
-
 
 .btn-register {
     width: 100%;
@@ -4413,7 +4409,7 @@ padding-top:30px;}
 .avatar {
 margin-left: auto; 
 margin-right:auto; 
-dislay:block;
+display:block;
 width:100px;}
 
 
