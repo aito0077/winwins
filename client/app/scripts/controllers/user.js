@@ -509,8 +509,10 @@ angular.module('winwinsApp')
             }, function(user_data) {
                 $scope.user_detail = user_data;
                 $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
-                    return Math.sin(notification.id); 
+                    return notification.id; 
                 });
+
+                $scope.notitications = $scope.notifications.reverse();
             });
 
         });

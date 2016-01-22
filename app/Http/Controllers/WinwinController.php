@@ -432,8 +432,7 @@ class WinwinController extends Controller {
         Winwin::destroy($id);
 	}
 
-    //Actions
-	public function join(Request $request, $id) {
+	public function join(Request $request, Mailer $mailer, $id) {
         $user = User::find($request['user']['sub']);
         if($user->active == 0) {
             return response()->json(['message' => 'operation_not_until_activate_account'], 400);
@@ -480,6 +479,8 @@ class WinwinController extends Controller {
                             ->withBody('winwin_finished_successfully_body')
                             ->regarding($winwin)
                             ->deliver();
+
+                        $this->sentCompleteQuorum($request, $mailer, $winwin);
                     }
 
 
@@ -868,6 +869,42 @@ class WinwinController extends Controller {
         Log::info($result);
         return $result;
     }
+
+
+	public function sentCompleteQuorum(Request $request, Mailer $mailer, $winwin) {
+        Log::info("Enviando mails completado");
+        $template_name = 'winwin_ww_total_users_joined';
+        foreach($winwin->users as $user) {
+            $recipient = $user->email;
+            Log::info("Mail: ".$recipient);
+            if(isset($recipient)) {
+                $message = new Message($template_name, array(
+                    'meta' => array(
+                        'base_url' => 'http://dev-winwins.net',
+                        'winwin_link' => 'http://dev-winwins.net/#/winwin-view/'.$winwin->id,
+                        'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+                    ),
+                    'sender' => array(
+                        'username' => $user->username,
+                        'name' => $user->detail->name,
+                        'photo' => 'http://images.dev-winwins.net/72x72/smart/'.$user->photo,
+                    ),
+                    'winwin' => array(
+                        'id' => $winwin->id,
+                        'users_amount' => $winwin->users_amount,
+                        'winwin_title' => $winwin->title,
+                        'what_we_do' => $winwin->what_we_do,
+                    ),
+
+                ));
+                $message->subject('WW - '.$winwin->title);
+                $message->to(null, $recipient);
+                $message_sent = $mailer->send($message);
+                Log::info("Mail enviado");
+            }
+        }
+    }
+
 
 
 }
