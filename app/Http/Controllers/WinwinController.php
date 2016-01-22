@@ -451,7 +451,7 @@ class WinwinController extends Controller {
             if($already_joined) {
                 return response()->json(['message' => 'join_already_join'], 400);
             } else {
-                DB::transaction(function() use ($winwin, $user) {
+                DB::transaction(function() use ($winwin, $user, $request, $mailer) {
                     $winwinsUsers = new WinwinsUser;
                     $winwinsUsers->user_id = $user->id;
                     $winwinsUsers->winwin_id = $winwin->id;
@@ -905,6 +905,38 @@ class WinwinController extends Controller {
         }
     }
 
+	public function sentNewPost(Request $request, Mailer $mailer, $winwin) {
+        Log::info("Enviando mails nuevo Post");
+        $template_name = 'winwin_ww_total_users_joined';
+        foreach($winwin->users as $user) {
+            $recipient = $user->email;
+            Log::info("Mail: ".$recipient);
+            if(isset($recipient)) {
+                $message = new Message($template_name, array(
+                    'meta' => array(
+                        'base_url' => 'http://dev-winwins.net',
+                        'winwin_link' => 'http://dev-winwins.net/#/winwin-view/'.$winwin->id,
+                        'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+                    ),
+                    'sender' => array(
+                        'username' => $user->username,
+                        'name' => $user->detail->name,
+                        'photo' => 'http://images.dev-winwins.net/72x72/smart/'.$user->photo,
+                    ),
+                    'winwin' => array(
+                        'id' => $winwin->id,
+                        'users_amount' => $winwin->users_amount,
+                        'winwin_title' => $winwin->title,
+                        'what_we_do' => $winwin->what_we_do,
+                    ),
 
+                ));
+                $message->subject('WW - '.$winwin->title);
+                $message->to(null, $recipient);
+                $message_sent = $mailer->send($message);
+                Log::info("Mail enviado");
+            }
+        }
+    }
 
 }
