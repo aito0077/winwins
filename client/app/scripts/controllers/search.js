@@ -38,17 +38,17 @@ angular.module('winwinsApp')
         switch(type) {
             case 'winwins':
                 $state.go('winwin-view', {
-                    winwinid: id
+                    winwinId: id
                 }); 
                 break;
             case 'users':
                 $state.go('user-view', {
-                    userid: id
+                    userId: id
                 }); 
                 break;
             default:
                 $state.go('winwin-view', {
-                    winwinid: id
+                    winwinId: id
                 }); 
         }
     };

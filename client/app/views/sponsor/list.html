@@ -14,6 +14,9 @@
 
           <div class="col-xs-12 no-padding" ng-click="view(sponsor.id)">
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}" style="height: 220px;">
+                <div class="profile-avatar avatar">
+                    <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="responsive-img" style="background-color: #fff; border-radius:50%; min-height:100px;" />
+                </div>
                 <div class="username">{{::sponsor.name}}</div>
             </div>
    <div class="container no-padding">
@@ -80,6 +83,14 @@ else
     $('select').material_select();
   });
             </script>
+
+
+
+
+
+
+
+
 
 
 <script>

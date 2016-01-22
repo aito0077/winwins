@@ -176,6 +176,9 @@ class WinwinController extends Controller {
                 return $result;
             })) > 0;
 
+            if($winwin->is_moderator) {
+                $winwin->already_joined = true;
+            }
 
             $user->sponsor;
             $is_sponsor = isset($user->sponsor);
