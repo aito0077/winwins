@@ -42,8 +42,10 @@
 
     <div class="container no-padding" ng-if="!winwin.is_sponsor">
         <div class="col-xs-12 no-padding">
-            <div class="ww-featured" ng-if="winwin.remarkable">
-                <div class="ww-featured right"><img src="images/postit.png" class="right"></div>
+            <div class="ww-featured-m" ng-if="winwin.remarkable">
+                <div class="ww-featured-m right"><img src="images/postit.png"></div>
+                 <span class="popular p right" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
+                              <span class="finishing m right" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
             </div>
       
         </div>
@@ -52,7 +54,8 @@
             <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
             <div class="col-xs-12" style="padding-top:10px;">
             <div class="col-xs-4 "></div>
-                <div class="col-xs-2 center white-text"> <span ng-if="winwin.popular" style="background-color: red;  width:20px; height:20px; opacity: 0.9; text-align:center; border-radius:50%; padding: 5px; padding-left: 6px;"> <i  class="fa fa-fire" style="font-size: 16px;"></i> </span><span ng-if="winwin.finishing" style="background-color: #07900C; opacity: 0.9; border-radius:50%; padding: 5px; margin:5px;"> <i  class="fa fa-calendar-check-o" style="font-size: 16px;  width:20px; height:20px; background-color:transparent; color:#1976D2; border-radius: 50%; color:white;">   </i></span></div>
+                <div class="col-xs-2 center ">
+                    </div>
                     <div class="col-xs-2 center grey-text"></div>
                    <div class="col-xs-4"></div>
             </div>

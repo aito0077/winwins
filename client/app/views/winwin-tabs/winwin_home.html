@@ -7,8 +7,8 @@
         <header class="white" style="margin-top:45px;  box-shadow: rgba(62, 55, 55, 0.42) 2px 2px 15px;">
           <!-- WW Flags--> 
           <div class="ww-featured right"><img src="../images/postit.png"></div>
-          <span class="popular right red-text" ng-if="winwin.popular"> <i class="fa fa-fire" style="font-size: 16px;"></i></span>
-          <span class="finishing right blue-text" ng-if="winwin.finishing"> <i class="fa fa-calendar-check-o"></i></span>
+          <span class="popular right" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
+          <span class="finishing right" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
           <!-- WW Imagen--> 
           <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" class="responsive-img ww-image">
             <!-- WW Titulo--> 
@@ -25,7 +25,7 @@
               </div>
               <!-- WW Countdown--> 
               <div ng-if="winwin.closing_date && !is_finished" style="font-size: 11px; font-family:montserrat; padding-top:10px;">
-                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:2px; "> </i> termina en <br> 
+                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:2px;"> </i> termina en <br> 
                 <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:2px;">{{duration_days}}D</span> 
                 <span style="margin:3px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_hours}}H</span> 
                 <span style="margin:5px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_minutes}}"</span>
@@ -116,7 +116,8 @@
             Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
           </div>
             <br>
-            <div class="col-xs-12 small ww-attributte left">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
+              
+            <div class="col-xs-12 small ww-attributte left white">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
         </div>  
         <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
           <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
