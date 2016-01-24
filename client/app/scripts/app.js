@@ -462,9 +462,6 @@ angular.module('winwinsApp', [
     }
   };
 }])
-
-
-
 .run(function($rootScope, $templateCache, $timeout) {
     console.log('run');
     $timeout(function() {
@@ -476,5 +473,8 @@ angular.module('winwinsApp', [
         }
     });
 
+    $rootScope.$on('$viewContentLoaded', function() {
+        $templateCache.removeAll();
+    });
 })
 ;
