@@ -101,43 +101,22 @@
           </div>
         </div>
         <!-- Winwin Attributes-->
-          <div class="col s12 no-padding">
-           <ul class="collection">
-        <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
-        
-          <li class="collection-item"><div class="left small">Escala:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
 
-  <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
-
-
-  <li class="collection-item"><div class="left small">Estado:</div><a href="#!" class="secondary-content small"><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span></i></a></div></li>
-     
-        
-        
-        
-        
-      </ul>
-            
-          </div>
-          
-                    
-          </div>  
-          
-          
-          
         <div class="row ww-atts grey lighten-4" style="padding:10px;">
-          <div class="col-xs-3 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-          <div class="col-xs-3 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
+          <div class="col-xs-4 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+          <div class="col-xs-4 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
             <br>
             {{winwin.location.formatted_address}}
           </div>
-          <div class="col-xs-3 small ww-attributte">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
+          
           <!-- Button trigger modal -->
-          <div class="col-xs-3 small ww-attributte"> 
+          <div class="col-xs-4 small ww-attributte"> 
             <span style="text-align: center; color:#333;">
             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">
             Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
           </div>
+            <br>
+            <div class="col-xs-12 small ww-attributte left">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
         </div>  
         <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
           <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
