@@ -7,8 +7,8 @@
         <header class="white" style="margin-top:45px;  box-shadow: rgba(62, 55, 55, 0.42) 2px 2px 15px;">
           <!-- WW Flags--> 
           <div class="ww-featured right"><img src="../images/postit.png"></div>
-          <span class="popular right red-text" ng-if="winwin.popular"> <i class="fa fa-fire" style="font-size: 16px;"></i></span>
-          <span class="finishing right blue-text" ng-if="winwin.finishing"> <i class="fa fa-calendar-check-o"></i></span>
+          <span class="popular right" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
+          <span class="finishing right" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
           <!-- WW Imagen--> 
           <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" class="responsive-img ww-image">
             <!-- WW Titulo--> 
@@ -24,11 +24,12 @@
                 </div>
               </div>
               <!-- WW Countdown--> 
-              <div ng-if="winwin.closing_date && !is_finished" style="font-size: 11px; font-family:montserrat; padding-top:10px;">
-                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:2px; "> </i> termina en <br> 
-                <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:2px;">{{duration_days}}D</span> 
+           <!--   <div ng-if="winwin.closing_date && !is_finished" > -->
+                   <div style="font-size: 11px; font-family: montserrat; padding-top:10px;">
+                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:1px;"> </i> termina en <br> 
+                <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:1px;">{{duration_days}}D</span> 
                 <span style="margin:3px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_hours}}H</span> 
-                <span style="margin:5px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_minutes}}"</span>
+                <span style="margin:5px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_minutes}}'</span>
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@
         <span class="somos-txt"> {{::winwin.users_amount}} personas</span> 
         <div class="ww-text"> para {{::winwin.what_we_do}} </div>
         <span class="tesumarias"> te sumarías? </span>
-      </div>
+      </div>   </div>
       <!-- Winwin More Details-->
       <div class="container center">
         <button class="mas-detalles grey lighten-3 grey-text" onclick="toggler('mas-detalles');"> MAS DETALLES 
@@ -101,20 +102,27 @@
           </div>
         </div>
         <!-- Winwin Attributes-->
+
         <div class="row ww-atts grey lighten-4" style="padding:10px;">
-          <div class="col-xs-3 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-          <div class="col-xs-3 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
+          <div class="col-xs-4 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+          <div class="col-xs-4 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
             <br>
             {{winwin.location.formatted_address}}
           </div>
-          <div class="col-xs-3 small ww-attributte">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
+          
           <!-- Button trigger modal -->
-          <div class="col-xs-3 small ww-attributte"> 
+          <div class="col-xs-4 small ww-attributte"> 
             <span style="text-align: center; color:#333;">
             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">
-            Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
+                Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i> </span> </span></a>
           </div>
         </div>  
+            
+            <div class="row">
+                <div class="col-xs-12 small ww-attributte center white"><span style="background: #f1f1f1; padding: 5px; "><i class="fa fa-server"></i> Categorías:</span> <br>  <p class="small grey-text"></p>{{formattedCategories(winwin.interests)}}</div>
+            </div>
+            
+            
         <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
           <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
         </div>
@@ -123,22 +131,21 @@
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+     
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <div class="center">
                 <h1><i class="fa fa-exclamation-circle red-text  animated wobble"></i></h1>
                 <h4>REPORTAR WINWIN</h4>
+                  <p class="small ">Este Winwin, o alguno de sus contenidos no respetan los Terminos y Condiciones? Por favor, hacenos saber. </p>
               </div>
-            </div>
-            <div class="modal-body">
-              <div class="input-field col s12 no-padding">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">Describi tus motivos</label>
+
+                <textarea id="textarea1" class="materialize-textarea container" placeholder="Contanos tus motivos..."></textarea>
+           
               </div>
-            </div>
-            <div class="modal-footer" style="margin:0px;">
-              <button class="col-xs-12 waves-effect waves-light btn-large red lighten-3 white-text" style="margin:0px;">Reportar</button>
-            </div>
+        
+              <button class="col-xs-12 waves-effect waves-light btn-large red  white-text" style="margin:0px;">Reportar</button>
+          
+            </div>    
           </div>
         </div>
       </div>
@@ -195,34 +202,6 @@
             <br>
           </div>
         </div>
-        <br>   <br>
-        <!-- Winwin Users Review-->   
-        <ul class="collapsible" data-collapsible="accordion">
-          <li>
-            <div class="collapsible-header orange darken-3 white-text"><i class="fa fa-chevron-right"></i>Ver calificaciones de usuarios.</div>
-            <div class="collapsible-body">
-              <div class="container no-padding" style="min-height:50px; margin-top:10px;">
-                <div class="col-xs-2 no-padding">
-                  <!--User Img-->   
-                  <span class="col-xs-2 no-padding center" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
-                  <img ng-src="http://images.dev-winwins.net/30x30/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style=" border-radius: 50%; margin-left:15px; line-height:17px;"></span>
-                </div>
-                <!--User Review-->                   
-                <div class="col-xs-6 small">Estuvo buenisimo, lo vamos a repetir! </div>
-                <!--User Stars Rating-->                   
-                <div class="col-xs-4">         
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                  <i class="fa fa-star orange-text"></i>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </li>
-        </ul>
-      </div>
       <!-- Winwin People-->
       <div class="row">
         <div class="col-xs-12 mb-20">

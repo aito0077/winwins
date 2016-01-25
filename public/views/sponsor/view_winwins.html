@@ -1,5 +1,4 @@
-<div class="container" ng-repeat="winwin in sponsor.winwins">
-    <div class="row">
+<div class="row" ng-repeat="winwin in sponsor.winwins">
         <div class="col-xs-12 no-padding">
             <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
                 <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
@@ -21,7 +20,6 @@
         <div class="block-center center-block"> 
             <span class="btn btn-primary" ng-click="cancelSponsored(winwin)">Cancelar Sponsoreo</span>
         </div>
-    </div>
 </div>
 
 
