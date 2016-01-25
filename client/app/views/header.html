@@ -27,13 +27,29 @@
                      <!--   <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>-->
                     <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-users"></i>  Miembros </a></li>
                      <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"><i class="fa fa-users"></i>  Miembros </a></li>
-                    <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-hand-paper"></i> Sponsors</a></li>
-                    <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><i class="fa fa-hand-paper"></i> Sponsors</a></li>
+                    <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><i class="fa fa-hand-paper-o"></i> Sponsors</a></li>
+                    <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><i class="fa fa-hand-paper-o"></i> Sponsors</a></li>
                     <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i> ¿Cómo Funciona?</a></li>
                     <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <i class="fa fa-user"></i>  Mi perfil</a></li>
                     <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>  Salir</span></a></li>
                     <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;"> Registrate</span></a></li>
-                </ul>
+            
+                
+   <li>                        <!-- search -->
+<div class="col s12" data-ng-controller="main-search-controller" >
+
+      <form>
+          <div class="input-field" style="margin-left:10px;">
+                        <i class="fa fa-search left" id="query" ng-click="search()" style="margin-top:15px; margin-left: 5px;font-size: 15px;"></i>
+
+          <input id="query" type="search" class="col-xs-6 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+          <!-- I've put "red-text" class to emphasize -->
+                      <label for="query"></span></label>
+      </form>
+    </div>
+
+</div>
+            </li>   </ul>
 
                 <div class="right" style="padding-right:20px; z-index:999; height: 50px;">
                                         <a ng-href="/#/signin" style="font-size: 20px; padding-top:3px;" ng-if="!isAuthenticated()"><i class="fa fa-sign-in sign-btn"></i></a>
