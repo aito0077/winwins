@@ -418,7 +418,7 @@ angular.module('winwinsApp', [
         'background-attachment': attrs.backgroundAttachment,
         'background-origin': attrs.backgroundOrigin,
         'background-clip': attrs.backgroundClip,
-        'background': 'linear-gradient(rgba(0, 0, 0, 0.73), rgba(154, 148, 120, 0.0980392)),url(' + attrs.backgroundImage + ')',
+        'background': 'linear-gradient(rgb(0, 0, 0), rgba(14, 14, 14, 0.42)),url(' + attrs.backgroundImage + ')',
         'background-size': 'cover',
        });
       };

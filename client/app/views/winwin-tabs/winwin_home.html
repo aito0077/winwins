@@ -24,11 +24,12 @@
                 </div>
               </div>
               <!-- WW Countdown--> 
-              <div ng-if="winwin.closing_date && !is_finished" style="font-size: 11px; font-family:montserrat; padding-top:10px;">
-                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:2px;"> </i> termina en <br> 
-                <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:2px;">{{duration_days}}D</span> 
+           <!--   <div ng-if="winwin.closing_date && !is_finished" > -->
+                   <div style="font-size: 11px; font-family: montserrat; padding-top:10px;">
+                <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:1px;"> </i> termina en <br> 
+                <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:1px;">{{duration_days}}D</span> 
                 <span style="margin:3px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_hours}}H</span> 
-                <span style="margin:5px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_minutes}}"</span>
+                <span style="margin:5px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_minutes}}'</span>
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@
         <span class="somos-txt"> {{::winwin.users_amount}} personas</span> 
         <div class="ww-text"> para {{::winwin.what_we_do}} </div>
         <span class="tesumarias"> te sumarías? </span>
-      </div>
+      </div>   </div>
       <!-- Winwin More Details-->
       <div class="container center">
         <button class="mas-detalles grey lighten-3 grey-text" onclick="toggler('mas-detalles');"> MAS DETALLES 
@@ -113,12 +114,15 @@
           <div class="col-xs-4 small ww-attributte"> 
             <span style="text-align: center; color:#333;">
             <a style="color: #333;" type="button" data-toggle="modal" data-target="#myModal">
-            Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i>WinWin </span> 
+                Reportar <br> <i class="fa fa-exclamation-circle" style="color: red;"></i> </span> </span></a>
           </div>
-            <br>
-              
-            <div class="col-xs-12 small ww-attributte left white">Categorias:<br> {{formattedCategories(winwin.interests)}}</div>
         </div>  
+            
+            <div class="row">
+                <div class="col-xs-12 small ww-attributte center white"><span style="background: #f1f1f1; padding: 5px; "><i class="fa fa-server"></i> Categorías:</span> <br>  <p class="small grey-text"></p>{{formattedCategories(winwin.interests)}}</div>
+            </div>
+            
+            
         <div style="text-align:center; padding: 5px;" ng-if="!winwin.is_successful && winwin.already_joined" > 
           <span ng-click="left()" style="cursor: pointer; font-family: montserrat; font-size: 11px; background: #F7F4F4; color: #848181; padding: 5px; "><i class="fa fa-sign-out"></i> Abandonar WinWin</span>
         </div>
@@ -127,22 +131,21 @@
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+     
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <div class="center">
                 <h1><i class="fa fa-exclamation-circle red-text  animated wobble"></i></h1>
                 <h4>REPORTAR WINWIN</h4>
+                  <p class="small ">Este Winwin, o alguno de sus contenidos no respetan los Terminos y Condiciones? Por favor, hacenos saber. </p>
               </div>
-            </div>
-            <div class="modal-body">
-              <div class="input-field col s12 no-padding">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">Describi tus motivos</label>
+
+                <textarea id="textarea1" class="materialize-textarea container" placeholder="Contanos tus motivos..."></textarea>
+           
               </div>
-            </div>
-            <div class="modal-footer" style="margin:0px;">
-              <button class="col-xs-12 waves-effect waves-light btn-large red lighten-3 white-text" style="margin:0px;">Reportar</button>
-            </div>
+        
+              <button class="col-xs-12 waves-effect waves-light btn-large red  white-text" style="margin:0px;">Reportar</button>
+          
+            </div>    
           </div>
         </div>
       </div>
