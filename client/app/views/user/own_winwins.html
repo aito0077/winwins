@@ -1,4 +1,11 @@
-    <!-- WW Cards-->
+ <!-- Select Filter-->
+<div class="container no-padding" style="position:fixed; padding:8px; z-index:99; margin-bottom:20px;">
+    <button ng-click="doFilter('select')" class="col-xs-6 blue darken-3" style="border:transparent; padding-top:5px; height:30px;"> <p class="h7 white-text">Mis Winwins</p> </button>
+    <button ng-click="doFilter('popular')" class="col-xs-6 blue darken-3 " style="border:transparent; padding-top:5px; height:30px;"><p class="h7 white-text"> Winwins en que participo</p></button>
+
+
+
+<!-- WW Cards-->
     <div class="container card-panel teal hoverable s12" ng-repeat="winwin in user_detail.winwins" style="padding:0px; padding-bottom:10px;">
     <div ng-if="winwin.is_sponsor" class="container">
        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
@@ -14,6 +21,10 @@
              <div class="ww-popular pop right">Pop</div>
           </div>
           <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
+             <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
+          </div>
+            <!-- Mi Winwin -->
+            <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
              <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
           </div>
        </div>
