@@ -7,19 +7,20 @@
     <button ng-click="doFilter('next_to_close')"  class="col-xs-3 blue darken-3" style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-clock-o white-text"></i> <p class="h8 white-text">Terminando</p></button>
     <button class="col-xs-3 blue darken-3" ng-click="doFilter('all')"  style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-calendar-o white-text"></i> <p class="h8 white-text">Recientes</p></button> 
 
+</div>
 
-
+<div class="container no-padding" style="position:fixed; margin-top:45px; z-index:99; ">
     <select multiple>
       <option value="" disabled selected><p class="h7"><i class="fa fa-list-ul"></i>Ver Winwins por categorias</p></option>
       <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
       <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
       <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
+        <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
       <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
       <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
-
-
+        <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
         
     </select>
 
@@ -52,9 +53,9 @@
     <!-- labels -->
     <div class="container no-padding" ng-if="!winwin.is_sponsor">
        <div class="col-xs-12 no-padding">
-          <div class="ww-featured" ng-if="winwin.mark == 'remarkable'">
-             <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
-          </div>
+ <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
+     <div class="ww-featured right"><img src="../images/postit.png"></div>
+           </div>
           <div class="ww-popular" ng-if="winwin.mark == 'popular'">
              <div class="ww-popular pop right"><i class="fa fa-fire"></i></div>
           </div>
