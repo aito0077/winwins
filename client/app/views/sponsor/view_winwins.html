@@ -12,13 +12,20 @@
         </div>
         <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" style="height: 200px; cursor:pointer;"  ng-click="viewWinwin(winwin.id)">
             <div class="username-cards text-uppercase">{{::winwin.title}}</div>
-            <div class="username-cards">{{::winwin.pivot.sponsor_text}} {{::winwin.pivot.sponsor_message}}</div>
 
         </div>
     </div>
+
+
+            <div class="username-cards grey-text">"<h5 style="text-decoration: italic;">{{::winwin.pivot.sponsor_text}} {{::winwin.pivot.sponsor_message}}"</h5><br>
+                <p class="small">Avatar - Juan W Perez / Creador</p></div>
+
+
+
     <div class="row" ng-if="sponsor.myself">
         <div class="block-center center-block"> 
-            <span class="btn btn-primary" ng-click="cancelSponsored(winwin)">Cancelar Sponsoreo</span>
+            <span class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)">Cancelar Sponsoreo</span>
+             <span class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)">Modificar Leyenda</span>
         </div>
 </div>
 
