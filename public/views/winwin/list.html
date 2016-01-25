@@ -1,19 +1,29 @@
-<div class="container no-padding" style="position:fixed; margin-top:-8px; padding:8px; z-index:99999999;">
- 
-    <button ng-click="doFilter('select')" class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-bookmark white-text"></i></button>
-    <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-1 " style="border:transparent;"><i class="fa fa-fire white-text"></i></button>
-    <button ng-click="doFilter('next_to_close')"  class="col-xs-3 blue darken-1" style="border:transparent;"><i class="fa fa-clock-o white-text"></i></button>
-    <button class="col-xs-3 blue darken-1" ng-click="doFilter('all')"  style="border:transparent;"><i class="fa fa-comments white-text"></i></button> 
-
-  <select class="icons">
-      <option value="" disabled selected>Choose your option</option>
-      <option value="" data-icon="images/sample-1.jpg" class="circle">example 1</option>
-      <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
-      <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
-    </select>
-    <label>Images in select</label>
-
+<div class="container no-padding" style="position:fixed; padding:8px; z-index:99; ">
     
+
+ 
+    <button ng-click="doFilter('select')" class="col-xs-3 blue darken-3" style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-bookmark white-text"></i> <p class="h8 white-text">Destacados</p> </button>
+    <button ng-click="doFilter('popular')" class="col-xs-3 blue darken-3 " style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-fire white-text"></i> <p class="h8 white-text"> Populares</p></button>
+    <button ng-click="doFilter('next_to_close')"  class="col-xs-3 blue darken-3" style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-clock-o white-text"></i> <p class="h8 white-text">Terminando</p></button>
+    <button class="col-xs-3 blue darken-3" ng-click="doFilter('all')"  style="border:transparent; padding-top:3px; height:45px;"><i class="fa fa-calendar-o white-text"></i> <p class="h8 white-text">Recientes</p></button> 
+
+
+
+    <select multiple>
+      <option value="" disabled selected><p class="h7"><i class="fa fa-list-ul"></i>Ver Winwins por categorias</p></option>
+      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
+      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
+
+
+        
+    </select>
+
+
     
 <!--TODO: filtrar por categorias con select multiple 
 
@@ -29,9 +39,9 @@
 -->
   
 </div>
-<div class="pad-50"</div>
 
-<div infinite-scroll='winwins.nextPage()'>
+
+<div infinite-scroll='winwins.nextPage()' style="padding-top: 80px;">
 
          <!-- WW Cards-->
     <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
@@ -46,7 +56,7 @@
              <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
           </div>
           <div class="ww-popular" ng-if="winwin.mark == 'popular'">
-             <div class="ww-popular pop right">Pop</div>
+             <div class="ww-popular pop right"><i class="fa fa-fire"></i></div>
           </div>
           <div class="ww-finishing" ng-if="winwin.mark == 'finishing'">
              <div class="ww-finishing clock"> <i class="fa fa-clock-o"></i></div>
@@ -76,7 +86,7 @@
     </div>
 
              
-<div id="footer" data-ng-controller="main-search-controller">
+<div id="footer-s" data-ng-controller="main-search-controller">
 
 <nav>
     <div class="nav-wrapper  blue darken-4">
