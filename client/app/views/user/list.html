@@ -36,7 +36,7 @@
 
 </div>
 
-<div id="footer" data-ng-controller="main-search-controller">
+<div id="footer-s" data-ng-controller="main-search-controller">
 
 <nav>
     <div class="nav-wrapper  blue darken-4">
@@ -45,7 +45,7 @@
           <div class="input-field">
           <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="searchUsers()">
           <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="searchUsers()" style="padding-top:10px; font-size: 20px;"></i>
+         <button  id="query" ng-click="searchUsers()"  class="blue darken-4 right white-text waves-effect waves-light btn-large z-depth-0"> <i class="fa fa-search small"></i></button> 
                       <label for="query"></span></label>
 
         </div>
@@ -62,11 +62,11 @@
     $(window).scroll(function() {  
 if($(document).scrollTop() > 150)
 {    
-     $('#footer').addClass("show");
+     $('#footer-s').addClass("show");
 }
 else
 {
-    $('#footer').removeClass("show");
+    $('#footer-s').removeClass("show");
 }
         });
     })
@@ -79,10 +79,3 @@ else
   });
             </script>
 
-<script>
-
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-
-  </script>
