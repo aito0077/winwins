@@ -29,7 +29,7 @@ class CreateWinwinsTable extends Migration {
 
             $table->boolean('is_video')->default(FALSE);
             $table->string('video')->nullable();
-            $table->string('image')->nullable()->default('ww-main-default.jpg');
+            $table->string('image')->nullable()->default('default-ww-no-image.jpg');
 
             $table->boolean('finished')->default(FALSE);
             $table->enum('status', ['PUBLISHED', 'PENDING', 'BANNED', 'CANCELED', 'FINISHED', 'SUCCESSFUL'])->default('PENDING');

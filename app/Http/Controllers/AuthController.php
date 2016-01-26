@@ -17,6 +17,7 @@ use Winwins\Jobs\UpdateProfilePicture;
 use Storage;
 use Winwins\Message\Mailer;
 use Winwins\Message\Message;
+use DB;
 
 class AuthController extends Controller {
 
@@ -124,6 +125,7 @@ class AuthController extends Controller {
             $user->save();
 
             $this->sentEmailConfirmationSponsor($mailer, $user, $sponsor);
+            $this->sentEmailNotifyAdminNewSponsor($mailer, $sponsor);
 
         } else {
 
@@ -481,6 +483,29 @@ class AuthController extends Controller {
 
         return $message_sent;
     }
+
+
+	public function sentEmailNotifyAdminNewSponsor($mailer, $sponsor) {
+        $template_name = 'winwin_admin_notify_new_sponsor';
+        $users = DB::table('users')->where('active', '=', 1)->where('is_admin', '=', 1)->whereNotNull('email')->get();
+        Log::info('Users Admin');
+        Log::info($users);
+        foreach($users as $user) {
+            $message = new Message($template_name, array(
+                'meta' => array(
+                    'base_url' => 'http://dev-winwins.net',
+                    'logo_url' => 'http://winwins.org/imgs/logo-winwins_es.gif'
+                ),
+                'organization_name' => $sponsor->name
+            ));
+            $message->subject('WinWin - Solicitud de Nuevo Sponsor');
+            $message->to(null, $user->email);
+            $message_sent = $mailer->send($message);
+        }
+
+        return $message_sent;
+    }
+
 
 	public function sentEmailConfirmationSponsor($mailer, $user, $sponsor) {
         $template_name = 'winwin_confirm_registration_sponsor';

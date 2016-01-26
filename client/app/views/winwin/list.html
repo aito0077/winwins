@@ -10,18 +10,9 @@
 </div>
 
 <div class="container no-padding" style="position:fixed; margin-top:45px; z-index:99; ">
-    <select multiple>
+    <select ng-model="interests" multiple>
       <option value="" disabled selected><p class="h7"><i class="fa fa-list-ul"></i>Ver Winwins por categorias</p></option>
-      <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
-        <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
-        <option value="1"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="2"><p class="h7">Solidaridad / Cooperación</p></option>
-      <option value="3"><p class="h7">Solidaridad / Cooperación</p></option>
-        
+      <option ng-repeat="item in interests track by item.id" value="{{item.id}}"><p class="h7">{{item.description}}</p></option>
     </select>
 
 
