@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration {
             $table->string('activation_code')->nullable();
             $table->boolean('active')->default(FALSE);
             $table->boolean('is_sponsor')->default(FALSE);
+            $table->boolean('is_admin')->default(FALSE);
             $table->boolean('accept_terms')->default(FALSE);
 
 			$table->string('displayname')->nullable();

@@ -4,6 +4,7 @@ angular.module('winwinsApp')
     $scope.profile = false;
     $scope.is_logged = false;
     $scope.isSponsor = false;
+    $scope.isSponsorActive = false;
     $scope.isActive = true;
     $scope.sponsor = false;
 

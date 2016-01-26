@@ -160,15 +160,18 @@ class UserController extends Controller {
 
         if(isset($user)) {
             $is_sponsor = false;
+            $is_sponsor_active = false;
             $user->sponsor;
             if(isset($user->sponsor)) {
-                $is_sponsor = ($user->sponsor->status == 'ACTIVE');
+                $is_sponsor = true;
+                $is_sponsor_active  = ($user->sponsor->status == 'ACTIVE');
             }
             return array(
                 'user' => $user,
                 'profile' => $user->detail,
                 'sponsor' => $user->sponsor,
                 'is_sponsor' => $is_sponsor,
+                'is_sponsor_active' => $is_sponsor_active,
                 'active' => $user->active == 1,
                 'notifications' => $this->notifications($user),
                 'notifications_unread' => $this->countUnreadNotifications($user)
