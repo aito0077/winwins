@@ -105,7 +105,6 @@
                     <select ng-options="item as item for item in scopes track by item.id" ng-model="ewinwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
                     </select>
 
-                    <h2>{{ewinwin.scope}}</h2>
                     <div ng-show="ewinwin.scope == 'LOCAL'">
                         <div class="input-label">Lugar </div>
                         <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="winwin.location_formatted" />

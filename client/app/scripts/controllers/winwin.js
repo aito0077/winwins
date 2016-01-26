@@ -446,8 +446,13 @@ angular.module('winwinsApp')
         jQuery('[data-toggle="tooltip"]').tooltip()
 
         jQuery('.datepicker').pickadate({
+            min: true,
+            closeOnSelect: true,
             selectMonths: true,
-            selectYears: 15
+            selectYears: 15,
+            onSet: function () {
+                this.close();
+            }
         });
         jQuery('input#input_text, textarea#textarea1').characterCounter();
         jQuery('input#input_text, textarea#textarea2').characterCounter();

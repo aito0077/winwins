@@ -36,7 +36,7 @@ class CreateUsersDetailTable extends Migration {
 
             $table->enum('sex', ['M', 'F'])->nullable();
 
-            $table->mediumtext('cover_photo');
+            $table->string('cover_photo')->default('default-no-image.jpg');
 
             $table->string('photo')->default('placeholder-square.jpg');
 

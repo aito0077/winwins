@@ -396,17 +396,19 @@ class WinwinController extends Controller {
             $winwin->scope = $request->input('scope');
             $winwin->image = $request->input('image');
 
-            if($request->has('interest')) {
-                $interest = $request->input('interest');
-                $interestIntrested = new InterestsInterested;
-                $interestIntrested->interest_id = $interest['id'];
-                $interestIntrested->interested_id = $winwin->id;
-                $interestIntrested->type = 'WINWIN';
+            $interests = $request->input('interests');
+            Log::info($interests);
+            /*
+            foreach($interests as $interest) {
 
-                $interestIntrested->save();
-
+                $interestsInterested = InterestsInterested::firstOrCreate([
+                    'interest_id' => $interest['id'],
+                    'interested_id' => $winwin->id,
+                    'type' => 'WINWIN'
+                ]);
             }
 
+            */
             $winwin->save();
         });
         return $winwin;
