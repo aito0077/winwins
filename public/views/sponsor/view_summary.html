@@ -1,20 +1,71 @@
 <div class="row">
       <!-- Header Sponsor -->
-   <div class="row">
-      <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::sponsor.cover_photo}}" style="height: 220px; margin-bottom:-10px;">
-    
-         </div>
-      </div>
-      <div class="row">
-        <!-- <div class="buttons-profile ">
-            <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
-            <a role="button" class="col-xs-5 btn-join grey" ng-show="!sponsor.myself && sponsor.already_following" ng-click="unfollow()"> DEJAR DE SEGUIR</a>
-            <a role="button" class="col-xs-5 btn-join" ng-show="!sponsor.myself && !sponsor.already_following" ng-click="follow()"> SEGUIR</a>
-            <div class="col-xs-5" ng-show="sponsor.myself"></div>
-            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
-         </div>
-      </div>
-      <div class="col-xs-12 no-padding">-->
+
+         <div class="container no-padding" ng-click="view(sponsor.id)">       
+    <div class="image">
+        
+         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
+             
+             </div>
+                    
+        <div class="col-xs-12 no-padding">
+                 
+                   <!--     <div class="animated fadeInTop col-xs-3 no-padding left white hoverable z-depth-3 card-panel teal" style="height:100px; width:120px; left: 20px; bottom: -20px; position: absolute;"> 
+                      <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive " > 
+            </div>  -->
+            <div class="animated fadeInTop col-xs-3 no-padding left" style="left: 20px; bottom: 30px; position: absolute;"> 
+              <img  class="animated fadeInTop" ng-src="http://images.dev-winwins.net/x60/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
+              border-radius: 3px;
+              height: 99%;
+              box-shadow: 2px 2px 3px #9DA09F;
+              margin-bottom:10px;
+              border: 3px solid #F1F1F1; bottom: -10px;" class="responsive-image">
+        
+        </div> 
+            
+            <div class="col-xs-12"></div>
+           <div style="col-xs-6 text-transform: capitalize; font-size:16px;position: absolute; bottom:10px; color: white; left:15px;">  {{::sponsor.name}} 
+      
+        
+        
+        </div>
+               
+          
+             </div>
+              </div>
+         
+            <div class="col-xs-12 no-padding" style="height: 45px;">
+                
+                     
+                          <div class="col-xs-3"> 
+                                 <!--winwins sponsor count -->
+                               <span class="h8 grey-text  center " style="padding-top:5px;">Winwins</span>
+                             <p class=" green-text  center"><strong>{{::sponsor.winwins_count}}</strong> </p> 
+                </div>
+                              <!--followers sponsor count -->
+                               <div class="col-xs-3 " style="padding-top:5px;"> 
+                                   <span class="h8 grey-text  center">Seguidores</span>
+                              <p class=" blue-text  center" > <strong>2</strong>  {{::sponsor.followers_count}}</p>   
+                               </div>
+                          
+                <button class="col-xs-4 white-text right waves-effect waves-light green ligthen-4 btn z-depth-0" style="height:100%;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite flash"></i><span style="font-size: 9px; color:white;"> Seguir   </span> </p></button>
+           </div>
+
+            
+       
+        </div>
+                 
+
+         </div>       
+   
+        
+
+
+ 
+
+
+        
+        
          <!-- Accordion -->
          <ul class="collapsible" data-collapsible="accordion">
             <!-- Sponsor about -->
