@@ -8,23 +8,58 @@
       <option value="3">Nuevos</option>
     </select>
   </div>
-</div>-->
-    <div infinite-scroll='sponsors.nextPage()' style="margin-top:-25px;">
-        <div class="col-xs-12 no-padding card-panel hoverable" style="margin-top:10px;" ng-repeat="sponsor in sponsors.items">
 
-          <div class="col-xs-12 no-padding" ng-click="view(sponsor.id)">
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; 
-    background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
+<div class="col s12 no-padding right">
 
-              
-                </div>
-    
-            </div>
-   <div class="col s12 no-padding">
+                  <a href="#" class="col-xs-3  ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
+                  <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
 
             <div class="col s12 no-padding">
               
             </div>
+
+
+
+
+</div>-->
+
+
+    <div infinite-scroll='sponsors.nextPage()' style="margin-top:-  25px;">
+
+
+
+
+<div class="row">
+            <div class="col-xs-12 no-padding card-panel hoverable" style="margin-top:10px;" ng-repeat="sponsor in sponsors.items">
+
+         <div class="container no-padding" ng-click="view(sponsor.id)">       
+    <div class="image">
+         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/400x700/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
+             </div>
+                 
+        <div class="col-xs-12 no-padding">
+        <div class="col-xs-5 no-padding">
+                 
+                        <div class="animated fadeInTop col-xs-3 no-padding left white hoverable z-depth-3 card-panel teal" style="height:100px; width:120px; left: 20px; bottom: -20px; position: absolute;">
+                      <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive " > 
+            </div> 
+        
+        </div>
+             
+                 <div class="col-xs-7 "><h5 style="padding-left:10px; color: #fff; text-transform: capitalize; left: 20px; bottom: -20px; position: absolute;">  {{::sponsor.name}}</h5>      </div>  
+             
+             </div>
+
+         
+        
+<button class="col-xs-3 white-text right waves-effect waves-light green ligthen-4 btn z-depth-0" style="height:45px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite flash"></i><br> <span style="font-size: 8px; color:white;"> Seguir   </span> </p></button>
+            
+            
+        </div>
+                 
+
+           
+   
         
     </div>
 </div>
@@ -37,6 +72,9 @@
 
 </div>
 
+</div>
+        
+        
 </div>
 
 <div id="footer-s" data-ng-controller="main-search-controller">

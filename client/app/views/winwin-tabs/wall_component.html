@@ -59,11 +59,25 @@
       <div class="col s12 m7">
          <div class="card white">
             <ul class="collection" style="width: 100%; height: 60px; border-color: transparent; border-bottom: 1px solid #f1f1f1;">
-               <li class="collection-item avatar" style="width: 100%; ">
-                  <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
+               <li class="collection-item avatar " style="width: 100%; ">
+                  <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww z-depth-1" width="38" height="38"> 
                     <span class="h7 grey-text"> {{item_post.user.username}}</span>
+                   
+                   <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                  </button>
+                          <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && !isAdmin" style="margin-top: -12px;">
+                    <img src="../images/postit.png"/>
+                  </button>
+                  <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="winwin.already_joined && item_post.sticky && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
+                    <img src="../images/postit.png" />
+                  </button>
+                  <button class="fa fa-trash-o white right grey-text waves-effect waves-light btn z-depth-0" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px; margin-right: 10px; ">
+                  </button>
+                   <!--TODO: EDITAR POST -->
+                      <button class="fa fa-pencil white right grey-text waves-effect waves-light btn z-depth-0" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px;  ">
+                  </button>
                         
-                  <a href class="button-del" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                 <!-- <a href class="button-del" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
                      <h4><i class="fa fa-bookmark right grey-text" style="margin-top: -60px;"></i> </h4>
                   </a>
                   <a href class="button-del" ng-if="item_post.sticky && !isAdmin">
@@ -73,8 +87,10 @@
                      <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
                   </a>
                   <a href class="button-del" ng-click="removePost(item_post)" ng-if="winwin.already_joined && (isAdmin || item.post.user.id == user_id)">
-                     <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -60px; margin-right: 60px;"></i> </h4>
+                     <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -60px; margin-right: 40px;"></i> </h4>
                   </a>
+
+                    -->
                   <span class="title" style="font-size:12px;">{{item_post.title}}</span>
                </li>
             </ul>
@@ -97,7 +113,7 @@
                   <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
                   <div ng-if="winwin.already_joined"class="col-xs-2 no-padding"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
-                  <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)"><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
+                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)" ><i class="fa fa-share" style="padding-top:4px;"></i> </span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-2 no-padding right" style="cursor:pointer;    text-align: right;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-1 right no-padding" style="cursor:pointer;    text-align: right;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
                </div>
@@ -140,9 +156,9 @@
 </div>
     
 
-<div id="footer" ng-class="{'with_media': post.media_type}">
+<div id="footer" ng-class="{'with_media': post.media_type}" ng-if="winwin.already_joined">
 
-      <div class="row no-padding">
+      <div class="row">
          <div class="container" ng-show="post.media_type">
             <div ng-show="uploading" class="col-xs-12">
                <img class="img-responsive white" ng-show="uploading"/><div class="spinner blue"></div>
@@ -170,8 +186,8 @@
         <div class="input-field col s9">
           <textarea class="no-padding h7" style="background: white; border-radius: 3px;" ng-model="post.content" placeholder="Escribi aca"></textarea>
         </div>
-             <div class="col s3 no-padding waves-effect waves-light btn green" ng-disabled="sendingPost" ng-click="submitPost()" style="margin-top:15px; height: 40px;">
-        <a class=""><i class="fa fa-paper-plane animated pulse"></i></a>
+             <button class="col s3 no-padding waves-effect waves-light btn green" ng-disabled="sendingPost" ng-click="submitPost()" style="margin-top:15px; height: 40px;">
+        <i class="fa fa-paper-plane"></i></button>
         </div>
       </div>
        
@@ -184,7 +200,6 @@
 
 <script type="text/ng-template" id="postShareModal.html">
    <div class="container center">
-   
         <i class="fa fa-elipsis" style="font-size: 2rem;color:#3B5998;"></i>
         <i class="fa fa-bullhorn " style="font-size: 50px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i> 
         <i class="fa fa-caret-down " style="font-size: 3rem;margin-top:-23px; color:#3B5998;"></i>
@@ -276,10 +291,4 @@ else
     })
 </script>
     
-    <script>
-    
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-            </script>
 

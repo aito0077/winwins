@@ -152,19 +152,18 @@
       <!-- Winwin CTA-->
       <div class="container">
         <div ng-if="!winwin.is_successful && !isSponsor && !winwin.already_joined" class="container no-padding">
-          <div class="col-xs-12">
-            <div class="col-xs-9 btn-large green">
-              <a href class="no-padding" ng-click="join()">
-                <h6> <i class="fa fa-play animated infinite flash" style="font-size:14px; padding-top:5px;"></i> ¡SÍ! ME SUMO</h6>
-              </a>
-            </div>
-            <div class="col-xs-3 btn-large grey lighten-4" data-toggle="modal" data-target="#share">
-              <a href role="button" class="no-padding black-text" >
-                <h6><i class="fa fa-bullhorn animated infinite pulse" style="font-size:14px; padding-top:5px;"></i></h6>
-              </a>
+      
+            <button class="col-xs-9 btn-large green no-padding waves-effect waves-light btn"  ng-click="join()">
+               <i class="fa fa-play animated infinite flash" style="font-size:14px;"></i> ¡SÍ! ME SUMO
+              </button>
+       
+            <button class="col-xs-3 btn-large grey lighten-4 no-padding grey-text waves-effect waves-light btn" data-toggle="modal" data-target="#share">
+           
+                <i class="fa fa-bullhorn"></i>
+              </button>
             </div>
           </div>
-        </div>
+
         <div class="row" ng-if="isSponsor">
           <div ng-if="winwin.already_sponsored" class="col-xs-10 center  btn-large green">
             <div class="no-padding">
@@ -202,13 +201,12 @@
           
         </div>
       <!-- Winwin People-->
-      <div class="row">
-        <div class="col-xs-12 mb-20">
-          <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
-            <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; line-height:17px;">
+      <div class="row grey lighten-3">
+          <div class="col-xs-2 no-padding  10pad" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
+            <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="z-depth-2 img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; margin-right:10px; line-height:17px;">
           </div>
           <!-- Creadores-->   
-          <div class="col-xs-3 no-padding ww-creator left" ng-click="viewProfile(winwin.user.id)"> {{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}}<br><span class="small">CREADOR</span> </div>
+          <div class="col-xs-3 no-padding small left" ng-click="viewProfile(winwin.user.id)"> <p>{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}} <br> CREADOR </div>
           <!-- Activadores-->   
           <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-repeat="member in winwin.users |filter: {pivot :{ creator: 0, moderator: 1}}"> 
             <img ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle profile-ww creator-img" ng-click="viewProfile(member.id)"  alt="{{::member.username}}" title="{{::member.username}}" >
@@ -218,7 +216,7 @@
               <img alt="{{::member.username}}" title="{{::member.usernamename}}" ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle"  ng-if="member.pivot.moderator == 1"  style="cursor: pointer" ng-click="viewProfile(member.id)"/>
             </div>
           </div>
-        </div>
+     </div>
         <!--Sponsors -->
         <div class="col-xs-12 no-padding" ng-if="winwin.active_sponsors.length">
           <span class="col-xs-12" style="margin-top:10px; margin-bottom: 10px; float: left; text-align: left;
@@ -232,7 +230,6 @@
               border: 3px solid #F1F1F1;" class="responsive-image">
           </div>
         </div>
-      </div>
     </div>
     <!-- Winwin Activity Wall-->            
     <ng-include src="'views/winwin-tabs/wall_component.html'"></ng-include>
