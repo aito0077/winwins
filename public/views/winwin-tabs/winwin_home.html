@@ -159,7 +159,7 @@
        
             <button class="col-xs-3 btn-large grey lighten-4 no-padding grey-text waves-effect waves-light btn" data-toggle="modal" data-target="#share">
            
-                <i class="fa fa-bullhorn"></i>
+                <i class="fa fa-bullhorn animated infinite pulse" style="font-size: 16px; color:#333;"></i>
               </button>
             </div>
           </div>
@@ -201,12 +201,12 @@
           
         </div>
       <!-- Winwin People-->
-      <div class="row grey lighten-3">
-          <div class="col-xs-2 no-padding  10pad" style="cursor: pointer;" ng-click="viewProfile(winwin.user.id)"> 
+      <div class="row grey lighten-3" style=" height: 90px;">
+          <div class="col-xs-2 no-padding" style="cursor: pointer; margin-top:20px;" ng-click="viewProfile(winwin.user.id)"> 
             <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="z-depth-2 img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; margin-right:10px; line-height:17px;">
           </div>
           <!-- Creadores-->   
-          <div class="col-xs-3 no-padding small left" ng-click="viewProfile(winwin.user.id)"> <p>{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}} <br> CREADOR </div>
+          <div class="col-xs-3 no-padding small left" ng-click="viewProfile(winwin.user.id)" style="margin-top:25px; margin-left: 15px;"> <p>{{::winwin.user.detail.name}} {{::winwin.user.detail.lastname}} <br> <span class="h8 blue-text">CREADOR</span> </div>
           <!-- Activadores-->   
           <div class="col-xs-2 no-padding" style="cursor: pointer;" ng-repeat="member in winwin.users |filter: {pivot :{ creator: 0, moderator: 1}}"> 
             <img ng-src="http://images.dev-winwins.net/25x25/{{::member.photo}}" class="img-responsive img-circle profile-ww creator-img" ng-click="viewProfile(member.id)"  alt="{{::member.username}}" title="{{::member.username}}" >
