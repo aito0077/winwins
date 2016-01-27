@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" style="margin-bottom: -10px;" >
       <!-- Header Sponsor -->
 
          <div class="container no-padding" ng-click="view(sponsor.id)">       
     <div class="image">
         
-         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
+         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; ">
              
              </div>
                     
@@ -45,7 +45,7 @@
                               <!--followers sponsor count -->
                                <div class="col-xs-3 " style="padding-top:5px;"> 
                                    <span class="h8 grey-text  center">Seguidores</span>
-                              <p class=" blue-text  center" > <strong>2</strong>  {{::sponsor.followers_count}}</p>   
+                              <p class=" blue-text  center" > <strong>{{::sponsor.followers_count}}</strong>  </p>   
                                </div>
                           
                 <button class="col-xs-4 white-text right waves-effect waves-light green ligthen-4 btn z-depth-0" style="height:100%;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite flash"></i><span style="font-size: 9px; color:white;"> Seguir   </span> </p></button>

@@ -973,3 +973,11 @@ button:focus{
 .10pad {
     margin:10px;
 }
+
+
+nav .button-collapse {
+    float: left;
+    position: relative;
+    z-index: 1;
+    height: 50px;
+}

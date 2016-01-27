@@ -96,7 +96,7 @@
           <div class="input-field">
           <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
           <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
+          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:20px; font-size: 20px;"></i>
                       <label for="query"></span></label>
 
         </div>
@@ -148,3 +148,24 @@
    
 </script>
 
+<script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer-s').addClass("show");
+}
+else
+{
+    $('#footer-s').removeClass("show");
+}
+        });
+    })
+</script>
+    
+    <script>
+    
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            </script>
