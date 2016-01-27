@@ -34,27 +34,55 @@
 
          <div class="container no-padding" ng-click="view(sponsor.id)">       
     <div class="image">
-         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/400x700/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
+        
+         <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{::sponsor.cover_photo}}"  class="responsive-img" style="min-height: 220px; max-width:100%; background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(154, 148, 120, 0.0980392)), ">
              </div>
-                 
+                      <div class="col-xs-12 " style="top: 20px; position: absolute;">
+                          
+                          <div class="col-xs-3"> 
+                                 <!--winwins sponsor count -->
+                               <span class="small white-text black center">Winwins</span>
+                             <p class=" white-text green center"> {{::sponsor.winwins_count}}</p> 
+                              <!--followers sponsor count -->
+                                   <span class="small white-text black center">Seguidores</span>
+                              <p class="small white-text blue"> {{::sponsor.followers_count}}</p>   
+                               </div>
+                          
+                          
+                          
+                                         
+
+            
+            </div>
         <div class="col-xs-12 no-padding">
-        <div class="col-xs-5 no-padding">
                  
-                        <div class="animated fadeInTop col-xs-3 no-padding left white hoverable z-depth-3 card-panel teal" style="height:100px; width:120px; left: 20px; bottom: -20px; position: absolute;">
+                   <!--     <div class="animated fadeInTop col-xs-3 no-padding left white hoverable z-depth-3 card-panel teal" style="height:100px; width:120px; left: 20px; bottom: -20px; position: absolute;"> 
                       <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive " > 
-            </div> 
+            </div>  -->
+            <div class="animated fadeInTop col-xs-3 no-padding left" style="left: 20px; bottom: 10px; position: absolute;"> 
+              <img  class="animated fadeInTop" ng-src="http://images.dev-winwins.net/x60/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
+              border-radius: 3px;
+              height: 99%;
+              box-shadow: 2px 2px 3px #9DA09F;
+              margin-bottom:10px;
+              border: 3px solid #F1F1F1; bottom: -10px;" class="responsive-image">
+        
+        </div> 
+        
+     
+        
+        
         
         </div>
              
-                 <div class="col-xs-7 "><h5 style="padding-left:10px; color: #fff; text-transform: capitalize; left: 20px; bottom: -20px; position: absolute;">  {{::sponsor.name}}</h5>      </div>  
-             
+          
              </div>
-
+              </div>
          
-        
+            <div class="col-xs-12"><h6 style="color: #333; text-transform: capitalize; font-size:16px;position: absolute;">  {{::sponsor.name}}</h6>  </div>
 <button class="col-xs-3 white-text right waves-effect waves-light green ligthen-4 btn z-depth-0" style="height:45px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite flash"></i><br> <span style="font-size: 8px; color:white;"> Seguir   </span> </p></button>
             
-            
+       
         </div>
                  
 
