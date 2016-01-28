@@ -832,7 +832,7 @@ max-height: 150px;
    }
 .bar {
     
-    padding-top:12px; font-size: 18px;
+    padding-top:14px; font-size: 16px;
 }
 
 .ww-featured {
@@ -988,7 +988,7 @@ nav .button-collapse {
     color: #FFF;
     display: block;
     font-size: 1rem;
-    height: 64px;
+    height: 54px;
     line-height: 54px;
     padding: 0px 15px;
     text-align: left;

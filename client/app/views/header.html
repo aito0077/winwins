@@ -5,6 +5,9 @@
                 <a class="brand-logo center" style="width:112px;" ng-href="/#/main"><img src="images/logo-winwins.png" alt="winwins"></a>
 
                 <ul id="slide-out" class="side-nav left" style="margin-top:56px;">
+                    
+                                            
+            
                     <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
                     <li><a ng-href="/#/winwin-list">
                         
@@ -75,24 +78,23 @@
                     <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i> ¿Cómo Funciona?</a></li>
                     <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <i class="fa fa-user"></i>  Mi perfil</a></li>
                     <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>  Salir</span></a></li>
-                    <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;"> Registrate</span></a></li>
-            
-                
-   <li>                        <!-- search -->
-<div class="col s12" data-ng-controller="main-search-controller" >
+                    <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;"><i class="fa fa-plus-circle"></i> Sumate </span></a></li>
+                    
+                    
+                      <li>                        <!-- search -->
 
-      <form>
-          <div class="input-field" style="margin-left:10px;">
-                        <i class="fa fa-search left" id="query" ng-click="search()" style="margin-top:15px; margin-left: 5px;font-size: 15px;"></i>
-
-          <input id="query" type="search" class="col-xs-6 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-                      <label for="query"></span></label>
-      </form>
+                          <div class="row" data-ng-controller="main-search-controller">
+      <div class="col-xs-12"  >
+   <div class="col-xs-10 no-padding"   >   <input id="query" type="search"  placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
     </div>
-
+             <div class="col-xs-2 no-padding"  >
+              <button class="fa fa-search left waves-effect waves-light" id="query" ng-click="search()" style="font-size: 15px; background-color: transparent; border:0px; margin-top:15px;"></button> </div>
+      </div>
 </div>
-            </li>   </ul>
+
+            </li> 
+            
+  </ul>
 
                 <div class="right" style="padding-right:20px; z-index:999;">
                                         
