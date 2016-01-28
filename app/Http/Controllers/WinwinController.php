@@ -148,7 +148,7 @@ class WinwinController extends Controller {
             ->join('interests_interested', 'interests.id', '=', 'interests_interested.interest_id')
             ->where('type', '=', 'WINWIN')
             ->where('interested_id', '=', $winwin->id)
-            ->select('interests.name','interests.description')
+            ->select('interests.name','interests.description', 'interests.id')
             ->get();
 
         $winwin->already_joined = false;
@@ -359,7 +359,6 @@ class WinwinController extends Controller {
             }
 
             $interests = $request->input('interests');
-            Log::info($interests);
             foreach($interests as $interest) {
 
                 $interestsInterested = InterestsInterested::firstOrCreate([
@@ -397,9 +396,10 @@ class WinwinController extends Controller {
             $winwin->image = $request->input('image');
 
             $interests = $request->input('interests');
-            Log::info($interests);
-            /*
+            DB::table('interests_interested')->where('type', 'WINWIN')->where('interested_id', $winwin->id)->delete();
+
             foreach($interests as $interest) {
+                Log::info($interest);
 
                 $interestsInterested = InterestsInterested::firstOrCreate([
                     'interest_id' => $interest['id'],
@@ -408,7 +408,14 @@ class WinwinController extends Controller {
                 ]);
             }
 
-            */
+
+            if($request->has('location')) {
+                $geo = $this->processGeoValue($request->input('location'));
+                $location = Location::firstOrCreate($geo);
+                $location->save();
+                $winwin->location_id = $location->id;
+            }
+
             $winwin->save();
         });
         return $winwin;

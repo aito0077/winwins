@@ -102,18 +102,19 @@
 
                 <div class="card-panel teal">
                     <div class="input-label">Escala del WinWin <i class="fa fa-question-circle" style="color: red;"></i></div>
-                    <select ng-options="item as item for item in scopes track by item.id" ng-model="ewinwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
+                    <select ng-options="item for item in scopes" ng-model="ewinwin.scope" class="form-control" placeholder="Seleccioná una escala territorial">
                     </select>
 
                     <div ng-show="ewinwin.scope == 'LOCAL'">
                         <div class="input-label">Lugar </div>
-                        <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="winwin.location_formatted" />
+                        <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="ewinwin.location.formatted_address" placeholder="{{ewinwin.location.formatted_address}}"/>
                     </div>
 
 
                     <div class="input-label">En que categoría? <i class="fa fa-question-circle" style="color: red;"></i></div>
-                    <select ng-options="item as item.description for item in interests track by item.id" ng-model="ewinwin.interest" class="form-control" placeholder="Seleccioná una categoría" multiple>
+                    <select ng-options="item as item.description for item in interests track by item.id" ng-model="ewinwin.interests" class="form-control" placeholder="Categorías" multiple>
                     </select>
+
                 </div>
             </div>
 

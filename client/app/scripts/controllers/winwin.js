@@ -1735,7 +1735,7 @@ angular.module('winwinsApp')
 })
 .controller('winwin-modify', function($scope, $state, $stateParams, $http, $auth, $timeout, Upload, Winwin, Interest, api_host) {
     $scope.interests = [];
-    $scope.scopes = [ 'GLOBAL','LOCAL'];
+    $scope.scopes = ['GLOBAL','LOCAL'];
     $scope.preview_image = '';
 
     $scope.ewinwin = {};
@@ -1786,7 +1786,7 @@ angular.module('winwinsApp')
 
         searchBox.addListener('place_changed', function() {
             var place = searchBox.getPlace();
-            $scope.winwin.location = _.extend(place, {
+            $scope.ewinwin.location = _.extend(place, {
                 coordinates: place.geometry.location.toJSON()
             });
         });

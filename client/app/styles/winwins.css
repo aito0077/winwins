@@ -7798,3 +7798,18 @@ position: relative;
     -webkit-transition: all 0.5s ease-in-out;
     margin-bottom: -22px;
 }
+
+#loading-bar .bar {
+  background: #FF8000;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  #FF8000;
+  border-left-color: #FF8000;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #FF8000 1px 0 6px 1px;
+  -ms-box-shadow: #FF8000 1px 0 6px 1px;
+  -webkit-box-shadow: #FF8000 1px 0 6px 1px;
+  box-shadow: #FF8000 1px 0 6px 1px;
+}
+
