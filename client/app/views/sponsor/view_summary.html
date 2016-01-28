@@ -14,12 +14,12 @@
                       <img ng-src="http://images.dev-winwins.net/smart/{{::sponsor.photo}}" class="img-responsive " > 
             </div>  -->
             <div class="animated fadeInTop col-xs-3 no-padding left" style="left: 20px; bottom: 30px; position: absolute;"> 
-              <img  class="animated fadeInTop responsive-image" ng-src="http://images.dev-winwins.net/x60/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
+              <img  class="animated fadeInTop" ng-src="http://images.dev-winwins.net/x60/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
               border-radius: 3px;
               height: 99%;
               box-shadow: 2px 2px 3px #9DA09F;
               margin-bottom:10px;
-              border: 3px solid #F1F1F1; bottom: -10px;">
+              border: 3px solid #F1F1F1; bottom: -10px;" class="responsive-image">
         
         </div> 
             
@@ -45,10 +45,14 @@
                               <!--followers sponsor count -->
                                <div class="col-xs-3 " style="padding-top:5px;"> 
                                    <span class="h8 grey-text  center">Seguidores</span>
-                              <p class=" blue-text  center" > <strong>{{::sponsor.followers_count}}</strong>  </p>   
+                              <p class=" blue-text  center" > <strong>2</strong>  </p>   
                                </div>
-                          
-                <button class="col-xs-4 white-text right waves-effect waves-light green ligthen-4 btn z-depth-0" style="height:100%;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite flash"></i><span style="font-size: 9px; color:white;"> Seguir   </span> </p></button>
+                          <!--Seguir -->
+                <button class="col-xs-4 white-text right waves-effect waves-light green  btn z-depth-1" style="height:100%; margin-top:-1px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite pulse"></i> <span style="font-size:14px;">SEGUIR</span> </p> </button>
+                <!--Dejar de seguir -->     
+                
+                
+                <button ng-if="user_already_following" class="col-xs-4 white-text right waves-effect waves-light white  btn z-depth-0" style="height:100%; margin-top:-1px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-paper-o grey-text"></i> <span style="font-size:14px; color: #999;">DEJAR SEGUIR</span> </p> </button>
            </div>
 
             
@@ -58,7 +62,14 @@
 
          </div>       
    
-        <div class="row"
+        
+
+
+ 
+
+
+        
+        
          <!-- Accordion -->
          <ul class="collapsible" data-collapsible="accordion">
             <!-- Sponsor about -->
@@ -104,7 +115,9 @@
                </div>
             </li>
          </ul>
-    </div>
+      </div>
+   </div>
+</div>
 <script>
    $(document).ready(function(){
    $('.collapsible').collapsible({

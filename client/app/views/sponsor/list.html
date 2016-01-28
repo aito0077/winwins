@@ -50,7 +50,7 @@
               height: 99%;
               box-shadow: 2px 2px 3px #9DA09F;
               margin-bottom:10px;
-              border: 3px solid #F1F1F1; bottom: -10px;" class="responsive-image">
+              border: 3px solid #F1F1F1; bottom: -10px;" class=" z-depth-2 responsive-image">
         
         </div> 
             
@@ -79,7 +79,10 @@
                               <p class=" blue-text  center" > <strong>2</strong>  {{::sponsor.followers_count}}</p>   
                                </div>
                           
-                <button class="col-xs-4 white-text right waves-effect waves-light green  btn z-depth-0" style="height:100%;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite pulse"></i><span style="font-size: 9px; color:white;"> Seguir   </span> </p></button>
+                <button class="col-xs-4 white-text right waves-effect waves-light green  btn z-depth-1" style="height:100%; margin-top:-1px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite pulse"></i> <span style="font-size:14px;">SEGUIR</span> </p> </button>
+                
+                                <button ng-if="user_already_following" class="col-xs-4 white-text right waves-effect waves-light white  btn z-depth-0" style="height:100%; margin-top:-1px;"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-paper-o grey-text"></i> <span style="font-size:14px; color: #999;">DEJAR SEGUIR</span> </p> </button>
+
            </div>
 
             
@@ -106,26 +109,25 @@
         
 </div>
 
+<!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:18px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+            <form>
+                <div class="col-xs-12">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:8px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <!-- I've put "red-text" class to emphasize -->
+                        <i class="fa fa-search bar right" id="query" ng-click="search()"></i>
 
+
+                    </div>
+            </form>
+            </div>
         </div>
-      </form>
-    </div>
-     </nav>
-  </div>
+    </nav>
 </div>
- 
-        
 
 <script>
     $(function(){
