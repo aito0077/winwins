@@ -90,3 +90,26 @@
         window.scrollTo(0,0);
     });
 </script>
+        
+        <script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer-s').addClass("show");
+}
+else
+{
+    $('#footer-s').removeClass("show");
+}
+        });
+    })
+</script>
+    
+    <script>
+    
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            </script>
+

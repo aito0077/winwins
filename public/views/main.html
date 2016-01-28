@@ -1,4 +1,3 @@
-
 <style>
     body {
         background-repeat: no-repeat;
@@ -7,165 +6,147 @@
 </style>
 
 
+<!-- Winwin Video Home -->
 <video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-5px;">
-    <source src="/video/winwins.mp4"  type="video/mp4" >
-    Your browser does not support HTML5 video
+    <source src="/video/winwins.mp4" type="video/mp4"> Your browser does not support HTML5 video
 </video>
-        <!-- Button -->   
+
+
+<!-- Button -->
 <div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
     <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-     <h4> <i class="fa fa-play animated infinite flash"></i>COMENZAR</h4>  
+        <h4> <i class="fa fa-play animated infinite flash"></i>COMENZAR</h4>
     </button>
 </div>
 
+<!-- Helper -->
 <div ng-if="!isAuthenticated()" class="pad-30"></div>
 
-<!-- WW Cards-->
-<div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
 
-    <!-- WW main sponsor card -->
-    <!--div ng-if="winwin.is_sponsor" class="container no-padding">
-        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.cover_photo}}" style="height: 220px; cursor: pointer;" ng-click="viewSponsor(winwin.id)">
-            <div class="profile-avatar avatar "> 
-                <img ng-src="http://images.dev-winwins.net/smart/{{winwin.photo}}" class="img-responsive img-circle img-no-border" style="margin:5px auto; width:100%; height:100px; 7px solid rgba(13, 71, 161, 0.52);" />
-            </div>
+<!-- Winwins Home-->
+<div class="row">
+    <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
+
+        <!-- WW main sponsor card -->
+        <div ng-if="winwin.is_sponsor" class="card-panel col-xs-12 no-padding">
+            <img ng-src="http://images.dev-winwins.net/smart/{{::winwin.cover_photo}}" class="responsive-img center-block" style="min-width:100%;" />
+            <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
         </div>
-    </div-->
-    <div ng-if="winwin.is_sponsor" class="card-panel col-xs-12 no-padding">
-        <img ng-src="http://images.dev-winwins.net/smart/{{::winwin.cover_photo}}" class="responsive-img center-block" style="min-width:100%;"/>
-        <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
-    </div>
-   <!-- / WW main sponsor --> 
+        <!-- / WW main sponsor -->
 
 
-<!-- labels -->
-
-    <div class="container no-padding" ng-if="!winwin.is_sponsor">
-        <div class="col-xs-12 no-padding">
-            <div class="ww-featured-m" ng-if="winwin.remarkable">
-                <div class="ww-featured-m right"><img src="images/postit.png"></div>
-                 <span class="popular p right" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
-                              <span class="finishing m right" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
-            </div>
-      
-        </div>
-<!-- WW Img -->
-        <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-            <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
-            <div class="col-xs-12" style="padding-top:10px;">
-            <div class="col-xs-4 "></div>
-                <div class="col-xs-2 center ">
+        <!-- labels -->
+        <div class="container no-padding" ng-if="!winwin.is_sponsor">
+            <div class="col-xs-12 no-padding">
+                <div class="ww-featured-m" ng-if="winwin.remarkable">
+                    <div class="ww-featured-m right z-depth-2"><img src="images/postit.png">
                     </div>
+                    <span class="popular p right z-depth-2" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
+                    <span class="finishing m right z-depth-2" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
+                </div>
+            </div>
+            <!-- WW Img -->
+            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
+                <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
+                <div class="col-xs-12" style="padding-top:10px;">
+                    <div class="col-xs-4 "></div>
+                    <div class="col-xs-2 center "></div>
                     <div class="col-xs-2 center grey-text"></div>
-                   <div class="col-xs-4"></div>
+                    <div class="col-xs-4"></div>
+                </div>
             </div>
-        </div>
-    
-<!-- Info Bar -->
-        <div class="col-xs-12" style="margin-top: 10px;">
-            <div class="col-xs-2 no-padding">      
-                <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
-            </div>
+            <!-- Info Bar -->
+            <div class="col-xs-12" style="margin-top: 10px;">
+                <div class="col-xs-2 no-padding">
+                    <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle z-depth-1" style="cursor:pointer;">
+                </div>
 
-            <div class="col-xs-6 no-padding">  
-                <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
-            </div>
+                <div class="col-xs-6 no-padding">
+                    <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
+                </div>
 
-        
-         <!-- somos -->
-            
-            <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 
-                <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span> <br>
-                <span class="somoscards"> {{::winwin.users_already_joined}}</span> 
+                <!-- somos -->
+
+                <div class="col-xs-2 no-padding" style="margin-top:-3px;">
+                    <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span>
+                    <br>
+                    <span class="somoscards"> {{::winwin.users_already_joined}}</span>
+                </div>
+                <!-- share button -->
+                <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
             </div>
-    <!-- share button -->
-             <div class="col-xs-2" ng-click="openSocialModal(winwin)"><i class="fa fa-share animated infinite pulse" style="font-size:16px; color:#555; padding-top:10px;"></i></a>
         </div>
     </div>
-</div>
 
 </div>
 
-           <!-- search -->
-<div id="footer-s" data-ng-controller="main-search-controller" >
+<!-- search -->
+<div id="footer-s" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:20px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+            <form>
+                <div class="col-xs-12">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:8px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <!-- I've put "red-text" class to emphasize -->
+                        <i class="fa fa-search bar right" id="query" ng-click="search()"></i>
 
+
+                    </div>
+            </form>
+            </div>
         </div>
-      </form>
-    </div>
-</div>
- </nav>
+    </nav>
 </div>
 
 
 <script type="text/ng-template" id="winwinShareModal.html">
-   <div class="container center">
-   
+    <div class="container center">
         <i class="fa fa-elipsis" style="font-size: 2rem;color:#3B5998;"></i>
-        <i class="fa fa-bullhorn " style="font-size: 50px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i> 
+        <i class="fa fa-bullhorn " style="font-size: 50px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i>
         <i class="fa fa-caret-down " style="font-size: 3rem;margin-top:-23px; color:#3B5998;"></i>
     </div>
-   
-     <div class="container no-padding">
+
+    <div class="container no-padding">
         <div class="col-xs-1 no-padding"></div>
-        <div style="cursor:pointer; background-color:#3b5998; color:#fff;  margin-top:1px;margin-right:3px;"  class="col-xs-3 animated  wobble uploaders card-panel circle"  
-            socialshare
-            socialshare-provider="facebook" 
-            socialshare-text="{{::toShare.content}}" 
-            socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}"  
-            socialshare-media="http://images.dev-winwins.net/{{::toShare.image}}"
-            socialshare-via="1082199191794840">
-            <i class="fa fa-facebook" style="padding-top:0px;" ></i><br>
+        <div style="cursor:pointer; background-color:#3b5998; color:#fff;  margin-top:1px;margin-right:3px;" class="col-xs-3 animated  wobble uploaders card-panel circle" socialshare socialshare-provider="facebook" socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}" socialshare-media="http://images.dev-winwins.net/{{::toShare.image}}" socialshare-via="1082199191794840">
+            <i class="fa fa-facebook" style="padding-top:0px;"></i>
+            <br>
         </div>
-        <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:3px;"  class="col-xs-3  animated  wobble uploaders card-panel"  
-            socialshare  
-            socialshare-text="{{::toShare.content}}" 
-            socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}" 
-            socialshare-provider="twitter">
-            <i class="fa fa-twitter" style="padding-top:0px;" ></i><br>
+        <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:3px;" class="col-xs-3  animated  wobble uploaders card-panel" socialshare socialshare-text="{{::toShare.content}}" socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}" socialshare-provider="twitter">
+            <i class="fa fa-twitter" style="padding-top:0px;"></i>
+            <br>
         </div>
-        <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:3px;"  class="col-xs-3 animated  wobble uploaders card-panel"  
-            socialshare 
-            socialshare-provider="google+" 
-            socialshare-text="{{::toShare.content}}" 
-            socialshare-media="http://images.dev-winwins.net/{{::toShare.image}}"
-            socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}">
-   
-            <i class="fa fa-google" style="padding-top:0px;"></i><br>
+        <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:3px;" class="col-xs-3 animated  wobble uploaders card-panel" socialshare socialshare-provider="google+" socialshare-text="{{::toShare.content}}" socialshare-media="http://images.dev-winwins.net/{{::toShare.image}}" socialshare-url="http://dev-winwins.net/ww/{{::toShare.id}}">
+
+            <i class="fa fa-google" style="padding-top:0px;"></i>
+            <br>
         </div>
     </div>
-   
-   
-   
+
+
 </script>
 
+
+
+<!--TODO: sacar a footer-search.js -->
 <script>
-    $(function(){
-    $(window).scroll(function() {  
-if($(document).scrollTop() > 150)
-{    
-     $('#footer-s').addClass("show");
-}
-else
-{
-    $('#footer-s').removeClass("show");
-}
+    $(function() {
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 150) {
+                $('#footer-s').addClass("show");
+            } else {
+                $('#footer-s').removeClass("show");
+            }
         });
     })
 </script>
-    
-    <script>
-    
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-            </script>
+
+
+<!--Initialize Material -->
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
