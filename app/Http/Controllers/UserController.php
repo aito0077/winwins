@@ -36,19 +36,25 @@ class UserController extends Controller {
         }
 
         $users = DB::table('user_details')
-                                    ->join('users', 'user_details.user_id', '=', 'users.id')
-                                    ->where('users.active', '=', 1)
-                                    ->where('users.is_sponsor', '=', NULL)
-                                    ->where('users.suspend', '=', 0)
-                                    ->select('user_details.photo', 'user_details.cover_photo', 'users.id', 'user_details.name') 
-                                    ->skip($page * $amount)
-                                    ->take($amount)->get();
+            ->join('users', 'user_details.user_id', '=', 'users.id')
+            ->where('users.active', '=', 1)
+            ->where('users.is_sponsor', '!=', 1)
+            ->where('users.suspend', '=', 0)
+            ->select('user_details.photo', 'user_details.cover_photo', 'users.id', 'user_details.name') 
+            ->skip($page * $amount)
+            ->take($amount)->get();
         $collection = Collection::make($users);
-        $collection->each(function($user) {
+        $collection->each(function($user) use($current_user){
             $user->winwins_count = DB::table('winwins_users')
                 ->where('user_id', '=', $user->id)->count();
             $user->followers_count = DB::table('followers')
                 ->where('followed_id', '=', $user->id)->count();
+
+            if($current_user) {
+                $user->already_following = count($current_user->following->filter(function($model) use ($current_user, $user) {
+                    return $model->id == $user->id;
+                })) > 0;
+            }
 
         });
         return $collection;

@@ -34,6 +34,7 @@ class CreateWinwinsTable extends Migration {
             $table->boolean('finished')->default(FALSE);
             $table->enum('status', ['PUBLISHED', 'PENDING', 'BANNED', 'CANCELED', 'FINISHED', 'SUCCESSFUL'])->default('PENDING');
 
+            $table->string('categories_text', 250)->nullable();
             $table->boolean('canceled')->default(FALSE);
             $table->boolean('emailed')->default(FALSE);
             $table->boolean('published')->default(FALSE);

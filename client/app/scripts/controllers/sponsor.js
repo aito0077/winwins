@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('winwinsApp')
-.controller('sponsor-list', ['$scope', '$state', 'SponsorPaginate', function($scope, $state, SponsorPaginate) {
+.controller('sponsor-list', ['$scope', '$state', '$http', 'api_host', 'SponsorPaginate', function($scope, $state, $http, api_host, SponsorPaginate) {
    
     $scope.sponsors = new SponsorPaginate();
 
@@ -10,6 +10,39 @@ angular.module('winwinsApp')
             sponsorId: id
         }); 
     }
+
+    $scope.follow = function(id) {
+        $http.get(api_host+'/api/sponsors/follow/'+id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'Ya estás siguiendo', 
+                type: "info",
+                showcancelbutton: false,
+                animation: false, 
+                closeonconfirm: true 
+            });
+            $state.go('sponsor-view', {
+                sponsorId: id
+            }); 
+            
+        });
+    };
+
+    $scope.unfollow = function(sponsor) {
+        $http.get(api_host+'/api/sponsors/unfollow/'+sponsor.id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'Dejaste de seguir', 
+                type: "info",
+                showcancelbutton: false,
+                animation: false, 
+                closeonconfirm: true 
+            });
+            sponsor.already_following = false;
+            
+        });
+    };
+
  
 }])
 .controller('sponsor-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'Sponsor', 'api_host', 'Upload', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, Sponsor, api_host, Upload) {
@@ -51,21 +84,11 @@ angular.module('winwinsApp')
             $scope.getSponsor();
             swal({
                 title: "info", 
-                text: 'sponsor_join', 
+                text: 'Te uniste al sponsor', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
                 closeonconfirm: true 
-            });
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
             });
         });
     };
@@ -74,22 +97,13 @@ angular.module('winwinsApp')
         $http.get(api_host+'/api/sponsors/unfollow/'+$scope.sponsor.id).success(function(data) {
             swal({
                 title: "info", 
-                text: 'sponsor_left', 
+                text: 'Abandonaste al sponsor', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
                 closeonconfirm: true 
             });
             $scope.getSponsor();
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 

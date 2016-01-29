@@ -51,6 +51,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function notifications() {
         return $this->hasMany('Winwins\Model\Notification');
     }
+
+    public function sponsors() {
+        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_users');
+    }
     
 /*
     $user->newNotification()

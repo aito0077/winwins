@@ -785,14 +785,30 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-list', ['$scope', '$http', '$auth', '$state', '$uibModal', 'Interest', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, $uibModal, Interest, WinwinPaginate, api_host) {
+.controller('winwin-list', ['$scope', '$http', '$auth', '$state', '$uibModal', '$timeout', 'Interest', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, $uibModal, $timeout, Interest, WinwinPaginate, api_host) {
    
     $scope.winwins = new WinwinPaginate();
     $scope.interests = [];
+    $scope.filters = [];
     Interest.query(function(data) {
         $scope.interests = data;
-        console.dir(interests);
     });
+
+    $timeout(function () {
+        jQuery('.grid-winwins').isotope({
+            itemSelector: '.winwin-item',
+            masonry: {
+                columnWidth: 380
+            }
+        });
+    }, 3000);
+
+
+
+    $scope.doCategoryFilter = function() {
+        console.log('.'+$scope.filters.join('.')); 
+        jQuery('.grid-winwins').isotope({ filter: $scope.filters.length == 0 ? '*' : '.'+$scope.filters.join('.')});
+    }
 
     $scope.doFilter = function(filter) {
         console.log(filter);
@@ -928,12 +944,14 @@ angular.module('winwinsApp')
                 animation: false, 
                 closeonconfirm: true 
             });
-            participante.following = true;
-            participante.followers_amount = participante.followers_amount + 1;
+            $state.go('user-view', {
+                userId: participante.id
+            }); 
+
         });
     };
 
-    $scope.view = function(participante) {
+    $scope.viewParticipante = function(participante) {
         $state.go('user-view', {
             userId: participante.id
         }); 

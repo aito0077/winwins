@@ -25,8 +25,20 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-            member.following = true;
-            member.followers_count = member.followers_count + 1;
+            $scope.view(member.id);
+        });
+    };
+
+    $scope.unfollow = function(member) {
+        $http.get(api_host+'/api/users/unfollow/'+member.id).success(function(data) {
+            swal({
+                title: "info", 
+                text: 'Dejaste de seguir', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
+            });
+            member.already_following = false;
         });
     };
 
@@ -368,7 +380,9 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $rootScope.profile_photo = $scope.edit_user.photo;
-
+            $scope.setCurrentView('home');
+            jQuery('#home_tab').tab('show');
+            jQuery("html, body").animate({ scrollTop: 1 }, 0);
         });
     };
 
@@ -433,6 +447,18 @@ angular.module('winwinsApp')
                 id: $scope.account.user.id
             }, function(user_data) {
                 $scope.user_detail = user_data;
+                _.each($scope.user_detail.winwins, function(item) {
+                    item.owner = (item.user_id == $scope.account.user.id);
+                });
+                $timeout(function () {
+                    jQuery('.grid-winwins').isotope({
+                        itemSelector: '.winwin-item',
+                        masonry: {
+                            columnWidth: 380
+                        }
+                    });
+                });
+
             });
 
         });
@@ -440,6 +466,11 @@ angular.module('winwinsApp')
     };
 
     $scope.getUser();
+
+    $scope.doFilter = function(filter_by) {
+        console.log(filter_by);
+        jQuery('.grid-winwins').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
 
     $scope.viewWinwin = function(id) {
         $state.go('winwin-view', {
@@ -461,7 +492,6 @@ angular.module('winwinsApp')
             }
         });
     };
-
 
 
 }])

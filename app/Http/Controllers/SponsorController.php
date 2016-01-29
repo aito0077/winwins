@@ -34,9 +34,20 @@ class SponsorController extends Controller {
 	}
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
+        $user = false;
+		$token = $request->input('_token') ?: $request->header('X-XSRF-TOKEN');
+		if ( $token )  {
+            $token = $request->header('Authorization');
+            if(isset($token[1])) {
+                $token = explode(' ', $request->header('Authorization'))[1];
+                $payload = (array) JWT::decode($token, Config::get('app.token_secret'), array('HS256'));
+                $user = User::find($payload['sub']);
+            }
+        }
+
         $sponsors = DB::table('sponsors')->where('is_active', '=', 1)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($sponsors);
-        $collection->each(function($sponsor) {
+        $collection->each(function($sponsor) use($user) {
             $winwins_count = DB::table('winwins')
                 ->leftJoin('sponsors_winwins', 'winwins.id', '=', 'sponsors_winwins.winwin_id')
                 ->where('sponsors_winwins.sponsor_id', '=', $sponsor->id)
@@ -44,6 +55,16 @@ class SponsorController extends Controller {
                 ->where('sponsors_winwins.sponsor_accept', '=', 1)
                 ->count();
             $sponsor->winwins_count = $winwins_count;
+
+            if($user) {
+                $sponsor->already_following = count($user->sponsors->filter(function($model) use ($user, $sponsor) {
+                    return $model->id == $sponsor->id;
+                })) > 0;
+            }
+
+
+
+
         });
         return $collection;
     }
@@ -95,7 +116,6 @@ class SponsorController extends Controller {
                  
         });
 
-        Log::info('sponsor creado');
         return $sponsor;
 	}
 
@@ -138,8 +158,6 @@ class SponsorController extends Controller {
                 return $model->id == $user->id;
             })) > 0;
         }
-
-        Log::info($sponsor);
 
         return $sponsor;
 	}
@@ -222,7 +240,6 @@ class SponsorController extends Controller {
             return response()->json(['message' => 'sponsor_not_found']);
         }
 
-        Log::info($sponsor);
 		if($request->has('name')) {
             $sponsor->name = $request->input('name');
         }
@@ -263,8 +280,6 @@ class SponsorController extends Controller {
 
         $sponsor->save();
 
-        Log::info($sponsor);
-        
         return $sponsor;
     }
 
@@ -291,8 +306,6 @@ class SponsorController extends Controller {
             return Response::json(['error' => $v->errors()]);
         }
 
-        Log::info($request->file('file'));
-
         $image = Media::create([
             'name' => $request->file('file')->getClientOriginalName(),
             'ext' => $request->file('file')->guessExtension(),
@@ -303,7 +316,6 @@ class SponsorController extends Controller {
         
         $filename = 'sponsor_'.md5(strtolower(trim($image->name))).'_'.$image->id . '.' . $image->ext;
 
-        Log::info('Uploading to S3 file '.$filename);
         Storage::disk('s3-gallery')->put('/' . $filename, file_get_contents($file), 'public');
 
         return Response::json(['OK' => 1, 'filename' => $filename]);

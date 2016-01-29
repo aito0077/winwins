@@ -154,26 +154,38 @@ class WinwinController extends Controller {
         $winwin->already_joined = false;
         if($user) {
             $winwin->is_moderator = ( $winwin->user_id == $user->id );
-            $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin) {
+
+            $mixFollowers = DB::table('winwins_users')
+                ->join('followers', 'followers.followed_id', '=', 'winwins_users.user_id')
+                ->where('winwins_users.winwin_id', '=', $winwin->id)
+                ->where('followers.follower_id', '=', $user->id)
+                ->select('followers.followed_id')
+                ->get();
+
+            $followed = Collection::make($mixFollowers)->pluck('followed_id');
+
+            Log::info($followed);
+
+
+            $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin, $followed) {
                 $model->detail;
-                $result = $model->id == $user->id;
-                if($result && $model->pivot->moderator ) {
+                $model->my_self = ($model->id == $user->id);
+                if($model->my_self && $model->pivot->moderator ) {
                    $winwin->is_moderator = true; 
                 }
+
+
                 $model->following = false;
-                if(!$result) {
-                    $model->following = count($model->followers->filter(function($user_model) use ($user) {
-                        return $user_model->follower_id == $user->id;
-                    })) > 0;
-                } else {
-                    $model->my_self = true;
+
+                if(!$model->my_self) {
+                    $model->following = $followed->contains($model->id);
                 }
 
-                if($result && $model->pivot->process_rate > 0) {
+                if($model->my_self && $model->pivot->process_rate > 0) {
                     $winwin->already_rated = true;
                 }
 
-                return $result;
+                return $model->my_self;
             })) > 0;
 
             if($winwin->is_moderator) {
@@ -317,7 +329,7 @@ class WinwinController extends Controller {
             $winwin->scope = $request->input('scope');
             $winwin->image = $request->input('image');
 
-            if($request->has('location')) {
+            if($request->has('location') && isset($request->input('location')['address_components'])) {
                 $geo = $this->processGeoValue($request->input('location'));
                 $location = Location::firstOrCreate($geo);
                 $location->save();
@@ -329,6 +341,12 @@ class WinwinController extends Controller {
             }
 
             $winwin->user_id = $user->id;
+
+            if($request->has('interests')) {
+                $text_interest = Collection::make($request->input('interests'))->pluck('name')->toArray();
+                $winwin->categories_text = implode(" ",$text_interest);
+            }
+
             $winwin->save();
                  
             $winwinsUsers = new WinwinsUser;
@@ -358,14 +376,16 @@ class WinwinController extends Controller {
                 }
             }
 
-            $interests = $request->input('interests');
-            foreach($interests as $interest) {
+            if($request->has('interests')) {
+                $interests = $request->input('interests');
+                foreach($interests as $interest) {
 
-                $interestsInterested = InterestsInterested::firstOrCreate([
-                    'interest_id' => $interest['id'],
-                    'interested_id' => $winwin->id,
-                    'type' => 'WINWIN'
-                ]);
+                    $interestsInterested = InterestsInterested::firstOrCreate([
+                        'interest_id' => $interest['id'],
+                        'interested_id' => $winwin->id,
+                        'type' => 'WINWIN'
+                    ]);
+                }
             }
 
             $user->newActivity()
@@ -395,21 +415,27 @@ class WinwinController extends Controller {
             $winwin->scope = $request->input('scope');
             $winwin->image = $request->input('image');
 
-            $interests = $request->input('interests');
-            DB::table('interests_interested')->where('type', 'WINWIN')->where('interested_id', $winwin->id)->delete();
+            if($request->has('interests')) {
+                $interests = $request->input('interests');
+                DB::table('interests_interested')->where('type', 'WINWIN')->where('interested_id', $winwin->id)->delete();
 
-            foreach($interests as $interest) {
-                Log::info($interest);
+                foreach($interests as $interest) {
+                    Log::info($interest);
 
-                $interestsInterested = InterestsInterested::firstOrCreate([
-                    'interest_id' => $interest['id'],
-                    'interested_id' => $winwin->id,
-                    'type' => 'WINWIN'
-                ]);
+                    $interestsInterested = InterestsInterested::firstOrCreate([
+                        'interest_id' => $interest['id'],
+                        'interested_id' => $winwin->id,
+                        'type' => 'WINWIN'
+                    ]);
+                }
+
+                $text_interest = Collection::make($request->input('interests'))->pluck('name')->toArray();
+                $winwin->categories_text = implode(" ", $text_interest);
+
             }
 
 
-            if($request->has('location')) {
+            if($request->has('location') && isset($request->input('location')['address_components'])) {
                 $geo = $this->processGeoValue($request->input('location'));
                 $location = Location::firstOrCreate($geo);
                 $location->save();
@@ -546,6 +572,7 @@ class WinwinController extends Controller {
                 ->where('reference_id', '=', $winwin->id)->count();
             if($post_count > 0) {
                 $winwin->published = 1;
+                $winwin->status = 'PUBLISHED';
                 $winwin->save();
                 return response()->json(['message' => 'winwin_activated'], 200);
             } else {

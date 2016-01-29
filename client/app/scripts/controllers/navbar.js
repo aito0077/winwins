@@ -4,7 +4,7 @@ angular.module('winwinsApp')
     $scope.profile = false;
     $scope.is_logged = false;
     $scope.isSponsor = false;
-    $scope.isSponsorActive = false;
+    $scope.isSponsorActive = true;
     $scope.isActive = true;
     $scope.sponsor = false;
 
@@ -30,6 +30,7 @@ angular.module('winwinsApp')
                     $scope.profile = response.profile;
                     $scope.sponsor = response.sponsor;
                     $scope.isSponsor = response.is_sponsor;
+                    $scope.isSponsorActive = response.is_sponsor_active;
                     $scope.isActive = response.active;
                     $scope.email = response.user.email;
                     $rootScope.account = $scope.profile;
@@ -69,6 +70,7 @@ angular.module('winwinsApp')
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;
                 $scope.isSponsor = response.data.is_sponsor;
+                $scope.isSponsorActive = response.data.is_sponsor_active;
                 $scope.isActive = response.data.active;
                 $scope.email = response.data.user.email;
                 $rootScope.profile_photo = $scope.profile.photo;

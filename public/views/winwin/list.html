@@ -10,33 +10,24 @@
 </div>
 
 <div class="container no-padding" style="position:fixed; margin-top:45px; z-index:99; ">
-    <select ng-model="interests" multiple>
+    <select ng-model="interests" multiple ng-change="doCategoryFilter()">
       <option value="" disabled selected><p class="h7"><i class="fa fa-list-ul"></i>Ver Winwins por categorias</p></option>
-      <option ng-repeat="item in interests track by item.id" value="{{item.id}}"><p class="h7">{{item.description}}</p></option>
+      <option ng-repeat="item in interests" value="{{item.name}}" ><p class="h7">{{item.description}}</p></option>
     </select>
-
-
-    
-<!--TODO: filtrar por categorias con select multiple 
-
- <div class="input-field col-xs-12 no-padding white">
-    <select class="white"> 
-      <option value="" disabled selected>Intereses</option>
-      <option value="1">Solidaridad / Cooperación</option>
-      <option value="2">Solidaridad / Cooperación</option>
-      <option value="3">Solidaridad / Cooperación</option>
-    </select>
-  </div>
-
--->
-  
 </div>
 
+<div class="grid-winwins">
 
 <div infinite-scroll='winwins.nextPage()' style="padding-top: 80px;">
 
+    <div ng-if="winwins.items.length == 0">
+        <div class="container card-panel teal hoverable s12 "style="padding:0px; padding-bottom:10px;">
+            No se encuentran resultados para los filtros aplicados
+        </div>
+    </div>
+
          <!-- WW Cards-->
-    <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
+    <div class="container card-panel teal hoverable s12 {{winwin.categories_text}}  winwin-item" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
     <div ng-if="winwin.is_sponsor" class="container">
        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
        </div>
@@ -76,6 +67,8 @@
           </div>
        </div>
     </div>
+
+</div>
 
              
 <div id="footer-s" data-ng-controller="main-search-controller">
