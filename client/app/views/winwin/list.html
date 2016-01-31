@@ -12,7 +12,7 @@
           <!-- Destacados -->
         <li class="col-xs-5-"><a ng-click="doFilter('all')"><h6 style="font-size:8px; margin-top:7px;"><img src="../images/recientes.png" width="23" height="27"><br>Recientes</h6> </a></li>
           <!-- Concreatados // TODO:FALTA EL FILTRO. -->
-         <li class="col-xs-5-"><a ng-click="doFilter('all')"><h6 style="font-size:8px; margin-top:3px; text-align:left;"><img src="../images/concretados.png" width="30" height="33"><br>Concretados</h6> </a></li>
+         <li class="col-xs-5-"><a ng-click="doFilter('all')"><h6 style="font-size:8px; margin-top:3px; text-align:center;"><img src="../images/concretados.png" width="30" height="33"><br>Concretados</h6> </a></li>
       </ul>
     </div>
   </nav>
@@ -29,8 +29,8 @@
 <div infinite-scroll='winwins.nextPage()' style="margin-top: 95px;">
 
     <div ng-if="winwins.items.length == 0">
-        <div class="container card-panel teal hoverable s12 "style="padding:0px;">
-            No se encuentran resultados para los filtros aplicados
+        <div class="container card-panel teal hoverable s12 "style="margin:10px;">
+           <p class="small"> No se encuentran resultados para los filtros aplicados</p>
         </div>
     </div>
 
@@ -71,7 +71,7 @@
              <span style="color:#26a69a; margin-top:0px;padding-left:3px;padding-right:3px;border-radius:2px; font-weight:bold; text-align:center; background-color: #eee;"> {{::winwin.users_already_joined}}</span> 
           </div>
         <!-- share button -->
-                <button class="col-xs-2 waves-effect black-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
+                <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
           </div>
        </div>
     </div>
@@ -79,24 +79,26 @@
 </div>
 
              
+<!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-          <!-- I've put "red-text" class to emphasize -->
-          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
-                      <label for="query"></span></label>
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+            <form>
+                <div class="col-xs-12">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:8px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <!-- I've put "red-text" class to emphasize -->
+                        <i class="fa fa-search bar right" style="font-size: 18px; padding:3px;" id="query" ng-click="search()"></i>
 
+
+                    </div>
+            </form>
+            </div>
         </div>
-      </form>
-    </div>
+    </nav>
 </div>
-  </nav>
-  </div>
+
         
 
 <script type="text/ng-template" id="winwinShareModal.html">
