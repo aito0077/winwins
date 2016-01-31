@@ -887,6 +887,13 @@ margin-top: 280px;
 }
 
 
+.full {
+min-width:100%;
+}
+
+.pad { padding:20px;}
+
+.txtsdw {text-shadow: 3px 3px  #666;}
 
 .mas-detalles {
 font-size: 10px;
@@ -992,4 +999,12 @@ nav .button-collapse {
     line-height: 54px;
     padding: 0px 15px;
     text-align: left;
+}
+
+/* Nav bar filter */
+
+.col-xs-5- {
+    
+    width: 20%;
+    
 }

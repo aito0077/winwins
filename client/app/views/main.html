@@ -7,20 +7,18 @@
 
 
 <!-- Winwin Video Home -->
-<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-5px;">
+<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-7px; margin-bottom:-4px;">
     <source src="/video/winwins.mp4" type="video/mp4"> Your browser does not support HTML5 video
 </video>
 
 
-<!-- Button -->
-<div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
-    <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-        <h4> <i class="fa fa-play animated infinite flash"></i>COMENZAR</h4>
+<!-- Comenzar Btn -->
+    <button ng-if="!isAuthenticated()" ng-click="goControlPanel()" type="button" class=" animated bounceInLeft green col-xs-12 waves-effect waves-light full btn-large z-depth-2" >
+           <h4 class="txtsd"> <i class="fa fa-play animated infinite flash"></i> COMENZAR</h4>
     </button>
-</div>
 
 <!-- Helper -->
-<div ng-if="!isAuthenticated()" class="pad-30"></div>
+<div ng-if="!isAuthenticated()" class="pad-50"></div>
 
 
 <!-- Winwins Home-->
@@ -73,7 +71,7 @@
                     <span class="somoscards"> {{::winwin.users_already_joined}}</span>
                 </div>
                 <!-- share button -->
-                <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
+                <button class="col-xs-2 waves-effect black-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
             </div>
         </div>
     </div>
