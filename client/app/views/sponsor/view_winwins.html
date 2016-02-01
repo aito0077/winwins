@@ -1,5 +1,5 @@
 
-    
+    <div class="row" style="margin-top:20px;"></div>
     
       <div class="container card-panel teal hoverable s12" ng-repeat="winwin in sponsor.winwins" style="padding:0px; padding-bottom:10px;">
 
@@ -75,18 +75,28 @@
 </div>
 
 
-<!--TODO: sacar a footer-search.js -->
 <script>
-    $(function() {
-        $(window).scroll(function() {
-            if ($(document).scrollTop() > 150) {
-                $('#footer-s').addClass("show");
-            } else {
-                $('#footer-s').removeClass("show");
-            }
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer-s').addClass("show");
+}
+else
+{
+    $('#footer-s').removeClass("show");
+}
         });
     })
 </script>
+    
+    <script>
+    
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            </script>
+
 
        <!--     <div class="username-cards grey-text">"<h5 style="text-decoration: italic;">{{::winwin.pivot.sponsor_text}} {{::winwin.pivot.sponsor_message}}"</h5><br>
                 <p class="small">Avatar - Juan W Perez / Creador</p></div>

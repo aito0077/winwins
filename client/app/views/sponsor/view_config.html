@@ -1,11 +1,11 @@
-    <div class="container">
-        <div class="row">
+
+        <div class="row" style="margin-top:40px;">
     
             <div class="col-xs-12 no-padding">
                 <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{edit_sponsor.cover_photo}}" style="height: 220px;">
                     <div class="bubble-upload" style="cursor:pointer" ngf-select="uploadFilesCover($file)" accept="image/*" ngf-accept="'image/*'">Portada</div>
                     <div class="profile-avatar avatar">
-                        <img src="http://images.dev-winwins.net/smart/{{edit_sponsor.photo}}" class="img-responsive img-circle avatar"/>
+                        <img src="http://images.dev-winwins.net/smart/{{edit_sponsor.photo}}" class="img-responsive"/>
                     </div>
                     <div class="bubble-upload"  ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'">Avatar</div>
                     <div class="username">{{edit_sponsor.name}}</div>
@@ -13,7 +13,7 @@
             </div>
 
         </div>
-    </div>
+
 
     <div class="form-back create-id">
     <form method="post" ng-submit="saveProfile()" name="signupForm">
