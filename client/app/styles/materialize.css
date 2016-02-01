@@ -1000,7 +1000,13 @@ nav .button-collapse {
     padding: 0px 15px;
     text-align: left;
 }
-
+nav {
+    color: #fff;
+    background-color: #1976d2;
+    height: 56px;
+    line-height: 56px;
+   border-bottom: 0xp; 
+}
 /* Nav bar filter */
 
 .col-xs-5- {
