@@ -66,3 +66,38 @@
 
 
 
+
+    <table class="striped">
+        <thead>
+          <tr>
+              <th><div ng-switch-when="WW_JOIN">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            <span class="h7"> Te uniste a </span><span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+</th></span></th>
+              <th> Item Name</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+          </tr>
+        </tbody>
+      </table>
+            
+ 

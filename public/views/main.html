@@ -7,20 +7,18 @@
 
 
 <!-- Winwin Video Home -->
-<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-5px;">
+<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-7px; margin-bottom:-4px;">
     <source src="/video/winwins.mp4" type="video/mp4"> Your browser does not support HTML5 video
 </video>
 
 
-<!-- Button -->
-<div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
-    <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-        <h4> <i class="fa fa-play animated infinite flash"></i>COMENZAR</h4>
+<!-- Comenzar Btn -->
+    <button ng-if="!isAuthenticated()" ng-click="goControlPanel()" type="button" class=" animated bounceInLeft green col-xs-12 waves-effect waves-light full btn-large z-depth-2" >
+           <h4 class="txtsd"> <i class="fa fa-play animated infinite flash"></i> COMENZAR</h4>
     </button>
-</div>
 
 <!-- Helper -->
-<div ng-if="!isAuthenticated()" class="pad-30"></div>
+<div ng-if="!isAuthenticated()" class="pad-50"></div>
 
 
 <!-- Winwins Home-->
@@ -90,7 +88,7 @@
                     <div class="input-field">
                         <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:8px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
                         <!-- I've put "red-text" class to emphasize -->
-                        <i class="fa fa-search bar right" id="query" ng-click="search()"></i>
+                        <i class="fa fa-search bar right" style="font-size: 17px;" id="query" ng-click="search()"></i>
 
 
                     </div>
