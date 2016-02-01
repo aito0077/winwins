@@ -38,3 +38,39 @@
             </div>
 
        </div>
+                    
+                    
+                    <!-- search -->
+<div id="footer-s" data-ng-controller="main-search-controller">
+
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+            <form>
+                <div class="col-xs-12">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:10px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <!-- I've put "red-text" class to emphasize -->
+                        <i class="fa fa-search bar right" style="font-size: 19px; padding-top:10px;" id="query" ng-click="search()"></i>
+
+
+                    </div>
+            </form>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+                    
+                    <!--TODO: sacar a footer-search.js -->
+<script>
+    $(function() {
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 150) {
+                $('#footer-s').addClass("show");
+            } else {
+                $('#footer-s').removeClass("show");
+            }
+        });
+    })
+</script>

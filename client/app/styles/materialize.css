@@ -991,6 +991,11 @@ nav .button-collapse {
     height: 50px;
 }
 
+
+.dark-text {
+ color:#333;
+}
+
 .side-nav a {
     color: #FFF;
     display: block;
