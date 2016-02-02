@@ -324,7 +324,7 @@ angular.module('winwinsApp')
         } else {
             var fellow = $scope.fellows['fellow_'+activity.user_id];
             console.dir(fellow);
-            return fellow.name +' '(type == 'JOIN' ? 'se unió' : 'creó');
+            return fellow.name +' '+(type == 'JOIN' ? 'se unió' : 'creó');
         }
     };
 
