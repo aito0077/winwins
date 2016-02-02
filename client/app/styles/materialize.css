@@ -880,7 +880,10 @@ max-height: 150px;
 .toolbar {
      margin-top: 10px;
 }
-
+.btn-floating.btn-large {
+    width: 45.5px;
+    height: 45.5px;
+}
 .wwtxt {
 text-align:center;
 margin-top: 280px;
