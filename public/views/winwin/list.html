@@ -35,7 +35,7 @@
     </div>
 
          <!-- WW Cards-->
-    <div class="container card-panel teal hoverable s12 {{winwin.categories_text}}  winwin-item" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
+    <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins.items" style="padding:0px; padding-bottom:10px;">
     <div ng-if="winwin.is_sponsor" class="container">
        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
        </div>
