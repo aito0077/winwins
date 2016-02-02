@@ -7,27 +7,25 @@
 
 
 <!-- Winwin Video Home -->
-<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-5px;">
+<video ng-if="!isAuthenticated()" width="100%" poster="/images/parrots.fw.png" controls loop style="cursor: pointer; margin-top:-7px; margin-bottom:-4px;">
     <source src="/video/winwins.mp4" type="video/mp4"> Your browser does not support HTML5 video
 </video>
 
 
-<!-- Button -->
-<div ng-if="!isAuthenticated()" ng-click="goControlPanel()" style="cursor: pointer; margin-top:-5px;">
-    <button type="button" class="btn-large  green col-xs-12" style="width:100%; border-radius:0px;">
-        <h4> <i class="fa fa-play animated infinite flash"></i>COMENZAR</h4>
+<!-- Comenzar Btn -->
+    <button ng-if="!isAuthenticated()" ng-click="goControlPanel()" type="button" class=" animated bounceInLeft green col-xs-12 waves-effect waves-light full btn-large z-depth-2" >
+           <h4 class="txtsd"> <i class="fa fa-play animated infinite flash"></i> COMENZAR</h4>
     </button>
-</div>
 
 <!-- Helper -->
-<div ng-if="!isAuthenticated()" class="pad-30"></div>
+<div ng-if="!isAuthenticated()" class="pad-50"></div>
 
 
 <!-- Winwins Home-->
 <div class="row">
     <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
 
-        <!-- WW main sponsor card -->
+        <!-- WW main sponsor card /// BANNERS ////-->
         <div ng-if="winwin.is_sponsor" class="card-panel col-xs-12 no-padding">
             <img ng-src="http://images.dev-winwins.net/smart/{{::winwin.cover_photo}}" class="responsive-img center-block" style="min-width:100%;" />
             <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
@@ -58,7 +56,7 @@
             <!-- Info Bar -->
             <div class="col-xs-12" style="margin-top: 10px;">
                 <div class="col-xs-2 no-padding">
-                    <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle z-depth-1" style="cursor:pointer;">
+                    <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">
                 </div>
 
                 <div class="col-xs-6 no-padding">
@@ -73,7 +71,7 @@
                     <span class="somoscards"> {{::winwin.users_already_joined}}</span>
                 </div>
                 <!-- share button -->
-                <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
+                <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px;"></button>
             </div>
         </div>
     </div>
@@ -82,15 +80,19 @@
 
 <!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
-
+<div class="fixed-action-btn center" style="right:0px; font-size:20px;">
+    <a class="scrollup btn-floating btn-large center blue darken-4 z-depth-0">
+      <i class="fa fa-arrow-up" style="margin-top:-10px;"></i>
+    </a>
+  </div>
     <nav>
-        <div class="nav-wrapper  blue darken-4">
+        <div class="nav-wrapper  blue darken-4 z-depth-03">
             <form>
                 <div class="col-xs-12">
                     <div class="input-field">
-                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:8px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:5px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
                         <!-- I've put "red-text" class to emphasize -->
-                        <i class="fa fa-search bar right" id="query" ng-click="search()"></i>
+                        <i class="fa fa-search bar right" style="font-size: 19px; padding-top:17px;" id="query" ng-click="search()"></i>
 
 
                     </div>
@@ -150,3 +152,26 @@
         $('select').material_select();
     });
 </script>
+
+<script>
+ $('.fixed-action-btn').openFAB();</script>
+
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});</script>
