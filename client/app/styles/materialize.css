@@ -1019,3 +1019,9 @@ nav {
     width: 20%;
     
 }
+
+
+.bubble-label {
+
+    display: inline;
+}
