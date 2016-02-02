@@ -32,17 +32,25 @@
                                 <a role="button" class="col-xs-6 btn-join"  ng-click="acceptSponsor(sponsor)"> ACEPTAR </a>
                                 <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
                             </div>
-              
-
                         </div>
                     </div>
                 </div>
 
+                        
+                             <!-- Sponsorship Admin -->
+<div class="col-xs-12 center">
+   <p class="small">Leyenda de patrocinio</p> 
+      
+<h4>Texto Leyenda {{::winwin.pivot.sponsor_text}}</h4>
+    <h5 style="text-transform: normal;">{{sponsor.pivot.sponsor_message}}</h5>
+    
+    <button class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)"> <p class="h7">Modificar Leyenda</p></button>
+    <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)"><p class="h7">Pasar Sponsoreo</p></button>
 
-                <div class="solicitud small center">"{{sponsor.pivot.sponsor_message}}"</div>
+</div>
+   </div>
 
-
-     
+ 
             </div>
 
         </div>

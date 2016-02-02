@@ -45,7 +45,17 @@
                 <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px;"></button>
          
     </div>
-
+      <!-- Sponsorship Admin -->
+<div class="col-xs-12 center"  ng-if="sponsor.myself">
+   <p class="small">Leyenda de patrocinio</p> 
+      
+<h4>Texto Leyenda {{::winwin.pivot.sponsor_text}}</h4>
+    <h5 style="text-transform: normal;">Mensaje del solicitante{{::winwin.pivot.sponsor_message}}</h5>
+    
+    <button class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)"> <p class="h7">Modificar Leyenda</p></button>
+    <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)"><p class="h7">Cancelar Sponsoreo</p></button>
+<br><br><br><br>
+</div>
    </div>
 
 
@@ -98,17 +108,7 @@ else
             </script>
 
 
-       <!--     <div class="username-cards grey-text">"<h5 style="text-decoration: italic;">{{::winwin.pivot.sponsor_text}} {{::winwin.pivot.sponsor_message}}"</h5><br>
-                <p class="small">Avatar - Juan W Perez / Creador</p></div>
 
-
-
-    <div class="row" ng-if="sponsor.myself">
-        <div class="block-center center-block"> 
-            <span class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)">Cancelar Sponsoreo</span>
-             <span class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)">Modificar Leyenda</span>
-        </div>
-</div>
 
 
 
