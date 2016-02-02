@@ -20,7 +20,7 @@ use Winwins\Model\Media;
 class UserController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'search', 'getUserTimeline']]);
     }
 
     public function paginate(Request $request, $page = 0, $amount = 15) {
@@ -193,6 +193,18 @@ class UserController extends Controller {
             );
 
         }
+    }
+
+    public function getUserTimeline($userId) {
+        $user = User::find($userId);
+
+        $activities = Collection::make($user->notifications);
+        if(isset($user)) {
+            foreach($user->following as $fellow) {
+                $activities->push($fellow->notifications);
+            } 
+        }
+        return $activities->sortByDesc('id');
     }
 
     public function updateUser(Request $request) {
