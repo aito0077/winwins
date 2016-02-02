@@ -198,13 +198,24 @@ class UserController extends Controller {
     public function getUserTimeline($userId) {
         $user = User::find($userId);
 
-        $activities = Collection::make($user->notifications);
+        $activities = $user->notifications;
+	$fellows = array();
         if(isset($user)) {
             foreach($user->following as $fellow) {
-                $activities->push($fellow->notifications);
+		$fellows[$fellow->id] = $fellow;
+                $activities = $activities->merge($fellow->notifications->filter(function ($item) {
+		    return $item->type != 'CAMPANADA';
+		}));
             } 
         }
-        return $activities->sortByDesc('id');
+	foreach($activities as $activity) {
+		try {
+		    $activity->object = $activity->getObject();
+		} catch(\Exception $e) {
+		}
+	}
+
+        return $activities->sortByDesc('id')->values();
     }
 
     public function updateUser(Request $request) {
