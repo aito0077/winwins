@@ -52,7 +52,6 @@ angular.module('winwinsApp')
     $scope.following = [];
 
     $scope.getUser = function() {
-        console.log('User id profile: '+$stateParams.userId);
         $scope.user = User.get({
             id: $stateParams.userId
         }, function(data) {
@@ -95,7 +94,6 @@ angular.module('winwinsApp')
 
     $scope.comment = new Post({});
     $scope.submitComment = function() {
-        console.log('submit');
         $http.post(api_host+'/api/users/'+$scope.user.id+'/comment',{
             content: $scope.comment.content
         }).success(function(data) {
@@ -189,7 +187,6 @@ angular.module('winwinsApp')
                     $scope.fellows[item.user_id] = item;
                 });
             
-                console.dir($scope.fellows);
                 $scope.comments = user_data.comments;
                 /*
                 $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
@@ -252,7 +249,6 @@ angular.module('winwinsApp')
     };
 
     $scope.viewUser = function(id) {
-        console.log('view user: '+id);
         $state.go('user-view', {
             userId: id
         }); 
@@ -311,7 +307,6 @@ angular.module('winwinsApp')
             format: 'DD - MM - YYYY'
         });
         */
-        console.log($scope.edit_user.birthdate);
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
         $http.get(api_host+'/api/users/'+$scope.account.user.id+'/timeline').success(function(data) {
@@ -321,12 +316,11 @@ angular.module('winwinsApp')
 
     $scope.subject = function(activity, type) {
         if(activity.user_id == $scope.account.user.id) {
-            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOW' ? 'Estás': 'Creaste');
+            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOWING' ? 'Estás': 'Creaste');
         } else {
-            console.log(activity.user_id);
             if($scope.fellows[activity.user_id]) {
                 var fellow = $scope.fellows[activity.user_id];
-                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOW' ? 'está': 'creó') );
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOWING' ? 'está': 'creó') );
             }
             return '';
         }
@@ -417,8 +411,6 @@ angular.module('winwinsApp')
     $scope.setOption = function(key, value) {
     
         $scope.edit_user[key] = value;
-        console.log('Key: '+key+' - value: '+value);
-        console.log('user_edit: '+$scope.edit_user[key]);
     };
 
 
@@ -495,7 +487,6 @@ angular.module('winwinsApp')
     $scope.getUser();
 
     $scope.doFilter = function(filter_by) {
-        console.log(filter_by);
         jQuery('.grid-winwins').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
     };
 

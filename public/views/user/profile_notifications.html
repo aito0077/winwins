@@ -13,6 +13,16 @@
 
                 <div ng-switch="notification.type" style="padding:10px;">
                     <li>
+                        <div ng-switch-when="FOLLOWING">
+                            <i class="fa fa-comments" style="color:#E37311;"></i>  
+                            <span class="h7">
+                                {{subject(notification, 'FOLLOWING')}} siguiendo a <a ng-href="/#/user-view/{{notification.object_id}}" class="blue-text" style="padding:10px;"> '{{notification.object.username}}'</a>  
+                                <br> <i class="fa fa-clock-o"></i>
+                                <span class="h8">{{notification.created_at | moment: 'DD/MM/YYYY HH:mm'}} </span> 
+                            </span>
+                            <i class="fa fa-trash grey-text right del"></i>
+                        </div>
+
                         <div ng-switch-when="WW_JOIN">
                             <i class="fa fa-comments" style="color:#E37311;"></i>  
                             <span class="h7">
