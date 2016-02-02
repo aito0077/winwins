@@ -80,9 +80,13 @@
 
 <!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
-
+<div class="fixed-action-btn center" style="right:0px; font-size:20px;">
+    <a class="scrollup btn-floating btn-large center blue darken-4 z-depth-0">
+      <i class="fa fa-arrow-up" style="margin-top:-10px;"></i>
+    </a>
+  </div>
     <nav>
-        <div class="nav-wrapper  blue darken-4">
+        <div class="nav-wrapper  blue darken-4 z-depth-03">
             <form>
                 <div class="col-xs-12">
                     <div class="input-field">
@@ -148,3 +152,26 @@
         $('select').material_select();
     });
 </script>
+
+<script>
+ $('.fixed-action-btn').openFAB();</script>
+
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});</script>
