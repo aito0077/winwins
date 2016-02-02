@@ -174,7 +174,7 @@ angular.module('winwinsApp')
         }
     };
 
-    $scope.fellows = [];
+    $scope.fellows = {};
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
             $scope.account = response.data;
@@ -186,7 +186,7 @@ angular.module('winwinsApp')
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
                 _.each($scope.following, function(item) {
-                    $scope.fellows['fellow_'+item.id] = item;
+                    $scope.fellows[item.id] = item;
                 });
             
                 $scope.comments = user_data.comments;
@@ -322,7 +322,7 @@ angular.module('winwinsApp')
         if(activity.user_id == $scope.account.user.id) {
             return type == 'JOIN' ? 'Te uniste' : 'Creaste';
         } else {
-            var fellow = $scope.fellows['fellow_'+activity.user_id];
+            var fellow = $scope.fellows[activity.user_id];
             console.dir(fellow);
             return fellow.name +' '+(type == 'JOIN' ? 'se unió' : 'creó');
         }
