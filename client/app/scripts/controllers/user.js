@@ -52,7 +52,6 @@ angular.module('winwinsApp')
     $scope.following = [];
 
     $scope.getUser = function() {
-        console.log('User id profile: '+$stateParams.userId);
         $scope.user = User.get({
             id: $stateParams.userId
         }, function(data) {
@@ -95,7 +94,6 @@ angular.module('winwinsApp')
 
     $scope.comment = new Post({});
     $scope.submitComment = function() {
-        console.log('submit');
         $http.post(api_host+'/api/users/'+$scope.user.id+'/comment',{
             content: $scope.comment.content
         }).success(function(data) {
@@ -152,6 +150,7 @@ angular.module('winwinsApp')
     $scope.following = [];
     $scope.comments = [];
     $scope.notifications = [];
+    $scope.activities= [];
 
     $scope.is_admin = false;
 
@@ -173,6 +172,7 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.fellows = {};
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
             $scope.account = response.data;
@@ -183,8 +183,17 @@ angular.module('winwinsApp')
                 $scope.user_detail = user_data;
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
+                _.each($scope.following, function(item) {
+                    $scope.fellows[item.user_id] = item;
+                });
+            
                 $scope.comments = user_data.comments;
-                $scope.notifications = user_data.notifications;
+                /*
+                $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
+                    return notification.id; 
+                });
+                $scope.notifications = $scope.notifications.reverse();
+                */
                 $scope.edit_user = user_data;
                 $scope.setup_components();
 
@@ -240,7 +249,6 @@ angular.module('winwinsApp')
     };
 
     $scope.viewUser = function(id) {
-        console.log('view user: '+id);
         $state.go('user-view', {
             userId: id
         }); 
@@ -299,11 +307,24 @@ angular.module('winwinsApp')
             format: 'DD - MM - YYYY'
         });
         */
-        console.log($scope.edit_user.birthdate);
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
+        $http.get(api_host+'/api/users/'+$scope.account.user.id+'/timeline').success(function(data) {
+            $scope.activities = data;
+        });
     };
 
+    $scope.subject = function(activity, type) {
+        if(activity.user_id == $scope.account.user.id) {
+            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOWING' ? 'Estás': 'Creaste');
+        } else {
+            if($scope.fellows[activity.user_id]) {
+                var fellow = $scope.fellows[activity.user_id];
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOWING' ? 'está': 'creó') );
+            }
+            return '';
+        }
+    };
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
@@ -390,8 +411,6 @@ angular.module('winwinsApp')
     $scope.setOption = function(key, value) {
     
         $scope.edit_user[key] = value;
-        console.log('Key: '+key+' - value: '+value);
-        console.log('user_edit: '+$scope.edit_user[key]);
     };
 
 
@@ -468,7 +487,6 @@ angular.module('winwinsApp')
     $scope.getUser();
 
     $scope.doFilter = function(filter_by) {
-        console.log(filter_by);
         jQuery('.grid-winwins').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
     };
 
@@ -542,7 +560,7 @@ angular.module('winwinsApp')
                     return notification.id; 
                 });
 
-                $scope.notitications = $scope.notifications.reverse();
+                $scope.notifications = $scope.notifications.reverse();
             });
 
         });

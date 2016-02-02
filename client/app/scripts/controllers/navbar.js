@@ -21,22 +21,25 @@ angular.module('winwinsApp')
 
     $rootScope.$on('is_logged',function(event, logged){
         $scope.is_logged = logged;
-        console.log('is logged? '+logged);
         if(logged) {
             if(!$scope.fetching_profile && !$scope.profile) {
                 $scope.fetching_profile = true;
                 Account.getProfile().then(function(response) {
-                    $scope.fetching_profile = false;
-                    $scope.profile = response.profile;
-                    $scope.sponsor = response.sponsor;
-                    $scope.isSponsor = response.is_sponsor;
-                    $scope.isSponsorActive = response.is_sponsor_active;
-                    $scope.isActive = response.active;
-                    $scope.email = response.user.email;
-                    $rootScope.account = $scope.profile;
-                    console.log('Fetching profile');
-                    $rootScope.profile_photo = $scope.profile.photo;
-                    console.log($rootScope.profile_photo);
+                    if(response.user) {
+                        $scope.fetching_profile = false;
+                        $scope.profile = response.profile;
+                        $scope.sponsor = response.sponsor;
+                        $scope.isSponsor = response.is_sponsor;
+                        $scope.isSponsorActive = response.is_sponsor_active;
+                        $scope.isActive = response.active;
+                        $scope.email = response.user.email;
+                        $rootScope.account = $scope.profile;
+                        $rootScope.profile_photo = $scope.profile.photo;
+                    } else {
+                        $auth.logout().then(function() {
+                            $rootScope.$broadcast('is_logged', false);
+                        });
+                    }
                 });
             }
         } else {

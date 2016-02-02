@@ -13,6 +13,7 @@ Route::get('auth/unlink/{provider}', ['middleware' => 'auth', 'uses' => 'AuthCon
 
 Route::get('auth/activate/{code}', 'AuthController@activateAccount');
 Route::get('api/users/resend/activation', ['middleware' => 'auth', 'uses' => 'AuthController@resendActivationMail']);
+Route::get('api/users/{userId}/timeline', ['uses' => 'UserController@getUserTimeline']);
 
 // API Routes.
 Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);

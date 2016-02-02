@@ -25,7 +25,8 @@ angular.module('winwinsApp')
             
                             break;
                         default:
-                            $state.go('main'); 
+                            console.log('go to login: '+ $rootScope.returnState.state);
+                            $state.go($rootScope.returnState.state); 
                     }
                 } else {
                     $state.go('main'); 
@@ -34,16 +35,6 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
-            /*
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'El usuario y/o password son incorrectos', 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
-            */
             $state.go('signIn');
         });
     };
@@ -68,7 +59,8 @@ angular.module('winwinsApp')
                             }); 
                             break;
                         default:
-                            $state.go('main'); 
+                            console.log('go to authenticate: '+ $rootScope.returnState.state);
+                            $state.go($rootScope.returnState.state); 
                     }
                 } else {
                     $state.go('main'); 
@@ -77,18 +69,7 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
-            /*
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error en la autenticación con la red social', 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
-            */
             $state.go('signin');
-
         });
     };
 

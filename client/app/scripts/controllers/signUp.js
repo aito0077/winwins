@@ -32,7 +32,7 @@ angular.module('winwinsApp')
                                 }); 
                                 break;
                             default:
-                                $state.go('main'); 
+                                $state.go($rootScope.returnState.state); 
                         }
                     } else {
                         $state.go('main'); 
@@ -82,7 +82,7 @@ angular.module('winwinsApp')
                             }); 
                             break;
                         default:
-                            $state.go('main'); 
+                            $state.go($rootScope.returnState.state); 
                     }
                 } else {
                     $state.go('main'); 
@@ -170,7 +170,7 @@ angular.module('winwinsApp')
                             }); 
                             break;
                         default:
-                            $state.go('main'); 
+                            $state.go($rootScope.returnState.state); 
                     }
                 } else {
                     $state.go('main'); 

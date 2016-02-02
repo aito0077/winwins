@@ -73,9 +73,14 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/edit.html',
         controller: 'winwin-edit',
         resolve: {
-          loginRequired: loginRequired
+          loginRequired: loginRequiredWinwinNew
         }
 
+    })
+    .state('winwin-new-redirect', {
+        url: '/winwin-new',
+        templateUrl: 'views/winwin/edit.html',
+        controller: 'winwin-edit'
     })
     .state('winwin-first-post', {
         url: '/winwin-first-post/:winwinId',
@@ -290,12 +295,15 @@ angular.module('winwinsApp', [
     ;
 
 
-    function loginRequired($q, $location, $auth, $state) {
+    function loginRequiredWinwinNew($q, $location, $auth, $state, $rootScope) {
         var deferred = $q.defer();
         if ($auth.isAuthenticated()) {
             deferred.resolve();
         } else {
-            console.dir($state);
+            $rootScope.returnState = {
+                state: 'winwin-new-redirect'
+            };
+
             $location.path('/signin');
         }
         return deferred.promise;
