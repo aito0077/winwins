@@ -189,6 +189,7 @@ angular.module('winwinsApp')
                     $scope.fellows[item.id] = item;
                 });
             
+                console.dir($scope.fellows);
                 $scope.comments = user_data.comments;
                 /*
                 $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
@@ -320,11 +321,12 @@ angular.module('winwinsApp')
 
     $scope.subject = function(activity, type) {
         if(activity.user_id == $scope.account.user.id) {
-            return type == 'JOIN' ? 'Te uniste' : 'Creaste';
+            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOW' ? 'Estás': 'Creaste');
         } else {
+            console.log(activity.user_id);
             if($scope.fellows[activity.user_id]) {
                 var fellow = $scope.fellows[activity.user_id];
-                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : 'creó');
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOW' ? 'está': 'creó') );
             }
             return '';
         }

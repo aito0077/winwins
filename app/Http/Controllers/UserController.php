@@ -204,7 +204,7 @@ class UserController extends Controller {
             foreach($user->following as $fellow) {
 		$fellows[$fellow->id] = $fellow;
                 $activities = $activities->merge($fellow->notifications->filter(function ($item) {
-		    return $item->type != 'CAMPANADA';
+		    return !in_array($item->type, array('CAMPANADA', 'SPONSOR_CANCEL', 'SPONSOR_REQUEST');
 		}));
             } 
         }

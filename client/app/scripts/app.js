@@ -77,6 +77,11 @@ angular.module('winwinsApp', [
         }
 
     })
+    .state('winwin-new-redirect', {
+        url: '/winwin-new',
+        templateUrl: 'views/winwin/edit.html',
+        controller: 'winwin-edit'
+    })
     .state('winwin-first-post', {
         url: '/winwin-first-post/:winwinId',
         templateUrl: 'views/winwin/first_post.html',
@@ -296,7 +301,7 @@ angular.module('winwinsApp', [
             deferred.resolve();
         } else {
             $rootScope.returnState = {
-                state: 'winwin-new'
+                state: 'winwin-new-redirect'
             };
 
             $location.path('/signin');
