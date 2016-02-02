@@ -322,9 +322,11 @@ angular.module('winwinsApp')
         if(activity.user_id == $scope.account.user.id) {
             return type == 'JOIN' ? 'Te uniste' : 'Creaste';
         } else {
-            var fellow = $scope.fellows[activity.user_id];
-            console.dir(fellow);
-            return fellow.name +' '+(type == 'JOIN' ? 'se unió' : 'creó');
+            if($scope.fellows[activity.user_id]) {
+                var fellow = $scope.fellows[activity.user_id];
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : 'creó');
+            }
+            return '';
         }
     };
 
