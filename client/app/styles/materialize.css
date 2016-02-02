@@ -883,6 +883,7 @@ max-height: 150px;
 .btn-floating.btn-large {
     width: 45.5px;
     height: 45.5px;
+    line-height: 45px;
 }
 .wwtxt {
 text-align:center;
