@@ -186,7 +186,7 @@ angular.module('winwinsApp')
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
                 _.each($scope.following, function(item) {
-                    $scope.fellows[item.id] = item;
+                    $scope.fellows[item.user_id] = item;
                 });
             
                 console.dir($scope.fellows);
