@@ -1441,10 +1441,22 @@ angular.module('winwinsApp')
     };
  
     $scope.removePost = function(item_post) {
-        $http.post(api_host+'/api/posts/'+item_post.id+'/remove',{
-            sticky: false
-        }).success(function(data) {
-            $scope.getPosts();
+        swal({   
+            title: "Atención!",   
+            text: "Está seguro que desea eliminar el post?",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Eliminar",   
+            cancelButtonText: "Cancelar",   
+            closeOnConfirm: false 
+        }, function(){   
+            $http.post(api_host+'/api/posts/'+item_post.id+'/remove',{
+                sticky: false
+            }).success(function(data) {
+                swal("Eliminado!", "El post ha sido eliminado.", "success");
+                $scope.getPosts();
+            });
         });
     };
 

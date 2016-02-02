@@ -152,6 +152,7 @@ angular.module('winwinsApp')
     $scope.following = [];
     $scope.comments = [];
     $scope.notifications = [];
+    $scope.activities= [];
 
     $scope.is_admin = false;
 
@@ -173,6 +174,7 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.fellows = [];
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
             $scope.account = response.data;
@@ -183,8 +185,17 @@ angular.module('winwinsApp')
                 $scope.user_detail = user_data;
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
+                _.each($scope.following, function(item) {
+                    $scope.fellows['fellow_'+item.id] = item;
+                });
+            
                 $scope.comments = user_data.comments;
-                $scope.notifications = user_data.notifications;
+                /*
+                $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
+                    return notification.id; 
+                });
+                $scope.notifications = $scope.notifications.reverse();
+                */
                 $scope.edit_user = user_data;
                 $scope.setup_components();
 
@@ -302,8 +313,20 @@ angular.module('winwinsApp')
         console.log($scope.edit_user.birthdate);
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
+        $http.get(api_host+'/api/users/'+$scope.account.user.id+'/timeline').success(function(data) {
+            $scope.activities = data;
+        });
     };
 
+    $scope.subject = function(activity, type) {
+        if(activity.user_id == $scope.account.user.id) {
+            return type == 'JOIN' ? 'Te uniste' : 'Creaste';
+        } else {
+            var fellow = $scope.fellows['fellow_'+activity.user_id];
+            console.dir(fellow);
+            return fellow.name +' '(type == 'JOIN' ? 'se unió' : 'creó');
+        }
+    };
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
@@ -542,7 +565,7 @@ angular.module('winwinsApp')
                     return notification.id; 
                 });
 
-                $scope.notitications = $scope.notifications.reverse();
+                $scope.notifications = $scope.notifications.reverse();
             });
 
         });
