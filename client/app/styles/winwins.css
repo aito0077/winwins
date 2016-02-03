@@ -7714,15 +7714,18 @@ position: relative;
 
 #loading-bar .bar {
   background: #FF8000;
+    height: 5px;
 }
 #loading-bar-spinner .spinner-icon {
-  border-top-color:  #FF8000;
+  border-top-color:  #FF8900;
   border-left-color: #FF8000;
+     height: 5px;
 }
 #loading-bar .peg {
-  -moz-box-shadow: #FF8000 1px 0 6px 1px;
-  -ms-box-shadow: #FF8000 1px 0 6px 1px;
-  -webkit-box-shadow: #FF8000 1px 0 6px 1px;
-  box-shadow: #FF8000 1px 0 6px 1px;
+  -moz-box-shadow: #FF8000 1px 0 2px 1px;
+  -ms-box-shadow: #FF8000 1px 0 2px 1px;
+  -webkit-box-shadow: #FF8000 1px 0 2px 1px;
+  box-shadow: #FF8000 1px 0 2px 1px;
+     height: 5px;
 }
 
