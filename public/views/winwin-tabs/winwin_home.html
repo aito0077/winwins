@@ -103,8 +103,8 @@
         <!-- Winwin Attributes-->
 
         <div class="row ww-atts grey lighten-4" style="padding:10px;">
-          <div class="col-xs-4 small ww-attributte h7">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
-          <div class="col-xs-4 small ww-attributte h7">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
+          <div class="col-xs-4 small ww-attributte">Estado:<br><span ng-show="winwin.published" style="color:green;"><i class="fa fa-check" style="color: green;"></i> Activo </span><span ng-show="!winwin.published" style="color: red; font-family:montserrat;"><i class="fa fa-cross" style="color: red;"></i> Inactivo</span> </div>
+          <div class="col-xs-4 small ww-attributte">Escala:<br><i class="fa fa-globe" style="color: #1762C3;"></i> {{::winwin.scope}}
             <br>
             {{winwin.location.formatted_address}}
           </div>
@@ -148,7 +148,7 @@
           </div>
         </div>
       </div>
-      <div class="pad-20"></div>
+      <div class="pad-10"></div>
       <!-- Winwin CTA-->
       <div class="container">
         <div ng-if="!winwin.is_successful && !isSponsor && !winwin.already_joined" class="container no-padding">
@@ -200,6 +200,7 @@
             </div>
           
         </div>
+  <div class="pad-10"></div>
       <!-- Winwin People-->
       <div class="row grey lighten-3" style=" height: 90px;">
           <div class="col-xs-2 no-padding" style="cursor: pointer; margin-top:20px;" ng-click="viewProfile(winwin.user.id)"> 
