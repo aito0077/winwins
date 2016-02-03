@@ -33,10 +33,9 @@ nav {
     border-bottom: 3px solid #0d47a1 ;
 }
 
-.side-nav  {
-    background-color: #1976D2;
+.side-nav {
+    background-color: #1565C0;
 }
-
 .side-nav a {
     color: #fff;
     display: block;
@@ -1034,7 +1033,7 @@ nav {
 }
 
 .to-top {
-     height:25px;
+     height:20px;
      width:40px;
      border-radius: 90px 90px 0 0;
      -moz-border-radius: 90px 90px 0 0;
