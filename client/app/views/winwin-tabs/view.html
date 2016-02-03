@@ -23,7 +23,8 @@
           <li  class="col-xs-3"><a  data-toggle="tab" data-target="#sponsors" ng-class="{active: current_view == 'sponsors'}">                       
           <img src="../images/sponsor.png" width="25px" class="no-padding" style=" margin:0px;margin-top:-17px;" />               </a></li>
           <li  class="col-xs-3"><a  data-toggle="tab" data-target="#users" ng-class="{active: current_view == 'users'}"><i class="fa fa-users"  style="font-size:1.3rem;padding:13px; padding-left:5px;"></i></a></li>
-            <li  class="col-xs-3"  ng-class="{active: current_view == 'admin'}"><a ng-class="{active: current_view == 'users'}"><i class="fa fa-gear"  style="font-size:1.3rem;padding:13px;"></i></a></li>
+            <li  class="col-xs-3" ng-show="isAdmin" ng-class="{active: current_view == 'admin'}"><a ng-class="{active: current_view == 'users'}"><i class="fa fa-gear"  style="font-size:1.3rem;padding:13px;"></i></a></li>
+           <li  class="col-xs-3" ng-show="!isAdmin"><i class="fa fa-gear"  style="font-size:1.3rem;padding:13px;opacity: 0.5px;"></i></a></li>
        
         </ul>
     </div>
@@ -32,12 +33,12 @@
         <div ng-show="is_admin" class="container no-padding">
             <a data-toggle="tab" data-target="#sponsors_requests">
                 <div class="col-xs-2 submenu-icons" >
-                    <i class="fa fa-hand-paper-o"></i>
+                 <img src="../images/sponsor.png" width="25">
                 </div>
             </a>
             <a data-toggle="tab" data-target="#sponsors_to_request">
                 <div class="col-xs-2 submenu-icons">
-                    <i class="fa fa-hand-paper-o"></i>
+                    <i class="fa fa-share" style="font-size:12px;"></i><img src="../images/sponsor.png" width="17">
                 </div>
             </a>
             <a data-toggle="tab" data-target="#campanada">
@@ -47,7 +48,7 @@
             </a>
             <a data-toggle="tab" data-target="#poll">
                 <div class="col-xs-2 submenu-icons">
-                    <i class="fa fa-server"></i>
+                  <i class="fa fa-list-ol"></i>
                 </div>
             </a>
 
