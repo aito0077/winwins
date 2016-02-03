@@ -13,20 +13,29 @@ angular.module('winwinsApp')
             $scope.show_login = false;
             $scope.redirect_message = true;
             $timeout(function() {
-                console.log('redirect');
-                $state.go('main'); 
-            }, 1000);
+                if($rootScope.returnState) {
+                    switch($rootScope.returnState.state) {
+                        case 'ww-join': 
+                            var winwinId = $rootScope.returnState.parameters.winwinId;
+                            $rootScope.returnState = null;
+                            $state.go('winwin-view', {
+                                winwinId: winwinId,
+                                actionJoin: true
+                            }); 
+            
+                            break;
+                        default:
+                            console.log('go to login: '+ $rootScope.returnState.state);
+                            $state.go($rootScope.returnState.state); 
+                    }
+                } else {
+                    $state.go('main'); 
+                }
+            }, 3000);
 
         })
         .catch(function(response) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: response, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
-            $state.go('signin');
+            $state.go('signIn');
         });
     };
     $scope.authenticate = function(provider) {
@@ -35,23 +44,37 @@ angular.module('winwinsApp')
             $rootScope.currentUser = data;
             $rootScope.$broadcast('is_logged', true);
             $scope.show_login = false;
+            $scope.provider = provider;
             $scope.redirect_message = true;
+            
             $timeout(function() {
-                console.log('redirect');
-                $state.go('main'); 
-            }, 1000);
+                if($rootScope.returnState) {
+                    switch($rootScope.returnState.state) {
+                        case 'ww-join': 
+                            var winwinId = $rootScope.returnState.parameters.winwinId;
+                            $rootScope.returnState = null;
+                            $state.go('winwin-view', {
+                                winwinId: winwinId,
+                                actionJoin: true
+                            }); 
+                            break;
+                        default:
+                            console.log('go to authenticate: '+ $rootScope.returnState.state);
+                            $state.go($rootScope.returnState.state); 
+                    }
+                } else {
+                    $state.go('main'); 
+                }
+            }, 3000);
+
         })
         .catch(function(response) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: response, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
             $state.go('signin');
-
         });
+    };
+
+    $scope.goSignup = function() {
+        $state.go('signUp');
     };
 
 })

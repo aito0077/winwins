@@ -10,19 +10,16 @@ angular.module('winwinsApp', [
     'ngTouch',
     'ngTagsInput',
     'ui.router',
-    'ui.select',
     'ui.bootstrap',
     'satellizer',
     'config',
     'infinite-scroll',
-    'zumba.angular-waypoints',
     'pascalprecht.translate',
     'headroom',
     '720kb.socialshare',
     'truncate',
     'angular-loading-bar',
-    'frapontillo.bootstrap-switch', 
-    'elasticsearch'
+    'frapontillo.bootstrap-switch'
 ])
 .config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
@@ -76,9 +73,14 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/edit.html',
         controller: 'winwin-edit',
         resolve: {
-          loginRequired: loginRequired
+          loginRequired: loginRequiredWinwinNew
         }
 
+    })
+    .state('winwin-new-redirect', {
+        url: '/winwin-new',
+        templateUrl: 'views/winwin/edit.html',
+        controller: 'winwin-edit'
     })
     .state('winwin-first-post', {
         url: '/winwin-first-post/:winwinId',
@@ -97,21 +99,20 @@ angular.module('winwinsApp', [
         templateUrl: 'views/winwin/list.html',
         controller: 'winwin-list'
     })
+    .state('winwin-own', {
+        url: '/winwin-own',
+        templateUrl: 'views/user/own_winwins.html',
+        controller: 'user-winwins-own'
+    })
     .state('winwin-search', {
         url: '/winwin-search',
         templateUrl: 'views/winwin/search.html',
         controller: 'winwin-search'
     })
     .state('winwin-view', {
-        url: '/winwin-view/:winwinId',
+        url: '/winwin-view/:winwinId?actionJoin',
         templateUrl: 'views/winwin-tabs/view.html',
         controller: 'winwin-tabs'
-    })
-    .state('_winwin-view', {
-        url: '/winwin-view/:winwinId',
-        //templateUrl: 'views/winwin/view.html',
-        templateUrl: 'views/winwin-view/ww-winwin.html',
-        controller: 'winwin-view'
     })
     .state('winwin-left', {
         templateUrl: 'views/winwin-tabs/ww-left.html',
@@ -249,6 +250,21 @@ angular.module('winwinsApp', [
         templateUrl: 'views/sponsor/view.html',
         controller: 'sponsor-view'
     })
+    .state('sponsor-signup', {
+        url: '/sponsor-signup',
+        templateUrl: 'views/sponsor/signup.html',
+        controller: 'sponsor-signup'
+    })
+    .state('sponsor-new', {
+        url: '/sponsor-new',
+        templateUrl: 'views/sponsor/signup.html',
+        controller: 'sponsor-signup'
+    })
+    .state('user-search-list', {
+        url: '/search/user/:query',
+        templateUrl: 'views/search/list_user.html',
+        controller: 'search-list-user'
+    })
     .state('search-list', {
         url: '/search/:query',
         templateUrl: 'views/search/list.html',
@@ -279,12 +295,15 @@ angular.module('winwinsApp', [
     ;
 
 
-    function loginRequired($q, $location, $auth, $state) {
+    function loginRequiredWinwinNew($q, $location, $auth, $state, $rootScope) {
         var deferred = $q.defer();
         if ($auth.isAuthenticated()) {
             deferred.resolve();
         } else {
-            console.dir($state);
+            $rootScope.returnState = {
+                state: 'winwin-new-redirect'
+            };
+
             $location.path('/signin');
         }
         return deferred.promise;
@@ -292,6 +311,10 @@ angular.module('winwinsApp', [
 
     
 })
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeBar = true;
+}])
 .config(function ($authProvider, api_host) {
 
     $authProvider.baseUrl = api_host+'/';
@@ -318,12 +341,37 @@ angular.module('winwinsApp', [
 })
 .config(function ($translateProvider) {
 
-    $translateProvider.useMissingTranslationHandlerLog();
+    //$translateProvider.useMissingTranslationHandlerLog();
 
     $translateProvider.useUrlLoader('/api/translation');
     $translateProvider.preferredLanguage('es_ES');
 
     //$translateProvider.useLocalStorage();
+
+})
+.config(function ($httpProvider) {
+    $httpProvider.interceptors.push(function($q, $translate) {
+      return {
+        'responseError': function(rejection) {
+            if(rejection && rejection.data && rejection.data.message) {
+                var mensaje = $translate('error.'+rejection.data.message);
+                $translate('error.'+rejection.data.message).then(function(message) {
+                    console.dir(message);
+                    swal({
+                        title: "ADVERTENCIA", 
+                        text: message,
+                        type: "warning",
+                        showCancelButton: false,
+                        closeOnConfirm: true 
+                    });
+                }).catch(function(err) {
+                });
+
+            }
+            return $q.reject(rejection);
+        }
+      };
+    });
 
 })
 .directive('ngEnter', function () {
@@ -378,7 +426,7 @@ angular.module('winwinsApp', [
         'background-attachment': attrs.backgroundAttachment,
         'background-origin': attrs.backgroundOrigin,
         'background-clip': attrs.backgroundClip,
-        'background': 'linear-gradient(rgba(0, 0, 0, 0.73), rgba(154, 148, 120, 0.0980392)),url(' + attrs.backgroundImage + ')',
+        'background': 'linear-gradient(rgba(0, 0, 0, 0.73), rgba(14, 14, 14, 0.419608)),url(' + attrs.backgroundImage + ')',
         'background-size': 'cover',
        });
       };
@@ -422,4 +470,19 @@ angular.module('winwinsApp', [
     }
   };
 }])
+.run(function($rootScope, $templateCache, $timeout) {
+    console.log('run');
+    $timeout(function() {
+        window.loading_screen.finish();
+    }, 2000);
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        if (typeof(current) !== 'undefined'){
+            $templateCache.remove(current.templateUrl);
+        }
+    });
+
+    $rootScope.$on('$viewContentLoaded', function() {
+        $templateCache.removeAll();
+    });
+})
 ;

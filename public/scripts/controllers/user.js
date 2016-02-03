@@ -16,9 +16,8 @@ angular.module('winwinsApp')
     };
 
 
-    $scope.follow = function(id) {
-        $http.get(api_host+'/api/users/follow/'+id).success(function(data) {
-            $scope.getUser();
+    $scope.follow = function(member) {
+        $http.get(api_host+'/api/users/follow/'+member.id).success(function(data) {
             swal({
                 title: "info", 
                 text: 'Siguiendo!', 
@@ -26,15 +25,20 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-        })
-        .error(function(error) {
+            $scope.view(member.id);
+        });
+    };
+
+    $scope.unfollow = function(member) {
+        $http.get(api_host+'/api/users/unfollow/'+member.id).success(function(data) {
             swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
+                title: "info", 
+                text: 'Dejaste de seguir', 
+                type: "info",
+                showcancelbutton: false,
+                closeonconfirm: true 
             });
+            member.already_following = false;
         });
     };
 
@@ -48,12 +52,12 @@ angular.module('winwinsApp')
     $scope.following = [];
 
     $scope.getUser = function() {
-        console.log('User id profile: '+$stateParams.userId);
         $scope.user = User.get({
             id: $stateParams.userId
         }, function(data) {
             $scope.user_detail = data;
             $scope.comments = data.comments;
+            $scope.notifications = data.notifications;
             $scope.followers = data.followers;
             $scope.following = data.following;
         });
@@ -71,15 +75,6 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -93,36 +88,17 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $scope.getUser();
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
 
     $scope.comment = new Post({});
     $scope.submitComment = function() {
-        console.log('submit');
         $http.post(api_host+'/api/users/'+$scope.user.id+'/comment',{
             content: $scope.comment.content
         }).success(function(data) {
             $scope.comments = data;
             $scope.comment = new Post({});
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -168,11 +144,13 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('ProfileCtrl', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Upload', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Upload, User, Account, api_host) {
+.controller('ProfileCtrl', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Upload, User, Account, api_host) {
 
     $scope.followers = [];
     $scope.following = [];
     $scope.comments = [];
+    $scope.notifications = [];
+    $scope.activities= [];
 
     $scope.is_admin = false;
 
@@ -194,6 +172,7 @@ angular.module('winwinsApp')
         }
     };
 
+    $scope.fellows = {};
     $scope.getUser = function() {
         Account.getProfile().then(function(response) {
             $scope.account = response.data;
@@ -204,7 +183,17 @@ angular.module('winwinsApp')
                 $scope.user_detail = user_data;
                 $scope.followers = user_data.followers;
                 $scope.following = user_data.following;
+                _.each($scope.following, function(item) {
+                    $scope.fellows[item.user_id] = item;
+                });
+            
                 $scope.comments = user_data.comments;
+                /*
+                $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
+                    return notification.id; 
+                });
+                $scope.notifications = $scope.notifications.reverse();
+                */
                 $scope.edit_user = user_data;
                 $scope.setup_components();
 
@@ -226,15 +215,6 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -248,15 +228,6 @@ angular.module('winwinsApp')
                 closeonconfirm: true 
             });
             $scope.getUser();
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -278,7 +249,6 @@ angular.module('winwinsApp')
     };
 
     $scope.viewUser = function(id) {
-        console.log('view user: '+id);
         $state.go('user-view', {
             userId: id
         }); 
@@ -331,20 +301,36 @@ angular.module('winwinsApp')
             }
         });
         */
+        /*
         $('#datetimepicker1').datetimepicker({
             maxDate: new Date(),
             format: 'DD - MM - YYYY'
         });
-        console.log($scope.edit_user.birthdate);
+        */
         //$('#datetimepicker1').data("DateTimePicker").date(new moment($scope.edit_user.birthdate));
 
+        $http.get(api_host+'/api/users/'+$scope.account.user.id+'/timeline').success(function(data) {
+            $scope.activities = data;
+        });
     };
 
+    $scope.subject = function(activity, type) {
+        if(activity.user_id == $scope.account.user.id) {
+            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOWING' ? 'Estás': 'Creaste');
+        } else {
+            if($scope.fellows[activity.user_id]) {
+                var fellow = $scope.fellows[activity.user_id];
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOWING' ? 'está': 'creó') );
+            }
+            return '';
+        }
+    };
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
         $scope.f = file;
         if (file && !file.$error) {
+            $scope.uploading = true;
             file.upload = Upload.upload({
                 url: '/api/me/upload',
                 file: file
@@ -371,38 +357,38 @@ angular.module('winwinsApp')
         }   
     };
 
-    $scope.uploading_cover = false;
     $scope.uploadFilesCover = function(file) {
         $scope.fc = file;
         if (file && !file.$error) {
+            $scope.uploading = true;
             file.upload = Upload.upload({
                 url: '/api/me/upload',
                 file: file
             });
 
             file.upload.then(function (response) {
-                $scope.uploading_cover = false;
+                $scope.uploading = false;
 
                 $timeout(function () {
                     file.result = response.data;
                     $scope.edit_user.cover_photo = response.data.filename;
                 });
             }, function (response) {
-                $scope.uploading_cover = false;
+                $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsgCover = response.status + ': ' + response.data;
                 }
             });
 
             file.upload.progress(function (evt) {
-                $scope.uploading_cover = true;
+                $scope.uploading = true;
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }   
     };
 
     $scope.saveProfile = function() {
-        $scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
+        //$scope.edit_user.birthdate = $('#datetimepicker1').data("DateTimePicker").date();
 
         $http.post(api_host+'/api/profile', $scope.edit_user)
         .success(function(data) {
@@ -414,16 +400,10 @@ angular.module('winwinsApp')
                 showcancelbutton: false,
                 closeonconfirm: true 
             });
-
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
+            $rootScope.profile_photo = $scope.edit_user.photo;
+            $scope.setCurrentView('home');
+            jQuery('#home_tab').tab('show');
+            jQuery("html, body").animate({ scrollTop: 1 }, 0);
         });
     };
 
@@ -431,8 +411,6 @@ angular.module('winwinsApp')
     $scope.setOption = function(key, value) {
     
         $scope.edit_user[key] = value;
-        console.log('Key: '+key+' - value: '+value);
-        console.log('user_edit: '+$scope.edit_user[key]);
     };
 
 
@@ -442,6 +420,7 @@ angular.module('winwinsApp')
             text: "Contanos tus motivos",
             type: "input",
             showCancelButton: true,
+                        animation: false, 
             closeOnConfirm: true,
             inputPlaceholder: "Mensaje de solicitud" 
         },
@@ -451,18 +430,84 @@ angular.module('winwinsApp')
             })
             .success(function(data) {
                 $state.go('cancel-account');
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
+        });
+    };
+
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
+
+
+}])
+.controller('user-winwins-own', ['$rootScope', '$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Upload', 'User', 'Account', 'api_host', function($rootScope, $scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Upload, User, Account, api_host) {
+
+    $scope.is_admin = false;
+    $scope.getUser = function() {
+        Account.getProfile().then(function(response) {
+            $scope.account = response.data;
+
+            User.get({
+                id: $scope.account.user.id
+            }, function(user_data) {
+                $scope.user_detail = user_data;
+                _.each($scope.user_detail.winwins, function(item) {
+                    item.owner = (item.user_id == $scope.account.user.id);
+                });
+                $timeout(function () {
+                    jQuery('.grid-winwins').isotope({
+                        itemSelector: '.winwin-item',
+                        masonry: {
+                            columnWidth: 380
+                        }
+                    });
+                });
+
+            });
+
+        });
+
+    };
+
+    $scope.getUser();
+
+    $scope.doFilter = function(filter_by) {
+        jQuery('.grid-winwins').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
+
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
         });
     };
 
@@ -479,6 +524,28 @@ angular.module('winwinsApp')
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {
 
+    $scope.notifications = [];
+
+    $scope.viewProfile = function(id) {
+        $state.go('user-view', {
+            userId: id
+        }); 
+    };
+
+    $scope.viewSponsor = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
+
+    $scope.viewWinwin = function(id) {
+        $state.go('winwin-view', {
+            winwinId: id
+        }); 
+    };
+
+
 
 
     $scope.getUser = function() {
@@ -489,6 +556,11 @@ angular.module('winwinsApp')
                 id: $scope.account.user.id
             }, function(user_data) {
                 $scope.user_detail = user_data;
+                $scope.notifications = _.sortBy(user_data.notifications, function(notification) {
+                    return notification.id; 
+                });
+
+                $scope.notifications = $scope.notifications.reverse();
             });
 
         });

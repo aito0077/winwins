@@ -2,7 +2,7 @@
 
 angular.module('winwinsApp')
 
-.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, Winwin, Account, api_host) {
+.controller('winwin-tabs', ['$scope','$http', '$state', '$sce', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', '$uibModal', '$rootScope', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $sce, $stateParams, $timeout, $anchorScroll, $location, $auth, $uibModal, $rootScope, Winwin, Account, api_host) {
 
 
     $scope.is_admin = false;
@@ -45,10 +45,10 @@ angular.module('winwinsApp')
             $scope.last = data.last;
         });
 
-    }
-
+    };
 
     $scope.winwin = {};
+
     $scope.getWinwin = function() {
         $scope.winwin = Winwin.get({
             id: $stateParams.winwinId
@@ -58,14 +58,28 @@ angular.module('winwinsApp')
             if($scope.winwin.is_moderator) {
                 $scope.isAdmin = true;
             }
-            //$scope.getPosts();
+
+            console.log($stateParams.actionJoin);
+            if($stateParams.actionJoin) {
+                $scope.join();
+            }
+
+            if($scope.winwin.status == 'SUCCESSFUL') {
+                $timeout(function() {
+                    $scope.setup_components(); 
+                }, 1000);
+
+            }
+
         });
-    }
+    };
+
 
     $scope.isSponsor = false;
     Account.getProfile().success(function(data) {
         if(data) {
 
+            $scope.user_id = data.user ? data.user.id : false;
             $scope.account = data.account;
             $scope.profile = data.profile;
             $scope.sponsor = data.sponsor;
@@ -87,13 +101,10 @@ angular.module('winwinsApp')
 
         if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
             $scope.duration_days = closing_date.diff(now, 'days');
-            console.log($scope.duration_days);
             $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-            console.log($scope.duration_hours);
             var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
             $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
 
-            console.log($scope.duration_minutes);
             $scope.show_closing_date = true;
         } else {
             if($scope.winwin.closing_date && !closing_date.isAfter(now) ) {
@@ -105,7 +116,6 @@ angular.module('winwinsApp')
     $scope.getWinwin();
 
     $scope.viewProfile = function(user_id) {
-        console.log('User id: '+user_id);
         $state.go('user-view', {
             userId: user_id
         }); 
@@ -121,17 +131,16 @@ angular.module('winwinsApp')
                     winwinName: $scope.winwin.title
                 }); 
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         } else {
+
+            $rootScope.returnState = {
+                state: 'ww-join',
+                parameters: {
+                    winwinId: $scope.winwin.id
+                }
+            };
+
             $state.go('signIn');
         }
     };
@@ -148,15 +157,6 @@ angular.module('winwinsApp')
                 winwinName: $scope.winwin.title
             }); 
 
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -171,8 +171,9 @@ angular.module('winwinsApp')
             inputPlaceholder: "Mensaje de solicitud" 
         },
         function(inputValue){   
-            if (inputValue === false) 
+            if (inputValue === false) {
                 return false;      
+            }
             if (inputValue === "") {     
                 return false;  
             }      
@@ -184,15 +185,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id,
                     winwinName: $scope.winwin.title
                 }); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -202,9 +194,6 @@ angular.module('winwinsApp')
     $scope.getIframeSrc = function (videoId) {
         return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId+'?autoplay=1');
     };
-
-    //$scope.setCurrentView('home');
-
 
     $scope.openMailModal = function(winwin) {
         $scope.toShare = winwin;
@@ -225,21 +214,166 @@ angular.module('winwinsApp')
     };
 
 
-}])
-.controller('ModalMailCtrl', function ($scope, $uibModalInstance, $http, $timeout, api_host, toShare, mails) {
+    $scope.setup_components = function() {
+        jQuery.fn.rating = function () {
+            var element;
+            function _paintValue(ratingInput, value, active_icon, inactive_icon) {
+                var selectedStar = jQuery(ratingInput).find('[data-value="' + value + '"]');
+                selectedStar.removeClass(inactive_icon).addClass(active_icon);
+                selectedStar.prevAll('[data-value]').removeClass(inactive_icon).addClass(active_icon);
+                selectedStar.nextAll('[data-value]').removeClass(active_icon).addClass(inactive_icon);
+            }
 
-    $scope.toShare = toShare;
-    $scope.success = false;
-    $scope.mails = [];
+            function _clearValue(ratingInput, active_icon, inactive_icon) {
+                var self = jQuery(ratingInput);
+                self.find('[data-value]').removeClass(active_icon).addClass(inactive_icon);
+            }
 
-    $scope.sentInvitations = function() {
-        $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
-            mails: $scope.mails
-        }).success(function(data) {
-            $uibModalInstance.close();
+            function _updateValue(input, val) {
+                input.val(val).trigger('change');
+                if (val === input.data('empty-value')) {
+                    input.siblings('.rating-clear').hide();
+                } else {
+                    input.siblings('.rating-clear').show();
+                }
+            }
+
+            for (element = this.length - 1; element >= 0; element--) {
+                var el, i,
+                    originalInput = jQuery(this[element]),
+                    max = originalInput.data('max') || 5,
+                    min = originalInput.data('min') || 0,
+                    def_val = originalInput.val() || 0,
+                    lib = originalInput.data('icon-lib') || 'glyphicon',
+                    active = originalInput.data('active-icon') || 'glyphicon-star',
+                    inactive = originalInput.data('inactive-icon') || 'glyphicon-star-empty',
+                    clearable = originalInput.data('clearable') || null,
+                    clearable_i = originalInput.data('clearable-icon') || 'glyphicon-remove',
+                    stars = '';
+
+                for (i = min; i <= max; i++) {
+                    if(i  <= def_val) {
+                        stars += ['<i class="',lib, ' ', active, '" data-value="', i, '"></i>'].join('');
+                    } else {
+                        stars += ['<i class="',lib, ' ', inactive, '" data-value="', i, '"></i>'].join('')
+                    }
+                }
+
+                if (clearable) {
+                    stars += [
+                    ' <a class="rating-clear" style="display:none;" href="javascript:void">',
+                    '<span class="',lib,' ',clearable_i,'"></span> ',
+                    clearable,
+                    '</a>'].join('');
+                }
+
+                var newInput = originalInput.clone(true)
+                    .addClass('hidden')
+                    .data('max', max)
+                    .data('min', min)
+                    .data('icon-lib', lib)
+                    .data('active-icon', active)
+                    .data('inactive-icon', inactive);
+
+                el = [
+                    '<div class="rating-input">',
+                    stars,
+                    '</div>'].join('');
+
+                if (originalInput.parents('.rating-input').length <= 0) {
+                    originalInput.replaceWith(jQuery(el).append(newInput));
+                }
+
+            }
+
+            jQuery('.rating-input')
+            .on('mouseenter', '[data-value]', function () {
+                var self = jQuery(this),
+                input = self.siblings('input');
+                _paintValue(self.closest('.rating-input'), self.data('value'), input.data('active-icon'), input.data('inactive-icon'));
+            })
+            .on('mouseleave', '[data-value]', function () {
+                var self = jQuery(this),
+                    input = self.siblings('input'),
+                    val = input.val(),
+                    min = input.data('min'),
+                    max = input.data('max'),
+                    active = input.data('active-icon'),
+                    inactive = input.data('inactive-icon');
+                if (val >= min && val <= max) {
+                    _paintValue(self.closest('.rating-input'), val, active, inactive);
+                } else {
+                    _clearValue(self.closest('.rating-input'), active, inactive);
+                }
+            })
+            .on('click', '[data-value]', function (e) {
+                var self = jQuery(this),
+                    val = self.data('value'),
+                    input = self.siblings('input');
+                _updateValue(input,val);
+                e.preventDefault();
+                return false;
+            })
+            .on('click', '.rating-clear', function (e) {
+                var self = jQuery(this),
+                    input = self.siblings('input'),
+                    active = input.data('active-icon'),
+                    inactive = input.data('inactive-icon');
+
+                _updateValue(input, input.data('empty-value'));
+                _clearValue(self.closest('.rating-input'), active, inactive);
+                e.preventDefault();
+                return false;
+            })
+            .each(function () {
+                var input = jQuery(this).find('input'),
+                val = input.val(),
+                min = input.data('min'),
+                max = input.data('max');
+                if (val !== "" && +val >= min && +val <= max) {
+                    _paintValue(this, val);
+                    jQuery(this).find('.rating-clear').show();
+                } else {
+                    input.val(input.data('empty-value'));
+                    _clearValue(this);
+                }
+            });
+
+        };
+
+        jQuery('#review').rating();
+
+        jQuery('#review').on('change', function(val, val2){
+            $scope.winwin_rate = jQuery('#review').val();
+            $scope.$apply();
+            $scope.rateIt();
         });
     };
-})
+
+    $scope.rateIt = function() {
+        $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/rate',{
+            rate: $scope.winwin_rate
+        }).success(function(data) {
+            $scope.winwin.already_rated = true;
+        });
+
+    };
+
+    $scope.formattedCategories = function(categories) {
+        if(categories) {
+            return _.pluck(categories, 'description').join('\n');
+        }
+        return '';
+    };
+
+    $scope.viewSponsor = function(id) {
+        $state.go('sponsor-view', {
+            sponsorId: id
+        }); 
+    };
+
+}])
+
 .controller('winwin-left', ['$scope','$http', '$state', '$stateParams', '$timeout', 'Winwin', function($scope, $http, $state, $stateParams, $timeout, Winwin) {
 
     $scope.getWinwin = function() {
@@ -248,9 +382,7 @@ angular.module('winwinsApp')
         }, function(data) {
             $scope.title = data.title;
             $timeout(function() {
-                $state.go('winwin-view', {
-                    winwinId: $stateParams.winwinId
-                }); 
+                $state.go('main'); 
             }, 1000);
 
         });
@@ -299,148 +431,10 @@ angular.module('winwinsApp')
     
 
 }])
-.controller('winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
-
-        $scope.winwin_view = true;
-
-        $scope.show_closing_date = false;
-        $scope.show_description = false;
-
-        $scope.show_details = function(show) {
-            $scope.show_description = show;
-        };
-
-        $scope.posts = [];
-        $scope.last = {};
-
-        $scope.getPosts = function() {
-            $http.get(api_host+'/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
-                $scope.posts = data.posts;
-                $scope.last = data.last;
-            });
-
-        }
-
-
-        $scope.winwin = {};
-        $scope.getWinwin = function() {
-            $scope.winwin = Winwin.get({
-                id: $stateParams.winwinId
-            }, function(data) {
-                $scope.winwin = data;
-                $scope.calculate_time();
-                //$scope.getPosts();
-            });
-        }
-
-        $scope.isSponsor = false;
-        Account.getProfile().success(function(data) {
-            if(data) {
-
-                $scope.account = data.account;
-                $scope.profile = data.profile;
-                $scope.isSponsor = data.sponsor;
-            }
-        });
-
-
-
-        $scope.duration_days = 0;
-        $scope.duration_hours = 0;
-        $scope.duration_minutes = 0;
-
-        $scope.calculate_time = function() {
-            var now = moment(),
-                closing_date = moment($scope.winwin.closing_date);
-
-            $scope.show_closing_date = false;
-
-            if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
-                $scope.duration_days = closing_date.diff(now, 'days');
-                console.log($scope.duration_days);
-                $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-                console.log($scope.duration_hours);
-                var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
-                $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
-
-                console.log($scope.duration_minutes);
-                $scope.show_closing_date = true;
-            }
-        };
-
-        $scope.getWinwin();
-
-        $scope.viewProfile = function(user_id) {
-            console.log('User id: '+user_id);
-            $state.go('user-view', {
-                userId: user_id
-            }); 
-
-        };
-
-        $scope.join = function() {
-            if($auth.isAuthenticated()) {
-                $http.get(api_host+'/api/winwins/join/'+$scope.winwin.id).success(function(data) {
-                    //ToDo: Te uniste
-                    $scope.getWinwin();
-                    swal({
-                        title: "info", 
-                        text: 'Te has unido al Winwin', 
-                        type: "info",
-                        showcancelbutton: false,
-                        closeonconfirm: true 
-                    });
-
-                })
-                .error(function(error) {
-                    swal({
-                        title: "ADVERTENCIA", 
-                        text: error.message, 
-                        type: "warning",
-                        showCancelButton: false,
-                        closeOnConfirm: true 
-                    });
-                });
-            } else {
-                $state.go('signIn');
-            }
-        };
-
-        $scope.pass = function() {
-            $state.go('winwin-list'); 
-        };
-
-        $scope.left = function() {
-            $http.get(api_host+'/api/winwins/left/'+$scope.winwin.id).success(function(data) {
-                //ToDo: dejaste el ww
-                $scope.getWinwin();
-                swal({
-                    title: "info", 
-                    text: 'Has dejado el Winwin', 
-                    type: "info",
-                    showcancelbutton: false,
-                    closeonconfirm: true 
-                });
-
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
-            });
-        };
-
-
-
-}])
 .controller('winwin-edit', function($scope, $state, $auth, $timeout, Upload, Winwin, Interest, api_host) {
     $scope.winwin = new Winwin({});
     $scope.interests = [];
-    $scope.scopes = [ 'GLOBAL','REGION','COUNTRY','STATE','CITY' ];
+    $scope.scopes = [ 'GLOBAL','LOCAL'];
 
     $scope.first_stage = true;
     $scope.second_stage = false;
@@ -450,12 +444,37 @@ angular.module('winwinsApp')
     $scope.setup_components = function() {
         jQuery('[data-toggle="popover"]').popover();
         jQuery('[data-toggle="tooltip"]').tooltip()
-        jQuery('#datetimepicker1').datetimepicker({
-            minDate: new Date(),
-            format: 'DD - MM - YYYY'
+
+        jQuery('.datepicker').pickadate({
+            min: true,
+            closeOnSelect: true,
+            selectMonths: true,
+            selectYears: 15,
+            onSet: function () {
+                this.close();
+            }
         });
+        jQuery('input#input_text, textarea#textarea1').characterCounter();
+        jQuery('input#input_text, textarea#textarea2').characterCounter();
+        jQuery('.modal-trigger').leanModal();
 
     };
+
+    $scope.setup_geo_component = function () {
+        var input = document.getElementById('winwin_location'),
+        options = {
+            types: ['address']
+        };
+        var searchBox = new google.maps.places.Autocomplete(input, options);
+
+        searchBox.addListener('place_changed', function() {
+            var place = searchBox.getPlace();
+            $scope.winwin.location = _.extend(place, {
+                coordinates: place.geometry.location.toJSON()
+            });
+        });
+    };
+
 
     $timeout(function() {
         $scope.setup_components();
@@ -467,7 +486,6 @@ angular.module('winwinsApp')
 
 
     $scope.doValidateBasic = function() {
-        $scope.winwin.closing_date =  $('#datetimepicker1').data("DateTimePicker").date();
         return true;
     };
 
@@ -479,18 +497,16 @@ angular.module('winwinsApp')
 
 
     $scope.persistBasic = function() {
-        console.log('persist basic');
         if($scope.doValidateBasic()) {
             $scope.first_stage = false;
             $scope.second_stage = true;
-            console.log('First Stage: '+$scope.first_stage);
             console.log('Second Stage: '+$scope.second_stage);
             $("html, body").animate({ scrollTop: 1 }, 0);
+            $scope.setup_geo_component();
         }
     }
 
     $scope.doSave = function() {
-        console.log('do save');
         if($scope.doValidateWinwin()) {
             $scope.saving = true;
             $scope.winwin.$save(function(data) {
@@ -503,7 +519,6 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
         $scope.f = file;
         if (file && !file.$error) {
             file.upload = Upload.upload({
@@ -512,7 +527,6 @@ angular.module('winwinsApp')
             });
 
             file.upload.then(function (response) {
-                console.log('success...');
                 $scope.uploading = false;
 
                 $timeout(function () {
@@ -521,14 +535,12 @@ angular.module('winwinsApp')
                     $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.winwin.image;
                 });
             }, function (response) {
-                console.log('error...');
                 $scope.uploading = false;
                 if (response.status > 0) {
                     $scope.errorMsg = response.status + ': ' + response.data;
-                    console.log($scope.errorMsg);
                     swal({
                         title: "Error", 
-                        text: $scope.errorMsg,
+                        text: 'Error al subir archivo', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
@@ -538,7 +550,6 @@ angular.module('winwinsApp')
             });
 
             file.upload.progress(function (evt) {
-                console.log('progress...');
                 $scope.uploading = true;
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
@@ -561,7 +572,6 @@ angular.module('winwinsApp')
     }
 
     $scope.setVideoUrl = function() {
-        console.log('set video');
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
@@ -578,7 +588,6 @@ angular.module('winwinsApp')
                         $scope.preview_image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
                     });
                 } else {
-                    console.log('Wrong url');
                 }
             }
         });
@@ -590,8 +599,9 @@ angular.module('winwinsApp')
         $scope.gallery_picker = !$scope.gallery_picker;
         
         if(!$scope.image_gallery_selected) {
-            $('#image-gallery').imagepicker({
+            jQuery('#image-gallery').imagepicker({
                 changed: function(old, new_value) {
+                    $scope.image_gallery_selected = new_value;
                     $scope.$apply(function(){
                         $scope.gallery_picker = false;
                     });
@@ -602,7 +612,6 @@ angular.module('winwinsApp')
 
     $scope.preview_image = '';
     $scope.$watch('image_gallery_selected', function() {
-        console.log('image selected');
         if($scope.image_gallery_selected) {
             $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.image_gallery_selected;
             $scope.$apply();
@@ -630,8 +639,6 @@ angular.module('winwinsApp')
     });
 
     $scope.submitPost = function() {
-        console.log('submit');
-        console.dir($scope.post);
         $scope.post.$save(function(data) {
             $http.get(api_host+'/api/winwins/activate/'+$scope.winwin.id).success(function(data) {
                 //$scope.ww_saved = true;
@@ -641,15 +648,6 @@ angular.module('winwinsApp')
                         winwinId: $scope.winwin.id
                     }); 
                 //}, 1000);
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         
         });
@@ -667,7 +665,6 @@ angular.module('winwinsApp')
     }
 
     $scope.setVideoUrl = function() {
-        console.log('set video');
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
@@ -685,7 +682,6 @@ angular.module('winwinsApp')
                         $scope.post.media_path = result;
                     });
                 } else {
-                    console.log('Wrong url');
                     swal({
                         title: "Incorrecto", 
                         text: "La direccion ingresada no es correcta", 
@@ -703,9 +699,7 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
         $scope.f = file;
-        console.log(file.$error);
         if (file && !file.$error) {
             console.log('enviando...');
             file.upload = Upload.upload({
@@ -741,7 +735,7 @@ angular.module('winwinsApp')
 
 
 }])
-.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', '$timeout', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, $timeout, Winwin, Account) {
+.controller('winwin-promote', ['$scope', '$stateParams', '$http', '$state', '$timeout', '$uibModal', 'Winwin', 'Account', function($scope, $stateParams, $http, $state, $timeout, $uibModal, Winwin, Account) {
     $scope.profile = {};
     $scope.winwin = {};
 
@@ -768,36 +762,73 @@ angular.module('winwinsApp')
     $scope.promote = true;
     $scope.success = false;
 
+
+    $scope.openMailModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'myMailShare.html',
+            controller: 'ModalMailCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                },
+                mails: function () {
+                    return {};
+                }
+            }
+        });
+    };
+
+
+
+
 }])
-.controller('winwin-list', ['$scope', '$http', '$auth', '$state', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, WinwinPaginate, api_host) {
+.controller('winwin-list', ['$scope', '$http', '$auth', '$state', '$uibModal', '$timeout', 'Interest', 'WinwinPaginate', 'api_host', function($scope, $http, $auth, $state, $uibModal, $timeout, Interest, WinwinPaginate, api_host) {
    
     $scope.winwins = new WinwinPaginate();
+    $scope.interests = [];
+    $scope.filters = [];
+    Interest.query(function(data) {
+        $scope.interests = data;
+    });
+
+    $timeout(function () {
+        jQuery('.grid-winwins').isotope({
+            itemSelector: '.winwin-item',
+            masonry: {
+                columnWidth: 380
+            }
+        });
+    }, 3000);
+
+
+
+    $scope.doCategoryFilter = function() {
+        console.log('.'+$scope.filters.join('.')); 
+        jQuery('.grid-winwins').isotope({ filter: $scope.filters.length == 0 ? '*' : '.'+$scope.filters.join('.')});
+    }
 
     $scope.doFilter = function(filter) {
         console.log(filter);
+        $scope.winwins.setFilter(filter);
+        $scope.winwins.nextPage();
     };
 
     $scope.join = function(winwin_id) {
         if($auth.isAuthenticated()) {
             $http.get(api_host+'/api/winwins/join/'+winwin_id).success(function(data) {
                 swal({
-                    title: "info", 
-                    text: 'Te has unido al Winwin', 
+                    title: "Genial!", 
+                    text: 'Te uniste', 
                     type: "info",
                     showcancelbutton: false,
+                    animation: false, 
                     closeonconfirm: true 
                 });
                 $scope.view(winwin_id);
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         } else {
             $state.go('signIn');
@@ -812,6 +843,20 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
 
 
 }])
@@ -827,9 +872,6 @@ angular.module('winwinsApp')
                 })
                 .success(function(data) {
                     $scope.winwins = data;
-                })
-                .error(function(error) {
-                    //ToDo: error
                 });
         };
 
@@ -873,15 +915,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
             }, 1000);
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -896,15 +929,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id
                 }, {reload: true}); 
             }, 1000);
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -913,26 +937,21 @@ angular.module('winwinsApp')
     $scope.follow = function(participante) {
         $http.get(api_host+'/api/users/follow/'+participante.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Siguiendo!', 
+                title: "Siguiendo!", 
+                text: 'Ahora estas siguiendo a este miembro.!', 
                 type: "info",
                 showcancelbutton: false,
+                animation: false, 
                 closeonconfirm: true 
             });
-            participante.following = true;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
+            $state.go('user-view', {
+                userId: participante.id
+            }); 
+
         });
     };
 
-    $scope.view = function(participante) {
+    $scope.viewParticipante = function(participante) {
         $state.go('user-view', {
             userId: participante.id
         }); 
@@ -941,22 +960,15 @@ angular.module('winwinsApp')
     $scope.unfollow = function(participante) {
         $http.get(api_host+'/api/users/unfollow/'+participante.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Has dejado de seguir al usuario', 
+                title: "Ok!", 
+                text: 'Dejaste de seguir a este miembro', 
                 type: "info",
                 showcancelbutton: false,
+                animation: false, 
                 closeonconfirm: true 
             });
             participante.following = false;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
+            participante.followers_amount = participante.followers_amount - 1;
         });
     };
 
@@ -1002,22 +1014,14 @@ angular.module('winwinsApp')
     $scope.follow = function(sponsor) {
         $http.get(api_host+'/api/sponsors/follow/'+sponsor.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Siguiendo!', 
+                title: "OK!", 
+                text: 'Ya estas siguiendo a este miembro.!', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             sponsor.following = true;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1030,22 +1034,14 @@ angular.module('winwinsApp')
     $scope.unfollow = function(sponsor) {
         $http.get(api_host+'/api/users/unfollow/'+sponsor.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Has dejado de seguir al usuario', 
+                title: "Ok!", 
+                text: 'Dejaste de seguir a este winwin-miembros', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             sponsor.following = false;
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1113,15 +1109,6 @@ angular.module('winwinsApp')
                     winwinId: $scope.winwin.id,
                     winwinName: $scope.winwin.title
                 }); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -1175,15 +1162,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1201,16 +1179,50 @@ angular.module('winwinsApp')
 
     $scope.winwin = {};
     $scope.getWinwin = function() {
+        console.log('Winwin fetch');
         $scope.winwin = Winwin.get({
             id: $stateParams.winwinId
         }, function(data) {
             $scope.winwin = data;
+            $scope.polls = $scope.winwin.polls;
+            $scope.loadPolls();
             $scope.getPosts();
         });
     }
 
 
+    $scope.loadPolls = function() {
+        _.each($scope.polls, function(poll) {
+            $http.get(api_host+'/api/polls/'+poll.id).success(function(data) {
+                poll.data = data;
+                poll.data.loaded = true;
+            });
+        });
+    };
+
+    $scope.selectAnswer = function(poll, answer) {
+       poll.selected_answer = answer.id; 
+    };
+
+    $scope.percentage_votes = function(poll, answer) {
+        if(!poll.data.total_votes) {
+            return 0;
+        }
+        var result = (answer.vote_count * 100 / poll.data.total_votes);
+        return result;
+    };
+
+    $scope.votePoll = function(poll) {
+        $http.post(api_host+'/api/poll/'+poll.id+'/vote/'+poll.selected_answer,{
+            positive: true 
+        }).success(function(data) {
+            $scope.loadPolls();
+        });
+ 
+    };
+
     $scope.getPosts = function() {
+        console.log('get posts');
         $http.get(api_host+'/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
             $scope.posts = data.posts;
             $scope.last = data.last;
@@ -1242,7 +1254,7 @@ angular.module('winwinsApp')
         console.log('set video');
         swal({
             title: "Video Link", 
-            text: "Ingresa dirección de video:", 
+            text: "Ingresa dirección URL de video:", 
             type: "input",
             inputType: "url",
             showCancelButton: true,
@@ -1275,10 +1287,11 @@ angular.module('winwinsApp')
 
     $scope.uploading = false;
     $scope.uploadFiles = function(file) {
-        console.dir(file);
+        $scope.post.media_type  = 'IMAGE';
         $scope.f = file;
         console.log(file.$error);
         if (file && !file.$error) {
+            $scope.uploading = true;
             console.log('enviando...');
             file.upload = Upload.upload({
                 url: api_host+'/api/posts/upload',
@@ -1291,9 +1304,11 @@ angular.module('winwinsApp')
 
                 $timeout(function () {
                     file.result = response.data;
-                    $scope.post.media_id = response.data.media_id;
-                    $scope.post.media_type  = 'IMAGE';
-                    $scope.post.media_path = response.data.filename;
+                    $scope.$apply(function(){
+                        $scope.post.media_id = response.data.media_id;
+                        $scope.post.media_type  = 'IMAGE';
+                        $scope.post.media_path = response.data.filename;
+                    });
                 });
             }, function (response) {
                 console.log('error...');
@@ -1328,10 +1343,11 @@ angular.module('winwinsApp')
         $scope.post.$save(function(data) {
             $scope.sendingPost = false;
             swal({
-                title: "Info", 
-                text: 'Post enviado!', 
+                title: "Buenisimo", 
+                text: 'Post publicado!', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             $scope.normal_size = true;
@@ -1360,15 +1376,6 @@ angular.module('winwinsApp')
             positive: positive
         }).success(function(data) {
             $scope.getPosts();
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1414,8 +1421,49 @@ angular.module('winwinsApp')
             }
         });
     };
+
+    $scope.setSticky = function(item_post) {
+        $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
+            sticky: true
+        }).success(function(data) {
+            $scope.getPosts();
+        });
+
+    };
+    
+    $scope.unSticky = function(item_post) {
+        $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
+            sticky: false
+        }).success(function(data) {
+            $scope.getPosts();
+        });
+
+    };
+ 
+    $scope.removePost = function(item_post) {
+        swal({   
+            title: "Atención!",   
+            text: "Está seguro que desea eliminar el post?",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Eliminar",   
+            cancelButtonText: "Cancelar",   
+            closeOnConfirm: false 
+        }, function(){   
+            $http.post(api_host+'/api/posts/'+item_post.id+'/remove',{
+                sticky: false
+            }).success(function(data) {
+                swal("Eliminado!", "El post ha sido eliminado.", "success");
+                $scope.getPosts();
+            });
+        });
+    };
+
+
+
 }])
-.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, api_host, post, Post, Upload) {
+.controller('CommentCtrl', function ($scope, $uibModalInstance, $http, $sce, $timeout, api_host, post, Post, Upload) {
 
     $scope.post = post;
 
@@ -1438,16 +1486,6 @@ angular.module('winwinsApp')
             $scope.post = data;
             $scope.comment = new Post({});
             $uibModalInstance.close(true);
-        })
-        .error(function(error) {
-            $scope.sendingPost = false;
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     };
 
@@ -1550,15 +1588,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1583,15 +1612,6 @@ angular.module('winwinsApp')
                 }, {reload: true}); 
             }, 1000);
 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1612,24 +1632,16 @@ angular.module('winwinsApp')
         )
         .success(function(data) {
             swal({
-                title: "Info", 
-                text: 'Solicitud al sponsor enviada', 
+                title: "Solicitud Enviada", 
+                text: 'Se envio con exito la solicitud. Exitos!', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
             $state.go('winwin-view', {
                 winwinId: $scope.winwin.id
             }); 
-        })
-        .error(function(error) {
-            swal({
-                title: "Error", 
-                text: error.message, 
-                type: "warning",
-                showCancelButton: false,
-                closeOnConfirm: true 
-            });
         });
     }
  
@@ -1649,14 +1661,13 @@ angular.module('winwinsApp')
             $scope.winwin.notification_new_sponsor = true;
             $scope.winwin.notification_closing_date = true;
         }
-        console.dir($scope.winwin);
     };
 
     $scope.updateNotifications = function() {
         $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/notifications', {
             notification_user_post: $scope.winwin.notification_user_post,
             notification_new_participant: $scope.winwin.notification_new_participant,
-            notification_new : $scope.winwin.notification_new_poll,
+            notification_new_poll: $scope.winwin.notification_new_poll,
             notification_announce: $scope.winwin.notification_announce,
             notification_new_sponsor: $scope.winwin.notification_new_sponsor,
             notification_closing_date: $scope.winwin.notification_closing_date
@@ -1667,6 +1678,7 @@ angular.module('winwinsApp')
                 text: 'Notificaciones actualizadas', 
                 type: "info",
                 showcancelbutton: false,
+                        animation: false, 
                 closeonconfirm: true 
             });
 
@@ -1700,15 +1712,6 @@ angular.module('winwinsApp')
                     closeOnConfirm: true 
                 });
                 $state.go('main'); 
-            })
-            .error(function(error) {
-                swal({
-                    title: "Error", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
             return true;
 
@@ -1717,281 +1720,235 @@ angular.module('winwinsApp')
     };
 
 }])
-.controller('back_winwin-view', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', '$auth', 'Winwin', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, $auth, Winwin, Account, api_host) {
+.controller('ModalMailCtrl', function ($scope, $uibModalInstance, $http, $timeout, api_host, toShare, mails) {
 
-        $scope.show_closing_date = false;
-        $scope.show_description = false;
+    $scope.toShare = toShare;
+    $scope.success = false;
+    $scope.mails = [];
+    $scope.current_mail = '';
 
-        $scope.show_details = function(show) {
-            $scope.show_description = show;
-        };
-
-        $scope.posts = [];
-        $scope.last = {};
-
-        $scope.getPosts = function() {
-            $http.get(api_host+'/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
-                $scope.posts = data.posts;
-                $scope.last = data.last;
-            });
-
+    $scope.addMail = function() {
+        if(!$scope.current_mail) {
+            return;
         }
-
-
-        $scope.winwin = {};
-        $scope.getWinwin = function() {
-            $scope.winwin = Winwin.get({
-                id: $stateParams.winwinId
-            }, function(data) {
-                $scope.winwin = data;
-                $scope.calculate_time();
-                $scope.getPosts();
-            });
+        if($scope.matchEmail($scope.current_mail)) {
+            $scope.mails.push($scope.current_mail);
+            $scope.current_mail = ''; 
         }
+    };
+    $scope.removeMail = function(mail) {
+        $scope.mails = _.without($scope.mails, mail);
+    };
 
-        $scope.isSponsor = false;
-        Account.getProfile().success(function(data) {
-            if(data) {
+    $scope.sentInvitations = function() {
+        $scope.addMail();
 
-                $scope.account = data.account;
-                $scope.profile = data.profile;
-                $scope.isSponsor = data.sponsor;
-            }
+        if($scope.mails.length) {
+            $http.post(api_host+'/api/winwins/'+$scope.toShare.id+'/share/mails', {
+                mails: $scope.mails
+            }).success(function(data) {
+                $scope.success = true;
+                $timeout(function() {
+                    $uibModalInstance.close();
+                }, 2000);
+            });
+        } else {
+            $uibModalInstance.close();
+        }
+    };
+
+    $scope.matchEmail = function(email){
+        var p = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        return (email.match(p));
+    }
+
+})
+.controller('winwin-modify', function($scope, $state, $stateParams, $http, $auth, $timeout, Upload, Winwin, Interest, api_host) {
+    $scope.interests = [];
+    $scope.scopes = ['GLOBAL','LOCAL'];
+    $scope.preview_image = '';
+
+    $scope.ewinwin = {};
+
+
+    $scope.getWinwin = function() {
+        $scope.ewinwin = Winwin.get({
+            id: $stateParams.winwinId
+        }, function(data) {
+            $scope.ewinwin = data;
+            $scope.setup_components();
+        });
+    }
+
+
+
+    $scope.getWinwin();
+
+    $scope.setup_components = function() {
+        Interest.query(function(data) {
+            $scope.interests = data;
         });
 
+        $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.ewinwin.image;
 
 
-        $scope.duration_days = 0;
-        $scope.duration_hours = 0;
-        $scope.duration_minutes = 0;
+        jQuery('[data-toggle="popover"]').popover();
+        jQuery('[data-toggle="tooltip"]').tooltip()
 
-        $scope.calculate_time = function() {
-            var now = moment(),
-                closing_date = moment($scope.winwin.closing_date);
+        jQuery('#picker_closing_date').pickadate({
+            selectMonths: true,
+            selectYears: 15
+        });
+        jQuery('#picker_closing_date').pickadate().pickadate('picker').set('select', $scope.ewinwin.closing_date);
+        jQuery('#what_we_do_textarea').val($scope.ewinwin.what_we_do);
+        jQuery('#description_textarea').val($scope.ewinwin.description);
 
-            $scope.show_closing_date = false;
+        $scope.setup_geo_component();
+        
+    };
 
-            if($scope.winwin.closing_date && closing_date.isAfter(now) ) {
-                $scope.duration_days = closing_date.diff(now, 'days');
-                console.log($scope.duration_days);
-                $scope.duration_hours = closing_date.diff(now.add($scope.duration_days, 'days'), 'hours');
-                console.log($scope.duration_hours);
-                var duration_minutes = closing_date.diff(now.add($scope.duration_days, 'days').add($scope.duration_hours, 'hours'), 'minutes');
-                $scope.duration_minutes = duration_minutes < 0 ? 0 : duration_minutes;
-
-                console.log($scope.duration_minutes);
-                $scope.show_closing_date = true;
-            }
+    $scope.setup_geo_component = function () {
+        var input = document.getElementById('winwin_location'),
+        options = {
+            types: ['address']
         };
+        var searchBox = new google.maps.places.Autocomplete(input, options);
 
-        $scope.getWinwin();
+        searchBox.addListener('place_changed', function() {
+            var place = searchBox.getPlace();
+            $scope.ewinwin.location = _.extend(place, {
+                coordinates: place.geometry.location.toJSON()
+            });
+        });
+    };
 
-        $scope.viewProfile = function(user_id) {
-            console.log('User id: '+user_id);
-            $state.go('user-view', {
-                userId: user_id
-            }); 
 
-        };
 
-        $scope.join = function() {
-            if($auth.isAuthenticated()) {
-                $http.get(api_host+'/api/winwins/join/'+$scope.winwin.id).success(function(data) {
-                    //ToDo: Te uniste
-                    $scope.getWinwin();
+    $scope.doValidateWinwin = function() {
+        return true && !$scope.saving;
+    };
+
+    $scope.updateWinwin = function() {
+        if($scope.doValidateWinwin()) {
+            $scope.saving = true;
+            $http.post(api_host+'/api/winwins/'+$scope.ewinwin.id, $scope.ewinwin)
+            .success(function(data) {
+                swal({
+                    title: "Ok!", 
+                    text: 'Los datos han sido actualizados', 
+                    type: "info",
+                    showcancelbutton: false,
+                    animation: false, 
+                    closeonconfirm: true 
+                });
+                $scope.saving = false;
+            });
+
+        }
+    };
+
+    $scope.uploading = false;
+    $scope.uploadFiles = function(file) {
+        $scope.f = file;
+        if (file && !file.$error) {
+            file.upload = Upload.upload({
+                url: api_host+'/api/winwins/upload',
+                file: file
+            });
+
+            file.upload.then(function (response) {
+                $scope.uploading = false;
+
+                $timeout(function () {
+                    file.result = response.data;
+                    $scope.ewinwin.image = response.data.filename;
+                    $scope.preview_image = 'http://images.dev-winwins.net/smart/'+$scope.ewinwin.image;
+                });
+            }, function (response) {
+                $scope.uploading = false;
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
                     swal({
-                        title: "info", 
-                        text: 'Te has unido al Winwin', 
-                        type: "info",
-                        showcancelbutton: false,
-                        closeonconfirm: true 
-                    });
-
-                })
-                .error(function(error) {
-                    swal({
-                        title: "ADVERTENCIA", 
-                        text: error.message, 
+                        title: "Error", 
+                        text: 'Error al subir archivo', 
                         type: "warning",
                         showCancelButton: false,
                         closeOnConfirm: true 
                     });
-                });
-            } else {
-                $state.go('signIn');
-            }
-        };
 
-        $scope.pass = function() {
-            $state.go('winwin-list'); 
-        };
-
-        $scope.left = function() {
-            $http.get(api_host+'/api/winwins/left/'+$scope.winwin.id).success(function(data) {
-                //ToDo: dejaste el ww
-                $scope.getWinwin();
-                swal({
-                    title: "info", 
-                    text: 'Dejaste el Winwin', 
-                    type: "info",
-                    showcancelbutton: false,
-                    closeonconfirm: true 
-                });
-
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
+                }
             });
-        };
-        $scope.first_view = true;
-        $scope.up_down = true;
 
-        $scope.setup_components = function() {
+            file.upload.progress(function (evt) {
+                $scope.uploading = true;
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }   
+        if (file.$error == 'maxSize') {
+            swal({
+                title: "Error", 
+                text: "La imagen es demasiado grande",
+                type: "warning",
+                showCancelButton: false,
+                closeOnConfirm: true 
+            });
+        }
+    };
+
+
+    $scope.matchYoutubeUrl = function(url){
+        var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        return (url.match(p)) ? RegExp.$1 : false ;
+    }
+
+    $scope.setVideoUrl = function() {
+        swal({
+            title: "Video Link", 
+            text: "Ingresa dirección de video:", 
+            type: "input",
+            inputType: "url",
+            showCancelButton: true,
+            closeOnConfirm: true 
+        }, function(inputValue) {
+            if(inputValue) {
+                var result = $scope.matchYoutubeUrl(inputValue);
+                if(result) {
+                    $scope.$apply(function(){
+                        $scope.ewinwin.video = result;
+                        $scope.ewinwin.image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
+                        $scope.preview_image = 'http://img.youtube.com/vi/'+result+'/default.jpg';
+                    });
+                } else {
+                }
+            }
+        });
+    };
+
+    $scope.gallery_picker = false;
+
+    $scope.select_gallery = function() {
+        $scope.gallery_picker = !$scope.gallery_picker;
         
-            var scope = $scope;
-            $timeout(function() {
-                scope.view_height = $('winwin-view').height();
-                $scope.height_to_change = scope.view_height * 1.4;
-                scope.height_to_change = scope.view_height;
+        if(!$scope.image_gallery_selected) {
+            jQuery('#image-gallery').imagepicker({
+                changed: function(old, new_value) {
+                    $scope.image_gallery_selected = new_value;
+                    $scope.$apply(function(){
+                        $scope.gallery_picker = false;
+                    });
+                }
+            });
+        }
+    };
 
-                $(window).scroll(function(){                          
-                    if ($(this).scrollTop() > $scope.view_height) {
-                        $('#menu-winwin').fadeIn(1);
-                        if($scope.first_view) {
-                            $scope.first_view = false;
-                            $scope.goMuro();
-                        }
-                        if($scope.up_down) {
-                            $scope.up_down = false;
-                            $("html, body").animate({ scrollTop: 430 }, 0);
-                        } 
-                    } else {
-                        $('#menu-winwin').fadeOut(1);
-                        $scope.up_down = true;
-                    }
-                });
-            }, 1000);
-        };
+    $scope.$watch('image_gallery_selected', function() {
+        if($scope.image_gallery_selected) {
+            $scope.ewinwin.image = $scope.image_gallery_selected[0];
+            console.log($scope.ewinwin.image);
+            $scope.$apply();
+        }
+    });
 
-        $scope.setup_components();
-
-        $scope.current_subview = 'muro';
-
-        $scope.goMuro = function() {
-            $scope.current_subview = 'muro';
-            $scope.isAdmin = false;
-
-            $timeout(function() {
-                $state.go('winwin-view.muro', {
-                    winwinId: $scope.winwin.id
-                }); 
-            }, 500);
-        };
-
-        $scope.goMembers = function() {
-            $state.go('winwin-members', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goSponsors = function() {
-            $scope.current_subview = 'sponsors';
-            $scope.isAdmin = false;
-            $state.go('winwin-view.sponsors', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goWinwin = function() {
-            window.scrollTo(0, 0);
-            //$scope.current_subview = 'muro';
-            $scope.isAdmin = false;
-            $scope.first_view = false;
-            $location.hash('winwin-top');
-            $anchorScroll();
-        };
-
-        $scope.goAdmin = function() {
-            if($scope.winwin.is_moderator) {
-                $scope.isAdmin = true;
-                console.dir($scope.profile);
-            } else {
-                swal({
-                    title: "warning", 
-                    text: 'not_is_a_moderator', 
-                    type: "warning",
-                    showcancelbutton: false,
-                    closeonconfirm: true 
-                });
-            }
-        };
-
-        $scope.goPatrocinio = function() {
-            $scope.current_subadmin = 'patrocinio';
-            $state.go('winwin-view.admin_patrocinio', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goRequestPatrocinio = function() {
-            $scope.current_subview = 'sponsor';
-            $state.go('winwin-view.winwin-sponsor-request', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goMiembros = function() {
-            $scope.current_subadmin = 'miembros';
-            $state.go('winwin-view.admin_miembros', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goConfiguracion = function() {
-            $scope.current_subadmin = 'configuracion';
-            $state.go('winwin-view.admin_configuracion', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.goCampanada = function() {
-            $scope.current_subadmin = 'campanada';
-            $state.go('winwin-view.admin_campanada', {
-                winwinId: $scope.winwin.id
-            }); 
-        };
-
-        $scope.isAdmin = false;
-
-        $scope.next = function() {
-            console.log('next');
-            if($scope.winwin.next_id) {
-                $state.go('winwin-view', {
-                    winwinId: $scope.winwin.next_id
-                }); 
-            }
-        };
-
-        $scope.previous = function() {
-            console.log('back');
-
-            if($scope.winwin.previous_id) {
-                $state.go('winwin-view', {
-                    winwinId: $scope.winwin.previous_id
-                }); 
-            }
-        };
-
-
-
-}])
-
-
+})
 ;
 

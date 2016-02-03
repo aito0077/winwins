@@ -1,12 +1,12 @@
 angular.module('winwinsApp')
-.controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, Account) {
+.controller('NavController', function ($scope, $rootScope, $state, $location, $timeout, $auth, $window, $http, api_host, Account) {
     $scope.unreadNotifications = 0;
     $scope.profile = false;
     $scope.is_logged = false;
     $scope.isSponsor = false;
+    $scope.isSponsorActive = true;
+    $scope.isActive = true;
     $scope.sponsor = false;
-
-    $scope.profile_image = 0;
 
     $scope.$on('$stateChangeStart', function(){
         if($auth.isAuthenticated()) {
@@ -25,18 +25,29 @@ angular.module('winwinsApp')
             if(!$scope.fetching_profile && !$scope.profile) {
                 $scope.fetching_profile = true;
                 Account.getProfile().then(function(response) {
-                    $scope.fetching_profile = false;
-                    $scope.profile = response.data.profile;
-                    $scope.sponsor = response.sponsor;
-                    $scope.isSponsor = response.is_sponsor;
-                    $rootScope.account = $scope.profile;
+                    if(response.user) {
+                        $scope.fetching_profile = false;
+                        $scope.profile = response.profile;
+                        $scope.sponsor = response.sponsor;
+                        $scope.isSponsor = response.is_sponsor;
+                        $scope.isSponsorActive = response.is_sponsor_active;
+                        $scope.isActive = response.active;
+                        $scope.email = response.user.email;
+                        $rootScope.account = $scope.profile;
+                        $rootScope.profile_photo = $scope.profile.photo;
+                    } else {
+                        $auth.logout().then(function() {
+                            $rootScope.$broadcast('is_logged', false);
+                        });
+                    }
                 });
             }
         } else {
+            $rootScope.profile_photo = false;
             $scope.profile = false;
             $scope.is_logged = false;
-            $scope.profile_image = 0;
             $scope.sponsor = false;
+            $scope.isActive = false;
             $scope.isSponsor = false;
             $rootScope.account = {};
         }
@@ -55,11 +66,17 @@ angular.module('winwinsApp')
 
         if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
             $scope.fetching_profile = true;
+            console.log('is Authenticated');
             Account.getProfile().then(function(response) {
+                console.dir(response);
                 $scope.fetching_profile = false;
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;
                 $scope.isSponsor = response.data.is_sponsor;
+                $scope.isSponsorActive = response.data.is_sponsor_active;
+                $scope.isActive = response.data.active;
+                $scope.email = response.data.user.email;
+                $rootScope.profile_photo = $scope.profile.photo;
                 $rootScope.$broadcast('is_logged', true);
             });
         }
@@ -71,7 +88,6 @@ angular.module('winwinsApp')
     $scope.fetching_profile = false;
 
     $scope.getProfile = function() {
-        var is_authenticated = $auth.isAuthenticated();
         return $scope.profile;
     };
 
@@ -81,6 +97,7 @@ angular.module('winwinsApp')
 
     $scope.goProfile = function() {
         console.log('go profile');
+        console.log('is sponsor? '+$scope.isSponsor);
         if($scope.isSponsor) {
             $state.go('sponsor-view', {
                 sponsorId: $scope.sponsor.id
@@ -92,6 +109,22 @@ angular.module('winwinsApp')
 
     $scope.goNotifications = function() {
         $state.go('profile_notificaciones');
+    };
+
+    $scope.resendActivationMail = function() {
+        $http.get(api_host+'/api/users/resend/activation').success(function(data) {
+            $scope.sentActivationMail = true;
+        })
+        .error(function(error) {
+            swal({
+                title: "ADVERTENCIA", 
+                text: error.message, 
+                type: "warning",
+                showCancelButton: false,
+                animation: false, 
+                closeOnConfirm: true 
+            });
+        });
     };
 
     $timeout(function() {

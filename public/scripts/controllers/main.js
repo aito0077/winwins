@@ -2,13 +2,41 @@
 
 angular.module('winwinsApp')
 
-.controller('MainCtrl', ['$scope','$auth', '$http', '$state', '$timeout', 'Winwin', 'api_host', 'es_client', '$uibModal', function($scope, $auth, $http, $state, $timeout, Winwin, api_host, es_client, $uibModal) {
+.controller('MainCtrl', ['$scope','$auth', '$http', '$state', '$timeout', 'Winwin', 'api_host', '$uibModal', function($scope, $auth, $http, $state, $timeout, Winwin, api_host, $uibModal) {
     $scope.winwins = [];
+    $scope.main_sponsors = [];
+
     $scope.all_winwins = [];
 
-    Winwin.query(function(data) {
-        $scope.all_winwins = data;
-        $scope.winwins = $scope.all_winwins;
+
+    $scope.popSponsor = function() {
+        if($scope.main_sponsors.length) {
+            return $scope.main_sponsors.pop();
+        } else {
+            return false;
+        }
+    };
+
+    $http.get(api_host+'/api/sponsors/main').success(function(main_sponsors) {
+        $scope.main_sponsors = main_sponsors; 
+        Winwin.query(function(data) {
+            $scope.all_winwins = data;
+            
+            $scope.winwins = [];
+            var index = 0;
+            _.each($scope.all_winwins, function(item) {
+                index = index + 1;
+                if(index % 3 == 0) {
+                    $scope.winwins.push(_.extend($scope.popSponsor(), {
+                        is_sponsor: true
+                    }));
+                }
+                $scope.winwins.push(_.extend(item, {
+                    is_sponsor: false
+                }));
+            });
+
+        });
     });
 
     $scope.isAuthenticated = function() {
@@ -27,20 +55,12 @@ angular.module('winwinsApp')
                     text: 'winwin_join', 
                     type: "info",
                     showcancelbutton: false,
+                        animation: false, 
                     closeonconfirm: true,
                 }, function() {
                     $scope.view(winwin_id);
                 });
 
-            })
-            .error(function(error) {
-                swal({
-                    title: "ADVERTENCIA", 
-                    text: error.message, 
-                    type: "warning",
-                    showCancelButton: false,
-                    closeOnConfirm: true 
-                });
             });
         } else {
             $state.go('signIn');
@@ -73,21 +93,6 @@ angular.module('winwinsApp')
         console.log('winwin_id: '+winwin_id);
     };
 
-    $scope.openSocialModal = function(winwin) {
-        $scope.toShare = winwin;
-        var modalInstance = $uibModal.open({
-            animation: false,
-            windowTopClass: 'modal-background',
-            templateUrl: 'myModalContent.html',
-            controller: 'ModalInstanceCtrl',
-            resolve: {
-                toShare: function () {
-                    return $scope.toShare;
-                }
-            }
-        });
-    };
-
     $scope.filter = function(filter) {
         $scope.is_filtered = (filter !== 'all');
         console.log(filter);
@@ -101,6 +106,7 @@ angular.module('winwinsApp')
         }
     };
 
+    /*
     $scope.setup_components = function() {
         $timeout(function() {
             jQuery(window).scroll(function() {  
@@ -135,6 +141,7 @@ angular.module('winwinsApp')
 
         });
     };
+    */
 
     //$scope.setup_components();
 
@@ -144,6 +151,23 @@ angular.module('winwinsApp')
         jQuery('#slider').stop().animate({"margin-top": '0'}) > 10;
         console.log('visible search');
     };
+
+
+    $scope.openSocialModal = function(winwin) {
+        $scope.toShare = winwin;
+        var modalInstance = $uibModal.open({
+            animation: false,
+            windowTopClass: 'modal-background',
+            templateUrl: 'winwinShareModal.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                toShare: function () {
+                    return $scope.toShare;
+                }
+            }
+        });
+    };
+
 
 }])
 .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, toShare) {
@@ -166,6 +190,16 @@ angular.module('winwinsApp')
             sponsor: true
         }); 
     };
+
+    $scope.searchUsers = function() {
+
+        $state.go('user-search-list', {
+            query: $scope.term
+        }); 
+    };
+
+
+
 
 }])
 .controller('contact-controller', ['$scope','$auth', '$http', '$state', 'api_host', function($scope, $auth, $http, $state, api_host) {
