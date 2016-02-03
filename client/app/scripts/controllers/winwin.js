@@ -820,8 +820,8 @@ angular.module('winwinsApp')
         if($auth.isAuthenticated()) {
             $http.get(api_host+'/api/winwins/join/'+winwin_id).success(function(data) {
                 swal({
-                    title: "info", 
-                    text: 'Te has unido al Winwin', 
+                    title: "Genial!", 
+                    text: 'Te uniste', 
                     type: "info",
                     showcancelbutton: false,
                     animation: false, 
@@ -937,8 +937,8 @@ angular.module('winwinsApp')
     $scope.follow = function(participante) {
         $http.get(api_host+'/api/users/follow/'+participante.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Siguiendo!', 
+                title: "Siguiendo!", 
+                text: 'Ahora estas siguiendo a este miembro.!', 
                 type: "info",
                 showcancelbutton: false,
                 animation: false, 
@@ -960,8 +960,8 @@ angular.module('winwinsApp')
     $scope.unfollow = function(participante) {
         $http.get(api_host+'/api/users/unfollow/'+participante.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Has dejado de seguir al usuario', 
+                title: "Ok!", 
+                text: 'Dejaste de seguir a este miembro', 
                 type: "info",
                 showcancelbutton: false,
                 animation: false, 
@@ -1014,8 +1014,8 @@ angular.module('winwinsApp')
     $scope.follow = function(sponsor) {
         $http.get(api_host+'/api/sponsors/follow/'+sponsor.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Siguiendo!', 
+                title: "OK!", 
+                text: 'Ya estas siguiendo a este miembro.!', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
@@ -1034,8 +1034,8 @@ angular.module('winwinsApp')
     $scope.unfollow = function(sponsor) {
         $http.get(api_host+'/api/users/unfollow/'+sponsor.id).success(function(data) {
             swal({
-                title: "info", 
-                text: 'Has dejado de seguir al usuario', 
+                title: "Ok!", 
+                text: 'Dejaste de seguir a este winwin-miembros', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
@@ -1254,7 +1254,7 @@ angular.module('winwinsApp')
         console.log('set video');
         swal({
             title: "Video Link", 
-            text: "Ingresa dirección de video:", 
+            text: "Ingresa dirección URL de video:", 
             type: "input",
             inputType: "url",
             showCancelButton: true,
@@ -1343,8 +1343,8 @@ angular.module('winwinsApp')
         $scope.post.$save(function(data) {
             $scope.sendingPost = false;
             swal({
-                title: "Info", 
-                text: 'Post enviado!', 
+                title: "Buenisimo", 
+                text: 'Post publicado!', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
@@ -1632,8 +1632,8 @@ angular.module('winwinsApp')
         )
         .success(function(data) {
             swal({
-                title: "Info", 
-                text: 'Solicitud al sponsor enviada', 
+                title: "Solicitud Enviada", 
+                text: 'Se envio con exito la solicitud. Exitos!', 
                 type: "info",
                 showcancelbutton: false,
                         animation: false, 
@@ -1834,7 +1834,7 @@ angular.module('winwinsApp')
             $http.post(api_host+'/api/winwins/'+$scope.ewinwin.id, $scope.ewinwin)
             .success(function(data) {
                 swal({
-                    title: "info", 
+                    title: "Ok!", 
                     text: 'Los datos han sido actualizados', 
                     type: "info",
                     showcancelbutton: false,
