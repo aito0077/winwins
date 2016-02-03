@@ -79,20 +79,22 @@
 </div>
 
 <!-- search -->
+
+
 <div id="footer-s" data-ng-controller="main-search-controller">
-<div class="fixed-action-btn center" style="right:0px; font-size:20px;">
-    <a class="scrollup btn-floating btn-large center blue darken-4 z-depth-0">
-      <i class="fa fa-arrow-up" style="margin-top:-10px;"></i>
+
+ 
+   <a class="scrollup to-top center orange darken-4 z-depth-0">
+      <i class="fa fa-arrow-up" style="margin-top:5px;" ></i>
     </a>
-  </div>
     <nav>
-        <div class="nav-wrapper  blue darken-4 z-depth-03">
+        <div class="nav-wrapper  blue darken-4 z-depth-3">
             <form>
                 <div class="col-xs-12">
                     <div class="input-field">
                         <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:5px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
                         <!-- I've put "red-text" class to emphasize -->
-                        <i class="fa fa-search bar right" style="font-size: 19px; padding-top:17px;" id="query" ng-click="search()"></i>
+                        <button class="fa fa-search bar right blue darken-4 waves-effect btn clean z-depth-0" style="font-size: 19px; padding:15px;" id="query" ng-click="search()"></i>
 
 
                     </div>

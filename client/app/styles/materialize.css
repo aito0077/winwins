@@ -880,11 +880,7 @@ max-height: 150px;
 .toolbar {
      margin-top: 10px;
 }
-.btn-floating.btn-large {
-    width: 45.5px;
-    height: 45.5px;
-    line-height: 45px;
-}
+
 .wwtxt {
 text-align:center;
 margin-top: 280px;
@@ -1029,3 +1025,18 @@ nav {
 
     display: inline;
 }
+
+
+.btn clean{
+    
+    background: transparent;
+    border: 0px;
+}
+
+.to-top {
+     height:25px;
+     width:40px;
+     border-radius: 90px 90px 0 0;
+     -moz-border-radius: 90px 90px 0 0;
+     -webkit-border-radius: 90px 90px 0 0;
+   }
