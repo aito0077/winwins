@@ -24,7 +24,8 @@
                 </div>
               </div>
               <!-- WW Countdown--> 
-               <div style="font-size: 11px; font-family: montserrat; padding-top:10px;" ng-if="winwin.closing_date && !is_finished">
+               <!-- Linea original  <div style="font-size: 11px; font-family: montserrat; padding-top:10px;" ng-if="winwin.closing_date && !is_finished">-->
+               <div style="font-size: 11px; font-family: montserrat; padding-top:10px;" >
                 <i class="fa fa-clock-o" style="background-color: #F53430; border-radius:50%; width:12px; height:12px; padding:1px;"> </i> termina en <br> 
                 <span style="margin:2px; background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;margin:1px;">{{duration_days}}D</span> 
                 <span style="margin:3px;background-color:black; color:white;padding: 3px;padding-top:1px;padding-bottom:1px;">{{duration_hours}}H</span> 
@@ -202,7 +203,7 @@
         </div>
   <div class="pad-10"></div>
       <!-- Winwin People-->
-      <div class="row grey lighten-3" style=" height: 90px;">
+      <div class="row grey lighten-3" style="height: 90px;">
           <div class="col-xs-2 no-padding" style="cursor: pointer; margin-top:20px;" ng-click="viewProfile(winwin.user.id)"> 
             <img ng-src="http://images.dev-winwins.net/45x45/{{::winwin.user.detail.photo}}" class="z-depth-2 img-responsive img-circle profile-ww" style="border: 4px solid #1762C3; border-radius: 50%; margin-left:15px; margin-right:10px; line-height:17px;">
           </div>
@@ -221,7 +222,7 @@
         <!--Sponsors -->
         <div class="col-xs-12 no-padding" ng-if="winwin.active_sponsors.length">
           <span class="col-xs-12" style="margin-top:10px; margin-bottom: 10px; float: left; text-align: left;
-            border-radius: 3px;"><img src="../images/sponsor.png" width="17" style="border-radius: 50%; padding:4px; background-color:#1976D2;"></i> <span style="color:#1976D2; font-size: 10px;">SPONSORS </span> </span>
+            border-radius: 3px;"><img src="../images/sponsor.png" width="17" style="border-radius: 50%; padding:4px; background-color:#1976D2;"><span style="color:#1976D2; font-size: 10px;">SPONSORS </span> </span>
           <div class="col-xs-3" ng-repeat="sponsor in winwin.active_sponsors" ng-click="viewSponsor(sponsor.id)">
             <img  ng-src="http://images.dev-winwins.net/x50/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="border-radius:2px;  float: left;
               border-radius: 3px;
