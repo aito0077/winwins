@@ -2,8 +2,8 @@
    
        <div class="container blue darken-3 no-padding z-depth-3">
                    
-                        <H3 class="white-text center">¡BIENVENIDO! </h3>
-           <h1 style="z-index:99999;">  <i class="fa fa-flag animated infinite wobble"></i></h1>
+                        <H3 class="white-text center">TERMINOS Y CONDICIONES </h3>
+        
         
                 </div>
  
@@ -150,3 +150,37 @@ La Operadora no será considerada responsable, en ningún caso, por el uso de la
       
 
 </div>
+
+<section>
+
+ <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="scrollup btn-floating btn-large center green darken-2">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+  </div>
+        
+</section>
+
+
+<script>
+ $('.fixed-action-btn').openFAB();</script>
+
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});</script>
