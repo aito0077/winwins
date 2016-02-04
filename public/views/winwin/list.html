@@ -86,14 +86,14 @@
    <a class="scrollup to-top center orange darken-4 z-depth-0">
       <i class="fa fa-arrow-up" style="margin-top:5px;" ></i>
     </a>
-    <nav class="z-depth-3" style="height:60px;">
-        <div class="nav-wrapper  blue darken-3 z-depth-3">
+    <nav>
+        <div class="nav-wrapper  blue darken-4 z-depth-3">
             <form>
-                <div class="col-xs-12 ">
+                <div class="col-xs-12">
                     <div class="input-field">
-                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..."  style="margin:0px;"   required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:5px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
                         <!-- I've put "red-text" class to emphasize -->
-                        <button class="fa fa-search bar right blue darken-4 waves-effect btn clean z-depth-0" style="font-size: 19px;" id="query" ng-click="search()"></i>
+                        <button class="fa fa-search bar right blue darken-4 waves-effect btn clean z-depth-0" style="font-size: 19px; padding:15px;" id="query" ng-click="search()"></i>
 
 
                     </div>
@@ -102,7 +102,6 @@
         </div>
     </nav>
 </div>
-
 
 
         <!-- Modal Sharer-->
@@ -164,3 +163,22 @@ else
             </script>
 
 
+<script>
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.scrollup').fadeIn();
+        } else {
+            $('.scrollup').fadeOut();
+        }
+    });
+
+    $('.scrollup').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});</script>
