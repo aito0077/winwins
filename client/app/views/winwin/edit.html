@@ -169,11 +169,11 @@
     <form data-ng-submit="doSave()" name="wwAdditionalForm">
 
 <div class="container no-padding center card-panel light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999; margin-bottom: -10px; z-index: 99;">
-    <h1 style="font-size:40px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-flag animated infinite wobble"></i></h1>
+    <h1 style="font-size:40px; padding:0px; margin:20px; color:#fff;z-index:99999; ">   <i class="fa fa-flag animated infinite wobble"></i></h1>
     <h4 class="white-text"> DALE IDENTIDAD A TU WINWIN<H4>
 </div>
 
-<i class="fa fa-caret-down animated wobble center" style="font-size: 4rem; margin-top:-20px; color:#0277BD;"></i>
+<i class="fa fa-caret-down animated wobble center" style="font-size: 4rem; margin-top:-27px; color:#0277BD;"></i>
         <div class="panel-body" spellcheck="margin-top: -15px;">
             <div class="col-xs-12  no-padding text-center" dynamic-background="" background-size="cover" background-image="{{preview_image}}" style="height: 240px; margin-top:-20px;">
                 <div class="ww-title" style="margin-top:30px; color:#fff; font-size: 23px; text-transform: uppercase;">
@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="container center">
-            <h6 style="background: #f1f1f1; padding:5px; border-radius: 2px;" >SUBI UNA FOTO O ELEGI UN VIDEO</h6>
+            <h6 style="background: #f1f1f1; padding:5px; border-radius: 2px;"> <i class="fa fa-arrow animated infinite pulse"></i>  SUBI UNA FOTO O ELEGI UN VIDEO</h6>
             <div class="row no-padding">
                 <div style="cursor:pointer" name="uploader" ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders card-panel teal" ngf-accept="'image/*'">
                     <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro" style="padding-top:0px;" ></i><br>
@@ -197,20 +197,27 @@
             </div>
         </div>
 
-            
-        <div class="container no-padding center" ng-show="gallery_picker" style="min-height: 450px;">
+
+        
+        
+        
+        
+        
+        
+   
+        <div class="container no-padding center" ng-show="gallery_picker"  masonry show-html>
                 <div class="col-xs-12 no-padding">
-                    <div class="picker no-padding">
+                    <div class="col-xs-12">
                         <select id="image-gallery" class="image-picker" ng-model="image_gallery_selected">
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-6.jpg" value="ww-default-6.jpg">Gente</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-7.jpg" value="ww-default-7.jpg">Trabajo</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-8.jpg" value="ww-default-8.jpg">Oficio</option>
-                            <option data-img-src="http://images.dev-winwins.net/75x100/smart/ww-default-9.jpg" value="ww-default-9.jpg">Colaborar</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-6.jpg" value="ww-default-6.jpg">Gente</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-7.jpg" value="ww-default-7.jpg">Trabajo</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-8.jpg" value="ww-default-8.jpg">Oficio</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-9.jpg" value="ww-default-9.jpg">Colaborar</option>
                         </select>
                     </div>
                 </div>
@@ -229,8 +236,8 @@
             <div class="pad-10"></div>
             -->
             <div class="card-panel teal">
-                <div class="input-label">Escala del WinWin <a  data-position="left" data-delay="50" data-tooltip="Que alcance geografico tiene tu winwin?"><i class="fa fa-question-circle red-text right"></i></a>
-                    <select  ng-options="item as item for item in scopes" ng-model="winwin.scope" class="form-control" placeholder="Seleccioná una escala territorial" required>
+                <div class="input-label">Escala del WinWin   <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Define el alcance geográfico de tu WinWin."><i class="fa fa-question-circle red-text animated infinte pulse right"></i></a>
+                    <select  ng-options="item as item for item in scopes" ng-model="winwin.scope" class="form-control" placeholder="Selecciona una escala territorial" required>
                     </select>
                 </div>  
                 <div ng-show="winwin.scope == 'LOCAL'">
@@ -243,7 +250,7 @@
 
             <div class="pad-10"></div>
             <div class="card-panel teal">
-                <div class="input-label">En que categoría? <a  data-position="left" data-delay="50" data-tooltip="Clasifica a tu winwin con las categorias disponibles!"><i class="fa fa-question-circle red-text right"></i></a></div>
+                <div class="input-label">En que categoría? <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Clasifica tu Winwin en las categorías disponibles. Puedes elegir más de una."><i class="fa fa-question-circle red-text animated infinte pulse right"></i></a></div>
                 <select ng-options="item as item.description for item in interests track by item.id" ng-model="winwin.interests" class="form-control" placeholder="Categorías" multiple>
                 </select>
 
@@ -251,8 +258,8 @@
             <div class="pad-10"></div>
             <div class="form-back  create-id">
                 <div class="pad-10"></div>
-                <button class="btn waves-effect waves-light" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwAdditionalForm.$invalid">  
-                    <i class="fa fa-play right"></i>Continuar
+                <button class="btn-large green waves-effect" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwAdditionalForm.$invalid">  
+                    <i class="fa fa-play right animated infinite pulse"></i>Continuar
                 </button>
                 <div class="pad-10">   </div> 
             </div>
@@ -266,6 +273,5 @@
     $('.tooltipped').tooltip({delay: 50});
   });
         </script>
-    
     
     
