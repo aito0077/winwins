@@ -475,6 +475,7 @@ angular.module('winwinsApp', [
     $timeout(function() {
         window.loading_screen.finish();
     }, 2000);
+    /*
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         if (typeof(current) !== 'undefined'){
             $templateCache.remove(current.templateUrl);
@@ -484,5 +485,6 @@ angular.module('winwinsApp', [
     $rootScope.$on('$viewContentLoaded', function() {
         $templateCache.removeAll();
     });
+    */
 })
 ;
