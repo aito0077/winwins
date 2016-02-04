@@ -34,9 +34,9 @@
                         <p class=" blue-text  center" > <strong>2</strong>  {{::sponsor.followers_count}}</p>   
                     </div>
 
-                    <button  ng-if="!sponsor.already_following" class="col-xs-4 white-text right waves-effect waves-light green  btn z-depth-1" style="height:100%; margin-top:-1px;"  ng-click="follow(sponsor.id)"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite pulse"></i> <span style="font-size:14px;">SEGUIR</span> </p> </button>
+                    <button  ng-hide="!islogged" ng-if="!sponsor.already_following" class="col-xs-4 white-text right waves-effect waves-light green  btn z-depth-1" style="height:100%; margin-top:-1px;"  ng-click="follow(sponsor.id)"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-o-right white-text animated infinite pulse"></i> <span style="font-size:14px;">SEGUIR</span> </p> </button>
 
-                    <button ng-if="sponsor.already_following" class="col-xs-4 white-text right waves-effect waves-light white  btn z-depth-0" style="height:100%; margin-top:-1px;" ng-click="unfollow(sponsor)"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-paper-o grey-text"></i> <span style="font-size:14px; color: #999;">DEJAR DE SEGUIR</span> </p> </button>
+                    <button ng-hide="!islogged" ng-if="sponsor.already_following" class="col-xs-4 white-text right waves-effect waves-light white  btn z-depth-0" style="height:100%; margin-top:-1px;" ng-click="unfollow(sponsor)"> <p class="h8 no-padding" style="margin-top:-8px;"> <i class="fa fa-hand-paper-o grey-text"></i> <span style="font-size:10px; color: #999;">DEJAR DE SEGUIR</span> </p> </button>
 
                 </div>
             </div>
