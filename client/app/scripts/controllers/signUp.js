@@ -31,8 +31,13 @@ angular.module('winwinsApp')
                                     actionJoin: true
                                 }); 
                                 break;
+                            case 'winwin-new-redirect': 
+                                $rootScope.returnState = null;
+                                $state.go('winwin-new-redirect'); 
+                                break;
                             default:
-                                $state.go($rootScope.returnState.state); 
+                                $rootScope.returnState = null;
+                                $state.go('main'); 
                         }
                     } else {
                         $state.go('main'); 
@@ -81,8 +86,13 @@ angular.module('winwinsApp')
                                 actionJoin: true
                             }); 
                             break;
+                        case 'winwin-new-redirect': 
+                            $rootScope.returnState = null;
+                            $state.go('winwin-new-redirect'); 
+                            break;
                         default:
-                            $state.go($rootScope.returnState.state); 
+                            $rootScope.returnState = null;
+                            $state.go('main'); 
                     }
                 } else {
                     $state.go('main'); 

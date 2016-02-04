@@ -22,11 +22,14 @@ angular.module('winwinsApp')
                                 winwinId: winwinId,
                                 actionJoin: true
                             }); 
-            
+                            break;
+                        case 'winwin-new-redirect': 
+                            $rootScope.returnState = null;
+                            $state.go('winwin-new-redirect'); 
                             break;
                         default:
-                            console.log('go to login: '+ $rootScope.returnState.state);
-                            $state.go($rootScope.returnState.state); 
+                            $rootScope.returnState = null;
+                            $state.go('main'); 
                     }
                 } else {
                     $state.go('main'); 
@@ -58,9 +61,13 @@ angular.module('winwinsApp')
                                 actionJoin: true
                             }); 
                             break;
+                        case 'winwin-new-redirect': 
+                            $rootScope.returnState = null;
+                            $state.go('winwin-new-redirect'); 
+                            break;
                         default:
-                            console.log('go to authenticate: '+ $rootScope.returnState.state);
-                            $state.go($rootScope.returnState.state); 
+                            $rootScope.returnState = null;
+                            $state.go('main'); 
                     }
                 } else {
                     $state.go('main'); 
