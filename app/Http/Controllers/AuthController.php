@@ -143,10 +143,12 @@ class AuthController extends Controller {
 
     public function activateAccount(Request $request, Mailer $mailer, $code) {
         $user = User::where('activation_code', '=', $code)->first();
-        $user->active = 1;
-        $user->activation_code = '';
-        $user->save();
-        $this->sentEmailWelcome($mailer, $user);
+        if($user) { 
+            $user->active = 1;
+            $user->activation_code = '';
+            $user->save();
+            $this->sentEmailWelcome($mailer, $user);
+        }
         return redirect('/');
     }
 
