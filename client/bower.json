@@ -13,7 +13,7 @@
     "angular-touch": "~1.4.4",
     "angular-ui-router": "~0.2.15",
     "matchmedia-ng": "~1.0.5",
-    "satellizer": "~0.13.1",
+    "satellizer": "~0.13.4",
     "moment": "~2.10.3",
     "moment-timezone": "~0.4.0",
     "ngInfiniteScroll": "~1.2.1",

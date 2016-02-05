@@ -11,7 +11,6 @@ angular.module('winwinsApp')
     $scope.$on('$stateChangeStart', function(){
         if($auth.isAuthenticated()) {
             Account.getStatus().then(function(response) {
-                console.log('get status');
                 $scope.unreadNotifications = response.data.notifications_unread;
             });
         } else {
@@ -25,14 +24,14 @@ angular.module('winwinsApp')
             if(!$scope.fetching_profile && !$scope.profile) {
                 $scope.fetching_profile = true;
                 Account.getProfile().then(function(response) {
-                    if(response.user) {
+                    if(response.data.user) {
                         $scope.fetching_profile = false;
-                        $scope.profile = response.profile;
-                        $scope.sponsor = response.sponsor;
-                        $scope.isSponsor = response.is_sponsor;
-                        $scope.isSponsorActive = response.is_sponsor_active;
-                        $scope.isActive = response.active;
-                        $scope.email = response.user.email;
+                        $scope.profile = response.data.profile;
+                        $scope.sponsor = response.data.sponsor;
+                        $scope.isSponsor = response.data.is_sponsor;
+                        $scope.isSponsorActive = response.data.is_sponsor_active;
+                        $scope.isActive = response.data.active;
+                        $scope.email = response.data.user.email;
                         $rootScope.account = $scope.profile;
                         $rootScope.profile_photo = $scope.profile.photo;
                     } else {
@@ -66,9 +65,7 @@ angular.module('winwinsApp')
 
         if(!$scope.fetching_profile && !$scope.profile && is_authenticated) {
             $scope.fetching_profile = true;
-            console.log('is Authenticated');
             Account.getProfile().then(function(response) {
-                console.dir(response);
                 $scope.fetching_profile = false;
                 $scope.profile = response.data.profile;
                 $scope.sponsor = response.data.sponsor;
@@ -96,8 +93,6 @@ angular.module('winwinsApp')
     };
 
     $scope.goProfile = function() {
-        console.log('go profile');
-        console.log('is sponsor? '+$scope.isSponsor);
         if($scope.isSponsor) {
             $state.go('sponsor-view', {
                 sponsorId: $scope.sponsor.id

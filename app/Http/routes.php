@@ -35,6 +35,8 @@ Route::post('api/winwins/sponsor_request/{id}', ['middleware' => 'auth', 'uses' 
 Route::post('api/sponsor/cancel/winwin/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@sponsorCancel']);
 Route::post('api/winwins/{id}/sponsor/request/{sponsorId}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorForRequest']);
 
+Route::post('api/winwins/{id}/sponsor/{sponsorId}/legend', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorLegend']);
+
 Route::post('api/winwins/{id}/state/activator/{participanteId}', ['middleware' => 'auth', 'uses' => 'WinwinController@makeActivator']);
 Route::post('api/winwins/{id}/state/normal/{participanteId}', ['middleware' => 'auth', 'uses' => 'WinwinController@makeNormal']);
 Route::get('api/sponsors/main', ['uses' => 'SponsorController@fetchMain']);

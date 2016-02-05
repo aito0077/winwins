@@ -209,6 +209,42 @@ angular.module('winwinsApp')
         })
     };
 
+    $scope.modifyLegend = function(winwin) {
+        swal({
+            title: "Leyenda",
+            text: "Modifica el texto que aparecerá junto con tu identidad",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: true,
+            inputPlaceholder: "Leyenda" 
+        },
+        function(inputValue){   
+            if (inputValue === false) {
+                return false;      
+            }
+            if (inputValue === "") {     
+                return false;  
+            }      
+            $http.post(api_host+'/api/winwins/'+winwin.id+'/sponsor/'+$scope.sponsor.id+'/legend', {
+                legend: inputValue
+            })
+            .success(function(data) {
+                swal({
+                    title: "info", 
+                    text: 'Leyenda modificada', 
+                    type: "info",
+                    showcancelbutton: false,
+                    animation: false, 
+                    closeonconfirm: true 
+                });
+                $scope.getSponsor();
+            });
+            return true;
+
+        });
+    };
+
+
 
 
 }]);

@@ -11,9 +11,9 @@
     </div>
 -->
 
- <div infinite-scroll='users.nextPage()'>
-        <div class="col-xs-12 no-padding card-panel teal hoverable" ng-repeat="user in users.items">
-<div class="container no-padding">
+<div infinite-scroll='users.nextPage()'>
+    <div class="col-xs-12 no-padding card-panel teal hoverable" ng-repeat="user in users.items">
+        <div class="container no-padding">
 
       <!-- WW Img -->
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
@@ -26,10 +26,11 @@
                 </div>
             </div>
             <!-- Info Bar -->
-                <div class="username"> {{::user.name}} </div>
-            </div>
+            <div class="username"> {{::user.name}} </div>
 
-    <div class="container no-padding">
+        </div>
+
+        <div class="container no-padding">
 
             <div class="buttons-profile">
                 <a href class="col-xs-3 ww-somos">  <div> <span class="bubble-label"> Winwins </span> <span class="somos">{{::user.winwins_count}}</span></div></a>
@@ -40,48 +41,39 @@
             </div>
         </div>
 
+    </div>
+
 </div>
 
 <div id="footer-s" data-ng-controller="main-search-controller">
 
-<nav>
-    <div class="nav-wrapper  blue darken-4">
-      <form>
-        <div class="col-xs-12">
-          <div class="input-field">
-          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="searchUsers()">
-          <!-- I've put "red-text" class to emphasize -->
-         <button  id="query" ng-click="searchUsers()"  class="blue darken-4 right white-text waves-effect waves-light btn-large z-depth-0"> <i class="fa fa-search small"></i></button> 
-                      <label for="query"></span></label>
-
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+            <form>
+                <div class="col-xs-12">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="searchUsers()">
+                        <button  id="query" ng-click="searchUsers()"  class="blue darken-4 right white-text waves-effect waves-light btn-large z-depth-0"> <i class="fa fa-search small"></i></button> 
+                        <label for="query"></span></label>
+                    </div>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-     </nav>
-  </div>
+    </nav>
 </div>
- 
-        
+         
+            
 
 <script>
-    $(function(){
+$(function(){
     $(window).scroll(function() {  
-if($(document).scrollTop() > 150)
-{    
-     $('#footer-s').addClass("show");
-}
-else
-{
-    $('#footer-s').removeClass("show");
-}
-        });
-    })
-</script>
-    
-    <script>
-    
-  $(document).ready(function() {
+        if($(document).scrollTop() > 150) {    
+             $('#footer-s').addClass("show");
+        } else {
+            $('#footer-s').removeClass("show");
+        }
+    });
     $('select').material_select();
-  });
-            </script>
+});
+</script>
 

@@ -743,6 +743,38 @@ class WinwinController extends Controller {
 
 	}
 
+	public function sponsorLegend(Request $request, $id, $sponsorId) {
+        $user = User::find($request['user']['sub']);
+        $sponsor = Sponsor::find($sponsorId);
+        $winwin = Winwin::find($id);
+
+        $ww_user = $winwin->user;
+        $legend = $request->input('legend');
+
+        $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+            return $model->id == $sponsor->id;
+        })) > 0;
+
+        if($already_sponsored) {
+            DB::transaction(function() use ($winwin, $user, $sponsor, $legend) {
+
+                SponsorsWinwin::where('sponsor_id', $sponsor->id)
+                ->where('winwin_id', $winwin->id)
+                ->update(['sponsor_text' => $legend]);
+
+            });
+
+            //ToDo: Add message
+            return response()->json(['message' => 'winwin_sponsor_legend_set'], 200);
+        } else {
+            //ToDo: Add message
+            return response()->json(['message' => 'winwin_is_not_sponsored_this_winwin'], 400);
+        }
+
+	}
+
+
+
 	public function closeWinwin(Request $request, $id) {
         $user = User::find($request['user']['sub']);
         $winwin = Winwin::find($id);

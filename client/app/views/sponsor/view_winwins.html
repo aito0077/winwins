@@ -49,10 +49,11 @@
 <div class="col-xs-12 center"  ng-if="sponsor.myself">
    <p class="small">Leyenda de patrocinio</p> 
       
-<h4>Texto Leyenda {{::winwin.pivot.sponsor_text}}</h4>
-    <h5 style="text-transform: normal;">Mensaje del solicitante{{::winwin.pivot.sponsor_message}}</h5>
+    <h4>{{::winwin.pivot.sponsor_text}}</h4>
+
+    <h5 style="text-transform: normal;">Mensaje del solicitante {{::winwin.pivot.winwin_message}}</h5>
     
-    <button class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)"> <p class="h7">Modificar Leyenda</p></button>
+    <button class="btn-large grey col-xs-6" ng-click="modifyLegend(winwin)"> <p class="h7">Modificar Leyenda</p></button>
     <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)"><p class="h7">Cancelar Sponsoreo</p></button>
 <br><br><br><br>
 </div>

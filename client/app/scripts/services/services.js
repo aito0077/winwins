@@ -30,7 +30,6 @@ angular.module('winwinsApp')
 .factory('Account', ['$http', 'api_host', function($http, api_host) {
     return {
         getProfile: function() {
-            console.log('get profile');
             return $http.get(api_host+'/api/me');
         },
         getStatus: function() {
@@ -127,10 +126,8 @@ angular.module('winwinsApp')
         },
         listen: function(callback) {
 
-            console.log('Account: set list for callback');
             $rootScope.$on("account", function(event, newValue, oldValue) {
                 if(newValue) {
-                    console.log('Account: listening calling callback');
                     callback(newValue);
                 }
             });
@@ -291,11 +288,15 @@ angular.module('winwinsApp')
         var self = this;
         $http.get(api_host+'/api/users/paginate/'+(this.current_page || '0')+'/15')
         .success(function(data) {
-            self.current_page = self.current_page + 1;
-            for (var i = 0; i < data.length; i++) {
-                self.items.push(data[i]);
+            if(data.length == 0) {
+                this.busy = true;
+            } else {   
+                self.current_page = self.current_page + 1;
+                for (var i = 0; i < data.length; i++) {
+                    self.items.push(data[i]);
+                }
+                self.busy = false;
             }
-            self.busy = false;
         });
     };
     
@@ -318,11 +319,15 @@ angular.module('winwinsApp')
         var self = this;
         $http.get(api_host+'/api/sponsors/paginate/'+(this.current_page || '0')+'/15')
         .success(function(data) {
-            self.current_page = self.current_page + 1;
-            for (var i = 0; i < data.length; i++) {
-                self.items.push(data[i]);
+            if(data.length == 0) {
+                this.busy = true;
+            } else {   
+                self.current_page = self.current_page + 1;
+                for (var i = 0; i < data.length; i++) {
+                    self.items.push(data[i]);
+                }
+                self.busy = false;
             }
-            self.busy = false;
         });
     };
     
@@ -331,7 +336,6 @@ angular.module('winwinsApp')
 }])
 /*
 .service('es_client',['esFactory', 'e_host', function(esFactory, e_host){
-    console.log(e_host);
     return esFactory({
         host: e_host,
         log: 'trace',

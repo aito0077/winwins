@@ -37,12 +37,13 @@ class UserController extends Controller {
 
         $users = DB::table('user_details')
             ->join('users', 'user_details.user_id', '=', 'users.id')
-            //->where('users.active', '=', 1)
+            ->where('users.active', '=', 1)
             ->where('users.is_sponsor', '!=', 1)
             ->where('users.suspend', '=', 0)
             ->select('user_details.photo', 'user_details.cover_photo', 'users.id', 'user_details.name') 
             ->skip($page * $amount)
             ->take($amount)->get();
+        Log::info($users);
         $collection = Collection::make($users);
         $collection->each(function($user) use($current_user){
             $user->winwins_count = DB::table('winwins_users')
