@@ -1,10 +1,9 @@
-
 <div data-ng-controller="winwin-sponsors-to-request">
     <div ng-if="!request_success">
-        <h5 ng-if="!sponsors.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No se encontraron <br> sponsors nuevos <br> </h5>
+        <h5 ng-if="!candidates.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">No se encontraron <br> sponsors nuevos <br> </h5>
 
     <div class="grid grid-sponsors" style="padding-top: 30px;">
-        <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
+        <div class="grid-item sponsor-item"  ng-repeat="sponsor in candidates">
 
     
           <div class="container no-padding" ng-click="view(sponsor.id)">       

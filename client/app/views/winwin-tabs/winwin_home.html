@@ -15,7 +15,7 @@
             <div class="col-xs-10 col-xs-offset-2 center white-text ww-title">
               {{::winwin.title}}
               <!-- WW concretado / Average Rating Stars-->
-              <div ng-show="winwin.is_successful" class="no-padding center white-text animated bounceInUp" style="width: 100%;">  <i class="fa fa-star orange-text"></i></div>
+              <div ng-show="winwin.is_successful" class="no-padding center white-text animated bounceInUp" style="width: 100%;">  <i ng-repeat="t in getRateArray(winwin.process_rate) track by $index" class="fa fa-star orange-text"></i></div>
               <div class="col-xs-12" style="padding-top:10px;">
                 <div class="col-xs-4 "></div>
                 <div ng-hide="winwin.is_successful" class="no-padding center">
