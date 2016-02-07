@@ -30,7 +30,7 @@ use Illuminate\Http\Request;
 class WinwinController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'socialShow', 'search', 'summary', 'winwinSponsors']]);
+        $this->middleware('auth', ['except' => ['paginate', 'index', 'show', 'socialShow', 'search', 'summary', 'winwinSponsors', 'paginateCategories']]);
     }
 
 
