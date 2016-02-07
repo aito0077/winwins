@@ -21,6 +21,7 @@ Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostContr
 Route::get('api/winwins/all', ['uses' => 'WinwinController@all']);
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/paginate/{page}/{amount}/{filter}', ['uses' => 'WinwinController@paginate']);
+Route::post('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginateCategories']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);
 Route::get('api/winwins/gallery', ['uses' => 'WinwinController@gallery']);
 Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
@@ -33,6 +34,7 @@ Route::post('api/winwins/{winwinId}/share/mails', ['middleware' => 'auth', 'uses
 
 Route::post('api/winwins/sponsor_request/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorRequest']);
 Route::post('api/sponsor/cancel/winwin/{id}', ['middleware' => 'auth', 'uses' => 'SponsorController@sponsorCancel']);
+Route::post('api/winwin/{winwinId}/cancel/sponsor/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorCancel']);
 Route::post('api/winwins/{id}/sponsor/request/{sponsorId}', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorForRequest']);
 
 Route::post('api/winwins/{id}/sponsor/{sponsorId}/legend', ['middleware' => 'auth', 'uses' => 'WinwinController@sponsorLegend']);

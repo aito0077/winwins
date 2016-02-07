@@ -215,7 +215,9 @@ angular.module('winwinsApp')
         this.items = [];
         this.busy = false;
         this.filter = 'all';
+        this.categories = false;
         this.current_page = 0;
+        this.no_results = false;
     };
 
     WinwinPaginate.prototype.nextPage = function() {
@@ -225,23 +227,50 @@ angular.module('winwinsApp')
         this.busy = true;
 
         var self = this;
-        $http.get(api_host+'/api/winwins/paginate/'+(this.current_page || '0')+'/15/'+this.filter)
-        .success(function(data) {
-            self.current_page = self.current_page + 1;
-            for (var i = 0; i < data.length; i++) {
-                self.items.push(data[i]);
-            }
-            self.busy = false;
-        });
+        //if(self.categories instanceof Array && self.categories.length > 0) {
+        if(self.categories) {
+            $http.post(api_host+'/api/winwins/paginate/'+(this.current_page || '0')+'/15', {
+                categories: self.categories
+            })
+            .success(function(data) {
+                self.current_page = self.current_page + 1;
+                for (var i = 0; i < data.length; i++) {
+                    self.items.push(data[i]);
+                }
+                self.busy = false;
+                self.no_results = (data.length == 0);
+                console.log('no results: '+self.no_results);
+            });
+        } else {
+            $http.get(api_host+'/api/winwins/paginate/'+(this.current_page || '0')+'/15/'+this.filter)
+            .success(function(data) {
+                self.current_page = self.current_page + 1;
+                for (var i = 0; i < data.length; i++) {
+                    self.items.push(data[i]);
+                }
+                self.busy = false;
+                self.no_results = (data.length == 0);
+                console.log('no results: '+self.no_results);
+            });
+        }
     };
     
     WinwinPaginate.prototype.setFilter = function(filter) {
+        this.categories = false;
         this.filter = filter;
         this.items = [];
         this.busy = false;
         this.current_page = 0;
     };
- 
+
+    WinwinPaginate.prototype.setFilterByCategories = function(filters) {
+        this.categories = filters;
+        this.filter = 'all';
+        this.items = [];
+        this.busy = false;
+        this.current_page = 0;
+    };
+
     return WinwinPaginate; 
 
 }])

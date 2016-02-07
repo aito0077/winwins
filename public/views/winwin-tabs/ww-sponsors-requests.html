@@ -1,14 +1,11 @@
 <div data-ng-controller="winwin-sponsors-requests">
     
-    
     <div ng-if="!accept_success">
-
         <h5 ng-if="!sponsors.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">Actualmente no tienes<br> peticiones de sponsors<br> </h5>
 
         <div class="grid grid-sponsors">
             <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
 
-        
                 <div class="col-xs-12 no-padding">
                     <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{sponsor.cover_photo}}" style="height: 220px;">
                   
@@ -19,68 +16,60 @@
                             <h4> 
                                 {{::sponsor.name}} 
                             </h4>
-                      
                         </div>
                     </div>
 
-       
-       
                     <div class="container">
                         <div class="row">
                             <div class="buttons-profile">
-                                <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::sponsor.winwins_count}}</a>
-                                <a role="button" class="col-xs-6 btn-join"  ng-click="acceptSponsor(sponsor)"> ACEPTAR </a>
-                                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{::sponsor.followers_count}}</a>
+                                <a href class="col-xs-3 ww-somos">
+                                    <span class="bubble-label"> Winwins </span> 
+                                    <span class="somos">{{::sponsor.winwins_count}}</span>
+                                </a>
+                                <a ng-if="sponsor.pivot.ww_accept == 0" role="button" class="col-xs-6 btn-join" ng-click="acceptSponsor(sponsor)"> ACEPTAR </a>
+                                <a href class="col-xs-3 ww-somos" >
+                                    <span class="bubble-label"> Seguidores </span> 
+                                    <span class="falta">{{::sponsor.followers_count}}</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                        
                              <!-- Sponsorship Admin -->
-<div class="col-xs-12 center">
-   <p class="small">Leyenda de patrocinio</p> 
-      
-<h4>Texto Leyenda {{::winwin.pivot.sponsor_text}}</h4>
-    <h5 style="text-transform: normal;">{{sponsor.pivot.sponsor_message}}</h5>
-    
-    <button class="btn-large grey col-xs-6" ng-click="ModificarLeyendadeSponsoreo(winwin)"> <p class="h7">Modificar Leyenda</p></button>
-    <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)"><p class="h7">Pasar Sponsoreo</p></button>
-
-</div>
-   </div>
-
- 
-            </div>
-
-        </div>
-
-    </div>
-            
-            
-            
-
-    <div ng-if="accept_success">
-        <div class="container">
-            <div class="row">
-                <div class="pad-30"> </div>
-                <div class="col-xs-2"></div>
-                <div class="col-xs-8">
-                    <div style="text-align: center;"> 
-                        <i class="fa fa-check" style="background-color:green; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
-                        <h2 style="font-family: montserrat; line-height: 35px;"> Perfecto!</h2>
-                        <h5 style="font-family: montserrat; color:#444;"> Has aceptado la solicitud de {{sponsor_name}}</h5>  
-                        <div class="pad-80"></div>
-                        <div class="spinner"></div>
-                    </div>
-                    <div class="col-xs-2"></div>
+                <div class="col-xs-12 center" ng-if="sponsor.pivot.ww_accept == 1">
+                    <p class="small">Leyenda de patrocinio</p> 
+                    <h4>{{::sponsor.pivot.sponsor_text}}</h4>
+                    <h5 style="text-transform: normal;">{{sponsor.pivot.sponsor_message}}</h5>
+                    <button class="btn-large grey col-xs-6" ng-click="modifyLegend(sponsor)"> <p class="h7">Modificar Leyenda</p></button>
+                    <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(sponsor)"><p class="h7">Pasar Sponsoreo</p></button>
                 </div>
             </div>
+
+
         </div>
 
     </div>
 
 </div>
+            
+            
+<div ng-if="accept_success">
+    <div class="container">
+        <div class="row">
+            <div class="pad-30"> </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <div style="text-align: center;"> 
+                    <i class="fa fa-check" style="background-color:green; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                    <h2 style="font-family: montserrat; line-height: 35px;"> Perfecto!</h2>
+                    <h5 style="font-family: montserrat; color:#444;"> Has aceptado la solicitud de {{sponsor_name}}</h5>  
+                    <div class="pad-80"></div>
+                    <div class="spinner"></div>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    </div>
 
-      
+</div>
 

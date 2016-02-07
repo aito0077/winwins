@@ -53,12 +53,38 @@ class WinwinController extends Controller {
             case 'select':
                 $winwins = Winwin::where('published', '=', 1)->where('selected', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
                 break;
+            case 'success':
+                $winwins = Winwin::where('published', '=', 1)->where('status', '=', 'SUCCESSFUL')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                break;
             default:
                 $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         }
 
         //$winwins = Winwin::where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         //$winwins = DB::table('winwins')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+        $collection = $this->processCollection($winwins);
+        return $collection;
+
+    }
+
+    public function paginateCategories(Request $request, $page = 0, $amount = 15) {
+        $winwins = [];
+        $categories = $request->input('categories');
+
+        Log::info($categories);
+        $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)
+            ->join('interests_interested', 'winwins.id', '=', 'interests_interested.interested_id')
+            ->where('interests_interested.interest_id', '=', $categories)
+            ->where('interests_interested.type', '=', 'WINWIN')
+            ->skip($page * $amount)->take($amount)->get();
+        $collection = $this->processCollection($winwins);
+        Log::info($collection);
+
+        return $collection;
+
+    }
+
+    public function processCollection($winwins) {
         $collection = Collection::make($winwins);
         $collection->each(function($winwin) {
             if($winwin->users_amount) {
@@ -76,11 +102,10 @@ class WinwinController extends Controller {
             $winwin->user;
 
         });
-
-
         return $collection;
 
     }
+
 
 	public function index() {
         //$winwins = Winwin::where('selected', 1)->where('published', 1)->where('canceled', 0)->where('closing_date', '>=', Carbon::now())->orderBy('created_at')->get();
@@ -163,9 +188,6 @@ class WinwinController extends Controller {
                 ->get();
 
             $followed = Collection::make($mixFollowers)->pluck('followed_id');
-
-            Log::info($followed);
-
 
             $winwin->already_joined = count($winwin->users->filter(function($model) use ($user, $winwin, $followed) {
                 $model->detail;
@@ -420,8 +442,6 @@ class WinwinController extends Controller {
                 DB::table('interests_interested')->where('type', 'WINWIN')->where('interested_id', $winwin->id)->delete();
 
                 foreach($interests as $interest) {
-                    Log::info($interest);
-
                     $interestsInterested = InterestsInterested::firstOrCreate([
                         'interest_id' => $interest['id'],
                         'interested_id' => $winwin->id,
@@ -489,7 +509,7 @@ class WinwinController extends Controller {
             if($already_joined) {
                 return response()->json(['message' => 'join_already_join'], 400);
             } else {
-                DB::transaction(function() use ($winwin, $user, $request, $mailer) {
+                DB::transaction(function() use ($winwin, $user ) {
                     $winwinsUsers = new WinwinsUser;
                     $winwinsUsers->user_id = $user->id;
                     $winwinsUsers->winwin_id = $winwin->id;
@@ -507,7 +527,7 @@ class WinwinController extends Controller {
                         ->regarding($winwin)
                         ->deliver();
 
-                    if(($winwin->users_joined + 1)== $winwin->users_amount) {
+                    if(($winwin->users_joined + 1) == $winwin->users_amount) {
                         $winwin->status = 'SUCCESSFUL';
                         $winwin->save();
                         $winwin->user->newActivity()
@@ -518,11 +538,16 @@ class WinwinController extends Controller {
                             ->regarding($winwin)
                             ->deliver();
 
-                        $this->sentCompleteQuorum($request, $mailer, $winwin);
                     }
 
-
                 });
+
+
+                if($winwin->status == 'SUCCESSFUL') {
+                    $this->sentCompleteQuorum($request, $mailer, $winwin);
+                }
+
+
             }
         }
 	}
@@ -892,10 +917,15 @@ class WinwinController extends Controller {
                 'winwin_id' => $winwin->id,
             ]);
             WinwinsUser::where('user_id', $user->id)
-                        ->where('winwin_id', $winwin->id)
-                        ->update(['process_rate' => $rate]);
+                ->where('winwin_id', $winwin->id)
+                ->update(['process_rate' => $rate]);
 
+            $average = DB::table('winwins_users')->where('winwin_id', '=', $winwin->id)->where('process_rate', '>', 0)->avg('process_rate');
+            $winwin->process_rate = (int) $average;
+            $winwin->save();
         });
+
+
 
         return response()->json(['message' => 'winwin_rated'], 200);
         
@@ -937,7 +967,6 @@ class WinwinController extends Controller {
             $result['longitude'] = $coordinates['lng'];
         }
     
-        Log::info($result);
         return $result;
     }
 
@@ -1009,5 +1038,40 @@ class WinwinController extends Controller {
             }
         }
     }
+
+	public function sponsorCancel(Request $request, $winwinId, $id) {
+        $sponsor = Sponsor::find($id);
+        $winwin = Winwin::find($winwinId);
+        $ww_user = $winwin->user;
+        $request_body = $request->input('body');
+
+        if(!isset($sponsor)) {
+            return response()->json(['message' => 'winwin_you_are_not_an_sponsor'], 400);
+        } else {
+            $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
+                return $model->id == $sponsor->id;
+            })) > 0;
+
+            if($already_sponsored) {
+                DB::transaction(function() use ($winwin, $ww_user, $sponsor, $request_body) {
+                    DB::table('sponsors_winwins')->where('sponsor_id', $sponsor->id )->where('winwin_id', $winwin->id)->delete();
+                });
+                $sponsor->user->newNotification()
+                    ->from($ww_user)
+                    ->withType('SPONSOR_CANCEL')
+                    ->withSubject('Sponsor_cancel')
+                    ->withBody($request_body)
+                    ->regarding($winwin)
+                    ->deliver();
+
+                return response()->json(['message' => 'winwin_sponsor_cancel'], 200);
+            } else {
+                return response()->json(['message' => 'winwin_you_are_not_sponsored_this_winwin'], 400);
+            }
+        }
+
+	}
+
+
 
 }
