@@ -8,6 +8,7 @@ angular.module('winwinsApp')
     $scope.users = [];
     $scope.sponsors = [];
     $scope.groups = [];
+    $scope.show_no_results = false;
 
     
     $http.get(api_host+'/api/ww/search/', {
@@ -21,7 +22,14 @@ angular.module('winwinsApp')
     })
     .success(function(data) {
         $scope.hits = data;
+        if(_.isEmpty($scope.hits)) {
+            $scope.show_no_results = true;
+        } else {
         $scope.winwins = data['winwins'];
+        $scope.users =  $stateParams.user ? data['users'] : [];
+        $scope.groups =  $stateParams.group ? data['groups'] : [];
+        $scope.sponsors =  $stateParams.sponsor ? data['sponsors'] : [];
+        }
         /*
         $scope.winwins =  $stateParams.winwin ? data['winwins'] : [];
         $scope.users =  $stateParams.user ? data['users'] : [];
