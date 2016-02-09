@@ -21,115 +21,95 @@
     </div>
 
 <div>
-            <div class="col-xs-12">
-                <form method="post" ng-submit="saveProfile()" name="signupForm">
-                     <div class="col-xs-12 card-panel teal">  <label for="textarea1">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
-                           </div>
+<div class="col-xs-12">
+    <form method="post" ng-submit="saveProfile()" name="signupForm">
+        <div class="col-xs-12 card-panel teal">  <label for="name">Nombre</label>
+            <input type="text" class="form-control" placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_user.name" >
+        </div>
+
+        <div class="col-xs-12 card-panel teal"><label for="lastname">Apellido</label>
+            <input type="text" class="form-control" placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname"> 
+        </div>
+
+        <div class="col-xs-12 card-panel teal">
+            <label for="about">Sobre vos</label>
+                <textarea name="about" ng-model="edit_user.about" class="materialize-textarea"  placeholder="contanos algo sobre vos"></textarea>
+        </div>
+
+        <div class="col-xs-12 card-panel teal">
+            <label for="interests">Intereses</label>
+            <textarea name="interests" ng-model="edit_user.interests" class="materialize-textarea"   no-resize placeholder="contanos tus intereses"></textarea>
+        </div>
+
+        <div class="col-xs-12 card-panel teal">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" ng-model="edit_user.email" placeholder="Tu E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1">
+        </div>
+
+        <div class="col-xs-12 card-panel teal">
+            <label for="date">Cuándo naciste?</label>
+            <input name="date" type="date" class="datepicker">
+        </div>
+
+        <div class="col-xs-12 card-panel teal">
+            <input password-strength class="col-xs-12 card-panel teal" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
+            <input password-strength class="col-xs-12 card-panel teal" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
+            <input password-match="password" class="col-xs-12 card-panel teal" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
+        </div>
+
+        <hr>
+
+        <button type="submit" ng-disabled="signupForm.$invalid" class="btn-large green col-xs-12 small waves-effect" >
+             Actualizar Perfil  
+        </button>   
+    </form>
+
+
+</div>
                    
-                      <div class="col-xs-12 card-panel teal"><label for="textarea1">Apellido</label>
-                    <input type="text" class="form-control" placeholder="Tu apellido" aria-describedby="basic-addon1" name="lastname" ng-model="edit_user.lastname"> 
-
-           
-                       </div>
-                       <div class="col-xs-12 card-panel teal">
-                                       <label for="textarea1">Sobre vos</label>
-                    <textarea ng-model="edit_user.about" class="materialize-textarea"  placeholder="contanos algo sobre vos"></textarea>
-       
+<div class="container">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header blue white-text"><i class="fa fa-bullhorn"></i>Configurar Notificaciones</div>
+            <div class="collapsible-body">
+                <div class="col-xs-12 card-panel">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6">
+                        <h6>Invitacion a WinWins</h6>
                     </div>
-             
-
-                     <div class="col-xs-12 card-panel teal">
-                                   <label for="textarea1">Intereses</label>
-                    <textarea ng-model="edit_user.interests" class="materialize-textarea"   no-resize placeholder="contanos tus intereses"></textarea>
-         
-         
+                    <div class="col-xs-3">
+                        <input bs-switch ng-model="edit_user.invite_ww" type="checkbox"  ng-true-value="1" ng-false-value="0">
                     </div>
-                     <div class="col-xs-12 card-panel teal">
-                                   <label for="textarea1">Email</label>
-                    <input class="form-control" type="email" id="email" name="email" ng-model="edit_user.email" placeholder="Tu E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1">
-                    </div>
-    
-
-
-<div class="col-xs-12 card-panel teal">
-    <label for="textarea1">Cuándo naciste?</label>
-    <input type="date" class="datepicker">
-</div>
-
-<div class="col-xs-12 card-panel teal">
-    <input password-strength class="col-xs-12 card-panel teal" type="password" name="current_password" ng-model="edit_user.current_password" placeholder="Contraseña Anterior" aria-describedby="basic-addon1" >
-    <input password-strength class="col-xs-12 card-panel teal" type="password" name="password" ng-model="edit_user.password" placeholder="Contraseña" aria-describedby="basic-addon1" >
-    <input password-match="password" class="col-xs-12 card-panel teal" type="password" name="confirmPassword" ng-model="edit_user.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" compare-to="edit_user.password" >
-</div>
-
-
+                    <div class="col-xs-2"></div>
                 </div>
 
-
-                              </div>
-<hr>
-    
-             <button type="submit" ng-disabled="signupForm.$invalid" class="btn-large green col-xs-12 small waves-effect" >
- Actualizar Perfil  
-</button>   
-                    
-
-
-                </form>
-
-        
-        
-        
-    </div>
-    <div class="container">
-  <ul class="collapsible" data-collapsible="accordion">
-    <li>
-        <div class="collapsible-header blue white-text"><i class="fa fa-bullhorn"></i>Configurar Notificaciones</div>
-      <div class="collapsible-body">
-<div class="col-xs-12 card-panel">
-    <div class="col-xs-1"></div>
-    <div class="col-xs-6">
-        <h6>Invitacion a WinWins</h6>
-    </div>
-    <div class="col-xs-3">
-        <input bs-switch ng-model="edit_user.invite_ww" type="checkbox"  ng-true-value="1" ng-false-value="0">
-    </div>
-    <div class="col-xs-2"></div>
-</div>
-   
                 <div class="col-xs-12 card-panel teal">
-
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-6">
-                            <h6>WinWins Finalizado</h6>
-                        </div>
-                        <div class="col-xs-3">
-                            <input bs-switch ng-model="edit_user.ww_to_finish" type="checkbox"  ng-true-value="1" ng-false-value="0">
-                        </div>
-                        <div class="col-xs-2"></div>
-
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6">
+                        <h6>WinWins Finalizado</h6>
+                    </div>
+                    <div class="col-xs-3">
+                        <input bs-switch ng-model="edit_user.ww_to_finish" type="checkbox"  ng-true-value="1" ng-false-value="0">
+                    </div>
+                    <div class="col-xs-2"></div>
                 </div>
-    
-      <div class="col-xs-12 card-panel teal">
-
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-6">
-                            <h6>Invitacion a Grupo</h6>
-                        </div>
-                        <div class="col-xs-3">
-                           <input bs-switch ng-model="edit_user.invite_group" type="checkbox"  ng-true-value="1" ng-false-value="0">
-                        </div>
-                        <div class="col-xs-2"></div>
-
-                </div></div>
-    </li>
-    <li>
-        <div class="collapsible-header  blue darken-3 white-text" ><i class="fa fa-user"></i>Visibilidad del Perfil</div>
-      <div class="collapsible-body">     <div class="col-xs-12 card-panel teal">
-
 
                 <div class="col-xs-12 card-panel teal">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6">
+                        <h6>Invitacion a Grupo</h6>
+                    </div>
+                    <div class="col-xs-3">
+                        <input bs-switch ng-model="edit_user.invite_group" type="checkbox"  ng-true-value="1" ng-false-value="0">
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header  blue darken-3 white-text" ><i class="fa fa-user"></i>Visibilidad del Perfil</div>
+                <div class="collapsible-body">     
+                    <div class="col-xs-12 card-panel teal">
                         <div class="col-xs-1"></div>
                         <div class="col-xs-6">
                             <h6>Mostrar Perfil</h6>
@@ -138,53 +118,46 @@
                             <input bs-switch ng-model="edit_user.private" type="checkbox" ng-true-value="1" ng-false-value="0">
                         </div>
                         <div class="col-xs-2"></div>
-                    </div></div>
-    </li>
-    <li>
-      <div class="collapsible-header blue white-text"><i class="fa fa-flag-o"></i> Idioma </div>
-      <div class="collapsible-body"><div class="col-xs-12 card-panel teal">
-                        <div class="col-xs-12">
-                            <h5>Selección de Idioma</h5>
+                    </div>
                 </div>
-              
-                        <div class="col-xs-12 center">
-                            <input bs-switch ng-model="edit_user.language_code" type="checkbox" ng-true-value="'ES'"
-    ng-false-value="'EN'" switch-on-text="ESPAÑOL" switch-off-text="ENGLISH" class="block-center">
-       
-                        <div class="col-xs-2"></div>
-    
-                </div></div>
-    </li>
-  </ul>
-        
-
-               
-                
-        
-
-                <div class="col-xs-12  no-padding card-panel teal center"></div>
-                    <a role="button" class="col-xs-10 full btn-join" style="background-color: #f5f5f5; border-color: transparent; color: #333;" ng-click="cancelAccount()"> 
-                        Cancelar mi cuenta
-                    </a>
-                <div class="col-xs-1"></div>
-
             </div>
-        </div>
-    
+        </li>
+        <li>
+            <div class="collapsible-header blue white-text"><i class="fa fa-flag-o"></i> Idioma </div>
+            <div class="collapsible-body">
+                <div class="col-xs-12 card-panel teal">
+                    <div class="col-xs-12">
+                        <h5>Selección de Idioma</h5>
+                    </div>
+                    <div class="col-xs-12 center">
+                        <input bs-switch ng-model="edit_user.language_code" type="checkbox" ng-true-value="'ES'"
+                            ng-false-value="'EN'" switch-on-text="ESPAÑOL" switch-off-text="ENGLISH" class="block-center">
+                        <div class="col-xs-2"></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+        
+    <div class="col-xs-12  no-padding card-panel teal center"></div>
+        <a role="button" class="col-xs-10 full btn-join" style="background-color: #f5f5f5; border-color: transparent; color: #333;" ng-click="cancelAccount()"> 
+            Cancelar mi cuenta
+        </a>
+        <div class="col-xs-1"></div>
+    </div>
+</div>
+
     
   
 <script>
- $('.datepicker').pickadate({
-    max: true,
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 85 
-  });
- </script>
-        <script>
-
-  $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+$(document).ready(function(){
+    $('.datepicker').pickadate({
+        max: true,
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 85 
     });
-  });
-        </script>
+    $('.collapsible').collapsible({
+        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+});
+</script>

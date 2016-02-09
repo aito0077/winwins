@@ -74,7 +74,11 @@ class SearchController extends Controller {
             ]
         ]);
 
-        return Collection::make($items['hits']['hits'])->groupBy('_type');
+        if($request->has('groupped')) {
+            return Collection::make($items['hits']['hits'])->groupBy('_type');
+        } else {
+            return Collection::make($items['hits']['hits']);
+        }
     }
 
 
