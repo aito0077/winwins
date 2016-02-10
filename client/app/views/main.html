@@ -99,8 +99,10 @@
         </div>
     </nav>
 </div>
+<div class="center" id="down">
+<a class="btn-floating green animated infinite pulse" style="z-index: 99999; position: absolute; bottom: 30px;"><i class="fa fa-arrow-down animated infinte flash"></i></a>
 
-
+</div>
   <!-- Modal Sharer-->
     <div class="modal fade" id="share" tabindex="-1" role="dialog" aria-labelledby="share" style="display:none;">
       <div class="modal-dialog" role="document">
@@ -125,7 +127,7 @@
             <i class="fa fa-google" style="padding-top:0px;"></i>
    
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" id="down">
     <p class="grey-text small center">Difunde este Winwin en las redes sociales.</p>    
         
        <button type="button" class="btn-large green waves-effect" style="width:100%;" data-dismiss="modal" >Listo </button></div>
@@ -149,6 +151,22 @@
             }
         });
     })
+</script>
+
+<!--TODO: sacar a footer-search.js -->
+<script>
+
+$(window).scroll(function() {
+
+    if ($(this).scrollTop()>40)
+     {
+        $('#down').fadeOut();
+     }
+    else
+     {
+      $('.#down').fadeIn();
+     }
+ });
 </script>
 
 
