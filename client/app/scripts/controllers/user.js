@@ -518,8 +518,9 @@ angular.module('winwinsApp')
     $timeout(function() {
         $auth.logout().then(function() {
             $rootScope.$broadcast('is_logged', false);
+            $state.go('main');
         });
-    }, 1000);
+    }, 2500);
 
 }])
 .controller('ProfileNotificaciones', ['$scope','$http', '$state', '$stateParams', '$timeout', '$anchorScroll', '$location', 'User', 'Account', 'api_host', function($scope, $http, $state, $stateParams, $timeout, $anchorScroll, $location, User, Account, api_host) {

@@ -63,34 +63,19 @@
                   <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
                     <span class="h7 dark-text"> {{item_post.user.username}}</span>
                    
-                   <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
-                  </button>
-                          <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && !isAdmin" style="margin-top: -12px;">
-                    <img src="../images/postit.png"/>
-                  </button>
-                  <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="winwin.already_joined && item_post.sticky && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
-                    <img src="../images/postit.png" />
-                  </button>
-                  <button class="fa fa-trash-o white right grey-text waves-effect waves-light btn z-depth-0"  ng-if="isAdmin" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px; margin-right: 10px; ">
+                    <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="!item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                    </button>
+                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
+                        <img src="../images/postit.png" />
+                    </button>
+                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && !isAdmin" style="margin-top: -12px;">
+                        <img src="../images/postit.png"/>
+                    </button>
+
+                  <button class="fa fa-trash-o white right grey-text waves-effect waves-light btn z-depth-0"  ng-if="(isAdmin || item_post.user.id == user_id)" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px; margin-right: 10px; ">
                   </button>
                    <!--TODO: EDITAR POST -->
-                      <button class="fa fa-pencil white right grey-text waves-effect waves-light btn z-depth-0" ng-if="isAdmin" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px;  ">
-                  </button>
-                        
-                 <!-- <a href class="button-del" ng-if="winwin.already_joined && !item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
-                     <h4><i class="fa fa-bookmark right grey-text" style="margin-top: -60px;"></i> </h4>
-                  </a>
-                  <a href class="button-del" ng-if="item_post.sticky && !isAdmin">
-                     <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
-                  </a>
-                  <a href class="button-del" ng-if="winwin.already_joined && item_post.sticky && isAdmin" ng-click="unSticky(item_post)">
-                     <h4><i class="fa fa-bookmark right orange-text" style="margin-top: -60px;"></i> </h4>
-                  </a>
-                  <a href class="button-del" ng-click="removePost(item_post)" ng-if="winwin.already_joined && (isAdmin || item.post.user.id == user_id)">
-                     <h4><i class="fa fa-trash-o right grey-text" style="margin-top: -60px; margin-right: 40px;"></i> </h4>
-                  </a>
-
-                    -->
+                      <!--button class="fa fa-pencil white right grey-text waves-effect waves-light btn z-depth-0" ng-if="isAdmin" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px;  "-->
                   <span class="title" style="font-size:12px;">{{item_post.title}}</span>
                </li>
             </ul>

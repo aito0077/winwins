@@ -27,8 +27,8 @@
                             <div class="col s12">
                                 <div class="row"> 
                                     <div class="input-field col s12 form-group no-padding" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
-                                        <input id="nombre" name="name" type="text" length="20"  class="validate" ng-model="name" required>
-                                        <label for="password">Nombre</label>
+                                        <input id="name" name="name" type="text" length="20"  class="validate" ng-model="name" required>
+                                        <label for="name">Nombre</label>
                                         <div ng-messages="signupForm.name.$error" style="margin-bottom:10px;" ng-if="signupForm.name.$touched" class="help-block">
                                             <p class="small" ng-message="required">Ingresa tu nombre.</p>
                                         </div>
@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="input-field col s12 no-padding">
                                         <input id="rpassword" type="password" length="20"  class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
-                                        <label for="password">Repeti Contraseña</label>
+                                        <label for="rpassword">Repeti Contraseña</label>
                                     </div>
                 
                                     <div class="input-field col s12 no-padding">
