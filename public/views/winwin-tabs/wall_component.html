@@ -53,7 +53,6 @@
    </div>
 </div>
 <!-- Fin Polls -->
-
 <div class="row">
    <div class="container no-padding" ng-repeat="item_post in posts" >
       <div class="col s12 m7">
@@ -98,13 +97,13 @@
                   <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"><i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i><span class="post-likes-">0</span></div>
                   <div ng-if="winwin.already_joined"class="col-xs-2 no-padding"  ng-class="{'text-danger': !item_post.self_vote.positive}"><i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i><span class="post-likes-"> {{::item_post.down_votes}}</span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i> <span class="post-likes"> {{::item_post.up_votes}}</span></div>
-                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)" ><i class="fa fa-share-alt" style="padding-top:4px;"></i> </span></div>
+                    <div class="col-xs-2"><span class="share-ico" ng-click="openSocialModal(item_post)" ><i class="fa fa-share-alt  " style="padding-top:4px;"></i> </span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-2 no-padding right" style="cursor:pointer;    text-align: right;" ng-show="!item_post.isReplying" ><span class="comments-ico" ng-click="reply(item_post)"> <i class="fa fa-comment"></i></span></div>
                   <div ng-if="winwin.already_joined" class="col-xs-1 right no-padding" style="cursor:pointer;    text-align: right;" ng-show="item_post.isReplying" ><span class="comments-ico" ng-click="cancelReply(item_post)"> <i class="fa fa-comment"></i></span></div>
                </div>
             </div>
          </div>
-      </div>
+      </div>        
    </div>
 </div>
 <div class="container no-padding" ng-repeat="comment in item_post.comments" >
