@@ -11,10 +11,6 @@
 
 </style>
 
-
-
-
-
 <div id="slider">
     <nav style="max-height: 45px; overflow:hidden; border:transparent;">
         <div class="nav-wrapper">
@@ -39,11 +35,11 @@
                         <i class="fa fa-gear"  style="font-size:1.3rem;padding:13px;"></i>
                     </a>
                 </li>
-                <li  class="col-xs-3" ng-show="!isAdmin">    
+                <div  class="col-xs-3" ng-show="!isAdmin">    
                     <a class="h7" onclick="Materialize.toast('<p>Solo para el creador o activador del WW.</p>', 1000)">
                         <i class="fa fa-gear" style="font-size: 20px; padding:12px; opacity: .5;"></i>
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
     </nav>
@@ -56,7 +52,7 @@
             </a>
             <a data-toggle="tab" data-target="#sponsors_to_request">
                 <div class="col-xs-2 submenu-icons">
-                    <i class="fa fa-share" style="font-size:12px;"></i><img src="../images/sponsor.png" width="17">
+                  <img src="../images/sponsors.png" width="17">
                 </div>
             </a>
             <a data-toggle="tab" data-target="#campanada">

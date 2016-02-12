@@ -257,12 +257,10 @@ padding-top:50px;
     border-radius: 1px;
 }
 
-.ww-somos {
-    margin-bottom: 10px;
-}
+
 
 .collapsible-header {
-   border-bottom: 0px;
+   border: 0px;
 }
 
 
@@ -1040,4 +1038,11 @@ nav {
      -moz-border-radius: 90px 90px 0 0;
      -webkit-border-radius: 90px 90px 0 0;
    }
+
+  #slider {
+    position:fixed;
+    left: 0px;
+    width: 100%;
+    z-index:10;
+}
 
