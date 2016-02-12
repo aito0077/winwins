@@ -149,57 +149,7 @@ angular.module('winwinsApp')
 
         })
         .catch(function(response) {
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error en su registracion', 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
-            $state.go('signUp');
-        });
-    };
-
-    $scope.authenticate = function(provider) {
-        $auth.authenticate(provider)
-        .then(function(data) {
-            $rootScope.currentUser = data;
-            $rootScope.$broadcast('is_logged', true);
-            $scope.show_signup = false;
-            $scope.provider = provider;
-            $scope.redirect_message = true;
-
-            $timeout(function() {
-                if($rootScope.returnState) {
-                    switch($rootScope.returnState.state) {
-                        case 'ww-join': 
-                            $state.go('winwin-view', {
-                                winwinId: $rootScope.returnState.parameters.winwinId,
-                                actionJoin: true
-                            }); 
-                            break;
-                        default:
-                            $state.go($rootScope.returnState.state); 
-                    }
-                } else {
-                    $state.go('main'); 
-                }
-            }, 3000);
-
-
-
-        })
-        .catch(function(response) {
-            $state.go('failure-login');
-            swal({
-                title: "ADVERTENCIA", 
-                text: 'Error en su autenticación', 
-                type: "warning",
-                showCancelButton: false,
-                        animation: false, 
-                closeOnConfirm: true 
-            });
+            $state.go('sponsor-new');
         });
     };
 

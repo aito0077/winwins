@@ -22,38 +22,55 @@
 
                 <form class="col s12" method="post" ng-submit="signup()" name="signupForm">
                     <div class="row"> 
-                        <div class="input-field col s12">
-                            <input id="apellido" type="text" class="validate" ng-model="name" required="required">
-                            <label for="password">Nombre</label>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="name" name="name" type="text" class="validate" ng-model="name" required="required">
+                            <label for="name">Nombre</label>
+                            <div ng-messages="signupForm.name.$error" style="margin-bottom:10px;" ng-if="signupForm.name.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese su nombre.</p>
+                            </div>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="apellido" type="text" class="validate" ng-model="lastname" required="required">
-                            <label for="password">Apellido</label>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="lastname" name="lastname" type="text" class="validate" ng-model="lastname" required="required">
+                            <label for="lastname">Apellido</label>
+                            <div ng-messages="signupForm.lastname.$error" style="margin-bottom:10px;" ng-if="signupForm.lastname.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese su apellido.</p>
+                            </div>
                         </div>
                         <!--sume este campo:-->
-                        <div class="input-field col s12">
-                            <input id="organizacion" type="text" class="validate" ng-model="sponsor_organization" required >
-                            <label for="organizacion">Empresa/Organización</label>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="organization" name="organization" type="text" class="validate" ng-model="sponsor_organization" required >
+                            <label for="organization">Empresa/Organización</label>
+                            <div ng-messages="signupForm.organization.$error" style="margin-bottom:10px;" ng-if="signupForm.organization.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese el nombre de la organización.</p>
+                            </div>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required >
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="email" name="email" type="email" class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/" required >
                             <label for="email">Email</label>
+                            <div ng-messages="signupForm.email.$error" style="margin-bottom:10px;" ng-if="signupForm.email.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese un correo.</p>
+                            </div>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" ng-model="password" required="required">
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="password" name="password" type="password" class="validate" ng-model="password" required="required">
                             <label for="password">Contraseña</label>
+                            <div ng-messages="signupForm.password.$error" style="margin-bottom:10px;" ng-if="signupForm.password.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese una clave</p>
+                            </div>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="rpassword" type="password" class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
-                            <label for="password">Repeti Contraseña</label>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="rpassword" name="rpassword" type="password" class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
+                            <label for="rpassword">Repeti Contraseña</label>
+                            <div ng-messages="signupForm.rpassword.$error" style="margin-bottom:10px;" ng-if="signupForm.rpassword.$touched" class="help-block">
+                                <p class="small" ng-message="required">Repita la clave</p>
+                            </div>
                         </div>
                         <div class="pad-20"></div>
-                        <div class="input-field col s12">
+                        <div class="input-field col s12" >
                             <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
                             <label for="filled-in-box">Acepto los términos y condiciones.</label>
                         </div>
-                        <button class="col s12 waves-effect waves-light btn-large" type="submit" ng-disabled="loginForm.$invalid" name="action">Ingresar</button>
-                        </button>
+                        <button class="col s12 waves-effect waves-light btn-large" type="submit" name="action">Ingresar</button>
                     </div>
                 </form>
             <div class="pad-50"></div>

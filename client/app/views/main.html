@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="col-xs-6 no-padding">
-                    <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
+                    <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;" ng-if="sponsor.pivot.ww_accept == 1 && sponsor.pivot.sponsor_accept == 1">
                 </div>
 
                 <!-- somos -->

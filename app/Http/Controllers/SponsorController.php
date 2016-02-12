@@ -45,7 +45,7 @@ class SponsorController extends Controller {
             }
         }
 
-        $sponsors = DB::table('sponsors')->where('is_active', '=', 1)->skip($page * $amount)->take($amount)->get();
+        $sponsors = DB::table('sponsors')->where('is_active', '=', 1)->where('is_main', '=', 0)->skip($page * $amount)->take($amount)->get();
         $collection = Collection::make($sponsors);
         $collection->each(function($sponsor) use($user) {
             $winwins_count = DB::table('winwins')
@@ -87,7 +87,7 @@ class SponsorController extends Controller {
 
 
 	public function index() {
-        $sponsors = Sponsor::all();
+        $sponsors = Sponsor::where('is_main', '=', 0)->get();
         $collection = Collection::make($sponsors);
         $collection->each(function($sponsor) {
             $users_count = count($sponsor->users);

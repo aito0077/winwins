@@ -25,7 +25,7 @@
                         
                         
                         <span> Ver Winwins</span></a></li>
-                    <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><i class="fa fa-user animated wobble"></i>  Mis Winwins </a></li>
+                    <li ng-if="!isSponsor"><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><i class="fa fa-user animated wobble"></i>  Mis Winwins </a></li>
                     <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"><i class="fa fa-plus"></i>  Crear un WinWin</a></li>
                 <!--    <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li> -->
                   <!--      <li><a ng-href="/#/group-list" ng-if="!isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li>-->
