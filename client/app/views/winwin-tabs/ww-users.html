@@ -82,16 +82,35 @@
         </div>
    
     </div>
+          
+          
+
+<!-- search -->
+<div id="footer-s" >
+   <a class="scrollup to-top center orange darken-4 z-depth-0">
+      <i class="fa fa-arrow-up" style="margin-top:5px;" ></i>
+    </a>
+    <nav class="z-depth-3" style="height:60px;">
+        <div class="nav-wrapper  blue darken-4 z-depth-3">
+            <form>
+                <div class="col-xs-12 ">
+                    <div class="input-field">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..."  style="margin:0px;"    ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <!-- I've put "red-text" class to emphasize -->
+                        <button class="fa fa-search bar right blue darken-4 waves-effect btn clean z-depth-0" style="font-size: 19px;" id="query" ng-click="search()"></i>
+
+
+                    </div>
+            </form>
+                                    </nav>
+
+        </div> </div> </div>
 </div>
 
+ 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        window.scrollTo(0,0);
-    });
-</script>
-        
-        <script>
+
+<script>
     $(function(){
     $(window).scroll(function() {  
 if($(document).scrollTop() > 150)
@@ -112,4 +131,5 @@ else
     $('select').material_select();
   });
             </script>
+
 

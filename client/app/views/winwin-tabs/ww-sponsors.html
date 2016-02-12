@@ -3,7 +3,7 @@
 <div data-ng-controller="winwin-sponsors">
 
         <!-- WW no sponsors - Si no hay sponsors entonces -->
-        <div class="row"><br><br>
+        <div class="row"><br>
         <h5 ng-if="!winwin.active_sponsors.length" class="grey-text card-panel"><br><i class="fa fa-star orange-text animated infinite pulse" style="font-size: 40px;"></i><br><br>Aun no hay sponsors!<br></h5></div>
         
         <!-- WW no sponsors -->
@@ -69,27 +69,27 @@
 
 
  
-
 <!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
-
-    <nav>
-        <div class="nav-wrapper  blue darken-4">
+   <a class="scrollup to-top center orange darken-4 z-depth-0">
+      <i class="fa fa-arrow-up" style="margin-top:5px;" ></i>
+    </a>
+    <nav class="z-depth-3" style="height:60px;">
+        <div class="nav-wrapper  blue darken-4 z-depth-3">
             <form>
-                <div class="col-xs-12">
+                <div class="col-xs-12 ">
                     <div class="input-field">
-                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." style="margin-top:10px;" required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                        <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..."  style="margin:0px;"    ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
                         <!-- I've put "red-text" class to emphasize -->
-                        <i class="fa fa-search bar right" style="font-size: 19px; padding-top:10px;" id="query" ng-click="search()"></i>
+                        <button class="fa fa-search bar right blue darken-4 waves-effect btn clean z-depth-0" style="font-size: 19px;" id="query" ng-click="search()"></i>
 
 
                     </div>
             </form>
-            </div>
-        </div>
-    </nav>
-</div>
-        
+                                    </nav>
+
+        </div> </div> 
+
 
 <script>
     $(function(){
