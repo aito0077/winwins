@@ -64,10 +64,10 @@
                    
                     <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="!item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
                     </button>
-                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
+                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky == 1 && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
                         <img src="../images/postit.png" />
                     </button>
-                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky && !isAdmin" style="margin-top: -12px;">
+                    <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky == 1 && !isAdmin" style="margin-top: -12px;">
                         <img src="../images/postit.png"/>
                     </button>
 
