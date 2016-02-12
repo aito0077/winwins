@@ -131,7 +131,7 @@
             
   </ul>
 
-                <div class="right" style="padding-right:20px; z-index:999;">
+                <div class="right" style="padding-right:10px; z-index:999;">
                                         
                     <a href ng-href="/#/signin" style="font-size: 20px; padding-top:3px;" ng-if="!isAuthenticated()"><i class="fa fa-sign-in sign-btn"></i></a>
 
@@ -140,7 +140,7 @@
                         <img  ng-if="is_logged"  ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{profile_photo}}" class="z-depth-0 img-circle img-no-border" alt="profile" style="margin-top:-4px;cursor: pointer;" ng-cloak/>
                     </button>
                 </div>
-                <div class="left" style="margin-left:20px;">
+                <div class="left" style="margin-left:10px;">
                     <button class="fa fa-chevron-left waves-light z-depth-0 btn fa-lg imenu" style="background:transparent;" ng-click="do_back()"></button>    
                     <button class="fa fa-bell-o fa-lg  waves-light z-depth-0 btn  imenu" style="background:transparent; padding-left: 20px; font-size:1.3em;"  ng-if="is_logged" ng-click="goNotifications()"></i>
                     <span style="background-color:red; border-radius: 50%;padding-left:3px;padding-bottom:1px; padding-right: 3px; font-size: .8rem; margin-left:-9px; margin-top: -5px;" ng-if="is_logged && unreadNotifications">{{unreadNotifications}}</span>   

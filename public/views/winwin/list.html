@@ -11,11 +11,10 @@
         </div>
     </nav>
 </div>
-<hr>
-<div class="col-xs-12 no-padding" style="position:fixed;  z-index:99; ">
+<div class="col-xs-12 no-padding" style="position:fixed;  z-index:99; top:90px; ">
     <div class="input-field col s12">
         <select id="interests" ng-model="filters" ng-change="doFilterCategory()">
-          <option value="Ver Winwins por Intereses"  class="white-text" disabled selected>Ver Winwins Por Intereses</option>
+          <option value="Ver Winwins por Intereses" disabled selected>Ver Winwins Por Intereses</option>
           <option ng-repeat="item in interests " value="{{item.id}}" >{{item.description}}</option>
         </select>
     </div>
@@ -23,7 +22,7 @@
 
 <div class="grid-winwins">
 
-<div infinite-scroll='winwins.nextPage()' style="margin-top: 70px;">
+<div infinite-scroll='winwins.nextPage()' style="margin-top: 95px;">
 
     <div ng-if="winwins.no_results">
         <div class="container card-panel teal hoverable s12 "style="margin:10px;">
@@ -37,7 +36,7 @@
        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.cover_photo}}" style="max-height: 200px; cursor: pointer;" class="responsive-img" ng-click="viewSponsor(winwin.id)">
        </div>
     </div>
-    <!-- labels
+    <!-- labels -->
     <div class="container no-padding" ng-if="!winwin.is_sponsor">
        <div class="col-xs-12 no-padding">
  <div class="ww-featured" ng-if="winwin.mark == 'remarkable'"> 
