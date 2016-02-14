@@ -1,151 +1,57 @@
 <div ng-controller="NavController"> 
     <div id="winwin-menu ">
         <div class="navbar-fixed no-padding iso-width blue darken-4" style="height:56px;">
-            <nav class="blue darken-3 z-depth-3">
-                <a class="brand-logo center" style="width:112px;" ng-href="/#/main"><img src="images/logo-winwins.png" alt="winwins"></a>
-
-                <ul id="slide-out" class="side-nav left" style="margin-top:56px;">
-                    
-                                            
-            
-                    <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><i class="fa fa-sign-in"></i> Ir a mi cuenta</a></li>
-                    <li><a ng-href="/#/winwin-list">
-                        
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="21.533px" height="15.267px" viewBox="0 0 21.533 18.267" enable-background="new 0 0 21.533 18.267" xml:space="preserve">
-<g>
-	<path fill="#FFFFFF" d="M20.614,8.003c0,4.247-4.391,7.686-9.81,7.686c-5.419,0-9.815-3.439-9.815-7.686
-		c0-4.245,4.396-7.688,9.815-7.688C16.224,0.315,20.614,3.759,20.614,8.003z"/>
-	<polygon fill="#FFFFFF" points="4.396,9.222 3.765,17.126 9.69,13.489 	"/>
-	<polygon fill="#FFFFFF" points="12.004,13.214 17.188,9.247 18.424,17.101 	"/>
-</g>
-</svg>
-
-            
-                        
-                        
-                        <span> Ver Winwins</span></a></li>
-                    <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><i class="fa fa-user animated wobble"></i>  Mis Winwins </a></li>
-                    <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"><i class="fa fa-plus"></i>  Crear un WinWin</a></li>
-                <!--    <li><a ng-href="/#/group-list" ng-if="isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li> -->
-                  <!--      <li><a ng-href="/#/group-list" ng-if="!isAuthenticated()" ><i class="fa fa-users"></i><span> Grupos</span></a></li>-->
-                     <!--   <li><a ng-href="/#/group-new" ng-if="isAuthenticated()" ><i class="fa fa-plus-circle"></i> Crear un Grupo</a></li>-->
-                    <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"><i class="fa fa-users"></i>  Miembros </a></li>
-                     <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"><i class="fa fa-users"></i>  Miembros </a></li>
-                    <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()">
-                        
-                        
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="21.533px" height="18.267px" viewBox="0 0 21.533 18.267" enable-background="new 0 0 21.533 18.267" xml:space="preserve">
-<path fill="#FFFFFF" d="M6.491,3.543l0.57,2.84C7.207,7.107,7.354,7.874,7.47,8.669H7.5c0.146-0.795,0.351-1.59,0.526-2.272
-	l0.761-2.854h1.754l0.717,2.769c0.19,0.781,0.381,1.563,0.527,2.357h0.029c0.102-0.795,0.248-1.576,0.408-2.371l0.614-2.755h2.18
-	l-2.192,6.944h-2.093l-0.673-2.443C9.883,7.363,9.751,6.738,9.605,5.886H9.576C9.444,6.752,9.298,7.391,9.108,8.044l-0.717,2.443
-	H6.3L4.224,3.543H6.491z"/>
-<path fill="#FFFFFF" d="M14.623,7.91V7.078l0.803-0.687c1.358-1.148,2.02-1.809,2.039-2.496c0-0.479-0.307-0.859-1.024-0.859
-	c-0.536,0-1.005,0.253-1.33,0.488L14.698,2.54c0.471-0.334,1.196-0.605,2.039-0.605c1.406,0,2.181,0.778,2.181,1.845
-	c0,0.985-0.756,1.772-1.655,2.531l-0.573,0.453V6.78h2.344v1.13H14.623z"/>
-<g>
-	<g>
-		<g>
-			<g>
-				<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0.864,15.63c0.822,0.78,1.62,1.533,2.413,2.292
-					c0.105,0.104,0.195,0.088,0.315,0.039c0.721-0.302,1.44-0.607,2.171-0.888c0.194-0.075,0.43-0.109,0.639-0.093
-					c0.472,0.039,0.939,0.13,1.411,0.181c1.358,0.143,2.727,0.241,4.079,0.427c1.106,0.151,1.932-0.247,2.721-0.9
-					c1.899-1.572,3.669-3.259,5.395-4.988c0.528-0.532,1.057-1.066,1.585-1.599c-0.72-0.604-1.327-0.721-2.121-0.302
-					c-1.74,0.918-3.455,1.876-5.186,2.813c-0.208,0.113-0.336,0.235-0.328,0.48c0.005,0.187-0.034,0.382-0.089,0.565
-					c-0.135,0.447-0.278,0.878-0.895,0.969c-1.169,0.172-2.341,0.279-3.528,0.221c-0.201-0.009-0.368-0.072-0.362-0.276
-					c0.006-0.216,0.177-0.262,0.393-0.268c0.901-0.032,1.802-0.057,2.701-0.126c1.011-0.078,1.109-0.201,1.186-1.14
-					c0.013-0.154-0.042-0.213-0.185-0.261c-1.519-0.506-3.057-0.925-4.677-1.031c-1.32-0.085-2.56,0.117-3.644,0.868
-					c-0.375,0.26-0.729,0.542-1.09,0.816C2.808,14.156,1.846,14.885,0.864,15.63z"/>
-			</g>
-		</g>
-		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0.864,15.63c0.982-0.745,1.944-1.474,2.905-2.202
-			c0.361-0.274,0.715-0.557,1.09-0.816c1.084-0.751,2.324-0.953,3.644-0.868c1.62,0.105,3.158,0.524,4.677,1.031
-			c0.143,0.047,0.197,0.106,0.185,0.261c-0.076,0.939-0.175,1.062-1.186,1.14c-0.899,0.069-1.8,0.094-2.701,0.126
-			c-0.216,0.006-0.387,0.052-0.393,0.268c-0.006,0.204,0.161,0.267,0.362,0.276c1.187,0.058,2.359-0.049,3.528-0.221
-			c0.616-0.091,0.76-0.522,0.895-0.969c0.055-0.183,0.094-0.378,0.089-0.565c-0.008-0.245,0.12-0.367,0.328-0.48
-			c1.73-0.936,3.445-1.895,5.186-2.813c0.794-0.419,1.401-0.302,2.121,0.302c-0.528,0.532-1.057,1.067-1.585,1.599
-			c-1.726,1.729-3.495,3.417-5.395,4.988c-0.789,0.653-1.615,1.052-2.721,0.9c-1.352-0.186-2.721-0.284-4.079-0.427
-			c-0.472-0.051-0.939-0.142-1.411-0.181c-0.209-0.017-0.444,0.018-0.639,0.093c-0.731,0.281-1.45,0.585-2.171,0.888
-			c-0.121,0.049-0.21,0.065-0.315-0.039C2.483,17.164,1.686,16.41,0.864,15.63z"/>
-	</g>
-</g>
-</svg>            
-                        
-                        
-                        Sponsors</a></li>
-                    <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()">    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="21.533px" height="18.267px" viewBox="0 0 21.533 18.267" enable-background="new 0 0 21.533 18.267" xml:space="preserve">
-<path fill="#FFFFFF" d="M6.491,3.543l0.57,2.84C7.207,7.107,7.354,7.874,7.47,8.669H7.5c0.146-0.795,0.351-1.59,0.526-2.272
-	l0.761-2.854h1.754l0.717,2.769c0.19,0.781,0.381,1.563,0.527,2.357h0.029c0.102-0.795,0.248-1.576,0.408-2.371l0.614-2.755h2.18
-	l-2.192,6.944h-2.093l-0.673-2.443C9.883,7.363,9.751,6.738,9.605,5.886H9.576C9.444,6.752,9.298,7.391,9.108,8.044l-0.717,2.443
-	H6.3L4.224,3.543H6.491z"/>
-<path fill="#FFFFFF" d="M14.623,7.91V7.078l0.803-0.687c1.358-1.148,2.02-1.809,2.039-2.496c0-0.479-0.307-0.859-1.024-0.859
-	c-0.536,0-1.005,0.253-1.33,0.488L14.698,2.54c0.471-0.334,1.196-0.605,2.039-0.605c1.406,0,2.181,0.778,2.181,1.845
-	c0,0.985-0.756,1.772-1.655,2.531l-0.573,0.453V6.78h2.344v1.13H14.623z"/>
-<g>
-	<g>
-		<g>
-			<g>
-				<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0.864,15.63c0.822,0.78,1.62,1.533,2.413,2.292
-					c0.105,0.104,0.195,0.088,0.315,0.039c0.721-0.302,1.44-0.607,2.171-0.888c0.194-0.075,0.43-0.109,0.639-0.093
-					c0.472,0.039,0.939,0.13,1.411,0.181c1.358,0.143,2.727,0.241,4.079,0.427c1.106,0.151,1.932-0.247,2.721-0.9
-					c1.899-1.572,3.669-3.259,5.395-4.988c0.528-0.532,1.057-1.066,1.585-1.599c-0.72-0.604-1.327-0.721-2.121-0.302
-					c-1.74,0.918-3.455,1.876-5.186,2.813c-0.208,0.113-0.336,0.235-0.328,0.48c0.005,0.187-0.034,0.382-0.089,0.565
-					c-0.135,0.447-0.278,0.878-0.895,0.969c-1.169,0.172-2.341,0.279-3.528,0.221c-0.201-0.009-0.368-0.072-0.362-0.276
-					c0.006-0.216,0.177-0.262,0.393-0.268c0.901-0.032,1.802-0.057,2.701-0.126c1.011-0.078,1.109-0.201,1.186-1.14
-					c0.013-0.154-0.042-0.213-0.185-0.261c-1.519-0.506-3.057-0.925-4.677-1.031c-1.32-0.085-2.56,0.117-3.644,0.868
-					c-0.375,0.26-0.729,0.542-1.09,0.816C2.808,14.156,1.846,14.885,0.864,15.63z"/>
-			</g>
-		</g>
-		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M0.864,15.63c0.982-0.745,1.944-1.474,2.905-2.202
-			c0.361-0.274,0.715-0.557,1.09-0.816c1.084-0.751,2.324-0.953,3.644-0.868c1.62,0.105,3.158,0.524,4.677,1.031
-			c0.143,0.047,0.197,0.106,0.185,0.261c-0.076,0.939-0.175,1.062-1.186,1.14c-0.899,0.069-1.8,0.094-2.701,0.126
-			c-0.216,0.006-0.387,0.052-0.393,0.268c-0.006,0.204,0.161,0.267,0.362,0.276c1.187,0.058,2.359-0.049,3.528-0.221
-			c0.616-0.091,0.76-0.522,0.895-0.969c0.055-0.183,0.094-0.378,0.089-0.565c-0.008-0.245,0.12-0.367,0.328-0.48
-			c1.73-0.936,3.445-1.895,5.186-2.813c0.794-0.419,1.401-0.302,2.121,0.302c-0.528,0.532-1.057,1.067-1.585,1.599
-			c-1.726,1.729-3.495,3.417-5.395,4.988c-0.789,0.653-1.615,1.052-2.721,0.9c-1.352-0.186-2.721-0.284-4.079-0.427
-			c-0.472-0.051-0.939-0.142-1.411-0.181c-0.209-0.017-0.444,0.018-0.639,0.093c-0.731,0.281-1.45,0.585-2.171,0.888
-			c-0.121,0.049-0.21,0.065-0.315-0.039C2.483,17.164,1.686,16.41,0.864,15.63z"/>
-	</g>
-</g>
-</svg>  Sponsors</a></li>
-                    <li><a ui-sref="how" ng-if="!isAuthenticated()"><i class="fa fa-fw fa-cogs"></i> ¿Cómo Funciona?</a></li>
-                    <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <i class="fa fa-user"></i>  Mi perfil</a></li>
-                    <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><i class="fa fa-fw fa-sign-out"></i><span>  Salir</span></a></li>
-                    <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"><span style="background-color: #FF8000  ; padding:7px; padding-left:12px; padding-right:12px; border-radius:1px;" class="z-depth-2"><i class="fa fa-plus-circle animated infinite flash"></i> Sumate </span></a></li>
-                    
-                    
-                      <li>                        <!-- search -->
-
-                          <div class="row" data-ng-controller="main-search-controller">
-      <div class="col-xs-12"  >
-   <div class="col-xs-10 no-padding"   >   <input id="query" type="search"  placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
-    </div>
-             <div class="col-xs-2 no-padding"  >
-              <button class="fa fa-search left waves-effect waves-light" id="query" ng-click="search()" style="font-size: 15px; background-color: transparent; border:0px; margin-top:15px;"></button> </div>
-      </div>
-</div>
-
-            </li> 
-            
-  </ul>
-
-                <div class="right" style="padding-right:10px; z-index:999;">
-                                        
-                    <a href ng-href="/#/signin" style="font-size: 20px; padding-top:3px;" ng-if="!isAuthenticated()"><i class="fa fa-sign-in sign-btn"></i></a>
-
-                    <button data-activates="slide-out" class="button-collapse z-depth-0  right  " style="background:transparent; border:0px;"><i class="fa fa-bars" style="font-size:23px;"></i></button>
-                    <button  style="background:transparent; border:0px; padding-right: 20px;" ng-click="goProfile()">
-                        <img  ng-if="is_logged"  ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{profile_photo}}" class="z-depth-0 img-circle img-no-border" alt="profile" style="margin-top:-4px;cursor: pointer;" ng-cloak/>
-                    </button>
+                <nav>
+    <div class="nav-wrapper blue darken-4 z-depth-3">
+      <a ng-href="/#/main" class="brand-logo center" ><img src="images/logo-winwins.png"/></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="fa fa-bars"></i></a>
+      <a ng-href="/#/signin" ng-if="!isAuthenticated()" class="right button hide-on-med-and-up"><i class="fa fa-sign-in"></i></a>
+      <img  ng-if="is_logged"  ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{profile_photo}}" class="profile-image hide-on-med-and-up img-circle img-no-border right" alt="profile" ng-cloak/>
+      <a ng-click="do_back()"  class="left button hide-on-med-and-up"><i class="fa fa-chevron-left"></i></a>
+      <a href="#" class="button hide-on-med-and-up left" ng-if="is_logged" ng-click="goNotifications()"><i class="fa fa-bell-o"></i></a>
+        
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">Ir a mi cuenta</a></li>
+        <li><a href="badges.html">Cómo Funciona?</a></li>
+        <li><a href="collapsible.html">Sponsor</a></li>
+        <li><a href="mobile.html">Registrate</a></li>
+      </ul>
+        <ul class="left hide-on-med-and-down">
+        <li><a href="sass.html">Ir a mi Cuenta</a></li>
+        <li><a href="badges.html">Como Funciona</a></li>
+        <li><a href="collapsible.html">Buscar</a></li>
+        <li><a href="mobile.html">Winwins</a></li>
+      </ul>
+        
+      <ul class="side-nav blue darken-3" id="mobile-demo">
+          <!-- navbarlogo -->
+          <li>
+           <div class="row center"> <a ng-href="/#/main" class="brand-logo left"><img src="images/navbar-logo.png"/></a></div>
+          </li> 
+<br>
+        <!-- search -->
+       <li class="blue darken-3">                       
+           <div class="row" data-ng-controller="main-search-controller"><div class="col-xs-12"  >                                      
+               <div class="col-xs-10 no-padding"><input id="query" type="search"  placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()"></div>
+               <div class="col-xs-2 no-padding">
+              <button class="fa fa-search left waves-effect" id="query" ng-click="search()" style="font-size: 15px; background-color: transparent; border:0px; padding:15px;">    </button> 
                 </div>
-                <div class="left" style="margin-left:10px;">
-                    <button class="fa fa-chevron-left waves-light z-depth-0 btn fa-lg imenu" style="background:transparent;" ng-click="do_back()"></button>    
-                    <button class="fa fa-bell-o fa-lg  waves-light z-depth-0 btn  imenu" style="background:transparent; padding-left: 20px; font-size:1.3em;"  ng-if="is_logged" ng-click="goNotifications()"></i>
-                    <span style="background-color:red; border-radius: 50%;padding-left:3px;padding-bottom:1px; padding-right: 3px; font-size: .8rem; margin-left:-9px; margin-top: -5px;" ng-if="is_logged && unreadNotifications">{{unreadNotifications}}</span>   
-                </div>
-            </nav>
+              </div>
+           </div>
+         </li> 
+         <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><img src="../images/entrar.png" width="18"/> Ir a mi cuenta</a></li>
+         <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><img src="../images/wwown.png" width="18"/> Mis Winwins </a></li>
+         <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"> <img src="../images/wwnew.png" width="18"/> Crear un WinWin</a></li>
+         <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
+         <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
+         <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
+         <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
+         <li><a ui-sref="how" ng-if="!isAuthenticated()"><img src="../images/cog.png" width="18"/> ¿Cómo Funciona?</a></li>
+         <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <img src="../images/profile.png" width="18"/> Mi perfil</a></li>
+         <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><span> <img src="../images/salir.png" width="18"/>  Salir</span></a></li>
+         <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"> <img src="../images/wws.png" width="18"/> Sumate </a></li>
+        </ul>
+  </nav>
         </div>
     </div>
 

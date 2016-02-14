@@ -1046,3 +1046,57 @@ nav {
     z-index:10;
 }
 
+
+
+/* NavBar */
+
+.brand-logo {
+   margin: 0px 0px 0px 0px;
+}
+
+
+.side-nav li:hover, .side-nav li.active {
+    background-color: #f80;
+}
+
+.side-nav a {
+    color: #FFF;
+    display: block;
+    font-size: 1rem;
+    line-height: 50px;
+    padding: 0px 15px;
+    text-align: left;
+}
+
+
+
+ nav a {
+    font-family: montserrat;
+    color: #fff;
+
+}
+
+.button-collapse {
+    padding-right:10px;
+}
+
+nav .button-collapse i {
+    font-size: 1.5em;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 15px;
+}
+
+nav .profile-image {
+    margin-top: 13px;
+    margin-right:15px;
+}
+
+nav .button {
+    font-size: 1.3em;
+    margin: 17px;
+}
+
+nav .nav-wrapper i {
+    display: block;
+    font-size: 1.5rem;}
