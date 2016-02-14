@@ -443,7 +443,9 @@ angular.module('winwinsApp')
 
 }])
 .controller('winwin-edit', function($scope, $state, $auth, $timeout, Upload, Winwin, Interest, api_host) {
-    $scope.winwin = new Winwin({});
+    $scope.winwin = new Winwin({
+        scope: 'GLOBAL'
+    });
     $scope.interests = [];
     $scope.scopes = [ 'GLOBAL','LOCAL'];
 

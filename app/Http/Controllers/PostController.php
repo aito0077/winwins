@@ -111,6 +111,7 @@ class PostController extends Controller {
             $post->title = $request->input('title');
             $post->content = $request->input('content');
             $post->media_id = $request->input('media_id');
+            $post->sticky = 0;
                  
             if($request->input('media_type')) {
                 if($request->input('media_type') == 'VIDEO') {

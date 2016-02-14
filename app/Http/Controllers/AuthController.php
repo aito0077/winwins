@@ -505,7 +505,6 @@ class AuthController extends Controller {
             $message_sent = $mailer->send($message);
         }
 
-        return $message_sent;
     }
 
 

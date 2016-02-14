@@ -195,18 +195,31 @@ angular.module('winwinsApp')
 
 
     $scope.cancelSponsored = function(winwin) {
-        $http.post(api_host+'/api/sponsor/cancel/winwin/'+winwin.id, {})
-        .success(function(data) {
-            $scope.getSponsor();
-            swal({
-                title: "info", 
-                text: 'Sponsoreo cancelado', 
-                type: "info",
-                showcancelbutton: false,
-                        animation: false, 
-                closeonconfirm: true 
-            });
-        })
+        swal({   
+            title: "Atención!",   
+            text: "Está seguro que desea quitar el sponsoreo?",   
+            type: "warning",   
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Quitar",   
+            cancelButtonText: "Cancelar",   
+            closeOnConfirm: false 
+        }, function(){   
+            $http.post(api_host+'/api/sponsor/cancel/winwin/'+winwin.id, {})
+            .success(function(data) {
+                $scope.getSponsor();
+                swal({
+                    title: "info", 
+                    text: 'Sponsoreo cancelado', 
+                    type: "info",
+                    showcancelbutton: false,
+                            animation: false, 
+                    closeonconfirm: true 
+                });
+            })
+
+        });
+
     };
 
     $scope.modifyLegend = function(winwin) {
