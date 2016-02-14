@@ -1,165 +1,99 @@
-<style>
-   body {
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-color: #1976D2;
-   }
-</style>
-<div ng-show="show_signup">
-    <form method="post" ng-submit="signup()" name="signupForm" style="background-color: #1976D2;">
-        <div class="container">
+<div ng-show="first_stage">
+
+    <form id="create-ww-form" class="no-padding" style="background:#f1f1f1;" ng-submit="persistBasic()" name="wwBasicForm">
+        <div class="card-panel teal hoverable no-padding" >
             <div class="row">
-                <div class="container no-padding">
-                   
-                        <H3 class="white-text center">¡BIENVENIDO! </h3>
-        
-                </div>
-                <div class="col-xs-12">
-                    <div class="row">
-                        <div class="container" style="max-width: 340px; 
-                          background: -moz-linear-gradient(top, rgba(255,255,255,0.98) 23%, rgba(255,255,255,0.98) 24%, rgba(255,255,255,0.74) 71%, rgba(255,255,255,0.74) 99%, rgba(255,255,255,0.74) 100%); 
-                          background: -webkit-linear-gradient(top, rgba(255,255,255,0.98) 23%,rgba(255,255,255,0.98) 24%,rgba(255,255,255,0.74) 71%,rgba(255,255,255,0.74) 99%,rgba(255,255,255,0.74) 100%); 
-                          background: linear-gradient(to bottom, rgba(255,255,255,0.98) 23%,rgba(255,255,255,0.98) 24%,rgba(255,255,255,0.74) 71%,rgba(255,255,255,0.74) 99%,rgba(255,255,255,0.74) 100%); 
-                          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faffffff', endColorstr='#bdffffff',GradientType=0 ); 
-                          padding: 20px;
-                          box-shadow: 3px 3px 10px black;
-                          border-radius: 5px;">
-                            <div class="col s12">
-                                <div class="row"> 
-                                    <div class="input-field col s12 form-group no-padding" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
-                                        <input id="name" name="name" type="text" class="validate" ng-model="name" required>
-                                        <label for="name">Nombre</label>
-                                        <div ng-messages="signupForm.name.$error" style="margin-bottom:10px;" ng-if="signupForm.name.$touched" class="help-block">
-                                            <p class="small" ng-message="required">Ingresa tu nombre.</p>
-                                        </div>
-                                    </div>
-                                    <div class="input-field col s12 form-group no-padding"style="margin-bottom:10px;" ng-class="{ 'has-error': signupForm.lastname.$touched && signupForm.lastname.$invalid ,  'has-success': signupForm.lastname.$touched && signupForm.lastname.$valid }">
-                                        <input id="apellido" name="lastname" type="text" class="validate" ng-model="lastname" required="required">
-                                        <label for="apellido">Apellido</label>
-                                        <div ng-messages="signupForm.lastname.$error" ng-if="signupForm.lastname.$touched" class="help-block">
-                                            <p class="small" ng-message="required">Ingresa tu apellido.</p>
-                                        </div>
-                                    </div>
-                                    <div class="input-field col s12 form-group no-padding" style="margin-bottom:10px;" ng-class="{ 'has-error': signupForm.email.$touched && signupForm.email.$invalid ,  'has-success': signupForm.email.$touched && signupForm.email.$valid }">
-                                        <input id="email" name="email" type="email" class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required >
-                                        <label for="email">Email</label>
-                                        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched" class="help-block">
-                                            <p class="small" ng-message="required">Ingresa tu correo.</p>
-                                            <p class="small" ng-message="invalid">Correo erróneo.</p>
-                                        </div>
-                                    </div>
-                                    <div class="input-field col s12 no-padding">
-                                        <input id="password" type="password" class="validate" ng-model="password" required="required">
-                                        <label for="password">Contraseña</label>
-                                    </div>
-                                    <div class="input-field col s12 no-padding">
-                                        <input id="rpassword" type="password" class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
-                                        <label for="rpassword">Repeti Contraseña</label>
-                                    </div>
-                
-                                    <div class="input-field col s12 no-padding">
-                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" required />
-                                       
-                                        <label for="filled-in-box">    </label>
-                                        
-                                        <button data-target="modal1" class="btn modal-trigger z-depth-0 waves-effect" style="background-color:transparent; border: 0px; font-size:8px; color: #666; margin-top:-30px; text-transform: normal; ">He leido y acepto los<span style="text-decoration: underline;" class="blue-text"> Terminos y Condiciones</span><br></button>
-                                    </div>
-                                    
-                                    
-                                 <div class="pad-30"></div>
-                                    <button class="col s12 waves-effect waves-light btn-large" style="margin-top:10px;"type="submit" ng-disabled="loginForm.$invalid" name="action">Ingresar</button>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-xs-12 create-title bubble-big"> 
+                    CREA TU WINWIN <br> COMENZA UNA ACCION POSITIVA
+                </div> 
+            </div> 
+        </div> 
+     
+        <div class="container" style="padding:20px;margin-top:-20px;">
+            <div class="row">
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.title.$touched && wwBasicForm.title.$invalid ,  'has-success': wwBasicForm.title.$touched && wwBasicForm.title.$valid }">
+                    <label for="title"> Un nombre para tu Winwin*</label>  <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Nombra tu WinWin con algo que lo represente.">!<i class="fa fa-question-circle orange-text animated infinte pulse  right"></i></a>
+                     
+                    <input name="title" class="input-field active"  type="text" length="120"  ng-model="winwin.title" required/>
+                    <div ng-messages="wwBasicForm.title.$error" ng-if="wwBasicForm.title.$touched" class="help-block">
+                        <p class="small" ng-message="required"> <i class="fa fa-exclamation-circle red-text animated infinite wobble"></i> No se puede crear un WinWin sin nombre!</p>
                     </div>
                 </div>
+
+                <!--div class="form-group no-padding mb-0 mt-0 col-xs-12" style="margin:20px 0" ng-class="{ 'has-error': wwBasicForm.title.$touched && wwBasicForm.title.$invalid ,  'has-success': wwBasicForm.title.$touched && wwBasicForm.title.$valid }">
+                    <input type="text" class="form-control" placeholder="Nombra tu Winwin" aria-describedby="basic-addon1" name="title" ng-model="winwin.title" required>
+                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"  ng-if="wwBasicForm.title.$touched  && wwBasicForm.title.$valid "></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"  ng-if="wwBasicForm.title.$touched  && wwBasicForm.title.$invalid "></span>
+                    <div ng-messages="wwBasicForm.title.$error" ng-if="wwBasicForm.title.$touched" class="help-block">
+                        <p class="small" ng-message="required">El titulo es requerido.</p>
+                    </div>
+                </div-->
+
+                <div class="pad-10"></div>
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$invalid ,  'has-success': wwBasicForm.what_we_do.$touched && wwBasicForm.what_we_do.$valid }">
+                    <label> Planteá tu Winwins*</label>
+                 <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Describi tu causa y defini cuantas personas se necesitan para concretarla.">!<i class="fa fa-question-circle orange-text animated infinte pulse right"></i></a> <br>
+                    <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">¿Si supieras que somos </span>  
+                    <input class="numero" type="number" min="2" name="users_amount" placeholder="Ej:200"  style="width:20%;" ng-model="winwin.users_amount"  ng-required="true" ng-minlength="1"/>
+                    <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">para</span>
+                    <div class="pad-10"></div>
+
+                    <textarea id="textarea1" name="what_we_do" class="materialize-textarea" length="120"  ng-model="winwin.what_we_do" required></textarea>
+                    <span class="si-supieras" style="font-style:italic; background:#f5f5f5; padding: 3px; border-radius:2px; color: #777;">te sumarías?</span>
+                    <div ng-messages="wwBasicForm.what_we_do.$error" ng-if="wwBasicForm.what_we_do.$touched" class="help-block">
+                        <p class="small" ng-message="required">  <i class="fa fa-exclamation-circle red-text animated infinite wobble"></i> Tu Winwin tienen que tener un proposito! Completalo.</p>
+                    </div>
+                    <div ng-messages="wwBasicForm.users_amount.$error" ng-if="wwBasicForm.users_amount.$touched" class="help-block">
+                          <p class="small" ng-message="required">  <i class="fa fa-exclamation-circle red-text animated infinite wobble"></i>Tu winwin debe tener al menos dos personas.</p>
+                    </div>
+
+                </div>
+                <div class="pad-10">   </div>
+                <div class="card-panel teal form-group" ng-class="{ 'has-error': wwBasicForm.description.$touched && wwBasicForm.description.$invalid ,  'has-success': wwBasicForm.description.$touched && wwBasicForm.description.$valid }">
+                    <label for="email"> Más detalles de Winwin*</label>  
+                         <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Acá ingresa información detallada del WinWin, datos e información importante, lugares, fechas, acciones y toda lo que te resulte relevante."><i class="fa fa-question-circle orange-text animated infinte pulse right"></i></a> 
+                    <br>
+                    <textarea id="textarea2" name="description" class="materialize-textarea" length="120" ng-model="winwin.description" required></textarea>
+                    <div ng-messages="wwBasicForm.description.$error" ng-if="wwBasicForm.description.$touched" class="help-block">
+                        <p class="small" ng-message="required">Debes completar los detalles del Winwin.</p>
+                    </div>
+                 </div>
+
+                <div class="pad-10">   </div>
+
+                <div class="card-panel teal">
+                    <label for="email"> Seleccioná una fecha límite.
+                        <span style="color: #ddd; font-size:9px;"> (Si aplica a tu WinWin)</span>
+                    </label>  
+                      <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Algunos WinWins tienen una fecha límite para su concreción, si el tuyo es uno de ellos, ingresala aquí."><i class="fa fa-question-circle orange-text animated infinte pulse right" ></i></a>
+          
+                    <br>
+                    <input type="date" class="datepicker">
+                </div>
             </div>
+
+            <input type="checkbox" id="test5" ng-model="accept_terms"/>
+            <label for="test5" class="grey-text" style="font-size:11px; font-family: montserrat;"> He leído y acepto los  <a class="modal-trigger" href="#modal1" style="color:blue;font-family:montserrat;font-size:11px; text-decoration: underline;">Términos y Condiciones.</a></label>
+
+            <div class="pad-10"></div>
+
+
+                <button class="btn waves-effect green" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwBasicForm.$invalid || !accept_terms" ng-click="persistBasic()"> 
+                       Continuar <i class="fa fa-play  animated infinite flash"></i>
+                </button>
+               <div class="pad-10">   </div>
+
+          
         </div>
-        <div class="pad-10"></div>
+
     </form>
-    <div class="container">
-       <div class="row">
-          <H4 class="white-text text-lighten-6" style="text-align:center;"><i class="fa fa-sign-in"></i>
-             O  INGRESA CON  
-          </h4>
-       </div>
-    </div>
-    <!-- social login -->   
-    <div class="container">
-       <div class="row">
-          <div class="col-md-offset-4 col-md-1 col-xs-3"><a class="i" ng-click="authenticate('facebook')" ><i class="fa fa-facebook" style="background-color: #3B5998;
-             font-size: 2rem;
-             padding: 15px 20px;
-             border-radius: 50%;
-             "></i></a></div>
-          <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('twitter')" ><i class="fa fa-twitter" style="background-color:  #54ABEE;
-             font-size: 2rem;
-             padding: 15px 15px;
-             border-radius: 50%;
-             "></i></a></div>
-          <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('google')" ><i class="fa fa-google" style="background-color: #D50F25;
-             font-size: 2rem;
-             padding: 15px 20px;
-             border-radius: 50%;
-             "></i></a></div>
-          <div class="col-md-1 col-xs-3"><a class="i" ng-click="authenticate('yahoo')" ><i class="fa fa-yahoo" style="background-color: #3B5998;
-             font-size: 2rem;
-             padding: 15px 15px;
-             border-radius: 50%;
-             "></i></a></div>
-          <div class="col-md-offset-4"></div>
-       </div>
-    </div>
-    <!---->  
-    <div class="pad-20"></div>
-    <div class="container">
-       <div class="row">
-          <H5 class="white-text text-lighten-6" style="text-align:centeR;;"><i class="fa fa-sign-in"></i>
-             YA TENES CUENTA? <a style="background-color:#FF8000; padding: 4px; border-radius:2px;" ng-href="/#/login" ng-if="!isAuthenticated()">  INGRESÁ </a>
-          </h5>
-       </div>
-    </div>
-    <!---->  
-    <!--  footer -->  
-    <div class="footer-copyright center">
-       <h6 style="font-size:10px; color: orange;">   © 2015 - Humanet - WinWins.Org- </span> Acuerdos en Acción</h6>
-    </div>
-    <div class="container">
-       <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4">
-             <h6 style="text-align: center; font-family: montserrat; font-size: 9px;">Winwins 2.0 - <a style="color: #FFF; padding-top: 3px;"  ui-sref="terms">Política de Privacidad</a> </h6>
-          </div>
-          <div class="col-sm-4"></div>
-       </div>
-    </div>
-</div>
-    <!--/ footer -->
-<div class="container" ng-show="redirect_message">
-    <div class="row">
-        <div class="pad-20"> </div>
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8">
-            <div style="text-align: center;">
-                <i class="fa fa-check animted infinite wobble" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
-                <h1 style="font-family: montserrat; letter-spacing: -3px; color:#fff;" ng-if="!provider"> ¡Genial! </h1>
-                <h1 style="font-family: montserrat; letter-spacing: -3px; color:#fff;" ng-if="provider"> ¡Ingresaste con {{provider}}! </h1>
-                <h4 style="font-family: montserrat; letter-spacing: -1px; color:#fff;" ng-if="!provider"> Te hemos enviado un mail de confirmación.</h4>
-                <div class="pad-80"></div>
-                <div class="spinner"></div>
-                <div class="col-xs-2"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
-
-<!-- Modal -->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content" style="padding:30px;">
-            <h4 style="padding:20px; padding-bottom:0px;">Términos y condiciones</h4>
-            <p style="font-family: verdana; font-size:11px; padding:20px;">1.- Lea cuidadosamente este documento: el mismo es un instrumento legal que refleja un acuerdo entre Ud. (el Usuario) y HUMANET S.A. , la sociedad operadora y explotadora del sitio winwins.org (la Operadora)
+  <!-- Modal -->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>Términos y condiciones</h4>
+            <p style="font-family: verdana; font-size:11px;">1.- Lea cuidadosamente este documento: el mismo es un instrumento legal que refleja un acuerdo entre Ud. (el Usuario) y HUMANET S.A. , la sociedad operadora y explotadora del sitio winwins.org (la Operadora)
             1.1. Este documento se describe los términos y condiciones generales (los "Términos y Condiciones " o "TyC") aplicables al uso de los servicios ofrecidos en el sitio alojado bajo los nombres de dominio winwins.org y/o winwins.net y/o winwins.info (el “Sitio”).
             1.2. Los servicios ofrecidos a través del Sitio sólo podrán ser utilizados por aquellas personas (en adelante el Usuario, la Usuaria o los Usuarios en forma indistinta) que acepten los Términos y Condiciones que aquí se describen, y sujete su conducta a lo establecido en los mismos. El Usuario debe leer, entender y aceptar las condiciones establecidas en estos Términos y Condiciones, y podrá realizar cualquier consulta acerca de los mismos a legales@winwins.org.
             1.3. Si Ud. es padre, madre o tutor legal y brinda consentimiento para la utilización de los servicios ofrecidos en el Sitio por parte de su hijo o personas menores de edad a su cargo, acepta estos Términos y Condiciones y se compromete a monitorear y guardar el debido y razonable control sobre las actividades de los menores de edad a su cargo mientras que utilicen el Sitio.
@@ -226,13 +160,110 @@
             10.1. Los Usuarios del Sitio reconocen expresamente que su relación con el Sitio y estos Términos y Condiciones como así también cualquier acuerdo que los complemente en el futuro se rigen y se regirán por las leyes de la República Argentina.
             10.2. Los Usuarios aceptan someter cualquier controversia que pudiera llegar a suscitarse como consecuencia del uso de los servicios del Sitio o en relación a los contenidos del mismo, a la jurisdicción de los Tribunales Nacionales en lo Civil, con asiento en la Capital Federal, sin reservas de ningún tipo.</p>
         </div>
+        <div class="modal-footer">
+        </div>
     </div>
 </div>
 
+<div ng-show="second_stage">
+    <form data-ng-submit="doSave()" name="wwAdditionalForm">
 
-<script>
-  $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
-          </script>
+<div class="container no-padding center card-panel light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999; margin-bottom: -10px; z-index: 99;">
+    <h1 style="font-size:40px; padding:0px; margin:20px; color:#fff;z-index:99999; ">   <i class="fa fa-flag animated infinite wobble"></i></h1>
+    <h4 class="white-text"> DALE IDENTIDAD A TU WINWIN<H4>
+</div>
+
+<i class="fa fa-caret-down animated wobble center" style="font-size: 4rem; margin-top:-27px; color:#0277BD;"></i>
+        <div class="panel-body" spellcheck="margin-top: -15px;">
+            <div class="col-xs-12  no-padding text-center" dynamic-background="" background-size="cover" background-image="{{preview_image}}" style="height: 240px; margin-top:-20px;">
+                <div class="ww-title" style="margin-top:30px; color:#fff; font-size: 23px; text-transform: uppercase;">
+                {{winwin.title}}</div>
+            </div>
+        </div>
+        <div class="container center">
+            <h6 style="background: #f1f1f1; padding:5px; border-radius: 2px;"> <i class="fa fa-arrow animated infinite pulse"></i>  SUBI UNA FOTO O ELEGI UN VIDEO</h6>
+            <div class="row no-padding">
+                <div style="cursor:pointer" name="uploader" ngf-max-size="8MB" ngf-select="uploadFiles($file)" accept="image/*" class="col-xs-4 uploaders card-panel teal" ngf-accept="'image/*'">
+                    <i ng-show="!winwin.image && !uploading" class="fa fa-camera-retro" style="padding-top:0px;" ></i><br>
+                    <img ng-show="uploading" src="/images/loading.gif" height="90" alt="loading" style="width:90%; height:80%;">
+                    <img ng-show="winwin.image" ng-src="http://images.dev-winwins.net/90x/smart/{{winwin.image}}" height="90" alt="loading">
+                </div>
+                <div style="cursor:pointer" class="col-xs-4 uploaders card-panel teal" ng-click="setVideoUrl()">
+                    <i class="fa fa-youtube"></i> 
+                </div>
+                <div class="col-xs-4 uploaders card-panel teal" ng-click="select_gallery()" style="cursor:pointer">
+                    <i class="fa fa-image"></i> 
+                </div>
+            </div>
+        </div>
+
+
+        
+        
+        
+        
+        
+        
+   
+        <div class="container no-padding center" ng-show="gallery_picker">
+                <div class="col-xs-12 no-padding">
+                    <div class="col-xs-12">
+                        <select id="image-gallery" class="image-picker" ng-model="image_gallery_selected">
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-1.jpg" value="ww-default-1.jpg">Tierra</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-2.jpg" value="ww-default-2.jpg">Casas</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-3.jpg" value="ww-default-3.jpg">Manos</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-4.jpg" value="ww-default-4.jpg">Libros</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-5.jpg" value="ww-default-5.jpg">Juego</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-6.jpg" value="ww-default-6.jpg">Gente</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-7.jpg" value="ww-default-7.jpg">Trabajo</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-8.jpg" value="ww-default-8.jpg">Oficio</option>
+                            <option data-img-src="http://images.dev-winwins.net/400x200/smart/ww-default-9.jpg" value="ww-default-9.jpg">Colaborar</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Comentar hasta tanto lo resolvamos -->
+            <!--
+            <div class="card-panel teal">
+                <div class="input-label">
+                    Palabras Clave <i class="fa fa-question-circle" style="color: red;"></i>
+                    <tags-input ng-model="winwin.tags" placeholder="Agrega palabras claves"></tags-input>
+                </div>
+            </div>
+            <div class="pad-10"></div>
+            -->
+            <div class="card-panel teal">
+                <div class="input-label">Escala del WinWin   <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Define el alcance geográfico de tu WinWin."><i class="fa fa-question-circle orange-text animated infinte pulse right"></i></a>
+                    <select  ng-options="item as item for item in scopes" ng-model="winwin.scope" class="form-control" placeholder="Selecciona una escala territorial" required>
+                    </select>
+                </div>  
+                <div ng-show="winwin.scope == 'LOCAL'">
+                    <div class="input-label">Lugar </div>
+                    <input name="winwin_location" id="winwin_location" class="input-field active"  type="text" ng-model="winwin.location_formatted" />
+                </div>
+
+            </div>
+
+
+            <div class="pad-10"></div>
+            <div class="card-panel teal">
+                <div class="input-label">En que categoría? <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Clasifica tu Winwin en las categorías disponibles. Puedes elegir más de una."><i class="fa fa-question-circle orange-text animated infinte pulse right"></i></a></div>
+                <select ng-options="item as item.description for item in interests track by item.id" ng-model="winwin.interests" class="form-control" placeholder="Categorías" multiple>
+                </select>
+
+            </div>
+            <div class="pad-10"></div>
+            <div class="form-back  create-id">
+                <div class="pad-10"></div>
+                <button class="btn-large green waves-effect" type="submit" name="action" style="width:100%; font-family: montserrat; text-align:center; height:60px;" ng-disabled="wwAdditionalForm.$invalid">  
+                    <i class="fa fa-play right animated infinite pulse"></i>Continuar
+                </button>
+                <div class="pad-10">   </div> 
+            </div>
+        </div>
+    </form>
+
+
