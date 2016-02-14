@@ -10,13 +10,13 @@
             <div class="container no-padding">
                
                             <div class="buttons-profile">
-                                <a href="#" class="col-xs-2 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::participante.winwins_amount}}</a>
+                                <a href="#" class="col-xs-2 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::user_detail.winwins.length}}</a>
                                 <div class="col-xs-6">
-                                    <a ng-show="!participante.my_self && !participante.following" role="button" class="col-xs-12 btn-join" style="margin-left:17px;"  ng-click="follow(participante)"> <i class="fa fa-hand-o-right animated infinite pulse"></i> SEGUIR</a>
-                                    <a ng-show="!participante.my_self && participante.following" role="button" class="col-xs-12 btn-join" style="margin-left:17px; font-size: 11px;" ng-click="unfollow(participante)"> DEJAR DE SEGUIR</a>
+                                    <a ng-show="!user_detail.myself && !user_detail.following" role="button" class="col-xs-12 btn-join" style="margin-left:17px;"  ng-click="follow(user_detail)"> <i class="fa fa-hand-o-right animated infinite pulse"></i> SEGUIR</a>
+                                    <a ng-show="!user_detail.myself && user_detail.following" role="button" class="col-xs-12 btn-join" style="margin-left:17px; font-size: 11px;" ng-click="unfollow(user_detail)"> DEJAR DE SEGUIR</a>
                                  
                                 </div>
-                                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{participante.followers_amount}}</a>
+                                <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Seguidores </span> <span class="falta">{{user_detail.followers.length}}</a>
                             </div>
               
 

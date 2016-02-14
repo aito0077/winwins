@@ -1,0 +1,83 @@
+<div class="input-field col s12 no-padding">
+    <select>
+      <option value="1" >Más Populares</option>
+      <option value="2">Nuevos Grupos</option>
+    </select>
+  </div>
+
+
+
+<div infinite-scroll='groups.nextPage()'>
+    <div class="container no-padding" ng-repeat="group in groups.items">
+
+            <div class="col-xs-12 no-padding">
+                <div class="ww-featured" ng-if="group.selected"> 
+                    <div class="ww-featured featured"> <i class="fa fa-bookmark"></i></div>
+                </div>
+            </div>
+            <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::group.photo}}" style="height: 220px; cursor:pointer;"  ng-click="view(group.id)">
+                <div class="username-cards text-uppercase">{{::group.name}}</div>
+            </div>
+            <div class="card-buttons" >
+                <div class=" col-xs-1 profile">
+                    <img ng-src="http://images.dev-winwins.net/31x31/{{::group.user.photo}}"  class="img-circle">
+                </div>
+                <div class="col-xs-1 profile"> 
+                    <img ng-repeat="sponsor in group.sponsors" ng-src="http://images.dev-winwins.net/31x31/{{::sponsor.photo}}"  class="img-circle">
+                </div>
+  <div style="col-xs-12" style="padding-bottom:10px;margin:-60px;">
+                <a href class="col-xs-3 ww-somos"style="margin-top: -20px;" >  <span class="bubble-label"> Winwins </span> <span class="somos">{{group.winwins.length || 0}}</a>
+                <span class="col-xs-6" ng-show="user_detail.myself"> </span>
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="view(group.id)"><div class="animated flash"> VER </div></a>
+                <!--
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="follow()" ng-show="!user_detail.myself && !user_detail.already_following"><div class="animated flash"> UNIRSE</div></a>
+                <a href role="button" class="col-xs-5 btn-join" style="margin-top: -20px;" ng-click="unfollow()" ng-show="user_detail.already_following"> ABANDONAR</a>
+                -->
+                <a href class="col-xs-3 ww-somos" style="margin-top: -20px;"  ><span class="bubble-label"> Miembros </span> <span class="falta">{{group.users_already_joined}}</a>
+             </div>
+    </div>
+</div>
+
+
+<div id="footer" data-ng-controller="main-search-controller">
+
+<nav>
+    <div class="nav-wrapper  blue darken-4">
+      <form>
+        <div class="col-xs-12">
+          <div class="input-field">
+          <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+          <!-- I've put "red-text" class to emphasize -->
+          <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
+                      <label for="query"></span></label>
+
+        </div>
+      </form>
+    </div>
+     </nav>
+  </div>
+</div>
+ 
+        
+
+<script>
+    $(function(){
+    $(window).scroll(function() {  
+if($(document).scrollTop() > 150)
+{    
+     $('#footer').addClass("show");
+}
+else
+{
+    $('#footer').removeClass("show");
+}
+        });
+    })
+</script>
+    
+    <script>
+    
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            </script>

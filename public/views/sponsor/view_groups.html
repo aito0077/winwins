@@ -1,0 +1,26 @@
+<div class="container" ng-repeat="group in sponsor.groups">
+    <div class="row" style="margin-top:60px;">
+        <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::group.photo}}" style="height: 200px; cursor:pointer;"  ng-click="viewGroup(group.id)">
+            <div class="username-cards text-uppercase">
+                    {{::group.name}}
+            </div>
+        </div>
+        <div class="card-buttons" >
+            <div class=" col-xs-1 profile">
+                <img ng-src="http://images.dev-winwins.net/31x31/{{::winwin.user.photo}}"  class="img-circle">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

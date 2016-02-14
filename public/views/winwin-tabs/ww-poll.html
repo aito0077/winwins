@@ -1,0 +1,63 @@
+    <div class="pad-30"></div>
+
+    <div class="container no-padding center card-panel   light-blue darken-3  hoverable" style="box-shadow: 2px 2px 5px #999">
+        <h1 style="font-size:60px; padding:0px; margin:20px; color:#fff; ">   <i class="fa fa-server animated infinite wobble"></i></h1>
+        <h4 class="white-text"> Encuestas </h4>
+        <p class="white-text">Crea una encuesta para tu winwin.</p>
+    </div>
+      
+    <i class="fa fa-caret-down animated wobble center" style="font-size: 4rem;margin-top:-23px; color:#0277BD;"></i>
+
+<div data-ng-controller="winwin-poll">
+    <div class="container" ng-show="poll_success">
+        <div class="row">
+            <div class="pad-50"> </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <div style="text-align: center;"> 
+                    <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                    <h1 style="font-family: montserrat;"> ¡GENIAL! </h1>
+                    <h4 style="font-family: montserrat;"> Se creo la encuesta!</h4>
+                    <div class="pad-80"></div>
+                    <img src="/images/loading.gif" width="110" height="80" alt="loading"> 
+                </div>
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
+    </div>
+
+    <div class="container" ng-show="!poll_success">
+        <form id="create-poll" role="form" ng-submit="submitPoll()" name="pollForm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-back">
+                            <input type="text" class="input-forms active" placeholder="Nombre para tu encuesta" aria-describedby="basic-addon1" name="name" ng-model="poll.name" required>
+                            <input type="text" class="input-forms active" placeholder="Pregunta/Consigna" aria-describedby="basic-addon1" ng-model="poll.question" required>
+                            <input type="text" class="input-forms active" placeholder="Opción/Respuesta 1" aria-describedby="basic-addon1" ng-model="poll.option_1" required>
+                            <input type="text" class="input-forms active" placeholder="Opción/Respuesta 2" aria-describedby="basic-addon1" ng-model="poll.option_2" required>
+                            <input type="text" class="input-forms active" placeholder="Opción/Respuesta 3" aria-describedby="basic-addon1" name="name" ng-model="poll.option_3">
+                            <input type="text" class="input-forms active" placeholder="Opción/Respuesta 4" aria-describedby="basic-addon1" name="name" ng-model="poll.option_4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pad-10"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-6"><h6>Publicar en el muro</h6></div>
+                    <div class="col-xs-3">
+                        <input bs-switch ng-model="poll.selected" type="checkbox"  ng-true-value="1" ng-false-value="0">
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+            </div>
+            <div class="pad-10"></div>
+                <button type="submit" ng-disabled="pollForm.$invalid" class="btn btn-register">CREAR ENCUESTA</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
