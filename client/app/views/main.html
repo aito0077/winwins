@@ -24,15 +24,11 @@
 <!-- Winwins Home-->
 <div class="row">
     <div class="container card-panel teal hoverable s12" ng-repeat="winwin in winwins track by $index" style="padding:0px; padding-bottom:10px;">
-
         <!-- WW main sponsor card /// BANNERS ////-->
         <div ng-if="winwin.is_sponsor" class="card-panel col-xs-12 no-padding">
             <img ng-src="http://images.dev-winwins.net/smart/{{::winwin.cover_photo}}" class="responsive-img center-block" style="min-width:100%;" />
             <span class="anuncios right"> <i class="fa fa-star"></i> Anuncios </span>
         </div>
-        <!-- / WW main sponsor -->
-
-
         <!-- labels -->
         <div class="container no-padding" ng-if="!winwin.is_sponsor">
             <div class="col-xs-12 no-padding">
@@ -45,7 +41,7 @@
             </div>
             <!-- WW Img -->
             <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-                <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
+                <div class="username-cards text-uppercase" >{{::winwin.title}}</div>
                 <div class="col-xs-12" style="padding-top:10px;">
                     <div class="col-xs-4 "></div>
                     <div class="col-xs-2 center "></div>
@@ -62,9 +58,7 @@
                 <div class="col-xs-6 no-padding">
                     <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
                 </div>
-
                 <!-- somos -->
-
                 <div class="col-xs-2 no-padding" style="margin-top:-3px;">
                     <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span>
                     <br>
@@ -76,9 +70,7 @@
         </div>
             </div>
         </div>
-    </div>
 
-</div>
 
 <!-- search -->
 <div id="footer-s" data-ng-controller="main-search-controller">
@@ -102,9 +94,9 @@
         </div> </div> </div>
 
 
-<div class="center" id="down">
-<a class="btn-floating green animated infinite pulse" style="z-index: 99999; position: absolute; bottom: 30px;"><i class="fa fa-arrow-down animated infinte flash"></i></a>
-
+<div id="fade">
+<button id="downClick" class="btn-floating blue darken-3 z-depth-3 animated infinite pulse down-arrow waves-effect"><i class="fa fa-arrow-down animated infinte flash"></i></button>
+    </div>
 </div>
   <!-- Modal Sharer-->
     
@@ -154,9 +146,36 @@
     })
 </script>
 
+<script>
+
+$(window).scroll(function() {
+
+    if ($(this).scrollTop()>70)
+     {
+        $('#fade').fadeOut();
+     }
+    else
+     {
+      $('#fade').fadeIn();
+     }
+ });
+</script>
 
 
+<script>
 
+$(window).scroll(function() {
+
+    if ($(this).scrollTop()>500)
+     {
+        $('#message').fadeIn();
+     }
+    else
+     {
+      $('#message').fadeOut();
+     }
+ });
+</script>
 <!--Initialize Material -->
 <script>
     $(document).ready(function() {
@@ -166,6 +185,8 @@
 
 <script>
  $('.fixed-action-btn').openFAB();</script>
+
+
 
 <script>
 $(document).ready(function () {
@@ -186,3 +207,5 @@ $(document).ready(function () {
     });
 
 });</script>
+
+

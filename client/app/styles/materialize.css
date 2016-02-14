@@ -468,6 +468,7 @@ font-size: 1rem;
 .username-cards{
     width:85%;
     font-size: 18px;
+    padding-top:80px;
 }
 
 
@@ -1100,3 +1101,28 @@ nav .button {
 nav .nav-wrapper i {
     display: block;
     font-size: 1.5rem;}
+
+nav span unred {
+    
+    background-color:red; border-radius: 50%;padding-left:3px;padding-bottom:1px; padding-right: 3px; font-size: .8rem; margin-left:-9px; margin-top: -5px;
+}
+
+
+
+
+/*Main*/
+.down-arrow {
+ z-index: 99999; position: absolute; bottom: 30px; left:50%;}
+.down-arrow {
+    
+  z-index: 99999; position: absolute; bottom: 30px; left:50%;"
+}
+
+
+/*Select Cat*/
+
+.selectcat {
+    border-radius: 0px;
+    border: 0px;
+    color: white;
+}

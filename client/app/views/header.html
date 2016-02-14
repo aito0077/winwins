@@ -1,77 +1,78 @@
-<div ng-controller="NavController"> 
-    <div id="winwin-menu ">
-        <div class="navbar-fixed no-padding iso-width blue darken-4" style="height:56px;">
-                <nav>
-    <div class="nav-wrapper blue darken-4 z-depth-3">
-      <a ng-href="/#/main" class="brand-logo center" ><img src="images/logo-winwins.png"/></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="fa fa-bars"></i></a>
-      <a ng-href="/#/signin" ng-if="!isAuthenticated()" class="right button hide-on-med-and-up"><i class="fa fa-sign-in"></i></a>
-      <img  ng-if="is_logged"  ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{profile_photo}}" class="profile-image hide-on-med-and-up img-circle img-no-border right" alt="profile" ng-cloak/>
-      <a ng-click="do_back()"  class="left button hide-on-med-and-up"><i class="fa fa-chevron-left"></i></a>
-      <a href="#" class="button hide-on-med-and-up left" ng-if="is_logged" ng-click="goNotifications()"><i class="fa fa-bell-o"></i></a>
-        
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Ir a mi cuenta</a></li>
-        <li><a href="badges.html">Cómo Funciona?</a></li>
-        <li><a href="collapsible.html">Sponsor</a></li>
-        <li><a href="mobile.html">Registrate</a></li>
-      </ul>
-        <ul class="left hide-on-med-and-down">
-        <li><a href="sass.html">Ir a mi Cuenta</a></li>
-        <li><a href="badges.html">Como Funciona</a></li>
-        <li><a href="collapsible.html">Buscar</a></li>
-        <li><a href="mobile.html">Winwins</a></li>
-      </ul>
-        
-      <ul class="side-nav blue darken-3" id="mobile-demo">
-          <!-- navbarlogo -->
-          <li>
-           <div class="row center"> <a ng-href="/#/main" class="brand-logo left"><img src="images/navbar-logo.png"/></a></div>
-          </li> 
-<br>
-        <!-- search -->
-       <li class="blue darken-3">                       
-           <div class="row" data-ng-controller="main-search-controller"><div class="col-xs-12"  >                                      
-               <div class="col-xs-10 no-padding"><input id="query" type="search"  placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()"></div>
-               <div class="col-xs-2 no-padding">
-              <button class="fa fa-search left waves-effect" id="query" ng-click="search()" style="font-size: 15px; background-color: transparent; border:0px; padding:15px;">    </button> 
-                </div>
-              </div>
-           </div>
-         </li> 
-         <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><img src="../images/entrar.png" width="18"/> Ir a mi cuenta</a></li>
-         <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><img src="../images/wwown.png" width="18"/> Mis Winwins </a></li>
-         <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"> <img src="../images/wwnew.png" width="18"/> Crear un WinWin</a></li>
-         <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
-         <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
-         <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
-         <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
-         <li><a ui-sref="how" ng-if="!isAuthenticated()"><img src="../images/cog.png" width="18"/> ¿Cómo Funciona?</a></li>
-         <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <img src="../images/profile.png" width="18"/> Mi perfil</a></li>
-         <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><span> <img src="../images/salir.png" width="18"/>  Salir</span></a></li>
-         <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"> <img src="../images/wws.png" width="18"/> Sumate </a></li>
-        </ul>
-  </nav>
-        </div>
-    </div>
-
-               <!--   Aviso de confirmacion de email  -->
-    <div ng-if="is_logged">
-        <div ng-show="!isSponsor && !isActive" class="s12 red red white-text center h7 aviso" ng-cloak>
-            <i class="fa fa-chevron-right"></i>     
-            <!--  Acá seria ideal poner tambien la respuesta: te enviamos un mail a: user@mail.com -->
-            <span ng-if="sentActivationMail">
-                te enviamos un mail a: {{email}}
-            </span>
-            <span ng-if="!sentActivationMail">
-                Chequea tu correo y activa tu cuenta <br><a href ng-click="resendActivationMail()" style="text-decoration: underline;">o reenviate el mail de confirmación.</a>
-            </span>
-        </div>
-        <div ng-if="isSponsor && !isSponsorActive" class="s12 red red white-text center h7 aviso" ng-cloak>
-            <i class="fa fa-chevron-right"></i>     
-            <span ng-if="!sentActivationMail">
-                Actualmente nos encontramos evaluando tu aplicación como Sponsor. En breve recibirás un mail con la confirmación.
-            </span>
-        </div>
-    </div>
+<div ng-controller="NavController">
+<div id="winwin-menu ">
+   <div class="navbar-fixed no-padding iso-width blue darken-4" style="height:56px;">
+      <nav>
+         <!-- navbar items mobile -->
+         <div class="nav-wrapper blue darken-4 z-depth-3">
+            <a ng-href="/#/main" class="brand-logo center" ><img src="images/logo-winwins.png"/></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="fa fa-bars"></i></a>
+            <a ng-href="/#/signin" ng-if="!isAuthenticated()" class="right button hide-on-med-and-up"><i class="fa fa-sign-in"></i></a>
+            <img  ng-if="is_logged"  ng-click="goProfile()" ng-show="profile" ng-src="http://images.dev-winwins.net/30x30/{{profile_photo}}" class="profile-image hide-on-med-and-up img-circle img-no-border right" alt="profile" ng-cloak/>
+            <a ng-click="do_back()"  class="left button hide-on-med-and-up"><i class="fa fa-chevron-left"></i></a>
+            <a href="#" class="button hide-on-med-and-up left" ng-if="is_logged" ng-click="goNotifications()"><i class="fa fa-bell-o"></i> <span class="unread" ng-if="is_logged && unreadNotifications">{{unreadNotifications}}</span> </a>
+            <!-- navbar items desktop -->
+            <ul class="right hide-on-med-and-down">
+               <li><a href="sass.html">Ir a mi cuenta</a></li>
+               <li><a href="badges.html">Cómo Funciona?</a></li>
+               <li><a href="collapsible.html">Sponsor</a></li>
+               <li><a href="mobile.html">Registrate</a></li>
+            </ul>
+            <ul class="left hide-on-med-and-down">
+               <li><a href="sass.html">Ir a mi Cuenta</a></li>
+               <li><a href="badges.html">Como Funciona</a></li>
+               <li><a href="collapsible.html">Buscar</a></li>
+               <li><a href="mobile.html">Winwins</a></li>
+            </ul>
+            <ul class="side-nav blue darken-3" id="mobile-demo">
+               <!-- navbarlogo -->
+               <li>
+                  <div class="container center"> <a ng-href="/#/main" class="brand-logo left"><img src="images/navbar-logo.png" style="margin-top:15px;"/></a></div>
+               </li>
+               <br>
+               <!-- search -->
+               <li class="blue darken-3">
+                  <div class="row" data-ng-controller="main-search-controller">
+                     <div class="col-xs-12"  >
+                        <div class="col-xs-10 no-padding"><input id="query" type="search"  placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()"></div>
+                        <div class="col-xs-2 no-padding">
+                           <button class="fa fa-search left waves-effect" id="query" ng-click="search()" style="font-size: 15px; background-color: transparent; border:0px; padding:15px;">    </button> 
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><img src="../images/entrar.png" width="18"/> Ir a mi cuenta</a></li>
+               <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><img src="../images/wwown.png" width="18"/> Mis Winwins </a></li>
+                <li><a ng-href="/#/winwin-list" ng-if="!isAuthenticated()"><img src="../images/ww.png" width="18"/> Ver + Winwins </a></li>
+               <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"> <img src="../images/wwnew.png" width="18"/> Crear un WinWin</a></li>
+               <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
+               <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
+               <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
+               <li><a ng-href="/#/sponsor-list" ng-if="isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>
+               <li><a ui-sref="how" ng-if="!isAuthenticated()"><img src="../images/cog.png" width="18"/> ¿Cómo Funciona?</a></li>
+               <li><a ng-click="goProfile()" ng-if="isAuthenticated()" > <img src="../images/profile.png" width="18"/> Mi perfil</a></li>
+               <li><a ng-href="/#/logout" ng-if="isAuthenticated()"><span> <img src="../images/salir.png" width="18"/>  Salir</span></a></li>
+               <li><a ng-href="/#/signup" ng-if="!isAuthenticated()"> <img src="../images/wws.png" width="18"/> Sumate </a></li>
+            </ul>
+      </nav>
+      </div>
+   </div>
+   <!--   Aviso de confirmacion de email  -->
+   <div ng-if="is_logged">
+      <div ng-show="!isSponsor && !isActive" class="s12 red red white-text center h7 aviso" ng-cloak>
+         <i class="fa fa-chevron-right"></i>    
+         <!--  Respuesta -->
+         <span ng-if="sentActivationMail">
+         te enviamos un mail a: {{email}}
+         </span>
+         <span ng-if="!sentActivationMail">
+         Chequea tu correo y activa tu cuenta <br><a href ng-click="resendActivationMail()" style="text-decoration: underline;">o reenviate el mail de confirmación.</a>
+         </span>
+      </div>
+      <div ng-if="isSponsor && !isSponsorActive" class="s12 red red white-text center h7 aviso" ng-cloak>
+         <i class="fa fa-chevron-right"></i>     
+         <span ng-if="!sentActivationMail">
+         Actualmente nos encontramos evaluando tu aplicación como Sponsor. En breve recibirás un mail con la confirmación.
+         </span>
+      </div>
+   </div>
 </div>
