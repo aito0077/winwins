@@ -1126,3 +1126,33 @@ nav span unred {
     border: 0px;
     color: white;
 }
+
+/*user profile */
+
+span.falta {
+    background-color: #097FFC;
+    color: white;
+    text-align: center;
+    font-size: 1.7em;
+    padding: 3px 15px 3px 15px;
+    border-radius: 1px;
+}
+
+
+span.somos {
+    background-color: #2AB467;
+    color: white;
+    text-align: center;
+    font-size: 1.7em;
+    padding: 3px 15px 3px 15px;
+    font-weight: bold;
+     border-radius: 1px;
+}
+
+
+.buttons-profile {
+    height: 60px;
+    padding-top: 15px;
+    /* padding-bottom: 10px; */
+    margin-top: -70px;
+}

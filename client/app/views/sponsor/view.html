@@ -6,18 +6,18 @@
             <ul id="nav-mobile blue darken-3">
    <div class="container col-xs-12 no-padding">
          <li class="col-xs-3">               
-              <a href data-toggle="tab" data-target="#sponsor_summary"  >
+              <a href data-toggle="tab" data-target="#sponsor_summary" ng-class="{active: current_view == 'home'}" >
              <img src="../images/sponsor.png" width="25" />  
          </span>
       </a>
-      <a href data-toggle="tab" data-target="#sponsor_winwins">
+      <a href data-toggle="tab" data-target="#sponsor_winwins" ng-class="{active: current_view == 'winwins'}">
          <li class="col-xs-3">
-            <img src="../images/wws.png" width="22" />  
+            <img src="../images/ww.png" width="22" />  
          </li>
       </a>
-      <a href data-toggle="tab" data-target="#sponsor_followers"  >
+      <a href data-toggle="tab" data-target="#sponsor_followers" ng-class="{active: current_view == 'followers'}" >
          <li class="col-xs-3">
-            <i class="fa fa-users" style="font-size: 21px; padding: 18px;"></i>
+           <img src="../images/miembros.png" width="25" />  
          </li>
       </a>
       <a href ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
@@ -27,7 +27,7 @@
       </a>
        <a href ng-if="!sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
          <li class="col-xs-3">
-                <i class="fa fa-pencil center"  style="font-size: 21px; padding: 18px; opacity: 0.5px;"></i>
+               </i>
          </li>
       </a>
              </ul>
