@@ -1156,3 +1156,7 @@ span.somos {
     /* padding-bottom: 10px; */
     margin-top: -70px;
 }
+
+.pad-80 {
+    padding-top:80px;
+}
