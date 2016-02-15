@@ -1,0 +1,191 @@
+<style>
+   body {
+       background-repeat: no-repeat;
+       background-size: cover;
+       background-color: #1976D2;
+   }
+</style>
+<div ng-show="show_signup">
+    <div class="container">
+        <div class="row">
+            <h3 class="white-text center">¡CONVERTITE EN SPONSOR! </h3>
+        </div>
+        <div class="row">
+           <div class="container" style="min-width:280px;max-width: 480px; 
+              background: -moz-linear-gradient(top, rgba(255,255,255,0.98) 23%, rgba(255,255,255,0.98) 24%, rgba(255,255,255,0.74) 71%, rgba(255,255,255,0.74) 99%, rgba(255,255,255,0.74) 100%); /* FF3.6-15 */
+              background: -webkit-linear-gradient(top, rgba(255,255,255,0.98) 23%,rgba(255,255,255,0.98) 24%,rgba(255,255,255,0.74) 71%,rgba(255,255,255,0.74) 99%,rgba(255,255,255,0.74) 100%); /* Chrome10-25,Safari5.1-6 */
+              background: linear-gradient(to bottom, rgba(255,255,255,0.98) 23%,rgba(255,255,255,0.98) 24%,rgba(255,255,255,0.74) 71%,rgba(255,255,255,0.74) 99%,rgba(255,255,255,0.74) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faffffff', endColorstr='#bdffffff',GradientType=0 ); /* IE6-9 */
+              padding: 20px;
+              box-shadow: 3px 3px 10px black;
+            border-radius: 5px;">
+
+                <form class="col s12" method="post" ng-submit="signup()" name="signupForm">
+                    <div class="row"> 
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="name" name="name" type="text" class="validate" ng-model="name" required="required">
+                            <label for="name">Nombre</label>
+                            <div ng-messages="signupForm.name.$error" style="margin-bottom:10px;" ng-if="signupForm.name.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese su nombre.</p>
+                            </div>
+                        </div>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="lastname" name="lastname" type="text" class="validate" ng-model="lastname" required="required">
+                            <label for="lastname">Apellido</label>
+                            <div ng-messages="signupForm.lastname.$error" style="margin-bottom:10px;" ng-if="signupForm.lastname.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese su apellido.</p>
+                            </div>
+                        </div>
+                        <!--sume este campo:-->
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="organization" name="organization" type="text" class="validate" ng-model="sponsor_organization" required >
+                            <label for="organization">Empresa/Organización</label>
+                            <div ng-messages="signupForm.organization.$error" style="margin-bottom:10px;" ng-if="signupForm.organization.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese el nombre de la organización.</p>
+                            </div>
+                        </div>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="email" name="email" type="email" class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/" required >
+                            <label for="email">Email</label>
+                            <div ng-messages="signupForm.email.$error" style="margin-bottom:10px;" ng-if="signupForm.email.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese un correo.</p>
+                            </div>
+                        </div>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="password" name="password" type="password" class="validate" ng-model="password" required="required">
+                            <label for="password">Contraseña</label>
+                            <div ng-messages="signupForm.password.$error" style="margin-bottom:10px;" ng-if="signupForm.password.$touched" class="help-block">
+                                <p class="small" ng-message="required">Ingrese una clave</p>
+                            </div>
+                        </div>
+                        <div class="input-field col s12" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
+                            <input id="rpassword" name="rpassword" type="password" class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
+                            <label for="rpassword">Repeti Contraseña</label>
+                            <div ng-messages="signupForm.rpassword.$error" style="margin-bottom:10px;" ng-if="signupForm.rpassword.$touched" class="help-block">
+                                <p class="small" ng-message="required">Repita la clave</p>
+                            </div>
+                        </div>                    
+                                        <button data-target="modal1" class="btn modal-trigger z-depth-0 waves-effect" style="background-color:transparent; border: 0px; font-size:8px; color: #666; margin-top:-30px; text-transform: normal; ">He leido y acepto los<span style="text-decoration: underline;" class="blue-text"> Terminos y Condiciones</span><br></button>
+                        <button class="col s12 waves-effect waves-light btn-large" type="submit" name="action">Ingresar</button>
+                    </div>
+                </form>
+            <div class="pad-50"></div>
+        </div>
+    </div>
+
+    <!--  footer -->  
+    <div class="footer-copyright center">
+       <h6 style="font-size:10px; color: orange;">   © 2015 - Humanet - WinWins.Org- </span> Acuerdos en Acción</h6>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h6 style="text-align: center; font-family: montserrat; font-size: 9px;">Winwins 2.0 - <a style="color: #FFF; padding-top: 3px;"  ui-sref="terms">Política de Privacidad</a> </h6>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <!--/ footer -->
+</div>
+<div class="container" ng-show="redirect_message">
+    <div class="row">
+        <div class="pad-20"> </div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <div style="text-align: center;">
+                <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                <h1 style="font-family: montserrat; letter-spacing: -3px; color:#fff;" ng-if="!provider"> Gracias! </h1>
+                <h4 style="font-family: montserrat; letter-spacing: -1px; color:#fff;" ng-if="!provider"> Te hemos enviado un mail de confirmación.</h4>
+                <div class="pad-80"></div>
+                <div class="spinner"></div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content" style="padding:30px;">
+            <h4 style="padding:20px; padding-bottom:0px;">Términos y condiciones</h4>
+            <p style="font-family: verdana; font-size:11px; padding:20px;">1.- Lea cuidadosamente este documento: el mismo es un instrumento legal que refleja un acuerdo entre Ud. (el Usuario) y HUMANET S.A. , la sociedad operadora y explotadora del sitio winwins.org (la Operadora)
+            1.1. Este documento se describe los términos y condiciones generales (los "Términos y Condiciones " o "TyC") aplicables al uso de los servicios ofrecidos en el sitio alojado bajo los nombres de dominio winwins.org y/o winwins.net y/o winwins.info (el “Sitio”).
+            1.2. Los servicios ofrecidos a través del Sitio sólo podrán ser utilizados por aquellas personas (en adelante el Usuario, la Usuaria o los Usuarios en forma indistinta) que acepten los Términos y Condiciones que aquí se describen, y sujete su conducta a lo establecido en los mismos. El Usuario debe leer, entender y aceptar las condiciones establecidas en estos Términos y Condiciones, y podrá realizar cualquier consulta acerca de los mismos a legales@winwins.org.
+            1.3. Si Ud. es padre, madre o tutor legal y brinda consentimiento para la utilización de los servicios ofrecidos en el Sitio por parte de su hijo o personas menores de edad a su cargo, acepta estos Términos y Condiciones y se compromete a monitorear y guardar el debido y razonable control sobre las actividades de los menores de edad a su cargo mientras que utilicen el Sitio.
+            1.4. Cualquier persona que no acepte estos términos y condiciones generales, los cuales tienen un carácter obligatorio y vinculante, deberá abstenerse de utilizar el Sitio y/o los servicios ofrecidos en el mismo.
+            1.5. Cualquier Usuario que pretendiera utilizar el Sitio en condiciones distintas a las que aquí se especifican o en términos diferentes deberá contactarse con la Operadora del sitio a través de la direccion legales@winwins.org a fin de negociar un acuerdo distinto.
+            1.6. Los Términos y Condiciones que aquí se establecen podrán ser modificados por la Operadora en el momento en que ésta lo considere conveniente, consintiendo los Usuarios en que el aviso legible y destacado en la página de acceso sobre la existencia de nuevos términos y condiciones o, alternativamente, el aviso por correo electrónico configura un aviso suficiente y resulta vinculante para el Usuario en la medida en que éste utilice cualquier parte del Sitio y/o los servicios del Sitio con posterioridad a la publicación de los nuevos Términos y Condiciones.
+2.- Servicios ofrecidos a través del Sitio
+            2.1. La Operadora administra el “Sitio” de forma tal que los Usuarios del mismo puedan compartir intereses y proyectos comunes, crear vínculos de acción constructiva y creativa, sin tener ninguna injerencia de ningún tipo en el modo de relacionarse ni de los objetivos con los cuales los Usuarios se relacionan.
+            2.2. A fin de promover diversos modos de relacionamiento, el Sitio provee espacios de interacción tecnológica, a través de la creación de “Grupos” y/o “Winwins”, dando también a algunos Usuarios la posibilidad de constituirse como “Patrocinadores” de cada uno de ellos.
+            2.3. El Sitio es exclusivamente un lugar de encuentro, que actúa como un punto de reunión que permite a los Usuarios aprovechar su potencial colectivo y sumar esfuerzos para las causas que el Usuario considere pertinentes dentro de los límites de las normas de uso que se describen más abajo.
+            2.4. La Operadora no produce ni edita los contenidos que son expuestos en el Sitio, no los promociona, ni patrocina, no apoya ni impulsa en modo alguno las distintas iniciativas que los Usuarios del Sitio pudieran expresar a través de los Grupos o Winwins. La Operadora tampoco interviene (salvo cuando lo anuncie expresamente) en los winwins o grupos, ni controla la calidad, seguridad o legalidad de las iniciativas que los Usuarios propongan.
+            2.5. Sin perjuicio de lo expuesto en los párrafos anteriores, la Operadora se reserva el derecho de suspender temporaria o definitivamente cualquiera de estos espacios de interacción, sean Grupos o Winwins, patrocinados o no; en cualquier momento y sin aviso previo.
+            3. Tratamiento de la Información Personal de los Usuarios
+            3.1. Al registrarse y/o navegar el Sitio, el Usuario brinda información personal, prestando su consentimiento para que la misma sea almacenada en bases de datos administradas y/o controladoas por la Operadora, las que serán protegidas utilizando un estándar de seguridad informática de protección de la información que resulte razonablemente eficaz como para mantener dicha información en total confidencialidad, conforme a la Ley Nº 25.326 de Hábeas Data, pudiendo el Usuario puede acceder a esta información y solicitar su eliminación. El Usuario pordré efectuar consultas sobre los derechos que le asisten respecto de este punto a legales@winwins.org o al órgano de aplicación de la norma mencionada más arriba, la Dirección Nacional de Protección de Datos Personales, del Ministerio de Justicia, Seguridad y Derechos Humanos de la Nación (http://www.jus.gov.ar/datospersonales/).
+            3.2. La dirección de e-mail informada por el Usuario en el acto del registro será utilizada solamente para los fines autorizados por los Usuarios, así como para enviar información sobre el Sitio y los Servicios del Sitio a los Usuarios y responder las dudas.
+            4. Derechos de propiedad intelectual de la Operadora y los Usuarios
+            4.1. Winwins es una marca registrada, y su uso se encunentra protegido por la ley 11.723 (modif. Ley 25.036) y por el Acuerdo Sobre los Aspectos de Los Derechos de Propiedad Intelectual Relacionados con el Comercio – ADPIC. Asimismo, la Operadora conserva los derechos de publicación del Sitio, conforme las normas que rigen el derecho de autor en la República Argentina. El nombre Winwins y el logo no pueden ser utilizados de ningún modo sin el previo consentimiento de la Operadora.
+            4.2. El resto de los contenidos de la Operadora son licenciados en forma gratuita a quien los desee bajos los términos de la licencia Atribución 2.5 (Argentina) de Creative Commons, cuyo texto completo puede consultarse en http://creativecommons.org/licenses/by/2.5/ar/legalcode
+            4.3. Al publicar en el Sitio textos, videos, fotografías, fonogramas o contenido de cualquier tipo, el Usuario conserva la propiedad de los mismos, otorgando al resto de los Usuarios una licencia gratuita bajos los términos de la licencia Atribución 2.5 (Argentina) de Creative Commons, cuyo texto completo puede consultarse en http://creativecommons.org/licenses/by/2.5/ar/legalcode
+            4.4. Asimismo, al publicar en el Sitio textos, videos, fotografías, fonogramas o contenido de cualquier tipo el Usuario concede a la Operadora una licencia mundial para usar, alojar, almacenar, reproducir, modificar, crear obras derivadas (que resulten de la traducción o la adaptación de los contenidos), comunicar, publicar, difundir, ejecutar o mostrar públicamente y distribuir dicho contenido, aún con fines comerciales, siempre que tenga por objeto la promoción del Sitio y los servicios del Sitio. 5. Responsabilidad de la Operadora
+            5.1. La Operadora efectuará esfuerzos razonables para mantener los servicios del Sitio on line durante el mayor tiempo posible. Sin perjuicio de ello, el Sitio y los servicios brindados a través del Sitio se proporcionan en el estado en que se encuentran, sin garantías de ningún tipo. La Operadora no garantiza la fiabilidad ni disponibilidad del contenido, ni la exactitud en los mismos ni la identidad de las personas, ni que sus servidores estén libres de virus o programas informáticos espía, limitándose a poner sus mejores esfuerzos en el mantenimiento y mejora de los espacios de interacción, sean Grupos, Winwins u otros que se desarrollen en el futuro.
+            5.2. El Usuario asume la total responsabilidad por los contenidos descargados del Sitio y su relación con otros Usuarios, eximiendo expresamente a la Operadora de cualquier responsabilidad derivada de acciones, demandas o indemnizaciones por daños de cualquier clase o naturaleza, que sean resultado de, o tengan conexión alguna con enfrentamientos o disputas con otros Usuarios del Sitio.
+            5.3. Los padres o tutores legales, al prestar su consentimiento para la participación de Usuarios menores de edad, declaran comprender los riesgos que entraña la utilización de servicios alojados en redes informáticas y la red Internet en general y el Sitio en modo particular, asumiendo la responsabilidad por eventuales daños directos o indirectos que los menores pudieran sufrir como consecuencia de la utilización de servicios del Sitio o de acceso a contenido no apto para los mismos.
+            5.4. La Operadora ha diseñado un sistema de denuncias para reducir al menor grado posible la utilizacion y/o disponibilidad de contenidos contrarios a las normas de conducta del Sitio, limitándose su responsabilidad a asegurar el funcionamiento del sistema, pero sin garantizar resultados de ningún tipo. Los Usuarios aceptan que el rol de la Operadora del Sitio se limita a proveer las herramientas para la puesta a disposición y control del contenido, actividades que son realizadas por los propios Usuarios.
+            5.5. La Operadora no asume ninguna obligación contractual en relación al sistema de denuncias, ni de indentificación de usuarios, ni tampoco respecto de la integridad de la información. No estará obligada por estos Términos y Condiciones a dar de baja o borrar del sitio contenido subido por los Usuarios, salvo orden judicial o mandato legal expreso.
+            5.6. Sin perjuicio de lo expuesto en el punto anterior, la Operadora se reserva el derecho de excluir y/o suspender, a cualquier Usuario del Sitio; y borrar o suspender contenido de cualquier tipo del Sitio, cuando exista una clara violación a las normas de conducta del Sitio, o reciba denuncias que posean entidad suficiente a criterio de la Operadora.
+            5.7. Los Usuarios aceptan que la Operadora no será considerada responsable por el ataque informático al sistema o uso indebido de las cuentas, ni de las contraseñas de los Usuarios o datos de acceso, salvo casos de grave negligencia por parte de la Operadora.
+            6. Responsabilidad de los usuarios por los contenidos subidos al Sitio - Indemnidad
+            6.1. El Usuario es responsable por el buen uso de los servicios ofrecidos a través del Sitio, comprometiéndose a evitar cualquier tipo de acción que pueda dañar a sistemas, equipos o servicios accesibles directa o indirectamente a través de Internet, incluyendo la congestión intencional de enlaces o sistemas y la utilización de software espía.
+            6.2. El Usuario asume la responsabilidad total por los daños directos e indirectos que todos los textos, videos, fotografías, fonogramas, información y contenido de cualquier otro tipo que publique, promocione y/o difunda en el Sitio pudieran generar a otros Usuarios o a terceras partes.
+            6.3. La Operadora no será responsable de ninguna manera por cualquier contenido de Usuario o de Terceros publicados por Usuarios en el Sitio, ya sea publicado o causado por los Usuarios del Sitio o por cualquiera de los equipos o programas asociados con o utilizados en el Sitio.
+            6.4. Asimismo, la tampoco será considerada responsable por la publicación, veracidad y/o exactitud de la información que se ofrezcan en el Sitio, ni de los cambios que sobre la misma pudieran acontecer, o el uso inapropiado de este contenido por parte de terceros.
+            6.5. El Usuario se obliga a mantener indemne a la Operadora por las consecuencias que se deriven de contenido ilegal, ofensivo, inapropiado, obsceno, ilegal o cuestionable judicialmente que el Usuario haya incorporado por cualquier medio al Sitio; como asi también por las consecuencias derivadas de acciones que pudieran dañar sistemas, equipos o servicios accesibles directa o indirectamente a través de Internet, incluyendo la congestión intencional de enlaces o sistemas y la utilización de software espía.
+            7.- Normas de conducta
+            7.1. Las normas de conducta que aquí se describen poseen carácter orientativo y no exhaustivo, y están destinadas a mejorar la experiencia general de los Usuarios en el Sitio y a limitar los riesgos que supone cualquier interacción social. Las Normas de conducta no han sido diseñadas ni incluidas aquí con el propósito de limitar la responsabilidad de los Usuarios por sus actos. Por el contrario, conforme lo establecido más arriba, el Usuario asume la responsabilidad total por los daños directos e indirectos que todos los textos, videos, fotografías, fonogramas, información y contenido de cualquier otro tipo que publique, promocione y/o difunda en el Sitio pudieran generar a otros Usuarios o a terceras partes, con independencia del cumplimiento o incumplimiento de estas normas de conducta.
+            7.2. El Usuario acepta y declara que no publicará, enviará por ningún canal de comunicación, ni pondrá a disposición ningún contenido, ni usará el Sitio:
+            - de forma discriminatoria por motivos de raza, color, sexo, religión, nacionalidad, origen étnico o nacional, estado civil, discapacidad, orientación sexual o de cualquier otro modo que pudiera resultar inadecuado o dañoso conforme las normas legales vigentes;
+            - de forma injuriosa, difamatoria o de modo amenazante, abusivo, violento, acosador, malicioso o dañino para cualquier persona o entidad;
+            - de cualquier manera que sea perjudicial para menores de edad;
+            - para invadir la privacidad de otra persona o para suplantar a la identidad de cualquier otra persona, o afirmar falsamente o de otro hacer declaraciones falsas de su afiliación con otra persona o entidad o para obtener acceso a los servicios del Sitio sin autorización;
+            - de una forma que sea falsa, engañosa o fraudulenta o de otro modo ilegal, o que promueva actividades ilegales, incluidas la suplantación de identidad u otro modo de obtener información personal o de otro tipo de forma maliciosa o con fines fraudulentos o engañosos;
+            - para vehiculizar actividades de correo no deseado, cadena de mensajes, estafas de forma que infrinja, viole, distribuya ilegalmente o se apropie indebidamente de cualquier derecho de propiedad intelectual u otros derechos contractuales o de propiedad de terceros; piramidales, publicidad de productos o servicios ilegales o controlados, u otras actividades publicitarias o de marketing que infringen estos Términos y Condiciones, cualquier ley, reglamento o pautas de la industria publicitaria aplicables o generalmente aceptadas;
+            - para interferir o intentar interferir con el funcionamiento correcto Winwins o impedir que otros usen esta red social, o de una manera que vulnere el flujo normal o el intercambio de Winwins o que de otro modo afecte la capacidad de otras personas de usar esta red social;
+            - de forma que contenga virus de software o cualquier otro código informático, archivos o programas diseñados para interrumpir, destruir o limitar la funcionalidad de cualquier software informático, hardware o equipo de telecomunicaciones; independientemente y sin exclusión de la responsabilidad que asume por los daños que esto pudiera generar y la obligación de indemnidad asociada a dicha responsabilidad.
+            - para usar cualquier medio manual o automatizado -incluidos robots, secuencias de comandos o arañas- para tener acceso o administrar la cuenta de cualquier usuario o para supervisar o copiar esta red social o su contenido;
+            - en una manera que utilice direcciones de correo electrónico o IP falsas o encabezados falsificados o identificadores manipulados de otro modo con el fin de ocultar el origen del contenido transmitido a través del Sitio o a los usuarios;
+            7.3. El Usuario acepta y se compromete a:
+            - mantener el intercambio con otros usuarios en términos de respeto y cordialidad, sin ofender, insultar ni maltratar.
+            - no acechar o acosar a una persona por intermedio del Sitio;
+            - no recopilar, usar o revelar datos -incluida información personal- sobre otros usuarios sin su consentimiento o con fines ilegítimos, o en violación de las leyes y reglamentos aplicables;
+            - no publicar contenido que incluya pornografía infantil en el Sitio;
+            - no publicar contenido que incite, represente o incluya discriminación, violaciones, violencia extrema, asesinatos, bestialidad, incesto u otro contenido similar.
+            - Colaborar con la disponibilidad e integridad de los servicios del Sitio efectuando las denuncias que correspondan a través de los mecanismos previstos en el Sitio, sin perjuicio de la obligación legalmente impuesta a determinadas personas que por su profesión y oficio estén obligadas a efectuar las denuncias que correspondan ante la justicia.
+            7.4. Determinados servicios ofrecidos a través del Sitio exigen la creación de una cuenta para poder participar y obtener otros beneficios. El Usuario se compromete a suministrar información exacta y verdadera, completa e íntegra, sobre su persona y sus descendientes o personas a su cargo, absteniéndose de suplantar a una tercera parte – salvo en el caso de los menores de edad – incluyendo el uso de nombre de usuario, la contraseña u otra información de la cuenta o el nombre o la imagen. No debe proporcionar detalles falsos para un padre o tutor. El Usuario reconoce que no puede sublicenciar, transferir, vender ni ceder su membresía ni la identificación de su cuenta. Todo intento de sublicenciar, transferir, subastar, vender o ceder la titularidad o la identificación de una cuenta es nulo y tales intentos, independientemente de si fueron realizados o no por el titular de la cuenta, serán causa de cancelación inmediata de la cuenta. 
+            Usted también se compromete a notificar de inmediato a través del sistema de denuncias ofrecido por la Operadora sobre todo uso no autorizado de su nombre de usuario, contraseña, otra información de la cuenta o cualquier otra violación a la seguridad que detecte y que se relacione con el Sitio. Además, el Usuario se compromete a salir de su cuenta al finalizar cada sesión.
+            La Operadora no será considerada responsable, en ningún caso, por el uso de la cuenta de usuario por terceras partes.
+            8.- Menores de edad
+            8.1. Los servicios del Sitio están dirigidos a personas de todas las edades. Sin perjuicio de ello, y en atención a que la Operadora no controla ni supervisa los contenidos y las iniciativas de los Usuarios, las personas menores de 14 años únicamente podrán utilizar los servicios del Sitio con autorización expresa de su padre, madre o tutor legal.
+            8.2. Si Ud. es padre, madre o tutor legal y brinda consentimiento para la utilización de los servicios ofrecidos en el Sitio por parte de su hijo o personas menores de edad a su cargo, entiende que está a su cargo monitorear y guardar el debido y razonable control sobre las actividades de los menores de edad a su cargo mientras que utilicen el Sitio, que la Operadora no controla ni lleva un registro de las actividades del Sitio, y que, como todo espacio de interacción con personas extrañas la utilización del Sitio entraña un riesgo para determinadas personas. En función de ello, exime a la Operadora de cualquier responsabilidad que no sea derivada directamente de las acciones de la Operadora, en especial de los daños que pudieran provocarse o derivarse de la interacción del menor con otros Usuarios del Sitio.
+            9.- Patrocinadores
+            9.1. Los Usuarios que actúan como patrocinadores (los "Patrocinadores") de distintas iniciativas y/o servicios que se brinden a través del el Sitio, no asumen ninguna responsabilidad por el contenido puesto a disposición por el resto de los usuarios. Los contenidos patrocinados serán responsabilidad exclusiva del Usuario que los publica y/o sube al sitio y/o pone a disposición de otros usuarios.
+            9.2. Sin perjuicio de lo expuesto en la cláusula anterior, los Patrocinadores y la Operadora colaborarán con la disponibilidad e integridad de los servicios del Sitio; los Patrocinadores efectuando las denuncias que correspondan a través de los mecanismos previstos en el Sitio, y la Operadora respondiendo a tales denuncias de manera rápida y expeditiva.
+            10. Ley aplicable y jurisdicción
+            10.1. Los Usuarios del Sitio reconocen expresamente que su relación con el Sitio y estos Términos y Condiciones como así también cualquier acuerdo que los complemente en el futuro se rigen y se regirán por las leyes de la República Argentina.
+            10.2. Los Usuarios aceptan someter cualquier controversia que pudiera llegar a suscitarse como consecuencia del uso de los servicios del Sitio o en relación a los contenidos del mismo, a la jurisdicción de los Tribunales Nacionales en lo Civil, con asiento en la Capital Federal, sin reservas de ningún tipo.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+          </script>
+

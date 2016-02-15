@@ -1,7 +1,15 @@
+<div class="pad-80"></div>
+
+
+<button class="btn-large blue darken-2 waves-effect col-xs-4"><img src="../../images/sponsor_request.png" width="25"/> Recibidas</button>
+<button class="btn-large blue darken-2 waves-effect col-xs-4 btn-clean"><img src="../../images/ww_request.png" width="25"/> Enviadas</button>
+<button class="btn-large blue darken-2 waves-effect col-xs-4 btn-clean"><img src="../../images/sponsor.png" width="25"/> Activos</button>
+
+
 <div data-ng-controller="winwin-sponsors-requests">
-    
+    <br>
     <div ng-if="!accept_success">
-        <h5 ng-if="!sponsors.length" class="black-text card-panel" style="margin-top:70px;" class="animated  wobble">Actualmente no tienes<br> peticiones de sponsors<br> </h5>
+        <h5 ng-if="!sponsors.length" class="black-text card-panel"  class="animated  wobble">Actualmente no tienes<br> peticiones de sponsors<br> </h5>
 
         <div class="grid grid-sponsors">
             <div class="grid-item sponsor-item"  ng-repeat="sponsor in sponsors">
