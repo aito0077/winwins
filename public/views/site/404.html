@@ -1,0 +1,33 @@
+<body class="blue darken-3 z-depth-4"> 
+
+    <section>
+    
+<div class="row" style="margin-top:20px;" ng-if="show_no_results">
+        <div>
+            <div class="white-text card-panel center blue darken-2"  class="animated  wobble"><div class="center" style="padding:16px;margin-top:20px; border-radius:70%; height:20px; font-size:8rem;"><i class="fa fa-meh-o animated infinite pulse orange-text z-depth-2  white" style="padding:25px; border-radius: 50%; margin-top:20px;" ></i></div><br><br><p class=" animated bounceInLeft z-dept-1 white-text" style="padding-top:20px;"><br><br><br><br><br>La pagina que buscas no existe en Winwins.<br> Hace una busqueda o volve a la home.</p><br> </div>
+            <div class="container blue darken-2 " style="padding:30px; margin-top:-45px;">
+  
+            <nav class="blue darken-2 z-depth-3">
+                <div class="nav-wrapper  white" data-ng-controller="main-search-controller">
+                    <form>
+                        <div class="col-xs-12" >
+                            <div class="input-field">
+                                <input id="query" type="search" class="col-xs-10 no-padding black-text" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                                <!-- I've put "red-text" class to emphasize -->
+                                <i class="fa fa-search right black-text"id="query" ng-click="search()" style="padding-top:15px; font-size: 20px;"></i>
+                                <label for="query"></label>
+
+                            </div>
+                        </div>
+                    </form>
+                    <a class="waves-effect waves-light btn-large green center col s12 full"><i class="fa fa-home"></i> Ir a la home.</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</div>
+    </section>
+
+</body>
+</html>

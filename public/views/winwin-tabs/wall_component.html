@@ -62,7 +62,7 @@
                   <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
                     <span class="h7 dark-text"> {{item_post.user.username}}</span>
                    
-                    <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="!item_post.sticky && isAdmin" ng-click="setSticky(item_post)">
+                    <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="item_post.sticky == 0 && isAdmin" ng-click="setSticky(item_post)">
                     </button>
                     <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky == 1 && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
                         <img src="../images/postit.png" />

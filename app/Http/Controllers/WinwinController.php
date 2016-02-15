@@ -302,7 +302,7 @@ class WinwinController extends Controller {
         }
 
         //$sponsors = DB::table('sponsors')->whereNotIn('id', $sponsorsIds)->get();
-        $sponsors = Sponsor::whereNotIn('id', $sponsorsIds)->get();
+        $sponsors = Sponsor::whereNotIn('id', $sponsorsIds)->where('is_main', '=', 0)->get();
 
         foreach($sponsors as $sponsor) {
 
@@ -761,6 +761,15 @@ class WinwinController extends Controller {
                 $winwinsSponsors->ww_accept = 1;
 
                 $winwinsSponsors->save();
+
+
+                $sponsor->user->newNotification()
+                    ->from($user)
+                    ->withType('WW_REQUEST_SPONSOR')
+                    ->withSubject('ww_request_sponsor')
+                    ->withBody($request_body)
+                    ->regarding($winwin)
+                    ->deliver();
             });
 
             return response()->json(['message' => 'winwin_request_sent'], 200);

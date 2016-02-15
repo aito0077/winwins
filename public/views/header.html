@@ -44,9 +44,9 @@
                
                </li>
                <li><a ng-href="/#/signin" ng-if="!isAuthenticated()"><img src="../images/entrar.png" width="18"/> Ir a mi cuenta</a></li>
-               <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated()"><img src="../images/wwown.png" width="18"/> Mis Winwins </a></li>
+               <li><a ng-href="/#/winwin-own" ng-if="isAuthenticated() && !isSponsor"><img src="../images/wwown.png" width="18"/> Mis Winwins </a></li>
                 <li><a ng-href="/#/winwin-list" ng-if="!isAuthenticated()"><img src="../images/ww.png" width="18"/> Ver + Winwins </a></li>
-               <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated()"> <img src="../images/wwnew.png" width="18"/> Crear un WinWin</a></li>
+               <li><a ng-href="/#/winwin-new" ng-if="isAuthenticated() && !isSponsor"> <img src="../images/wwnew.png" width="18"/> Crear un WinWin</a></li>
                <li><a ng-href="/#/user-list" ng-if="!isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
                <li><a ng-href="/#/user-list" ng-if="isAuthenticated()"> <img src="../images/miembros.png" width="18"/> Miembros </a></li>
                <li><a ng-href="/#/sponsor-list" ng-if="!isAuthenticated()"><img src="../images/sponsor.png" width="23"/> Sponsors</a></li>

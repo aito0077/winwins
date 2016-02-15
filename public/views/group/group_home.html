@@ -1,0 +1,89 @@
+
+<div class="container no-padding">
+        <div class="col-xs-12 no-padding">
+            <div class="animate fadeInDown" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/smart/{{group.photo}}" style="height: 220px;">
+                <div style="margin-left:auto; margin-right: auto; padding-top:60px;display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
+                    <h4 class="text-uppercase">{{group.name}}</h4>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<div class="container no-padding">
+  
+        <div class="buttons-profile no-padding">
+            <a href="#" class="col-xs-3 ww-somos">  <span class="bubble-label"> Winwins </span> <span class="somos">{{::group.winwins.length}}</a>
+            <a href="#" ng-if="!isSponsor" ng-show="!group.already_joined" ng-click="join()" role="button" class="col-xs-5 btn-join"> UNIRSE</a>
+            <a href="#" ng-if="!isSponsor" ng-show="group.already_joined" ng-click="left()" role="button" class="col-xs-5 btn-join"> ABANDONAR</a>
+            <a href="#" ng-if="isSponsor" ng-click="askForSponsored()" role="button" class="col-xs-6 btn-join"> SPONSOREAR </a>
+            <a href="#" class="col-xs-3 ww-somos" ><span class="bubble-label"> Miembros </span> <span class="falta">{{::group.members_count}}</a>
+
+    </div>
+</div>
+
+
+<ul class="collapsible" data-collapsible="accordion">
+
+    <!-- Sobre Nosotros -->
+    <li>
+        <div class="collapsible-header active  light-blue darken-2 white-text active" ><i class="fa fa-chevron-right"></i>Sobre Nosotros</div>
+        <div class="collapsible-body"><p>       {{::group.description}}</p></div>
+    </li>
+
+
+    <!-- Miembros -->
+    <li>
+        <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Miembros</div>
+        <div class="collapsible-body" STYLE="MIN-HEIGHT:97px;">  
+            <div ng-repeat="member in group.users" class="col-xs-3 no-padding">
+                <img ng-src="http://images.dev-winwins.net/100x70/smart/{{member.photo}}" width="auto" height="auto" class="img-responsive" ng-click="viewUser(member.id)" alt="{{member.username}}" title="{{member.name}}" style="cursor:pointer">
+            </div>
+        </div>
+    </li>
+
+
+
+      <!-- Nuestros  Winwins -->
+
+
+    <li>
+          <div class="collapsible-header light-blue darken-2 white-text active"><i class="fa fa-chevron-right"></i>Winwins</div>
+      <div class="collapsible-body" STYLE="MIN-HEIGHT:68PX;"><div ng-repeat="ww in group.winwins" class="col-xs-3 no-padding">
+                                    <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
+                                </div>
+                                </div>
+</div>
+    </li>
+
+
+ <!-- Sponsors -->
+
+    <li>
+      <div class="collapsible-header light-blue white-text active"><i class="fa fa-chevron-right"></i>Sponsors</div>
+      <div class="collapsible-body" STYLE="MIN-HEIGHT:97px;">  
+                                <div ng-repeat="ww in user_detail.winwins | filter: {user_id: '!user_detail.user_id'} " class="col-xs-3 no-padding">
+                                    <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
+                                </div>
+                            </div>
+                            </div>
+    </li>
+
+ 
+  </ul>
+       
+
+ <!-- Initialize --> 
+
+<script>
+    $(document).ready(function(){
+        $('.collapsible').collapsible({
+            accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+        $('ul.tabs').tabs('select_tab', 'tab_id');
+
+
+  });
+        
+</script>   
+

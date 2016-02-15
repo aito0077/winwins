@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<div ng-show="promote">
+   <div class="col-xs-12 center no-padding"> 
+      <i class="fa fa-bullhorn animated  wobble" style="font-size: 120px; background-color:  #3B5998; color: #FFF; padding: 30px; width:101%;"></i> 
+      <i class="fa fa-caret-down animated wobble" style="font-size: 4rem;margin-top:-23px; color:#3B5998;"></i>
+   </div>
+   <div class="container no-padding">
+      <div class="col-xs-1 no-padding"></div>
+      <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px;"  class="col-xs-3 uploaders card-panel"  
+         socialshare
+         socialshare-provider="facebook" 
+         socialshare-text="{{::winwin.title}}" 
+         socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
+         socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+         socialshare-via="1082199191794840">
+         <i class="fa fa-facebook" style="padding-top:0px;" ></i><br>
+      </div>
+      <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
+         <i class="fa fa-twitter" style="padding-top:0px;" ></i><br>
+      </div>
+      <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  
+         socialshare 
+         socialshare-provider="google+" 
+         socialshare-text="{{::winwin.title}}" 
+         socialshare-media="http://images.dev-winwins.net/{{::winwin.image}}"
+         socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}">
+         <i class="fa fa-google" style="padding-top:0px;"></i><br>
+      </div>
+      <div class="col-xs-1 no-padding"></div>
+   </div>
+   <div class="container center">
+      COMPARTÍ TU WINWIN <br>en las redes sociales y sumá chances de concretarlo! <br> 
+      <i class="fa fa-elipsis" style="font-size: 2rem;color:#3B5998;"></i>
+      <p style="margin-top: -20px;">
+         <br>  INVITA AMIGOS <br>a tu WinWin por email
+      </p>
+      <i class="fa fa-envelope-o animated infinite pulse  orange darken-1 circle white-text" style="font-size:3rem; padding:20px; cursor:pointer;" ng-click="openMailModal(winwin)"></i> <br>
+      <i class="fa fa-caret-up" style="font-size: 2rem;margin-top:-12px; margin-bottom:-20px; color:#3B5998;"></i>
+   </div>
+   <div class="pad-20"></div>
+   <div class="container ">
+      <input name="crear-winwin" value="Ir al Winwin..." class="btn-large grey col-xs-12" ng-click="goView()"> 
+   </div>
+   <div class="pad-20"></div>
+</div>
+<div class="container" ng-show="success">
+   <div class="row">
+      <div class="pad-50"> </div>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+         <div style="text-align: center;">
+            <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+            <h1 style="font-family: montserrat; letter-spacing: -4px;"> ¡Genial! </h1>
+            <h4 style="font-family: montserrat;letter-spacing: -1px;"> Vamos a tu WinWin.</h4>
+            <div class="pad-80"></div>
+            <img src="/images/loading.gif" width="110" height="80" alt="loading"> 
+         </div>
+         <div class="col-xs-2"></div>
+      </div>
+   </div>
+</div>
+
+<script type="text/ng-template" id="myMailShare.html">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">
+            <div class="bubble-md create-title">
+                <i class="fa fa-envelope-o"></i><br/>
+                Envía invitaciones!
+            </div>
+        </h4>
+   </div>
+   <div class="modal-body">
+        <div class="container" ng-show="!success">
+            <div class="row">
+                <input type="email" placeholder="Ingresa mails para invitar" ng-model="current_mail" ng-enter="addMail()">
+            </div>
+            <div class="row" ng-repeat="mail in mails track by $index">
+                <span class="col-xs-10">{{mail}}</span>
+                <span class="col-xs-2" ng-click="removeMail(mail)">
+                    <i class="fa fa-times"></i>
+                </span>
+            </div>
+            <div class="row">
+                <button type="button" ng-click="sentInvitations()"  class="btn btn-primary btn-block">
+                   ENVIAR INVITACION!
+               </button>
+            </div>
+           <!--h6 class="text-center">
+               Ingresa las direcciones de las personas que quieres invitar
+           </h6-->
+       </div>
+       <div class="container" ng-show="success">
+           <div class="row">
+               <div class="col-xs-2"></div>
+               <div class="col-xs-8">
+                   <div style="text-align: center;"> 
+                       <i class="fa fa-check" style="background-color: #58BA57; color: #fff; width:170px; height: 170px; border-radius: 50%; font-size:9em; padding-top: 20px; text-align:center;"></i>
+                      <h4 style="font-family: montserrat;"> Las invitaciones fueron enviadas!</h4>
+                   </div>
+               <div class="col-xs-2"></div>
+           </div>
+       </div>
+   </div>
+   <div class="modal-footer"> 
+   
+   </div>
+
+</script>

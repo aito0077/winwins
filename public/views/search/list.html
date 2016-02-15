@@ -1,0 +1,139 @@
+<div class="row blue darken-2" style="padding-bottom:300px;">
+    <div class="row" style="margin-top:0px;">
+        <div class="container no-padding z-depth-3 " style="position:fixed; z-index:99; height: 45px; margin-top:0px;border-radius:0px;">
+            <button ng-click="doFilter('winwins')" class="col-xs-3 blue darken-2 waves-effect waves-light btn z-depth-0" style="border:transparent;border-radius:0px; padding-top:3px; height:45px;border:0px;"> <span class="small"><img src="../images/ww.png" width="22"/> </span></button>
+            <button id ng-click="doFilter('users')" class="col-xs-3 blue darken-2 waves-effect waves-light btn z-depth-0" style="border:transparent; border-radius:0px;padding-top:3px; height:45px;"><span class="small"><i class="fa fa-user"></i> </span></button>
+            <button ng-click="doFilter('sponsors')" class="col-xs-3 blue darken-2 waves-effect waves-light btn btn z-depth-0" style="border:transparent;border-radius:0px; padding-top:3px; height:45px;"> <span class="small"> <img src="../images/sponsor.png" width="25"/> </span></button>
+            <button ng-click="doFilter('groups')" class="col-xs-3 blue darken-2 waves-effect waves-light btn btn z-depth-0" style="border:transparent; border-radius:0px; padding-top:3px; height:45px;"> <span class="small"> <i class="fa fa-users"></i> </span></button>
+    
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;" ng-if="show_no_results">
+        <div>
+            <div class="white-text card-panel center blue darken-2"  class="animated  wobble"><div class="center" style="padding:16px;margin-top:20px; border-radius:70%; height:20px; font-size:5rem;"><i class="fa fa-search animated infinite pulse orange-text z-depth-2  white" style="padding:25px; border-radius: 50%; margin-top:20px;" ></i></div><br><br><p class=" animated bounceInLeft z-dept-1 white-text" style="padding-top:20px; text-transform: capitalize;"><br><br><br><br><br>No encontramos resultados<br> para tu búsqueda!<br> ¿Buscar otra vez?</p><br> </div>
+            <div class="container blue darken-2 " style="padding:30px; margin-top:-45px;">
+  
+            <nav class="blue darken-2 z-depth-3">
+                <div class="nav-wrapper  white" data-ng-controller="main-search-controller">
+                    <form>
+                        <div class="col-xs-12" >
+                            <div class="input-field">
+                                <input id="query" type="search" class="col-xs-10 no-padding black-text" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                                <!-- I've put "red-text" class to emphasize -->
+                                <i class="fa fa-search right black-text"id="query" ng-click="search()" style="padding-top:15px; font-size: 20px;"></i>
+                                <label for="query"></label>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</div>
+
+<div ng-if="hits.length" class="grid-items">
+    <div class="container no-padding item {{hit._type}}" ng-repeat="hit in hits" ng-switch on="hit._type">
+        
+        <div ng-switch-when="winwins" class="row">
+            <div class="col-xs-12 no-padding">
+                <div class="ww-featured-m" ng-if="hit._source.remarkable">
+                    <div class="ww-featured-m right z-depth-2"><img src="images/postit.png">
+                    </div>
+                    <span class="popular p right z-depth-2" ng-if="hit._source.popular"> <i class="fa fa-fire"></i></span>
+                    <span class="finishing m right z-depth-2" ng-if="hit._source.finishing"> <i class="fa fa-clock-o"></i></span>
+                </div>
+            </div>
+            <div class="container card-panel teal hoverable s12" style="padding:0px; padding-bottom:10px;">
+                <div  dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::hit._source.image}}" style="height: 200px; cursor:pointer;"  ng-click="view(hit._type, hit._id)">
+                    <div class="username-cards text-uppercase">{{::hit._source.title}}</div>
+                </div>
+                <div class="col-xs-12" style="margin-top: 10px;">
+                    <div class="col-xs-2 no-padding">
+                        <img ng-src="http://images.dev-winwins.net/40x40/{{::hit.user.photo}}" title="{{::hit.user.username}}" alt="{{::hit.user.username}}" ng-click="viewProfile(hit.user.id)" class="img-circle" style="cursor:pointer;">
+                    </div>
+                    <div class="col-xs-6 no-padding">
+                        <img ng-repeat="sponsor in hit.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
+                    </div>
+
+                    <div class="col-xs-2 no-padding" style="margin-top:-3px;">
+                        <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span>
+                        <br>
+                        <span class="somoscards"> {{::hit.users_already_joined}}</span>
+                    </div>
+                    <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px;"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-switch-when="users" class="row">
+            <div style="margin-top:40px;"></div>
+            <div class="col-xs-12 card-panel teal hoverable no-padding">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{hit._source.cover_photo}}" style="height: 220px;" ng-click="view(hit._type, hit._id)">
+                    <div class="profile-avatar" style="left:50%; display:block; width:99%; text-align:center; padding-top:30px;">
+                        <img ng-src="http://images.dev-winwins.net/smart/{{::hit._source.photo}}" class="img-circle"  style="min-height: 95px;margin-left: auto; margin-right:auto; dislay:block; width:100px;"/>
+                    </div>   
+                    <div style="margin-left:auto; margin-right: auto; display:block; width:99%; text-align:center; font-family: montserrat; color: white; font-size: 16px;">
+                        <h4> 
+                            {{::hit._source.name}} 
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="container no-padding">
+                    <div class="buttons-profile">
+                        <a href class="col-xs-2 ww-somos">  
+                        </a>
+                        <div class="col-xs-6">
+                            <a role="button" class="col-xs-12 btn-join" style="margin-left:17px;"  ng-click="view(hit._type, hit._id)"> VER </a>
+                        </div>
+                        <a href class="col-xs-3 ww-somos">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+<div id="footer" data-ng-controller="main-search-controller">
+
+    <nav>
+        <div class="nav-wrapper  blue darken-4">
+          <form>
+            <div class="col-xs-12">
+              <div class="input-field">
+                  <input id="query" type="search" class="col-xs-10 no-padding" placeholder="Buscar..." required ng-model="term" aria-describedby="search-lbl" ng-enter="search()">
+                  <i class="fa fa-search right" id="query" ng-click="search()" style="padding-top:10px; font-size: 20px;"></i>
+                  <label for="query"></label>
+
+              </div>
+            </div>
+         </form>
+      </div>
+  </nav>
+</div>
+
+<script>
+$(function(){
+    $(window).scroll(function() {  
+        if($(document).scrollTop() > 150) {    
+            $('#footer').addClass("show");
+        } else {
+            $('#footer').removeClass("show");
+        }
+    });
+});
+</script>
