@@ -59,7 +59,7 @@
              <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">  
           </div>
           <div class="col-xs-6 no-padding">  
-             <img ng-repeat="sponsor in winwin.sponsors |limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">   
+             <img ng-repeat="sponsor in winwin.sponsors |limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}"   ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;"  ng-if="sponsor.pivot.ww_accept == 1 && sponsor.pivot.sponsor_accept == 1">   
           </div>
           <!-- somos -->
           <div class="col-xs-2 no-padding" style="margin-top:-3px;"> 

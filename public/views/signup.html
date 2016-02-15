@@ -27,21 +27,21 @@
                             <div class="col s12">
                                 <div class="row"> 
                                     <div class="input-field col s12 form-group no-padding" ng-class="{ 'has-error': signupForm.name.$touched && signupForm.name.$invalid ,  'has-success': signupForm.name.$touched && signupForm.name.$valid }">
-                                        <input id="name" name="name" type="text" length="20"  class="validate" ng-model="name" required>
+                                        <input id="name" name="name" type="text" class="validate" ng-model="name" required>
                                         <label for="name">Nombre</label>
                                         <div ng-messages="signupForm.name.$error" style="margin-bottom:10px;" ng-if="signupForm.name.$touched" class="help-block">
                                             <p class="small" ng-message="required">Ingresa tu nombre.</p>
                                         </div>
                                     </div>
                                     <div class="input-field col s12 form-group no-padding"style="margin-bottom:10px;" ng-class="{ 'has-error': signupForm.lastname.$touched && signupForm.lastname.$invalid ,  'has-success': signupForm.lastname.$touched && signupForm.lastname.$valid }">
-                                        <input id="apellido" name="lastname" type="text" length="20"  class="validate" ng-model="lastname" required="required">
+                                        <input id="apellido" name="lastname" type="text" class="validate" ng-model="lastname" required="required">
                                         <label for="apellido">Apellido</label>
                                         <div ng-messages="signupForm.lastname.$error" ng-if="signupForm.lastname.$touched" class="help-block">
                                             <p class="small" ng-message="required">Ingresa tu apellido.</p>
                                         </div>
                                     </div>
                                     <div class="input-field col s12 form-group no-padding" style="margin-bottom:10px;" ng-class="{ 'has-error': signupForm.email.$touched && signupForm.email.$invalid ,  'has-success': signupForm.email.$touched && signupForm.email.$valid }">
-                                        <input id="email" name="email" type="email" length="20"  class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required >
+                                        <input id="email" name="email" type="email" class="validate" ng-model="email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required >
                                         <label for="email">Email</label>
                                         <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched" class="help-block">
                                             <p class="small" ng-message="required">Ingresa tu correo.</p>
@@ -49,11 +49,11 @@
                                         </div>
                                     </div>
                                     <div class="input-field col s12 no-padding">
-                                        <input id="password" type="password" length="20"  class="validate" ng-model="password" required="required">
+                                        <input id="password" type="password" class="validate" ng-model="password" required="required">
                                         <label for="password">Contraseña</label>
                                     </div>
                                     <div class="input-field col s12 no-padding">
-                                        <input id="rpassword" type="password" length="20"  class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
+                                        <input id="rpassword" type="password" class="validate"  ng-model="confirmPassword" required="required"  compare-to="password">
                                         <label for="rpassword">Repeti Contraseña</label>
                                     </div>
                 
