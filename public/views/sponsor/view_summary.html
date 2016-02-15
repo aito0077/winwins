@@ -80,7 +80,7 @@
                <div class="collapsible-header active light-blue darken-2 white-text " ><i class="fa fa-chevron-right"></i>WinWins Patrocinados</div>
                <div class="collapsible-body">
                   <div class="container no-padding">
-                     <div ng-repeat="ww in sponsor.winwins" class="col-xs-3 no-padding">
+                     <div ng-repeat="ww in sponsor.winwins" class="col-xs-3 no-padding" ng-if="ww.pivot.ww_accept == 1 && ww.pivot.sponsor_accept == 1">
                         <img ng-src="http://images.dev-winwins.net/100x70/smart/{{ww.image}}" width="auto" height="auto" class="img-responsive" ng-click="viewWinwin(ww.id)" alt="{{ww.title}}" title="{{ww.title}}" style="cursor:pointer">
                      </div>
                   </div>
@@ -112,17 +112,12 @@
       </div>
    </div>
 </div>
+
 <script>
    $(document).ready(function(){
-   $('.collapsible').collapsible({
-   accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-   });
-   });
-   
-</script>     
-<script>
-   $(document).ready(function(){
-      $('ul.tabs').tabs('select_tab', 'tab_id');
+        $('.collapsible').collapsible({
+            accordion : false 
+        });
+        $('ul.tabs').tabs('select_tab', 'tab_id');
     });
-          
 </script>

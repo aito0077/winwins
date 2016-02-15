@@ -37,6 +37,13 @@
                             Han solicitado patrocinar a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
+                    <div ng-switch-when="WW_REQUEST_SPONSOR">
+                        <span > 
+                            <i class="fa fa-star yellow-text" style="font-family: 2.5rem;"></i> 
+                            Han solicitado que patrocines a <span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+
 
                     <div ng-switch-when="CAMPANADA">
                         <span > 
