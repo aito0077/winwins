@@ -1173,3 +1173,10 @@ span.somos {
     border-bottom: 3px solid #016D01;
     margin-top: 6px;
 }
+
+
+
+.ww-image {
+    min-height: 210px;
+    /* padding-bottom: 30px; */
+}

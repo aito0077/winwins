@@ -6,14 +6,20 @@
       <div ng-if="!winwin.is_image" class="col s12 no-padding card-panel teal hoverable">
         <header class="white" style="margin-top:45px;  box-shadow: rgba(62, 55, 55, 0.42) 2px 2px 15px;">
           <!-- WW Flags--> 
-          <div class="ww-featured right"><img src="../images/postit.png"></div>
+            <div class="col-xs-12 no-padding" ng-hide="winwin.is_successful">
+          <div class="ww-featured right" ng-hide="winwin.is_successful"><img src="../images/postit.png"></div>
           <span class="popular right" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
-          <span class="finishing right" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
+          <span class="finishing right" ng-if="winwin.finishing" ng-hide="winwin.is_successful"> <i class="fa fa-clock-o"></i></span>
+                </div>
           <!-- WW Imagen--> 
           <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{::winwin.image}}" class="responsive-img ww-image">
             <!-- WW Titulo--> 
-            <div class="col-xs-10 col-xs-offset-2 center white-text ww-title">
-              {{::winwin.title}}
+                          <span ng-show="winwin.is_successful"  class="col-xs-12 center no-padding" style="margin-top:30px;"><i class="fa fa-flag-checkered animated infinite wobble green white-text z-depth-4" style="padding: 5px;font-size:30px;border-radius:50%; border: 5px solid white; padding:10px;"></i></span>
+            <div class="col-xs-10 col-xs-offset-2 center no-padding white-text">
+         <h4 ng-show="winwin.is_successful" style="text-transform:uppercase;"> {{::winwin.title}}</h4>    
+                <h4 ng-show="!winwin.is_successful"style="text-transform:uppercase;margin-top:40px;" class="animated fadeInUp"> {{::winwin.title}}</h4>    
+                 <span ng-show="winwin.is_successful" style="text-transform: capitalize; font-size: 14px; margin-top:-10px;" class="animated infinite pulse white-text center">Winwin Concretado!</span>
+                   <span ng-show="winwin.is_successful" style="text-transform: capitalize; font-size: 12px;" class="animated  fadeInLeft white-text center">Calificación de los participantes!</span>
               <!-- WW concretado / Average Rating Stars-->
               <div ng-show="winwin.is_successful" class="no-padding center white-text animated bounceInUp" style="width: 100%;">  <i ng-repeat="t in getRateArray(winwin.process_rate) track by $index" class="fa fa-star orange-text"></i></div>
               <div class="col-xs-12" style="padding-top:10px;">
@@ -22,6 +28,7 @@
                   <div class="col-xs-2 center grey-text"></div>
                   <div class="col-xs-4"></div>
                 </div>
+                  
               </div>
               <!-- WW Countdown--> 
                <!-- Linea original  <div style="font-size: 11px; font-family: montserrat; padding-top:10px;">-->
@@ -36,7 +43,7 @@
           <!-- WW Toolbar--> 
           <div class="row toolbar">
             <div class="col-xs-2" >   
-              <span class="ww-social-fb-btn" socialshare 
+              <span class="ww-social-fb-btn  z-depth-1" socialshare 
                 socialshare-provider="facebook" 
                 socialshare-text="{{::winwin.title}}" 
                 socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}"  
@@ -44,10 +51,10 @@
                 socialshare-via="1082199191794840">
               <i class="fa fa-facebook fa-inverse animated infinite pulse"></i>   </span> 
             </div>
-            <div class="col-xs-2">    <span class="ww-social-tw-btn" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" > <i class="fa fa-twitter fa-inverse animated infinite pulse" ></i>   </span> </div>
-            <div class="col-xs-2">    <span class="ww-social-mail-btn " ng-click="openMailModal(winwin)"> <i class="fa fa-envelope-o fa-inverse animated infinite pulse" ></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-tw-btn z-depth-1" socialshare socialshare-provider="twitter" socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" > <i class="fa fa-twitter fa-inverse animated infinite pulse " ></i>   </span> </div>
+            <div class="col-xs-2">    <span class="ww-social-mail-btn  z-depth-1" ng-click="openMailModal(winwin)"> <i class="fa fa-envelope-o fa-inverse animated infinite pulse " ></i>   </span> </div>
             <div class="col-xs-3">
-              <div class="col-xs-4 ww-somos" style=" margin-left: -20px;">
+              <div class="col-xs-4 ww-somos"  style=" margin-left: -20px;">
                 <span class="lbl"style="width:55px;"> 
                 SOMOS 
                 </span> 
@@ -55,13 +62,14 @@
                   font-size: 17px;
                   font-family: montserrat;
                   min-width: 55px;
-                  " class="animated  bounceInLeft">
+                             border-radius:2px;
+                  " class="animated  bounceInLeft  z-depth-1">
                   {{::winwin.users_already_joined}}
                 </div>
               </div>
             </div>
             <div class="col-xs-3">
-              <div class="col-xs-4 ww-somos" style=" margin-left: -20px;">
+              <div class="col-xs-4 ww-somos " style=" margin-left: -20px;">
                 <span class="lbl" style="width:55px;"> 
                 FALTAN 
                 </span> 
@@ -69,7 +77,8 @@
                   font-size: 17px;
                   font-family: montserrat;
                   width: 55px;
-                  "class="animated  bounceInLeft"
+                             border-radius: 2px;
+                  "class="animated  bounceInLeft  z-depth-1"
                   >
                   {{::winwin.users_left}}
                 </div>
@@ -81,7 +90,7 @@
     </div>
     <!-- Winwin Text-->
     <div class="row wwtxt no-padding">
-      <div class="col-xs-12 no-padding">
+      <div class="col-xs-11 center no-padding">
         <span class="sisupieras"> ¿Si supieras que somos </span>
         <span class="somos-txt"> {{::winwin.users_amount}} personas</span> 
         <div class="ww-text"> para {{::winwin.what_we_do}} </div>
@@ -101,6 +110,9 @@
             </div>
           </div>
         </div>
+          
+          
+          
         <!-- Winwin Attributes-->
 
         <div class="row ww-atts grey lighten-4" style="padding:10px;">
@@ -325,7 +337,7 @@
         </div>
         <div class="container no-padding">
           <div class="col-xs-1 no-padding"></div>
-          <button style="cursor:pointer; background-color:#3b5998; color:#fff;  margin-top:1px;margin-right:3px;"  class="col-xs-3 animated  wobble uploaders card-panel circle"  
+          <button style="cursor:pointer; background-color:#3b5998; color:#fff;  margin-top:1px;margin-right:3px;"  class="col-xs-3 animated  wobble uploaders card-panel circle "  
             socialshare
             socialshare-provider="facebook" 
             socialshare-text="{{::winwin.title}}" 
