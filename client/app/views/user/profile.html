@@ -18,14 +18,12 @@
                 </li>
 
                 <li  class="col-xs-3">
-                    <a href data-toggle="tab" data-target="#config" ng-show="isAdmin" ng-class="{active: current_view == 'admin'}">
-                    <a ng-class="{active: current_view == 'config'}" href ng-click="setAdmin()">
-                    <i ng-if="user_detail.myself"  class="fa fa-pencil"></i>
-                    </a>
-                </li>
+                    <a href data-toggle="tab" data-target="#config" ng-show="user_detail.myself" ng-class="{active: current_view == 'admin'}">
+                    <i ng-if="!user_detail.myself"  class="fa fa-pencil" style="padding:12px;"></i>
+                        </li>
             <li  class="col-xs-3">
 
-                    <a href data-toggle="tab" ng-hide="!isAdmin" data-target="#users" ng-class="{active: current_view == 'users'}">
+                    <a href data-toggle="tab" ng-show="!user_detail.myself" data-target="#users" ng-class="{active: current_view == 'users'}">
                             <img src="../images/miembros.png" width="25px" class="no-padding" style=" margin:0px;margin-top:-17px;" />         
                     </a>
                 </li>
@@ -33,7 +31,6 @@
         </div>
     </nav>
         
-
 
 <div class="profile-tabs tab-content">
     <div id="home" role="tabpanel" class="tab-pane fade in active">

@@ -1160,3 +1160,16 @@ span.somos {
 .pad-80 {
     padding-top:80px;
 }
+
+
+.btn-join {
+    padding-top: 8px;
+    border: 0px;
+    font-family: montserrat;
+    background-color: #2DB200;
+    /* border-color: #3e8f3e; */
+    border-radius: 4px;
+    height: 40px;
+    border-bottom: 3px solid #016D01;
+    margin-top: 6px;
+}
