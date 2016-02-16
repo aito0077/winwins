@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <div ng-show="promote">
    <div class="col-xs-12 center no-padding"> 
-      <i class="fa fa-bullhorn animated  wobble" style="font-size: 120px; background-color:  #3B5998; color: #FFF; padding: 30px; width:101%;"></i> 
+      <i class="fa fa-bullhorn animated  wobble" style="font-size: 80px; background-color:  #3B5998; color: #FFF; padding: 20px; width:101%;"></i> 
       <i class="fa fa-caret-down animated wobble" style="font-size: 4rem;margin-top:-23px; color:#3B5998;"></i>
    </div>
    <div class="container no-padding">
       <div class="col-xs-1 no-padding"></div>
-      <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px;"  class="col-xs-3 uploaders card-panel"  
+      <div style="cursor:pointer; background-color:#3b5998; color:#fff; margin-top:10px; margin-right:10px; border-radius: 5px;"  class="col-xs-3 uploaders card-panel"  
          socialshare
          socialshare-provider="facebook" 
          socialshare-text="{{::winwin.title}}" 
@@ -15,10 +15,10 @@
          socialshare-via="1082199191794840">
          <i class="fa fa-facebook" style="padding-top:0px;" ></i><br>
       </div>
-      <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
+      <div style="cursor:pointer ;background-color:#1dcaff; color:#fff;margin:10px; border-radius: 5px;"  class="col-xs-3 uploaders card-panel"  socialshare  socialshare-text="{{::winwin.title}}" socialshare-url="http://dev-winwins.net/ww/{{::winwin.id}}" socialshare-provider="twitter">
          <i class="fa fa-twitter" style="padding-top:0px;" ></i><br>
       </div>
-      <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px;"  class="col-xs-3 uploaders card-panel"  
+      <div style="cursor:pointer;background-color:#EA4235; color:#fff; margin:10px; border-radius: 5px;"  class="col-xs-3 uploaders card-panel"  
          socialshare 
          socialshare-provider="google+" 
          socialshare-text="{{::winwin.title}}" 
@@ -34,9 +34,7 @@
       <p style="margin-top: -20px;">
          <br>  INVITA AMIGOS <br>a tu WinWin por email
       </p>
-      <i class="fa fa-envelope-o animated infinite pulse  orange darken-1 circle white-text" style="font-size:3rem; padding:20px; cursor:pointer;" ng-click="openMailModal(winwin)"></i> <br>
-      <i class="fa fa-caret-up" style="font-size: 2rem;margin-top:-12px; margin-bottom:-20px; color:#3B5998;"></i>
-   </div>
+      <i class="fa fa-envelope-o animated infinite pulse orange darken-1 white-text" style="font-size:3rem; padding:20px; cursor:pointer;" ng-click="openMailModal(winwin)"></i>    </div>
    <div class="pad-20"></div>
    <div class="container ">
       <input name="crear-winwin" value="Ir al Winwin..." class="btn-large grey col-xs-12" ng-click="goView()"> 
@@ -82,7 +80,7 @@
                 </span>
             </div>
             <div class="row">
-                <button type="button" ng-click="sentInvitations()"  class="btn btn-primary btn-block">
+                <button type="button" ng-click="sentInvitations()"  class="btn-large green animated fadeInDown">
                    ENVIAR INVITACION!
                </button>
             </div>
