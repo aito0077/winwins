@@ -56,6 +56,7 @@ angular.module('winwinsApp')
             $scope.calculate_time();
             if($scope.winwin.is_moderator) {
                 $scope.isAdmin = true;
+                console.log('is admin');
             }
 
             if($stateParams.actionJoin) {

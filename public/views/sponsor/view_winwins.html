@@ -1,62 +1,73 @@
-
-    
-      <div class="container card-panel teal hoverable s12" ng-repeat="winwin in sponsor.winwins" style="padding:0px; padding-bottom:10px;">
-
-       <!-- labels -->
-        <div class="container no-padding" ng-if="!winwin.is_sponsor">
-            <div class="col-xs-12 no-padding">
-                <div class="ww-featured-m" ng-if="winwin.remarkable">
-                    <div class="ww-featured-m right z-depth-2"><img src="images/postit.png">
-                    </div>
-                    <span class="popular p right z-depth-2" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
-                    <span class="finishing m right z-depth-2" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
+<div class="container card-panel teal hoverable s12" ng-repeat="winwin in sponsor.winwins" style="padding:0px; padding-bottom:10px;" ng-show="sponsor.myself || (!sponsor.myself && winwin.pivot.ww_accept && winwin.pivot.sponsor_accept)">
+   <!-- labels -->
+    <div class="container no-padding">
+        <div class="col-xs-12 no-padding">
+            <div class="ww-featured-m" ng-if="winwin.remarkable">
+                <div class="ww-featured-m right z-depth-2">
+                    <img src="images/postit.png">
                 </div>
+                <span class="popular p right z-depth-2" ng-if="winwin.popular"> <i class="fa fa-fire"></i></span>
+                <span class="finishing m right z-depth-2" ng-if="winwin.finishing"> <i class="fa fa-clock-o"></i></span>
             </div>
         </div>
-   <!-- WW Img -->
-            <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="view(winwin.id)">
-                <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
-                <div class="col-xs-12" style="padding-top:10px;">
-                    <div class="col-xs-4 "></div>
-                    <div class="col-xs-2 center "></div>
-                    <div class="col-xs-2 center grey-text"></div>
-                    <div class="col-xs-4"></div>
-                </div>
-            </div>
-            <!-- Info Bar -->
-     <div class="col-xs-12" style="margin-top: 10px;">
-                <div class="col-xs-2 no-padding">
-                    <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">
-                </div>
-
-                <div class="col-xs-6 no-padding">
-                    <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
-                </div>
-
-                <!-- somos -->
-
-                <div class="col-xs-2 no-padding" style="margin-top:-3px;">
-                    <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span>
-                    <br>
-                    <span class="somoscards"> {{::winwin.users_already_joined}}</span>
-                </div>
-                <!-- share button -->
-              <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
-         
     </div>
-      <!-- Sponsorship Admin -->
-<div class="col-xs-12 center"  ng-if="sponsor.myself">
-   <p class="small">Leyenda de patrocinio</p> 
-      
-    <h4>{{::winwin.pivot.sponsor_text}}</h4>
+   <!-- WW Img -->
+    <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/{{::winwin.image}}" style="height: 220px; cursor: pointer;" ng-click="viewWinwin(winwin.id)">
+        <div class="username-cards text-uppercase" style="padding-top:70px;">{{::winwin.title}}</div>
+        <div class="col-xs-12" style="padding-top:10px;">
+            <div class="col-xs-4 "></div>
+            <div class="col-xs-2 center "></div>
+            <div class="col-xs-2 center grey-text"></div>
+            <div class="col-xs-4"></div>
+        </div>
+    </div>
+            <!-- Info Bar -->
+    <div class="col-xs-12" style="margin-top: 10px;">
+        <div class="col-xs-2 no-padding">
+            <img ng-src="http://images.dev-winwins.net/40x40/{{::winwin.user.photo}}" title="{{::winwin.user.username}}" alt="{{::winwin.user.username}}" ng-click="viewProfile(winwin.user.id)" class="img-circle" style="cursor:pointer;">
+        </div>
 
-    <h5 style="text-transform: normal;">Mensaje del solicitante {{::winwin.pivot.winwin_message}}</h5>
-    
-    <button class="btn-large grey col-xs-6" ng-click="modifyLegend(winwin)"> <p class="h7">Modificar Leyenda</p></button>
-    <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)"><p class="h7">Cancelar Sponsoreo</p></button>
-<br><br><br><br>
+        <div class="col-xs-6 no-padding">
+            <img ng-repeat="sponsor in winwin.sponsors | limitTo: 2" class="responsive-img" ng-src="http://images.dev-winwins.net/40x/{{::sponsor.photo}}" ng-click="viewSponsor(sponsor.id)" title="{{::sponsor.name}}" alt="{{::sponsor.name}}" style="cursor:pointer; border-radius:2px; margin:5px;">
+        </div>
+
+        <!-- somos -->
+
+        <div class="col-xs-2 no-padding" style="margin-top:-3px;">
+            <span style="font-size:9px;" translate="home.test" translate-default="SOMOS">SOMOS</span>
+            <br>
+            <span class="somoscards"> {{::winwin.users_joined}}</span>
+        </div>
+
+        <!-- share button -->
+        <button class="col-xs-2 waves-effect grey-text fa fa-share-alt animated infinite pulse waves-light btn white z-depth-0" ng-click="openSocialModal(winwin)" style="font-size:20px"></button>
+    </div>
+
+      <!-- Sponsorship Admin -->
+    <div class="col-xs-12 center" ng-if="sponsor.myself">
+       <p class="small">Leyenda de patrocinio</p> 
+          
+        <h4>{{::winwin.pivot.sponsor_text}}</h4>
+
+        <h5 style="text-transform: normal;" ng-if="winwin.pivot.ww_message">Mensaje del solicitante: {{::winwin.pivot.ww_meesage}}</h5>
+        
+        <button class="btn-large grey col-xs-6" ng-click="acceptWinwin(winwin)" ng-if="winwin.pivot.ww_accept && winwin.pivot.sponsor_accept == 0"> 
+            <p class="h7">Aceptar Peticion</p>
+        </button>
+
+
+        <button class="btn-large grey col-xs-6" ng-click="modifyLegend(winwin)" ng-if="winwin.pivot.ww_accept && winwin.pivot.sponsor_accept"> 
+            <p class="h7">Modificar Leyenda</p>
+        </button>
+
+        <button  class="btn-large green col-xs-6" ng-click="cancelSponsored(winwin)" ng-if="winwin.pivot.ww_accept && winwin.pivot.sponsor_accept">
+            <p class="h7">Cancelar Sponsoreo</p>
+        </button>
+
+        <br><br><br><br>
+    </div>
+
 </div>
-   </div>
 
 
 

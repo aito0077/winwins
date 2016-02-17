@@ -257,6 +257,28 @@ angular.module('winwinsApp')
         });
     };
 
+    $scope.viewWinwin = function(id) {
+
+        $state.go('winwin-view', {
+            winwinId: id
+        });
+
+    };
+
+    $scope.acceptWinwin = function(winwin) {
+        $http.post(api_host+'/api/sponsors/'+$scope.sponsor.id+'/winwin/'+winwin.id+'/accept').success(function(data) {
+            swal({
+                title: "info", 
+                text: 'Sponsoreo iniciado', 
+                type: "info",
+                showcancelbutton: false,
+                animation: false, 
+                closeonconfirm: true 
+            });
+            $scope.getSponsor();
+
+        });
+    };
 
 
 

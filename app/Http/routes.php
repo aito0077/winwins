@@ -28,6 +28,8 @@ Route::get('api/winwins/summary', ['uses' => 'WinwinController@summary']);
 Route::get('api/winwins/activate/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@activate']);
 Route::post('api/winwins/campanada/{id}', ['middleware' => 'auth', 'uses' => 'WinwinController@campanada']);
 Route::post('api/winwins/{id}/sponsor/{sponsorId}/accept', ['middleware' => 'auth', 'uses' => 'WinwinController@acceptSponsor']);
+Route::post('api/sponsor/{sponsorId}/winwin/{id}/accept', ['middleware' => 'auth', 'uses' => 'SponsorController@acceptWinwin']);
+
 Route::post('api/winwins/{id}/close', ['middleware' => 'auth', 'uses' => 'WinwinController@closeWinwin']);
 Route::post('api/winwins/{id}/notifications', ['middleware' => 'auth', 'uses' => 'WinwinController@updateNotifications']);
 Route::post('api/winwins/{winwinId}/share/mails', ['middleware' => 'auth', 'uses' => 'WinwinController@sentEmailInvitations']);

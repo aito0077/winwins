@@ -32,7 +32,7 @@
                 </li>
                 <li  class="col-xs-3" ng-show="isAdmin" ng-class="{active: current_view == 'admin'}">
                     <a ng-class="{active: current_view == 'users'}" href ng-click="setAdmin()">
-                    <img src="../images/cog.png" width="25px" class="no-padding" style=" margin:0px;margin-top:-17px;" />  
+                    <img src="../images/sponsor.png" width="25px" class="no-padding" style=" margin:0px;margin-top:-17px;" />  
                     </a>
                 </li>
                 <div  class="col-xs-3" ng-show="!isAdmin">    
@@ -113,17 +113,7 @@
     </div>
 
 </div>
-
 <script>
-
-$(document).ready(function () {
-    slider();
-});
-
-$(window).scroll(function () {
-    slider();
-});
-
 function slider() {
     if (document.body.scrollTop > 50) {
         $('#slider').stop().animate({"margin-top": '0'})>10;
@@ -131,5 +121,14 @@ function slider() {
         $('#slider').stop().animate({"margin-top": '0'})>10;
     }
 }
+$(document).ready(function () {
+    slider();
+    $(window).scroll(function () {
+        slider();
+    });
+});
+
+
+
 
 </script>
