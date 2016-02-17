@@ -63,7 +63,7 @@ class WinwinController extends Controller {
         //$winwins = Winwin::where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         //$winwins = DB::table('winwins')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
         $collection = $this->processCollection($winwins);
-        return $collection;
+        return response()->json($collection, 200, [], JSON_NUMERIC_CHECK);
 
     }
 
@@ -80,7 +80,7 @@ class WinwinController extends Controller {
         $collection = $this->processCollection($winwins);
         Log::info($collection);
 
-        return $collection;
+        return response()->json($collection, 200, [], JSON_NUMERIC_CHECK);
 
     }
 
@@ -131,7 +131,7 @@ class WinwinController extends Controller {
             $winwin->sponsors;
             $winwin->user;
         });
-        return $collection;
+        return response()->json($collection, 200, [], JSON_NUMERIC_CHECK);
 	}
 
 	public function show(Request $request, $id) {
@@ -236,7 +236,8 @@ class WinwinController extends Controller {
         $winwin->previous_id = Winwin::where('id', '<', $winwin->id)->max('id');
         $winwin->next_id = Winwin::where('id', '>', $winwin->id)->min('id');
 
-        return $winwin;
+        //return $winwin;
+        return response()->json($winwin, 200, [], JSON_NUMERIC_CHECK);
 	}
 
 	public function winwinSponsors(Request $request, $id) {
@@ -274,7 +275,7 @@ class WinwinController extends Controller {
 
         });
 
-        return $sponsors;
+        return response()->json($sponsors, 200, [], JSON_NUMERIC_CHECK);
 
     }
 

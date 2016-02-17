@@ -159,7 +159,7 @@ class SponsorController extends Controller {
             })) > 0;
         }
 
-        return $sponsor;
+        return response()->json($sponsor, 200, [], JSON_NUMERIC_CHECK);
 	}
 
 

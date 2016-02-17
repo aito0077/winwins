@@ -31,7 +31,7 @@ class PostController extends Controller {
 
 	public function index() {
         $posts = Post::all();
-        return $posts;
+        return response()->json($posts, 200, [], JSON_NUMERIC_CHECK);
 	}
 
 	public function posts(Request $request, $type, $reference) {
@@ -87,10 +87,11 @@ class PostController extends Controller {
 
         $final = $stickies->sortByDesc('sticky_date')->merge($regulars);
         
-        return array(
+        return response()->json(
+        array(
             'posts' => $final,
             'last' => $collection->last()
-        );
+        ), 200, [], JSON_NUMERIC_CHECK);
 	}
 
 	public function show(Request $request, $id) {

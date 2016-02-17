@@ -63,7 +63,7 @@ class UserController extends Controller {
 
 	public function index() {
         $users = UserDetail::all();
-        return $users;
+        return response()->json($users, 200, [], JSON_NUMERIC_CHECK);
 	}
 
 	public function show(Request $request, $id) {
@@ -143,7 +143,7 @@ class UserController extends Controller {
             
         }
 
-        return $userDetail;
+        return response()->json($userDetail, 200, [], JSON_NUMERIC_CHECK);
 	}
 
     protected function createToken($user) {
@@ -173,7 +173,8 @@ class UserController extends Controller {
                 $is_sponsor = true;
                 $is_sponsor_active  = ($user->sponsor->status == 'ACTIVE');
             }
-            return array(
+            return response()->json(
+                array(
                 'user' => $user,
                 'profile' => $user->detail,
                 'sponsor' => $user->sponsor,
@@ -182,16 +183,17 @@ class UserController extends Controller {
                 'active' => $user->active == 1,
                 'notifications' => $this->notifications($user),
                 'notifications_unread' => $this->countUnreadNotifications($user)
-            );
+            ), 200, [], JSON_NUMERIC_CHECK);
         } else {
-            return array(
+            return response()->json(
+                array(
                 'user' => false,
                 'profile' => false,
                 'sponsor' => false,
                 'is_sponsor' => false, 
                 'notifications' => false,
                 'notifications_unread' => false
-            );
+            ), 200, [], JSON_NUMERIC_CHECK);
 
         }
     }
@@ -216,7 +218,7 @@ class UserController extends Controller {
 		}
 	}
 
-        return $activities->sortByDesc('id')->values();
+        return response()->json($activities->sortByDesc('id')->values(), 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function updateUser(Request $request) {
