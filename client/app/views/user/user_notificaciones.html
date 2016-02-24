@@ -30,6 +30,13 @@
                             <span class="h7"> Te uniste a </span><span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
                         </span>
                     </div>
+                    <div ng-switch-when="WW_LEFT">
+                        <span > 
+                            <i class="fa fa-comments light-blue-text" style="font-family: 2.5rem;"></i> 
+                            <span class="h7"> Abandonaste </span><span style="color:#0277BD !important; cursor: pointer;" ng-click="viewWinwin(notification.object.id)">{{notification.object.title}}</span> <small>{{notification.created_at | moment: 'DD/MM/YYYY'}}</small>
+                        </span>
+                    </div>
+
 
                     <div ng-switch-when="SPONSOR_REQUEST">
                         <span > 

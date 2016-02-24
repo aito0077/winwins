@@ -316,11 +316,11 @@ angular.module('winwinsApp')
 
     $scope.subject = function(activity, type) {
         if(activity.user_id == $scope.account.user.id) {
-            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOWING' ? 'Estás': 'Creaste');
+            return type == 'JOIN' ? 'Te uniste' : (type == 'FOLLOWING' ? 'Estás': (type == 'LEFT' ? 'Abandonaste': 'Creaste'));
         } else {
             if($scope.fellows[activity.user_id]) {
                 var fellow = $scope.fellows[activity.user_id];
-                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOWING' ? 'está': 'creó') );
+                return fellow.name +' '+(type == 'JOIN' ? 'se unió' : (type == 'FOLLOWING' ? 'está': (type == 'LEFT' ? 'abandonó': 'creó')) );
             }
             return '';
         }

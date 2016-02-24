@@ -43,7 +43,7 @@ class UserController extends Controller {
             ->select('user_details.photo', 'user_details.cover_photo', 'users.id', 'user_details.name') 
             ->skip($page * $amount)
             ->take($amount)->get();
-        Log::info($users);
+
         $collection = Collection::make($users);
         $collection->each(function($user) use($current_user){
             $user->winwins_count = DB::table('winwins_users')
