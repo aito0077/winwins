@@ -139,13 +139,10 @@ class SponsorController extends Controller {
             $sponsor->myself = ($sponsor->user_id == $user->id);
         }
 
-        $winwins_count = DB::table('winwins')
-            ->leftJoin('sponsors_winwins', 'winwins.id', '=', 'sponsors_winwins.winwin_id')
-            ->where('sponsors_winwins.sponsor_id', '=', $sponsor->id)
-            ->where('sponsors_winwins.ww_accept', '=', 1)
-            ->where('sponsors_winwins.sponsor_accept', '=', 1)
-            ->count();
-        $sponsor->winwins_count = $winwins_count;
+        $sponsor->winwins;
+        $sponsor->winwins_count = $sponsor->winwins->filter(function ($winwin) {
+            return ($winwin->pivot->ww_accept == 1 && $winwin->pivot->sponsor_accept == 1);
+        })->count();
 
         $sponsor->groups_count  = count($sponsor->groups);
 
