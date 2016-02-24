@@ -138,7 +138,15 @@ class SponsorController extends Controller {
         if($user) {
             $sponsor->myself = ($sponsor->user_id == $user->id);
         }
-        $sponsor->winwins_count  = count($sponsor->winwins);
+
+        $winwins_count = DB::table('winwins')
+            ->leftJoin('sponsors_winwins', 'winwins.id', '=', 'sponsors_winwins.winwin_id')
+            ->where('sponsors_winwins.sponsor_id', '=', $sponsor->id)
+            ->where('sponsors_winwins.ww_accept', '=', 1)
+            ->where('sponsors_winwins.sponsor_accept', '=', 1)
+            ->count();
+        $sponsor->winwins_count = $winwins_count;
+
         $sponsor->groups_count  = count($sponsor->groups);
 
         $followers = DB::table('user_details')
