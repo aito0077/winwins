@@ -799,15 +799,20 @@ angular.module('winwinsApp')
     $scope.winwins = new WinwinPaginate();
     $scope.interests = [];
     $scope.interest_filters = [];
-    $scope.filters = [];
+    $scope.filters = 'all';
+    $scope.current_filter = 'all';
 
     $scope.show_no_results = false;
 
 
     Interest.query(function(data) {
         $scope.interests = data;
+        $timeout(function () {
+            jQuery('#interests').material_select();
+        }, 0);
     });
 
+/*
     $timeout(function () {
         jQuery('.grid-winwins').isotope({
             itemSelector: '.winwin-item',
@@ -815,7 +820,6 @@ angular.module('winwinsApp')
                 columnWidth: 380
             }
         });
-        jQuery('#interests').material_select();
 
     }, 3000);
 
@@ -824,14 +828,16 @@ angular.module('winwinsApp')
     $scope.doCategoryFilter = function() {
         jQuery('.grid-winwins').isotope({ filter: $scope.filters.length == 0 ? '*' : '.'+$scope.filters.join('.')});
     }
+*/
 
     $scope.doFilterCategory = function() {
-        console.dir($scope.filters);
+        console.log($scope.filters);
         $scope.winwins.setFilterByCategories($scope.filters);
         $scope.winwins.nextPage();
     }
 
     $scope.doFilter = function(filter) {
+        $scope.current_filter = filter;
         $scope.winwins.setFilter(filter);
         $scope.winwins.nextPage();
     };

@@ -72,15 +72,21 @@ class WinwinController extends Controller {
         $categories = $request->input('categories');
 
         Log::info($categories);
-        $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)
-            ->join('interests_interested', 'winwins.id', '=', 'interests_interested.interested_id')
-            ->where('interests_interested.interest_id', '=', $categories)
-            ->where('interests_interested.type', '=', 'WINWIN')
-            ->skip($page * $amount)->take($amount)->get();
-        $collection = $this->processCollection($winwins);
-        Log::info($collection);
+        if($categories == 'all') {
+            $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+            return response()->json($winwins, 200, [], JSON_NUMERIC_CHECK);
 
-        return response()->json($collection, 200, [], JSON_NUMERIC_CHECK);
+        } else {
+            $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)
+                ->join('interests_interested', 'winwins.id', '=', 'interests_interested.interested_id')
+                ->where('interests_interested.interest_id', '=', $categories)
+                ->where('interests_interested.type', '=', 'WINWIN')
+                ->skip($page * $amount)->take($amount)->get();
+            $collection = $this->processCollection($winwins);
+            Log::info($collection);
+
+            return response()->json($collection, 200, [], JSON_NUMERIC_CHECK);
+        }
 
     }
 
