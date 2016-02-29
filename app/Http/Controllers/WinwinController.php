@@ -44,7 +44,7 @@ class WinwinController extends Controller {
         $winwins = [];
 
         switch ($filter) {
-            case 'next_to_close':
+            case 'finishing':
                 $winwins = Winwin::where('closing_date', '<', Carbon::now()->addDay(2))->where('closing_date', '>', Carbon::now())->where('published', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
                 break;
             case 'popular':
@@ -52,6 +52,9 @@ class WinwinController extends Controller {
                 break;
             case 'select':
                 $winwins = Winwin::where('published', '=', 1)->where('selected', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
+                break;
+            case 'last':
+                $winwins = Winwin::where('published', '=', 1)->where('selected', '=', 1)->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->orderBy('created_at', 'desc')->get();
                 break;
             case 'success':
                 $winwins = Winwin::where('published', '=', 1)->where('status', '=', 'SUCCESSFUL')->where('canceled', '=', 0)->skip($page * $amount)->take($amount)->get();
@@ -229,7 +232,10 @@ class WinwinController extends Controller {
                 }
                 
                 if($is_sponsor && ($sponsor->user_id == $user->id)) {
-                    $winwin->already_sponsored = true;
+                    if($sponsor->pivot->ww_accept == 1 && $sponsor->pivot->sponsor_accept == 1) {
+                        $winwin->already_sponsored = true;
+                    }
+                    $winwin->sponsored_details = $sponsor->pivot;
                 }
             }
 

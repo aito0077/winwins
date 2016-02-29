@@ -172,7 +172,7 @@
       </div>
       <div class="pad-10"></div>
       <!-- Winwin CTA-->
-      <div class="container">
+      <div class="container" ng-cloak>
         <div ng-if="!winwin.is_successful && !isSponsor && !winwin.already_joined" class="container no-padding">
       
             <button class="col-xs-9 btn-large green no-padding waves-effect waves-light btn"  ng-click="join()">
@@ -187,13 +187,15 @@
           </div>
 
         <div class="row" ng-if="isSponsor">
-          <div ng-if="winwin.already_sponsored" class="col-xs-10 center  btn-large green">
+          <div ng-if="winwin.sponsored_details" class="col-xs-10 center  btn-large green">
             <div class="no-padding">
-              <h6><i class="fa fa-star"></i>SPONSOREAS ESTE WINWIN!</h6>
+              <h6 ng-if="winwin.already_sponsored"><i class="fa fa-star"></i>SPONSOREAS ESTE WINWIN!</h6>
+              <h6 ng-if="winwin.sponsored_details.ww_accept == 0"><i class="fa fa-star"></i>HAS SOLICITADO SPONSOREO</h6>
+              <h6 ng-if="winwin.sponsored_details.sponsor_accept == 0"><i class="fa fa-star"></i>TE HAN SOLICITADO SPONSOREO</h6>
             </div>
           </div>
           <div ng-hide="winwin.is_successful" >
-            <div ng-if="!winwin.already_sponsored" class="col-xs-10 center btn-large green" style="cursor:pointer"  ng-click="askForSponsored()">
+            <div ng-if="!winwin.sponsored_details" class="col-xs-10 center btn-large green" style="cursor:pointer"  ng-click="askForSponsored()">
               <div class="no-padding">
                 <h6> <i class="fa fa-star animated infinite flash"></i> SPONSOREAR WINWIN</h6>
               </div>

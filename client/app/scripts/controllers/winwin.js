@@ -804,31 +804,12 @@ angular.module('winwinsApp')
 
     $scope.show_no_results = false;
 
-
     Interest.query(function(data) {
         $scope.interests = data;
         $timeout(function () {
             jQuery('#interests').material_select();
         }, 0);
     });
-
-/*
-    $timeout(function () {
-        jQuery('.grid-winwins').isotope({
-            itemSelector: '.winwin-item',
-            masonry: {
-                columnWidth: 380
-            }
-        });
-
-    }, 3000);
-
-
-
-    $scope.doCategoryFilter = function() {
-        jQuery('.grid-winwins').isotope({ filter: $scope.filters.length == 0 ? '*' : '.'+$scope.filters.join('.')});
-    }
-*/
 
     $scope.doFilterCategory = function() {
         console.log($scope.filters);
@@ -1154,9 +1135,12 @@ angular.module('winwinsApp')
 
     $scope.getRequests = function() {
         $http.get(api_host+'/api/winwins/'+$stateParams.winwinId+'/sponsors').success(function(data) {
+            /*
             $scope.sponsors = _.each(data, function(model) {
                 model.pivot.ww_accept == 0 && model.pivot.sponsor_accept == 1;
             });
+            */
+            $scope.sponsors = data;
             $timeout(function () {
                 $('.grid-sponsors').isotope({
                     itemSelector: '.sponsor-item',
@@ -1242,6 +1226,14 @@ angular.module('winwinsApp')
     };
 
 
+    $scope.filter = function(filter_by) {
+        console.log(filter_by);
+        $scope.show_candidates = false;
+        $scope.current = filter_by;
+        $('.grid-sponsors').isotope({ filter: filter_by == 'all' ? '*' : '.'+filter_by });
+    };
+
+    
 
 
 }])
