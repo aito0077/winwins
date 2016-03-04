@@ -418,13 +418,14 @@ angular.module('winwinsApp')
         swal({
             title: "Cancelar Mi Cuenta",
             text: "Contanos tus motivos",
-            type: "input",
+            html: '<p><input id="input-message" placeholder="Mensaje de solicitud"></p>',         
             showCancelButton: true,
-                        animation: false, 
-            closeOnConfirm: true,
-            inputPlaceholder: "Mensaje de solicitud" 
+            animation: false, 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){   
+            var inputValue = $("#input-message").val();
+
             $http.post('/api/me/cancel', {
                 body: inputValue
             })

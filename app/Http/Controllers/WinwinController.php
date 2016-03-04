@@ -758,6 +758,7 @@ class WinwinController extends Controller {
 
         $ww_user = $winwin->user;
         $request_body = $request->input('body');
+        $request_legend = $request->input('legend');
 
         $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {
             return $model->id == $sponsor->id;
@@ -766,11 +767,12 @@ class WinwinController extends Controller {
         if($already_sponsored) {
             return response()->json(['message' => 'winwin_is_already_sponsored_this_winwin'], 400);
         } else {
-            DB::transaction(function() use ($winwin, $user, $sponsor, $request_body) {
+            DB::transaction(function() use ($winwin, $user, $sponsor, $request_body, $request_legend) {
                 $winwinsSponsors = new SponsorsWinwin;
                 $winwinsSponsors->sponsor_id = $sponsor->id;
                 $winwinsSponsors->winwin_id = $winwin->id;
                 $winwinsSponsors->ww_message = $request_body;
+                $winwinsSponsors->sponsor_text = $request_legend;
                 $winwinsSponsors->ww_accept = 1;
 
                 $winwinsSponsors->save();

@@ -456,12 +456,14 @@ angular.module('winwinsApp')
         swal({
             title: "SOLICITAR PATROCINIO",
             text: "Envia un mensaje de solicitud al administrador del Grupo",
+            html: '<p><input id="input-message" placeholder="Mensaje de solicitud"></p>',
             type: "input",
             showCancelButton: true,
-            closeOnConfirm: true,
-            inputPlaceholder: "Mensaje de solicitud" 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){   
+            var inputValue = $("#input-message").val();
+
             if (inputValue === false) 
                 return false;      
             if (inputValue === "") {     

@@ -173,12 +173,13 @@ angular.module('winwinsApp')
         swal({
             title: "SOLICITAR PATROCINIO",
             text: "Envia un mensaje de solicitud al creador del Winwin",
-            type: "input",
+            html: '<p><input id="input-message" placeholder="Mensaje de solicitud"></p>',
             showCancelButton: true,
-            closeOnConfirm: true,
-            inputPlaceholder: "Mensaje de solicitud" 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){   
+            var inputValue = $("#input-message").val();
+
             if (inputValue === false) {
                 return false;      
             }
@@ -588,11 +589,12 @@ angular.module('winwinsApp')
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
-            type: "input",
-            inputType: "url",
+            html: '<p><input type="url" id="input-url"></p>',
             showCancelButton: true,
             closeOnConfirm: true 
-        }, function(inputValue) {
+        }, function() {
+            var inputValue = $("#input-url").val();
+
             if(inputValue) {
                 var result = $scope.matchYoutubeUrl(inputValue);
                 if(result) {
@@ -681,11 +683,11 @@ angular.module('winwinsApp')
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
-            type: "input",
-            inputType: "url",
+            html: '<p><input type="url" id="input-url"></p>',
             showCancelButton: true,
             closeOnConfirm: true 
         }, function(inputValue) {
+            var inputValue = $("#input-url").val();
 
             if(inputValue) {
                 var result = $scope.matchYoutubeUrl(inputValue);
@@ -1086,19 +1088,24 @@ angular.module('winwinsApp')
         swal({
             title: "SOLICITAR PATROCINIO",
             text: "Envia un mensaje de solicitud al Sponsor",
-            type: "input",
+            html: '<p><input id="input-message" placeholder="Mensaje de solicitud"></p><p><input id="input-legend" placeholder="Leyenda de sponsoreo"></p>',
             showCancelButton: true,
             closeOnConfirm: true,
-            inputPlaceholder: "Mensaje de solicitud" 
         },
-        function(inputValue){   
-            if (inputValue === false) 
+        function(){   
+            var inputMessage = $("#input-message").val();
+            var inputLegend = $("#input-legend").val();
+
+            if (inputMessage === false) 
                 return false;      
-            if (inputValue === "") {     
+            if (inputMessage === "")
                 return false;  
-            }      
+            if (inputLegend === false) 
+                inputLegend = "";      
+
             $http.post(api_host+'/api/winwins/'+$scope.winwin.id+'/sponsor/request/'+sponsor.id, {
-                body: inputValue
+                body: inputMessage,
+                legend: inputLegend
             })
             .success(function(data) {
 
@@ -1193,12 +1200,13 @@ angular.module('winwinsApp')
         swal({
             title: "Leyenda",
             text: "Modifica el texto que aparecerá en el sponsor",
-            type: "input",
+            html: '<p><input id="input-legend" placeholder="Leyenda"></p>',
             showCancelButton: true,
-            closeOnConfirm: true,
-            inputPlaceholder: "Leyenda" 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){ 
+            var inputValue = $("#input-legend").val();
+
             if (inputValue === false) {
                 return false;      
             }
@@ -1320,11 +1328,11 @@ angular.module('winwinsApp')
         swal({
             title: "Video Link", 
             text: "Ingresa dirección URL de video:", 
-            type: "input",
-            inputType: "url",
+            html: '<p><input type="url" id="input-url"></p>',
             showCancelButton: true,
             closeOnConfirm: true 
-        }, function(inputValue) {
+        }, function() {
+            var inputValue = $("#input-url").val();
 
             if(inputValue) {
                 var result = $scope.matchYoutubeUrl(inputValue);
@@ -1558,11 +1566,11 @@ angular.module('winwinsApp')
         swal({
             title: "Video Link", 
             text: "Ingresa dirección de video:", 
-            type: "input",
-            inputType: "url",
+            html: '<p><input type="url" id="input-url"></p>',
             showCancelButton: true,
             closeOnConfirm: true 
-        }, function(inputValue) {
+        }, function() {
+            var inputValue = $("#input-url").val();
 
             if(inputValue) {
                 var result = $scope.matchYoutubeUrl(inputValue);
@@ -1739,12 +1747,13 @@ angular.module('winwinsApp')
         swal({
             title: "SOLICITAR BAJA WINWIN",
             text: "Contanos tus motivos",
-            type: "input",
+            html: '<p><input id="input-message"></p>',
             showCancelButton: true,
-            closeOnConfirm: true,
-            inputPlaceholder: "" 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){
+            var inputValue = $("#input-message").val();
+
             if (inputValue === false) 
                 return false;      
             if (inputValue === "") {     
@@ -1954,12 +1963,13 @@ angular.module('winwinsApp')
     $scope.setVideoUrl = function() {
         swal({
             title: "Video Link", 
-            text: "Ingresa dirección de video:", 
-            type: "input",
-            inputType: "url",
+            text: "Ingresa dirección de video:",
+            html: '<p><input type="url" id="input-url"></p>',
             showCancelButton: true,
             closeOnConfirm: true 
-        }, function(inputValue) {
+        }, function() {
+            var inputValue = $("#input-url").val();
+
             if(inputValue) {
                 var result = $scope.matchYoutubeUrl(inputValue);
                 if(result) {

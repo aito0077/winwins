@@ -226,12 +226,13 @@ angular.module('winwinsApp')
         swal({
             title: "Leyenda",
             text: "Modifica el texto que aparecerá junto con tu identidad",
-            type: "input",
+            html: '<p><input id="input-legend" placeholder="Leyenda"></p>',            
             showCancelButton: true,
-            closeOnConfirm: true,
-            inputPlaceholder: "Leyenda" 
+            closeOnConfirm: true
         },
-        function(inputValue){   
+        function(){
+            var inputValue = $("#input-legend").val();
+
             if (inputValue === false) {
                 return false;      
             }
