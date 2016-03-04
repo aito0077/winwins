@@ -267,7 +267,7 @@ angular.module('winwinsApp')
     };
 
     $scope.acceptWinwin = function(winwin) {
-        $http.post(api_host+'/api/sponsors/'+$scope.sponsor.id+'/winwin/'+winwin.id+'/accept').success(function(data) {
+        $http.post(api_host+'/api/sponsor/'+$scope.sponsor.id+'/winwin/'+winwin.id+'/accept').success(function(data) {
             swal({
                 title: "info", 
                 text: 'Sponsoreo iniciado', 

@@ -369,7 +369,7 @@ class SponsorController extends Controller {
 
 	}
 
-	public function acceptWinwin(Request $request, $id, $sponsorId) {
+	public function acceptWinwin(Request $request, $sponsorId, $id) {
         DB::transaction(function() use ($id, $sponsorId) {
             DB::table('sponsors_winwins')->where('winwin_id', $id)->where('sponsor_id', $sponsorId)->update(['sponsor_accept' => 1]);
         });
