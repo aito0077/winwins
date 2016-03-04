@@ -315,7 +315,7 @@ class WinwinController extends Controller {
         }
 
         //$sponsors = DB::table('sponsors')->whereNotIn('id', $sponsorsIds)->get();
-        $sponsors = Sponsor::whereNotIn('id', $sponsorsIds)->where('is_main', '=', 0)->get();
+        $sponsors = Sponsor::whereNotIn('id', $sponsorsIds)->where('is_main', '=', 0)->where('status', '=', 'ACTIVE')->get();
 
         foreach($sponsors as $sponsor) {
 
@@ -717,7 +717,7 @@ class WinwinController extends Controller {
         $ww_user = $winwin->user;
         $request_body = $request->input('body');
 
-        if(!isset($sponsor)) {
+        if((!isset($sponsor)) || $user->sponsor->status != 'ACTIVE') {
             return response()->json(['message' => 'winwin_you_are_not_an_sponsor'], 400);
         } else {
             $already_sponsored = count($winwin->sponsors->filter(function($model) use ($sponsor) {

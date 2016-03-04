@@ -75,17 +75,17 @@ angular.module('winwinsApp')
 
 
     $scope.isSponsor = false;
+    $scope.isSponsorActive = false;
     Account.getProfile().success(function(data) {
         if(data) {
-
             $scope.user_id = data.user ? data.user.id : false;
             $scope.account = data.account;
             $scope.profile = data.profile;
             $scope.sponsor = data.sponsor;
             $scope.isSponsor = data.is_sponsor;
+            $scope.isSponsorActive = data.is_sponsor_active;
         }
     });
-
 
 
     $scope.duration_days = 0;
