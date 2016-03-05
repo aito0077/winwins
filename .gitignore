@@ -7,3 +7,5 @@
 *.leo
 .*.swp
 /.idea
+/public/*
+!/public/index.php

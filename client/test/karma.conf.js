@@ -78,6 +78,7 @@ module.exports = function(config) {
       'bower_components/Materialize/bin/materialize.js',
       'bower_components/sweetalert/dist/sweetalert.min.js',
       'bower_components/please-wait/build/please-wait.js',
+      'bower_components/sweetalert2/dist/sweetalert2.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

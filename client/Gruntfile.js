@@ -378,7 +378,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.*',
             'views/{,*/}*.*',
             'resources/{,*/}*.*',
             'styles/fonts/{,*/}*.*'
@@ -412,12 +412,13 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'images/{,*/}*.{webp}',
+            'images/{,*/}*.*',
             'resources/{,*/}*.*',
             'scripts/{,*/}*.*',
             'styles/{,*/}*.*',
             'bower_components/{,*/}*.*',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'views/{,*/}*.*'
           ]
         }
         ]
