@@ -2,60 +2,49 @@
 
 <div id="menu-sponsor" class="container no-padding" style="position:absolute; top:56px;">
   <nav>
-         <div class="nav-wrapper">
-            <ul id="nav-mobile blue darken-3">
-   <div class="container col-xs-12 no-padding">
-         <li class="col-xs-3">               
-              <a href data-toggle="tab" data-target="#sponsor_summary" ng-class="{active: current_view == 'home'}" >
-             <img src="../images/sponsor.png" width="25" />  
-         </span>
-      </a>
-      <a href data-toggle="tab" data-target="#sponsor_winwins" ng-class="{active: current_view == 'winwins'}">
-         <li class="col-xs-3">
+    <div class="nav-wrapper">
+      <div class="container col-xs-12 no-padding">
+        <ul id="nav-mobile blue darken-3">          
+          <li class="col-xs-3" ng-class="{active: current_view == 'home'}">
+            <a href ng-click="current_view = 'home'"  >
+            <img src="../images/sponsor.png" width="25" />  
+            </a>
+          </li>                         
+          <li class="col-xs-3" ng-class="{active: current_view == 'winwins'}">
+            <a href ng-click="current_view = 'winwins'" >
             <img src="../images/ww.png" width="22" />  
-         </li>
-      </a>
-      <a href data-toggle="tab" data-target="#sponsor_followers" ng-class="{active: current_view == 'followers'}" >
-         <li class="col-xs-3">
-           <img src="../images/miembros.png" width="25" />  
-         </li>
-      </a>
-      <a href ng-if="sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
-         <li class="col-xs-3">
+            </a>
+          </li>                    
+          <li class="col-xs-3" ng-class="{active: current_view == 'followers'}">
+            <a href ng-click="current_view = 'followers'"  >
+            <img src="../images/miembros.png" width="25" />  
+            </a>
+          </li>                  
+          <li class="col-xs-3" ng-class="{active: current_view == 'config'}">
+            <a href ng-show="sponsor.myself == true" ng-click="current_view = 'config'" >
             <i class="fa fa-pencil center"  style="font-size: 21px; padding: 18px;"></i>
-         </li>
-      </a>
-       <a href ng-if="!sponsor.myself" data-toggle="tab" data-target="#sponsor_config">
-         <li class="col-xs-3">
-               </i>
-         </li>
-      </a>
-             </ul>
-   </div>
+            </a>
+          </li>          
+        </ul>
+      </div>
     </div>
-    </nav>
-       
+  </nav>  
 </div>
 
-    
-<div class="profile-tabs tab-content">
-   <div id="sponsor_summary" role="tabpanel" class="tab-pane fade in active">
-      <div ng-include="'/views/sponsor/view_summary.html'"></div>
-   </div>
-   <div id="sponsor_winwins" class="tab-pane">
-      <div ng-include="'/views/sponsor/view_winwins.html'"></div>
-   </div>
-   <div id="sponsor_groups" class="tab-pane">
-      <div ng-include="'/views/sponsor/view_groups.html'"></div>
-   </div>
-   <div id="sponsor_followers" class="tab-pane">
-      <div ng-include="'/views/sponsor/view_followers.html'"></div>
-   </div>
-   <div id="sponsor_config" class="tab-pane">
-      <div ng-include="'/views/sponsor/view_config.html'"></div>
-   </div>
-</div>
-
+<tabset class="profile-tabs tab-content">
+  <tab active="current_view == 'home'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_summary.html'"></div>
+  </tab>
+  <tab active="current_view == 'winwins'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_winwins.html'"></div>
+  </tab>
+  <tab active="current_view == 'followers'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_followers.html'"></div>
+  </tab>
+  <tab active="current_view == 'config'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_config.html'"></div>
+  </tab>
+</tabset>
 
 <script>
 $('.dropdown-button').dropdown({
@@ -68,4 +57,4 @@ $('.dropdown-button').dropdown({
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
     }
   );
-        </script>
+</script>

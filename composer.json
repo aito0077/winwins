@@ -19,7 +19,9 @@
 		"guzzlehttp/oauth-subscriber": "^0.3.0",
 		"guzzlehttp/guzzle": "^6.1@dev",
 		"terbium/db-config": "dev-master",
-		"snowfire/beautymail": "dev-master"
+		"snowfire/beautymail": "dev-master",
+		"tymon/jwt-auth": "0.5.*",
+		"serverfireteam/panel": "1.3.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

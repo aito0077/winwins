@@ -177,10 +177,10 @@ angular.module('winwinsApp')
                 text: 'Los datos fueron actualizados', 
                 type: "info",
                 showcancelbutton: false,
-                        animation: false, 
+                animation: false, 
                 closeonconfirm: true 
             });
-
+            $scope.setCurrentView('home');
         })
         .error(function(error) {
             swal({

@@ -166,7 +166,8 @@ return [
         'Terbium\DbConfig\DbConfigServiceProvider',
         'Snowfire\Beautymail\BeautymailServiceProvider',
 
-
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        Serverfireteam\Panel\PanelServiceProvider::class,
 	],
 
 	/*
@@ -216,7 +217,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Carbon'    => 'Carbon\Carbon',
         'DbConfig'  => 'Terbium\DbConfig\Facade',
-
+        'JWTAuth'   => 'Tymon\JWTAuth\Facades\JWTAuth',
+		'JWTFactory'  => 'Tymon\JWTAuth\Facades\JWTFactory',
 
 	],
 

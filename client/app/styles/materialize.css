@@ -1129,6 +1129,14 @@ nav span unred {
 
 /*user profile */
 
+.profile-tabs .nav-tabs {
+    display: none;
+}
+
+.tab-content {
+    padding: 0px;
+}
+
 span.falta {
     background-color: #097FFC;
     color: white;
