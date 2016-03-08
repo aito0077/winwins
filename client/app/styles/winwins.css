@@ -6388,7 +6388,7 @@ span.remember {
 
 video { 
    width:100%;  
-   background:transparent url('../images/parrots.jpg') no-repeat 0 0; 
+/*   background:transparent url('../images/parrots.jpg') no-repeat 0 0; */
    -webkit-background-size:cover; 
    -moz-background-size:cover; 
    -o-background-size:cover; 
