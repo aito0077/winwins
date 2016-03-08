@@ -134,6 +134,14 @@ Edit config/app.php and replace to localhost:9200
 'es_hosts' => env('ES_HOST', 'http://localhost:9200')
 ```
 
+### Client App
+
+```sh
+npm install
+bower install
+grunt serve
+```
+
 ### More dependencies (via ssh)
 
 *I dont know if We really need this*
