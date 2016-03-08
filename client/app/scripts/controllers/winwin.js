@@ -2008,6 +2008,10 @@ angular.module('winwinsApp')
         }
     });
 
+}).controller('winwin-view-external', function($scope, $state, $stateParams) {
+    $state.go('winwin-view', {
+        winwinId: $stateParams.winwinId
+    });; 
 })
 ;
 
