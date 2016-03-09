@@ -1260,17 +1260,38 @@ angular.module('winwinsApp')
         }, function(data) {
             $scope.winwin = data;
             $scope.polls = $scope.winwin.polls;
-            $scope.loadPolls();
-            $scope.getPosts();
+            $scope.loadElements();
         });
     }
 
+    $scope.loadElements = function() {
+        $scope.elements = [];
+
+        _.each($scope.polls, function(poll) {
+            $http.get(api_host+'/api/polls/'+poll.id).success(function(data) {
+                poll.data = data;
+                poll.data.loaded = true;
+                $scope.elements.push({type:'poll', data: poll, date: poll.created_at, sticky: 0});
+            });
+        });
+
+        $http.get(api_host+'/api/posts/winwin/'+$stateParams.winwinId+'/posts').success(function(data) {
+            $scope.posts = data.posts;
+            $scope.last = data.last;
+            $scope.post = new Post({});
+            $scope.editing = false
+            _.each($scope.posts, function(post) {
+                $scope.elements.push({type:'post', data: post, date: post.created_at, sticky: post.sticky});
+            });
+        });
+    }
 
     $scope.loadPolls = function() {
         _.each($scope.polls, function(poll) {
             $http.get(api_host+'/api/polls/'+poll.id).success(function(data) {
                 poll.data = data;
                 poll.data.loaded = true;
+                $scope.elements.push({type:'poll', data: poll, date: poll.created_at});
             });
         });
     };
@@ -1291,7 +1312,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/poll/'+poll.id+'/vote/'+poll.selected_answer,{
             positive: true 
         }).success(function(data) {
-            $scope.loadPolls();
+            $scope.loadElements();
         });
  
     };
@@ -1302,8 +1323,10 @@ angular.module('winwinsApp')
             $scope.last = data.last;
             $scope.post = new Post({});
             $scope.editing = false
+            _.each($scope.posts, function(post) {
+                $scope.elements.push({type:'post', data: post, date: post.created_at});
+            });
         });
-
     }
 
     $scope.getWinwin();
@@ -1420,7 +1443,7 @@ angular.module('winwinsApp')
             $scope.normal_size = true;
             $scope.editing = false;
 
-            $scope.getPosts();
+            $scope.loadElements();
         }, function(err) {
             $scope.sendingPost = false;
         });
@@ -1442,7 +1465,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/posts/'+post.id+'/vote',{
             positive: positive
         }).success(function(data) {
-            $scope.getPosts();
+            $scope.loadElements();
         });
     };
 
@@ -1462,7 +1485,7 @@ angular.module('winwinsApp')
             }
         });
         modalInstance.result.then(function (selectedItem) {
-            $scope.getPosts();
+            $scope.loadElements();
         }, function () {
 
         });
@@ -1493,7 +1516,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
             sticky: true
         }).success(function(data) {
-            $scope.getPosts();
+            $scope.loadElements();
         });
 
     };
@@ -1502,7 +1525,7 @@ angular.module('winwinsApp')
         $http.post(api_host+'/api/posts/'+item_post.id+'/sticky',{
             sticky: false
         }).success(function(data) {
-            $scope.getPosts();
+            $scope.loadElements();
         });
 
     };
@@ -1522,7 +1545,7 @@ angular.module('winwinsApp')
                 sticky: false
             }).success(function(data) {
                 swal("Eliminado!", "El post ha sido eliminado.", "success");
-                $scope.getPosts();
+                $scope.loadElements();
             });
         });
     };
