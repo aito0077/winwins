@@ -1,201 +1,198 @@
 <!-- Winwin Activity Wall-->            
 <div data-ng-controller="winwin-muro">
-    <!-- Winwin Poll-->
-    <div class="row" ng-repeat="poll in polls" style="margin-top:50px;">
-        <div class="col s12 m6" ng-show="!poll.data.has_answered">
-            <div class="card white ">
-                <div class="card-content black-text">
-                    <span class="card-title center">
-                        <h6>{{poll.question}}</h6>
-                    </span>
-                    <ul class="collection">
-                        <li class="collection-item dismissable black-text" ng-repeat="answer in poll.data.answers">
-                            <div>
-                                <div class="determinate" style="width: {{percentage_votes(poll, answer)}}%"></div>
-                                <span class="h7 grey-text"> {{answer.content}}</span>
-                                <span class="secondary-content">
-                                    <input class="with-gap" name="poll_{{poll.id}}" type="radio" ng-value="answer.id" ng-checked="poll.selected_answer" ng-model="poll.selected_answer" ng-checked="true"/>
-                                    <label for="test5" ng-click="selectAnswer(poll, answer)"></label>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <button class="btn-large green col-xs-12" ng-click="votePoll(poll)" >Votar</button>
-            </div>
-        </div>
 
-        <div class="col s12 m6" ng-show="poll.data.has_answered">
-            <div class="card white ">
-                <div class="card-content black-text">
-                    <span class="card-title center">
-                        <h6>{{poll.question}}</h6>
-                    </span>
-                    <ul class="collection">
-                        <div ng-repeat="answer in poll.data.answers">
-                            <div class="progress">
-                                <div class="determinate" style="width: {{percentage_votes(poll, answer)}}%"></div>
-                            </div>
-                            <li class="collection-item dismissable black-text">
-                                <div>
-                                    <span class="h7 grey-text"> {{answer.content}}</span>
-                                    <a href="#!" class="secondary-content">  
-                                        <span class="badge green white-text">{{answer.vote_count}}</span>
-                                    </a>
+    <div class="row" style="margin-top:50px;">
+        <div ng-repeat="element in elements | orderBy:['-sticky','date']">
+            <!-- Winwin Poll-->
+            <div ng-if="element.type == 'poll'" class="container no-padding">
+                <div class="col s12 m6" ng-show="!element.data.data.has_answered">
+                    <div class="card white ">
+                        <div class="card-content black-text">
+                            <span class="card-title center">
+                                <h6>{{element.data.question}}</h6>
+                            </span>
+                            <ul class="collection">
+                                <li class="collection-item dismissable black-text" ng-repeat="answer in element.data.data.answers">
+                                    <div>
+                                        <div class="determinate" style="width: {{percentage_votes(element.data, answer)}}%"></div>
+                                        <span class="h7 grey-text"> {{answer.content}}</span>
+                                        <span class="secondary-content">
+                                            <input class="with-gap" name="poll_{{element.data.id}}" type="radio" ng-value="answer.id" ng-checked="element.data.selected_answer" ng-model="element.data.selected_answer" ng-checked="true"/>
+                                            <label for="test5" ng-click="selectAnswer(element.data, answer)"></label>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn-large green col-xs-12" ng-click="votePoll(element.data)" >Votar</button>
+                    </div>
+                </div>
+
+                <div class="col s12 m6" ng-show="element.data.data.has_answered">
+                    <div class="card white ">
+                        <div class="card-content black-text">
+                            <span class="card-title center">
+                                <h6>{{element.data.question}}</h6>
+                            </span>
+                            <ul class="collection">
+                                <div ng-repeat="answer in element.data.data.answers">
+                                    <div class="progress">
+                                        <div class="determinate" style="width: {{percentage_votes(element.data, answer)}}%"></div>
+                                    </div>
+                                    <li class="collection-item dismissable black-text">
+                                        <div>
+                                            <span class="h7 grey-text"> {{answer.content}}</span>
+                                            <a href="#!" class="secondary-content">  
+                                                <span class="badge green white-text">{{answer.vote_count}}</span>
+                                            </a>
+                                        </div>
+                                    </li>
                                 </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Polls -->
+            <!-- Winwin Posts-->
+            <div ng-if="element.type == 'post'" class="container no-padding">
+                <div class="col s12 m7">
+                    <div class="card white">
+                        <ul class="collection" style="width: 100%; height: 60px; border-color: transparent; border-bottom: 1px solid #f1f1f1;">
+                            <li class="collection-item avatar " style="width: 100%; ">
+                                <img ng-src="http://images.dev-winwins.net/38x38/{{element.data.user.photo}}" ng-click="viewProfile(element.data.user.id)" class="img-circle profile-ww" width="38" height="38"> 
+                                <span class="h7 dark-text"> {{element.data.user.username}}</span>
+
+                                <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="element.data.sticky == 0 && isAdmin" ng-click="setSticky(element.data)">
+                                </button>
+                                <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="element.data.sticky == 1 && isAdmin" ng-click="unSticky(element.data)"  style="margin-top: -12px;">
+                                    <img src="../images/postit.png" />
+                                </button>
+                                <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="element.data.sticky == 1 && !isAdmin" style="margin-top: -12px;">
+                                    <img src="../images/postit.png"/>
+                                </button>
+
+                                <button class="fa fa-trash-o white right grey-text waves-effect waves-light btn z-depth-0"  ng-if="(isAdmin || element.data.user.id == user_id)" ng-click="removePost(element.data)" style="font-size: 17px; margin-top: -10px; margin-right: 10px; ">
+                                </button>
+                                <!--TODO: EDITAR POST -->
+                                <!--button class="fa fa-pencil white right grey-text waves-effect waves-light btn z-depth-0" ng-if="isAdmin" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px;  "-->
+
+                                <span class="title" style="font-size:12px;">{{element.data.title}}</span>
                             </li>
+                        </ul>
+
+                        <div class="post-content" style="padding: 10px;font-size: 12px; padding-top:0px;"> 
+                           {{::element.data.content}}
                         </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
-    </div>
-    <!-- Fin Polls -->
+                        <div class="media-post"> </div>
+                        <div ng-show="element.data.media.type == 'IMAGE'" class="materialboxed _embed-responsive _embed-responsive-16by9" style="width:100%; min-margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));">
+                            <img ng-src="http://images.dev-winwins.net/400x/smart/{{::element.data.media.name}}" class="img-responsive">
+                        </div>
+                        <div ng-show="element.data.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
+                           <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(element.data.media.path)}}" allowfullscreen=""></iframe>
+                        </div>
+                        <div class="card-action">
 
-    <div class="row">
-        <div class="container no-padding" ng-repeat="item_post in posts" >
-            <div class="col s12 m7">
-                <div class="card white">
-                    <ul class="collection" style="width: 100%; height: 60px; border-color: transparent; border-bottom: 1px solid #f1f1f1;">
-                        <li class="collection-item avatar " style="width: 100%; ">
-                            <img ng-src="http://images.dev-winwins.net/38x38/{{item_post.user.photo}}" ng-click="viewProfile(item_post.user.id)" class="img-circle profile-ww" width="38" height="38"> 
-                            <span class="h7 dark-text"> {{item_post.user.username}}</span>
-
-                            <button  class="waves-effect waves-light white btn z-depth-0 no-padding right grey-text fa fa-bookmark" ng-if="item_post.sticky == 0 && isAdmin" ng-click="setSticky(item_post)">
-                            </button>
-                            <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky == 1 && isAdmin" ng-click="unSticky(item_post)"  style="margin-top: -12px;">
-                                <img src="../images/postit.png" />
-                            </button>
-                            <button class="waves-effect waves-light white btn z-depth-0 no-padding right" ng-if="item_post.sticky == 1 && !isAdmin" style="margin-top: -12px;">
-                                <img src="../images/postit.png"/>
-                            </button>
-
-                            <button class="fa fa-trash-o white right grey-text waves-effect waves-light btn z-depth-0"  ng-if="(isAdmin || item_post.user.id == user_id)" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px; margin-right: 10px; ">
-                            </button>
-                            <!--TODO: EDITAR POST -->
-                            <!--button class="fa fa-pencil white right grey-text waves-effect waves-light btn z-depth-0" ng-if="isAdmin" ng-click="removePost(item_post)" style="font-size: 17px; margin-top: -10px;  "-->
-
-                            <span class="title" style="font-size:12px;">{{item_post.title}}</span>
-                        </li>
-                    </ul>
-
-                    <div class="post-content" style="padding: 10px;font-size: 12px; padding-top:0px;"> 
-                       {{::item_post.content}}
-                    </div>
-
-                    <div class="media-post"> </div>
-                    <div ng-show="item_post.media.type == 'IMAGE'" class="materialboxed _embed-responsive _embed-responsive-16by9" style="width:100%; min-margin-top:30px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));">
-                        <img ng-src="http://images.dev-winwins.net/400x/smart/{{::item_post.media.name}}" class="img-responsive">
-                    </div>
-                    <div ng-show="item_post.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" style="margin-top:30px;">
-                       <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(item_post.media.path)}}" allowfullscreen=""></iframe>
-                    </div>
-                    <div class="card-action">
-
-                       <!-- Toolbar -->
-                        <div class="col-xs-12 no-padding" style="margin-top:-5px;">
-                            <div class="col-xs-4 no-padding left" style="text-align: left;"> 
-                                <i class="fa fa-clock-o" ></i>
-                                <span style="font-size: 8px;"> {{::item_post.created_at | moment: 'DD/MM/YYYY' }} </span>
-                            </div>
-                            <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"> 
-                                <i class="fa fa-thumbs-o-up"></i> 
-                                <span class="post-likes"> {{::item_post.up_votes}}</span>
-                            </div>
-                            <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding">
-                                <i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i>
-                                <span class="post-likes-">0</span>
-                            </div>
-                            <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-danger': !item_post.self_vote.positive}">
-                                <i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(item_post, false)"></i>
-                                <span class="post-likes-"> {{::item_post.down_votes}}</span>
-                            </div>
-                            <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-success': item_post.self_vote.positive}"> 
-                                <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(item_post, true)"></i>
-                                <span class="post-likes"> {{::item_post.up_votes}}</span>
-                            </div>
-                            <div class="col-xs-2">
-                                <span class="share-ico" ng-click="openSocialModal(item_post)" >
-                                    <i class="fa fa-share-alt  " style="padding-top:4px;"></i> 
-                                </span>
-                            </div>
-                            <div ng-if="winwin.already_joined" class="col-xs-2 no-padding right" style="cursor:pointer; text-align: right;" ng-show="!item_post.isReplying">
-                                <span class="comments-ico" ng-click="reply(item_post)"> 
-                                    <i class="fa fa-comment"></i>
-                                </span>
-                            </div>
-                            <div ng-if="winwin.already_joined" class="col-xs-1 right no-padding" style="cursor:pointer; text-align: right;" ng-show="item_post.isReplying" >
-                                <span class="comments-ico" ng-click="cancelReply(item_post)"> 
-                                    <i class="fa fa-comment"></i>
-                                </span>
+                           <!-- Toolbar -->
+                            <div class="col-xs-12 no-padding" style="margin-top:-5px;">
+                                <div class="col-xs-4 no-padding left" style="text-align: left;"> 
+                                    <i class="fa fa-clock-o" ></i>
+                                    <span style="font-size: 8px;"> {{::element.data.created_at | moment: 'DD/MM/YYYY' }} </span>
+                                </div>
+                                <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding"> 
+                                    <i class="fa fa-thumbs-o-up"></i> 
+                                    <span class="post-likes"> {{::element.data.up_votes}}</span>
+                                </div>
+                                <div ng-if="!winwin.already_joined" class="col-xs-2 no-padding">
+                                    <i class="fa fa-thumbs-o-down" style="padding-top:2px;"></i>
+                                    <span class="post-likes-">0</span>
+                                </div>
+                                <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-danger': !element.data.self_vote.positive}">
+                                    <i class="fa fa-thumbs-o-down" style="padding-top:2px; cursor:pointer;" ng-click="vote(element.data, false)"></i>
+                                    <span class="post-likes-"> {{::element.data.down_votes}}</span>
+                                </div>
+                                <div ng-if="winwin.already_joined" class="col-xs-2 no-padding" ng-class="{'text-success': element.data.self_vote.positive}"> 
+                                    <i class="fa fa-thumbs-o-up"  style="cursor:pointer;" ng-click="vote(element.data, true)"></i>
+                                    <span class="post-likes"> {{::element.data.up_votes}}</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span class="share-ico" ng-click="openSocialModal(element.data)" >
+                                        <i class="fa fa-share-alt  " style="padding-top:4px;"></i> 
+                                    </span>
+                                </div>
+                                <div ng-if="winwin.already_joined" class="col-xs-2 no-padding right" style="cursor:pointer; text-align: right;" ng-show="!element.data.isReplying">
+                                    <span class="comments-ico" ng-click="reply(element.data)"> 
+                                        <i class="fa fa-comment"></i>
+                                    </span>
+                                </div>
+                                <div ng-if="winwin.already_joined" class="col-xs-1 right no-padding" style="cursor:pointer; text-align: right;" ng-show="element.data.isReplying" >
+                                    <span class="comments-ico" ng-click="cancelReply(element.data)"> 
+                                        <i class="fa fa-comment"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>        
+                </div>        
 
-
-            <!-- inicio comentarios -->
-            <div class="container no-padding" ng-repeat="comment in item_post.comments" >
-                <div class="panel-body post">
-                    <div class="col-xs-12" style="background:white;">
-                        <div class="col-xs-12 no-padding">
-                            <div class="col-xs-2 no-padding">    
-                                <img ng-src="http://images.dev-winwins.net/38x38/{{comment.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" />
-                            </div>
-                            <div class="p-lista" style="padding-bottom:10px;">
-                                <div style="padding-left: 15px; padding-right:15px;"> 
-                                    {{::comment.content}}
+                <!-- inicio comentarios -->
+                <div class="container no-padding" ng-repeat="comment in element.data.comments" >
+                    <div class="panel-body post">
+                        <div class="col-xs-12" style="background:white;">
+                            <div class="col-xs-12 no-padding">
+                                <div class="col-xs-2 no-padding">    
+                                    <img ng-src="http://images.dev-winwins.net/38x38/{{comment.user.photo}}" class="img-circle profile-ww" width="38" height="38" style="margin-top: 15px; margin-bottom: 10px; margin-right: 15px; margin-left: 10px;" />
                                 </div>
-                                <div class="media-post"> </div>
-                                <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.id}}.{{::comment.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
-                                <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
-                                    <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
-                                </div>
+                                <div class="p-lista" style="padding-bottom:10px;">
+                                    <div style="padding-left: 15px; padding-right:15px;"> 
+                                        {{::comment.content}}
+                                    </div>
+                                    <div class="media-post"> </div>
+                                    <div ng-show="comment.media.type == 'IMAGE'" dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/220x/smart/{{::comment.media.id}}.{{::comment.media.ext}}" style="height:240px; margin-top:10px; margin-bottom:10px; background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(154, 148, 120, 0.0980392));"></div>
+                                    <div ng-show="comment.media.type == 'VIDEO'" class="embed-responsive embed-responsive-16by9" max-height="240" style="margin-top:10px;">
+                                        <iframe class="embed-responsive-item" ng-src="{{getIframeSrc(comment.media.path)}}" allowfullscreen=""></iframe>
+                                    </div>
 
-                                <div class="container  buttons-post" style="background: white;">
-                                    <div class="row" style=" margin-top: 10px;">
-                                        <div class="col-xs-12 no-padding">
-                                            <div class="col-xs-4" style="padding-left:25px;"> 
-                                                <i class="fa fa-clock-o"></i>
-                                                <span style="font-size: 9px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span>
-                                            </div>
-                                            <div ng-if="!isAuthenticated" class="col-xs-2"> 
-                                                <i class="fa fa-thumbs-o-up"></i> 
-                                                <span class="post-likes"> {{::comment.up_votes}}</span>
-                                            </div>
-                                            <div ng-if="!isAuthenticated" class="col-xs-2"> 
-                                                <i class="fa fa-thumbs-o-down"></i> 
-                                                <span class="post-likes"> {{::comment.down_votes}}</span>
-                                            </div>
-                                            <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-danger': !comment.self_vote.positive}">
-                                                <i class="fa fa-thumbs-o-down" style="padding-top:2px;cursor:pointer;" ng-click="vote(comment, false)"></i>
-                                                <span class="post-likes-"> {{::comment.down_votes}}</span>
-                                            </div>
-                                            <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> 
-                                                <i class="fa fa-thumbs-o-up" style="cursor:pointer;" ng-click="vote(comment, true)"></i> 
-                                                <span class="post-likes"> {{::comment.up_votes}}</span>
+                                    <div class="container  buttons-post" style="background: white;">
+                                        <div class="row" style=" margin-top: 10px;">
+                                            <div class="col-xs-12 no-padding">
+                                                <div class="col-xs-4" style="padding-left:25px;"> 
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <span style="font-size: 9px;"> {{::comment.created_at | moment: 'DD/MM/YYYY' }} </span>
+                                                </div>
+                                                <div ng-if="!isAuthenticated" class="col-xs-2"> 
+                                                    <i class="fa fa-thumbs-o-up"></i> 
+                                                    <span class="post-likes"> {{::comment.up_votes}}</span>
+                                                </div>
+                                                <div ng-if="!isAuthenticated" class="col-xs-2"> 
+                                                    <i class="fa fa-thumbs-o-down"></i> 
+                                                    <span class="post-likes"> {{::comment.down_votes}}</span>
+                                                </div>
+                                                <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-danger': !comment.self_vote.positive}">
+                                                    <i class="fa fa-thumbs-o-down" style="padding-top:2px;cursor:pointer;" ng-click="vote(comment, false)"></i>
+                                                    <span class="post-likes-"> {{::comment.down_votes}}</span>
+                                                </div>
+                                                <div ng-if="isAuthenticated" class="col-xs-2" ng-class="{'text-success': comment.self_vote.positive}"> 
+                                                    <i class="fa fa-thumbs-o-up" style="cursor:pointer;" ng-click="vote(comment, true)"></i> 
+                                                    <span class="post-likes"> {{::comment.up_votes}}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>                          
+                                    </div>                          
+
+                                </div>
 
                             </div>
-
                         </div>
                     </div>
                 </div>
+                <!-- fin comentarios -->
             </div>
-
-            <!-- fin comentarios -->
-
-
-
+            <!-- Fin Posts -->
         </div>
-        <!-- fin post -->
     </div>
-
+    
     <div id="footer" ng-class="{'with_media': post.media_type}" ng-if="winwin.already_joined">
 
         <div class="row">

@@ -34,6 +34,9 @@ angular.module('winwinsApp')
                         $scope.email = response.data.user.email;
                         $rootScope.account = $scope.profile;
                         $rootScope.profile_photo = $scope.profile.photo;
+                        if ($scope.isSponsor) {
+                            $rootScope.profile_photo = response.data.sponsor.photo
+                        }
                     } else {
                         $auth.logout().then(function() {
                             $rootScope.$broadcast('is_logged', false);
@@ -74,6 +77,9 @@ angular.module('winwinsApp')
                 $scope.isActive = response.data.active;
                 $scope.email = response.data.user.email;
                 $rootScope.profile_photo = $scope.profile.photo;
+                if ($scope.isSponsor) {
+                    $rootScope.profile_photo = response.data.sponsor.photo
+                }
                 $rootScope.$broadcast('is_logged', true);
             });
         }
