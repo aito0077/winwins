@@ -9,6 +9,10 @@ use Symfony\Component\Security\Core\Util\StringUtils;
 
 class VerifyCsrfToken extends BaseVerifier {
 
+    protected $except = [
+        'api/*'
+    ];
+
 	public function handle($request, Closure $next) {
         //ToDo: Workaround for this 
         if (Request::is('auth/*')) {

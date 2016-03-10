@@ -6,6 +6,7 @@
 .env
 *.leo
 .*.swp
+.*.swo
 /.idea
 /public/*
 !/public/index.php
