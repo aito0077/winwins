@@ -223,6 +223,6 @@ return [
 	],
 
 
-	'es_hosts' => env('ES_HOST', 'http://10.0.2.2:9200')
+	'es_hosts' => env('ES_HOST', 'http://localhost:9200')
     
 ];
