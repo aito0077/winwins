@@ -53,14 +53,14 @@ return [
 			'key'    => env('AWS_KEY', ''),
 			'secret' => env('AWS_SECRET', ''),
 			'region' => env('AWS_REGION', ''),
-			'bucket' => 'winwin-gallery',
+			'bucket' => env('AWS_IMAGES_BUCKET', 'winwin-gallery'),
 		],
 		's3-uploads' => [
 			'driver' => 's3',
 			'key'    => env('AWS_KEY', ''),
 			'secret' => env('AWS_SECRET', ''),
 			'region' => env('AWS_REGION', ''),
-			'bucket' => 'winwin-gallery',
+			'bucket' => env('AWS_IMAGES_BUCKET', 'winwin-gallery'),
 		]
 
 	],
