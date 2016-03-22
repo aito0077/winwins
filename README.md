@@ -73,6 +73,8 @@ php artisan db:seed
 php artisan serve
 ```
 
+Will start Laravel development server [http://localhost:8000/](http://localhost:8000/)
+
 ## More info about our components
 
 See below
@@ -108,4 +110,4 @@ bower install
 gulp serve
 ```
 
-Point Browser to [http://localhost:3000/index.html](http://localhost:3000/index.html)
+Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)
