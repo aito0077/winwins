@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, ENV) {
+  function config($logProvider, toastrConfig, ENV, RestangularProvider) {
 
     // Enable log
     var debug = true;
@@ -15,12 +15,19 @@
     }
     $logProvider.debugEnabled(debug);
 
-    // Set options third-party lib
+    // Toastr Set options
     toastrConfig.allowHtml = true;
     toastrConfig.timeOut = 3000;
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    // Restangular Set options
+    RestangularProvider.setBaseUrl(ENV.apiBase);
+    RestangularProvider.setRequestSuffix('/');
+    RestangularProvider.setRestangularFields({
+      selfLink: 'url'
+    });
   }
 
 })();

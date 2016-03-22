@@ -5,7 +5,7 @@
     "dev": {
       "ENV": {
         "name": "dev",
-        "apiBase": "http://localhost/v1"
+        "apiBase": "http://localhost:8000/api"
       }
     },
     "prod": {
