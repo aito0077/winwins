@@ -5,13 +5,18 @@
     var vm;
     var $timeout;
     var toastr;
+    var scope;
 
     beforeEach(module('winwins'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_) {
+    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_, _sponsor_, _$q_, _$rootScope_) {
+      scope = _$rootScope_.$new();
+
       spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
       spyOn(_toastr_, 'info').and.callThrough();
+      spyOn(_sponsor_, 'getMainList').and.returnValue(_$q_.when([{}]));
 
       vm = _$controller_('MainController');
+      scope.$apply();
       $timeout = _$timeout_;
       toastr = _toastr_;
     }));
@@ -35,5 +40,11 @@
       expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
       expect(vm.awesomeThings.length === 5).toBeTruthy();
     });
+
+    it('should define at least 1 sponsor', function() {
+      expect(angular.isArray(vm.sponsors)).toBeTruthy();
+      expect(vm.sponsors.length >= 1).toBeTruthy();
+    });
+
   });
 })();

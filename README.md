@@ -109,4 +109,9 @@ npm install
 npm start
 ```
 
+## Run Unit test
+```sh
+npm test
+```
+
 Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)

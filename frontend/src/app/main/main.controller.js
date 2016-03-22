@@ -6,13 +6,14 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+  function MainController($timeout, webDevTec, toastr, sponsor) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     vm.creationDate = 1458584706984;
     vm.showToastr = showToastr;
+    vm.sponsors = [];
 
     activate();
 
@@ -21,6 +22,10 @@
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
+
+      sponsor.getMainList().then( function(data){
+        vm.sponsors = data;
+      });
     }
 
     function showToastr() {

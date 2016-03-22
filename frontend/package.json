@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {},
   "scripts": {
-    "test": "gulp test",
+    "test": "NODE_ENV=dev gulp test",
     "start": "NODE_ENV=dev gulp serve",
     "postinstall": "bower install"
   },
