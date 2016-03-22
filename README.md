@@ -102,12 +102,11 @@ cd frontend
 
 npm install
 
-bower install
 ```
 
-## Run backend server
+## Run dev backend server
 ```sh
-NODE_ENV=dev gulp serve
+npm start
 ```
 
 Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)
