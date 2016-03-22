@@ -4,6 +4,8 @@
 git clone https://github.com/Cambalab/winwins.git
 ```
 
+---
+
 # Winwins API REST
 
 ## Setup (Local)
@@ -28,7 +30,7 @@ sudo update-rc.d elasticsearch defaults 95 10
 sudo service elasticsearch restart
 ```
 
-### Initial configuration of prerequisites
+## Initial configuration of prerequisites
 
 You need to have a access to an sql database.
 
@@ -43,7 +45,7 @@ If you need to use an external instance of Elastic Search also add
     ES_HOST=http://the_elasticsearch_host:port
 
 
-### Getting Dependencies
+## Getting Dependencies
 
 Please download [get composer here](http://getcomposer.org/download/)
 
@@ -56,7 +58,7 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServicePro
 php artisan jwt:generate
 ```
 
-### Database
+## Database
 
 First time do this to initialize the database:
 
@@ -65,7 +67,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-### Run backend server
+## Run backend server
 
 ```sh
 php artisan serve
@@ -78,6 +80,7 @@ See below
 - [Jwt-auth](https://github.com/tymondesigns/jwt-auth)
 - [Laravel-cors](https://github.com/barryvdh/laravel-cors)
 
+---
 
 # Frontend
 
@@ -100,7 +103,7 @@ npm install
 bower install
 ```
 
-### Run backend server
+## Run backend server
 ```sh
 gulp serve
 ```
