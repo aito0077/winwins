@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('frontend')
+    .module('winwins')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 

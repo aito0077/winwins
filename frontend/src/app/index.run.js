@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('frontend')
+    .module('winwins')
     .run(runBlock);
 
   /** @ngInject */
