@@ -107,7 +107,7 @@ bower install
 
 ## Run backend server
 ```sh
-gulp serve
+NODE_ENV=dev gulp serve
 ```
 
 Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)

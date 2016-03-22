@@ -1,0 +1,18 @@
+{
+  "name": "winwins.config",
+  "deps": [],
+  "constants": {
+    "dev": {
+      "ENV": {
+        "name": "dev",
+        "apiBase": "http://localhost/v1"
+      }
+    },
+    "prod": {
+      "ENV": {
+        "name": "prod",
+        "apiBase": "https://api.example.com/v1"
+      }
+    }
+  }
+}
