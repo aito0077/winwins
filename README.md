@@ -1,14 +1,14 @@
-# Winwins API REST
-
-## Setup (Local)
-
-### Clone the repository
+# Clone repo
 
 ```sh
 git clone https://github.com/Cambalab/winwins.git
 ```
 
-Installing *php-mcrypt* because [Error mcrypt problem](https://laracasts.com/discuss/channels/general-discussion/laravel5-new-install-mcrypt-rijndael-128-notice) after vagrant provision. Add to your */home/youruser/.homestead/after.sh*:
+# Winwins API REST
+
+## Setup (Local)
+
+Installing *php-mcrypt* because [Error mcrypt problem](https://laracasts.com/discuss/channels/general-discussion/laravel5-new-install-mcrypt-rijndael-128-notice):
 
 ```sh
 sudo apt-get -y update
@@ -65,19 +65,10 @@ php artisan migrate
 php artisan db:seed
 ```
 
-### Run a developent server
+### Run backend server
 
 ```sh
 php artisan serve
-```
-
-
-### Client App
-
-```sh
-npm install
-bower install
-grunt serve
 ```
 
 ## More info about our components
@@ -88,3 +79,30 @@ See below
 - [Laravel-cors](https://github.com/barryvdh/laravel-cors)
 
 
+# Frontend
+
+Using as base generator [Generator-gulp-angular](https://github.com/Swiip/generator-gulp-angular)
+
+## Requirements
+
+```sh
+apt-get install node npm ruby ruby-dev ruby-sass ruby-compass
+
+npm install -g gulp bower
+```
+
+## Installation
+```sh
+cd frontend
+
+npm install
+
+bower install
+```
+
+### Run backend server
+```sh
+gulp serve
+```
+
+Point Browser to [http://localhost:3000/index.html](http://localhost:3000/index.html)
