@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig, ENV, RestangularProvider) {
+  function config($logProvider, toastrConfig, ENV, RestangularProvider, $authProvider) {
 
     // Enable log
     var debug = true;
@@ -28,6 +28,15 @@
     RestangularProvider.setRestangularFields({
       selfLink: 'url'
     });
+
+    // Satellizer set options
+    $authProvider.baseUrl = ENV.apiBase + '/';
+    $authProvider.httpInterceptor = true;
+    $authProvider.facebook(ENV.satellizer.facebook);
+    $authProvider.google(ENV.satellizer.google);
+    $authProvider.yahoo(ENV.satellizer.yahoo);
+    $authProvider.twitter(ENV.satellizer.twitter);
+
   }
 
 })();
