@@ -7,3 +7,4 @@ coverage/
 dist/
 src/app/ngConstants.js
 *.sw*
+npm-debug.log
