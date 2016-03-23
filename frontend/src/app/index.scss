@@ -48,8 +48,6 @@ html {
   font-family: 'Montserrat', serif;
 }
 
-
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -86,6 +84,11 @@ section.jumbotron {
       width: 100px;
     }
   }
+}
+
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
 }
 
 /**
