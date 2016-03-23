@@ -18,6 +18,30 @@
     vm.miembros = miembros;
     vm.partners = partners;
 
+    vm.destacados = [
+      {
+        id: 11,
+        members: 12,
+        img: "asstes/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+      },
+      {
+        id: 11,
+        members: 4,
+        img: "asstes/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+      },
+      {
+        id: 11,
+        members: 4,
+        img: "asstes/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+      }
+    ];
+
     activate();
 
     function activate() {

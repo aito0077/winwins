@@ -1,0 +1,26 @@
+<md-content>
+  <h1 class="title title-center"><md-icon md-font-icon="home" /> WINWINS DESTACADOS</h1>
+  <div layout="row" layout-wrap>
+    <div flex="100" flex-gt-xs="50" flex-gt-sm="25" ng-repeat="item in vm.items">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{ item.title }}</span>
+            <span class="md-subhead">{{ item.members }}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-title-media>
+          <div class="md-media-lg card-media"></div>
+        </md-card-title-media>
+
+        <md-card-actions layout="row" layout-align="start">
+          <md-card-avatar>
+            <img class="md-user-avatar" src="images/100-2.jpeg">
+          </md-card-avatar>
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</md-content>
