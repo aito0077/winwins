@@ -12,7 +12,12 @@
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve: {
+          sponsors: function(sponsor) {
+            return sponsor.getMainList();
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

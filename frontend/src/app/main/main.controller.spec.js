@@ -8,14 +8,13 @@
     var scope;
 
     beforeEach(module('winwins'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_, _sponsor_, _$q_, _$rootScope_) {
+    beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_, _$q_, _$rootScope_ ) {
       scope = _$rootScope_.$new();
 
       spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
       spyOn(_toastr_, 'info').and.callThrough();
-      spyOn(_sponsor_, 'getMainList').and.returnValue(_$q_.when([{}]));
 
-      vm = _$controller_('MainController');
+      vm = _$controller_('MainController', {sponsors: [{datos: 'prueba'}]});
       scope.$apply();
       $timeout = _$timeout_;
       toastr = _toastr_;
