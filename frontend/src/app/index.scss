@@ -86,6 +86,11 @@ section.jumbotron {
   }
 }
 
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
 /**
  *  Do not remove the comment below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

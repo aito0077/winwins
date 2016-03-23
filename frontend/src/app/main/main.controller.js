@@ -22,23 +22,56 @@
       {
         id: 11,
         members: 12,
-        img: "asstes/images/fondo.png",
+        img: "assets/images/fondo.png",
         title: "Intercambio de novelas policiales",
-        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
       },
       {
         id: 11,
         members: 4,
-        img: "asstes/images/fondo.png",
+        img: "assets/images/fondo.png",
         title: "Intercambio de novelas policiales",
-        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
       },
       {
         id: 11,
         members: 4,
-        img: "asstes/images/fondo.png",
+        img: "assets/images/fondo.png",
         title: "Intercambio de novelas policiales",
-        user: { logo: "asstes/images/logo.png", thumb: "asstes/images/thumb.png" }
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
+      },{
+        id: 11,
+        members: 12,
+        img: "assets/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
+      },
+      {
+        id: 11,
+        members: 4,
+        img: "assets/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
+      },
+      {
+        id: 11,
+        members: 4,
+        img: "assets/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
+      },{
+        id: 11,
+        members: 12,
+        img: "assets/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
+      },
+      {
+        id: 11,
+        members: 4,
+        img: "assets/images/fondo.png",
+        title: "Intercambio de novelas policiales",
+        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
       }
     ];
 

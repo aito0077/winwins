@@ -1,24 +1,35 @@
-<md-content>
+<md-content class="acme-highlighted">
   <h1 class="title title-center"><md-icon md-font-icon="home" /> WINWINS DESTACADOS</h1>
   <div layout="row" layout-wrap>
     <div flex="100" flex-gt-xs="50" flex-gt-sm="25" ng-repeat="item in vm.items">
       <md-card>
-        <md-card-title>
-          <md-card-title-text>
+        <md-card-content>
+          <img ng-src="{{item.img}}" alt="" />
+          <md-card-title-text layout-align="center center" layout="column">
             <span class="md-headline">{{ item.title }}</span>
-            <span class="md-subhead">{{ item.members }}</span>
           </md-card-title-text>
-        </md-card-title>
+          <div class="card-labels">
+            <md-icon class="icon icon-access_time">access_time</md-icon>
+            <md-icon class="icon icon-watshot">whatshot</md-icon>
+            <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+          </div>
+        </md-card-content>
         <md-card-title-media>
-          <div class="md-media-lg card-media"></div>
         </md-card-title-media>
 
-        <md-card-actions layout="row" layout-align="start">
-          <md-card-avatar>
-            <img class="md-user-avatar" src="images/100-2.jpeg">
-          </md-card-avatar>
-          <md-button>Action 1</md-button>
-          <md-button>Action 2</md-button>
+        <md-card-actions layout="row" layout-align="space-between center">
+          <md-card-header>
+            <md-card-avatar>
+              <img class="md-user-avatar" src="assets/images/100-2.jpeg">
+            </md-card-avatar>
+          </md-card-header>
+          <md-card-content>
+            <img ng-src="assets/images/sponsor-coca-cola.svg">
+          </md-card-content>
+          <div class="card-members">Somos <strong>{{ item.members }}</strong></div>
+          <md-button class="md-icon-button">
+            <md-icon>share</md-icon>
+          </md-button>
         </md-card-actions>
       </md-card>
     </div>
