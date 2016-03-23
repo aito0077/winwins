@@ -14,7 +14,13 @@
       spyOn(_webDevTec_, 'getTec').and.returnValue([{}, {}, {}, {}, {}]);
       spyOn(_toastr_, 'info').and.callThrough();
 
-      vm = _$controller_('MainController', {sponsors: [{datos: 'prueba'}]});
+      var mockData = {
+        sponsors: [{datos: 'prueba'}],
+        winwins:  [{datos: 'prueba'}],
+        miembros: [{datos: 'prueba'}],
+        partners: [{datos: 'prueba'}]
+      };
+      vm = _$controller_('MainController', mockData );
       scope.$apply();
       $timeout = _$timeout_;
       toastr = _toastr_;
@@ -45,5 +51,17 @@
       expect(vm.sponsors.length >= 1).toBeTruthy();
     });
 
+    it('should define at least 1 winwins', function() {
+      expect(angular.isArray(vm.winwins)).toBeTruthy();
+      expect(vm.winwins.length >= 1).toBeTruthy();
+    });
+    it('should define at least 1 miembros', function() {
+      expect(angular.isArray(vm.miembros)).toBeTruthy();
+      expect(vm.miembros.length >= 1).toBeTruthy();
+    });
+    it('should define at least 1 partners', function() {
+      expect(angular.isArray(vm.partners)).toBeTruthy();
+      expect(vm.partners.length >= 1).toBeTruthy();
+    });
   });
 })();

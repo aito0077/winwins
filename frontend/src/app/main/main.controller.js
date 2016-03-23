@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, sponsors) {
+  function MainController($timeout, webDevTec, toastr, sponsors, winwins, miembros, partners) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -14,6 +14,9 @@
     vm.creationDate = 1458584706984;
     vm.showToastr = showToastr;
     vm.sponsors = sponsors;
+    vm.winwins = winwins;
+    vm.miembros = miembros;
+    vm.partners = partners;
 
     activate();
 
