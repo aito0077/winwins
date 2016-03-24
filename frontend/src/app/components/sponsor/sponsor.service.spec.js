@@ -33,7 +33,24 @@
         expect(data.length >= 1).toBeTruthy();
         expect(data[0]).toEqual(jasmine.any(Object));
       });
+    });
 
+    describe('getList function', function() {
+      it('should exist', function() {
+        expect(sponsor.getList).not.toEqual(null);
+      });
+
+      it('should return data', function() {
+        $httpBackend.when('GET',  ENV.apiBase + '/sponsors/paginate/0/15/').respond(200, [{pprt: 'value'}]);
+        var data;
+        sponsor.getList().then(function(list) {
+          data = list;
+        });
+        $httpBackend.flush();
+        expect(data).toEqual(jasmine.any(Array));
+        expect(data.length >= 1).toBeTruthy();
+        expect(data[0]).toEqual(jasmine.any(Object));
+      });
     });
 
   });
