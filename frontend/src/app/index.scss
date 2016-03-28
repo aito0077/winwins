@@ -47,6 +47,7 @@
 html {
   font-family: 'Montserrat', serif;
 }
+
 body {
   background: #fafafa;
 }
@@ -65,31 +66,8 @@ md-toolbar.md-default-theme {
   background-color: black;
 }
 
-section.jumbotron {
+section.acme-video {
   margin-bottom: 30px;
-  padding: 1px 30px;
-  background-color: #5aadbb;
-  text-align: center;
-
-  color: white;
-
-  h1 {
-    font-size: 3em;
-  }
-}
-
-.techs {
-  display: flex;
-  flex-flow: row wrap;
-
-  md-card {
-    width: 30%;
-
-    img.pull-right {
-      float: right;
-      width: 100px;
-    }
-  }
 }
 
 .container {
