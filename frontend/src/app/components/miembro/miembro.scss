@@ -1,3 +1,18 @@
-.acme-members {
-  
+.acme-miembro {
+  .title {
+    color: #eb6a24;
+    small {
+      color: #a1a1a1;
+      font-size: 15px;
+    }
+  }
+  h2 {
+    text-align: center;
+  }
+  .md-right {
+    float: right;
+  }
+  md-card-avatar img {
+    border-radius: 50%;
+  }
 }
