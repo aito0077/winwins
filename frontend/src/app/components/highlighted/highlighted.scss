@@ -1,4 +1,26 @@
 .acme-highlighted {
+  .title {
+    font-size: 26px;
+    color: #ec6b25;
+    position: relative;
+    margin: 20px 8px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #ec6b25;
+    }
+    span {
+      background: #fafafa;
+      padding: 0 25px;
+      margin-left: 20%;
+      position: relative;
+      z-index: 1;
+    }
+  }
   md-card {
     md-card-content {
       position: relative;
