@@ -1,0 +1,19 @@
+<md-content class="acme-miembro" class="hide show-gt-sm">
+  <h1 class="title">
+    <md-icon md-svg-src="assets/images/icon-members.svg"></md-icon>
+    MIEMBROS
+    <small>Personas que crean y participan en acciones de consenso colectivo</small>
+  </h1>
+  <div layout="row" layout-wrap>
+    <div flex="25" flex-gt-xs="25" flex-gt-sm="25" ng-repeat="item in vm.items">
+      <md-card-header>
+        <md-card-avatar>
+          <img class="md-user-avatar" src="assets/images/100-2.jpeg">
+        </md-card-avatar>
+      </md-card-header>
+    </div>
+  </div>
+  <md-button class="md-raised md-right">+ Ver todos los participantes</md-button>
+  <h3>Sólo faltas vos, sumáte!</h3>
+  <md-button class="md-raised md-primary">Comenzar</md-button>
+</md-content>
