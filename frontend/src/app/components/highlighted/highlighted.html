@@ -1,9 +1,9 @@
 <md-content class="acme-highlighted">
   <div class="container">
-    <h1 class="title hide show-gt-sm">
+    <h1 class="title hide show-gt-sm" ng-if="vm.title">
       <span>
         <md-icon md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
-        WINWINS DESTACADOS
+        {{vm.title}}
       </span>
     </h1>
     <div layout="row" layout-wrap>

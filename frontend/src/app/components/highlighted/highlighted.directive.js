@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/highlighted/highlighted.html',
       scope: {
-        items: '='
+        items: '=',
+        title: '='
       },
       controller: HighlightedController,
       controllerAs: 'vm',
