@@ -1,13 +1,19 @@
 .acme-miembro {
   .title {
-    color: #eb6a24;
+    color: rgb(239, 131, 65);
+    margin: 20px 8px;
+    md-icon {
+      position: relative;
+      top:-3px;
+    }
     small {
       color: #a1a1a1;
       font-size: 15px;
     }
   }
-  h2 {
+  h3 {
     text-align: center;
+    color: rgb(239, 131, 65);
   }
   .md-right {
     float: right;
