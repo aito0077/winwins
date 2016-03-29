@@ -1,4 +1,10 @@
 .acme-miembro {
+  background:
+    url('../assets/images/member-border-top.svg') repeat-x left top,
+    url('../assets/images/member-border-bottom.svg') repeat-x left bottom;
+  background-color: #fff;
+  padding: 70px 0;
+  margin-bottom: 30px;
   .title {
     color: rgb(239, 131, 65);
     margin: 20px 8px;
