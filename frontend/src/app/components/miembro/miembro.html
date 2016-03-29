@@ -4,18 +4,18 @@
     MIEMBROS
     <small>Personas que crean y participan en acciones de consenso colectivo</small>
   </h1>
-  <div layout="row" layout-wrap>
+  <div layout="row" layout-align="center" layout-wrap>
     <div ng-repeat="item in vm.items">
       <md-card-header>
         <md-card-avatar>
-          <img class="md-user-avatar" src="assets/images/100-2.jpeg">
+          <img class="md-user-avatar" ng-src="{{item.imagen}}" alt="{{item.nombre}}">
         </md-card-avatar>
       </md-card-header>
     </div>
   </div>
-  <md-button class="md-raised md-right">+ Ver todos los participantes</md-button>
-  <h3>Sólo faltas vos, sumáte!</h3>
-  <div layout="row" layout-align="center">
-    <md-button class="md-raised md-primary">Comenzar</md-button>
+  <div layout="column" layout-align="center center">
+    <md-button class="md-raised md-primary md-right">+ Ver todos los participantes</md-button>
+    <h3>Sólo faltas vos, sumáte!</h3>
+    <md-button class="md-raised md-green">Comenzar</md-button>
   </div>
 </md-content>
