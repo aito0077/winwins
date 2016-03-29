@@ -1,3 +1,7 @@
+section.acme-video {
+  background: black;
+}
+
 .acme-recientes {
   .title {
     color: #ed7932;
@@ -12,5 +16,21 @@
       color: #a1a1a1;
       font-size: 15px;
     }
+  }
+}
+
+md-tabs.acme-tabs {
+  md-tabs-wrapper {
+    background: #0d47a1;
+  }
+  span.ng-scope {
+    color: #fff;
+  }
+  md-ink-bar {
+    color: #ec6b25;
+    background: #ec6b25;
+  }
+  .md-tab .md-ripple-container {
+    color: #ec6b25;
   }
 }

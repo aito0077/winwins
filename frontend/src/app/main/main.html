@@ -11,7 +11,40 @@
       </video>
     </section>
 
-    <acme-highlighted items="main.destacados" title="'Winwins destacados'"></acme-highlighted>
+    <md-tabs md-dynamic-height class="acme-tabs">
+      <md-tab id="tab1">
+        <md-tab-label>Destacados</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="'Winwins destacados'" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label>Populares</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="'Winwins populares'" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab3">
+        <md-tab-label>Recientes</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="'Winwins recientes'" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab6">
+        <md-tab-label>Por terminar</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="'Winwins por terminar'" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab4">
+        <md-tab-label>Concretados</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="'Winwins concretados'" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+
+    </md-tabs>
+
     <acme-miembro items="main.miembros"></acme-miembro>
     <acme-partner items="main.partners"></acme-partner>
     <acme-sponsor items="main.sponsors"></acme-sponsor>
@@ -24,7 +57,7 @@
       </h1>
     </div>
     <acme-highlighted items="main.destacados"></acme-highlighted>
-    
+
     <acme-contador items="main.contador"></acme-contador>
 
   </md-content>
