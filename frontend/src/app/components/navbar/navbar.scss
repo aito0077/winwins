@@ -95,21 +95,31 @@ header {
 		md-input-container {
 			margin: 0;
 			.md-input {
-				background: #1b3089;
-				border:solid 1px #1b3089;
-				color: #fff;
+				background: none;
+				border:none;
+				border-bottom: solid 2px #eb6a24;
+				color: #99bce4;
 				font-family: 'Montserrat', serif;
-				font-weight: 700;
+			}
+			.md-input::-webkit-input-placeholder { color: #99bce4; }
+			.md-input:-moz-placeholder { color: #99bce4; }
+			.md-input::moz-placeholder { color: #99bce4; }
+			.md-input:-ms-input-placeholder { color: #99bce4; }
+			&.md-input-has-placeholder .md-input {
+				color: #99bce4;
 			}
 			.md-errors-spacer {
 				display: none;
 			}
 			.ng-isolate-scope.material-icons {
-				position: absolute;
-				right: 6px;
-				top: 6px;
 				left: inherit;
 				cursor: pointer;
+			}
+			&.md-input-has-placeholder .md-input {
+				border-bottom: solid 2px #eb6a24;
+			}
+			&.md-input-has-placeholder .material-icons {
+				color: #fff;
 			}
 		}
 	}
@@ -146,19 +156,6 @@ header {
 					}
 					md-input-container {
 						float: none;
-						.md-input {
-							background: #1565c0;
-							border:none;
-							border-bottom: solid 2px #eb6a24;
-							color: #99bce4;
-						}
-						.md-input::-webkit-input-placeholder { color: #99bce4; }
-						.md-input:-moz-placeholder { color: #99bce4; }
-						.md-input::moz-placeholder { color: #99bce4; }
-						.md-input:-ms-input-placeholder { color: #99bce4; }
-						&.md-input-has-placeholder .md-input {
-							color: #99bce4;
-						}
 						.ng-isolate-scope {
 							color: #fff;
     					right: -25px;
