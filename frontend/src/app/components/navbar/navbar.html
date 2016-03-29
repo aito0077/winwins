@@ -16,13 +16,40 @@
 				</md-input-container>
 			</li>
 	  </ul>
-	  <div class="menu show-md hide-lg">
+	  <div class="menu hide show-md">
+	  	<div layout="row" layout-align="center center">
+			  <div flex="30">
+			  	<md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch>
+					<md-input-container>
+				  	<input type="text" ng-model="color">
+				  	<md-icon>search</md-icon>
+					</md-input-container>
+				</div>
+			  <div flex="45"><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
+				<div flex="25" layout="row" layout-align="space-around center center">
+			  	<div class="menu-notifications">
+						<md-icon>notifications</md-icon>
+						<span class="badge">1</span>
+					</div>
+					<md-card-header>
+						<md-card-avatar>
+							<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+						</md-card-avatar>
+					</md-card-header>
+					<md-button ng-click="vm.openLeftMenu()" class="md-primary menu-toggle">
+		        <md-icon>menu</md-icon>
+		      </md-button>
+		    </div>
+			</div>
+	  </div>
+	  <div class="menu hide show-xs show-sm">
 	  	<div layout="row" layout-align="space-between center">
 			  <div>
 			  	<md-icon>keyboard_arrow_left</md-icon>
 				</div>
-				<div>
+				<div class="menu-notifications">
 					<md-icon>notifications</md-icon>
+					<span class="badge">1</span>
 				</div>
 			  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
 			  <div>
@@ -70,25 +97,32 @@
     md-component-id="left"
     md-disable-backdrop
     md-whiteframe="4">
-  <md-toolbar class="md-theme-indigo">
-    <md-card-header>
-			<md-card-avatar>
-				<img class="md-user-avatar" src="assets/images/100-2.jpeg">
-			</md-card-avatar>
-		</md-card-header>
+  <md-toolbar class="md-theme-indigo" layout-align="center center">
+		<md-card-avatar>
+			<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+		</md-card-avatar>
+		<md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Hola, username!</span>
+      </md-card-title-text>
+    </md-card-title>
   </md-toolbar>
   <md-content layout-padding>
     <!--<md-button ng-click="close()" class="md-primary" hide-gt-md>
       Close Sidenav Left
     </md-button>-->
     <ul class="menu">
-			<li><md-button class="md-primary" ng-href="#">Ir a mi cuenta</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Mis Winwins</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Crear Winwin</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Miembros</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Sponsors</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Mi perfil</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Salir</md-button></li>
+    	<li class="hide-gt-sm"><md-input-container md-no-float>
+          <input ng-model="user.address2" placeholder="Buscar">
+          <md-icon>search</md-icon>
+        </md-input-container></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon> Ir a mi cuenta</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-mis-winwins.svg"></md-icon> Mis Winwins</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-crear-winwins.svg"></md-icon> Crear Winwin</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-miembros.svg"></md-icon> Miembros</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-sponsors.svg"></md-icon> Sponsors</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-perfil.svg"></md-icon> Mi perfil</md-button></li>
+			<li><md-button class="md-primary" ng-href="#" ng-click="vm.openLeftMenu()"><md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon> Salir</md-button></li>
 	  </ul>
   </md-content>
 </md-sidenav>
