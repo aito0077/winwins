@@ -25,9 +25,12 @@
 				  	<md-icon>search</md-icon>
 					</md-input-container>
 				</div>
-			  <div flex="30"><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
-				<div flex="30">
-			  	<md-icon>notifications</md-icon>
+			  <div flex="45"><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
+				<div flex="25" layout="row" layout-align="space-around center center">
+			  	<div class="menu-notifications">
+						<md-icon>notifications</md-icon>
+						<span class="badge">1</span>
+					</div>
 					<md-card-header>
 						<md-card-avatar>
 							<img class="md-user-avatar" src="assets/images/100-2.jpeg">
@@ -110,7 +113,7 @@
     </md-button>-->
     <ul class="menu">
     	<li class="hide-gt-sm"><md-input-container md-no-float>
-          <input ng-model="user.address2" placeholder="Address 2">
+          <input ng-model="user.address2" placeholder="Buscar">
           <md-icon>search</md-icon>
         </md-input-container></li>
 			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon> Ir a mi cuenta</md-button></li>
