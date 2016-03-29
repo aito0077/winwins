@@ -11,12 +11,20 @@
       </video>
     </section>
 
-    <section>
-      <acme-highlighted items="main.destacados"></acme-highlighted>
-      <acme-miembro items="main.miembros"></acme-miembro>
-      <acme-partner items="main.partners"></acme-partner>
-      <acme-contador items="main.contador"></acme-contador>
-    </section>
+    <acme-highlighted items="main.destacados" title="'Winwins destacados'"></acme-highlighted>
+    <acme-miembro items="main.miembros"></acme-miembro>
+    <acme-partner items="main.partners"></acme-partner>
+    <acme-sponsor items="main.sponsors"></acme-sponsor>
+    <acme-contador items="main.contador"></acme-contador>
+
+    <div class="container acme-recientes">
+      <h1 class="title">
+        <md-icon md-svg-src="assets/images/icon-recientes-title.svg"></md-icon>
+        WINWINS RECIENTES
+        <small>Últimos winwins creados</small>
+      </h1>
+    </div>
+    <acme-highlighted items="main.destacados"></acme-highlighted>
 
   </md-content>
 </div>

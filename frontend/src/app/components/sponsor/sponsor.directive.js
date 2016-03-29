@@ -3,25 +3,24 @@
 
   angular
     .module('winwins')
-    .directive('acmeHighlighted', acmeHighlighted);
+    .directive('acmeSponsor', acmeSponsor);
 
   /** @ngInject */
-  function acmeHighlighted() {
+  function acmeSponsor() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/highlighted/highlighted.html',
+      templateUrl: 'app/components/sponsor/sponsor.html',
       scope: {
-        items: '=',
-        title: '='
+        items: '='
       },
-      controller: HighlightedController,
+      controller: SponsorController,
       controllerAs: 'vm',
       bindToController: true
     };
 
     return directive;
 
-    function HighlightedController() {
+    function SponsorController() {
       //var vm = this;
     }
   }
