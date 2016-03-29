@@ -1,4 +1,7 @@
 .acme-partner {
+  background:  url('../assets/images/partner-border-bottom.svg') repeat-x left bottom;
+  padding: 70px 0;
+  margin-bottom: 30px;
   .title {
     color: rgb(239, 131, 65);
     margin: 20px 8px;
@@ -14,7 +17,9 @@
         color: rgb(239, 131, 65);
       }
     }
-  }
-  md-card-avatar img {
+    md-icon {
+      width: 89px;
+      height: 63px;
+    }
   }
 }
