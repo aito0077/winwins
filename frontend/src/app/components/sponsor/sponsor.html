@@ -1,0 +1,19 @@
+<md-content class="acme-sponsor" class="hide show-gt-sm">
+  <div class="container">
+    <h1 class="title">
+      <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>
+      SPONSORS
+      <small>Organizaciones que contribuyen a la realización de un WinWin</small>
+    </h1>
+    <div layout="row" layout-align="center" layout-wrap class="acme-sponsor-body">
+      <div ng-repeat="item in vm.items">
+        <img ng-src="http://images.dev-winwins.net/x60/{{item.cover_photo}}" alt="{{item.name}}">
+      </div>
+    </div>
+    <div layout="column" layout-align="center center">
+      <md-button class="md-raised md-warn md-right">+ Ver todos los participantes</md-button>
+      <h3>Se sponsor oficial del <strong>cambio</strong> global.</h3>
+      <md-button class="md-raised md-green">Sumate y comenza</md-button>
+    </div>
+  </div>
+</md-content>
