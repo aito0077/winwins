@@ -11,7 +11,7 @@
 			<li class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></li>
 			<li class="menu-search">
 				<md-input-container md-no-float class="md-block">
-			  	<input ng-model="user.address2" placeholder="Buscar">
+			  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
 			  	<md-icon>search</md-icon>
 				</md-input-container>
 			</li>
@@ -21,7 +21,7 @@
 			  <div flex="30">
 			  	<md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch>
 					<md-input-container md-no-float class="md-block">
-				  	<input ng-model="user.address2" placeholder="Buscar">
+				  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
 				  	<md-icon>search</md-icon>
 					</md-input-container>
 				</div>
@@ -103,7 +103,7 @@
 		</md-card-avatar>
 		<md-card-title>
       <md-card-title-text>
-        <span class="md-headline">Hola, username!</span>
+        <span class="md-headline">{{'Hola,'| translate}} username!</span>
       </md-card-title-text>
     </md-card-title>
   </md-toolbar>
@@ -113,7 +113,7 @@
     </md-button>-->
     <ul class="menu">
     	<li class="hide-gt-sm"><md-input-container md-no-float>
-          <input ng-model="user.address2" placeholder="Buscar">
+          <input ng-model="user.address2" placeholder="{{'Buscar' | translate}}">
           <md-icon>search</md-icon>
         </md-input-container></li>
 			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon><translate> Ir a mi cuenta</translate></md-button></li>
