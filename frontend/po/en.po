@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
+
+#: components/navbar/navbar.html:11
+msgid "+ Crear Winwin"
+msgstr "+ Add Winwin"
+
+#: components/highlighted/highlighted.html:40
+msgid "+ Ver todos los winwins"
+msgstr "+ List all winwins"
+
+#: components/navbar/navbar.html:5
+msgid "Cómo funciona"
+msgstr "How works"
+
+#: components/navbar/navbar.html:87
+msgid "Crear Winwin"
+msgstr "Add Winwin"
+
+#: components/navbar/navbar.html:10 components/navbar/navbar.html:85
+msgid "Ir a mi cuenta"
+msgstr "Account"
+
+#: components/navbar/navbar.html:90
+msgid "Mi perfil"
+msgstr "Profile"
+
+#: components/navbar/navbar.html:7 components/navbar/navbar.html:88
+msgid "Miembros"
+msgstr "Members"
+
+#: components/navbar/navbar.html:86
+msgid "Mis Winwins"
+msgstr "My winwins"
+
+#: components/navbar/navbar.html:91
+msgid "Salir"
+msgstr "Exit"
+
+#: components/highlighted/highlighted.html:31
+msgid "Somos"
+msgstr "We are"
+
+#: components/navbar/navbar.html:8 components/navbar/navbar.html:89
+msgid "Sponsors"
+msgstr "Sponsors"
+
+#: components/navbar/navbar.html:6
+msgid "Winwins"
+msgstr "Winwins"
+
+#: components/highlighted/highlighted.html:5
+msgid "WINWINS DESTACADOS"
+msgstr "FEATURED WINWINS "

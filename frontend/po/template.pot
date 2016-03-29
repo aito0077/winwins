@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: components/navbar/navbar.html:11
+msgid "+ Crear Winwin"
+msgstr ""
+
+#: components/highlighted/highlighted.html:40
+msgid "+ Ver todos los winwins"
+msgstr ""
+
+#: components/navbar/navbar.html:5
+msgid "Cómo funciona"
+msgstr ""
+
+#: components/navbar/navbar.html:87
+msgid "Crear Winwin"
+msgstr ""
+
+#: components/navbar/navbar.html:10
+#: components/navbar/navbar.html:85
+msgid "Ir a mi cuenta"
+msgstr ""
+
+#: components/navbar/navbar.html:90
+msgid "Mi perfil"
+msgstr ""
+
+#: components/navbar/navbar.html:7
+#: components/navbar/navbar.html:88
+msgid "Miembros"
+msgstr ""
+
+#: components/navbar/navbar.html:86
+msgid "Mis Winwins"
+msgstr ""
+
+#: components/navbar/navbar.html:91
+msgid "Salir"
+msgstr ""
+
+#: components/highlighted/highlighted.html:31
+msgid "Somos"
+msgstr ""
+
+#: components/navbar/navbar.html:8
+#: components/navbar/navbar.html:89
+msgid "Sponsors"
+msgstr ""
+
+#: components/navbar/navbar.html:6
+msgid "Winwins"
+msgstr ""
+
+#: components/highlighted/highlighted.html:5
+msgid "WINWINS DESTACADOS"
+msgstr ""
