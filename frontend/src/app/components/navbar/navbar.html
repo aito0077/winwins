@@ -10,8 +10,8 @@
 			<li><md-button class="md-primary" ng-href="#">Ir a mi cuenta</md-button></li>
 			<li class="crear"><md-button class="md-primary" ng-href="#">+ Crear Winwin</md-button></li>
 			<li class="menu-search">
-				<md-input-container>
-			  	<input type="text" ng-model="color">
+				<md-input-container md-no-float class="md-block">
+			  	<input ng-model="user.address2" placeholder="Buscar">
 			  	<md-icon>search</md-icon>
 				</md-input-container>
 			</li>
@@ -20,8 +20,8 @@
 	  	<div layout="row" layout-align="center center">
 			  <div flex="30">
 			  	<md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch>
-					<md-input-container>
-				  	<input type="text" ng-model="color">
+					<md-input-container md-no-float class="md-block">
+				  	<input ng-model="user.address2" placeholder="Buscar">
 				  	<md-icon>search</md-icon>
 					</md-input-container>
 				</div>
