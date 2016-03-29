@@ -1,0 +1,28 @@
+.acme-footer {
+  .footer {
+    background: #0d47a1;
+    li {
+      font-size: 14px;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+  .footer-copy {
+    background: #1b3089;
+    .column {
+      font-size: 12px;
+      color: #fff;
+      padding: 4px 0;
+      .beta {
+        color: #e5452e;
+        font-family: 'Pacifico', cursive;
+      }
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
