@@ -9,3 +9,4 @@ src/app/ngConstants.js
 *.sw*
 inpm-debug.log
 src/app/translations/
+po/*.mo
