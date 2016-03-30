@@ -18,12 +18,39 @@ section.acme-video {
     }
   }
 }
+.menu-caterogias {
+  position: relative;
+  @extend .container;
+  .menu-caterogias-btn {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: -5px;
+    color: #fff;
+    .material-icons {
+      color: #fff;
+    }
+  }
+}
 
 md-tabs.acme-tabs {
   md-tabs-wrapper {
     background: #0d47a1;
     md-tabs-canvas {
       @extend .container;
+      height: 56px;
+      md-pagination-wrapper {
+        height: 56px;
+      }
+      md-icon {
+        display: block;
+        height: 20px;
+        &.material-icons {
+          color: #fff;
+          position: relative;
+          top: -2px;
+        }
+      }
     }
   }
   span.ng-scope {
@@ -33,7 +60,10 @@ md-tabs.acme-tabs {
     color: #ec6b25;
     background: #ec6b25;
   }
-  .md-tab .md-ripple-container {
-    color: #ec6b25;
+  .md-tab {
+    text-transform: initial;
+    .md-ripple-container {
+      color: #ec6b25;
+    }
   }
 }
