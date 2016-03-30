@@ -10,3 +10,4 @@ src/app/ngConstants.js
 npm-debug.log
 src/app/translations/
 po/*.mo
+.DS_Store
