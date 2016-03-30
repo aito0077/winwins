@@ -12,7 +12,8 @@
       templateUrl: 'app/components/highlighted/highlighted.html',
       scope: {
         items: '=',
-        title: '='
+        title: '=',
+        icon: '='
       },
       controller: HighlightedController,
       controllerAs: 'vm',

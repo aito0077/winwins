@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: components/navbar/navbar.html:11
+msgid "+ Crear Winwin"
+msgstr ""
+
+#: components/miembro/miembro.html:18
+#: components/sponsor/sponsor.html:14
+msgid "+ Ver todos los participantes"
+msgstr ""
+
+#: components/highlighted/highlighted.html:41
+msgid "+ Ver todos los winwins"
+msgstr ""
+
+#: components/navbar/navbar.html:116
+#: components/navbar/navbar.html:14
+#: components/navbar/navbar.html:24
+msgid "Buscar"
+msgstr ""
+
+#: components/miembro/miembro.html:20
+msgid "Comenzar"
+msgstr ""
+
+#: components/navbar/navbar.html:5
+msgid "Cómo funciona"
+msgstr ""
+
+#: components/navbar/navbar.html:121
+msgid "Crear Winwin"
+msgstr ""
+
+#: components/navbar/navbar.html:106
+msgid "Hola,"
+msgstr ""
+
+#: components/navbar/navbar.html:10
+#: components/navbar/navbar.html:119
+msgid "Ir a mi cuenta"
+msgstr ""
+
+#: components/navbar/navbar.html:124
+msgid "Mi perfil"
+msgstr ""
+
+#: components/navbar/navbar.html:122
+#: components/navbar/navbar.html:7
+msgid "Miembros"
+msgstr ""
+
+#: components/contador/contador.html:13
+#: components/miembro/miembro.html:5
+msgid "MIEMBROS"
+msgstr ""
+
+#: components/navbar/navbar.html:120
+msgid "Mis Winwins"
+msgstr ""
+
+#: components/sponsor/sponsor.html:6
+msgid "Organizaciones que contribuyen a la realización de un WinWin"
+msgstr ""
+
+#: components/partner/partner.html:5
+msgid ""
+"PARTNERS\n"
+"      <small>ALGUNAS DE LAS <span>ORGANIZACIONES</span><br> QUE <span>CONSTRUYEN</span> JUNTO A <span>WINWINS</span></small>"
+msgstr ""
+
+#: components/miembro/miembro.html:6
+msgid "Personas que crean y participan en acciones de consenso colectivo"
+msgstr ""
+
+#: components/navbar/navbar.html:125
+msgid "Salir"
+msgstr ""
+
+#: components/sponsor/sponsor.html:15
+msgid "Se sponsor oficial del <strong>cambio</strong> global."
+msgstr ""
+
+#: components/miembro/miembro.html:19
+msgid "Sólo faltas vos, sumáte!"
+msgstr ""
+
+#: components/highlighted/highlighted.html:32
+msgid "Somos"
+msgstr ""
+
+#: components/navbar/navbar.html:123
+#: components/navbar/navbar.html:8
+msgid "Sponsors"
+msgstr ""
+
+#: components/contador/contador.html:28
+#: components/sponsor/sponsor.html:5
+msgid "SPONSORS"
+msgstr ""
+
+#: components/sponsor/sponsor.html:16
+msgid "Sumate y comenza"
+msgstr ""
+
+#: main/main.html:23
+msgid "Últimos winwins creados"
+msgstr ""
+
+#: components/navbar/navbar.html:6
+msgid "Winwins"
+msgstr ""
+
+#: main/main.controller.js:19
+msgid "Winwins Destacados"
+msgstr ""
+
+#: main/main.html:22
+msgid "WINWINS RECIENTES"
+msgstr ""
+
+#: main/main.html:10
+msgid "Your browser does not support HTML5 video"
+msgstr ""
