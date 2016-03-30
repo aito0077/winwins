@@ -109,9 +109,26 @@ npm install
 npm start
 ```
 
+Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)
+
 ## Run Unit test
 ```sh
 npm test
 ```
 
-Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/index.html)
+## Translations
+
+We are using [angular-gettext](https://angular-gettext.rocketeer.be/) to translate the app.
+Also we have gulp tasks:
+
+1. Create pot file (template for translations, this will extract string from htmls)
+```sh
+gulp pot
+```
+
+2. Edit/Create Pot with Poedit software or similar
+
+3. Create translation.js from PO files
+```sh
+gulp translations
+```

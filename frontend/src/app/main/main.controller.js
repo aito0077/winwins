@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwins, miembros, partners) {
+  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -16,6 +16,7 @@
     vm.winwins = winwins;
     vm.miembros = miembros;
     vm.partners = partners;
+    vm.title = gettextCatalog.getString(gettext('Winwins Destacados'));
 
     vm.destacados = [
       {

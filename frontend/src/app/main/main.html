@@ -7,7 +7,7 @@
 
     <section class="acme-video">
       <video width="100%" poster="assets/images/home-video.png" controls>
-          <source src="assets/videos/winwins.m4v" type="video/mp4"> Your browser does not support HTML5 video
+          <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
       </video>
     </section>
 
@@ -30,19 +30,18 @@
           <acme-highlighted items="main.destacados" title="'Winwins recientes'" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab6">
+      <md-tab id="tab4">
         <md-tab-label>Por terminar</md-tab-label>
         <md-tab-body>
           <acme-highlighted items="main.destacados" title="'Winwins por terminar'" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
-      <md-tab id="tab4">
+      <md-tab id="tab5">
         <md-tab-label>Concretados</md-tab-label>
         <md-tab-body>
           <acme-highlighted items="main.destacados" title="'Winwins concretados'" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
-
     </md-tabs>
 
     <acme-miembro items="main.miembros"></acme-miembro>
@@ -52,8 +51,8 @@
     <div class="container acme-recientes">
       <h1 class="title">
         <md-icon md-svg-src="assets/images/icon-recientes-title.svg"></md-icon>
-        WINWINS RECIENTES
-        <small>Últimos winwins creados</small>
+        {{'WINWINS RECIENTES' | translate }}
+        <small translate>Últimos winwins creados</small>
       </h1>
     </div>
     <acme-highlighted items="main.destacados"></acme-highlighted>
