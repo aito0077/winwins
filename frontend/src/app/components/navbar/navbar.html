@@ -1,0 +1,128 @@
+<md-toolbar md-scroll-shrink lg="true" layout="row" layout-align="center center">
+	<section flex layout="row" layout-align="center center" layout-wrap>
+		<ul class="menu hide show-gt-md">
+			<li><md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Cómo funciona</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Winwins</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Miembros</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Sponsors</translate></md-button></li>
+			<li class="logo"><a href="#"><img src="../assets/images/logo.png" alt="" /></a></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Ir a mi cuenta</translate></md-button></li>
+			<li class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></li>
+			<li class="menu-search">
+				<md-input-container md-no-float class="md-block">
+			  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
+			  	<md-icon>search</md-icon>
+				</md-input-container>
+			</li>
+	  </ul>
+	  <div class="menu hide show-md">
+	  	<div layout="row" layout-align="center center">
+			  <div flex="30">
+			  	<md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch>
+					<md-input-container md-no-float class="md-block">
+				  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
+				  	<md-icon>search</md-icon>
+					</md-input-container>
+				</div>
+			  <div flex="45"><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
+				<div flex="25" layout="row" layout-align="space-around center center">
+			  	<div class="menu-notifications">
+						<md-icon>notifications</md-icon>
+						<span class="badge">1</span>
+					</div>
+					<md-card-header>
+						<md-card-avatar>
+							<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+						</md-card-avatar>
+					</md-card-header>
+					<md-button ng-click="vm.openLeftMenu()" class="md-primary menu-toggle">
+		        <md-icon>menu</md-icon>
+		      </md-button>
+		    </div>
+			</div>
+	  </div>
+	  <div class="menu hide show-xs show-sm">
+	  	<div layout="row" layout-align="space-between center">
+			  <div>
+			  	<md-icon>keyboard_arrow_left</md-icon>
+				</div>
+				<div class="menu-notifications">
+					<md-icon>notifications</md-icon>
+					<span class="badge">1</span>
+				</div>
+			  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
+			  <div>
+					<md-card-header>
+						<md-card-avatar>
+							<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+						</md-card-avatar>
+					</md-card-header>
+				</div>
+				<div>
+					<md-button ng-click="vm.openLeftMenu()" class="md-primary menu-toggle">
+		        <md-icon>menu</md-icon>
+		      </md-button>
+		    </div>
+			</div>
+	  </div>
+	</section>
+</md-toolbar>
+
+<!--<div layout="row" layout-xs="column">
+  <div flex>
+    I'm above on mobile, and to the left on larger devices.
+  </div>
+  <div flex>
+    I'm below on mobile, and to the right on larger devices.
+  </div>
+</div>
+
+
+<md-toolbar layout="row" layout-align="center center">
+
+  <md-button href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</md-button>
+
+  <section flex layout="row" layout-align="left center">
+    <md-button href="#" class="md-raised">Home</md-button>
+    <md-button href="#" class="md-raised">About</md-button>
+    <md-button href="#" class="md-raised">Contact</md-button>
+  </section>
+
+  <md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>
+
+</md-toolbar>-->
+<md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-disable-backdrop
+    md-whiteframe="4">
+  <md-toolbar class="md-theme-indigo" layout-align="center center">
+		<md-card-avatar>
+			<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+		</md-card-avatar>
+		<md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{'Hola,'| translate}} username!</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-toolbar>
+  <md-content layout-padding>
+    <!--<md-button ng-click="close()" class="md-primary" hide-gt-md>
+      Close Sidenav Left
+    </md-button>-->
+    <ul class="menu">
+    	<li class="hide-gt-sm"><md-input-container md-no-float>
+          <input ng-model="user.address2" placeholder="{{'Buscar' | translate}}">
+          <md-icon>search</md-icon>
+        </md-input-container></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon><translate> Ir a mi cuenta</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-mis-winwins.svg"></md-icon><translate> Mis Winwins</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-crear-winwins.svg"></md-icon><translate> Crear Winwin</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-miembros.svg"></md-icon><translate> Miembros</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-sponsors.svg"></md-icon><translate> Sponsors</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-perfil.svg"></md-icon><translate> Mi perfil</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#" ng-click="vm.openLeftMenu()"><md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon><translate> Salir</translate></md-button></li>
+	  </ul>
+  </md-content>
+</md-sidenav>

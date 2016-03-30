@@ -1,0 +1,73 @@
+section.acme-video {
+  background: black;
+  @media (min-width: 960px) {
+    height: 435px;
+    background: url('../assets/images/home-video-desktop.png') no-repeat center center;
+  }
+}
+
+.acme-recientes {
+  .title {
+    color: #ed7932;
+    margin: 20px 8px;
+    md-icon {
+      position: relative;
+      top:-3px;
+      width: 74px;
+      height: 65px;
+    }
+    small {
+      color: #a1a1a1;
+      font-size: 15px;
+    }
+  }
+}
+.menu-caterogias {
+  position: relative;
+  @extend .container;
+  .menu-caterogias-btn {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: -5px;
+    color: #fff;
+    .material-icons {
+      color: #fff;
+    }
+  }
+}
+
+md-tabs.acme-tabs {
+  md-tabs-wrapper {
+    background: #0d47a1;
+    md-tabs-canvas {
+      @extend .container;
+      height: 56px;
+      md-pagination-wrapper {
+        height: 56px;
+      }
+      md-icon {
+        display: block;
+        height: 20px;
+        &.material-icons {
+          color: #fff;
+          position: relative;
+          top: -2px;
+        }
+      }
+    }
+  }
+  span.ng-scope {
+    color: #fff;
+  }
+  md-ink-bar {
+    color: #ec6b25;
+    background: #ec6b25;
+  }
+  .md-tab {
+    text-transform: initial;
+    .md-ripple-container {
+      color: #ec6b25;
+    }
+  }
+}

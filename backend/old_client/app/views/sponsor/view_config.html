@@ -1,0 +1,87 @@
+
+       <div class="row" style="margin-top: 55px;" >
+    
+            <div class="col-xs-12 no-padding">
+                <div dynamic-background="" background-size="cover" background-image="http://images.dev-winwins.net/{{edit_sponsor.cover_photo}}" style="height: 220px;">
+                    <div class="bubble-upload" style="cursor:pointer" ngf-select="uploadFilesCover($file)" accept="image/*" ngf-accept="'image/*'">Portada</div>
+                    <div class="profile-avatar avatar">
+                        <img src="http://images.dev-winwins.net/smart/{{edit_sponsor.photo}}" class="img-responsive"/>
+                    </div>
+                    <div class="bubble-upload"  ngf-select="uploadFiles($file)" accept="image/*" ngf-accept="'image/*'" style="cursor:pointer">Avatar</div>
+                    <div class="username">{{edit_sponsor.name}}</div>
+                </div>
+            </div>
+
+        </div>
+
+
+    <form method="post" ng-submit="saveProfile()" name="signupForm">
+
+        
+        <div class="container">
+          <div class="col-xs-12 card-panel teal">  <label for="textarea1">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Tu Nombre" aria-describedby="basic-addon1" name="name" ng-model="edit_sponsor.name" >
+                           </div>
+                   
+                      <div class="col-xs-12 card-panel teal"><label for="textarea1">Descripcion</label>
+                    <input type="textarea" class="form-control" placeholder="Contanos sobre tu origanización." aria-describedby="basic-addon1" name="about" ng-model="edit_sponsor.about"> 
+
+           
+                       </div>
+                       <div class="col-xs-12 card-panel teal">
+                                       <label for="textarea1">Intereses</label>
+                    <textarea ng-model="edit_sponsor.interests" class="materialize-textarea"  placeholder="Contanos tus intereses..."></textarea>
+       
+                    </div>
+             
+
+                     <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Persona de contacto.</label>
+                
+                         <input type="text" class="form-control" placeholder="Nombre y apellido" aria-describedby="basic-addon1" name="name" ng-model="edit_sponsor.contact_name" >  </div>
+                        <!---->
+                        <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Telefono.</label>
+                    
+        <input type="text" class="form-control" placeholder="Telefono" aria-describedby="basic-addon1" name="phone" ng-model="edit_sponsor.contact_phone">
+                         </div>
+                          <!---->
+                        <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Email</label>
+        <input class="form-control" type="email" id="email" name="email" ng-model="edit_sponsor.contact_email" placeholder="E-mail" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"  aria-describedby="basic-addon1" required></textarea>
+           <!----> </div>
+
+
+    <div class="col-xs-12 card-panel teal">
+        
+        
+        <h4 class="left" style="margin-left: 10px;"><i class="fa fa-unlock-alt"></i> Cambiar contraseña</h4><br><br>
+        <hr/>
+                                   <label for="textarea1">Contraseña Anterior</label>
+        <input class="form-control" type="password" name="current_password" ng-model="edit_sponsor.current_password" placeholder="Tu Contraseña Anterior"   aria-describedby="basic-addon1" ></textarea>
+
+
+
+                                   <label for="textarea1"> Nueva Contraseña </label>
+        <input password-strength class="form-control" type="password" name="password" ng-model="edit_sponsor.password" placeholder="Elegi una nueva contrasena"   aria-describedby="basic-addon1" ></textarea>
+           <!----> 
+
+
+
+                                   <label for="textarea1">Confirmar contraseña</label>
+        <input password-match="password" class="form-control" type="password" name="confirmPassword" ng-model="edit_sponsor.confirmPassword" placeholder="Confirmar Contraseña" aria-describedby="basic-addon1" ></textarea>
+           <!----> </div>
+
+ <div class="col-xs-12 card-panel teal">
+                                   <label for="textarea1">Palabras clave vinculadas relacionadas.</label>
+        <input name="" placeholder="Agregá palabras clave" type="text"  aria-describedby="basic-addon1" ></textarea>
+           <!----> </div>
+ 
+
+            <button type="submit" class="btn-large green  full" ng-disabled="signupForm.$invalid" >
+                Actualizar
+            </button>
+</form>
+        </div>
+
+
