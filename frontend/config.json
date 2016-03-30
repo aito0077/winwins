@@ -5,6 +5,7 @@
     "dev": {
       "ENV": {
         "name": "dev",
+        "base": "http://localhost:8000",
         "apiBase": "http://localhost:8000/api",
         "satellizer": {
           "facebook": {
@@ -26,6 +27,7 @@
     "prod": {
       "ENV": {
         "name": "prod",
+        "base": "http://localhost:8000",
         "apiBase": "https://api.example.com/v1",
         "satellizer": {
           "facebook": {
