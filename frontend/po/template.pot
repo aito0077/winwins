@@ -4,6 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: components/footer/footer.html:45
 #: components/navbar/navbar.html:11
 msgid "+ Crear Winwin"
 msgstr ""
@@ -23,6 +24,10 @@ msgstr ""
 msgid "Buscar"
 msgstr ""
 
+#: components/footer/footer.html:9
+msgid "COMENZA ESTA AVENTURA"
+msgstr ""
+
 #: components/miembro/miembro.html:20
 msgid "Comenzar"
 msgstr ""
@@ -33,6 +38,13 @@ msgstr ""
 
 #: main/main.html:55
 msgid "Concretados"
+
+#: components/footer/footer.html:60
+msgid "Contáctanos"
+msgstr ""
+
+#: components/footer/footer.html:32
+msgid "Crea un winwin"
 msgstr ""
 
 #: components/navbar/navbar.html:121
@@ -41,10 +53,19 @@ msgstr ""
 
 #: main/main.html:31
 msgid "Destacados"
+
+#: components/footer/footer.html:7
+msgid ""
+"Cuando la gente lidera, \n"
+"    los líderes acompañan."
 msgstr ""
 
 #: components/navbar/navbar.html:106
 msgid "Hola,"
+msgstr ""
+
+#: components/footer/footer.html:37
+msgid "INGRESAR"
 msgstr ""
 
 #: components/navbar/navbar.html:10
@@ -94,10 +115,17 @@ msgstr ""
 
 #: main/main.html:43
 msgid "Recientes"
+
+#: components/footer/footer.html:33
+msgid "Registrate"
 msgstr ""
 
 #: components/navbar/navbar.html:125
 msgid "Salir"
+msgstr ""
+
+#: components/footer/footer.html:31
+msgid "Sé sponsor"
 msgstr ""
 
 #: components/sponsor/sponsor.html:15
@@ -112,6 +140,7 @@ msgstr ""
 msgid "Somos"
 msgstr ""
 
+#: components/footer/footer.html:26
 #: components/navbar/navbar.html:123
 #: components/navbar/navbar.html:8
 msgid "Sponsors"
@@ -126,12 +155,23 @@ msgstr ""
 msgid "Sumate y comenza"
 msgstr ""
 
+#: components/footer/footer.html:54
+msgid "Términos y condiciones"
+msgstr ""
+
 #: main/main.html:70
 msgid "Últimos winwins creados"
 msgstr ""
 
 #: main/main.html:19
 msgid "Ver winwins por categoria"
+
+#: components/footer/footer.html:25
+msgid "Usuarios"
+msgstr ""
+
+#: components/footer/footer.html:24
+msgid "Ver Winwins"
 msgstr ""
 
 #: components/navbar/navbar.html:6
@@ -140,6 +180,9 @@ msgstr ""
 
 #: main/main.controller.js:23
 msgid "Winwins concretados"
+
+#: components/footer/footer.html:57
+msgid "WinWins - Consenos en acción"
 msgstr ""
 
 #: main/main.controller.js:19
