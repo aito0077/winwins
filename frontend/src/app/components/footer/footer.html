@@ -1,41 +1,60 @@
-<md-content class="acme-footer" class="hide show-gt-sm">
-  <div class="container">
-    <div layout="row" layout-align="space-between center" class="footer">
-      <div class="column">
-        <ul>
-          <li><a href="#">Ver Winwins</a></li>
-          <li><a href="#">Usuarios</a></li>
-          <li><a href="#">Sponsors</a></li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li><a href="#">Sé sponsor</a></li>
-          <li><a href="#">Crea un winwin</a></li>
-          <li><a href="#">Registrate</a></li>
-        </ul>
-      </div>
-      <div class="column">
-        <span>INGRESAR</span>
-        <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
-        <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
-        <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
-        <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
-        <md-icon md-svg-src="assets/images/icon-ww.svg"></md-icon>
-      </div>
-      <div class="column">
-        <a href="#">+ Crear Winwin</a>
+<md-content class="acme-footer">
+  <div class="footer-sumate">
+    <div class="container">
+      <h2><img src="assets/images/sumate.svg"></h2>
+      <p>Cuando la gente lidera, 
+los líderes acompañan.</p>
+      <md-button ng-href="#">COMENZA ESTA AVENTURA</md-button>
+      <md-icon class="material-icons md-light md-48">arrow_foward</md-icon>
+      <md-button md-warn>
+        <md-icon>arrow_foward</md-icon>
+      </md-button>
+      <md-button class="md-raised md-warn">Warn</md-button>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div layout="row" layout-padding layout-align="center center">
+        <div flex class="column">
+          <ul>
+            <li><a href="#">Ver Winwins</a></li>
+            <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Sponsors</a></li>
+          </ul>
+        </div>
+        <div flex class="column">
+          <ul>
+            <li><a href="#">Sé sponsor</a></li>
+            <li><a href="#">Crea un winwin</a></li>
+            <li><a href="#">Registrate</a></li>
+          </ul>
+        </div>
+        <div flex class="column social-media">
+          <p>INGRESAR</p>
+          <md-icon md-svg-src="assets/images/icon-facebook.svg" ng-href="#" target="_blank"></md-icon>
+          <md-icon md-svg-src="assets/images/icon-twitter.svg" ng-href="#" target="_blank"></md-icon>
+          <md-icon md-svg-src="assets/images/icon-google.svg" ng-href="#" target="_blank"></md-icon>
+          <md-icon md-svg-src="assets/images/icon-yahoo.svg" ng-href="#" target="_blank"></md-icon>
+          <md-icon md-svg-src="assets/images/icon-ww.svg" ng-href="#" target="_blank"></md-icon>
+        </div>
+        <div flex class="column">
+          <a href="#" class="crear">+ Crear Winwin</a>
+        </div>
       </div>
     </div>
-    <div layout="row" layout-align="space-between center" class="footer-copy">
-      <div class="column">
-        <a href="#">Términos y condiciones</a>
-      </div>
-      <div class="column">
-        WinWins - Consenos en acción <span class="beta">beta</span>  ©  2016
-      </div>
-      <div class="column">
-        <a href="#">Contáctanos</a>
+  </div>
+  <div class="footer-copy">
+    <div class="container">
+      <div layout="row" layout-padding layout-align="space-between center">
+        <div class="column">
+          <a href="#">Términos y condiciones</a>
+        </div>
+        <div class="column">
+          WinWins - Consenos en acción <span class="beta">beta</span>  ©  2016
+        </div>
+        <div class="column">
+          <a href="#">Contáctanos</a>
+        </div>
       </div>
     </div>
   </div>
