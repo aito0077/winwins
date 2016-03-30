@@ -1,20 +1,24 @@
 <md-content class="acme-footer">
   <div class="footer-sumate">
     <div class="container">
-      <h2><img src="assets/images/sumate.svg"></h2>
-      <p>Cuando la gente lidera, 
-los líderes acompañan.</p>
-      <md-button ng-href="#">COMENZA ESTA AVENTURA</md-button>
-      <md-icon class="material-icons md-light md-48">arrow_foward</md-icon>
-      <md-button md-warn>
-        <md-icon>arrow_foward</md-icon>
-      </md-button>
-      <md-button class="md-raised md-warn">Warn</md-button>
+      <div layout="row" layout-padding layout-align="space-around end">
+        <div>
+          <h2><img src="assets/images/sumate.svg"></h2>
+          <p>Cuando la gente lidera, 
+    los líderes acompañan.</p>
+          <md-button ng-href="#" class="green">COMENZA ESTA AVENTURA</md-button>
+        </div>
+        <div>
+          <md-button class="md-raised md-fab md-warn">
+            <md-icon md-svg-src="assets/images/icon-arrow-up.svg"></md-icon>
+          </md-button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer">
     <div class="container">
-      <div layout="row" layout-padding layout-align="center center">
+      <div layout-gt-sm="row" layout-padding layout-align="center center">
         <div flex class="column">
           <ul>
             <li><a href="#">Ver Winwins</a></li>
