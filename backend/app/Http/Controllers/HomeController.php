@@ -9,9 +9,8 @@ class HomeController extends Controller {
         return File::get(public_path().'/index.html');
     }
 
-    public function index() {
+    public function index_desktop() {
         return File::get(public_path().'/desktop/index.html');
     }
-
 
 }
