@@ -2,16 +2,16 @@
 	<section flex layout="row" layout-align="center center" layout-wrap>
 		<ul class="menu hide show-gt-md">
 			<li><md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch></li>
-			<li><md-button class="md-primary" ng-href="#">Cómo funciona</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Winwins</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Miembros</md-button></li>
-			<li><md-button class="md-primary" ng-href="#">Sponsors</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Cómo funciona</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Winwins</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Miembros</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Sponsors</translate></md-button></li>
 			<li class="logo"><a href="#"><img src="../assets/images/logo.png" alt="" /></a></li>
-			<li><md-button class="md-primary" ng-href="#">Ir a mi cuenta</md-button></li>
-			<li class="crear"><md-button class="md-primary" ng-href="#">+ Crear Winwin</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><translate>Ir a mi cuenta</translate></md-button></li>
+			<li class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></li>
 			<li class="menu-search">
 				<md-input-container md-no-float class="md-block">
-			  	<input ng-model="user.address2" placeholder="Buscar">
+			  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
 			  	<md-icon>search</md-icon>
 				</md-input-container>
 			</li>
@@ -21,7 +21,7 @@
 			  <div flex="30">
 			  	<md-switch ng-model="data.cb1" aria-label="Switch 1"></md-switch>
 					<md-input-container md-no-float class="md-block">
-				  	<input ng-model="user.address2" placeholder="Buscar">
+				  	<input ng-model="user.address2" placeholder="{{ 'Buscar' | translate }}">
 				  	<md-icon>search</md-icon>
 					</md-input-container>
 				</div>
@@ -59,7 +59,7 @@
 						</md-card-avatar>
 					</md-card-header>
 				</div>
-				<div>	
+				<div>
 					<md-button ng-click="vm.openLeftMenu()" class="md-primary menu-toggle">
 		        <md-icon>menu</md-icon>
 		      </md-button>
@@ -103,7 +103,7 @@
 		</md-card-avatar>
 		<md-card-title>
       <md-card-title-text>
-        <span class="md-headline">Hola, username!</span>
+        <span class="md-headline">{{'Hola,'| translate}} username!</span>
       </md-card-title-text>
     </md-card-title>
   </md-toolbar>
@@ -113,16 +113,16 @@
     </md-button>-->
     <ul class="menu">
     	<li class="hide-gt-sm"><md-input-container md-no-float>
-          <input ng-model="user.address2" placeholder="Buscar">
+          <input ng-model="user.address2" placeholder="{{'Buscar' | translate}}">
           <md-icon>search</md-icon>
         </md-input-container></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon> Ir a mi cuenta</md-button></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-mis-winwins.svg"></md-icon> Mis Winwins</md-button></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-crear-winwins.svg"></md-icon> Crear Winwin</md-button></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-miembros.svg"></md-icon> Miembros</md-button></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-sponsors.svg"></md-icon> Sponsors</md-button></li>
-			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-perfil.svg"></md-icon> Mi perfil</md-button></li>
-			<li><md-button class="md-primary" ng-href="#" ng-click="vm.openLeftMenu()"><md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon> Salir</md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon><translate> Ir a mi cuenta</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-mis-winwins.svg"></md-icon><translate> Mis Winwins</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-crear-winwins.svg"></md-icon><translate> Crear Winwin</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-miembros.svg"></md-icon><translate> Miembros</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-sponsors.svg"></md-icon><translate> Sponsors</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-perfil.svg"></md-icon><translate> Mi perfil</translate></md-button></li>
+			<li><md-button class="md-primary" ng-href="#" ng-click="vm.openLeftMenu()"><md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon><translate> Salir</translate></md-button></li>
 	  </ul>
   </md-content>
 </md-sidenav>
