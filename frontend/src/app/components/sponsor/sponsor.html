@@ -7,11 +7,11 @@
     </h1>
     <div layout="row" layout-align="center" layout-wrap class="acme-sponsor-body">
       <div ng-repeat="item in vm.items">
-        <img ng-src="http://images.dev-winwins.net/x60/{{item.cover_photo}}" alt="{{item.name}}">
+        <img ng-src="http://images.dev-winwins.net/90x90/smart/{{item.cover_photo}}" alt="{{item.name}}">
       </div>
     </div>
     <div layout="column" layout-align="center center">
-      <md-button class="md-raised md-warn md-right">+ Ver todos los participantes</md-button>
+      <md-button class="md-raised md-warn md-right">{{ '+ Ver todos los participantes' | translate }}</md-button>
       <h3 translate>Se sponsor oficial del <strong>cambio</strong> global.</h3>
       <md-button class="md-raised md-green">{{'Sumate y comenza' | translate }}</md-button>
     </div>

@@ -9,12 +9,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: components/navbar/navbar.html:11
 msgid "+ Crear Winwin"
 msgstr "+ Add Winwin"
+
+#: components/miembro/miembro.html:18 components/sponsor/sponsor.html:14
+msgid "+ Ver todos los participantes"
+msgstr "+ View all participants"
+
+#: components/highlighted/highlighted.html:41
+msgid "+ Ver todos los winwins"
+msgstr "+ List all winwins"
 
 #: components/navbar/navbar.html:116 components/navbar/navbar.html:14
 #: components/navbar/navbar.html:24
@@ -125,9 +133,6 @@ msgstr "El navegador no soporte HTML5 Video"
 
 #~ msgid "Winwins destacados"
 #~ msgstr "Featured Winwins"
-
-#~ msgid "+ Ver todos los winwins"
-#~ msgstr "+ List all winwins"
 
 #~ msgid "WINWINS DESTACADOS"
 #~ msgstr "FEATURED WINWINS "
