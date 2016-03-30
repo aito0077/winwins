@@ -106,7 +106,7 @@ msgstr ""
 msgid "Sumate y comenza"
 msgstr ""
 
-#: main/main.html:23
+#: main/main.html:70
 msgid "Últimos winwins creados"
 msgstr ""
 
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Winwins Destacados"
 msgstr ""
 
-#: main/main.html:22
+#: main/main.html:69
 msgid "WINWINS RECIENTES"
 msgstr ""
 
