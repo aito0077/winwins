@@ -8,6 +8,15 @@ msgstr ""
 msgid "+ Crear Winwin"
 msgstr ""
 
+#: components/miembro/miembro.html:18
+#: components/sponsor/sponsor.html:14
+msgid "+ Ver todos los participantes"
+msgstr ""
+
+#: components/highlighted/highlighted.html:41
+msgid "+ Ver todos los winwins"
+msgstr ""
+
 #: components/navbar/navbar.html:116
 #: components/navbar/navbar.html:14
 #: components/navbar/navbar.html:24
