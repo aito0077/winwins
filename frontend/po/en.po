@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: components/navbar/navbar.html:11
@@ -111,7 +111,7 @@ msgstr "SPONSORS"
 msgid "Sumate y comenza"
 msgstr "Log in and Start"
 
-#: main/main.html:23
+#: main/main.html:70
 msgid "Últimos winwins creados"
 msgstr "Last winwins added"
 
@@ -123,7 +123,7 @@ msgstr "Winwins"
 msgid "Winwins Destacados"
 msgstr "Featured Winwin"
 
-#: main/main.html:22
+#: main/main.html:69
 msgid "WINWINS RECIENTES"
 msgstr "LAST WINWINS"
 
