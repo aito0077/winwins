@@ -10,7 +10,7 @@
 		"laravel/framework": "5.1.*",
 	  	"firebase/php-jwt": "~2.0",
 		"elasticsearch/elasticsearch": "~1.0",
-		"barryvdh/laravel-cors": "0.7.x",
+		"barryvdh/laravel-cors": "0.8.x",
 		"predis/predis": "^1.0",
 		"nesbot/carbon": "^1.20",
 		"graham-campbell/flysystem": "^3.1",
