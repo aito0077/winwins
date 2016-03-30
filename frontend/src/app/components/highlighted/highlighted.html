@@ -1,8 +1,8 @@
 <md-content class="acme-highlighted">
   <div class="container">
-    <h1 class="title hide show-gt-sm" ng-if="vm.title">
+    <h1 class="title" ng-if="vm.title">
       <span>
-        <md-icon md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+        <md-icon md-svg-src="assets/images/{{vm.icon}}.svg"></md-icon>
         {{vm.title}}
       </span>
     </h1>
