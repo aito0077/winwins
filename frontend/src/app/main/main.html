@@ -16,7 +16,7 @@
     <div class="menu-caterogias">
       <md-menu md-offset="0 0" md-position-mode="target-right target" class="menu-caterogias-btn">
         <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
-          Ver winwins por categoria <md-icon md-menu-origin>arrow_drop_down</md-icon>
+          {{'Ver winwins por categoria' | translate }} <md-icon md-menu-origin>arrow_drop_down</md-icon>
         </md-button>
         <md-menu-content width="6">
           <md-menu-item ng-repeat="item in [1, 2, 3]">
@@ -28,33 +28,33 @@
 
     <md-tabs md-dynamic-height class="acme-tabs hide show-gt-sm">
       <md-tab id="tab1">
-        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-highlighted.svg"></md-icon>Destacados</md-tab-label>
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-highlighted.svg"></md-icon>{{'Destacados' | translate }}</md-tab-label>
         <md-tab-body>
-          <acme-highlighted items="main.destacados" title="'Winwins destacados'" icon="'icon-highlighted'"></acme-highlighted>
+          <acme-highlighted items="main.destacados" title="main.tdestacados" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab2">
-        <md-tab-label><md-icon>whatshot</md-icon>Populares</md-tab-label>
+        <md-tab-label><md-icon>whatshot</md-icon>{{'Populares' | translate }}</md-tab-label>
         <md-tab-body>
-          <acme-highlighted items="main.destacados" title="'Winwins populares'" icon="'icon-highlighted'"></acme-highlighted>
+          <acme-highlighted items="main.destacados" title="main.tpopulares" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab3">
-        <md-tab-label><md-icon>access_time</md-icon>Recientes</md-tab-label>
+        <md-tab-label><md-icon>access_time</md-icon>{{ 'Recientes' | translate }}</md-tab-label>
         <md-tab-body>
-          <acme-highlighted items="main.destacados" title="'Winwins recientes'" icon="'icon-highlighted'"></acme-highlighted>
+          <acme-highlighted items="main.destacados" title=" main.trecientes" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab4">
-        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-por-terminar.svg"></md-icon>Por terminar</md-tab-label>
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-por-terminar.svg"></md-icon>{{' Por terminar' | translate }}</md-tab-label>
         <md-tab-body>
-          <acme-highlighted items="main.destacados" title="'Winwins por terminar'" icon="'icon-highlighted'"></acme-highlighted>
+          <acme-highlighted items="main.destacados" title="main.tterminar" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
       <md-tab id="tab5">
-        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-concretados.svg"></md-icon>Concretados</md-tab-label>
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-concretados.svg"></md-icon>{{'Concretados' | translate }}</md-tab-label>
         <md-tab-body>
-          <acme-highlighted items="main.destacados" title="'Winwins concretados'" icon="'icon-highlighted'"></acme-highlighted>
+          <acme-highlighted items="main.destacados" title="main.tconcretados" icon="'icon-highlighted'"></acme-highlighted>
         </md-tab-body>
       </md-tab>
     </md-tabs>

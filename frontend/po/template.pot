@@ -31,8 +31,16 @@ msgstr ""
 msgid "Cómo funciona"
 msgstr ""
 
+#: main/main.html:55
+msgid "Concretados"
+msgstr ""
+
 #: components/navbar/navbar.html:121
 msgid "Crear Winwin"
+msgstr ""
+
+#: main/main.html:31
+msgid "Destacados"
 msgstr ""
 
 #: components/navbar/navbar.html:106
@@ -76,6 +84,18 @@ msgstr ""
 msgid "Personas que crean y participan en acciones de consenso colectivo"
 msgstr ""
 
+#: main/main.html:37
+msgid "Populares"
+msgstr ""
+
+#: main/main.html:49
+msgid "Por terminar"
+msgstr ""
+
+#: main/main.html:43
+msgid "Recientes"
+msgstr ""
+
 #: components/navbar/navbar.html:125
 msgid "Salir"
 msgstr ""
@@ -110,12 +130,32 @@ msgstr ""
 msgid "Últimos winwins creados"
 msgstr ""
 
+#: main/main.html:19
+msgid "Ver winwins por categoria"
+msgstr ""
+
 #: components/navbar/navbar.html:6
 msgid "Winwins"
 msgstr ""
 
+#: main/main.controller.js:23
+msgid "Winwins concretados"
+msgstr ""
+
 #: main/main.controller.js:19
 msgid "Winwins Destacados"
+msgstr ""
+
+#: main/main.controller.js:20
+msgid "Winwins Populares"
+msgstr ""
+
+#: main/main.controller.js:22
+msgid "Winwins por terminar"
+msgstr ""
+
+#: main/main.controller.js:21
+msgid "Winwins Recientes"
 msgstr ""
 
 #: main/main.html:69
