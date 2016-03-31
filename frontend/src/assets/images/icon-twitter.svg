@@ -1,37 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="38px" height="38px" viewBox="0 0 38 38" enable-background="new 0 0 38 38" xml:space="preserve">
-<g>
-	<g>
-		<g opacity="0.7">
-			<defs>
-				<rect id="SVGID_1_" x="0.174" y="1" opacity="0.7" width="37.652" height="34.29"/>
-			</defs>
-			<clipPath id="SVGID_2_">
-				<use xlink:href="#SVGID_1_"  overflow="visible"/>
-			</clipPath>
-			<g clip-path="url(#SVGID_2_)">
-				<g>
-					<defs>
-						<rect id="SVGID_3_" x="0.174" y="1" width="37.652" height="34.289"/>
-					</defs>
-					<clipPath id="SVGID_4_">
-						<use xlink:href="#SVGID_3_"  overflow="visible"/>
-					</clipPath>
-					<path clip-path="url(#SVGID_4_)" fill="#60CBF0" d="M37.826,18.146c0,9.468-8.43,17.146-18.827,17.146
-						c-10.398,0-18.824-7.678-18.824-17.146C0.175,8.676,8.601,1,19,1C29.396,1,37.826,8.676,37.826,18.146"/>
-				</g>
-			</g>
-		</g>
-		<path fill="#F4F4F5" d="M29,11.256c-0.736,0.361-1.527,0.606-2.355,0.716c0.847-0.562,1.498-1.452,1.806-2.515
-			c-0.793,0.521-1.673,0.9-2.604,1.104c-0.75-0.884-1.816-1.435-2.996-1.435c-2.269,0-4.104,2.034-4.104,4.544
-			c0,0.356,0.035,0.703,0.107,1.036c-3.412-0.19-6.435-1.999-8.459-4.749c-0.353,0.672-0.556,1.452-0.556,2.285
-			c0,1.576,0.726,2.968,1.826,3.781c-0.673-0.022-1.308-0.229-1.859-0.568v0.058c0,2.202,1.416,4.038,3.291,4.456
-			c-0.344,0.104-0.708,0.16-1.08,0.16c-0.264,0-0.522-0.027-0.774-0.082c0.524,1.805,2.039,3.119,3.834,3.156
-			c-1.403,1.218-3.172,1.945-5.094,1.945c-0.334,0-0.66-0.022-0.979-0.064c1.813,1.289,3.972,2.042,6.291,2.042
-			c7.546,0,11.673-6.923,11.673-12.929c0-0.197-0.006-0.393-0.012-0.59C27.754,12.968,28.449,12.168,29,11.256"/>
-	</g>
-</g>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   width="38px"
+   height="38px"
+   viewBox="0 0 38 38"
+   enable-background="new 0 0 38 38"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon-twitter.svg"><metadata
+     id="metadata29"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs27"><defs
+       id="defs7"><rect
+         id="SVGID_1_"
+         x="0.17399999"
+         y="1"
+         width="37.652"
+         height="34.290001" /></defs><clipPath
+       id="SVGID_2_"><use
+         xlink:href="#SVGID_1_"
+         overflow="visible"
+         id="use11"
+         style="overflow:visible"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" /></clipPath><defs
+       id="defs15"><rect
+         height="34.289001"
+         width="37.652"
+         y="1"
+         x="0.17399999"
+         id="SVGID_3_" /></defs><clipPath
+       id="SVGID_4_"><use
+         height="100%"
+         width="100%"
+         y="0"
+         x="0"
+         style="overflow:visible"
+         id="use19"
+         overflow="visible"
+         xlink:href="#SVGID_3_" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1557"
+     inkscape:window-height="772"
+     id="namedview25"
+     showgrid="false"
+     inkscape:zoom="6.2105263"
+     inkscape:cx="19"
+     inkscape:cy="19"
+     inkscape:window-x="49"
+     inkscape:window-y="34"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Capa_1" /><path
+     style="fill:#88c9ed"
+     inkscape:connector-curvature="0"
+     id="path21"
+     d="m 37.826,18.146 c 0,9.468 -8.43,17.146 -18.827,17.146 C 8.601,35.292 0.175,27.614 0.175,18.146 0.175,8.676 8.601,1 19,1 29.396,1 37.826,8.676 37.826,18.146"
+     clip-path="url(#SVGID_4_)"
+     transform="matrix(1.0092693,0,0,1.1082271,-0.17662213,-1.1082271)" /><path
+     d="m 29.092189,11.365977 c -0.742822,0.40007 -1.541154,0.671586 -2.37683,0.793491 0.853842,-0.622824 1.511886,-1.609146 1.821732,-2.7871911 C 27.73674,9.9496633 26.849592,10.369681 25.907944,10.59576 25.150992,9.6160869 24.075111,9.0054538 22.884173,9.0054538 c -2.289023,0 -4.142041,2.2541342 -4.142041,5.0357842 0,0.394528 0.03532,0.779083 0.107992,1.148123 -3.443627,-0.210563 -6.494649,-2.215346 -8.53741,-5.2629705 -0.3562719,0.7447285 -0.5611536,1.6091455 -0.5611536,2.5322985 0,1.746566 0.7327296,3.289218 1.8429256,4.190207 -0.679238,-0.02438 -1.320124,-0.253784 -1.8762315,-0.629473 l 0,0.06428 c 0,2.440316 1.4291255,4.475021 3.3215055,4.93826 -0.347189,0.115256 -0.714563,0.177316 -1.090011,0.177316 -0.266447,0 -0.526839,-0.03103 -0.781174,-0.09087 0.528857,2.00035 2.0579,3.45656 3.869538,3.497564 -1.416005,1.349821 -3.201402,2.155502 -5.1412178,2.155502 -0.337096,0 -0.6661178,-0.02438 -0.9880747,-0.07093 1.8298055,1.428504 4.0088175,2.262999 6.3493135,2.262999 7.615946,0 11.781201,-7.672256 11.781201,-14.328268 0,-0.21832 -0.0061,-0.435533 -0.01211,-0.653854 0.807415,-0.708157 1.508857,-1.594738 2.064965,-2.605442"
+     id="path23"
+     inkscape:connector-curvature="0"
+     style="fill:#f4f4f5" /></svg>
