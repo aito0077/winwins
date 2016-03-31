@@ -1,0 +1,12 @@
+/vendor
+/backups
+/node_modules
+/client/bower_components
+/client/app/bower_components
+.env
+*.leo
+.*.swp
+.*.swo
+/.idea
+/public/*
+!/public/index.php

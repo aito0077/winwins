@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg21410"
+   viewBox="0 0 63.999999 59.000001"
+   height="59"
+   width="64">
+  <defs
+     id="defs21412">
+    <clipPath
+       id="clipPath7706"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path7708"
+         d="m 1229,4373.17 51,0 0,-47 -51,0 0,47 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath7710"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path7712"
+         d="m 1229,4326.167 51,0 0,47 -51,0 0,-47 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath7728"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path7730"
+         d="m 1229,4322.17 51,0 0,-47 -51,0 0,47 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath7732"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path7734"
+         d="m 1229,4275.167 51,0 0,47 -51,0 0,-47 z" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata21415">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-993.3622)"
+     id="layer1">
+    <g
+       style="opacity:0.69999701"
+       id="g7738"
+       clip-path="url(#clipPath7728)"
+       transform="matrix(1.254902,0,0,-1.2553993,-1542.2745,6419.4075)">
+      <g
+         id="g7740">
+        <g
+           id="g7742"
+           clip-path="url(#clipPath7732)">
+          <path
+             id="path7744"
+             style="fill:#60cbf0;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             d="m 1229,4275.167 51,0 0,47 -51,0 0,-47 z" />
+        </g>
+      </g>
+    </g>
+    <path
+       d="m 51.652006,1012.4341 c -1.298824,0.5485 -2.694275,0.9201 -4.161255,1.0872 1.497098,-0.8537 2.645333,-2.2058 3.187451,-3.8178 -1.399216,0.7909 -2.950275,1.3659 -4.601726,1.6747 -1.325176,-1.3419 -3.208784,-2.178 -5.290666,-2.178 -4.004393,0 -7.252079,3.0895 -7.252079,6.8996 0,0.5411 0.06646,1.0671 0.192,1.573 -6.027294,-0.2874 -11.364393,-3.0342 -14.940864,-7.211 -0.622431,1.0207 -0.981333,2.2058 -0.981333,3.4687 0,2.3953 1.28,4.5081 3.225098,5.7447 -1.188392,-0.035 -2.30651,-0.3478 -3.284078,-0.865 l 0,0.088 c 0,3.3432 2.501019,6.1327 5.81396,6.7654 -0.608627,0.1568 -1.252392,0.2447 -1.907451,0.2447 -0.466823,0 -0.923607,-0.044 -1.366588,-0.1255 0.924863,2.7393 3.599059,4.7354 6.768941,4.7931 -2.477176,1.8493 -5.601882,2.954 -8.996392,2.954 -0.587294,0 -1.162039,-0.035 -1.73051,-0.097 3.20502,1.9571 7.013648,3.0995 11.112158,3.0995 13.329569,0 20.621804,-10.5127 20.621804,-19.6319 0,-0.2988 -0.01255,-0.5951 -0.02138,-0.8939 1.411764,-0.9716 2.640313,-2.1869 3.612862,-3.5715"
+       style="fill:#f6f5f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path7754" />
+  </g>
+</svg>
