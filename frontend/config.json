@@ -6,6 +6,7 @@
       "ENV": {
         "name": "dev",
         "apiBase": "http://localhost:8000/api",
+        "imageServer": "http://images.dev-winwins.net",
         "defaultLang": "es",
         "baseLang": "es",
         "availableLangs": ["es", "en"],
@@ -30,6 +31,7 @@
       "ENV": {
         "name": "prod",
         "apiBase": "http://dev-winwins.net/api",
+        "imageServer": "http://images.dev-winwins.net",
         "defaultLang": "es",
         "baseLang": "es",
         "availableLangs": ["es", "en"],

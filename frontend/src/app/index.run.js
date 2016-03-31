@@ -22,6 +22,10 @@
       gettextCatalog.debug = true;
       gettextCatalog.debugPrefix = '[Missing]:';
     }
+
+    // On $rootCcope, so we can reference it on templates
+    // without setting on controller
+    $rootScope.imageServer = ENV.imageServer;
   }
 
 })();
