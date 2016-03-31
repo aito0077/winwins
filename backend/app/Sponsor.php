@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model {
 
+    public static $SponsorStatus = [ 'ACTIVE', 'PENDING', 'CANCELLED' ];
+
     public function user() {
         return $this->belongsTo('Winwins\User');
     }
