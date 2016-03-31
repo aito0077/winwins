@@ -5,11 +5,27 @@
       <acme-navbar creation-date="main.creationDate"></acme-navbar>
     </header>
 
-    <section class="acme-video">
+    <section class="acme-video" layout>
+      <div class="signup" flex="30" layout="column" layout-align="center center">
+        <img src="assets/images/home-video-login.svg" alt="" />
+        <md-button class="md-raised md-primary"><md-icon>play_arrow</md-icon> SI!</md-button>
+      </div>
+      <div class="login" flex="40" layout layout-align="center end">
+        <div class="">
+          <h1>login</h1>
+        </div>
+      </div>
+      <div class="share" flex="30" layout="column" layout-align="start end">
+        <h1>compartir es sumar</h1>
+        <md-button class="md-raised md-primary">facebook</md-button>
+        <md-button class="md-raised md-primary">twitter</md-button>
+        <md-button class="md-raised md-primary">google plus</md-button>
+      </div>
+
       <!--video poster="" controls show-gt-sm>
           <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
       </video-->
-      
+
       <video width="100%" poster="assets/images/home-video.png" controls hide-gt-sm>
           <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
       </video>

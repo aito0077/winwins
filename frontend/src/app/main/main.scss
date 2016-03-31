@@ -2,7 +2,12 @@ section.acme-video {
   background: black;
   @media (min-width: 960px) {
     height: 435px;
-    background: url('../assets/images/home-video-desktop.png') no-repeat center center;
+    background: url('../assets/images/home-video-desktop.png') no-repeat right center;
+    background-size: cover;
+  }
+  .share {
+    background: url('../assets/images/arrow-share.svg') no-repeat center 30px;
+
   }
 }
 
