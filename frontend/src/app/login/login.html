@@ -1,0 +1,53 @@
+<div layout-fill>
+
+  <md-content>
+    <header>
+      <acme-navbar creation-date="main.creationDate"></acme-navbar>
+    </header>
+    
+    <div ng-show="!login.redirect_message">
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-content layout-padding>
+          <div>
+            <form method="post" ng-submit="login.login()" name="loginForm">
+              <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label translate>Email</label>
+                  <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+                </md-input-container>
+              </div>
+              <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                  <label translate>Password</label>
+                  <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+                </md-input-container>
+              </div>
+              <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate>Ingresar
+              </button>
+            </form>
+          </div>
+        </md-content>
+      </section>
+
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-fab md-mini" ng-click="login.authenticate('facebook')" aria-label="Facebook">
+            <md-icon md-svg-src=""></md-icon>Facebook
+        </md-button>
+        <md-button class="md-fab md-mini" ng-click="login.authenticate('twitter')" aria-label="Twitter">
+          <md-icon md-svg-src=""></md-icon>Twitter
+        </md-button>
+        <md-button class="md-fab md-mini" ng-click="login.authenticate('google')" aria-label="Google">
+            <md-icon md-svg-src=""></md-icon>Google
+        </md-button>
+        <md-button class="md-fab md-mini" ng-click="login.authenticate('yahoo')" aria-label="Yahoo">
+            <md-icon md-svg-src=""></md-icon>Yahoo
+        </md-button>
+      </section>
+    </div>
+
+    <section ng-show="login.redirect_message" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <h1 ng-if="!login.provider" translate> ¡Genial! </h1>
+      <h3 ng-if="login.provider"> {{'¡Ingresaste con'| translate}} {{login.provider}}! </h1>
+    </section>
+  </md-content>
+</div>
