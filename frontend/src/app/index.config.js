@@ -30,7 +30,7 @@
     });
 
     // Satellizer set options
-    $authProvider.baseUrl = ENV.apiBase + '/';
+    $authProvider.baseUrl = ENV.base + '/';
     $authProvider.httpInterceptor = true;
     $authProvider.facebook(ENV.satellizer.facebook);
     $authProvider.google(ENV.satellizer.google);
