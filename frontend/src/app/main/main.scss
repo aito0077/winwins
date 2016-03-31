@@ -34,6 +34,24 @@ section.acme-video {
       cursor: pointer;
     }
   }
+  .md-green {
+    background: #4cae4e;
+    font-size: 55px;
+    padding: 4px 30px 0 20px;
+    margin: 20px;
+    line-height: 60px;
+    color: white;
+    transform: rotate(-7deg);
+    &:not([disabled]):hover {
+      background: #4cae4e;
+    }
+    .material-icons {
+      color: #fff;
+      position: relative;
+      font-size: 55px;
+      top: -4px;
+    }
+  }
 }
 
 .acme-recientes {
@@ -86,9 +104,9 @@ md-tabs.acme-tabs {
         }
       }
     }
-  }
-  span.ng-scope {
-    color: #fff;
+    span.ng-scope {
+      color: #fff;
+    }
   }
   md-ink-bar {
     color: #ec6b25;

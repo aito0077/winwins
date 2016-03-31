@@ -6,11 +6,11 @@
     </header>
 
     <section class="acme-video" layout>
-      <div class="signup" flex="30" layout="column" layout-align="center center">
+      <div class="signup" flex="30" layout="column" layout-align="center center" hide show-gt-sm>
         <img src="assets/images/home-video-login.svg" alt="" />
-        <md-button class="md-raised md-primary"><md-icon>play_arrow</md-icon> SI!</md-button>
+        <md-button class="md-raised md-green"><md-icon>play_arrow</md-icon> {{ 'SI!' | translate }}</md-button>
       </div>
-      <div class="login" flex="40" layout layout-align="center end">
+      <div class="login" flex="40" layout layout-align="center end" hide  show-gt-sm>
         <div class="social-media">
           <p translate>Ingresa con: </p>
           <md-icon md-svg-src="assets/images/icon-facebook.svg" ng-href="#" target="_blank"></md-icon>
@@ -20,25 +20,12 @@
           <md-icon md-svg-src="assets/images/icon-ww.svg" ng-href="#" target="_blank"></md-icon>
         </div>
       </div>
-      <div class="share" flex="30" layout="column" layout-align="start end">
-        <h1>compartir es sumar</h1>
-        <div class="">
-        <md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon>
-
-        </div>
-        <div class="">
-        <md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon>
-
-        </div>
-        <div class="">
-        <md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon>
-
-        </div>
+      <div class="share" flex="30" layout="column" layout-align="start end" hide show-gt-sm>
+        <h1 translate>compartir es sumar</h1>
+        <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+        <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+        <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
       </div>
-
-      <!--video poster="" controls show-gt-sm>
-          <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
-      </video-->
 
       <video width="100%" poster="assets/images/home-video.png" controls hide-gt-sm>
           <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
