@@ -21,8 +21,18 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $mdSidenav, $rootScope, ENV) {
+    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account) {
       var vm = this;
+
+      vm.isAuthenticated = $auth.isAuthenticated();
+
+      if (vm.isAuthenticated) {
+        account.getProfile()
+        .then(function(data) {
+           vm.account = data.profile;
+        });
+      }
+
       vm.openLeftMenu = function() {
         $mdSidenav('left').toggle();
       };
@@ -37,6 +47,12 @@
         $rootScope.$emit(event, args);
       };
 
+      vm.logout = function () {
+        $auth.logout()
+        .then(function() {
+           vm.isAuthenticated = false;
+        });
+      };
     }
   }
 

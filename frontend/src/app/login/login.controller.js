@@ -6,35 +6,31 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($auth, $rootScope, $state, $timeout, account) {
+  function LoginController($auth, $state, $timeout) {
     var vm = this;
 
     vm.login = function() {
       $auth.login({ email: vm.email, password: vm.password })
-      .then(function(data) {
-        complete(data);      
+      .then(function() {
+        complete();      
       })
-      .catch(function(response) {
+      .catch(function() {
         $state.go('login');
       });
     };
 
     vm.authenticate = function(provider) {
       $auth.authenticate(provider)
-      .then(function(data) {
+      .then(function() {
         vm.provider = provider;
-        complete(data);      
+        complete();      
       })
-      .catch(function(response) {
+      .catch(function() {
         $state.go('login');
       });
     };
 
-    var complete = function(data){
-      account.getProfile()
-      .then(function(data) {
-         $rootScope.account = data.profile;
-      });
+    var complete = function() {
       vm.redirect_message = true;
       $timeout(function() {
         $state.go('home'); 

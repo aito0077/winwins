@@ -6,14 +6,18 @@
       .service('account', account);
 
   /** @ngInject */
-  function account($log, Restangular) {
+  function account($log, Restangular, $rootScope) {
 
     var _account = {};
 
     var rAccount = Restangular.one('me');
 
     _account.getProfile = function() {
-      return rAccount.get();
+      if (!$rootScope.account) {
+        $rootScope.account = rAccount.get();  
+      }
+      
+      return $rootScope.account;
     };
 
     return _account;
