@@ -12,17 +12,17 @@
             <form method="post" ng-submit="login.login()" name="loginForm">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                  <label>Email</label>
+                  <label translate>Email</label>
                   <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
                 </md-input-container>
               </div>
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
-                  <label>Password</label>
+                  <label translate>Password</label>
                   <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
                 </md-input-container>
               </div>
-              <button type="submit" ng-disabled="loginForm.$invalid" name="action">Ingresar
+              <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate>Ingresar
               </button>
             </form>
           </div>
@@ -46,8 +46,8 @@
     </div>
 
     <section ng-show="login.redirect_message" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <h1 ng-if="!login.provider"> ¡Genial! </h1>
-      <h3 ng-if="login.provider"> ¡Ingresaste con {{login.provider}}! </h1>
+      <h1 ng-if="!login.provider" translate> ¡Genial! </h1>
+      <h3 ng-if="login.provider"> {{'¡Ingresaste con'| translate}} {{login.provider}}! </h1>
     </section>
   </md-content>
 </div>
