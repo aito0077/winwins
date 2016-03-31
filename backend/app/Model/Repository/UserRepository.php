@@ -2,7 +2,7 @@
 
 use Log;
 use Illuminate\Support\Collection;
-use Winwins\Model\UserDetail;
+use Winwins\UserDetail;
 use Elasticsearch\Client;
 
 use Illuminate\Database\Eloquent\Model;

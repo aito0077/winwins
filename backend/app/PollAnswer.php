@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,7 +8,7 @@ class PollAnswer extends Model {
     protected  $table = 'poll_answers';
 
     public function votes() {
-        return $this->hasMany('Winwins\Model\PollVote', 'answer_id');
+        return $this->hasMany('Winwins\PollVote', 'answer_id');
     }
 
 }

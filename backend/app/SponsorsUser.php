@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ class SponsorsUser extends Model {
     }
 
     public function sponsor() {
-        return $this->hasOne('Winwins\Model\Sponsor');
+        return $this->hasOne('Winwins\Sponsor');
     }
 
 }

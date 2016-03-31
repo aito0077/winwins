@@ -1,6 +1,6 @@
 <?php namespace Winwins\Model\Observer;
 
-use Winwins\Model\Winwin;
+use Winwins\Winwin;
 use Elasticsearch\Client;
 use Log;
 

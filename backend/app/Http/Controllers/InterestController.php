@@ -2,7 +2,7 @@
 
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Interest;
+use Winwins\Interest;
 
 use Illuminate\Http\Request;
 

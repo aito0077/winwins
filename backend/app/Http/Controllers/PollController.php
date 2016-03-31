@@ -12,11 +12,11 @@ use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Poll;
-use Winwins\Model\PollVote;
-use Winwins\Model\PollAnswer;
-use Winwins\Model\Media;
-use Winwins\Model\Winwin;
+use Winwins\Poll;
+use Winwins\PollVote;
+use Winwins\PollAnswer;
+use Winwins\Media;
+use Winwins\Winwin;
 use Winwins\User;
 
 use Illuminate\Http\Request;

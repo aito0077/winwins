@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,10 +15,10 @@ class Group extends Model {
     }
 
     public function winwins() {
-        return $this->belongsToMany('Winwins\Model\Winwin', 'groups_winwins');
+        return $this->belongsToMany('Winwins\Winwin', 'groups_winwins');
     }
 
     public function sponsors() {
-        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_groups');
+        return $this->belongsToMany('Winwins\Sponsor', 'sponsors_groups');
     }
 }

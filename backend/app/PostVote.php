@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class PostVote extends Model {
     }
 
     public function post() {
-        return $this->hasOne('Winwins\Model\Post');
+        return $this->hasOne('Winwins\Post');
     }
 
 }

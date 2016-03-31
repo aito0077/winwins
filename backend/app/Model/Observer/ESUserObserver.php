@@ -1,6 +1,6 @@
 <?php namespace Winwins\Model\Observer;
 
-use Winwins\Model\UserDetail;
+use Winwins\UserDetail;
 use Elasticsearch\Client;
 
 class ESUserObserver {

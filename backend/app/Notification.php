@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Carbon;
 use Illuminate\Database\Eloquent\Model;

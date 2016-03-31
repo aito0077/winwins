@@ -1,15 +1,15 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
 class SponsorsGroup extends Model {
 
     public function sponsor() {
-        return $this->hasOne('Winwins\Model\Sponsor');
+        return $this->hasOne('Winwins\Sponsor');
     }
 
     public function group() {
-        return $this->hasOne('Winwins\Model\Group');
+        return $this->hasOne('Winwins\Group');
     }
 
 

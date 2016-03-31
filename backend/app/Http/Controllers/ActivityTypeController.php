@@ -2,7 +2,7 @@
 
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\ActivityType;
+use Winwins\ActivityType;
 
 use Illuminate\Http\Request;
 

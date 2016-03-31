@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,7 @@ class InterestsInterested extends Model {
     protected $fillable = [ 'interest_id', 'interested_id', 'type'];
 
     public function interest() {
-        return $this->hasOne('Winwins\Model\Interest');
+        return $this->hasOne('Winwins\Interest');
     }
 
 

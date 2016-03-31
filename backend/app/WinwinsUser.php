@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class WinwinsUser extends Model {
     }
 
     public function winwin() {
-        return $this->hasOne('Winwins\Model\Winwin');
+        return $this->hasOne('Winwins\Winwin');
     }
 
 }

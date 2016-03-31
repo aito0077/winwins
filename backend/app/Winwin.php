@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,19 +18,19 @@ class Winwin extends Model {
     }
 
     public function groups() {
-        return $this->belongsToMany('Winwins\Model\Group', 'groups_winwins');
+        return $this->belongsToMany('Winwins\Group', 'groups_winwins');
     }
 
     public function sponsors() {
-        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_winwins')->withPivot('ww_accept', 'sponsor_accept', 'sponsor_text', 'sponsor_message', 'ww_message');
+        return $this->belongsToMany('Winwins\Sponsor', 'sponsors_winwins')->withPivot('ww_accept', 'sponsor_accept', 'sponsor_text', 'sponsor_message', 'ww_message');
     }
 
     public function polls() {
-        return $this->hasMany('Winwins\Model\Poll');
+        return $this->hasMany('Winwins\Poll');
     }
 
     public function location() {
-        return $this->belongsTo('Winwins\Model\Location');
+        return $this->belongsTo('Winwins\Location');
     }
 
 

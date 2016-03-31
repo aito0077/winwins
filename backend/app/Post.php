@@ -1,4 +1,4 @@
-<?php namespace Winwins\Model;
+<?php namespace Winwins;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Post extends Model {
     }
 
     public function media() {
-        return $this->belongsTo('Winwins\Model\Media');
+        return $this->belongsTo('Winwins\Media');
     }
 
     public function scopeWinwins($query) {
@@ -34,7 +34,7 @@ class Post extends Model {
     }
 
     public function votes() {
-        return $this->hasMany('Winwins\Model\PostVote');
+        return $this->hasMany('Winwins\PostVote');
     }
 
 

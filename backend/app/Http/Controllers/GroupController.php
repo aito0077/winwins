@@ -9,13 +9,13 @@ use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\User;
-use Winwins\Model\Group;
-use Winwins\Model\GroupsUser;
-use Winwins\Model\GroupsWinwin;
+use Winwins\Group;
+use Winwins\GroupsUser;
+use Winwins\GroupsWinwin;
 use Winwins\Model\Repository\GroupRepository;
-use Winwins\Model\SponsorsGroup;
-use Winwins\Model\Winwin;
-use Winwins\Model\Post;
+use Winwins\SponsorsGroup;
+use Winwins\Winwin;
+use Winwins\Post;
 
 use Illuminate\Http\Request;
 

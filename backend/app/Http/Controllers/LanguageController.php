@@ -2,9 +2,9 @@
 
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Language;
-use Winwins\Model\TranslateNamespace;
-use Winwins\Model\TranslateValue;
+use Winwins\Language;
+use Winwins\TranslateNamespace;
+use Winwins\TranslateValue;
 use Log;
 use DB;
 use Illuminate\Support\Collection;

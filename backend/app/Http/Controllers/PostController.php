@@ -12,10 +12,10 @@ use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Post;
-use Winwins\Model\PostVote;
-use Winwins\Model\Media;
-use Winwins\Model\Winwin;
+use Winwins\Post;
+use Winwins\PostVote;
+use Winwins\Media;
+use Winwins\Winwin;
 use Winwins\User;
 
 use Winwins\Message\Mailer;

@@ -9,16 +9,16 @@ use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
 use Winwins\User;
-use Winwins\Model\Sponsor;
-use Winwins\Model\SponsorsUser;
-use Winwins\Model\SponsorsWinwin;
+use Winwins\Sponsor;
+use Winwins\SponsorsUser;
+use Winwins\SponsorsWinwin;
 use Winwins\Model\Repository\SponsorRepository;
-use Winwins\Model\Winwin;
+use Winwins\Winwin;
 
 use Validator;
 use Response;
 use Storage;
-use Winwins\Model\Media;
+use Winwins\Media;
 
 use Illuminate\Http\Request;
 
