@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/sponsor/sponsor.html',
       scope: {
-        items: '='
+        items: '=',
+        url: '@?'
       },
       controller: SponsorController,
       controllerAs: 'vm',
@@ -21,7 +22,9 @@
     return directive;
 
     function SponsorController() {
-      //var vm = this;
+      var vm = this;
+      var defaultUrl = '';
+      vm.url = angular.isDefined(this.url) ? this.url : defaultUrl;
     }
   }
 
