@@ -6,6 +6,7 @@
 // endbower
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 @font-face {
   font-family: 'Material Icons';
@@ -51,12 +52,6 @@ html {
 body {
   background: #fafafa;
 }
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
 
 md-content {
   background: #fafafa;
@@ -64,10 +59,6 @@ md-content {
 
 md-toolbar.md-default-theme {
   background-color: black;
-}
-
-section.acme-video {
-  margin-bottom: 30px;
 }
 
 .container {

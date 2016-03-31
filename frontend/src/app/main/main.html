@@ -7,15 +7,73 @@
 
     <section class="acme-video">
       <video width="100%" poster="assets/images/home-video.png" controls>
-          <source src="assets/videos/winwins.m4v" type="video/mp4"> Your browser does not support HTML5 video
+          <source src="assets/videos/winwins.m4v" type="video/mp4"> {{'Your browser does not support HTML5 video' | translate }}
       </video>
     </section>
 
-    <section>
-      <acme-highlighted items="main.destacados"></acme-highlighted>
-      <acme-miembro items="main.miembros"></acme-miembro>
-      <acme-partner items="main.partners"></acme-partner>
-    </section>
+    <acme-highlighted items="main.destacados" hide-gt-sm></acme-highlighted>
+
+    <div class="menu-caterogias">
+      <md-menu md-offset="0 0" md-position-mode="target-right target" class="menu-caterogias-btn">
+        <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
+          {{'Ver winwins por categoria' | translate }} <md-icon md-menu-origin>arrow_drop_down</md-icon>
+        </md-button>
+        <md-menu-content width="6">
+          <md-menu-item ng-repeat="item in [1, 2, 3]">
+            <md-button ng-click="ctrl.announceClick($index)"> <span md-menu-align-target>Option</span> {{item}} </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+
+    <md-tabs md-dynamic-height class="acme-tabs hide show-gt-sm">
+      <md-tab id="tab1">
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-highlighted.svg"></md-icon>{{'Destacados' | translate }}</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="main.tdestacados" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label><md-icon>whatshot</md-icon>{{'Populares' | translate }}</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="main.tpopulares" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab3">
+        <md-tab-label><md-icon>access_time</md-icon>{{ 'Recientes' | translate }}</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title=" main.trecientes" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab4">
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-por-terminar.svg"></md-icon>{{' Por terminar' | translate }}</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="main.tterminar" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab5">
+        <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-concretados.svg"></md-icon>{{'Concretados' | translate }}</md-tab-label>
+        <md-tab-body>
+          <acme-highlighted items="main.destacados" title="main.tconcretados" icon="'icon-highlighted'"></acme-highlighted>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+
+    <acme-miembro items="main.miembros"></acme-miembro>
+    <acme-partner items="main.partners"></acme-partner>
+    <acme-sponsor items="main.sponsors"></acme-sponsor>
+
+    <div class="container acme-recientes">
+      <h1 class="title">
+        <md-icon md-svg-src="assets/images/icon-recientes-title.svg"></md-icon>
+        {{'WINWINS RECIENTES' | translate }}
+        <small translate>Últimos winwins creados</small>
+      </h1>
+    </div>
+    <acme-highlighted items="main.destacados"></acme-highlighted>
+
+    <acme-contador items="main.contador"></acme-contador>
+    <acme-footer items="main.footer"></acme-footer>
 
   </md-content>
 </div>

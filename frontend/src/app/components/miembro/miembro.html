@@ -2,8 +2,8 @@
   <div class="container">
     <h1 class="title">
       <md-icon md-svg-src="assets/images/icon-members.svg"></md-icon>
-      MIEMBROS
-      <small>Personas que crean y participan en acciones de consenso colectivo</small>
+      {{ 'MIEMBROS' | translate }}
+      <small>{{ 'Personas que crean y participan en acciones de consenso colectivo' | translate }}</small>
     </h1>
     <div layout="row" layout-align="center" layout-wrap>
       <div ng-repeat="item in vm.items">
@@ -15,9 +15,9 @@
       </div>
     </div>
     <div layout="column" layout-align="center center">
-      <md-button class="md-raised md-primary md-right">+ Ver todos los participantes</md-button>
-      <h3>Sólo faltas vos, sumáte!</h3>
-      <md-button class="md-raised md-green">Comenzar</md-button>
+      <md-button class="md-raised md-primary md-right">{{'+ Ver todos los participantes' | translate }}</md-button>
+      <h3>{{ 'Sólo faltas vos, sumáte!' | translate }}</h3>
+      <md-button class="md-raised md-green">{{'Comenzar' | translate }}</md-button>
     </div>
   </div>
 </md-content>

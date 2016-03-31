@@ -1,9 +1,9 @@
 <md-content class="acme-highlighted">
   <div class="container">
-    <h1 class="title hide show-gt-sm">
+    <h1 class="title" ng-if="vm.title">
       <span>
-        <md-icon md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
-        WINWINS DESTACADOS
+        <md-icon md-svg-src="assets/images/{{vm.icon}}.svg"></md-icon>
+        {{vm.title}}
       </span>
     </h1>
     <div layout="row" layout-wrap>
@@ -29,7 +29,7 @@
             <md-card-content>
               <img ng-src="assets/images/sponsor-coca-cola.svg">
             </md-card-content>
-            <div class="card-members">Somos <strong>{{ item.members }}</strong></div>
+            <div class="card-members"><translate>Somos</translate> <strong>{{ item.members }}</strong></div>
             <md-button class="md-icon-button">
               <md-icon>share</md-icon>
             </md-button>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div layout="row" layout-align="center center">
-      <md-button class="md-raised md-warn">+ Ver todos los winwins</md-button>
+      <md-button class="md-raised md-warn">{{ '+ Ver todos los winwins' | translate }}</md-button>
     </div>
   </div>
 </md-content>

@@ -7,6 +7,9 @@
         "name": "dev",
         "base": "http://localhost:8000",
         "apiBase": "http://localhost:8000/api",
+        "defaultLang": "es",
+        "baseLang": "es",
+        "availableLangs": ["es", "en"],
         "satellizer": {
           "facebook": {
             "clientId": "1082199191794840",
@@ -27,8 +30,11 @@
     "prod": {
       "ENV": {
         "name": "prod",
-        "base": "http://localhost:8000",
-        "apiBase": "https://api.example.com/v1",
+        "base": "http://dev-winwins.net",
+        "apiBase": "http://dev-winwins.net/api",
+        "defaultLang": "es",
+        "baseLang": "es",
+        "availableLangs": ["es", "en"],
         "satellizer": {
           "facebook": {
             "clientId": "1082199191794840",

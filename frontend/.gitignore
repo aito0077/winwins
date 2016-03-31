@@ -8,3 +8,6 @@ dist/
 src/app/ngConstants.js
 *.sw*
 npm-debug.log
+src/app/translations/
+po/*.mo
+.DS_Store

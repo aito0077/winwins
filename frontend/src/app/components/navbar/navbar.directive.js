@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $mdSidenav) {
+    function NavbarController(moment, $mdSidenav, $rootScope, ENV) {
       var vm = this;
       vm.openLeftMenu = function() {
         $mdSidenav('left').toggle();
@@ -29,6 +29,14 @@
 
       // "vm.creation" is avaible by directive option "bindToController: true"
       vm.relativeDate = moment(vm.creationDate).fromNow();
+
+      vm.onChange = function(event, state) {
+        var es = ENV.availableLangs[0];
+        var en =  ENV.availableLangs[1];
+        var args = ((state === true)? en : es);
+        $rootScope.$emit(event, args);
+      };
+
     }
   }
 
