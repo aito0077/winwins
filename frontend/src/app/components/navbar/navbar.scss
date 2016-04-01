@@ -30,6 +30,7 @@ header {
 	.menu {
 		list-style: none;
 		margin: 0 auto;
+		padding: 0;
 		li {
 			display: inline-block;
 			line-height: 50px;
@@ -52,7 +53,7 @@ header {
 				}
 			}
 			&.crear {
-				margin-left: 15px;
+				margin: 0 0 0 15px;
 				line-height: 14px;
 				margin-top: 4px;
 				a {
@@ -67,7 +68,6 @@ header {
 			}
 			&.menu-search {
 				line-height: inherit;
-				margin-left: 15px;
 			}
 			&.logo {
 				a:hover {
@@ -85,15 +85,20 @@ header {
 			}
 		}
 		md-switch {
-			float: left;
-			margin: 0;
+    	margin: 0 0 0 10px;
+    	.md-bar {
+    		background: #4a6dce;
+    	}
+    	.md-thumb {
+    		background: #d9dadb;
+    	}
 		}
 		md-input-container {
 			margin: 0;
-			float: left;
-		}
-		md-input-container {
-			margin: 0;
+			@media (min-width: 960px) {
+				padding-left: 0;
+				margin-left: 15px;
+			}
 			.md-input {
 				background: none;
 				border:none;
@@ -130,9 +135,6 @@ header {
 	}
 	.menu.show-sm, .menu.show-md {
 		width: 100%;
-		md-switch {
-			margin-left: 20px;
-		}
 	}
 	.menu.show-md .flex-45 {
 		text-align: center;
@@ -146,6 +148,9 @@ header {
 				padding: 25px 0 0 0;
 				li {
 					display: block;
+					md-icon {
+						margin: -3px 20px 0 0;
+					}
 					a {
 						text-align: left;
 						color: #fff;
