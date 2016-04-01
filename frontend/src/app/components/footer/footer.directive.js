@@ -25,4 +25,17 @@
     }
   }
 
+  angular
+    .module('winwins')
+    .directive('scrollTop', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, $elm) {
+        $elm.on('click', function() {
+          $("body").animate({scrollTop: $("body").offset().top}, "slow");
+        });
+      }
+    }
+  });
+
 })();
