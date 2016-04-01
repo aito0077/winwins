@@ -1,7 +1,7 @@
 .acme-footer {
   .footer-sumate {
     background: url('../assets/images/bg-footer.jpg') center top no-repeat;
-    height: 453px;
+    height: 446px;
     h2 {
       margin: 40px 0 0 0;
     }
@@ -75,6 +75,10 @@
         font-size: 14px;
         color: #fff;
         margin:0 0 5px 0;
+      }
+      .md-button.md-icon-button {
+        padding:0;
+        margin: 0;
       }
       md-icon {
         width: 38px;
