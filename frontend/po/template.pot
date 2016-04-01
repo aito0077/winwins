@@ -4,8 +4,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: login/login.html:49
+msgid "¡Genial!"
+msgstr ""
+
+#: login/login.html:50
+msgid "¡Ingresaste con"
+msgstr ""
+
 #: components/footer/footer.html:45
-#: components/navbar/navbar.html:11
+#: components/navbar/navbar.html:23
 msgid "+ Crear Winwin"
 msgstr ""
 
@@ -18,9 +26,9 @@ msgstr ""
 msgid "+ Ver todos los winwins"
 msgstr ""
 
-#: components/navbar/navbar.html:116
-#: components/navbar/navbar.html:14
-#: components/navbar/navbar.html:24
+#: components/navbar/navbar.html:148
+#: components/navbar/navbar.html:26
+#: components/navbar/navbar.html:46
 msgid "Buscar"
 msgstr ""
 
@@ -32,12 +40,17 @@ msgstr ""
 msgid "Comenzar"
 msgstr ""
 
-#: components/navbar/navbar.html:5
+#: components/navbar/navbar.html:17
 msgid "Cómo funciona"
 msgstr ""
 
-#: main/main.html:55
+#: main/main.html:24
+msgid "compartir es sumar"
+msgstr ""
+
+#: main/main.html:76
 msgid "Concretados"
+msgstr ""
 
 #: components/footer/footer.html:60
 msgid "Contáctanos"
@@ -47,12 +60,9 @@ msgstr ""
 msgid "Crea un winwin"
 msgstr ""
 
-#: components/navbar/navbar.html:121
+#: components/navbar/navbar.html:153
 msgid "Crear Winwin"
 msgstr ""
-
-#: main/main.html:31
-msgid "Destacados"
 
 #: components/footer/footer.html:7
 msgid ""
@@ -60,25 +70,41 @@ msgid ""
 "    los líderes acompañan."
 msgstr ""
 
-#: components/navbar/navbar.html:106
+#: main/main.html:52
+msgid "Destacados"
+msgstr ""
+
+#: login/login.html:15
+msgid "Email"
+msgstr ""
+
+#: components/navbar/navbar.html:138
 msgid "Hola,"
+msgstr ""
+
+#: main/main.html:15
+msgid "Ingresa con:"
+msgstr ""
+
+#: login/login.html:25
+msgid "Ingresar"
 msgstr ""
 
 #: components/footer/footer.html:37
 msgid "INGRESAR"
 msgstr ""
 
-#: components/navbar/navbar.html:10
-#: components/navbar/navbar.html:119
+#: components/navbar/navbar.html:151
+#: components/navbar/navbar.html:22
 msgid "Ir a mi cuenta"
 msgstr ""
 
-#: components/navbar/navbar.html:124
+#: components/navbar/navbar.html:156
 msgid "Mi perfil"
 msgstr ""
 
-#: components/navbar/navbar.html:122
-#: components/navbar/navbar.html:7
+#: components/navbar/navbar.html:154
+#: components/navbar/navbar.html:19
 msgid "Miembros"
 msgstr ""
 
@@ -87,7 +113,7 @@ msgstr ""
 msgid "MIEMBROS"
 msgstr ""
 
-#: components/navbar/navbar.html:120
+#: components/navbar/navbar.html:152
 msgid "Mis Winwins"
 msgstr ""
 
@@ -101,26 +127,31 @@ msgid ""
 "      <small>ALGUNAS DE LAS <span>ORGANIZACIONES</span><br> QUE <span>CONSTRUYEN</span> JUNTO A <span>WINWINS</span></small>"
 msgstr ""
 
+#: login/login.html:21
+msgid "Password"
+msgstr ""
+
 #: components/miembro/miembro.html:6
 msgid "Personas que crean y participan en acciones de consenso colectivo"
 msgstr ""
 
-#: main/main.html:37
+#: main/main.html:58
 msgid "Populares"
 msgstr ""
 
-#: main/main.html:49
+#: main/main.html:70
 msgid "Por terminar"
 msgstr ""
 
-#: main/main.html:43
+#: main/main.html:64
 msgid "Recientes"
+msgstr ""
 
 #: components/footer/footer.html:33
 msgid "Registrate"
 msgstr ""
 
-#: components/navbar/navbar.html:125
+#: components/navbar/navbar.html:157
 msgid "Salir"
 msgstr ""
 
@@ -132,6 +163,10 @@ msgstr ""
 msgid "Se sponsor oficial del <strong>cambio</strong> global."
 msgstr ""
 
+#: main/main.html:11
+msgid "SI!"
+msgstr ""
+
 #: components/miembro/miembro.html:19
 msgid "Sólo faltas vos, sumáte!"
 msgstr ""
@@ -141,8 +176,8 @@ msgid "Somos"
 msgstr ""
 
 #: components/footer/footer.html:26
-#: components/navbar/navbar.html:123
-#: components/navbar/navbar.html:8
+#: components/navbar/navbar.html:155
+#: components/navbar/navbar.html:20
 msgid "Sponsors"
 msgstr ""
 
@@ -159,12 +194,9 @@ msgstr ""
 msgid "Términos y condiciones"
 msgstr ""
 
-#: main/main.html:70
+#: main/main.html:91
 msgid "Últimos winwins creados"
 msgstr ""
-
-#: main/main.html:19
-msgid "Ver winwins por categoria"
 
 #: components/footer/footer.html:25
 msgid "Usuarios"
@@ -174,15 +206,20 @@ msgstr ""
 msgid "Ver Winwins"
 msgstr ""
 
-#: components/navbar/navbar.html:6
+#: main/main.html:40
+msgid "Ver winwins por categoria"
+msgstr ""
+
+#: components/navbar/navbar.html:18
 msgid "Winwins"
+msgstr ""
+
+#: components/footer/footer.html:57
+msgid "WinWins - Consenos en acción"
 msgstr ""
 
 #: main/main.controller.js:23
 msgid "Winwins concretados"
-
-#: components/footer/footer.html:57
-msgid "WinWins - Consenos en acción"
 msgstr ""
 
 #: main/main.controller.js:19
@@ -201,10 +238,10 @@ msgstr ""
 msgid "Winwins Recientes"
 msgstr ""
 
-#: main/main.html:69
+#: main/main.html:90
 msgid "WINWINS RECIENTES"
 msgstr ""
 
-#: main/main.html:10
+#: main/main.html:31
 msgid "Your browser does not support HTML5 video"
 msgstr ""
