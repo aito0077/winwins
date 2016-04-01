@@ -19,7 +19,12 @@
 			<li><md-button class="md-primary" ng-href="#"><translate>Miembros</translate></md-button></li>
 			<li><md-button class="md-primary" ng-href="#"><translate>Sponsors</translate></md-button></li>
 			<li class="logo"><a href="#"><img src="../assets/images/logo.png" alt="" /></a></li>
-			<li><md-button class="md-primary" ng-href="#"><translate>Ir a mi cuenta</translate></md-button></li>
+			<li>
+				<md-card-avatar ng-if="vm.isAuthenticated">
+					<img class="md-user-avatar" src="assets/images/100-2.jpeg">
+				</md-card-avatar>
+				<md-button class="md-primary" ng-if="!vm.isAuthenticated" ng-href="/#/login"><translate>Ir a mi cuenta</translate></md-button>
+			</li>
 			<li class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></li>
 			<li class="menu-search">
 				<md-input-container md-no-float class="md-block">
