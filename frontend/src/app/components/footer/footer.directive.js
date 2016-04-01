@@ -32,10 +32,10 @@
       restrict: 'A',
       link: function(scope, $elm) {
         $elm.on('click', function() {
-          $("body").animate({scrollTop: $("body").offset().top}, "slow");
+          angular.element("body").animate({scrollTop: angular.element("body").offset().top}, "slow");
         });
       }
-    }
+    };
   });
 
 })();
