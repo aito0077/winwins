@@ -1,0 +1,44 @@
+<md-content class="acme-highlighted">
+  <div class="container">
+    <h1 class="title" ng-if="vm.title">
+      <span>
+        <md-icon md-svg-src="assets/images/{{vm.icon}}.svg"></md-icon>
+        {{vm.title}}
+      </span>
+    </h1>
+    <div layout="row" layout-wrap>
+      <div flex="100" flex-gt-xs="50" flex-gt-sm="33" ng-repeat="item in vm.items">
+        <md-card>
+          <md-card-content>
+            <img ng-src="{{item.img}}" alt="" />
+            <md-card-title-text layout-align="center center" layout="column">
+              <span class="md-headline">{{ item.title }}</span>
+            </md-card-title-text>
+            <div class="card-labels">
+              <md-icon class="icon icon-access_time">access_time</md-icon>
+              <md-icon class="icon icon-watshot">whatshot</md-icon>
+              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+            </div>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="space-between center">
+            <md-card-header>
+              <md-card-avatar>
+                <img class="md-user-avatar" src="assets/images/100-2.jpeg">
+              </md-card-avatar>
+            </md-card-header>
+            <md-card-content>
+              <img ng-src="assets/images/sponsor-coca-cola.svg">
+            </md-card-content>
+            <div class="card-members"><translate>Somos</translate> <strong>{{ item.members }}</strong></div>
+            <md-button class="md-icon-button">
+              <md-icon>share</md-icon>
+            </md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-raised md-warn">{{ '+ Ver todos los winwins' | translate }}</md-button>
+    </div>
+  </div>
+</md-content>
