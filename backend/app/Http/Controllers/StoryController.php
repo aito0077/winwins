@@ -11,9 +11,9 @@ use Response;
 use Illuminate\Support\Collection;
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\Story;
-use Winwins\Model\Media;
-use Winwins\Model\Winwin;
+use Winwins\Story;
+use Winwins\Media;
+use Winwins\Winwin;
 use Winwins\User;
 
 use Illuminate\Http\Request;

@@ -6,9 +6,9 @@ use Winwins\Model\Observer\ESUserObserver;
 use Winwins\Model\Observer\UserObserver;
 use Winwins\Model\Observer\ESGroupObserver;
 use Winwins\User;
-use Winwins\Model\Winwin;
-use Winwins\Model\UserDetail;
-use Winwins\Model\Group;
+use Winwins\Winwin;
+use Winwins\UserDetail;
+use Winwins\Group;
 
 use Elasticsearch\Client;
 use Illuminate\Support\ServiceProvider;

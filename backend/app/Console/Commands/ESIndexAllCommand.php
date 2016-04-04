@@ -3,9 +3,9 @@
 use Log;
 use Illuminate\Console\Command;
 
-use Winwins\Model\Winwin;
-use Winwins\Model\Group;
-use Winwins\Model\UserDetail;
+use Winwins\Winwin;
+use Winwins\Group;
+use Winwins\UserDetail;
 use Elasticsearch\Client;
 
 class ESIndexAllCommand extends Command {

@@ -2,7 +2,7 @@
 
 use Winwins\Http\Requests;
 use Winwins\Http\Controllers\Controller;
-use Winwins\Model\MaritalStatus;
+use Winwins\MaritalStatus;
 
 use Illuminate\Http\Request;
 

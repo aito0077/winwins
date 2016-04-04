@@ -11,11 +11,11 @@ use Response;
 use Storage;
 use Illuminate\Support\Collection;
 use Winwins\User;
-use Winwins\Model\Follower;
-use Winwins\Model\UserDetail;
+use Winwins\Follower;
+use Winwins\UserDetail;
 use Winwins\Model\Repository\UserRepository;
-use Winwins\Model\Post;
-use Winwins\Model\Media;
+use Winwins\Post;
+use Winwins\Media;
 
 class UserController extends Controller {
 

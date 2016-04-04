@@ -1,6 +1,6 @@
 <?php namespace Winwins\Model\Observer;
 
-use Winwins\Model\Group;
+use Winwins\Group;
 use Elasticsearch\Client;
 
 class ESGroupObserver {

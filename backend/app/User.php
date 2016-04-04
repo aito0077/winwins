@@ -1,7 +1,7 @@
 <?php namespace Winwins;
 
 use Hash;
-use Winwins\Model\Notification;
+use Winwins\Notification;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -25,19 +25,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     */
 
     public function detail() {
-        return $this->hasOne('Winwins\Model\UserDetail');
+        return $this->hasOne('Winwins\UserDetail');
     }
 
     public function winwins() {
-        return $this->belongsToMany('Winwins\Model\Winwin', 'winwins_users')->withPivot('creator', 'moderator');
+        return $this->belongsToMany('Winwins\Winwin', 'winwins_users')->withPivot('creator', 'moderator');
     }
 
     public function groups() {
-        return $this->belongsToMany('Winwins\Model\Group', 'groups_users')->withPivot('moderator');
+        return $this->belongsToMany('Winwins\Group', 'groups_users')->withPivot('moderator');
     }
 
     public function sponsor() {
-        return $this->hasOne('Winwins\Model\Sponsor');
+        return $this->hasOne('Winwins\Sponsor');
     }
 
     public function following() {
@@ -49,11 +49,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function notifications() {
-        return $this->hasMany('Winwins\Model\Notification');
+        return $this->hasMany('Winwins\Notification');
     }
 
     public function sponsors() {
-        return $this->belongsToMany('Winwins\Model\Sponsor', 'sponsors_users');
+        return $this->belongsToMany('Winwins\Sponsor', 'sponsors_users');
     }
     
 /*
