@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext) {
+  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext, $auth) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -21,6 +21,10 @@
     vm.trecientes = gettextCatalog.getString(gettext('Winwins Recientes'));
     vm.tterminar = gettextCatalog.getString(gettext('Winwins por terminar'));
     vm.tconcretados = gettextCatalog.getString(gettext('Winwins concretados'));
+
+    vm.isAuthenticated = function() {
+      return $auth.isAuthenticated();
+    };
 
     vm.destacados = [
       {
