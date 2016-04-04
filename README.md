@@ -39,6 +39,11 @@ Create backend/.env and add the following:
     DB_DATABASE=the_database_name
     DB_USERNAME=the_username
     DB_PASSWORD=the_password
+    SESSION_DOMAIN=
+
+The SESSION_DOMAIN bit is important, otherwise you will not be able to log in to the panel.
+When developing on localhost set it to blank, upon deploying it must point to the site domain (say, winwins.net).
+
 
 If you need to use an external instance of Elastic Search also add
 
@@ -55,6 +60,7 @@ cd backend
 composer install
 
 php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\JWTAuthServiceProvider"
+php artisan vendor:publish --tag=public
 php artisan jwt:generate
 ```
 
@@ -73,7 +79,7 @@ php artisan db:seed
 php artisan serve
 ```
 
-Will start Laravel development server [http://localhost:8000/](http://localhost:8000/)
+Will start Laravel development server for the API [http://localhost:8000/](http://localhost:8000/)
 
 ## More info about our components
 
@@ -81,6 +87,7 @@ See below
 
 - [Jwt-auth](https://github.com/tymondesigns/jwt-auth)
 - [Laravel-cors](https://github.com/barryvdh/laravel-cors)
+- [Laravel panel](http://laravelpanel.com/)
 
 ---
 
