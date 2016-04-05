@@ -37,11 +37,17 @@
     min-width: 285px;
     text-transform: initial;
   }
-  md-card-avatar img {
-    border-radius: 50%;
-    margin: 6px;
-    width: 100px;
-    border: 6px solid #D0DBEB;
+  .acme-miembro-thumb {
+    padding: 8px;
+    display: block;
+    img {
+      border-radius: 50%;
+      max-width: 100%;
+      width: 100%;
+      border: 6px solid #D0DBEB;
+      display: block;
+      box-sizing: border-box;
+    }
   }
   .md-green {
     background: #4cae4e;
