@@ -11,7 +11,7 @@
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
-    vm.creationDate = 1458584706984;
+    //vm.creationDate = 1458584706984;
     vm.sponsors = sponsors;
     vm.winwins = winwins;
     vm.miembros = miembros;
