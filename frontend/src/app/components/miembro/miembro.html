@@ -6,7 +6,7 @@
       <small>{{ 'Personas que crean y participan en acciones de consenso colectivo' | translate }}</small>
     </h1>
     <div layout="row" layout-align="center" layout-wrap>
-      <div ng-repeat="item in vm.items" flex="10">
+      <div ng-repeat="item in vm.items" flex-gt-md="10">
           <div class="acme-miembro-thumb">
             <img ng-src="{{item.imagen}}" alt="{{item.nombre}}">
           </div>
