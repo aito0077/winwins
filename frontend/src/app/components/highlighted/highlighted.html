@@ -10,7 +10,7 @@
       <div flex="100" flex-gt-xs="50" flex-gt-sm="33" ng-repeat="item in vm.items">
         <md-card>
           <md-card-content>
-            <img ng-src="{{item.img}}" alt="" />
+            <img ng-src="{{item.img}}" alt="" class="md-card-img" />
             <md-card-title-text layout-align="center center" layout="column">
               <span class="md-headline">{{ item.title }}</span>
             </md-card-title-text>
@@ -27,7 +27,7 @@
               </md-card-avatar>
             </md-card-header>
             <md-card-content>
-              <img ng-src="assets/images/sponsor-coca-cola.svg">
+              <img ng-src="assets/images/sponsor-coca-cola.svg" class="md-card-sponsor">
             </md-card-content>
             <div class="card-members"><translate>Somos</translate> <strong>{{ item.members }}</strong></div>
             <md-button class="md-icon-button">
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div layout="row" layout-align="center center">
-      <md-button class="md-raised md-warn">{{ '+ Ver todos los winwins' | translate }}</md-button>
+      <md-button class="md-raised md-warn ver-todos">{{ '+ Ver todos los winwins' | translate }}</md-button>
     </div>
   </div>
 </md-content>

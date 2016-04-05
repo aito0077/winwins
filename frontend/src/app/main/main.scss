@@ -68,26 +68,35 @@ section.acme-video {
   .title {
     color: #ed7932;
     margin: 20px 8px;
+    font-size: 28px;
     md-icon {
       position: relative;
       top:-3px;
-      width: 74px;
-      height: 65px;
+      width: 60px;
+      height: 53px;
     }
     small {
       color: #a1a1a1;
-      font-size: 15px;
+      font-size: 12px;
+      font-weight: normal;
+      position: relative;
+      bottom: 5px;
     }
   }
 }
 .menu-caterogias {
   position: relative;
+  .md-button {
+    font-size: 12px;
+    text-transform: inherit;
+    font-weight: 700;
+  }
   @extend .container;
   .menu-caterogias-btn {
     position: absolute;
     z-index: 10;
     right: 0;
-    top: -5px;
+    top: -10px;
     color: #fff;
     .material-icons {
       color: #fff;
@@ -100,13 +109,13 @@ md-tabs.acme-tabs {
     background: #0d47a1;
     md-tabs-canvas {
       @extend .container;
-      height: 56px;
+      height: 45px;
       md-pagination-wrapper {
-        height: 56px;
+        height: 45px;
       }
       md-icon {
         display: block;
-        height: 20px;
+        height: 16px;
         &.material-icons {
           color: #fff;
           position: relative;
@@ -124,6 +133,9 @@ md-tabs.acme-tabs {
   }
   .md-tab {
     text-transform: initial;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 24px;
     .md-ripple-container {
       color: #ec6b25;
     }

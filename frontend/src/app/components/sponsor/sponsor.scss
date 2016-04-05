@@ -11,23 +11,28 @@
   .title {
     color: #fff;
     margin: 20px 8px;
+    font-size: 28px;
     md-icon {
       position: relative;
       top:-3px;
-      width: 67px;
-      height: 62px;
+      width: 55px;
+      height: 50px;
     }
     small {
       color: #fff;
-      font-size: 15px;
+      font-size: 12px;
+      font-weight: normal;
+      position: relative;
+      bottom: 5px;
     }
   }
   h3 {
     text-align: center;
     color: #fff;
     font-family: 'Pacifico', cursive;
-    font-size: 37px;
-    margin-top: 40px;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 5px;
     font-weight: normal;
     strong {
       font-weight: normal;
@@ -37,15 +42,19 @@
   .md-right {
     @media (min-width:960px) {
       position: absolute;
-      right: 0;
-      margin-top: 10px;
+      right: 20px;
+      margin-top: 15px;
     }
-    padding: 0 20px;
+    padding: 0 10px;
     background: #4a6dce;
     color: #fff;
-    font-size: 17px;
-    min-width: 285px;
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 220px;
     text-transform: initial;
+    height: 25px;
+    line-height: 25px;
+    min-height: 25px;
   }
   .acme-sponsor-body {
     padding: 30px;
@@ -58,8 +67,8 @@
   }
   .md-green {
     background: #4cae4e;
-    font-size: 25px;
-    padding: 5px 30px;
+    font-size: 20px;
+    padding: 4px 30px;
     margin: 20px;
     color: white;
     &:not([disabled]):hover {
