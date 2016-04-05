@@ -24,7 +24,9 @@
     function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account) {
       var vm = this;
 
-      vm.isAuthenticated = $auth.isAuthenticated();
+      vm.isAuthenticated = function() {
+        return $auth.isAuthenticated();
+      };
 
       if (vm.isAuthenticated) {
         account.getProfile()
@@ -48,10 +50,7 @@
       };
 
       vm.logout = function () {
-        $auth.logout()
-        .then(function() {
-           vm.isAuthenticated = false;
-        });
+        $auth.logout();
       };
     }
   }
