@@ -1,7 +1,7 @@
 .acme-highlighted {
   margin-bottom: 30px;
   .title {
-    font-size: 26px;
+    font-size: 21px;
     color: #ec6b25;
     position: relative;
     margin: 20px 8px;
@@ -111,8 +111,14 @@
       top: -3px;
     }
   }
-  .md-button {
+  .md-button.ver-todos {
     text-transform: initial;
-    font-size: 17px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 25px;
+    line-height: 25px;
+    min-height: 25px;
+    padding: 0 15px;
+    margin: 30px 0 5px 0;
   }
 }
