@@ -1,3 +1,4 @@
+
 <section class="acme-video" layout ng-if="!main.isAuthenticated()">
   <div class="signup" flex="30" layout="column" layout-align="center center" hide show-gt-sm>
     <img src="assets/images/home-video-login.svg" alt="" />
@@ -25,9 +26,11 @@
   </div>
   <div class="share" flex="30" layout="column" layout-align="start end" hide show-gt-sm>
     <h1 translate>compartir es sumar</h1>
-    <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
-    <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
-    <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    <div class="share-social-media">
+      <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    </div>
   </div>
 
   <video width="100%" poster="assets/images/home-video.png" controls hide-gt-sm>
