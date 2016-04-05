@@ -24,10 +24,16 @@
     }
   }
   md-card {
+    margin: 5px 3px;
     md-card-content {
       position: relative;
       padding: 0;
-
+      .md-card-img {
+        height: 150px;
+      }
+      .md-card-sponsor {
+        max-height: 18px;
+      }
       md-card-title-text {
         opacity: 0;
         top: 0;
@@ -35,12 +41,16 @@
         bottom: 0;
         right: 0;
         padding: 10px;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(43, 43, 43, 0.7);
         position: absolute;
         color: #fff;
-        font-size: 18px;
         text-transform: uppercase;
         text-align: center;
+        .md-headline {
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 20px;
+        }
         &:hover {
           opacity: 1;
         }
@@ -56,19 +66,32 @@
       }
     }
     md-card-actions {
+      margin: 5px 15px;
       md-card-header {
         padding: 0;
-      }
-      .card-members {
-        strong {
-          display: block;
-          color: #26a3ac;
+        md-card-avatar {
+          width: 35px;
+          height: 35px;
+          margin-right: 0;
         }
       }
-    }
-    
-    > md-card-content>img {
-      height:175px;
+      .md-button.md-icon-button:last-of-type.md-icon-button {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      .card-members {
+        text-align: center;
+        .ng-scope {
+          color: #6e6e6e;
+          font-size: 10px;
+          text-transform: uppercase;
+        }
+        strong {
+          display: block;
+          color: #47a69a;
+          font-size: 14px;
+        }
+      }
     }
   }
   .icon {
