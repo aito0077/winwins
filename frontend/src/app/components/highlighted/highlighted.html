@@ -10,26 +10,26 @@
       <div flex="100" flex-gt-xs="50" flex-gt-sm="33" ng-repeat="item in vm.items">
         <md-card>
           <md-card-content>
-            <img ng-src="{{item.img}}" alt="" />
+            <img ng-src="{{vm.imageServer}}/220x/{{item.image}}" alt="" />
             <md-card-title-text layout-align="center center" layout="column">
-              <span class="md-headline">{{ item.title }}</span>
+              <span class="md-headline">{{item.title}}</span>
             </md-card-title-text>
             <div class="card-labels">
-              <md-icon class="icon icon-access_time">access_time</md-icon>
-              <md-icon class="icon icon-watshot">whatshot</md-icon>
-              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+              <md-icon class="icon icon-access_time" ng-if="item.mark == 'finishing'">access_time</md-icon>
+              <md-icon class="icon icon-watshot" ng-if="item.mark == 'popular'">whatshot</md-icon>
+              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg" ng-if="item.mark == 'remarkable'"></md-icon>
             </div>
           </md-card-content>
           <md-card-actions layout="row" layout-align="space-between center">
             <md-card-header>
               <md-card-avatar>
-                <img class="md-user-avatar" src="assets/images/100-2.jpeg">
+                <img class="md-user-avatar" ng-src="{{vm.imageServer}}/40x40/{{item.user.photo}}">
               </md-card-avatar>
             </md-card-header>
             <md-card-content>
-              <img ng-src="assets/images/sponsor-coca-cola.svg">
+              <img ng-repeat="sponsor in item.sponsors | limitTo: 1" class="responsive-img" ng-src="{{vm.imageServer}}/40x/{{sponsor.photo}}" title="{{sponsor.name}}" alt="{{sponsor.name}}">   
             </md-card-content>
-            <div class="card-members"><translate>Somos</translate> <strong>{{ item.members }}</strong></div>
+            <div class="card-members"><translate>Somos</translate> <strong>{{ item.users_already_joined }}</strong></div>
             <md-button class="md-icon-button">
               <md-icon>share</md-icon>
             </md-button>

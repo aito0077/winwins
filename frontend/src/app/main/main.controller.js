@@ -6,14 +6,19 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext, $auth) {
+  function MainController($timeout, sponsors, winwin, miembros, partners, gettextCatalog, gettext, $auth) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
     //vm.creationDate = 1458584706984;
     vm.sponsors = sponsors;
-    vm.winwins = winwins;
+    winwin.getList(0, 'last', 6).then(function(data) {
+      vm.recientes = data;
+    });
+    winwin.getList(0, 'all', 6).then(function(data) {
+      vm.destacados = data;
+    });
     vm.miembros = miembros;
     vm.partners = partners;
     vm.tdestacados = gettextCatalog.getString(gettext('Winwins Destacados'));
@@ -25,50 +30,5 @@
     vm.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
-
-    vm.destacados = [
-      {
-        id: 11,
-        members: 12,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },{
-        id: 11,
-        members: 12,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      }
-    ];
-
   }
 })();

@@ -23,9 +23,6 @@
               sponsors: function(sponsor) {
                 return sponsor.getMainList();
               },
-              winwins: function(winwin) {
-                return winwin.getList();
-              },
               miembros: function(miembro) {
                 return miembro.getList();
               },
