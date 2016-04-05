@@ -8,7 +8,7 @@
     <div layout="row" layout-align="center" layout-wrap>
       <div ng-repeat="item in vm.items" flex-gt-md="10">
           <div class="acme-miembro-thumb">
-            <img ng-src="{{item.imagen}}" alt="{{item.nombre}}">
+            <img ng-src="{{vm.imageServer}}/smart/{{item.photo}}" alt="{{item.name}}">
           </div>
       </div>
     </div>
