@@ -15,7 +15,7 @@
         complete();      
       })
       .catch(function() {
-        $state.go('login');
+        $state.go('home.login');
       });
     };
 
@@ -26,7 +26,7 @@
         complete();      
       })
       .catch(function() {
-        $state.go('login');
+        $state.go('home.login');
       });
     };
 

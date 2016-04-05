@@ -1,5 +1,5 @@
 <md-toolbar md-scroll-shrink lg="true" layout="row" layout-align="center center">
-	<div ng-if="!vm.isAuthenticated" flex layout-fill layout="row" layout-align="center center" class="menu hide show-gt-md">
+	<div ng-if="!vm.isAuthenticated()" flex layout-fill layout="row" layout-align="center center" class="menu hide show-gt-md">
 		<div layout="row" layout-align="center center">
 			<div>
 				<span>ES</span>
@@ -16,7 +16,7 @@
 		<div class="seccion"><md-button class="md-primary" ng-href="#"><translate>Miembros</translate></md-button></div>
 		<div class="seccion"><md-button class="md-primary" ng-href="#"><translate>Sponsors</translate></md-button></div>
 		<div class="logo"><a href="#"><img src="../assets/images/logo.png" alt="" /></a></div>
-		<div class="seccion"><md-button class="md-primary" ng-href="/#/login"><translate>Ir a mi cuenta</translate></md-button>
+		<div class="seccion"><md-button class="md-primary" ui-sref="home.login"><translate>Ir a mi cuenta</translate></md-button>
 		</div>
 		<div class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></div>
 		<div class="menu-search">
@@ -26,7 +26,7 @@
 			</md-input-container>
 		</div>
   </div>
-  <div class="menu hide {{ vm.isAuthenticated?'show-gt-sm':'show-md' }}">
+  <div class="menu hide {{ vm.isAuthenticated()?'show-gt-sm':'show-md' }}">
   	<div layout="row" layout-align="center center">
 		  <div flex="30">
 		  	<div layout="row" layout-align="center center">
@@ -54,11 +54,11 @@
 					<span class="badge">1</span>
 				</div>
 				<md-card-header>
-					<md-card-avatar ng-if="vm.isAuthenticated">
+					<md-card-avatar ng-if="vm.isAuthenticated()">
 						<img class="md-user-avatar" src="assets/images/100-2.jpeg">
 					</md-card-avatar>
 					
-					<md-button class="md-icon-button" aria-label="Login" ng-href="/#/login" ng-if="!vm.isAuthenticated">
+					<md-button class="md-icon-button" aria-label="Login" ui-sref="home.login" ng-if="!vm.isAuthenticated()">
 		        		<md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon>
 			      	</md-button>
 				</md-card-header>
@@ -80,11 +80,11 @@
 		  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
 		  <div>
 				<md-card-header>
-					<md-card-avatar ng-if="vm.isAuthenticated">
+					<md-card-avatar ng-if="vm.isAuthenticated()">
 						<img class="md-user-avatar" src="assets/images/100-2.jpeg">
 					</md-card-avatar>
 
-					<md-button class="md-icon-button" aria-label="Login" ng-href="/#/login" ng-if="!vm.isAuthenticated">
+					<md-button class="md-icon-button" aria-label="Login" ui-sref="home.login" ng-if="!vm.isAuthenticated()">
 		        		<md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon>
 			      	</md-button>
 				</md-card-header>
@@ -102,7 +102,7 @@
     md-component-id="left"
     md-disable-backdrop
     md-whiteframe="4">
-  <md-toolbar class="md-theme-indigo" layout-align="center center" ng-if="vm.isAuthenticated">
+  <md-toolbar class="md-theme-indigo" layout-align="center center" ng-if="vm.isAuthenticated()">
 		<md-card-avatar>
 			<img class="md-user-avatar" src="assets/images/100-2.jpeg">
 		</md-card-avatar>
