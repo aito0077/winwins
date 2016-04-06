@@ -30,6 +30,17 @@
       return rWinwin.customGET(paginateUrl);
     };
 
+    _winwin.getListByCategory = function(page, categories, offset) {
+      var default_offset = 15;
+      var default_page = 0;
+
+      page  = typeof page !== 'undefined' ? page : default_page;
+      offset = typeof offset !== 'undefined' ? offset : default_offset;
+
+      var paginateUrl = 'paginate' + '/' + page + '/' + offset;
+      return rWinwin.customGET(paginateUrl, {categories: categories});
+    };
+
     return _winwin;
   }
 

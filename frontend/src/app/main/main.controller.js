@@ -37,5 +37,18 @@
     vm.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
+
+    vm.doFilter = function(filter) {
+      winwin.getList(0, filter, 6).then(function(data) {
+        vm.destacados = data;
+      });
+    };
+
+    vm.doCategories = function(categories) {
+      winwin.getListByCategory(0, categories, 6).then(function(data) {
+        vm.destacados = data;
+      });
+    };
+
   }
 })();
