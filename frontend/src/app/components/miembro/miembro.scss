@@ -1,0 +1,62 @@
+.acme-miembro {
+  background:
+    url('../assets/images/member-border-top.svg') repeat-x left top,
+    url('../assets/images/member-border-bottom.svg') repeat-x left bottom;
+  background-color: #fff;
+  padding: 70px 0;
+  margin-bottom: 30px;
+  .container {
+    position: relative;
+  }
+  .title {
+    color: rgb(239, 131, 65);
+    margin: 20px 8px;
+    md-icon {
+      position: relative;
+      top:-3px;
+    }
+    small {
+      color: #a1a1a1;
+      font-size: 15px;
+    }
+  }
+  h3 {
+    text-align: center;
+    color: rgb(239, 131, 65);
+  }
+  .md-right {
+    @media (min-width:960px) {
+      position: absolute;
+      right: 0;
+      margin-top: 10px;
+    }
+    padding: 0 20px;
+    background: #4a6dce;
+    color: #fff;
+    font-size: 17px;
+    min-width: 285px;
+    text-transform: initial;
+  }
+  .acme-miembro-thumb {
+    padding: 8px;
+    display: block;
+    img {
+      border-radius: 50%;
+      max-width: 100%;
+      width: 100%;
+      border: 6px solid #D0DBEB;
+      display: block;
+      box-sizing: border-box;
+    }
+  }
+  .md-green {
+    background: #4cae4e;
+    font-size: 25px;
+    padding: 5px 30px;
+    margin: 20px;
+    color: white;
+    &:not([disabled]):hover {
+      background: #4cae4e;
+    }
+  }
+}

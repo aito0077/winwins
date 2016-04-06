@@ -1,0 +1,26 @@
+.acme-partner {
+  margin-bottom: 30px;
+  .title {
+    color: rgb(239, 131, 65);
+    margin: 20px 8px;
+    text-align: center;
+    md-icon {
+      display: block;
+    }
+    small {
+      color: #5c5c5c;
+      font-size: 15px;
+      display: block;
+      span {
+        color: rgb(239, 131, 65);
+      }
+    }
+    md-icon {
+      width: 89px;
+      height: 63px;
+    }
+  }
+  .md-user-avatar {
+    max-width: 219px;
+  }
+}

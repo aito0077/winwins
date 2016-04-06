@@ -1,0 +1,26 @@
+.acme-contador {
+  background: #fff url("../assets/images/member-border-top.svg") repeat-x left top;
+  padding: 90px 0 60px 0;
+  .flex {
+    text-align: center;
+  }
+  md-icon {
+    width: 110px;
+    height: 80px;
+  }
+  .orange {
+    color: #ec6a24;
+  }
+  .violet {
+    color: #4a6dce;
+  }
+  .light-orange {
+    color: #f29867;
+  }
+  .light-violet {
+    color: #97abe3;
+  }
+  p {
+    color: #666;
+  }
+}

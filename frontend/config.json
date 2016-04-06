@@ -1,0 +1,58 @@
+{
+  "name": "winwins.config",
+  "deps": [],
+  "constants": {
+    "dev": {
+      "ENV": {
+        "name": "dev",
+        "base": "http://localhost:8000",
+        "apiBase": "http://localhost:8000/api",
+        "imageServer": "http://images.dev-winwins.net",
+        "defaultLang": "es",
+        "baseLang": "es",
+        "availableLangs": ["es", "en"],
+        "satellizer": {
+          "facebook": {
+            "clientId": "1082199191794840",
+            "scope": "email,public_profile"
+          },
+          "google": {
+            "clientId": "313110710680-p22p1s5brqn7tfaqj9v16u67bic5smqk.apps.googleusercontent.com"
+          },
+          "yahoo": {
+            "clientId": "dj0yJmk9SDVkM2RhNWJSc2ZBJmQ9WVdrOWIzVlFRMWxzTXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0yYw--"
+          },
+          "twitter": {
+            "url": "/auth/twitter"
+          }
+        }
+      }
+    },
+    "prod": {
+      "ENV": {
+        "name": "prod",
+        "base": "http://dev-winwins.net",
+        "apiBase": "http://dev-winwins.net/api",
+        "imageServer": "http://images.dev-winwins.net",
+        "defaultLang": "es",
+        "baseLang": "es",
+        "availableLangs": ["es", "en"],
+        "satellizer": {
+          "facebook": {
+            "clientId": "1082199191794840",
+            "scope": "email,public_profile"
+          },
+          "google": {
+            "clientId": "313110710680-p22p1s5brqn7tfaqj9v16u67bic5smqk.apps.googleusercontent.com"
+          },
+          "yahoo": {
+            "clientId": "dj0yJmk9SDVkM2RhNWJSc2ZBJmQ9WVdrOWIzVlFRMWxzTXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0yYw--"
+          },
+          "twitter": {
+            "url": "/auth/twitter"
+          }
+        }
+      }
+    }
+  }
+}
