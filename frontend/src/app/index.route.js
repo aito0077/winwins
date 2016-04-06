@@ -20,9 +20,6 @@
             controller: 'MainController',
             controllerAs: 'main',
             resolve: {
-              sponsors: function(sponsor) {
-                return sponsor.getMainList();
-              },
               partners: function(partner) {
                 return partner.getList();
               }

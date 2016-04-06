@@ -6,13 +6,15 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwin, miembro, partners, gettextCatalog, gettext, $auth) {
+  function MainController($timeout, sponsor, winwin, miembro, partners, gettextCatalog, gettext, $auth) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
-    //vm.creationDate = 1458584706984;
-    vm.sponsors = sponsors;
+
+    sponsor.getList(0, 6).then(function(data) {
+      vm.sponsors = data;
+    });
     winwin.getList(0, 'last', 6).then(function(data) {
       vm.recientes = data;
     });
@@ -22,7 +24,10 @@
     miembro.getList(0, 20).then(function(data) {
       vm.miembros = data;
     });
-    vm.partners = partners;
+    sponsor.getMainList().then(function(data) {
+      vm.partners = data;
+    });
+
     vm.tdestacados = gettextCatalog.getString(gettext('Winwins Destacados'));
     vm.tpopulares = gettextCatalog.getString(gettext('Winwins Populares'));
     vm.trecientes = gettextCatalog.getString(gettext('Winwins Recientes'));
