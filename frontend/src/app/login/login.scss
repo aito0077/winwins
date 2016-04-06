@@ -15,7 +15,7 @@
     padding-left: 15px;
     color:#434444;
   }
-  button {
+  .bt-default {
     background: #23a698;
     color: #fff;
     border:none;
@@ -49,15 +49,23 @@
     }
   }
 }
-md-tabs-canvas {
-  background: #596baf;
-  .md-tab span {
-    color: #fff;
+.tabs-login {
+  md-tabs-canvas {
+    background: #596baf;
+    .md-tab span {
+      color: #fff;
+    }
+    .md-tab.md-active {
+      background: #2f4a9a;
+    }
+    md-pagination-wrapper md-ink-bar {
+      display: none;
+    }
   }
-  .md-tab.md-active {
-    background: #2f4a9a;
-  }
-  md-pagination-wrapper md-ink-bar {
-    display: none;
+}
+.login-ok {
+  md-icon {
+    width: 160px;
+    height: 160px;
   }
 }

@@ -1,7 +1,7 @@
 
 <div ng-show="!login.redirect_message">
   <section class="section-login">
-    <md-content layout="row" layout-align="center center" layout-wrap flex="35" layout-padding>
+    <md-content layout="row" layout-align="center center" layout-wrap layout-padding>
       <form method="post" ng-submit="login.login()" name="loginForm">
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
@@ -19,7 +19,7 @@
         </button>
       </form>
     </md-content>
-    <md-content layout="row" layout-align="center center" layout-wrap flex="35" layout-padding>
+    <md-content layout="row" layout-align="center center" layout-wrap layout-padding>
       <div flex><small>Ingresá con un clic con tu red social:</small></div>
       <div flex><md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('facebook')" aria-label="Facebook">
         <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
@@ -42,31 +42,42 @@
   <h3 ng-if="login.provider"> {{'¡Ingresaste con'| translate}} {{login.provider}}! </h1>
 </section>
 
-<div ng-cloak>
+<div ng-cloak class="tabs-login">
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Ir a mi cuenta">
-        <md-content layout-padding flex="35" class="section-login">
-          <form method="post" ng-submit="login.login()" name="loginForm">
+        <md-content layout-padding class="section-login">
+          <form method="post" ng-submit="login.login()" name="projectForm">
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm>
                 <label translate>Email</label>
-                <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+                <input required name="clientName" ng-model="project.clientName">
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">Email Inválido</div>
+                </div>
               </md-input-container>
             </div>
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm>
                 <label translate>Password</label>
-                <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+                <input id="password" type="password" length="12"  class="validate"  ng-model="project.clientName" required>
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">Contraseña incorrecta</div>
+                </div>
               </md-input-container>
             </div>
-            <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary">Ingresar
+            <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">Ingresar
             </button>
+            <div layout-gt-sm="column" layout-align="center center" class="login-ok">
+              <div flex><md-button><md-icon md-svg-src="assets/images/icon-ok.svg"></md-icon></md-button></div>
+              <div flex><h2 class="violet">Genial!</h2></div>
+              <div flex><span class="gray">Vamos a tu cuenta.</span></div>
+            </div>
           </form>
         </md-content>
       </md-tab>
       <md-tab label="Registrarme">
-        <md-content layout-padding flex="35" class="section-login">
+        <md-content layout-padding class="section-login">
           <form method="post" ng-submit="login.login()" name="loginForm">
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm>
@@ -108,7 +119,7 @@
         <!--<md-tab-label>
             <md-icon md-svg-src="assets/images/icon-lock.svg"></md-icon>
         </md-tab-label>-->
-        <md-content layout-padding flex="35" class="section-login">
+        <md-content layout-padding class="section-login">
           <form method="post" ng-submit="login.login()" name="loginForm">
             <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm>
@@ -123,7 +134,7 @@
       </md-tab>
     </md-tabs>
   </md-content>
-  <md-content layout="row" flex="35" layout-align="center center" layout-padding class="section-login">
+  <md-content layout="row" layout-align="center center" layout-padding class="section-login">
       <div flex><small>Ingresá con un clic con tu red social:</small></div>
       <div flex><md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('facebook')" aria-label="Facebook">
         <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
