@@ -22,15 +22,7 @@
       { id: 9, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
       { id: 10, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
       { id: 11, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 12, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 13, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 14, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 15, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 16, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 17, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 18, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 19, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 20, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' }
+      { id: 12, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' }
     ];
 
     _miembro.getList = function() {

@@ -1,12 +1,16 @@
 .acme-footer {
   .footer-sumate {
-    background: url('../assets/images/bg-footer.jpg') center top no-repeat;
-    height: 446px;
+    background: url('../assets/images/footer-bg.jpg') center top repeat-x;
+    height: 428px;
+    .container {
+      background: url('../assets/images/footer-img.png') right top no-repeat;
+      height: 428px;
+    }
     h2 {
       margin: 40px 0 0 0;
     }
     p {
-      color: #fff;
+      color: #5d5d5d;
       font-size: 21px;
       margin: 10px;
     }

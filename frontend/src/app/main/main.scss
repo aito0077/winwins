@@ -5,6 +5,8 @@ section.acme-video {
     background: url('../assets/images/home-video-desktop.png') no-repeat right center;
     background-size: cover;
   }
+  max-width: 1280px;
+  margin: 0 auto;
   .share {
     background: url('../assets/images/arrow-share.svg') no-repeat 80% 60px;
     h1 {
@@ -46,10 +48,11 @@ section.acme-video {
   }
   .md-green {
     background: #4cae4e;
-    font-size: 55px;
+    font-size: 46px;
     padding: 4px 30px 0 20px;
     margin: 20px;
     line-height: 60px;
+    font-weight: 700;
     color: white;
     transform: rotate(-7deg);
     &:not([disabled]):hover {
@@ -128,13 +131,12 @@ md-tabs.acme-tabs {
     }
   }
   md-ink-bar {
-    color: #ec6b25;
+    color: #fff;
     background: #ec6b25;
   }
   .md-tab {
     text-transform: initial;
     font-size: 12px;
-    font-weight: 700;
     padding: 5px 24px;
     .md-ripple-container {
       color: #ec6b25;
