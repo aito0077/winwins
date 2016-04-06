@@ -11,31 +11,41 @@
   .title {
     color: rgb(239, 131, 65);
     margin: 20px 8px;
+    font-size: 28px;
     md-icon {
       position: relative;
       top:-3px;
     }
     small {
       color: #a1a1a1;
-      font-size: 15px;
+      font-size: 12px;
+      font-weight: normal;
+      position: relative;
+      bottom: 5px;
     }
   }
   h3 {
     text-align: center;
-    color: rgb(239, 131, 65);
+    color: #666;
+    font-size: 21px;
+    margin-bottom: 15px;
+    span {
+      color: rgb(239, 131, 65);
+    }
   }
   .md-right {
     @media (min-width:960px) {
       position: absolute;
       right: 0;
-      margin-top: 10px;
+      margin-top: 23px;
     }
-    padding: 0 20px;
+    padding: 0 10px;
     background: #4a6dce;
     color: #fff;
-    font-size: 17px;
-    min-width: 285px;
+    font-size: 14px;
     text-transform: initial;
+    line-height: 25px;
+    min-height: 25px;
   }
   .acme-miembro-thumb {
     padding: 8px;
@@ -51,10 +61,12 @@
   }
   .md-green {
     background: #4cae4e;
-    font-size: 25px;
-    padding: 5px 30px;
+    font-size: 20px;
+    padding: 4px 30px;
+    font-weight: 700;
     margin: 20px;
     color: white;
+    min-width: 220px;
     &:not([disabled]):hover {
       background: #4cae4e;
     }
