@@ -1,41 +1,39 @@
 
 <div ng-show="!login.redirect_message">
-  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-    <md-content layout-padding>
-      <div>
-        <form method="post" ng-submit="login.login()" name="loginForm">
-          <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm>
-              <label translate>Email</label>
-              <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
-            </md-input-container>
-          </div>
-          <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm>
-              <label translate>Password</label>
-              <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
-            </md-input-container>
-          </div>
-          <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate>Ingresar
-          </button>
-        </form>
-      </div>
+  <section class="section-login">
+    <md-content layout="row" layout-align="center center" layout-wrap flex="35" layout-padding>
+      <form method="post" ng-submit="login.login()" name="loginForm">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label translate>Email</label>
+            <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label translate>Password</label>
+            <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+          </md-input-container>
+        </div>
+        <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary">Ingresar
+        </button>
+      </form>
     </md-content>
-  </section>
-
-  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-    <md-button class="md-fab md-mini" ng-click="login.authenticate('facebook')" aria-label="Facebook">
-        <md-icon md-svg-src=""></md-icon>Facebook
-    </md-button>
-    <md-button class="md-fab md-mini" ng-click="login.authenticate('twitter')" aria-label="Twitter">
-      <md-icon md-svg-src=""></md-icon>Twitter
-    </md-button>
-    <md-button class="md-fab md-mini" ng-click="login.authenticate('google')" aria-label="Google">
-        <md-icon md-svg-src=""></md-icon>Google
-    </md-button>
-    <md-button class="md-fab md-mini" ng-click="login.authenticate('yahoo')" aria-label="Yahoo">
-        <md-icon md-svg-src=""></md-icon>Yahoo
-    </md-button>
+    <md-content layout="row" layout-align="center center" layout-wrap flex="35" layout-padding>
+      <div flex><small>Ingresá con un clic con tu red social:</small></div>
+      <div flex><md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('facebook')" aria-label="Facebook">
+        <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('twitter')" aria-label="Twitter">
+        <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('google')" aria-label="Google">
+        <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('yahoo')" aria-label="Yahoo">
+        <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
+      </md-button></div>
+    </md-content>
   </section>
 </div>
 
@@ -43,3 +41,101 @@
   <h1 ng-if="!login.provider" translate> ¡Genial! </h1>
   <h3 ng-if="login.provider"> {{'¡Ingresaste con'| translate}} {{login.provider}}! </h1>
 </section>
+
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Ir a mi cuenta">
+        <md-content layout-padding flex="35" class="section-login">
+          <form method="post" ng-submit="login.login()" name="loginForm">
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Email</label>
+                <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+              </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Password</label>
+                <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+              </md-input-container>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary">Ingresar
+            </button>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="Registrarme">
+        <md-content layout-padding flex="35" class="section-login">
+          <form method="post" ng-submit="login.login()" name="loginForm">
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Nombre</label>
+                <input id="nombre" type="text" length="30" class="validate" required="required">
+              </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Email</label>
+                <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+              </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Contraseña</label>
+                <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+              </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Repetí Contraseña</label>
+                <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+              </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+                 He leído y acepto los términos y condiciones.
+              </md-checkbox>
+              </md-input-container>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary">Ingresar
+            </button>
+          </form>
+        </md-content>
+      </md-tab>
+      <md-tab label="test">
+        <!--<md-tab-label>
+            <md-icon md-svg-src="assets/images/icon-lock.svg"></md-icon>
+        </md-tab-label>-->
+        <md-content layout-padding flex="35" class="section-login">
+          <form method="post" ng-submit="login.login()" name="loginForm">
+            <div layout-gt-sm="row">
+              <md-input-container class="md-block" flex-gt-sm>
+                <label translate>Email</label>
+                <input id="email" type="email" length="30"  ng-model="login.email"  class="validate" required="required">
+              </md-input-container>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary">Enviar contraseña
+            </button>
+          </form>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+  <md-content layout="row" flex="35" layout-align="center center" layout-padding class="section-login">
+      <div flex><small>Ingresá con un clic con tu red social:</small></div>
+      <div flex><md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('facebook')" aria-label="Facebook">
+        <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('twitter')" aria-label="Twitter">
+        <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('google')" aria-label="Google">
+        <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-href="/#/login" ng-click="login.authenticate('yahoo')" aria-label="Yahoo">
+        <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
+      </md-button></div>
+    </md-content>
+</div>
