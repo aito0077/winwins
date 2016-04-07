@@ -22,8 +22,10 @@
 
     return directive;
 
-    function HighlightedController() {
-      //var vm = this;
+    function HighlightedController(ENV) {
+      var vm = this;
+
+      vm.imageServer = ENV.imageServer;
     }
   }
 

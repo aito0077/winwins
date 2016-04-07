@@ -20,8 +20,10 @@
 
     return directive;
 
-    function PartnerController() {
-      //var vm = this;
+    function PartnerController(ENV) {
+      var vm = this;
+
+      vm.imageServer = ENV.imageServer;
     }
   }
 
