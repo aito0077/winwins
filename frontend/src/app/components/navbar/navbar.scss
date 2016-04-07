@@ -30,6 +30,9 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   }
 }
 header {
+	position: fixed;
+	width: 100%;
+	z-index: 150;
 	.menu {
 		>div {
 			a {
