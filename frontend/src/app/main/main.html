@@ -44,12 +44,13 @@
     <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
       {{'Ver winwins por categoria' | translate }} <md-icon md-menu-origin>arrow_drop_down</md-icon>
     </md-button>
-    <md-menu-content width="6">
-      <md-menu-item ng-repeat="item in [1, 2, 3]">
-        <md-button ng-click="ctrl.announceClick($index)">
-          <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-            <span md-menu-align-target>Option</span> {{item}}
-          </md-checkbox>
+    <md-menu-content width="7">
+      <md-menu-item ng-repeat="item in main.interests">
+        <md-button ng-click="main.doCategories($index)">
+          <span md-menu-align-target></span> {{item.description}}
+<!--           <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+            <span md-menu-align-target></span> {{item.description}}
+          </md-checkbox> -->
         </md-button>
       </md-menu-item>
     </md-menu-content>
