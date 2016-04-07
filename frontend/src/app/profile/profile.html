@@ -1,0 +1,80 @@
+<md-toolbar class="md-accent notice warning" layout="row" layout-align="center center">
+  <p>
+    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong>ACTIVA TU CUENTA</strong> - Te enviamos un correo a user@mail.com. No te llegó? Hace <a href="#">click para reenviartelo</a>.
+  </p>
+</md-toolbar>
+<md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
+  <h2><span>COMPLETA TU PERFIL</span></h2>
+</md-toolbar>
+<md-content class="acme-profile">
+  <div class="container">
+    <div layout="row" layout-margin>
+      <div flex-gt-sm="46">
+        <md-card>
+          <div class="card-wrap">
+            <img src="../assets/images/profile-img.jpg" alt="" class="md-card-image" />
+            <span class="card-opacity"></span>
+          </div>
+          <div layout="column" class="profile-head" layout-align="center center">
+            <div flex><img src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" /></div>
+            <div flex>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">FIRST NAME AT TWO LINES MAX</span>
+                </md-card-title-text>
+              </md-card-title>
+            </div>
+          </div>
+        </md-card>
+      </div>
+      <div flex-gt-sm="27">
+        <form name="projectForm">
+          <md-input-container class="md-block">
+            <label>Nombre</label>
+            <input required name="clientName" ng-model="project.clientName">
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Apellido</label>
+            <input required name="clientName" ng-model="project.clientName">
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Email</label>
+            <input required name="clientName" ng-model="project.clientName">
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Intereses</label>
+            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
+            <div ng-messages="projectForm.description.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+        </form>
+      </div>
+      <div flex-gt-sm="27">
+        <form name="projectForm">
+          <md-input-container class="md-block">
+            <label>Sobre vos</label>
+            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
+            <div ng-messages="projectForm.description.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+          <div class="md-block wrap-input">
+            <md-datepicker ng-model="myDate" md-placeholder="Fecha de Nacimiento"></md-datepicker>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</md-content>

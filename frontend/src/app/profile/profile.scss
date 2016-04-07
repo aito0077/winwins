@@ -1,0 +1,92 @@
+md-toolbar.md-accent.notice {
+  height: 33px;
+  line-height: 33px;
+  min-height: 33px;
+  &.warning {
+    background-color: #e5452d;
+    p {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+md-toolbar.md-tall.md-warn.ng-scope {
+  background-color: #4a6dce;
+  height: 96px;
+  box-shadow: none;
+  &:before {
+    width: 0; 
+    height: 0; 
+    border-left: 36px solid transparent;
+    border-right: 36px solid transparent;
+    border-top: 17px solid #4a6dce;
+    content: '';
+    position: absolute;
+    margin: 0 auto;
+    right: 0;
+    left:0;
+  }
+  h2 {
+    font-size: 28px;
+  }
+}
+.acme-profile {
+  .container {
+    background-color: #fafafa;
+    md-input-container {
+      background:#fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 0 0 5px 0;
+      label {
+        font-size: 12px;
+        left: 10px;
+      }
+      input {
+        border-bottom: solid 1px #3ca007;
+      }
+    }
+    .wrap-input {
+      background:#fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    md-card {
+      margin: 0;
+      position: relative;
+      .card-wrap {
+        .card-opacity {
+          background: rgba(34,35,38,.4);
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          top: 0;
+        }
+      }
+      .profile-head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        &-image {
+          border-radius: 100px;
+          width: 110px;
+          height: 110px;
+        }
+        md-card-title {
+          padding-top: 10px;
+        }
+        .md-headline {
+          font-size: 21px;
+          line-height: 21px;
+          color: #fff;
+          text-align: center;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

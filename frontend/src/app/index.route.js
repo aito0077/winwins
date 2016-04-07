@@ -45,6 +45,16 @@
             controllerAs: 'login'
           }
         }
+      })
+      .state('home.profile',{
+        url: 'profile',
+        views: {
+          'content@home': {
+            templateUrl: 'app/profile/profile.html',
+            controller: 'ProfileController',
+            controllerAs: 'profile'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
