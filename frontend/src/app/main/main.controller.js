@@ -21,7 +21,7 @@
     winwin.getList(0, 'all', 6).then(function(data) {
       vm.destacados = data;
     });
-    miembro.getList(0, 20).then(function(data) {
+    miembro.getList(0, 12).then(function(data) {
       vm.miembros = data;
     });
     sponsor.getMainList().then(function(data) {

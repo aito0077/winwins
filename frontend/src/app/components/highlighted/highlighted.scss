@@ -35,7 +35,6 @@
         max-height: 18px;
       }
       md-card-title-text {
-        opacity: 0;
         top: 0;
         left: 0;
         bottom: 0;
@@ -50,9 +49,6 @@
           font-size: 18px;
           font-weight: 700;
           line-height: 20px;
-        }
-        &:hover {
-          opacity: 1;
         }
       }
       img {

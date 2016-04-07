@@ -6,7 +6,7 @@
       <small>{{ 'Personas que crean y participan en acciones de consenso colectivo' | translate }}</small>
     </h1>
     <div layout="row" layout-align="center" layout-wrap>
-      <div ng-repeat="item in vm.items" flex-gt-md="10">
+      <div ng-repeat="item in vm.items" flex-gt-md="15">
           <div class="acme-miembro-thumb">
             <img ng-src="{{vm.imageServer}}/smart/{{item.photo}}" alt="{{item.name}}">
           </div>
@@ -14,7 +14,7 @@
     </div>
     <div layout="column" layout-align="center center">
       <md-button class="md-raised md-primary md-right">{{'+ Ver todos los participantes' | translate }}</md-button>
-      <h3>{{ 'Sólo faltas vos,' | translate }} <span>{{ 'sumáte!' | translate }}</span></h3>
+      <h3>{{ 'Sólo faltas vos,' | translate }} <span>{{ 'sumate!' | translate }}</span></h3>
       <md-button class="md-raised md-green">{{'Comenzar' | translate }}</md-button>
     </div>
   </div>
