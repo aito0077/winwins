@@ -6,26 +6,28 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsor, winwin, miembro, partners, gettextCatalog, gettext, $auth) {
+  function MainController($timeout, sponsor, winwin, miembro, partners, gettextCatalog, gettext, $auth, $window) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
 
-    sponsor.getList(0, 6).then(function(data) {
+    var w = angular.element($window);
+
+    sponsor.getList(0, (w.width()<481) ? 3 : 6).then(function(data) {
       vm.sponsors = data;
-    });
-    winwin.getList(0, 'last', 6).then(function(data) {
-      vm.recientes = data;
-    });
-    winwin.getList(0, 'all', 6).then(function(data) {
-      vm.destacados = data;
-    });
-    miembro.getList(0, 12).then(function(data) {
-      vm.miembros = data;
     });
     sponsor.getMainList().then(function(data) {
       vm.partners = data;
+    });
+    winwin.getList(0, 'last', (w.width()<481) ? 2 : 6).then(function(data) {
+      vm.recientes = data;
+    });
+    winwin.getList(0, 'select', (w.width()<481) ? 4 : 6).then(function(data) {
+      vm.destacados = data;
+    });
+    miembro.getList(0, (w.width()<481) ? 6 : 12).then(function(data) {
+      vm.miembros = data;
     });
     winwin.getInterests().then(function(data) {
       vm.interests = data;
@@ -53,6 +55,5 @@
         vm.destacados = data;
       });
     };
-
   }
 })();
