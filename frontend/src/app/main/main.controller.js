@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext, $auth) {
+  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext, $auth, $mdDialog) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -70,5 +70,60 @@
       }
     ];
 
+    vm.showTabDialog = function(ev) {
+      $mdDialog.show({
+        controller: LoginController,
+        templateUrl: 'app/main/login.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      })
+      .then(function(answer) {
+        vm.status = 'You said the information was "' + answer + '".';
+      }, function() {
+        vm.status = 'You cancelled the dialog.';
+      });
+    };
+
+  }
+
+  function LoginController($scope, $mdDialog, $auth, $state, $timeout) {
+    $scope.login = function() {
+      $auth.login({ email: $scope.email, password: $scope.password })
+      .then(function() {
+        complete();      
+      })
+      .catch(function() {
+
+      });
+    };
+
+    $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+      .then(function() {
+        $scope.provider = provider;
+        complete();      
+      })
+      .catch(function() {
+
+      });
+    };
+
+    var complete = function() {
+      $scope.redirect_message = true;
+      $timeout(function() {
+        $mdDialog.hide(); 
+      }, 2000);
+    };
+
+    // $scope.hide = function() {
+    //   $mdDialog.hide();
+    // };
+    // $scope.cancel = function() {
+    //   $mdDialog.cancel();
+    // };
+    // $scope.answer = function(answer) {
+    //   $mdDialog.hide(answer);
+    // };
   }
 })();
