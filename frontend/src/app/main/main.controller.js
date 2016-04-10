@@ -91,7 +91,8 @@
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
       .then(function() {
-        complete();      
+        complete();
+        $scope.redirect_message = true;  
       })
       .catch(function() {
 
@@ -102,18 +103,47 @@
       $auth.authenticate(provider)
       .then(function() {
         $scope.provider = provider;
-        complete();      
+        complete();
+        $scope.redirect_message = true;
       })
       .catch(function() {
 
       });
     };
 
-    var complete = function() {
-      $scope.redirect_message = true;
+    $scope.register_status = 'register'
+
+    $scope.signup = function() {
+      $auth.signup({
+        username: $scope.name,
+        lastname: $scope.lastname,
+        email: $scope.email,
+        password: $scope.password,
+        name: $scope.name,
+        language_code: 'ES'
+      })
+      .then(function() {
+            $auth.login({ email: $scope.email, password: $scope.password })
+            .then(function() {
+              complete();
+              $scope.register_status = 'success'
+            });
+      })
+      .catch(function(response) {
+        $scope.register_status = 'error'
+        $scope.message = "Error en su registracion";
+        if(response.data) {
+          if(response.data.message == 'email_already_taken') {
+            $scope.message = 'El correo ya existe';
+          }
+        }
+      });
+    };
+
+    var complete = function() {      
       $timeout(function() {
         $mdDialog.hide(); 
-      }, 2000);
+      }, 3000);
     };
 
     // $scope.hide = function() {
