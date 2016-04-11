@@ -16,11 +16,12 @@
       return rSponsors.customGET('main');
     };
 
-    _sponsor.getList = function(page) {
-      var offset = 15;
+    _sponsor.getList = function(page, offset) {
+      var default_offset = 15;
       var default_page = 0;
 
-      page  = typeof page !== 'undefined' ? page : default_page;
+      page = typeof page !== 'undefined' ? page : default_page;
+      offset = typeof offset !== 'undefined' ? offset : default_offset;
 
       var paginateUrl = 'paginate' + '/' + page + '/' + offset + '/';
       return rSponsors.customGET(paginateUrl);

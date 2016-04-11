@@ -6,29 +6,21 @@
       .service('miembro', miembro);
 
   /** @ngInject */
-  function miembro($log, Restangular, $q) {
+  function miembro($log, Restangular) {
 
     var _miembro = {};
 
-    var testData = [
-      { id: 1, nombre: 'Facundo Mainere' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 2, nombre: 'Neto Licursi' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 3, nombre: 'Damian Mautano' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 4, nombre: 'Jose Luis Di Biase' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 5, nombre: 'Claudio Bidau' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 6, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 7, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 8, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 9, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 10, nombre: 'Nicolas Doallo' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 11, nombre: 'Adrian Pardini' , imagen: 'assets/images/100-2.jpeg' },
-      { id: 12, nombre: 'Nestor Ancel' , imagen: 'assets/images/100-2.jpeg' }
-    ];
+    var rMiembro = Restangular.all('users');
 
-    _miembro.getList = function() {
-      var dfd = $q.defer();
-      dfd.resolve(testData);
-      return dfd.promise;
+    _miembro.getList = function(page, offset) {
+      var default_offset = 15;
+      var default_page = 0;
+
+      page  = typeof page !== 'undefined' ? page : default_page;
+      offset = typeof offset !== 'undefined' ? offset : default_offset;
+
+      var paginateUrl = 'paginate' + '/' + page + '/' + offset;
+      return rMiembro.customGET(paginateUrl);
     };
 
     return _miembro;
