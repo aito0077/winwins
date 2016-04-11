@@ -1,10 +1,10 @@
 <md-toolbar class="md-accent notice warning" layout="row" layout-align="center center">
   <p>
-    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong>ACTIVA TU CUENTA</strong> - Te enviamos un correo a user@mail.com. No te llegó? Hace <a href="#">click para reenviartelo</a>.
+    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} user@mail.com. {{ 'No te llegó? Hace,' | translate }} <a href="#" translate>click para reenviartelo</a>.
   </p>
 </md-toolbar>
 <md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
-  <h2><span>COMPLETA TU PERFIL</span></h2>
+  <h2><span translate>COMPLETA TU PERFIL</span></h2>
 </md-toolbar>
 <md-content class="acme-profile">
   <div class="container">
@@ -17,16 +17,16 @@
           </div>
           <div layout="column" class="profile-head" layout-align="space-between center">
             <div flex class="profile-head-image-content"><img src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" />
-              <a href="#" class="bt-gray middle">subir avatar</a></div>
+              <a href="#" class="bt-gray middle" translate>subir avatar</a></div>
             <div flex>
               <md-card-title>
                 <md-card-title-text>
-                  <span class="md-headline">FIRST NAME AT TWO LINES MAX</span>
+                  <span class="md-headline" translate>FIRST NAME AT TWO LINES MAX</span>
                 </md-card-title-text>
               </md-card-title>
             </div>
             <div flex>
-              <a href="#" class="bt-gray bottom">subir portada</a>
+              <a href="#" class="bt-gray bottom" translate>subir portada</a>
             </div>
           </div>
         </md-card>
@@ -34,32 +34,32 @@
       <div flex>
         <form name="projectForm">
           <md-input-container class="md-block">
-            <label>Nombre</label>
+            <label translate>Nombre</label>
             <input required name="clientName" ng-model="project.clientName">
             <div ng-messages="projectForm.clientName.$error">
-              <div ng-message="required">This is required.</div>
+              <div ng-message="required" translate>This is required.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
-            <label>Apellido</label>
+            <label translate>Apellido</label>
             <input required name="clientApellido" ng-model="project.clientApellido">
             <div ng-messages="projectForm.clientApellido.$error">
-              <div ng-message="required">This is required.</div>
+              <div ng-message="required" translate>This is required.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
-            <label>Email</label>
+            <label translate>Email</label>
             <input required name="clientEmail" ng-model="project.clientEmail">
             <div ng-messages="projectForm.clientEmail.$error">
-              <div ng-message="required">This is required.</div>
+              <div ng-message="required" translate>This is required.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
-            <label>Intereses</label>
+            <label translate>Intereses</label>
             <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
             <div ng-messages="projectForm.description.$error">
-              <div ng-message="required">This is required.</div>
-              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
             </div>
           </md-input-container>
         </form>
@@ -67,11 +67,11 @@
       <div flex>
         <form name="projectForm">
           <md-input-container class="md-block">
-            <label>Sobre vos</label>
+            <label translate>Sobre vos</label>
             <input md-maxlength="30" required md-no-asterisk name="sobre" ng-model="project.sobre">
             <div ng-messages="projectForm.sobre.$error">
-              <div ng-message="required">This is required.</div>
-              <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
             </div>
           </md-input-container>
           <div class="md-block wrap-input">
@@ -81,25 +81,25 @@
       </div>
     </div>
     <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row">
-      <div flex><h3>Notificaciones</h3><p>te actualizamos por email 
+      <div flex><h3 translate>Notificaciones</h3><p translate>te actualizamos por email 
 de lo importante</p></div>
       <div flex>
         <div layout="row" layout-align="center center" class="bg-white">
-          <div><span>Invitación a Winwins</span></div>
+          <div><span translate>Invitación a Winwins</span></div>
           <div><md-switch ng-model="data.cb1" aria-label="Switch 1">
           </md-switch></div>
         </div>
       </div>
       <div flex>
         <div layout="row" layout-align="center center" class="bg-white">
-          <div><span>Winwins finalizado</span></div>
+          <div><span translate>Winwins finalizado</span></div>
           <div><md-switch ng-model="data.cb2" aria-label="Switch 2">
           </md-switch></div>
         </div>
       </div>
       <div flex>
         <div layout="row" layout-align="center center" class="bg-white">
-          <div><span>Invitación a Grupo</span></div>
+          <div><span translate>Invitación a Grupo</span></div>
           <div><md-switch ng-model="data.cb3" aria-label="Switch 3">
           </md-switch></div>
         </div>
@@ -107,28 +107,28 @@ de lo importante</p></div>
     </div>
     <div layout="column" layout-align-gt-sm="center center" layout-gt-sm="row">
       <div flex="70" class="profile-bottom" layout-padding layout-gt-sm="row" layout-align-gt-sm="center center">  
-        <div flex><h3>Privacidad del perfil</h3></div>
+        <div flex><h3 translate>Privacidad del perfil</h3></div>
         <div flex>
           <div layout="row" layout-align="center center" class="bg-white">
-            <div><span>Mostrar Perfil</span></div>
+            <div><span translate>Mostrar Perfil</span></div>
             <div><md-switch ng-model="data.cb4" aria-label="Switch 4">
             </md-switch></div>
           </div>
         </div>
-        <div><h3>Idioma</h3></div>
+        <div><h3 translate>Idioma</h3></div>
         <div flex>
           <div layout="row" layout-align="center center" class="bg-white">
             <div><div layout="row" layout-align="center center" class="bg-white">
-                <div><span>Español</span></div>
+                <div><span translate>Español</span></div>
                 <div><md-switch ng-model="data.cb5" aria-label="Switch 5">
                 </md-switch></div>
-                <div><span>English</span></div>
+                <div><span translate>English</span></div>
               </div></div>
           </div>
         </div>
       </div>
       <div flex="30" layout-padding class="profile-bottom">
-        <md-button md-no-ink class="md-raised md-primary bt-green">Guardar</md-button>
+        <md-button md-no-ink class="md-raised md-primary bt-green" translate>Guardar</md-button>
       </div>
     </div>
   </div>
