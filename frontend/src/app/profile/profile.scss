@@ -118,6 +118,9 @@ md-toolbar.md-tall.md-warn.ng-scope {
           position: relative;
           margin-top: 40px;
           width: 110px;
+          @media (max-width: 480px) { 
+            margin-top: 15px;
+          }
           .bt-gray {
             position: absolute;
             top: 45px;
