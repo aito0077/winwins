@@ -8,7 +8,7 @@
 </md-toolbar>
 <md-content class="acme-profile">
   <div class="container">
-    <div layout="column" layout-padding layout-gt-md="row" class="profile-bg-top">
+    <div layout="column" layout-padding layout-gt-sm="row" class="profile-bg-top">
       <div flex="20">
         <md-card>
           <div class="card-wrap">
@@ -42,15 +42,15 @@
           </md-input-container>
           <md-input-container class="md-block">
             <label>Apellido</label>
-            <input required name="clientName" ng-model="project.clientName">
-            <div ng-messages="projectForm.clientName.$error">
+            <input required name="clientApellido" ng-model="project.clientApellido">
+            <div ng-messages="projectForm.clientApellido.$error">
               <div ng-message="required">This is required.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
             <label>Email</label>
-            <input required name="clientName" ng-model="project.clientName">
-            <div ng-messages="projectForm.clientName.$error">
+            <input required name="clientEmail" ng-model="project.clientEmail">
+            <div ng-messages="projectForm.clientEmail.$error">
               <div ng-message="required">This is required.</div>
             </div>
           </md-input-container>
@@ -68,8 +68,8 @@
         <form name="projectForm">
           <md-input-container class="md-block">
             <label>Sobre vos</label>
-            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
-            <div ng-messages="projectForm.description.$error">
+            <input md-maxlength="30" required md-no-asterisk name="sobre" ng-model="project.sobre">
+            <div ng-messages="projectForm.sobre.$error">
               <div ng-message="required">This is required.</div>
               <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
             </div>
@@ -80,7 +80,7 @@
         </form>
       </div>
     </div>
-    <div layout="column" layout-padding class="profile-bottom" layout-align-gt-md="center center" layout-gt-md="row">
+    <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row">
       <div flex><h3>Notificaciones</h3><p>te actualizamos por email 
 de lo importante</p></div>
       <div flex>
@@ -105,8 +105,8 @@ de lo importante</p></div>
         </div>
       </div>
     </div>
-    <div layout="column" layout-align-gt-md="center center" layout-gt-md="row">
-      <div flex="70" class="profile-bottom" layout-padding layout-gt-md="row" layout-align-gt-md="center center">  
+    <div layout="column" layout-align-gt-sm="center center" layout-gt-sm="row">
+      <div flex="70" class="profile-bottom" layout-padding layout-gt-sm="row" layout-align-gt-sm="center center">  
         <div flex><h3>Privacidad del perfil</h3></div>
         <div flex>
           <div layout="row" layout-align="center center" class="bg-white">

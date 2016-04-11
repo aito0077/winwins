@@ -33,7 +33,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
 }
 .acme-profile {
   background: #fff;
-  @media (max-width: 1279px) {
+  @media (max-width: 768px) { 
     background: #fafafa;
   }
   .container {
@@ -62,9 +62,6 @@ md-toolbar.md-tall.md-warn.ng-scope {
     md-switch.md-checked .md-bar {
       background-color: #E5E4E4; 
     }
-    @media (max-width: 1279px) {
-      max-width: 400px;
-    }
     >.layout-row {
       background-color: rgb(255,64,129);
       margin-bottom: 4px;
@@ -81,6 +78,8 @@ md-toolbar.md-tall.md-warn.ng-scope {
       }
       input {
         border-bottom: solid 1px #3ca007;
+        font-size: 12px;
+        color: #686868;
       }
     }
     .wrap-input {
@@ -185,7 +184,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
       &.flex-30 {
         margin-left: 5px;
         padding: 0;
-        @media (max-width: 1279px) { 
+        @media (max-width: 768px) { 
           margin: 0 15px;
         }
       }
