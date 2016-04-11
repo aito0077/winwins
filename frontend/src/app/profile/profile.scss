@@ -130,6 +130,9 @@ md-toolbar.md-tall.md-warn.ng-scope {
         }
         md-card-title {
           padding: 70px 60px 0 60px;
+          @media (max-width: 480px) { 
+            padding: 70px 20px 0 20px;
+          }
         }
         .md-headline {
           font-size: 21px;
@@ -137,6 +140,10 @@ md-toolbar.md-tall.md-warn.ng-scope {
           color: #fff;
           text-align: center;
           font-weight: 700;
+          @media (max-width: 480px) { 
+            height: 20px;
+            overflow: hidden;
+          }
         }
         .bt-gray {
           color: #fff;
