@@ -1,10 +1,9 @@
 md-toolbar.md-accent.notice {
-  height: 33px;
-  line-height: 33px;
-  min-height: 33px;
   &.warning {
     background-color: #e5452d;
     p {
+      margin: 0;
+      text-align: center;
       a {
         color: #fff;
       }
@@ -18,22 +17,41 @@ md-toolbar.md-tall.md-warn.ng-scope {
   &:before {
     width: 0; 
     height: 0; 
-    border-left: 36px solid transparent;
-    border-right: 36px solid transparent;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
     border-top: 17px solid #4a6dce;
     content: '';
     position: absolute;
     margin: 0 auto;
     right: 0;
     left:0;
+    bottom: -17px;
   }
   h2 {
     font-size: 28px;
   }
 }
 .acme-profile {
+  background: #fff;
+  @media (max-width: 1279px) {
+    background: #fafafa;
+  }
   .container {
-    background-color: #fafafa;
+    .profile-bg-top {
+      background: #fafafa;
+      padding-top:14px;
+      margin-bottom: 4px;
+    }
+    md-switch.md-checked .md-thumb {
+      background-color: #428bca;
+    }
+    @media (max-width: 1279px) {
+      max-width: 400px;
+    }
+    >.layout-row {
+      background-color: rgb(255,64,129);
+      margin-bottom: 4px;
+    }
     md-input-container {
       background:#fff;
       border-radius: 5px;
@@ -71,13 +89,27 @@ md-toolbar.md-tall.md-warn.ng-scope {
         top: 0;
         left: 0;
         right: 0;
+        height: 100%;
         &-image {
           border-radius: 100px;
           width: 110px;
           height: 110px;
+          position: absolute;
+          z-index: 90;
+        }
+        .profile-head-image-content {
+          position: relative;
+          margin-top: 40px;
+          width: 110px;
+          .bt-gray {
+            position: absolute;
+            top: 45px;
+            right: -80px;
+            padding-left: 30px;
+          }
         }
         md-card-title {
-          padding-top: 10px;
+          padding: 70px 60px 0 60px;
         }
         .md-headline {
           font-size: 21px;
@@ -86,7 +118,66 @@ md-toolbar.md-tall.md-warn.ng-scope {
           text-align: center;
           font-weight: 700;
         }
+        .bt-gray {
+          color: #fff;
+          text-decoration: none;
+          background: #2e302e;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 10px;
+          display: block;
+          &.bottom {
+            bottom: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            width: 90px;
+          }
+        }
       }
+    }
+    .profile-bottom {
+      background: #fafafa;
+      padding-top:4px; 
+      padding-bottom:4px; 
+      margin-bottom: 4px;
+      h3 {
+        color: #4a6dce;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+      }
+      p {
+        color: #5d5d5d;
+        font-size: 12px;
+        margin: 0;
+      }
+      .bg-white {
+        background: #fff;
+        border-radius: 5px;
+        height: 40px;
+        span {
+          font-size: 10px;
+          margin-right: 10px;
+        }
+      }
+    }
+    
+    .bt-green {
+      background: #4cae4e;
+      color:#fff;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 0;
+      height: 64px;
+      margin-top: 0;
+      width: 280px;
+      margin-right: 0;
+    }
+    .layout-privacidad.layout-row {
+      background: none;
     }
   }
 }

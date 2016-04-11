@@ -8,15 +8,16 @@
 </md-toolbar>
 <md-content class="acme-profile">
   <div class="container">
-    <div layout="row" layout-margin>
-      <div flex-gt-sm="46">
+    <div layout="column" layout-padding layout-gt-md="row" class="profile-bg-top">
+      <div>
         <md-card>
           <div class="card-wrap">
             <img src="../assets/images/profile-img.jpg" alt="" class="md-card-image" />
             <span class="card-opacity"></span>
           </div>
-          <div layout="column" class="profile-head" layout-align="center center">
-            <div flex><img src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" /></div>
+          <div layout="column" class="profile-head" layout-align="space-between center">
+            <div flex class="profile-head-image-content"><img src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" />
+              <a href="#" class="bt-gray middle">subir avatar</a></div>
             <div flex>
               <md-card-title>
                 <md-card-title-text>
@@ -24,10 +25,13 @@
                 </md-card-title-text>
               </md-card-title>
             </div>
+            <div flex>
+              <a href="#" class="bt-gray bottom">subir portada</a>
+            </div>
           </div>
         </md-card>
       </div>
-      <div flex-gt-sm="27">
+      <div>
         <form name="projectForm">
           <md-input-container class="md-block">
             <label>Nombre</label>
@@ -60,7 +64,7 @@
           </md-input-container>
         </form>
       </div>
-      <div flex-gt-sm="27">
+      <div>
         <form name="projectForm">
           <md-input-container class="md-block">
             <label>Sobre vos</label>
@@ -74,6 +78,57 @@
             <md-datepicker ng-model="myDate" md-placeholder="Fecha de Nacimiento"></md-datepicker>
           </div>
         </form>
+      </div>
+    </div>
+    <div layout="column" layout-padding class="profile-bottom" layout-align-gt-md="center center" layout-gt-md="row">
+      <div flex><h3>Notificaciones</h3><p>te actualizamos por email 
+de lo importante</p></div>
+      <div flex>
+        <div layout="row" layout-align="center center" class="bg-white">
+          <div><span>Invitación a Winwins</span></div>
+          <div><md-switch ng-model="data.cb1" aria-label="Switch 1">
+          </md-switch></div>
+        </div>
+      </div>
+      <div flex>
+        <div layout="row" layout-align="center center" class="bg-white">
+          <div><span>Winwins finalizado</span></div>
+          <div><md-switch ng-model="data.cb2" aria-label="Switch 2">
+          </md-switch></div>
+        </div>
+      </div>
+      <div flex>
+        <div layout="row" layout-align="center center" class="bg-white">
+          <div><span>Invitación a Grupo</span></div>
+          <div><md-switch ng-model="data.cb3" aria-label="Switch 3">
+          </md-switch></div>
+        </div>
+      </div>
+    </div>
+    <div layout="column" layout-align-gt-md="center center" layout-gt-md="row">
+      <div flex="70" class="profile-bottom" layout-padding layout-gt-md="row" layout-align-gt-md="center center">  
+        <div flex><h3>Privacidad del perfil</h3></div>
+        <div flex>
+          <div layout="row" layout-align="center center" class="bg-white">
+            <div><span>Mostrar Perfil</span></div>
+            <div><md-switch ng-model="data.cb4" aria-label="Switch 4">
+            </md-switch></div>
+          </div>
+        </div>
+        <div><h3>Idioma</h3></div>
+        <div flex>
+          <div layout="row" layout-align="center center" class="bg-white">
+            <div><div layout="row" layout-align="center center" class="bg-white">
+                <div><span>Español</span></div>
+                <div><md-switch ng-model="data.cb5" aria-label="Switch 5">
+                </md-switch></div>
+                <div><span>English</span></div>
+              </div></div>
+          </div>
+        </div>
+      </div>
+      <div flex="30" layout-padding>
+        <md-button md-no-ink class="md-primary bt-green">Guardar</md-button>
       </div>
     </div>
   </div>
