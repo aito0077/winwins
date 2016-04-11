@@ -89,7 +89,7 @@
 
   function LoginController($scope, $mdDialog, $auth, $state, $timeout) {
     $scope.login = function() {
-      $auth.login({ email: $scope.email, password: $scope.password })
+      $auth.login({ email: $scope.login.email, password: $scope.login.password })
       .then(function() {
         complete();
         $scope.redirect_message = true;  
@@ -114,16 +114,20 @@
     $scope.register_status = 'register'
 
     $scope.signup = function() {
+      if (!$scope.register.terms){
+        $scope.registerForm.terms.$setValidity("notTerms", false);
+        return;
+      }
       $auth.signup({
-        username: $scope.name,
-        lastname: $scope.lastname,
-        email: $scope.email,
-        password: $scope.password,
-        name: $scope.name,
+        username: $scope.register.name,
+        lastname: $scope.register.lastname,
+        email: $scope.register.email,
+        password: $scope.register.password,
+        name: $scope.register.name,
         language_code: 'ES'
       })
       .then(function() {
-            $auth.login({ email: $scope.email, password: $scope.password })
+            $auth.login({ email: $scope.register.email, password: $scope.register.password })
             .then(function() {
               complete();
               $scope.register_status = 'success'
@@ -145,15 +149,44 @@
         $mdDialog.hide(); 
       }, 3000);
     };
-
-    // $scope.hide = function() {
-    //   $mdDialog.hide();
-    // };
-    // $scope.cancel = function() {
-    //   $mdDialog.cancel();
-    // };
-    // $scope.answer = function(answer) {
-    //   $mdDialog.hide(answer);
-    // };
   }
+
+  angular
+    .module('winwins')
+    .directive('passwordVerify', passwordVerify);
+
+    /** @ngInject */
+  function passwordVerify() {
+    var directive = {
+      require: "ngModel",
+      scope: {
+        passwordVerify: '='
+      },
+      link: function(scope, element, attrs, ctrl) {
+        scope.$watch(function() {
+            var combined;
+
+            if (scope.passwordVerify || ctrl.$viewValue) {
+               combined = scope.passwordVerify + '_' + ctrl.$viewValue; 
+            }                    
+            return combined;
+        }, function(value) {
+            if (value) {
+                ctrl.$parsers.unshift(function(viewValue) {
+                    var origin = scope.passwordVerify;
+                    if (origin !== viewValue) {
+                        ctrl.$setValidity("passwordVerify", false);
+                        return undefined;
+                    } else {
+                        ctrl.$setValidity("passwordVerify", true);
+                        return viewValue;
+                    }
+                });
+            }
+        });
+      }
+    };
+    return directive;
+  }
+
 })();
