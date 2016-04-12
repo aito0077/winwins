@@ -1,5 +1,5 @@
 <md-dialog class="tabs-login">
-    <md-dialog-content style="max-width:800px;max-height:810px; ">
+    <md-dialog-content>
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="one">
           <md-tab-label>Ir a mi cuenta {{hola}}</md-tab-label>
@@ -49,38 +49,48 @@
           <md-tab-body>
             <md-content layout-padding class="section-login">
               <form method="post" ng-submit="signup()" name="registerForm" ng-show="register_status == 'register'">
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label translate>Nombre</label>
-                  <input id="name" required ng-model="register.name" name="name">
-                  <div ng-messages="registerForm.name.$error" ng-if="registerForm.name.$touched" class="help-block">
-                    <p class="small" ng-message="required">Ingresa tu nombre.</p>
-                  </div>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label translate>Apellido</label>
-                  <input id="lastname" required ng-model="register.lastname" name="lastname">
-                  <div ng-messages="registerForm.lastname.$error" ng-if="registerForm.lastname.$touched" class="help-block">
-                    <p class="small" ng-message="required">Ingresa tu apellido.</p>
-                  </div>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label translate>Email</label>
-                  <input id="email" type="email" name="email" length="30"  ng-model="register.email" class="validate" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
-                  <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched" class="help-block">
-                    <p class="small" ng-message="required">Ingresa tu correo.</p>
-                  </div>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label translate>Contraseña</label>
-                  <input id="password" type="password" length="12" name="password" class="validate" ng-model="register.password" required>
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                  <label translate>Repetí Contraseña</label>
-                  <input id="rpassword" type="password" length="12" name="rpassword" class="validate"  ng-model="register.rpassword" required data-password-verify="register.password">
-                  <div ng-messages="registerForm.rpassword.$error" ng-if="registerForm.rpassword.$touched" class="help-block">
-                    <p class="small" ng-message="passwordVerify">Las contraseñas ingresadas no son iguales.</p>
-                  </div>
-                </md-input-container>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label translate>Nombre</label>
+                    <input id="name" required ng-model="register.name" name="name">
+                    <div ng-messages="registerForm.name.$error" ng-if="registerForm.name.$touched" class="help-block">
+                      <p class="small" ng-message="required">Ingresa tu nombre.</p>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label translate>Apellido</label>
+                    <input id="lastname" required ng-model="register.lastname" name="lastname">
+                    <div ng-messages="registerForm.lastname.$error" ng-if="registerForm.lastname.$touched" class="help-block">
+                      <p class="small" ng-message="required">Ingresa tu apellido.</p>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label translate>Email</label>
+                    <input id="email" type="email" name="email" length="30"  ng-model="register.email" class="validate" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                    <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched" class="help-block">
+                      <p class="small" ng-message="required">Ingresa tu correo.</p>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label translate>Contraseña</label>
+                    <input id="password" type="password" length="12" name="password" class="validate" ng-model="register.password" required>
+                  </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm>
+                    <label translate>Repetí Contraseña</label>
+                    <input id="rpassword" type="password" length="12" name="rpassword" class="validate"  ng-model="register.rpassword" required data-password-verify="register.password">
+                    <div ng-messages="registerForm.rpassword.$error" ng-if="registerForm.rpassword.$touched" class="help-block">
+                      <p class="small" ng-message="passwordVerify">Las contraseñas ingresadas no son iguales.</p>
+                    </div>
+                  </md-input-container>
+                </div>
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <md-checkbox class="green" ng-model="register.terms" name="terms">
