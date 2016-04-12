@@ -20,8 +20,10 @@
 
     return directive;
 
-    function MiembroController() {
-      //var vm = this;
+    function MiembroController(ENV) {
+      var vm = this;
+
+      vm.imageServer = ENV.imageServer;
     }
   }
 

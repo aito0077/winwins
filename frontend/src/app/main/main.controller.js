@@ -6,16 +6,33 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsors, winwins, miembros, partners, gettextCatalog, gettext, $auth, $mdDialog) {
+  function MainController($timeout, sponsor, winwin, miembro, gettextCatalog, gettext, $auth, $mdDialog, $window) {
     var vm = this;
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
-    //vm.creationDate = 1458584706984;
-    vm.sponsors = sponsors;
-    vm.winwins = winwins;
-    vm.miembros = miembros;
-    vm.partners = partners;
+
+    var w = angular.element($window);
+
+    sponsor.getList(0, (w.width()<481) ? 3 : 6).then(function(data) {
+      vm.sponsors = data;
+    });
+    sponsor.getMainList().then(function(data) {
+      vm.partners = data;
+    });
+    winwin.getList(0, 'last', (w.width()<481) ? 2 : 6).then(function(data) {
+      vm.recientes = data;
+    });
+    winwin.getList(0, 'select', (w.width()<481) ? 4 : 6).then(function(data) {
+      vm.destacados = data;
+    });
+    miembro.getList(0, (w.width()<481) ? 6 : 12).then(function(data) {
+      vm.miembros = data;
+    });
+    winwin.getInterests().then(function(data) {
+      vm.interests = data;
+    });
+
     vm.tdestacados = gettextCatalog.getString(gettext('Winwins Destacados'));
     vm.tpopulares = gettextCatalog.getString(gettext('Winwins Populares'));
     vm.trecientes = gettextCatalog.getString(gettext('Winwins Recientes'));
@@ -26,50 +43,19 @@
       return $auth.isAuthenticated();
     };
 
-    vm.destacados = [
-      {
-        id: 11,
-        members: 12,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },{
-        id: 11,
-        members: 12,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      },
-      {
-        id: 11,
-        members: 4,
-        img: "assets/images/fondo.jpg",
-        title: "Intercambio de novelas policiales",
-        user: { logo: "assets/images/logo.png", thumb: "assets/images/thumb.png" }
-      }
-    ];
-
+    vm.doFilter = function(filter) {
+      winwin.getList(0, filter, 6).then(function(data) {
+        vm.destacados = data;
+      });
+    };
+    
+    vm.doCategories = function($index) {
+      var _categories = vm.interests[$index]["id"];
+      winwin.getListByCategory(0, _categories, 6).then(function(data) {
+        vm.destacados = data;
+      });
+    };
+    
     vm.showTabDialog = function(ev) {
       $mdDialog.show({
         controller: LoginController,

@@ -21,10 +21,10 @@
 
     return directive;
 
-    function SponsorController() {
+    function SponsorController(ENV) {
       var vm = this;
-      var defaultUrl = '';
-      vm.url = angular.isDefined(this.url) ? this.url : defaultUrl;
+
+      vm.imageServer = ENV.imageServer;
     }
   }
 

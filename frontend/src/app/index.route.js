@@ -20,15 +20,6 @@
             controller: 'MainController',
             controllerAs: 'main',
             resolve: {
-              sponsors: function(sponsor) {
-                return sponsor.getMainList();
-              },
-              winwins: function(winwin) {
-                return winwin.getList();
-              },
-              miembros: function(miembro) {
-                return miembro.getList();
-              },
               partners: function(partner) {
                 return partner.getList();
               }
@@ -43,6 +34,16 @@
             templateUrl: 'app/login/login.html',
             controller: 'LoginController',
             controllerAs: 'login'
+          }
+        }
+      })
+      .state('home.profile',{
+        url: 'profile',
+        views: {
+          'content@home': {
+            templateUrl: 'app/profile/profile.html',
+            controller: 'ProfileController',
+            controllerAs: 'profile'
           }
         }
       });
