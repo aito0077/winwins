@@ -158,3 +158,11 @@ md-menu-content {
     margin-bottom: 0;
   }
 }
+.tabs-login {
+  md-dialog-content {
+    max-width:800px;
+    @media (min-width: 600px) {
+      min-width: 430px;
+    }
+  }
+}
