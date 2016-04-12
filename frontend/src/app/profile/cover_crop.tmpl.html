@@ -1,0 +1,13 @@
+<style>
+    .cropArea {
+      background: #E4E4E4;
+      overflow: hidden;
+      width:500px;
+      height:350px;
+    }
+</style>
+<div>Select an image file: <input type="file" id="fileInput" onchange="angular.element(this).scope().handleFileSelect(this)"/></div>
+<div class="cropArea">
+<img-crop image="myImage" area-type="rectangle" aspect-ratio="1.7" result-image="myCroppedImage" result-image-size='{w: 340,h: 200}' init-max-area="true"></img-crop>
+</div>
+<button ng-click="cropImage()">Aceptar</button>

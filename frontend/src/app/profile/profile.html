@@ -13,21 +13,21 @@
         <div flex="20">
           <md-card>
             <div class="card-wrap">
-              <img src="../assets/images/profile-img.jpg" alt="" class="md-card-image" />
+              <img ng-src="{{ profile.cover_image }}" src="../assets/images/profile-img.jpg" alt="" class="md-card-image" />
               <span class="card-opacity"></span>
             </div>
             <div layout="column" class="profile-head" layout-align="space-between center">
-              <div flex class="profile-head-image-content"><img src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" />
-                <a href="#" class="bt-gray middle" translate>subir avatar</a></div>
+              <div flex class="profile-head-image-content"><img ng-src="{{ profile.avatar_image }}" src="../assets/images/profile-avatar.jpg" alt="" class="profile-head-image" />
+                <a class="bt-gray middle" translate ng-click="profile.showCropAvatarDialog()">subir avatar</a></div>
               <div flex>
                 <md-card-title>
                   <md-card-title-text>
-                    <span class="md-headline" translate>FIRST NAME AT TWO LINES MAX</span>
+                    <span class="md-headline" translate>{{profile.user.name}} {{profile.user.lastname}}</span>
                   </md-card-title-text>
                 </md-card-title>
               </div>
               <div flex>
-                <a href="#" class="bt-gray bottom" translate>subir portada</a>
+                <a class="bt-gray bottom" translate ng-click="profile.showCropCoverDialog()">subir portada</a>
               </div>
             </div>
           </md-card>
