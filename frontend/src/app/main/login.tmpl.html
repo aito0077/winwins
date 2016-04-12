@@ -2,27 +2,33 @@
     <md-dialog-content>
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="one">
-          <md-tab-label>Ir a mi cuenta {{hola}}</md-tab-label>
+          <md-tab-label>{{ 'Ir a mi cuenta' | translate }} {{hola}}</md-tab-label>
           <md-tab-body>
             <md-content layout-padding class="section-login">
               <form method="post" ng-submit="login()" name="loginForm" ng-show="!redirect_message">
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Email</label>
-                    <input id="email" type="email" length="30"  ng-model="login.email" class="validate" required>
+                    <input id="email" name="email" type="email" length="30"  ng-model="login.email" class="validate" required>
+                    <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched" class="help-block">
+                      <p class="small" ng-message="required" translate>Email invalido.</p>
+                    </div>
                   </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Password</label>
-                    <input id="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+                    <input id="password" name="password" type="password" length="12"  class="validate"  ng-model="login.password" required="required">
+                    <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched" class="help-block">
+                      <p class="small" ng-message="required" translate>Contraseña incorrecta.</p>
+                    </div>
                   </md-input-container>
                 </div>
-                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">Ingresar
+                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Ingresar' | translate }}
                 </button>
               </form>
               <div layout="row" layout-align="center center" layout-padding class="section-login" ng-show="!redirect_message">
-                <div flex><small>Ingresá con un clic con tu red social:</small></div>
+                <div flex><small translate>Ingresá con un clic con tu red social:</small></div>
                 <div flex><md-button class="md-icon-button" ng-click="authenticate('facebook')" aria-label="Facebook">
                   <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
                 </md-button>
@@ -38,14 +44,14 @@
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="redirect_message">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-ok.svg"></md-icon></md-button></div>
-                <div flex><h2 class="gray">Genial!</h2></div>
-                <div flex><p class="violet">Vamos a tu cuenta.</p></div>
+                <div flex><h2 class="gray" translate>Genial!</h2></div>
+                <div flex><p class="violet" translate>Vamos a tu cuenta.</p></div>
               </div>
             </md-content>
           </md-tab-body>
         </md-tab>
         <md-tab label="two">
-          <md-tab-label>Registrarme</md-tab-label>
+          <md-tab-label translate>Registrarme</md-tab-label>
           <md-tab-body>
             <md-content layout-padding class="section-login">
               <form method="post" ng-submit="signup()" name="registerForm" ng-show="register_status == 'register'">
@@ -54,7 +60,7 @@
                     <label translate>Nombre</label>
                     <input id="name" required ng-model="register.name" name="name">
                     <div ng-messages="registerForm.name.$error" ng-if="registerForm.name.$touched" class="help-block">
-                      <p class="small" ng-message="required">Ingresa tu nombre.</p>
+                      <p class="small" ng-message="required" translate>Ingresa tu nombre.</p>
                     </div>
                   </md-input-container>
                 </div>
@@ -63,7 +69,7 @@
                     <label translate>Apellido</label>
                     <input id="lastname" required ng-model="register.lastname" name="lastname">
                     <div ng-messages="registerForm.lastname.$error" ng-if="registerForm.lastname.$touched" class="help-block">
-                      <p class="small" ng-message="required">Ingresa tu apellido.</p>
+                      <p class="small" ng-message="required" translate>Ingresa tu apellido.</p>
                     </div>
                   </md-input-container>
                 </div>
@@ -72,7 +78,7 @@
                     <label translate>Email</label>
                     <input id="email" type="email" name="email" length="30"  ng-model="register.email" class="validate" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
                     <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched" class="help-block">
-                      <p class="small" ng-message="required">Ingresa tu correo.</p>
+                      <p class="small" ng-message="required" translate>Ingresa tu correo.</p>
                     </div>
                   </md-input-container>
                 </div>
@@ -87,34 +93,34 @@
                     <label translate>Repetí Contraseña</label>
                     <input id="rpassword" type="password" length="12" name="rpassword" class="validate"  ng-model="register.rpassword" required data-password-verify="register.password">
                     <div ng-messages="registerForm.rpassword.$error" ng-if="registerForm.rpassword.$touched" class="help-block">
-                      <p class="small" ng-message="passwordVerify">Las contraseñas ingresadas no son iguales.</p>
+                      <p class="small" ng-message="passwordVerify" translate>Las contraseñas ingresadas no son iguales.</p>
                     </div>
                   </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <md-checkbox class="green" ng-model="register.terms" name="terms">
-                      He leído y acepto los <a href="#">términos y condiciones</a>.
+                      {{ 'He leído y acepto los' | translate }} <a href="#" translate>términos y condiciones</a>.
                     </md-checkbox>
                     <div ng-messages="registerForm.terms.$error" class="help-block" ng-if="registerForm.terms.$error.notTerms">
-                      <p class="small" ng-message="notTerms">Acepta los terminos y condiciones.</p>
+                      <p class="small" ng-message="notTerms" translate>Acepta los terminos y condiciones.</p>
                     </div>
                   </md-input-container>
                 </div>
-                <button type="submit" name="action" translate class="md-raised md-primary bt-default">Registrarme
+                <button type="submit" name="action" translate class="md-raised md-primary bt-default">{{ 'Registrarme' | translate }}
                 </button>
               </form>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="register_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-ok.svg"></md-icon></md-button></div>
-                <div flex><h2 class="gray">Genial!</h2></div>
-                <div flex><p class="gray font-16">Te enviamos un correo a
+                <div flex><h2 class="gray" translate>Genial!</h2></div>
+                <div flex><p class="gray font-16">{{ 'Te enviamos un correo a' | translate }}
                             <span class="violet">{{register.email}}</span>
-                             para confirmar tu cuenta.</p>
-                             <p class="gray font-16">Vamos a completar tu perfil.</p></div>
+                             {{ 'para confirmar tu cuenta' | translate }}.</p>
+                             <p class="gray font-16" translate>Vamos a completar tu perfil.</p></div>
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="register_status == 'error'" ng-click="register_status = 'register'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">{{ message }}<br /></div>
+                <div flex><p class="gray" translate>{{ message }}<br /></div>
               </div
             </md-content>
           </md-tab-body>
@@ -131,22 +137,22 @@
                     <label translate>Email</label>
                     <input required name="clientName" ng-model="project.clientName">
                     <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required">Email Inválido</div>
+                      <div ng-message="required" translate>Email Inválido</div>
                     </div>
                   </md-input-container>
                 </div>
-                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">Enviar contraseña
+                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Enviar contraseña' | translate }}
                 </button>
               </form>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="change_pass_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-oks.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">Te enviamos tu contraseña a <span class="violet">user@email.com</span></p></div>
+                <div flex><p class="gray">{{ 'Te enviamos tu contraseña a' | translate }} <span class="violet">user@email.com</span></p></div>
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="change_pass_status == 'error'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">El email <span class="red">user@email.com</span>
-                  no es un usuario de Winwins.<br />
-                  Escribiste bien?</p></div>
+                <div flex><p class="gray">{{ 'El email' | translate }} <span class="red">user@email.com</span>
+                  {{ 'no es un usuario de Winwins' | translate }}.<br />
+                  {{ 'Escribiste bien' | translate }}?</p></div>
               </div>
             </md-content>
           </md-tab-body>
