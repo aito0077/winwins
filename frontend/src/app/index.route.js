@@ -46,6 +46,16 @@
             controllerAs: 'profile'
           }
         }
+      })
+      .state('home.winwin',{
+        url: 'winwin',
+        views: {
+          'content@home': {
+            templateUrl: 'app/winwin/winwin.html',
+            controller: 'WinwinController',
+            controllerAs: 'winwin'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
