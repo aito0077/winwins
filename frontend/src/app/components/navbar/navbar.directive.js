@@ -24,6 +24,8 @@
     function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog) {
       var vm = this;
 
+      vm.imageServer = ENV.imageServer;
+
       vm.isAuthenticated = function() {
         return $auth.isAuthenticated();
       };

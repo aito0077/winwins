@@ -5,14 +5,14 @@
     .module('winwins')
     .controller('LoginController', LoginController);
 
-  function LoginController($scope, $mdDialog, $auth, $state, $timeout) {
+  function LoginController($scope, $mdDialog, $auth, $state, $timeout, account) {
     $scope.login_status = 'login'
 
     $scope.login = function() {
       $auth.login({ email: $scope.login.email, password: $scope.login.password })
       .then(function() {
         complete();
-        $scope.login_status = 'succes';
+        $scope.login_status = 'success';
       })
       .catch(function() {
         $scope.login_status = 'error';
@@ -24,7 +24,7 @@
       .then(function() {
         $scope.provider = provider;
         complete();
-        $scope.login_status = 'succes';
+        $scope.login_status = 'success';
       })
       .catch(function() {
         $scope.login_status = 'error';
@@ -66,7 +66,8 @@
 
     $scope.change_pass_status = 'change_pass';
 
-    var complete = function() {      
+    var complete = function() {   
+      account.getProfile();   
       $timeout(function() {
         $mdDialog.hide(); 
       }, 3000);
