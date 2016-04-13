@@ -6,8 +6,10 @@
     .controller('ProfileController', ProfileController);
 
   /** @ngInject */
-  function ProfileController(account, user, $mdDialog) {
+  function ProfileController(account, user, $mdDialog, $q, ENV) {
     var vm = this;
+
+    vm.imageServer = ENV.imageServer;
 
     account.getProfile()
     .then(function(data) {
@@ -21,7 +23,41 @@
     });
 
     vm.saveProfile = function() {
-      user.saveProfile(vm.user);
+      var promises = [];
+
+      if (vm.avatar_image) {
+        promises.push(account.uploadImage(dataURItoBlob(vm.avatar_image)));
+      }
+      if (vm.cover_image) {
+        promises.push(account.uploadImage(dataURItoBlob(vm.cover_image)));
+      }
+     
+      $q.all(promises).then(function(data) {
+        var indexAvatar = 0;
+        var indexCover = 1;
+        if (!vm.avatar_image) {
+          indexCover = 0;
+        }
+
+        if (vm.avatar_image) {
+          vm.user.photo = data[indexAvatar].filename;
+        }
+        if (vm.cover_image) {
+          vm.user.cover_photo = data[indexCover].filename;
+        }
+
+        user.saveProfile(vm.user);
+      });
+    };
+
+    var dataURItoBlob = function(dataURI) {
+      var binary = atob(dataURI.split(',')[1]);
+      var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      var array = [];
+      for(var i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i));
+      }
+      return new Blob([new Uint8Array(array)], {type: mimeString});
     };
 
     vm.showCropAvatarDialog = function(ev) {
