@@ -47,6 +47,14 @@
         }
 
         user.saveProfile(vm.user);
+
+        $mdDialog.show({
+          controller: CropAvatarController,
+          templateUrl: 'app/profile/modal_success.tmpl.html',
+          parent: angular.element(document.body),
+          clickOutsideToClose:true
+        });
+
       });
     };
 
