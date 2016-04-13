@@ -16,7 +16,7 @@
 		<div class="seccion"><md-button class="md-primary" ng-href="#"><translate>Miembros</translate></md-button></div>
 		<div class="seccion"><md-button class="md-primary" ng-href="#"><translate>Sponsors</translate></md-button></div>
 		<div class="logo"><a href="#"><img src="../assets/images/logo.png" alt="" /></a></div>
-		<div class="seccion"><md-button class="md-primary" ui-sref="home.login"><translate>Ir a mi cuenta</translate></md-button>
+		<div class="seccion"><md-button class="md-primary" ng-click="vm.showLoginDialog()"><translate>Ir a mi cuenta</translate></md-button>
 		</div>
 		<div class="crear"><md-button class="md-primary" ng-href="#"><translate>+ Crear Winwin</translate></md-button></div>
 		<div class="menu-search">
@@ -58,7 +58,7 @@
 						<img class="md-user-avatar" src="assets/images/100-2.jpeg">
 					</md-card-avatar>
 					
-					<md-button class="md-icon-button" aria-label="Login" ui-sref="home.login" ng-if="!vm.isAuthenticated()">
+					<md-button class="md-icon-button" aria-label="Login" ng-click="vm.showLoginDialog()" ng-if="!vm.isAuthenticated()">
 		        		<md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon>
 			      	</md-button>
 				</md-card-header>
@@ -84,7 +84,7 @@
 						<img class="md-user-avatar" src="assets/images/100-2.jpeg">
 					</md-card-avatar>
 
-					<md-button class="md-icon-button" aria-label="Login" ui-sref="home.login" ng-if="!vm.isAuthenticated()">
+					<md-button class="md-icon-button" aria-label="Login" ng-click="vm.showLoginDialog()" ng-if="!vm.isAuthenticated()">
 		        		<md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon>
 			      	</md-button>
 				</md-card-header>
@@ -118,7 +118,7 @@
           <input ng-model="user.address2" placeholder="{{'Buscar' | translate}}">
           <md-icon>search</md-icon>
         </md-input-container></div>
-			<div><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon><translate> Ir a mi cuenta</translate></md-button></div>
+			<div><md-button class="md-primary" ng-click="vm.showLoginDialog()"><md-icon md-svg-src="assets/images/icon-cuenta.svg"></md-icon><translate> Ir a mi cuenta</translate></md-button></div>
 			<div><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-mis-winwins.svg"></md-icon><translate> Mis Winwins</translate></md-button></div>
 			<div><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-crear-winwins.svg"></md-icon><translate> Crear Winwin</translate></md-button></div>
 			<div><md-button class="md-primary" ng-href="#"><md-icon md-svg-src="assets/images/icon-miembros.svg"></md-icon><translate> Miembros</translate></md-button></div>
