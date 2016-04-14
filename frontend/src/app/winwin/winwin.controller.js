@@ -6,7 +6,7 @@
     .controller('WinwinController', WinwinController);
 
   /** @ngInject */
-  function WinwinController($stateParams, winwin, ENV) {
+  function WinwinController($stateParams, winwin, ENV, $mdDialog) {
     var vm = this;
 
     vm.imageServer = ENV.imageServer;
@@ -18,6 +18,28 @@
 			vm.winwin = winwin_data;
 			vm.winwin.closing_date = new Date(vm.winwin.closing_date);
   	});
+    
+    vm.showMasDetalleDialog = function(ev) {
+      $mdDialog.show({
+        controller: MasDetalleController,
+        templateUrl: 'app/winwin/ver-mas-detalle.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      });
+    };
+    vm.showParticipantesDialog = function(ev) {
+      $mdDialog.show({
+        controller: ParticipantesController,
+        templateUrl: 'app/winwin/participantes.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      });
+    };
   }
+  
+  function MasDetalleController(){};
+  function ParticipantesController(){}
 
 })();

@@ -100,7 +100,7 @@
     }
   }
   .detalle {
-    height: 135px;
+    max-height: 135px;
     overflow: hidden;
   }
   .ver-mas {
@@ -275,5 +275,32 @@
   }
   .aside {
     padding: 0;
+  }
+}
+.dialog-primary {
+  border: solid 5px #e0e0e0;
+  max-width: 650px;
+  h2 {
+    font-size: 18px;
+    color: #5d5d5d;
+    span {
+      color: #2a6fb6;
+    }
+  }
+  h3 {
+    font-size: 12px;
+    color: #2a6fb6;
+  }
+  p {
+    font-size: 12px;
+    color: #5d5d5d;
+  }
+  md-list {
+    @media (min-width: 960px) {
+      min-width: 400px;
+    }
+    .md-raised.md-button {
+      font-size: 12px;
+    }
   }
 }
