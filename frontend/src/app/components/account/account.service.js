@@ -13,11 +13,7 @@
     var rAccount = Restangular.one('me');
 
     _account.getProfile = function() {
-      if (!$rootScope.account) {
-        $rootScope.account = rAccount.get();  
-      }
-      
-      return $rootScope.account;
+      return  rAccount.get();
     };
 
     _account.uploadImage = function(data) {

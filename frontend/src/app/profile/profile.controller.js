@@ -6,8 +6,12 @@
     .controller('ProfileController', ProfileController);
 
   /** @ngInject */
-  function ProfileController(account, user, $mdDialog, $q, ENV) {
+  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth) {
     var vm = this;
+
+    if (!$auth.isAuthenticated()) {
+      $state.go('home'); 
+    }
 
     vm.imageServer = ENV.imageServer;
 
@@ -24,6 +28,8 @@
     });
 
     vm.saveProfile = function() {
+      vm.processing = true;
+
       var promises = [];
 
       if (vm.avatar_image) {
@@ -56,6 +62,7 @@
           clickOutsideToClose:true
         });
 
+        vm.processing = false;
       });
     };
 
