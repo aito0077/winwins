@@ -27,16 +27,6 @@
           }
         }
       })
-      .state('home.login',{
-        url: 'login',
-        views: {
-          'content@home': {
-            templateUrl: 'app/login/login.html',
-            controller: 'LoginController',
-            controllerAs: 'login'
-          }
-        }
-      })
       .state('home.profile',{
         url: 'profile',
         views: {

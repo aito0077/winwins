@@ -5,7 +5,7 @@
           <md-tab-label>{{ 'Ir a mi cuenta' | translate }} {{hola}}</md-tab-label>
           <md-tab-body>
             <md-content layout-padding class="section-login">
-              <form method="post" ng-submit="login()" name="loginForm" ng-show="!redirect_message">
+              <form method="post" ng-submit="login()" name="loginForm" ng-show="login_status == 'login'">
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Email</label>
@@ -27,7 +27,7 @@
                 <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Ingresar' | translate }}
                 </button>
               </form>
-              <div layout="row" layout-align="center center" layout-padding class="section-login" ng-show="!redirect_message">
+              <div layout="row" layout-align="center center" layout-padding class="section-login" ng-show="login_status == 'login'">
                 <div flex><small translate>Ingresá con un clic con tu red social:</small></div>
                 <div flex><md-button class="md-icon-button" ng-click="authenticate('facebook')" aria-label="Facebook">
                   <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
@@ -42,11 +42,15 @@
                   <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
                 </md-button></div>
               </div>
-              <div layout="column" layout-align="center center" class="login-ok" ng-show="redirect_message">
+              <div layout="column" layout-align="center center" class="login-ok" ng-show="login_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-ok.svg"></md-icon></md-button></div>
                 <div flex><h2 class="gray" translate>Genial!</h2></div>
                 <div flex><p class="violet" translate>Vamos a tu cuenta.</p></div>
               </div>
+              <div layout="column" layout-align="center center" class="login-ok" ng-show="login_status == 'error'" ng-click="login_status = 'login'">
+                <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
+                <div flex><p class="gray" translate>Usuario/password no correctos<br /></div>
+              </div
             </md-content>
           </md-tab-body>
         </md-tab>
