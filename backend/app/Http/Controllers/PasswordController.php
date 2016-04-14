@@ -27,5 +27,9 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->subject    = 'Winwins: restablecer contraseña';
+
+        // Ruta luego de un reseteo exitoso
+        $this->redirectTo = '/';
     }
 }
