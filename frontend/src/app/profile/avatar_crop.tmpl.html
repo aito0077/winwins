@@ -10,14 +10,12 @@
     }
 </style>
 <div layout="column" layout-padding layout-margin>
-	<div>
-		<md-input-container>
-			<label translate>Elige una foto para subir:</label> 
-			<input type="file" id="fileInput" onchange="angular.element(this).scope().handleFileSelect(this)"/>
-		</md-input-container>
-	</div>
+	<md-input-container>
+		<label translate>Elige una foto para subir:</label> 
+		<input type="file" id="fileInput" onchange="angular.element(this).scope().handleFileSelect(this)"/>
+	</md-input-container>
 	<div class="cropArea">
 		<img-crop image="myImage" result-image="myCroppedImage"></img-crop>
 	</div>
-	<div><md-button ng-click="cropImage()" class="md-raised md-green" translate>Aceptar</md-button></div>
+	<md-button ng-click="cropImage()" class="md-raised md-green" translate>Aceptar</md-button>
 </div>

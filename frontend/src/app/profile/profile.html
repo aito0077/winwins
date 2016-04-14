@@ -37,28 +37,28 @@
             <label translate>Nombre</label>
             <input required name="name" ng-model="profile.user.name">
             <div ng-messages="profileForm.name.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
             <label translate>Apellido</label>
             <input required name="lastname" ng-model="profile.user.lastname">
             <div ng-messages="profileForm.lastname.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
             <label translate>Email</label>
             <input required name="email" ng-model="profile.user.email">
             <div ng-messages="profileForm.email.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
           <md-input-container class="md-block">
             <label translate>Intereses</label>
             <input md-maxlength="30" md-no-asterisk name="interests" ng-model="profile.user.interests">
             <div ng-messages="profileForm.interests.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
               <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
             </div>
           </md-input-container>        
@@ -68,7 +68,7 @@
             <label translate>Sobre vos</label>
             <input md-maxlength="30" md-no-asterisk name="about" ng-model="profile.user.about">
             <div ng-messages="profileForm.about.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
               <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
             </div>
           </md-input-container>
@@ -84,7 +84,7 @@
             <label translate>Contraseña actual</label>
             <input required name="pass" ng-model="profile.user.pass">
             <div ng-messages="profileForm.pass.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
         </div>
@@ -93,7 +93,7 @@
             <label translate>Nueva Contraseña</label>
             <input required name="newpass" ng-model="profile.user.newpass">
             <div ng-messages="profileForm.newpass.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
         </div>
@@ -102,7 +102,7 @@
             <label translate>Ingresa otra vez tu nueva contraseña</label>
             <input required name="passagain" ng-model="profile.user.passagain">
             <div ng-messages="profileForm.passagain.$error">
-              <div ng-message="required" translate>This is required.</div>
+              <div ng-message="required" translate>Campo requerido.</div>
             </div>
           </md-input-container>
         </div>
