@@ -13,6 +13,7 @@
 
     account.getProfile()
     .then(function(data) {
+      vm.isActive = data.active;
       user.getUser(data.user.id)
       .then(function(user_data) {
         vm.user = user_data;
