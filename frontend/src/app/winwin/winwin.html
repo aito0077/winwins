@@ -96,30 +96,30 @@
         </div>
       </div>
     </div>
-    <div layout-gt-sm="row" layout-align-gt-sm="center start" layout-align="center center" layout-padding layout="column">
-      <div>
+    <div layout-gt-sm="row" layout-padding layout-align-gt-sm="center start" layout-align="center center" layout="column">
+      <div class="sponsors">
         <h3 class="title">
-        <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>
-        {{ 'SPONSORS' | translate }}
+          <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>
+          {{ 'SPONSORS' | translate }}
         </h3>
         <div layout="row" layout-gt-sm="column" layout-align="center center" layout-margin layout-wrap>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
           <div>
-            <img ng-src="assets/images/partner.jpg" alt="">
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
           </div>
         </div>
       </div>
@@ -138,9 +138,7 @@
             </md-card-header-text>
           </md-card-header>
           <md-card-content>
-            <p>
-              The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-              two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus urna vitae tellus mollis, sit amet viverra orci lobortis. Vestibulum in quam in urna consectetur porta. Integer in finibus purus. Vestibulum blandit, ligula vitae laoreet viverra, erat odio dapibus nunc, vitae congue lacus augue pharetra tellus. Donec luctus accumsan risus, vel elementum velit consectetur quis. Nam posuere, lorem nec ultricies egestas, tellus felis pretium dui, eu volutpat sapien est eget urna. Aliquam dapibus libero sapien, ut rutrum mauris vestibulum nec. Cras id accumsan ante. In tincidunt est nunc, a blandit sapien faucibus ut.
             </p>
           </md-card-content>
             <md-card-actions layout="row" layout-margin>
@@ -152,18 +150,21 @@
           </md-card-actions>
         </md-card>
         <md-card class="md-whiteframe-7dp" flex-offset="15">
-          <div class="card-labels">
-            <md-icon class="icon" md-svg-src="assets/images/icon-delete.svg"></md-icon>
-            <md-icon class="icon" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+          <div layout="row" layout-align="space-between center">
+            <div layout-padding>
+              <md-icon class="icon" md-svg-src="assets/images/icon-delete.svg"></md-icon>
+            </div>
+            <div>
+              <md-card-header>
+                <md-card-header-text>
+                  Nombre de usuario
+                </md-card-header-text>
+                <md-card-avatar>
+                  <img class="md-user-avatar" src="assets/images/profile-avatar.jpg"/>
+                </md-card-avatar>
+              </md-card-header>
+            </div>
           </div>
-          <md-card-header>
-            <md-card-avatar>
-              <img class="md-user-avatar" src="assets/images/profile-avatar.jpg"/>
-            </md-card-avatar>
-            <md-card-header-text>
-              Nombre de usuario
-            </md-card-header-text>
-          </md-card-header>
           <md-card-content>
             <p>
               The titles of Washed Out's breakthrough song and the first single from Paracosm share the
@@ -179,7 +180,7 @@
           </md-card-actions>
         </md-card>
       </div>
-      <div>
+      <div class="aside">
         <div layout-align-gt-sm="start stretch" layout-align="center stretch" layout-padding layout="column">
           <div class="content-bg">
             <h3 class="title-notificaction">

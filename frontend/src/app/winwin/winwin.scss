@@ -221,6 +221,7 @@
     }
   }
   .comments {
+    padding: 0;
     md-card {
       position: relative;
       .card-labels {
@@ -257,5 +258,22 @@
     .red {
       color: #c62829;
     }
+  }
+  .sponsors {
+    padding: 0;
+    h3 {
+      margin-left: 20px;
+    }
+    &-img {
+      max-width: 190px;
+      display: block;
+    }
+    div {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+  .aside {
+    padding: 0;
   }
 }
