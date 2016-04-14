@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, sponsor, winwin, miembro, partners, gettextCatalog, gettext, $auth, $window) {
+  function MainController($timeout, sponsor, winwin, miembro, gettextCatalog, gettext, $auth, $mdDialog, $window) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -48,12 +48,24 @@
         vm.destacados = data;
       });
     };
-
+    
     vm.doCategories = function($index) {
       var _categories = vm.interests[$index]["id"];
       winwin.getListByCategory(0, _categories, 6).then(function(data) {
         vm.destacados = data;
       });
     };
+    
+    vm.showLoginDialog = function(ev) {
+      $mdDialog.show({
+        controller: 'LoginController',
+        templateUrl: 'app/login/login.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      });
+    };
+
   }
+
 })();
