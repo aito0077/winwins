@@ -1,6 +1,11 @@
 .acme-navbar-text{
   color: white;
 }
+header {
+	md-toolbar {
+		z-index: 300;
+	}
+}
 md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
   background-color: #0d47a1;
   min-height: 50px;
