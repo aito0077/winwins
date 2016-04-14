@@ -41,6 +41,10 @@
       return rWinwin.customGET(paginateUrl, {categories: categories});
     };
 
+    _winwin.getWinwin = function(id) {
+      return Restangular.one('winwins', id).get();
+    }
+
     return _winwin;
   }
 

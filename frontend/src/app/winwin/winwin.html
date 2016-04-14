@@ -1,0 +1,228 @@
+<md-content class="acme-winwin">
+  <div class="container">
+    <div layout-gt-sm="row" layout-align="center start" layout-padding layout="column">
+      <div>
+         <md-card class="md-whiteframe-17dp no-padding">
+          <md-card-content>
+            <img ng-src="assets/images/profile-img.jpg" alt="" class="md-card-img"/>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="space-between center">
+            <div class="card-numbers">
+              <div layout="row" layout-wrap layout-align="center center">
+                <div class="md-item-text bg-green">
+                  <h3 translate>Somos</h3>
+                  <p>{{winwin.winwin.users_already_joined}}</p>
+                </div>
+                <div class="md-item-text bg-orange">
+                  <h3 translate>Faltan</h3>
+                  <p>{{winwin.winwin.users_left}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-time"><h3 translate>HAY TIEMPO HASTA EL</h3>
+              <strong><md-icon class="icon icon-access_time">access_time</md-icon> {{winwin.winwin.closing_date | date:"dd/MM/yyyy" }}</strong>
+            </div>
+          </md-card-actions>
+        </md-card>
+      </div>
+      <div flex="15">
+        <div layout="column" layout-align="center center">
+          <div class="creadores">
+            <img src="../assets/images/profile-avatar.jpg" alt="" class="avatar-creador style-rounded" />
+            <h3>{{winwin.winwin.user.detail.name}} {{winwin.winwin.user.detail.lastname}}</h3>
+            <strong>CREADOR</strong>
+          </div>
+          <div class="activadores">
+            <div layout="row" layout-align="center center" layout-margin layout-wrap>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div> 
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+              <div>
+                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              </div>
+            </div>
+            <strong>ACTIVADORES</strong>
+          </div>
+        </div>
+      </div>
+      <div flex="60">
+        <h2>{{winwin.winwin.title}}</h2>
+        <div layout="col" layout-align="center start">
+          <div flex>
+            <p class="detalle"><strong>Si supieras que somos {{winwin.winwin.users_amount}} personas</strong> para {{winwin.winwin.what_we_do}} <br/>
+            </p>
+            <p><strong>te sumarías?</strong></p>
+            <md-button ng-href class="ver-mas" ng-click="winwin.showMasDetalleDialog()">+ VER MAS DETALLES</md-button>
+            <md-button class="bt-green md-whiteframe-17dp">SI, ME SUMO!</md-button>
+          </div>
+          <div flex="5">
+            <md-button class="md-icon-button" ng-href="/#/login">
+              <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-href="/#/login">
+              <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-href="/#/login">
+              <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-href="/#/login">
+              <md-icon md-svg-src="assets/images/icon-share.svg"></md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-href="/#/login">
+              <md-icon md-svg-src="assets/images/icon-email.svg"></md-icon>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout-gt-sm="row" layout-padding layout-align-gt-sm="center start" layout-align="center center" layout="column">
+      <div class="sponsors">
+        <h3 class="title">
+          <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>
+          {{ 'SPONSORS' | translate }}
+        </h3>
+        <div layout="row" layout-gt-sm="column" layout-align="center center" layout-margin layout-wrap>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+          <div>
+            <img ng-src="assets/images/partner.jpg" alt="" class="sponsors-img">
+          </div>
+        </div>
+      </div>
+      <div class="comments">
+        <md-card class="md-whiteframe-7dp">
+          <div class="card-labels">
+            <md-icon class="icon" md-svg-src="assets/images/icon-delete.svg"></md-icon>
+            <md-icon class="icon" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+          </div>
+          <md-card-header>
+            <md-card-avatar>
+              <img class="md-user-avatar" src="assets/images/profile-avatar.jpg"/>
+            </md-card-avatar>
+            <md-card-header-text>
+              Nombre de usuario
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-content>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce finibus urna vitae tellus mollis, sit amet viverra orci lobortis. Vestibulum in quam in urna consectetur porta. Integer in finibus purus. Vestibulum blandit, ligula vitae laoreet viverra, erat odio dapibus nunc, vitae congue lacus augue pharetra tellus. Donec luctus accumsan risus, vel elementum velit consectetur quis. Nam posuere, lorem nec ultricies egestas, tellus felis pretium dui, eu volutpat sapien est eget urna. Aliquam dapibus libero sapien, ut rutrum mauris vestibulum nec. Cras id accumsan ante. In tincidunt est nunc, a blandit sapien faucibus ut.
+            </p>
+          </md-card-content>
+            <md-card-actions layout="row" layout-margin>
+              <div><md-icon class="icon icon-access_time">access_time</md-icon> 21/12/12</div>
+              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon> 15</div>
+              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon> 15</div>
+              <div><md-icon class="icon insert_comment">insert_comment</md-icon></div>
+              <div><md-icon class="icon share">sharet</md-icon></div>
+          </md-card-actions>
+        </md-card>
+        <md-card class="md-whiteframe-7dp" flex-offset="15">
+          <div layout="row" layout-align="space-between center">
+            <div layout-padding>
+              <md-icon class="icon" md-svg-src="assets/images/icon-delete.svg"></md-icon>
+            </div>
+            <div>
+              <md-card-header>
+                <md-card-header-text>
+                  Nombre de usuario
+                </md-card-header-text>
+                <md-card-avatar>
+                  <img class="md-user-avatar" src="assets/images/profile-avatar.jpg"/>
+                </md-card-avatar>
+              </md-card-header>
+            </div>
+          </div>
+          <md-card-content>
+            <p>
+              The titles of Washed Out's breakthrough song and the first single from Paracosm share the
+              two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            </p>
+          </md-card-content>
+            <md-card-actions layout="row" layout-margin>
+              <div><md-icon class="icon icon-access_time">access_time</md-icon> 21/12/12</div>
+              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon> 15</div>
+              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon> 15</div>
+              <div><md-icon class="icon insert_comment">insert_comment</md-icon></div>
+              <div><md-icon class="icon share">sharet</md-icon></div>
+          </md-card-actions>
+        </md-card>
+      </div>
+      <div class="aside">
+        <div layout-align-gt-sm="start stretch" layout-align="center stretch" layout-padding layout="column">
+          <div class="content-bg">
+            <h3 class="title-notificaction">
+              <md-icon>notifications</md-icon>
+              <span class="badge">1</span>
+              CAMPANADA ACTIVA</h3>
+          </div>
+          <div class="content-bg">
+            <h4><md-icon md-svg-src="assets/images/icon-state.svg"></md-icon> Estado: <strong>{{winwin.winwin.published? 'Activo' : 'Inactivo'}}</strong></h4>
+          </div>
+          <div class="content-bg">
+            <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon> Escala: <strong>{{winwin.winwin.scope}}</strong></h4>
+            <p>{{winwin.winwin.location.formatted_address}}</p>
+          </div>
+          <div class="content-bg">
+            <h4>Categorías: </h4>
+            {{winwin.formattedCategories(winwin.winwin.interests)}}
+            <ul>
+              <li ng-repeat="category in winwin.winwin.interests">{{category.description}}</li>
+            </ul>
+          </div>
+          <div class="content-bg">
+            <p><md-icon md-svg-src="assets/images/icon-entrar.svg"></md-icon> Abandonar este Winwin</p>
+          </div>
+          <div class="content-bg">
+            <p><md-icon md-svg-src="assets/images/icon-report.svg"></md-icon> Reportar este Winwin</p>
+          </div>
+        </div>
+        <md-list ng-cloak>
+          <h3 class="title">
+            <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>
+            {{ 'PARTICIPANTES' | translate }}
+          </h3>
+          <md-list-item ng-repeat="participante in winwin.winwin.users">
+            <img ng-src="{{winwin.imageServer}}/smart/{{participante.photo}}" alt="" class="md-avatar">
+            <p>{{participante.username}}</p>
+          </md-list-item>
+          <md-list-item class="md-no-proxy">
+           <md-button ng-href class="ver-todos" ng-click="winwin.showParticipantesDialog()"><strong>+</strong> Ver todos los participantes</md-button>
+          </md-list-item>
+        </md-list>
+      </div>
+    </div>
+  </div>
+</md-content>
