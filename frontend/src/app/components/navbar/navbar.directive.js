@@ -21,8 +21,10 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account) {
+    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog) {
       var vm = this;
+
+      vm.imageServer = ENV.imageServer;
 
       vm.isAuthenticated = function() {
         return $auth.isAuthenticated();
@@ -51,6 +53,16 @@
 
       vm.logout = function () {
         $auth.logout();
+      };
+
+      vm.showLoginDialog = function(ev) {
+        $mdDialog.show({
+          controller: 'LoginController',
+          templateUrl: 'app/login/login.tmpl.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true
+        });
       };
     }
   }
