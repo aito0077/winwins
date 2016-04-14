@@ -12,7 +12,7 @@
           <md-card-content>
             <img ng-src="{{vm.imageServer}}/220x/{{item.image}}" alt="" class="md-card-img"/>
             <md-card-title-text layout-align="center center" layout="column">
-              <span class="md-headline">{{item.title}}</span>
+              <md-button class="md-headline" ui-sref="home.winwin({winwinId: item.id})">{{item.title}}</md-button>
             </md-card-title-text>
             <div class="card-labels">
               <md-icon class="icon icon-access_time" ng-if="item.mark == 'finishing'">access_time</md-icon>

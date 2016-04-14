@@ -48,7 +48,7 @@
         }
       })
       .state('home.winwin',{
-        url: 'winwin',
+        url: 'winwin/:winwinId',
         views: {
           'content@home': {
             templateUrl: 'app/winwin/winwin.html',

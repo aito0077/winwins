@@ -11,16 +11,16 @@
               <div layout="row" layout-wrap layout-align="center center">
                 <div class="md-item-text bg-green">
                   <h3 translate>Somos</h3>
-                  <p>900</p>
+                  <p>{{winwin.winwin.users_already_joined}}</p>
                 </div>
                 <div class="md-item-text bg-orange">
                   <h3 translate>Faltan</h3>
-                  <p>900</p>
+                  <p>{{winwin.winwin.users_left}}</p>
                 </div>
               </div>
             </div>
             <div class="card-time"><h3 translate>HAY TIEMPO HASTA EL</h3>
-              <strong><md-icon class="icon icon-access_time">access_time</md-icon> 17/02/2309</strong>
+              <strong><md-icon class="icon icon-access_time">access_time</md-icon> {{winwin.winwin.closing_date | date:"dd/MM/yyyy" }}</strong>
             </div>
           </md-card-actions>
         </md-card>
@@ -29,7 +29,7 @@
         <div layout="column" layout-align="center center">
           <div class="creadores">
             <img src="../assets/images/profile-avatar.jpg" alt="" class="avatar-creador style-rounded" />
-            <h3>Nombre de usuario completo</h3>
+            <h3>{{winwin.winwin.user.detail.name}} {{winwin.winwin.user.detail.lastname}}</h3>
             <strong>CREADOR</strong>
           </div>
           <div class="activadores">
@@ -67,10 +67,10 @@
         </div>
       </div>
       <div flex="60">
-        <h2>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut</h2>
+        <h2>{{winwin.winwin.title}}</h2>
         <div layout="col" layout-align="center start">
           <div>
-            <p class="detalle"><strong>Si supieras que somos 1312</strong> sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, <br/>
+            <p class="detalle"><strong>Si supieras que somos {{winwin.winwin.users_amount}} personas</strong> para {{winwin.winwin.what_we_do}} <br/>
             </p>
             <p><strong>te sumarías?</strong></p>
             <md-button ng-href="#" class="ver-mas">+ VER MAS DETALLES</md-button>
@@ -189,18 +189,17 @@
               CAMPANADA ACTIVA</h3>
           </div>
           <div class="content-bg">
-            <h4><md-icon md-svg-src="assets/images/icon-state.svg"></md-icon> Estado: <strong>Activo</strong></h4>
+            <h4><md-icon md-svg-src="assets/images/icon-state.svg"></md-icon> Estado: <strong>{{winwin.winwin.published? 'Activo' : 'Inactivo'}}</strong></h4>
           </div>
           <div class="content-bg">
-            <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon> Escala: <strong>Local</strong></h4>
-            <p>Direccion, localidad</p>
+            <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon> Escala: <strong>{{winwin.winwin.scope}}</strong></h4>
+            <p>{{winwin.winwin.location.formatted_address}}</p>
           </div>
           <div class="content-bg">
             <h4>Categorías: </h4>
+            {{winwin.formattedCategories(winwin.winwin.interests)}}
             <ul>
-              <li>Cultura / Artes</li>
-              <li>Festejos / Juegos Diversidad</li>
-              <li>Convivencia / Pareja - Familia - Amigos</li>
+              <li ng-repeat="category in winwin.winwin.interests">{{category.description}}</li>
             </ul>
           </div>
           <div class="content-bg">
@@ -215,29 +214,9 @@
             <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>
             {{ 'PARTICIPANTES' | translate }}
           </h3>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
-          </md-list-item>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
-          </md-list-item>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
-          </md-list-item>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
-          </md-list-item>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
-          </md-list-item>
-          <md-list-item>
-            <img ng-src="assets/images/profile-avatar.jpg" alt="" class="md-avatar">
-            <p>Nombre de Usario</p>
+          <md-list-item ng-repeat="participante in winwin.winwin.users">
+            <img ng-src="{{winwin.imageServer}}/smart/{{participante.photo}}" alt="" class="md-avatar">
+            <p>{{participante.username}}</p>
           </md-list-item>
           <md-list-item class="md-no-proxy">
            <md-button ng-href="#" class="ver-todos"><strong>+</strong> Ver todos los participantes</md-button>
