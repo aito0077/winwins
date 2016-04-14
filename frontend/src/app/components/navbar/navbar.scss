@@ -163,9 +163,9 @@ header {
 md-sidenav {
 	md-toolbar.md-theme-indigo {
 		box-shadow: none;
-		background: url('../assets/images/sidebar-winwins.jpg') repeat-x;
-		height: 188px;
+		height: 190px;
 		border-bottom: solid 3px #eb6a24;
+		position: relative;
 		.md-user-avatar {
 			width: 100px;
 			height: 100px;
@@ -173,5 +173,24 @@ md-sidenav {
 		.md-headline {
 			font-weight: 700;
 		}
+		.card-wrap {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: #fff;
+	    right: 0;
+	    height: 187px;
+      .card-opacity {
+        background: rgba(34,35,38,.4);
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+      }
+    }
+    md-card-avatar, md-card-title {
+    	z-index: 30;
+    }
 	}
 }

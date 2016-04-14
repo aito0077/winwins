@@ -28,9 +28,6 @@
     md-card-content {
       position: relative;
       padding: 0;
-      .md-card-img {
-        height: 150px;
-      }
       .md-card-sponsor {
         max-height: 18px;
       }
@@ -49,16 +46,31 @@
           font-size: 18px;
           font-weight: 700;
           line-height: 20px;
+          white-space: inherit;
+          &:hover {
+            background: none;
+          }
+          .md-ripple-container {
+            display: none;
+          }
         }
       }
-      img {
-        width: 100%;
-        display: block;
+      .wrap-md-card-img {
+        background: #fff;
+        height: 150px;
+        overflow: hidden;
+        img {
+          display: block;
+          margin: 0 auto;
+        }
       }
       .card-labels {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 10px;
+        .icon-access_time {
+          margin-top: 3px;
+        }
       }
     }
     md-card-actions {
