@@ -5,9 +5,19 @@
       width:500px;
       height:350px;
     }
+    #fileInput {
+    	margin-top: 30px;
+    }
 </style>
-<div>Select an image file: <input type="file" id="fileInput" onchange="angular.element(this).scope().handleFileSelect(this)"/></div>
-<div class="cropArea">
-<img-crop image="myImage" area-type="rectangle" aspect-ratio="1.7" result-image="myCroppedImage" result-image-size='{w: 340,h: 200}' init-max-area="true"></img-crop>
+<div layout="column" layout-padding layout-margin>
+	<div>
+		<md-input-container>
+			<label translate>Elige una foto para subir:</label> 
+			<input type="file" id="fileInput" onchange="angular.element(this).scope().handleFileSelect(this)"/>
+		</md-input-container>
+	</div>
+	<div class="cropArea">
+		<img-crop image="myImage" area-type="rectangle" aspect-ratio="1.7" result-image="myCroppedImage" result-image-size='{w: 340,h: 200}' init-max-area="true"></img-crop>
+	</div>
+	<div><md-button ng-click="cropImage()" class="md-raised md-green">Aceptar</md-button></div>
 </div>
-<button ng-click="cropImage()">Aceptar</button>

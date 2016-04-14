@@ -78,6 +78,36 @@
         </div>      
       </div>
       <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row">
+        <div flex><h3 translate>Cambiar Contraseña</h3></div>
+        <div flex>
+          <md-input-container class="md-block">
+            <label translate>Contraseña actual</label>
+            <input required name="pass" ng-model="profile.user.pass">
+            <div ng-messages="profileForm.pass.$error">
+              <div ng-message="required" translate>This is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div flex>
+          <md-input-container class="md-block">
+            <label translate>Nueva Contraseña</label>
+            <input required name="newpass" ng-model="profile.user.newpass">
+            <div ng-messages="profileForm.newpass.$error">
+              <div ng-message="required" translate>This is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div flex="10">
+          <md-input-container class="md-block">
+            <label translate>Ingresa otra vez tu nueva contraseña</label>
+            <input required name="passagain" ng-model="profile.user.passagain">
+            <div ng-messages="profileForm.passagain.$error">
+              <div ng-message="required" translate>This is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row">
         <div flex><h3 translate>Notificaciones</h3><p translate>te actualizamos por email 
   de lo importante</p></div>
         <div flex>
@@ -130,7 +160,7 @@
           </div>
         </div>
         <div flex="30" layout-padding class="profile-bottom">
-          <md-button md-no-ink class="md-raised md-primary bt-green" type="submit" ng-disabled="profileForm.$invalid" name="action" translate>Guardar</md-button>
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" ng-disabled="profileForm.$invalid" name="action" translate>Guardar</md-button>
         </div>      
       </div>
     </form>
