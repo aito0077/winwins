@@ -4,6 +4,15 @@ section.acme-video {
     height: 435px;
     background: url('../assets/images/home-video-desktop.png') no-repeat right center;
     background-size: cover;
+    .play-video {
+      width: 605px;
+      height: 200px;
+      position: absolute;
+      top: 150px;
+      left: 280px;
+      cursor: pointer;
+      outline: none;
+    }
   }
   max-width: 1280px;
   margin: 0 auto;
