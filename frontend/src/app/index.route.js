@@ -46,6 +46,16 @@
             controllerAs: 'winwin'
           }
         }
+      })
+      .state('home.activacion',{
+        url: 'activacion',
+        views: {
+          'content@home': {
+            templateUrl: 'app/profile/activacion.html',
+            controller: 'ActivacionController',
+            controllerAs: 'activacion'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
