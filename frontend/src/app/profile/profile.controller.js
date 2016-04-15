@@ -6,7 +6,7 @@
     .controller('ProfileController', ProfileController);
 
   /** @ngInject */
-  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth, $rootScope) {
+  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth, $rootScope, $scope) {
     var vm = this;
 
     if (!$auth.isAuthenticated()) {
@@ -21,6 +21,7 @@
       user.getUser(data.user.id)
       .then(function(user_data) {
         vm.user = user_data;
+        vm.is_complete = (user_data.name && user_data.lastname && user_data.email && user_data.birthdate);
         if (vm.user.birthdate) {
           vm.user.birthdate = new Date(vm.user.birthdate);
         }
@@ -29,6 +30,7 @@
 
     vm.saveProfile = function() {
       vm.processing = true;
+      vm.current_password_wrong_message = '';
 
       var promises = [];
 
@@ -56,15 +58,23 @@
         user.saveProfile(vm.user)
         .then(function(){
           $rootScope.$broadcast('account_change');
+
+          $mdDialog.show({
+            controller: CropAvatarController,
+            templateUrl: 'app/profile/modal_success.tmpl.html',
+            parent: angular.element(document.body),
+            clickOutsideToClose:true
+          });
+        })
+        .catch(function(response) {
+          if(response.data) {
+            if(response.data.message == 'user_current_password_wrong') {
+              $scope.profileForm.current_password.$setValidity("currentPasswordWrong", false);
+            }
+          }
         });
 
-        $mdDialog.show({
-          controller: CropAvatarController,
-          templateUrl: 'app/profile/modal_success.tmpl.html',
-          parent: angular.element(document.body),
-          clickOutsideToClose:true
-        });
-
+        
         vm.processing = false;
       });
     };
