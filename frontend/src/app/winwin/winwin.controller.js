@@ -25,7 +25,10 @@
         templateUrl: 'app/winwin/ver-mas-detalle.tmpl.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose:true
+        clickOutsideToClose:true,
+        locals: {
+          winwin: vm.winwin
+        }
       });
     };
     vm.showParticipantesDialog = function(ev) {
@@ -39,7 +42,12 @@
     };
   }
   
-  function MasDetalleController(){};
+  function MasDetalleController($scope, winwin) {
+    $scope.winwin = winwin;
+  };
+
+
+
   function ParticipantesController(){}
 
 })();
