@@ -16,9 +16,9 @@
       return  rAccount.get();
     };
 
-    _account.uploadImage = function(data) {
+    _account.uploadImage = function(data, name) {
       var fd = new FormData();
-      fd.append('file', data);
+      fd.append('file', data, name);
       
       return rAccount
       .withHttpConfig({transformRequest: angular.identity})

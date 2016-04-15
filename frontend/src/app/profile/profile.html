@@ -13,11 +13,11 @@
         <div flex="20">
           <md-card>
             <div class="card-wrap">
-              <img ng-src="{{ profile.cover_image }}" src="{{profile.imageServer}}/smart/{{profile.user.cover_photo}}" alt="" class="md-card-image" />
+              <img ng-src="{{ profile.cover_image.file }}" src="{{profile.imageServer}}/smart/{{profile.user.cover_photo}}" alt="" class="md-card-image" />
               <span class="card-opacity"></span>
             </div>
             <div layout="column" class="profile-head" layout-align="space-between center">
-              <div flex class="profile-head-image-content"><img ng-src="{{ profile.avatar_image }}" src="{{profile.imageServer}}/smart/{{profile.user.photo}}" alt="" class="profile-head-image" />
+              <div flex class="profile-head-image-content"><img ng-src="{{ profile.avatar_image.file }}" src="{{profile.imageServer}}/smart/{{profile.user.photo}}" alt="" class="profile-head-image" />
                 <a class="bt-gray middle" translate ng-click="profile.showCropAvatarDialog()">subir avatar</a></div>
               <div flex>
                 <md-card-title>

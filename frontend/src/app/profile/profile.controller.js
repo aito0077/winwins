@@ -6,7 +6,7 @@
     .controller('ProfileController', ProfileController);
 
   /** @ngInject */
-  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth) {
+  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth, $rootScope) {
     var vm = this;
 
     if (!$auth.isAuthenticated()) {
@@ -33,10 +33,10 @@
       var promises = [];
 
       if (vm.avatar_image) {
-        promises.push(account.uploadImage(dataURItoBlob(vm.avatar_image)));
+        promises.push(account.uploadImage(dataURItoBlob(vm.avatar_image.file), vm.avatar_image.name));
       }
       if (vm.cover_image) {
-        promises.push(account.uploadImage(dataURItoBlob(vm.cover_image)));
+        promises.push(account.uploadImage(dataURItoBlob(vm.cover_image.file), vm.cover_image.name));
       }
      
       $q.all(promises).then(function(data) {
@@ -53,7 +53,10 @@
           vm.user.cover_photo = data[indexCover].filename;
         }
 
-        user.saveProfile(vm.user);
+        user.saveProfile(vm.user)
+        .then(function(){
+          $rootScope.$broadcast('account_change');
+        });
 
         $mdDialog.show({
           controller: CropAvatarController,
@@ -86,7 +89,6 @@
       })
       .then(function(image) {
         vm.avatar_image = image;
-
       });
     };
 
@@ -100,7 +102,6 @@
       })
       .then(function(image) {
         vm.cover_image = image;
-
       });
     };
   }
@@ -108,9 +109,11 @@
   function CropAvatarController($scope, $mdDialog) {
     $scope.myImage='';
     $scope.myCroppedImage='';
+    $scope.fileName='';
 
     $scope.handleFileSelect = function(evt) {
       var file=evt.files[0];
+      $scope.fileName = file.name;
       var reader = new FileReader();
       reader.onload = function (evt) {
         $scope.$apply(function($scope){
@@ -121,16 +124,18 @@
     };
 
     $scope.cropImage = function() {
-      $mdDialog.hide($scope.myCroppedImage);
+      $mdDialog.hide({file:$scope.myCroppedImage, name:$scope.fileName});
     }
   }
 
   function CropCoverController($scope, $mdDialog) {
     $scope.myImage='';
     $scope.myCroppedImage='';
+    $scope.fileName='';
 
     $scope.handleFileSelect = function(evt) {
       var file=evt.files[0];
+      $scope.fileName = file.name;
       var reader = new FileReader();
       reader.onload = function (evt) {
         $scope.$apply(function($scope){
@@ -141,7 +146,7 @@
     };
 
     $scope.cropImage = function() {
-      $mdDialog.hide($scope.myCroppedImage);
+      $mdDialog.hide({file:$scope.myCroppedImage, name:$scope.fileName});
     }
   }
 
