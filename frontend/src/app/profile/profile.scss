@@ -257,3 +257,32 @@ md-toolbar.md-tall.md-warn.ng-scope {
     background-color: #34b436;
   }
 }
+.activacion-bg {
+  background: #0d47a1;
+  min-height: 700px;
+  text-align: center;
+  h2 {
+    color: #fff;
+    background: #1b3089;
+    font-size: 28px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+  }
+  h3 {
+    color: #fff;
+    font-size: 28px;
+    margin: 0 0 5px 0;
+  }
+  p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 0 30px 0;
+  }
+  .circle {
+    background: #1b3089;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+  }
+}
