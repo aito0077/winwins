@@ -65,7 +65,19 @@
         clickOutsideToClose:true
       });
     };
+    
+    vm.showVideoDialog = function(ev) {
+      $mdDialog.show({
+        controller: VideoController,
+        templateUrl: 'app/main/video.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true
+      });
+    };
 
   }
+  
+  function VideoController(){}
 
 })();
