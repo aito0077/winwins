@@ -13,12 +13,17 @@
     var rAccount = Restangular.one('me');
 
     _account.getProfile = function() {
-      if (!$rootScope.account) {
-        $rootScope.account = rAccount.get();  
-      }
-      
-      return $rootScope.account;
+      return  rAccount.get();
     };
+
+    _account.uploadImage = function(data, name) {
+      var fd = new FormData();
+      fd.append('file', data, name);
+      
+      return rAccount
+      .withHttpConfig({transformRequest: angular.identity})
+      .customPOST(fd, 'upload', undefined, {'Content-Type': undefined})
+    }
 
     return _account;
   }

@@ -30,12 +30,16 @@
         return $auth.isAuthenticated();
       };
 
-      if (vm.isAuthenticated) {
-        account.getProfile()
-        .then(function(data) {
-           vm.account = data.profile;
-        });
-      }
+      $rootScope.$on('account_change',function(event){
+        if (vm.isAuthenticated) {
+          account.getProfile()
+          .then(function(data) {
+             vm.account = data.profile;
+          });
+        }
+      });
+
+      $rootScope.$broadcast('account_change');
 
       vm.openLeftMenu = function() {
         $mdSidenav('left').toggle();

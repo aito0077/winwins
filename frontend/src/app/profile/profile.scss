@@ -1,6 +1,7 @@
 md-toolbar.md-accent.notice {
   &.warning {
     background-color: #e5452d;
+    position: relative;
     p {
       margin: 0;
       text-align: center;
@@ -14,6 +15,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
   background-color: #4a6dce;
   height: 96px;
   box-shadow: none;
+  position: relative;
   &:before {
     width: 0; 
     height: 0; 
@@ -37,12 +39,15 @@ md-toolbar.md-tall.md-warn.ng-scope {
     background: #fafafa;
   }
   .container {
+    @media (max-width: 960px) { 
+      max-width: 400px;
+    }
     .profile-bg-top {
       background: #fafafa;
-      padding-top:14px;
+      padding-top:25px;
       margin-bottom: 4px;
       .md-datepicker-input-container {
-        width: 150px;
+        width: 170px;
         margin-left: 0;
         border-bottom: solid 1px #3ca007;
         .md-datepicker-input {
@@ -80,6 +85,10 @@ md-toolbar.md-tall.md-warn.ng-scope {
         border-bottom: solid 1px #3ca007;
         font-size: 12px;
         color: #686868;
+        font-family: 'Montserrat', serif;
+      }
+      &.md-input-has-value label {
+        display: none;
       }
     }
     .wrap-input {
@@ -153,6 +162,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
           font-weight: 700;
           padding: 10px;
           display: block;
+          cursor: pointer;
           &.bottom {
             bottom: 0;
             position: absolute;
@@ -161,6 +171,9 @@ md-toolbar.md-tall.md-warn.ng-scope {
             margin: 0 auto;
             text-align: center;
             width: 90px;
+          }
+          &:hover {
+            background: #464946;
           }
         }
       }
@@ -224,9 +237,23 @@ md-toolbar.md-tall.md-warn.ng-scope {
       &.md-button.md-primary.md-raised:not([disabled]):hover {
         background-color: #34b436;
       }
+      &.md-button.md-raised[disabled] {
+        background: #4cae4e;
+        color: #fff !important;
+      }
     }
     .layout-privacidad.layout-row {
       background: none;
     }
+  }
+}
+.login-ok {
+  border:solid 7px #e0e0e0;
+}
+.md-button.md-raised.md-green {
+  background: #4cae4e;
+  color:#fff;
+  &:not([disabled]):hover {
+    background-color: #34b436;
   }
 }
