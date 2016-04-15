@@ -17,6 +17,9 @@
       max-width: 430px;
       max-height: 220px;
       overflow: hidden;
+      .md-card-img {
+        width: 100%;
+      }
     }
     .card-numbers {
       p {
