@@ -5,12 +5,13 @@
     .module('winwins')
     .controller('LoginController', LoginController);
 
-  function LoginController($scope, $mdDialog, $auth, $state, $timeout, account) {
+  function LoginController($scope, $mdDialog, $auth, $state, $timeout, account, $rootScope) {
     $scope.login_status = 'login'
 
     $scope.login = function() {
       $auth.login({ email: $scope.login.email, password: $scope.login.password })
       .then(function() {
+        $rootScope.$broadcast('account_change');
         complete();
         $scope.login_status = 'success';
       })
@@ -23,6 +24,7 @@
       $auth.authenticate(provider)
       .then(function() {
         $scope.provider = provider;
+        $rootScope.$broadcast('account_change');
         complete();
         $scope.login_status = 'success';
       })
@@ -47,11 +49,12 @@
         language_code: 'ES'
       })
       .then(function() {
-            $auth.login({ email: $scope.register.email, password: $scope.register.password })
-            .then(function() {
-              complete();
-              $scope.register_status = 'success';
-            });
+        $auth.login({ email: $scope.register.email, password: $scope.register.password })
+        .then(function() {
+          $rootScope.$broadcast('account_change');
+          complete('home.profile');
+          $scope.register_status = 'success';
+        });
       })
       .catch(function(response) {
         $scope.register_status = 'error';
@@ -66,10 +69,13 @@
 
     $scope.change_pass_status = 'change_pass';
 
-    var complete = function() {   
+    var complete = function(redirect) {   
       account.getProfile();   
       $timeout(function() {
-        $mdDialog.hide(); 
+        $mdDialog.hide();
+        if (redirect) {
+          $state.go(redirect); 
+        }
       }, 3000);
     };
   }
