@@ -147,7 +147,7 @@ class AuthController extends Controller {
             $user->save();
             $this->sentEmailWelcome($mailer, $user);
         }
-        return redirect('/');
+        return redirect('/#/activacion');
     }
 
     public function facebook(Request $request, Mailer $mailer) {
