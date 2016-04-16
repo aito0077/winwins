@@ -56,7 +56,7 @@
 				<md-card-header>
 					<md-button ui-sref="home.profile">
 						<md-card-avatar ng-if="vm.isAuthenticated()">
-							<img class="md-user-avatar" src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
+							<img class="md-user-avatar" ng-src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
 						</md-card-avatar>
 					</md-button>
 					<md-button class="md-icon-button" aria-label="Login" ng-click="vm.showLoginDialog()" ng-if="!vm.isAuthenticated()">
@@ -83,7 +83,7 @@
 				<md-card-header>
 					<md-button ui-sref="home.profile">
 						<md-card-avatar ng-if="vm.isAuthenticated()">
-							<img class="md-user-avatar" src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
+							<img class="md-user-avatar" ng-src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
 						</md-card-avatar>
 					</md-button>
 					<md-button class="md-icon-button" aria-label="Login" ng-click="vm.showLoginDialog()" ng-if="!vm.isAuthenticated()">
@@ -110,7 +110,7 @@
       <span class="card-opacity"></span>
     </div>
 		<md-card-avatar>
-			<img class="md-user-avatar" src="{{vm.imageServer}}/{{vm.account.photo}}">
+			<img class="md-user-avatar" ng-src="{{vm.imageServer}}/{{vm.account.photo}}">
 		</md-card-avatar>
 		<md-card-title>
       <md-card-title-text>
