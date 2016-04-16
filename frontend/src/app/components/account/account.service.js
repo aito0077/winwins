@@ -19,7 +19,7 @@
     _account.uploadImage = function(data, name) {
       var fd = new FormData();
       fd.append('file', data, name);
-      
+
       return rAccount
       .withHttpConfig({transformRequest: angular.identity})
       .customPOST(fd, 'upload', undefined, {'Content-Type': undefined})
