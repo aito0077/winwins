@@ -13,7 +13,7 @@
       scope: {
         items: '='
       },
-      controller: MiembroController,
+      controller: ['ENV', MiembroController],
       controllerAs: 'vm',
       bindToController: true
     };
@@ -22,7 +22,6 @@
 
     function MiembroController(ENV) {
       var vm = this;
-
       vm.imageServer = ENV.imageServer;
     }
   }

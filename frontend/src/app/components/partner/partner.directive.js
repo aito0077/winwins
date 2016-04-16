@@ -13,7 +13,7 @@
       scope: {
         items: '='
       },
-      controller: PartnerController,
+      controller: [ 'ENV', PartnerController ],
       controllerAs: 'vm',
       bindToController: true
     };
@@ -22,7 +22,6 @@
 
     function PartnerController(ENV) {
       var vm = this;
-
       vm.imageServer = ENV.imageServer;
     }
   }
