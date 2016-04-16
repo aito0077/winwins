@@ -6,7 +6,7 @@
       .service('account', account);
 
   /** @ngInject */
-  function account($log, Restangular, $rootScope) {
+  function account($log, Restangular) {
 
     var _account = {};
 

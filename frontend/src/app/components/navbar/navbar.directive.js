@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog) {
+    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog, $document) {
       var vm = this;
 
       vm.imageServer = ENV.imageServer;
@@ -30,7 +30,7 @@
         return $auth.isAuthenticated();
       };
 
-      $rootScope.$on('account_change',function(event){
+      var event1 = $rootScope.$on('account_change',function(event){
         if (vm.isAuthenticated) {
           account.getProfile()
           .then(function(data) {
@@ -63,7 +63,7 @@
         $mdDialog.show({
           controller: 'LoginController',
           templateUrl: 'app/login/login.tmpl.html',
-          parent: angular.element(document.body),
+          parent: angular.element($document.body),
           targetEvent: ev,
           clickOutsideToClose:true
         });

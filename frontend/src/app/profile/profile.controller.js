@@ -6,11 +6,11 @@
     .controller('ProfileController', ProfileController);
 
   /** @ngInject */
-  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth, $rootScope, $scope) {
+  function ProfileController(account, user, $mdDialog, $q, ENV, $state, $auth, $rootScope, $scope, $document) {
     var vm = this;
 
     if (!$auth.isAuthenticated()) {
-      $state.go('home'); 
+      $state.go('home');
     }
 
     vm.imageServer = ENV.imageServer;
@@ -40,7 +40,7 @@
       if (vm.cover_image) {
         promises.push(account.uploadImage(dataURItoBlob(vm.cover_image.file), vm.cover_image.name));
       }
-     
+
       $q.all(promises).then(function(data) {
         var indexAvatar = 0;
         var indexCover = 1;
@@ -62,7 +62,7 @@
           $mdDialog.show({
             controller: CropAvatarController,
             templateUrl: 'app/profile/modal_success.tmpl.html',
-            parent: angular.element(document.body),
+            parent: angular.element($document.body),
             clickOutsideToClose:true
           });
         })
@@ -74,7 +74,7 @@
           }
         });
 
-        
+
         vm.processing = false;
       });
     };
@@ -93,7 +93,7 @@
       $mdDialog.show({
         controller: CropAvatarController,
         templateUrl: 'app/profile/avatar_crop.tmpl.html',
-        parent: angular.element(document.body),
+        parent: angular.element($document.body),
         targetEvent: ev,
         clickOutsideToClose:true
       })
@@ -106,7 +106,7 @@
       $mdDialog.show({
         controller: CropCoverController,
         templateUrl: 'app/profile/cover_crop.tmpl.html',
-        parent: angular.element(document.body),
+        parent: angular.element($document.body),
         targetEvent: ev,
         clickOutsideToClose:true
       })

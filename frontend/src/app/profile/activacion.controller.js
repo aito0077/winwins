@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   angular
     .module('winwins')
     .controller('ActivacionController', ActivacionController);
@@ -10,7 +9,7 @@
 		var vm = this;
 
 		vm.isAuthenticated = function() {
-    	return $auth.isAuthenticated();
+      return $auth.isAuthenticated();
     };
 
     account.getProfile()
