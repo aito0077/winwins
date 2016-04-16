@@ -15,7 +15,7 @@
         title: '=',
         icon: '='
       },
-      controller: HighlightedController,
+      controller: [ 'ENV', HighlightedController],
       controllerAs: 'vm',
       bindToController: true
     };
@@ -24,7 +24,6 @@
 
     function HighlightedController(ENV) {
       var vm = this;
-
       vm.imageServer = ENV.imageServer;
     }
   }

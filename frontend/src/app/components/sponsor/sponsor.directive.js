@@ -11,10 +11,9 @@
       restrict: 'E',
       templateUrl: 'app/components/sponsor/sponsor.html',
       scope: {
-        items: '=',
-        url: '@?'
+        items: '='
       },
-      controller: SponsorController,
+      controller: ['ENV', SponsorController],
       controllerAs: 'vm',
       bindToController: true
     };
@@ -23,7 +22,6 @@
 
     function SponsorController(ENV) {
       var vm = this;
-
       vm.imageServer = ENV.imageServer;
     }
   }
