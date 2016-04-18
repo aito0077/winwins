@@ -123,6 +123,11 @@ Start Browser tab with [http://localhost:3000/index.html](http://localhost:3000/
 npm test
 ```
 
+## Build
+```sh
+NODE_ENV=prod gulp build
+```
+
 ## Translations
 
 We are using [angular-gettext](https://angular-gettext.rocketeer.be/) to translate the app.

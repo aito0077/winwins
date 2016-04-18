@@ -6,7 +6,7 @@
       .service('account', account);
 
   /** @ngInject */
-  function account($log, Restangular, $rootScope) {
+  function account($log, Restangular) {
 
     var _account = {};
 
@@ -19,7 +19,7 @@
     _account.uploadImage = function(data, name) {
       var fd = new FormData();
       fd.append('file', data, name);
-      
+
       return rAccount
       .withHttpConfig({transformRequest: angular.identity})
       .customPOST(fd, 'upload', undefined, {'Content-Type': undefined})

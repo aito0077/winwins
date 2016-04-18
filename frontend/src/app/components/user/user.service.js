@@ -6,7 +6,7 @@
       .service('user', user);
 
   /** @ngInject */
-  function user($log, Restangular, $rootScope) {
+  function user($log, Restangular) {
 
     var _user = {};
 
@@ -16,7 +16,7 @@
 
     _user.saveProfile = function(user) {
       return Restangular.all('profile').post(user);
-    }
+    };
 
     return _user;
   }

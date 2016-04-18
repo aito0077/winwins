@@ -69,12 +69,12 @@
 
     $scope.change_pass_status = 'change_pass';
 
-    var complete = function(redirect) {   
-      account.getProfile();   
+    var complete = function(redirect) {
+      account.getProfile();
       $timeout(function() {
         $mdDialog.hide();
         if (redirect) {
-          $state.go(redirect); 
+          $state.go(redirect);
         }
       }, 3000);
     };
@@ -96,8 +96,8 @@
           var combined;
 
           if (scope.passwordVerify || ctrl.$viewValue) {
-            combined = scope.passwordVerify + '_' + ctrl.$viewValue; 
-          }                    
+            combined = scope.passwordVerify + '_' + ctrl.$viewValue;
+          }
           return combined;
         }, function(value) {
           if (value) {
