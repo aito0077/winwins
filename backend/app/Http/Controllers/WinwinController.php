@@ -72,7 +72,7 @@ class WinwinController extends Controller {
 
     public function paginateCategories(Request $request, $page = 0, $amount = 15) {
         $winwins = [];
-        $categories = $request->input('categories');
+        $categories = explode(",", $request->input('categories'));
 
         Log::info($categories);
         if($categories == 'all') {
@@ -82,7 +82,7 @@ class WinwinController extends Controller {
         } else {
             $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)
                 ->join('interests_interested', 'winwins.id', '=', 'interests_interested.interested_id')
-                ->where('interests_interested.interest_id', '=', $categories)
+                ->whereIn('interests_interested.interest_id', $categories)
                 ->where('interests_interested.type', '=', 'WINWIN')
                 ->skip($page * $amount)->take($amount)->get();
             $collection = $this->processCollection($winwins);

@@ -49,11 +49,11 @@
     </md-button>
     <md-menu-content width="7">
       <md-menu-item ng-repeat="item in main.interests">
-        <md-button ng-click="main.doCategories($index)">
-          <span md-menu-align-target></span> {{item.description}}
-<!--           <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+        <md-button>
+          <!-- <span md-menu-align-target></span> {{item.description}} -->
+          <md-checkbox md-no-ink aria-label="Checkbox No Ink" class="md-primary" ng-click="main.doCategories($index)">
             <span md-menu-align-target></span> {{item.description}}
-          </md-checkbox> -->
+          </md-checkbox>
         </md-button>
       </md-menu-item>
     </md-menu-content>

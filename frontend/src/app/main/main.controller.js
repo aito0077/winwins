@@ -43,17 +43,28 @@
       return $auth.isAuthenticated();
     };
 
+    var _filter = 'select'
     vm.doFilter = function(filter) {
+      _filter = filter;
       winwin.getList(0, filter, 6).then(function(data) {
         vm.destacados = data;
       });
     };
 
+    var _categories = [];
     vm.doCategories = function($index) {
-      var _categories = vm.interests[$index]["id"];
-      winwin.getListByCategory(0, _categories, 6).then(function(data) {
-        vm.destacados = data;
-      });
+      if (_categories.indexOf(vm.interests[$index]["id"]) == -1) {
+        _categories.push(vm.interests[$index]["id"]);
+      } else {
+        _categories.splice(_categories.indexOf(vm.interests[$index]["id"]),1);
+      }
+      if (_categories.length == 0) {
+        vm.doFilter(_filter);
+      } else {
+        winwin.getListByCategory(0, _categories.join(','), 6).then(function(data) {
+          vm.destacados = data;
+        });
+      }
     };
 
     vm.showLoginDialog = function(ev) {
