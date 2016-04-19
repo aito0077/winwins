@@ -4,6 +4,15 @@
     &.no-padding {
       md-card-content {
         padding: 0;
+        position: relative;
+        .card-labels {
+          position: absolute;
+          top: 0;
+          right: 10px;
+          .icon-access_time {
+            margin-top: 3px;
+          }
+        }
       }
     }
     h3 {
@@ -159,6 +168,9 @@
   h3.title {
     font-size:12px;
     color: #336699;
+    md-icon {
+      margin-right: 5px;
+    }
   }
   md-list-item {
     p {
@@ -259,6 +271,7 @@
     md-icon {
       font-size: 16px;
       color: #a9a9aa;
+      margin-right: 5px;
     }
     .green {
       color: #4cae4e;

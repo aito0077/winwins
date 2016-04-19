@@ -14,27 +14,31 @@ section.acme-video {
       outline: none;
     }
   }
+  @media (min-width: 1600px) {
+    .play-video {
+      width: 800px;
+    }
+  }
   max-width: 1280px;
   margin: 0 auto;
   .share {
-    background: url('../assets/images/arrow-share.svg') no-repeat 80% 60px;
+    background: url('../assets/images/arrow-share.svg') no-repeat 78% 42px;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    z-index: 70;
+    width: 500px;
     h1 {
       font-size: 21px;
       font-family: 'Pacifico', cursive;
       color: #fff;
       font-weight: normal;
-      margin: 20px
+      margin: 0 15px 5px 0;
     }
     md-icon {
       width: 51px;
       height: 47px;
       cursor: pointer;
-    }
-    .share-social-media {
-      position: fixed;
-      top: 115px;
-      right: 0;
-      z-index: 100;
     }
   }
   .social-media {
@@ -64,6 +68,7 @@ section.acme-video {
     font-weight: 700;
     color: white;
     transform: rotate(-7deg);
+    text-transform: capitalize;
     &:not([disabled]):hover {
       background: #4cae4e;
     }
@@ -86,6 +91,7 @@ section.acme-video {
       top:-3px;
       width: 60px;
       height: 53px;
+      margin-right: 10px;
     }
     small {
       color: #a1a1a1;
@@ -172,6 +178,14 @@ md-menu-content {
     max-width:800px;
     @media (min-width: 600px) {
       min-width: 430px;
+    }
+  }
+}
+.md-dialog-container.ng-scope {
+  background: rgba(0,0,0,.5);
+  .lightbox-video {
+    @media (min-width: 960px) {
+      width: 960px;
     }
   }
 }
