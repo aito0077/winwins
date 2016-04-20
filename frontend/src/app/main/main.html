@@ -1,25 +1,25 @@
 <section class="acme-video" layout ng-if="!main.isAuthenticated()">
   <div class="signup" flex="30" layout="column" layout-align="center center" hide show-gt-sm>
     <img src="assets/images/home-video-login.svg" alt="" />
-    <md-button class="md-raised md-green"><md-icon>play_arrow</md-icon> {{ 'sí!' | translate }}</md-button>
+    <md-button class="md-raised md-green"><md-icon>play_arrow</md-icon> {{ 'Sí!' | translate }}</md-button>
   </div>
-  <div class="login" flex="40" layout layout-align="center end" hide  show-gt-sm>
+  <div class="login" flex="40" layout="column" layout-align="space-around center" hide  show-gt-sm>
     <div ng-click="main.showVideoDialog()" class="play-video"></div>
     <div class="social-media">
       <p translate>Ingresa con: </p>
-      <md-button class="md-icon-button" ng-click="main.showLoginDialog()">
+      <md-button class="md-icon-button" ng-click="main.showLoginDialog()" aria-label="facebook">
         <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
       </md-button>
-      <md-button class="md-icon-button" ng-click="main.showLoginDialog()">
+      <md-button class="md-icon-button" ng-click="main.showLoginDialog()" aria-label="twitter">
         <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
       </md-button>
-      <md-button class="md-icon-button" ng-click="main.showLoginDialog()">
+      <md-button class="md-icon-button" ng-click="main.showLoginDialog()" aria-label="google">
         <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
       </md-button>
-      <md-button class="md-icon-button" ng-click="main.showLoginDialog()">
+      <md-button class="md-icon-button" ng-click="main.showLoginDialog()" aria-label="yahoo">
         <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
       </md-button>
-      <md-button class="md-icon-button" ng-click="main.showLoginDialog()">
+      <md-button class="md-icon-button" ng-click="main.showLoginDialog()" aria-label="winwin">
         <md-icon md-svg-src="assets/images/icon-ww.svg"></md-icon>
       </md-button>
     </div>
@@ -97,8 +97,7 @@
 
 <div class="container acme-recientes">
   <h1 class="title">
-    <md-icon md-svg-src="assets/images/icon-recientes-title.svg"></md-icon>
-    {{'WINWINS RECIENTES' | translate }}
+    <md-icon md-svg-src="assets/images/icon-recientes-title.svg"></md-icon>{{'WINWINS RECIENTES' | translate }}
     <small translate>Últimos winwins creados</small>
   </h1>
 </div>

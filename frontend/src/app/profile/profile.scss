@@ -36,14 +36,14 @@ md-toolbar.md-tall.md-warn.ng-scope {
 .acme-profile {
   background: #fff;
   @media (max-width: 768px) { 
-    background: #fafafa;
+    background: #f1f1f1;
   }
   .container {
     @media (max-width: 960px) { 
       max-width: 400px;
     }
     .profile-bg-top {
-      background: #fafafa;
+      background: #f1f1f1;
       padding-top:25px;
       margin-bottom: 4px;
       .md-datepicker-input-container {
@@ -62,7 +62,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
       }
     }
     md-switch.md-checked .md-thumb {
-      background-color: #428bca;
+      background-color: #4cae4e;
     }
     md-switch.md-checked .md-bar {
       background-color: #E5E4E4; 
@@ -179,7 +179,7 @@ md-toolbar.md-tall.md-warn.ng-scope {
       }
     }
     .profile-bottom {
-      background: #fafafa;
+      background: #f1f1f1;
       padding-top:4px; 
       padding-bottom:4px; 
       margin-bottom: 4px;

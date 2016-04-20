@@ -1,14 +1,13 @@
 <md-content class="acme-miembro" class="hide show-gt-sm">
   <div class="container">
     <h1 class="title">
-      <md-icon md-svg-src="assets/images/icon-members.svg"></md-icon>
-      {{ 'MIEMBROS' | translate }}
+      <md-icon md-svg-src="assets/images/icon-members.svg"></md-icon>{{ 'MIEMBROS' | translate }}
       <small>{{ 'Personas que crean y participan en acciones de consenso colectivo' | translate }}</small>
     </h1>
     <div layout="row" layout-align="center" layout-wrap>
       <div ng-repeat="item in vm.items" flex-gt-md="15">
           <div class="acme-miembro-thumb">
-            <img ng-src="{{vm.imageServer}}/smart/{{item.photo}}" alt="{{item.name}}">
+            <img ng-src="{{vm.imageServer}}/smart/{{item.photo}}" alt="{{item.name}}" title="{{item.name}}">
           </div>
       </div>
     </div>
