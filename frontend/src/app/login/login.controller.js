@@ -5,10 +5,10 @@
     .module('winwins')
     .controller('LoginController', LoginController);
 
-  function LoginController($scope, $mdDialog, $auth, $state, $timeout, account, $rootScope) {
+  function LoginController($mdDialog, $auth, $state, $timeout, account, $rootScope) {
     var vm = this;
 
-    vm.login_status = 'login'
+    vm.login_status = 'login';
 
     vm.login = function() {
       $auth.login({ email: vm.login.email, password: vm.login.password })
