@@ -44,20 +44,24 @@
     };
 
     var _filter = 'select'
+    var _categories = [];
     vm.doFilter = function(filter) {
+      _categories = [];
       _filter = filter;
       winwin.getList(0, filter, 6).then(function(data) {
         vm.destacados = data;
       });
     };
-
-    var _categories = [];
-    vm.doCategories = function($index) {
-      if (_categories.indexOf(vm.interests[$index]["id"]) == -1) {
-        _categories.push(vm.interests[$index]["id"]);
+    
+    vm.doCategories = function(id) {
+      var _index = _categories.indexOf(id);
+      
+      if (_index == -1) {
+        _categories.push(id);
       } else {
-        _categories.splice(_categories.indexOf(vm.interests[$index]["id"]),1);
+        _categories.splice(_index, 1);
       }
+
       if (_categories.length == 0) {
         vm.doFilter(_filter);
       } else {
@@ -66,6 +70,10 @@
         });
       }
     };
+
+    vm.isChecked = function(id) {
+      return _categories.indexOf(id) > -1;
+    }
 
     vm.showLoginDialog = function(ev) {
       $mdDialog.show({

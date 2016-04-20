@@ -50,8 +50,7 @@
     <md-menu-content width="7">
       <md-menu-item ng-repeat="item in main.interests">
         <md-button>
-          <!-- <span md-menu-align-target></span> {{item.description}} -->
-          <md-checkbox md-no-ink aria-label="Checkbox No Ink" class="md-primary" ng-click="main.doCategories($index)">
+          <md-checkbox md-no-ink aria-label="Checkbox No Ink" class="md-primary" ng-checked="main.isChecked(item.id)" ng-click="main.doCategories(item.id)">
             <span md-menu-align-target></span> {{item.description}}
           </md-checkbox>
         </md-button>
@@ -70,25 +69,25 @@
   <md-tab id="tab2" ng-click="main.doFilter('popular')">
     <md-tab-label><md-icon>whatshot</md-icon>{{'Populares' | translate }}</md-tab-label>
     <md-tab-body>
-      <acme-highlighted items="main.destacados" title="main.tpopulares" icon="'icon-highlighted'"></acme-highlighted>
+      <acme-highlighted items="main.destacados" title="main.tpopulares" icon="'icon-whatshot'"></acme-highlighted>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab3" ng-click="main.doFilter('finishing')">
     <md-tab-label><md-icon>access_time</md-icon>{{ 'Recientes' | translate }}</md-tab-label>
     <md-tab-body>
-      <acme-highlighted items="main.destacados" title=" main.trecientes" icon="'icon-highlighted'"></acme-highlighted>
+      <acme-highlighted items="main.destacados" title=" main.trecientes" icon="'icon-access_time'"></acme-highlighted>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab4" ng-click="main.doFilter('last')">
     <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-por-terminar.svg"></md-icon>{{' Por terminar' | translate }}</md-tab-label>
     <md-tab-body>
-      <acme-highlighted items="main.destacados" title="main.tterminar" icon="'icon-highlighted'"></acme-highlighted>
+      <acme-highlighted items="main.destacados" title="main.tterminar" icon="'icon-por-terminar'"></acme-highlighted>
     </md-tab-body>
   </md-tab>
   <md-tab id="tab5" ng-click="main.doFilter('success')">
     <md-tab-label><md-icon md-svg-src="assets/images/icon-tab-concretados.svg"></md-icon>{{'Concretados' | translate }}</md-tab-label>
     <md-tab-body>
-      <acme-highlighted items="main.destacados" title="main.tconcretados" icon="'icon-highlighted'"></acme-highlighted>
+      <acme-highlighted items="main.destacados" title="main.tconcretados" icon="'icon-concretados'"></acme-highlighted>
     </md-tab-body>
   </md-tab>
 </md-tabs>
