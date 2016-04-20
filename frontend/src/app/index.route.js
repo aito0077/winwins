@@ -56,6 +56,16 @@
             controllerAs: 'activacion'
           }
         }
+      })
+      .state('home.crear-winwin',{
+        url: 'crear-winwin',
+        views: {
+          'content@home': {
+            templateUrl: 'app/winwin/crear-winwin.html',
+            controller: 'CrearWinwinController',
+            controllerAs: 'winwin'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

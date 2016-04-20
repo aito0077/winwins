@@ -1,0 +1,97 @@
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-blue" layout="row" layout-align="center center">
+    <h2><span translate>CREA TU WINWIN, COMIENZA UNA ACCIÓN  POSITIVA</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <form method="post" name="crearForm">
+      <div layout="column" layout-gt-sm="row" layout-margin layout-padding>
+        <div flex>
+          <div class="wrap-md-input-container">
+            <md-input-container class="md-block">
+              <label translate>Nombre para tu winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text">
+                  Nombra tu winwin con  un título que lo represente.
+                </div>
+              </div>
+              <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="wrap-md-input-container">
+            <md-input-container class="md-block padding-30">
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text">
+                  <p>Indicá primero la cantidad de personas que necesitas para cumplir con el objetivo de este winwin, luego completa la frase con tu propuesta de acción colectiva.</p>
+
+                  <p>Procurá ser concreto, preciso y realista acerca de lo que esperás de los participantes, y que el número de adhesiones que pusiste sea acorde a la meta.</p>
+                </div>
+              </div>
+              <div layout="row" layout-align="space-between center">
+                <div>
+                  <strong class="enfasis" translate>¿Si supieras que somos </strong>
+                </div>
+                <md-input-container class="md-block">
+                  <input required name="numero" ng-model="crear.numero" placeholder="Ej: 200">
+                  <div ng-messages="crearForm.name.$error">
+                    <div ng-message="required" translate>Campo requerido.</div>
+                  </div>
+                </md-input-container>
+                <div>
+                  <strong class="enfasis" translate>para</strong>
+                </div>
+              </div>
+              <div layout="column">
+                <md-input-container class="md-block">
+                  <textarea ng-model="rear.name" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
+                  <div ng-messages="crearForm.texto.$error">
+                    <div ng-message="required" translate>Campo requerido.</div>
+                  </div>
+                </md-input-container>
+                <div>
+                  <strong class="enfasis" translate>te sumarías?</strong>
+                </div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <div flex>
+          <div class="wrap-md-input-container">        
+            <md-input-container class="md-block">
+              <label translate>Más detalles del Winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text">
+                  Acá ingresa información detallada del Winwin, datos e información importante. Lugares, fechas, acciones
+y toda la información que te resulte relevante.
+                </div>
+              </div>
+              </md-button>
+              <textarea ng-model="rear.name" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+          <div class="wrap-md-input-container">
+            <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text">
+                   Algunos Winwins requieren fecha
+límite para su concreción, si el tuyo 
+es uno de ellos, ingresala aquí.
+                </div>
+              </div>
+            <md-datepicker ng-model="myDate" md-placeholder="20/4/2016"></md-datepicker>
+          </div>
+          
+          <md-checkbox class="green terminos" ng-model="register.terms" name="terms">
+            {{ 'He leído y acepto los' | translate }} <a href="#" translate>términos y condiciones</a>.
+          </md-checkbox>
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" name="action" translate>{{ 'CONTINUAR' | translate }}</md-button>
+        </div>
+      </div>  
+    </form>
+  </div>
+</md-content>
