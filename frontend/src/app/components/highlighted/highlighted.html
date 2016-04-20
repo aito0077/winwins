@@ -27,7 +27,7 @@
                 <img class="md-user-avatar" ng-src="{{vm.imageServer}}/40x40/{{item.user.photo}}">
               </md-card-avatar>
               <md-card-content>
-                <img ng-repeat="sponsor in item.sponsors | limitTo: 1" class="responsive-img" ng-src="{{vm.imageServer}}/40x/{{sponsor.photo}}" title="{{sponsor.name}}" alt="{{sponsor.name}}" class="md-card-sponsor">   
+                <img ng-repeat="sponsor in item.sponsors | limitTo: 1" class="responsive-img" ng-src="{{vm.imageServer}}/40x/{{sponsor.photo}}" title="{{sponsor.name}}" alt="{{sponsor.name}}" class="md-card-sponsor">
               </md-card-content>
             </md-card-header>
             <div layout="row" layout-align="end center">

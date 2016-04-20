@@ -1,4 +1,8 @@
 .acme-footer {
+  .scrollFixed {
+    position: fixed;
+    bottom: 20px;
+  }
   .footer-sumate {
     background: url('../assets/images/footer-bg.jpg') center top repeat-x;
     height: 428px;
