@@ -5,6 +5,7 @@ use Hash;
 use Config;
 use Validator;
 use Log;
+use Carbon;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use GuzzleHttp\Client;
@@ -151,15 +152,15 @@ class AuthController extends Controller {
     }
 
     public function facebook(Request $request, Mailer $mailer) {
-        $accessTokenUrl = 'https://graph.facebook.com/v2.3/oauth/access_token';
-        $graphApiUrl = 'https://graph.facebook.com/v2.3/me';
+        $accessTokenUrl = 'https://graph.facebook.com/v2.6/oauth/access_token';
+        $graphApiUrl = 'https://graph.facebook.com/v2.6/me';
 
         $params = [
             'code' => $request->input('code'),
             'client_id' => $request->input('clientId'),
             'redirect_uri' => $request->input('redirectUri'),
             'client_secret' => Config::get('app.facebook_secret'),
-		'fields' => 'id,name,email,first_name,last_name,gender'
+            'fields' => 'id,name,email,first_name,last_name,gender,birthday'
         ];
 
         $client = new GuzzleHttp\Client();
@@ -169,12 +170,9 @@ class AuthController extends Controller {
         $accessToken = json_decode($client->get($accessTokenUrl, ['query' => $params])->getBody(), true);
 
         // Step 2. Retrieve profile information about the current user.
-        $profile = json_decode($client->get($graphApiUrl, ['query' => $accessToken, 'fields' => 'id,name,email,first_name,last_name,gender'])->getBody(), true);
+        $profile = json_decode($client->get($graphApiUrl."?access_token=".$accessToken['access_token']."&fields=id%2Cname%2Cemail%2Cfirst_name%2Clast_name%2Cgender%2Cbirthday&format=json&method=get&pretty=0&suppress_http_code=1")->getBody(), true);
 
         $picture = 'https://graph.facebook.com/v2.3/'.$profile['id'].'/picture?type=normal';
-
-
-
 
         // Step 3a. If user is already signed in then link accounts.
         if ($request->header('Authorization'))
@@ -196,6 +194,7 @@ class AuthController extends Controller {
             $user->email = $user->email ?: $profile['email'];
             $userDetail = $user->detail;
             $userDetail->name = $userDetail->name ?: $profile['first_name'];
+            $userDetail->birthdate = $userDetail->birthdate ?: Carbon::createFromFormat('m/d/Y', $profile['birthday'])->toDateString();
             $userDetail->photo = $userDetail->photo ?: $picture;
             $user->photo = $userDetail->photo;
             $userDetail->lastname = $userDetail->lastname ?: $profile['last_name'];
@@ -228,6 +227,10 @@ class AuthController extends Controller {
                 $userDetail->name = $userDetail->name ?: $profile['first_name'];
             }
 
+            if(isset($profile['birthday'])) {
+                $userDetail->birthdate = $userDetail->birthdate ?: Carbon::createFromFormat('m/d/Y', $profile['birthday'])->toDateString();
+            }
+            
             $picture_name = 'fb_'.$user->facebook;
             Storage::disk('s3-gallery')->put('/' . $picture_name, file_get_contents($picture), 'public');
             $userDetail->photo = $picture_name;
