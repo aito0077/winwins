@@ -1,5 +1,5 @@
 <md-content class="acme-crearwinwin">
-  <md-toolbar class="md-tall md-blue" layout="row" layout-align="center center">
+  <md-toolbar class="md-tall md-crear md-blue" layout="row" layout-align="center center">
     <h2><span translate>CREA TU WINWIN, COMIENZA UNA ACCIÓN  POSITIVA</span></h2>
   </md-toolbar>
   <div class="container">
@@ -11,7 +11,7 @@
               <label translate>Nombre para tu winwin</label>
               <div class="wrap-tooltip">
                 <span class="icon-help">?</span>
-                <div class="tooltip-text">
+                <div class="tooltip-text" translate>
                   Nombra tu winwin con  un título que lo represente.
                 </div>
               </div>
@@ -22,13 +22,14 @@
             </md-input-container>
           </div>
           <div class="wrap-md-input-container">
-            <md-input-container class="md-block padding-30">
+            <md-input-container class="md-block">
+              <p><label translate>Plantea tu winwin</label></p>
               <div class="wrap-tooltip">
                 <span class="icon-help">?</span>
                 <div class="tooltip-text">
-                  <p>Indicá primero la cantidad de personas que necesitas para cumplir con el objetivo de este winwin, luego completa la frase con tu propuesta de acción colectiva.</p>
+                  <p translate>Indicá primero la cantidad de personas que necesitas para cumplir con el objetivo de este winwin, luego completa la frase con tu propuesta de acción colectiva.</p>
 
-                  <p>Procurá ser concreto, preciso y realista acerca de lo que esperás de los participantes, y que el número de adhesiones que pusiste sea acorde a la meta.</p>
+                  <p translate>Procurá ser concreto, preciso y realista acerca de lo que esperás de los participantes, y que el número de adhesiones que pusiste sea acorde a la meta.</p>
                 </div>
               </div>
               <div layout="row" layout-align="space-between center">
@@ -60,12 +61,12 @@
           </div>
         </div>
         <div flex>
-          <div class="wrap-md-input-container">        
+          <div class="wrap-md-input-container">
             <md-input-container class="md-block">
               <label translate>Más detalles del Winwin</label>
               <div class="wrap-tooltip">
                 <span class="icon-help">?</span>
-                <div class="tooltip-text">
+                <div class="tooltip-text" translate>
                   Acá ingresa información detallada del Winwin, datos e información importante. Lugares, fechas, acciones
 y toda la información que te resulte relevante.
                 </div>
@@ -77,7 +78,7 @@ y toda la información que te resulte relevante.
           <div class="wrap-md-input-container">
             <div class="wrap-tooltip">
                 <span class="icon-help">?</span>
-                <div class="tooltip-text">
+                <div class="tooltip-text" translate>
                    Algunos Winwins requieren fecha
 límite para su concreción, si el tuyo 
 es uno de ellos, ingresala aquí.
@@ -95,3 +96,155 @@ es uno de ellos, ingresala aquí.
     </form>
   </div>
 </md-content>
+
+
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-crear md-violet" layout="row" layout-align="center center">
+    <h2><md-icon md-svg-src="assets/images/icon-flag.svg"></md-icon><span translate>DALE IDENTIDAD A TU WINWIN</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <form method="post" name="crearForm">
+      <div layout="column" layout-gt-sm="row" layout-margin layout-padding>
+        <div flex>
+          <md-card>
+            <img ng-src="assets/images/profile-img.jpg" class="md-card-image" alt="">
+            <md-card-title-text layout-align="center center" layout="column">
+              <md-button class="md-headline">TITULO DEL WINWIN</md-button>
+            </md-card-title-text>
+          </md-card>
+          <div layout="row" layout-align="center center">
+            <p class="legend">Subí una foto, elegí un video o una  imagen de la galería.</p>
+          </div>
+          <div layout="row" layout-align="center center" class="layout-icons">
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon>photo_camera</md-icon>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon md-svg-src="assets/images/icon-youtube.svg"></md-icon>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon>image</md-icon>
+            </md-whiteframe>
+          </div>
+        </div>
+        <div flex>
+          <div class="wrap-md-input-container">
+            <div layout="row" layout-align="center center">
+              <label>Escala del Winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>Texto tooltip
+                </div>
+              </div>
+            </div>
+            <div layout="row" layout-align="center center">
+              <md-input-container class="md-block">
+                <md-select ng-model="selectedItem1" md-selected-text="getSelectedText1()">
+                  <md-optgroup label="Global">
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          <div class="wrap-md-input-container">
+            <div layout="row" layout-align="center center">
+              <label>Elegí categorías. (Podes elegir más de una.)</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>Texto tooltip
+                </div>
+              </div>
+            </div>
+            <div layout="row" layout-align="center center">
+              <md-input-container class="md-block">
+                <md-select ng-model="selectedItem2" md-selected-text="getSelectedText2()">
+                  <md-optgroup label="Internet - Tecnología">
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" name="action" translate>{{ 'CONTINUAR' | translate }}</md-button>
+        </div>
+      </div>  
+    </form>
+  </div>
+</md-content>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content>
+    <div layout="column" layout-padding layout-margin>
+      <h2 translate>Copia el link del video</h2>
+      <md-input-container class="md-block">
+        <input required name="numero" ng-model="crear.numero" placeholder="Ej: https://www.youtube.com/watch?v=rQxVTFVWNjA">
+        <div ng-messages="crearForm.name.$error">
+          <div ng-message="required" translate>Campo requerido.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div>
+      <img ng-src="assets/images/imagen-video.jpg" alt="" />
+    </div>
+    <div>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-raised md-primary" translate>LISTO</md-button>
+        <md-button class="md-raised md-grey" translate>CANCELAR</md-button>
+      </md-card-actions>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content>
+    <div layout="column" layout-padding layout-margin>
+      <h2 translate>Elegí una imagen de la galería.</h2>
+      <div layout="row" layout-margin layout-wrap class="galeria">
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img selected" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+      </div>
+    </div>
+  </md-dialog-content>
+</div>

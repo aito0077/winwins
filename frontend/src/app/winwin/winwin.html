@@ -1,4 +1,14 @@
 <md-content class="acme-winwin">
+  <md-toolbar class="md-tall md-crear md-blue" layout="column" layout-align="center center">
+    <h2><md-icon class="icon insert_comment">insert_comment</md-icon></md-icon><span translate>ESCRIBI TU POST INAUGURAL</span>
+      <div class="wrap-tooltip">
+        <span class="icon-help">?</span>
+        <div class="tooltip-text" translate>Inaugura el muro de tu Winwins que motive a otros a sumarse. Podes agregarle un video o una imagen.
+        </div>
+      </div>
+    </h2>
+    <p>También podés subir una imagen o un video.</p>
+  </md-toolbar>
   <div class="container">
     <div layout-gt-sm="row" layout-align="center start" layout-padding layout="column">
       <div flex="45">
@@ -35,7 +45,7 @@
       <div flex="15">
         <div layout="column" layout-align="center center">
           <div class="creadores">
-            <img src="../assets/images/profile-avatar.jpg" alt="" class="avatar-creador style-rounded" />
+            <img ng-src="../assets/images/profile-avatar.jpg" alt="" class="avatar-creador style-rounded" />
             <h3>{{winwin.winwin.user.detail.name}} {{winwin.winwin.user.detail.lastname}}</h3>
             <strong>CREADOR</strong>
           </div>
@@ -227,6 +237,27 @@
            <md-button ng-href class="ver-todos" ng-click="winwin.showParticipantesDialog()"><strong>+</strong> Ver todos los participantes</md-button>
           </md-list-item>
         </md-list>
+      </div>
+    </div>
+    <div class="caja-mensaje">
+      <div layout="row" layout-align="center center" layout-padding>
+        <div>
+            <img ng-src="assets/images/profile-avatar.jpg" class="caja-mensaje-img" alt="">
+        </div>
+        <md-input-container class="md-block">
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+        <div layout="column" layout-align="center center" class="social-media">
+          <md-button class="md-fab youtube" aria-label="">
+            <md-icon md-svg-src="assets/images/icon-youtubesmall.svg"></md-icon>
+          </md-button>
+          <md-button class="md-fab camera" aria-label="">
+            <md-icon>photo_camera</md-icon>
+          </md-button>
+        </div>
+        <md-button class="md-fab send" aria-label="">
+          <md-icon md-svg-src="assets/images/icon-send.svg"></md-icon>
+        </md-button>
       </div>
     </div>
   </div>
