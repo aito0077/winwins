@@ -9,8 +9,8 @@
     beforeEach(inject(function(_$controller_, _$q_, _$rootScope_ ) {
       scope = _$rootScope_.$new();
 
-      
-      vm = _$controller_('TermsController', mockData );
+
+      vm = _$controller_('TermsController');
       scope.$apply();
     }));
 
