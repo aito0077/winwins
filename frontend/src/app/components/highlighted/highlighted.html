@@ -16,9 +16,9 @@
               <md-button class="md-headline" ui-sref="home.winwin({winwinId: item.id})">{{item.title}}</md-button>
             </md-card-title-text>
             <div class="card-labels">
-              <md-icon class="icon icon-access_time" ng-if="item.mark.indexOf('finishing') != -1">access_time</md-icon>
-              <md-icon class="icon icon-watshot" ng-if="item.mark.indexOf('popular') != -1">whatshot</md-icon>
-              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg" ng-if="item.mark.indexOf('remarkable') != -1"></md-icon>
+              <md-icon class="icon icon-access_time" ng-if="item.finishing">access_time</md-icon>
+              <md-icon class="icon icon-watshot" ng-if="item.popular">whatshot</md-icon>
+              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg" ng-if="item.remarkable"></md-icon>
             </div>
           </md-card-content>
           <md-card-actions layout="row" layout-align="space-between center">

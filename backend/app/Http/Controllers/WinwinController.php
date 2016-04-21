@@ -104,18 +104,7 @@ class WinwinController extends Controller {
                 $winwin->users_left = ($winwin->users_amount - $users_count);
                 $winwin->popular = $winwin->users_joined > 1;
                 $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
-                //$winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
-                $marks = [];
-                if($winwin->popular) {
-                    array_push($marks, 'popular');
-                }
-                if($winwin->finishing) {
-                    array_push($marks, 'finishing');
-                }
-                if(!$winwin->popular and !$winwin->finishing) {
-                    array_push($marks, 'remarkable');
-                }
-                $winwin->mark = implode(",", $marks);
+                $winwin->remarkable = $winwin->selected;
             }
 
             $winwin->sponsors;
