@@ -64,6 +64,16 @@
             templateUrl: 'app/winwin/crear-winwin.html',
             controller: 'CrearWinwinController',
             controllerAs: 'winwin'
+            }
+        }
+      })
+      .state('home.terms',{
+        url: 'terms',
+        views: {
+          'content@home': {
+            templateUrl: 'app/terms/terms.html',
+            controller: 'TermsController',
+            controllerAs: 'terms'
           }
         }
       });

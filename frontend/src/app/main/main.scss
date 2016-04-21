@@ -2,6 +2,10 @@ section.acme-video {
   @media (min-width: 960px) {
     height: 450px;
     background: url('../assets/images/bg-video.jpg') repeat-x;
+    .logo-video {
+      margin: 20px auto;
+      display: block;
+    }
     .play-video {
       background: url('../assets/images/play-video.png') no-repeat;
       width: 76px;
@@ -10,11 +14,18 @@ section.acme-video {
       cursor: pointer;
       outline: none;
     }
-  }
-  @media (min-width: 1600px) {
-    .play-video {
-      width: 800px;
+    .pic {
+      background: url('../assets/images/people-world.png');
+      position: absolute;
+      top: 56px;
+      right: 0;
+      width: 627px;
+      max-width: 40vw;
+      height: 444px;
     }
+  }
+  .login {
+    z-index: 1;
   }
   .share {
     background: url('../assets/images/arrow-share.svg') no-repeat 78% 42px;
