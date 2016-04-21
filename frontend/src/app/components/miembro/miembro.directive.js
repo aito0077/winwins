@@ -13,16 +13,28 @@
       scope: {
         items: '='
       },
-      controller: ['ENV', MiembroController],
+      controller: MiembroController,
       controllerAs: 'vm',
       bindToController: true
     };
 
     return directive;
 
-    function MiembroController(ENV) {
+    /** @ngInject */
+    function MiembroController(ENV, $mdDialog, $document) {
       var vm = this;
       vm.imageServer = ENV.imageServer;
+      
+      vm.showLoginDialog = function(ev) {
+        $mdDialog.show({
+          controller: 'LoginController',
+          controllerAs: 'login',
+          templateUrl: 'app/login/login.tmpl.html',
+          parent: angular.element($document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true
+        });
+      };
     }
   }
 

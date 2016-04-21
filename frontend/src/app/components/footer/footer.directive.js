@@ -21,13 +21,19 @@
     return directive;
 
     /** @ngInject */
-    function FooterController($window) {
-      /*var vm = this;
-      angular.element($window).bind("scroll", function() {
-        vm.items = $window.scrollY > 300;
-        vm.$apply();
-        console.log(vm);
-      });*/
+    function FooterController($mdDialog, $document) {
+      var vm = this;
+      
+      vm.showLoginDialog = function(ev) {
+        $mdDialog.show({
+          controller: 'LoginController',
+          controllerAs: 'login',
+          templateUrl: 'app/login/login.tmpl.html',
+          parent: angular.element($document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true
+        });
+      };
     }
   }
 
