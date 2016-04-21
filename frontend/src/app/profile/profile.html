@@ -1,8 +1,3 @@
-<md-toolbar class="md-accent notice warning" layout="row" layout-align="center center" ng-show="!profile.isActive">
-  <p>
-    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} {{profile.user.email}}. {{ 'No te llegó? Hace,' | translate }} <a href="#" translate>clic para reenviartelo</a>.
-  </p>
-</md-toolbar>
 <md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
   <h2><span translate ng-if="!profile.is_complete">COMPLETA TU PERFIL</span><span translate ng-if="profile.is_complete">EDITAR PERFIL</span></h2>
 </md-toolbar>

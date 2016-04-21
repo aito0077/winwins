@@ -18,6 +18,10 @@
       return Restangular.all('profile').post(user);
     };
 
+    _user.resendActivationMail = function() {
+      return Restangular.one('users/resend/activation').get();
+    }
+
     return _user;
   }
 
