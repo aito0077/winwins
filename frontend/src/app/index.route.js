@@ -56,6 +56,16 @@
             controllerAs: 'activacion'
           }
         }
+      })
+      .state('home.terms',{
+        url: 'terms',
+        views: {
+          'content@home': {
+            templateUrl: 'app/terms/terms.html',
+            controller: 'TermsController',
+            controllerAs: 'terms'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');
