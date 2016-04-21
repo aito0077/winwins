@@ -20,7 +20,13 @@ gulp.task('scripts', ['config', 'translations'],function() {
 
 function buildScripts() {
   return gulp.src(path.join(conf.paths.src, '/app/**/*.js'))
-    .pipe($.eslint())
+    .pipe($.eslint(
+      {
+        'rules': {
+          'no-unused-vars': 0,
+        }
+      }
+    ))
     .pipe($.eslint.format())
     .pipe($.size())
 };

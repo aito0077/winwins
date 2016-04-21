@@ -1,6 +1,6 @@
 <md-toolbar class="md-accent notice warning" layout="row" layout-align="center center" ng-show="!profile.isActive">
   <p>
-    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} {{profile.user.email}}. {{ 'No te llegó? Hace,' | translate }} <a href="#" translate>click para reenviartelo</a>.
+    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} {{profile.user.email}}. {{ 'No te llegó? Hace,' | translate }} <a href="#" translate>clic para reenviartelo</a>.
   </p>
 </md-toolbar>
 <md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
@@ -111,7 +111,7 @@
           <div layout="row" layout-align="center center" class="bg-white">
             <div><span translate>Invitación a Winwins</span></div>
             <div>
-              <md-switch name="invite_ww" ng-model="profile.user.invite_ww" ng-true-value="1" ng-false-value="0"></md-switch>
+              <md-switch name="invite_ww" ng-model="profile.user.invite_ww" ng-true-value="1" ng-false-value="0" aria-label="Invitación a winwin"></md-switch>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
           <div layout="row" layout-align="center center" class="bg-white">
             <div><span translate>Winwins finalizado</span></div>
             <div>
-              <md-switch name="ww_to_finish" ng-model="profile.user.ww_to_finish" ng-true-value="1" ng-false-value="0"></md-switch>
+              <md-switch name="ww_to_finish" ng-model="profile.user.ww_to_finish" ng-true-value="1" ng-false-value="0" aria-label="Winwins finalizado"></md-switch>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
           <div layout="row" layout-align="center center" class="bg-white">
             <div><span translate>Invitación a Grupo</span></div>
             <div>
-              <md-switch name="invite_group" ng-model="profile.user.invite_group" ng-true-value="1" ng-false-value="0"></md-switch>
+              <md-switch name="invite_group" ng-model="profile.user.invite_group" ng-true-value="1" ng-false-value="0" aria-label="Invitación a grupo"></md-switch>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@
             <div layout="row" layout-align="center center" class="bg-white">
               <div><span translate>Mostrar Perfil</span></div>
               <div>
-                <md-switch name="private" ng-model="profile.user.private" ng-true-value="1" ng-false-value="0"></md-switch>
+                <md-switch name="private" ng-model="profile.user.private" ng-true-value="1" ng-false-value="0" aria-label="Mostrar perfil"></md-switch>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
               <div><div layout="row" layout-align="center center" class="bg-white">
                   <div><span translate>Español</span></div>
                   <div>
-                    <md-switch name="language_code" ng-model="profile.user.language_code" ng-true-value="1" ng-false-value="0"></md-switch>
+                    <md-switch name="language_code" ng-model="profile.user.language_code" ng-true-value="1" ng-false-value="0" aria-label="Idioma"></md-switch>
                   </div>
                   <div><span translate>English</span></div>
                 </div></div>

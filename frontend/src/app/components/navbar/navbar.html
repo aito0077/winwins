@@ -54,7 +54,7 @@
 					<span class="badge">1</span>
 				</div>
 				<md-card-header>
-					<md-button ui-sref="home.profile">
+					<md-button ui-sref="home.profile" aria-label="avatar">
 						<md-card-avatar ng-if="vm.isAuthenticated()">
 							<img class="md-user-avatar" ng-src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
 						</md-card-avatar>
@@ -81,7 +81,7 @@
 		  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
 		  <div>
 				<md-card-header>
-					<md-button ui-sref="home.profile">
+					<md-button ui-sref="home.profile" aria-label="avatar">
 						<md-card-avatar ng-if="vm.isAuthenticated()">
 							<img class="md-user-avatar" ng-src="{{vm.imageServer}}/80x80/{{vm.account.photo}}">
 						</md-card-avatar>

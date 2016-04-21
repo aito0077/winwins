@@ -59,6 +59,7 @@
     vm.showLoginDialog = function(ev) {
       $mdDialog.show({
         controller: 'LoginController',
+        controllerAs: 'login',
         templateUrl: 'app/login/login.tmpl.html',
         parent: angular.element($document.body),
         targetEvent: ev,

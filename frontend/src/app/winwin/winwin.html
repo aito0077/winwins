@@ -7,6 +7,11 @@
             <div class="wrap-card-img">
               <img ng-src="{{winwin.imageServer}}/{{winwin.winwin.image}}" alt="" class="md-card-img"/>
             </div>
+            <div class="card-labels">
+              <md-icon class="icon icon-access_time">access_time</md-icon>
+              <md-icon class="icon icon-watshot">whatshot</md-icon>
+              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+            </div>
           </md-card-content>
           <md-card-actions layout="row" layout-align="space-between center">
             <div class="card-numbers">
@@ -22,7 +27,7 @@
               </div>
             </div>
             <div class="card-time"><h3 translate>HAY TIEMPO HASTA EL</h3>
-              <strong><md-icon class="icon icon-access_time">access_time</md-icon> {{winwin.winwin.closing_date | date:"dd/MM/yyyy" }}</strong>
+              <strong><md-icon class="icon icon-access_time">access_time</md-icon>{{winwin.winwin.closing_date | date:"dd/MM/yyyy" }}</strong>
             </div>
           </md-card-actions>
         </md-card>
@@ -79,19 +84,19 @@
             <md-button class="bt-green md-whiteframe-17dp">SI, ME SUMO!</md-button>
           </div>
           <div flex="5">
-            <md-button class="md-icon-button" ng-href="/#/login">
+            <md-button class="md-icon-button" ng-href="/#/login" aria-label="facebook">
               <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login">
+            <md-button class="md-icon-button" ng-href="/#/login" aria-label="google">
               <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login">
+            <md-button class="md-icon-button" ng-href="/#/login" aria-label="twitter">
               <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login">
+            <md-button class="md-icon-button" ng-href="/#/login" aria-label="share">
               <md-icon md-svg-src="assets/images/icon-share.svg"></md-icon>
             </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login">
+            <md-button class="md-icon-button" ng-href="/#/login" aria-label="email">
               <md-icon md-svg-src="assets/images/icon-email.svg"></md-icon>
             </md-button>
           </div>
@@ -101,8 +106,7 @@
     <div layout-gt-sm="row" layout-padding layout-align-gt-sm="center start" layout-align="center center" layout="column">
       <div class="sponsors">
         <h3 class="title">
-          <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>
-          {{ 'SPONSORS' | translate }}
+          <md-icon md-svg-src="assets/images/icon-sponsors-title.svg"></md-icon>{{ 'SPONSORS' | translate }}
         </h3>
         <div layout="row" layout-gt-sm="column" layout-align="center center" layout-margin layout-wrap>
           <div>
@@ -144,9 +148,9 @@
             </p>
           </md-card-content>
             <md-card-actions layout="row" layout-margin>
-              <div><md-icon class="icon icon-access_time">access_time</md-icon> 21/12/12</div>
-              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon> 15</div>
-              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon> 15</div>
+              <div><md-icon class="icon icon-access_time">access_time</md-icon>21/12/12</div>
+              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon>15</div>
+              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon>15</div>
               <div><md-icon class="icon insert_comment">insert_comment</md-icon></div>
               <div><md-icon class="icon share">sharet</md-icon></div>
           </md-card-actions>
@@ -174,9 +178,9 @@
             </p>
           </md-card-content>
             <md-card-actions layout="row" layout-margin>
-              <div><md-icon class="icon icon-access_time">access_time</md-icon> 21/12/12</div>
-              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon> 15</div>
-              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon> 15</div>
+              <div><md-icon class="icon icon-access_time">access_time</md-icon>21/12/12</div>
+              <div class="green"><md-icon class="icon thumb_up">thumb_up</md-icon>15</div>
+              <div class="red"><md-icon class="icon thumb_down">thumb_down</md-icon>15</div>
               <div><md-icon class="icon insert_comment">insert_comment</md-icon></div>
               <div><md-icon class="icon share">sharet</md-icon></div>
           </md-card-actions>
@@ -191,10 +195,10 @@
               CAMPANADA ACTIVA</h3>
           </div>
           <div class="content-bg">
-            <h4><md-icon md-svg-src="assets/images/icon-state.svg"></md-icon> Estado: <strong>{{winwin.winwin.published? 'Activo' : 'Inactivo'}}</strong></h4>
+            <h4><md-icon md-svg-src="assets/images/icon-state.svg"></md-icon>Estado: <strong>{{winwin.winwin.published? 'Activo' : 'Inactivo'}}</strong></h4>
           </div>
           <div class="content-bg">
-            <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon> Escala: <strong>{{winwin.winwin.scope}}</strong></h4>
+            <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon>Escala: <strong>{{winwin.winwin.scope}}</strong></h4>
             <p>{{winwin.winwin.location.formatted_address}}</p>
           </div>
           <div class="content-bg">
@@ -205,16 +209,15 @@
             </ul>
           </div>
           <div class="content-bg">
-            <p><md-icon md-svg-src="assets/images/icon-entrar.svg"></md-icon> Abandonar este Winwin</p>
+            <p><md-icon md-svg-src="assets/images/icon-entrar.svg"></md-icon>Abandonar este Winwin</p>
           </div>
           <div class="content-bg">
-            <p><md-icon md-svg-src="assets/images/icon-report.svg"></md-icon> Reportar este Winwin</p>
+            <p><md-icon md-svg-src="assets/images/icon-report.svg"></md-icon>Reportar este Winwin</p>
           </div>
         </div>
         <md-list ng-cloak>
           <h3 class="title">
-            <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>
-            {{ 'PARTICIPANTES' | translate }}
+            <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>{{ 'PARTICIPANTES' | translate }}
           </h3>
           <md-list-item ng-repeat="participante in winwin.winwin.users">
             <img ng-src="{{winwin.imageServer}}/smart/{{participante.photo}}" alt="" class="md-avatar">
