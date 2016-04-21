@@ -5,69 +5,71 @@
     .module('winwins')
     .controller('LoginController', LoginController);
 
-  function LoginController($scope, $mdDialog, $auth, $state, $timeout, account, $rootScope) {
-    $scope.login_status = 'login'
+  function LoginController($mdDialog, $auth, $state, $timeout, account, $rootScope) {
+    var vm = this;
 
-    $scope.login = function() {
-      $auth.login({ email: $scope.login.email, password: $scope.login.password })
+    vm.login_status = 'login';
+
+    vm.login = function() {
+      $auth.login({ email: vm.login.email, password: vm.login.password })
       .then(function() {
         $rootScope.$broadcast('account_change');
         complete();
-        $scope.login_status = 'success';
+        vm.login_status = 'success';
       })
       .catch(function() {
-        $scope.login_status = 'error';
+        vm.login_status = 'error';
       });
     };
 
-    $scope.authenticate = function(provider) {
+    vm.authenticate = function(provider) {
       $auth.authenticate(provider)
       .then(function() {
-        $scope.provider = provider;
+        vm.provider = provider;
         $rootScope.$broadcast('account_change');
         complete();
-        $scope.login_status = 'success';
+        vm.login_status = 'success';
       })
       .catch(function() {
-        $scope.login_status = 'error';
+        vm.login_status = 'error';
       });
     };
 
-    $scope.register_status = 'register';
+    vm.register_status = 'register';
 
-    $scope.signup = function() {
-      if (!$scope.register.terms){
-        $scope.registerForm.terms.$setValidity("notTerms", false);
+    vm.signup = function() {
+      if (!vm.register.terms){
+        vm.registerForm.terms.$setValidity("notTerms", false);
         return;
       }
       $auth.signup({
-        username: $scope.register.name,
-        lastname: $scope.register.lastname,
-        email: $scope.register.email,
-        password: $scope.register.password,
-        name: $scope.register.name,
+        username: vm.register.name,
+        lastname: vm.register.lastname,
+        email: vm.register.email,
+        password: vm.register.password,
+        name: vm.register.name,
         language_code: 'ES'
       })
       .then(function() {
-        $auth.login({ email: $scope.register.email, password: $scope.register.password })
+        $auth.login({ email: vm.register.email, password: vm.register.password })
         .then(function() {
           $rootScope.$broadcast('account_change');
           complete('home.profile');
-          $scope.register_status = 'success';
+          vm.register_status = 'success';
         });
       })
       .catch(function(response) {
-        $scope.register_status = 'error';
-        $scope.message = "Error en su registracion";
+        vm.register_status = 'error';
+        vm.message = "Error en su registracion";
         if(response.data) {
           if(response.data.message == 'email_already_taken') {
-            $scope.message = 'El correo ya existe';
+            vm.message = 'El correo ya existe';
           }
         }
       });
     };
 
-    $scope.change_pass_status = 'change_pass';
+    vm.change_pass_status = 'change_pass';
 
     var complete = function(redirect) {
       account.getProfile();

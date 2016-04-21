@@ -19,6 +19,7 @@
     "satellizer": "^0.14.0",
     "angular-gettext": "^2.2.1",
     "material-design-icons": "^2.2.3",
+    "material-design-iconfont": "~0.0.2",
     "ngImgCropFullExtended": "0.5.4"
   },
   "devDependencies": {
