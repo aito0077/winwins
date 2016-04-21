@@ -104,7 +104,7 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <md-checkbox class="green" ng-model="register.terms" name="terms">
-                      {{ 'He leído y acepto los' | translate }} <a href="#" translate>términos y condiciones</a>.
+                      {{ 'He leído y acepto los' | translate }} <a ng-href="/#/terms" target="_blank" translate>términos y condiciones</a>.
                     </md-checkbox>
                     <div ng-messages="registerForm.terms.$error" class="help-block" ng-if="registerForm.terms.$error.notTerms">
                       <p class="small" ng-message="notTerms" translate>Acepta los terminos y condiciones.</p>
