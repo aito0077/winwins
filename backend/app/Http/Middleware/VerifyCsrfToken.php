@@ -10,7 +10,9 @@ use Symfony\Component\Security\Core\Util\StringUtils;
 class VerifyCsrfToken extends BaseVerifier {
 
     protected $except = [
-        'api/*'
+        'api/*',
+        'password/email',
+        'password/reset',
     ];
 
 	public function handle($request, Closure $next) {
