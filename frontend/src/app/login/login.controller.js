@@ -72,6 +72,16 @@
 
     vm.change_pass_status = 'change_pass';
 
+    vm.changePass = function() {
+      account.emailResetPass(vm.changePass.email)
+      .then(function() {
+        vm.change_pass_status = 'success';
+      })
+      .catch(function(response) {
+        vm.change_pass_status = 'error';
+      });
+    }
+
     var complete = function(redirect) {
       account.getProfile();
       $timeout(function() {

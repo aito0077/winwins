@@ -6,7 +6,7 @@
       .service('account', account);
 
   /** @ngInject */
-  function account($log, Restangular) {
+  function account($log, Restangular, $http, ENV) {
 
     var _account = {};
 
@@ -23,6 +23,10 @@
       return rAccount
       .withHttpConfig({transformRequest: angular.identity})
       .customPOST(fd, 'upload', undefined, {'Content-Type': undefined})
+    }
+
+    _account.emailResetPass = function(email){
+      return $http.post(ENV.base + '/password/email', {"email": email});
     }
 
     return _account;

@@ -135,26 +135,26 @@
           </md-tab-label>
           <md-tab-body>
             <md-content layout-padding class="section-login">
-              <form method="post" ng-submit="login.login()" name="projectForm" ng-show="login.change_pass_status == 'change_pass'">
+              <form method="post" ng-submit="login.changePass()" name="changePassForm" ng-show="login.change_pass_status == 'change_pass'">
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Email</label>
-                    <input required name="clientName" ng-model="login.project.clientName">
-                    <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required" translate>Email Inválido</div>
+                    <input required name="email" ng-model="login.changePass.email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                    <div ng-messages="changePassForm.email.$error">
+                      <div ng-message="required" translate>Ingresa tu correo.</div>
                     </div>
                   </md-input-container>
                 </div>
-                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Enviar contraseña' | translate }}
+                <button type="submit" ng-disabled="changePassForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Enviar contraseña' | translate }}
                 </button>
               </form>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.change_pass_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-oks.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">{{ 'Te enviamos tu contraseña a' | translate }} <span class="violet">user@email.com</span></p></div>
+                <div flex><p class="gray">{{ 'Te enviamos tu contraseña a' | translate }} <span class="violet">{{login.changePass.email}}</span></p></div>
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.change_pass_status == 'error'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">{{ 'El email' | translate }} <span class="red">user@email.com</span>
+                <div flex><p class="gray">{{ 'El email' | translate }} <span class="red">{{login.changePass.email}}</span>
                   {{ 'no es un usuario de Winwins' | translate }}.<br />
                   {{ 'Escribiste bien' | translate }}?</p></div>
               </div>
