@@ -49,7 +49,8 @@
     .directive("scroll", function ($window) {
     return function(scope, element, attrs) {
       angular.element($window).bind("scroll", function() {
-        scope.boolChangeClass = this.pageYOffset >= 100; //&& this.innerHeight - this.pageYOffset >= 200;
+        console.log(document.body.scrollHeight - this.pageYOffset - $window.innerHeight);
+        scope.boolChangeClass = this.pageYOffset >= 100 && document.body.scrollHeight - this.pageYOffset - $window.innerHeight >= 260;
         scope.$apply();
       });
     };
