@@ -2,6 +2,8 @@ md-toolbar.md-accent.notice {
   &.warning {
     background-color: #e5452d;
     position: relative;
+    top: 50px;
+    z-index: 20;
     p {
       margin: 0;
       text-align: center;
