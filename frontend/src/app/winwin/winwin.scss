@@ -308,8 +308,11 @@
     right: 0;
     left: 0;
     margin: 0 auto;
-    width: 500px;
-    border-radius: 5px 5px 0 0;
+    width: 100%;
+    @media (min-width: 960px) {
+      width: 500px;
+      border-radius: 5px 5px 0 0;
+    }
     .caja-mensaje-img {
       width: 40px;
       height: 40px;
@@ -331,10 +334,14 @@
     }
     textarea {
       background: #fff;
-      width: 305px;
-      height: 65px;
+      height: 65px !important;
       font-size: 12px;
       color: #000;
+      border:none;
+      font-family: 'Montserrat', serif;
+      @media (min-width: 480px) {
+        width: 305px;
+      }
     }
   }
   .md-fab {
