@@ -44,7 +44,7 @@
         return;
       }
       $auth.signup({
-        username: vm.register.name,
+        username: vm.register.name + ' ' + vm.register.lastname,
         lastname: vm.register.lastname,
         email: vm.register.email,
         password: vm.register.password,
