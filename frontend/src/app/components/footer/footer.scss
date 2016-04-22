@@ -1,9 +1,8 @@
 .acme-footer {
-  //position: relative;
   .scroll-top {
-    float: right;
-    width: 72px;
     position: relative;
+    text-align: right;
+    margin-right: -10px;
     .scroll-top-button {
       transition: bottom .5s ease;
       bottom: 0;
