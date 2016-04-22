@@ -18,9 +18,9 @@
               <img ng-src="{{winwin.imageServer}}/{{winwin.winwin.image}}" alt="" class="md-card-img"/>
             </div>
             <div class="card-labels">
-              <md-icon class="icon icon-access_time">access_time</md-icon>
-              <md-icon class="icon icon-watshot">whatshot</md-icon>
-              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg"></md-icon>
+              <md-icon class="icon icon-access_time" ng-if="winwin.winwin.finishing">access_time</md-icon>
+              <md-icon class="icon icon-watshot" ng-if="winwin.winwin.popular">whatshot</md-icon>
+              <md-icon class="icon icon-highlighted" md-svg-src="assets/images/icon-highlighted.svg" ng-if="winwin.winwin.remarkable">highlighted</md-icon>
             </div>
           </md-card-content>
           <md-card-actions layout="row" layout-align="space-between center">
@@ -45,41 +45,17 @@
       <div flex="15">
         <div layout="column" layout-align="center center">
           <div class="creadores">
-            <img ng-src="../assets/images/profile-avatar.jpg" alt="" class="avatar-creador style-rounded" />
+            <img ng-src="{{winwin.imageServer}}/{{winwin.winwin.user.photo}}" alt="" class="avatar-creador style-rounded" />
             <h3>{{winwin.winwin.user.detail.name}} {{winwin.winwin.user.detail.lastname}}</h3>
             <strong>CREADOR</strong>
           </div>
           <div class="activadores">
             <div layout="row" layout-align="center center" layout-margin layout-wrap>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div> 
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
-              </div>
-              <div>
-                <img src="../assets/images/profile-avatar.jpg" alt="" class="profile-small style-rounded" />
+              <div ng-repeat="activador in winwin.winwin.users | filter: {pivot :{ creator: 0, moderator: 1}} as filteredActivador" >
+                <img ng-src="{{winwin.imageServer}}/25x25/{{activador.photo}}" alt="{{activador.username}}" title="{{activador.username}}" class="profile-small style-rounded" />
               </div>
             </div>
-            <strong>ACTIVADORES</strong>
+            <strong ng-show="filteredActivador.length > 0">ACTIVADORES</strong>
           </div>
         </div>
       </div>

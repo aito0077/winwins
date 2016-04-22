@@ -102,7 +102,7 @@ class WinwinController extends Controller {
                     ->where('winwins_users.winwin_id', '=', $winwin->id)->count();
                 $winwin->users_already_joined = $users_count;
                 $winwin->users_left = ($winwin->users_amount - $users_count);
-                $winwin->popular = $winwin->users_joined > 1;
+                $winwin->popular = $winwin->users_joined > 5;
                 $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
                 $winwin->remarkable = $winwin->selected;
             }
@@ -132,8 +132,8 @@ class WinwinController extends Controller {
                 $winwin->users_left = ($winwin->users_amount - $users_count);
             }
             
-            $winwin->popular = $winwin->users_joined > 1;
-            $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
+            $winwin->popular = $winwin->users_joined > 5;
+            $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
             $winwin->remarkable = $winwin->selected;
             $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
@@ -166,9 +166,9 @@ class WinwinController extends Controller {
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
 
-        $winwin->popular = $winwin->users_joined > 1;
-        $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
-
+        $winwin->popular = $winwin->users_joined > 5;
+        $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
+        $winwin->remarkable = $winwin->selected;
         $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
         $winwin->is_successful = ($winwin->status == 'SUCCESSFUL');
