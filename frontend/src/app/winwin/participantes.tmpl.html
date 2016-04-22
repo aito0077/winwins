@@ -5,49 +5,9 @@
       {{ 'PARTICIPANTES' | translate }}
     </h3>
     <md-list>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
-        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
-      </md-list-item>
-      <md-list-item>
-        <img alt="" ng-src="../assets/images/profile-avatar.jpg" alt=""class="md-avatar" />
-        <p>Nombre y Apellido</p>
+      <md-list-item ng-repeat="participante in users">
+        <img alt="" ng-src="{{imageServer}}/smart/{{participante.photo}}" alt=""class="md-avatar" />
+        <p>{{participante.username}}</p>
         <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
       </md-list-item>
     </md-list>

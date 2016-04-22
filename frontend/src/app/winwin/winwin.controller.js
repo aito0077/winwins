@@ -36,15 +36,23 @@
         templateUrl: 'app/winwin/participantes.tmpl.html',
         parent: angular.element($document.body),
         targetEvent: ev,
-        clickOutsideToClose:true
+        clickOutsideToClose:true,
+        locals: {
+          users: vm.winwin.users
+        }
       });
     };
   }
 
+  /** @ngInject */
   function MasDetalleController($scope, winwin) {
     $scope.winwin = winwin;
   }
-
-  function ParticipantesController(){}
+  
+  /** @ngInject */
+  function ParticipantesController($scope, users, ENV){
+    $scope.imageServer = ENV.imageServer;
+    $scope.users = users;
+  }
 
 })();
