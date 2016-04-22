@@ -97,7 +97,41 @@ es uno de ellos, ingresala aquí.
   </div>
 </md-content>
 
-
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-crear md-blue" layout="row" layout-align="center center">
+    <h2><md-icon md-svg-src="assets/images/icon-megafono.svg"></md-icon><span translate>Difundí tu Winwin</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <div layout="column" layout-align="center center" class="comparti">
+      <h2 translate>Compartí tu Winwin</h2>
+      <p translate>en las redes sociales y sumá personas para concretarlo!</p>
+    </div>
+    <div layout="row" layout-align="center center" layout-margin class="comparti-social-media">
+      <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <div layout="column" class="comparti" flex-xs="80" flex="40">
+        <p class="enfasis" translate>Invitá amigos a tu Winwin por email</p>
+        <div class="wrap-md-input-container">
+          <md-input-container class="md-icon-float md-icon-right md-block">
+            <label>Ingresa mails para invitar</label>
+            <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+            <md-button class="md-fab send" aria-label="">
+              <md-icon md-svg-src="assets/images/icon-send.svg"></md-icon>
+            </md-button>
+          </md-input-container>
+        </div>
+        <small>Separá los emails con una coma.</small>
+        <md-button class="md-raised md-primary md-grey">IR AL WINWIN</md-button>
+      </div>
+    </div>
+  </div>
+</md-content>
 <md-content class="acme-crearwinwin">
   <md-toolbar class="md-tall md-crear md-violet" layout="row" layout-align="center center">
     <h2><md-icon md-svg-src="assets/images/icon-flag.svg"></md-icon><span translate>DALE IDENTIDAD A TU WINWIN</span></h2>
@@ -245,6 +279,50 @@ es uno de ellos, ingresala aquí.
           <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
         </div>
       </div>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content class="acme-crearwinwin">
+    <div layout="column" layout-align="center center" layout-margin layout-padding class="comparti">
+      <md-icon md-svg-src="assets/images/icon-ok.svg" class="icon-big"></md-icon>
+      <h3 translate>Genial!</h3>
+      <p translate class="enfasis-blue">Compartido en Facebook</p>
+      <p><span class="enfasis">Sugerencia:</span> Comparti también en Twitter y Google+</p>
+    </div>
+    <div layout="row" layout-align="center center" layout-margin class="comparti-social-media">
+      <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <div layout="column" class="comparti" flex-xs="80" flex="40">
+        <div class="wrap-md-input-container">
+          <md-input-container class="md-icon-float md-icon-right md-block">
+            <label>Ingresa mails para invitar</label>
+            <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+            <md-button class="md-fab send" aria-label="">
+              <md-icon md-svg-src="assets/images/icon-send.svg"></md-icon>
+            </md-button>
+          </md-input-container>
+        </div>
+        <small>Separá los emails con una coma.</small>
+      </div>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content class="acme-crearwinwin">
+    <div layout="column" layout-align="center center" layout-margin layout-padding class="comparti">
+      <md-icon md-svg-src="assets/images/icon-ok.svg" class="icon-big"></md-icon>
+      <h3 translate>Buenísimo!</h3>
+      <p translate><em>“Un viaje de mil millas comienza con un solo paso.”</em></p>
+      <p><span class="enfasis-blue">Vamos a tu Winwin.</p>
     </div>
   </md-dialog-content>
 </div>
