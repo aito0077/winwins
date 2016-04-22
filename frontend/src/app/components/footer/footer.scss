@@ -1,4 +1,18 @@
 .acme-footer {
+  .scroll-top {
+    position: relative;
+    text-align: right;
+    margin-right: -10px;
+    .scroll-top-button {
+      transition: bottom .5s ease;
+      bottom: 0;
+      position: absolute;
+      &.scrollFixed {
+        bottom: 20px;
+        position: fixed;
+      }
+    }
+  }
   .footer-sumate {
     background: url('../assets/images/footer-bg.jpg') center top repeat-x;
     height: 428px;
