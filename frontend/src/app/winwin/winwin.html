@@ -90,7 +90,7 @@
             <p class="detalle"><strong>Si supieras que somos {{winwin.winwin.users_amount}} personas</strong> para {{winwin.winwin.what_we_do}} <br/>
             </p>
             <p><strong>te sumarías?</strong></p>
-            <md-button ng-href class="ver-mas" ng-click="winwin.showMasDetalleDialog()">+ VER MAS DETALLES</md-button>
+            <md-button ng-href class="ver-mas" ng-click="winwin.showMasDetalleDialog()" ng-if="winwin.winwin.description">+ VER MAS DETALLES</md-button>
             <md-button class="bt-green md-whiteframe-17dp">SI, ME SUMO!</md-button>
           </div>
           <div flex="5">
@@ -211,7 +211,7 @@
             <h4><md-icon md-svg-src="assets/images/icon-world.svg"></md-icon>Escala: <strong>{{winwin.winwin.scope}}</strong></h4>
             <p>{{winwin.winwin.location.formatted_address}}</p>
           </div>
-          <div class="content-bg">
+          <div class="content-bg" ng-if="winwin.winwin.interests.length > 0">
             <h4>Categorías: </h4>
             {{winwin.formattedCategories(winwin.winwin.interests)}}
             <ul>
@@ -229,11 +229,11 @@
           <h3 class="title">
             <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>{{ 'PARTICIPANTES' | translate }}
           </h3>
-          <md-list-item ng-repeat="participante in winwin.winwin.users">
+          <md-list-item ng-repeat="participante in winwin.winwin.users | limitTo: 5">
             <img ng-src="{{winwin.imageServer}}/smart/{{participante.photo}}" alt="" class="md-avatar">
             <p>{{participante.username}}</p>
           </md-list-item>
-          <md-list-item class="md-no-proxy">
+          <md-list-item class="md-no-proxy" ng-if="winwin.winwin.users.length > 5">
            <md-button ng-href class="ver-todos" ng-click="winwin.showParticipantesDialog()"><strong>+</strong> Ver todos los participantes</md-button>
           </md-list-item>
         </md-list>
