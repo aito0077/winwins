@@ -214,14 +214,6 @@ md-toolbar.md-tall.md-warn.ng-scope {
     }
     
     .bt-green {
-      background: #4cae4e;
-      color:#fff;
-      font-weight: 700;
-      font-size: 16px;
-      border-radius: 0;
-      height: 62px;
-      width: 100%;
-      margin: 0;
       &:before {
         width: 0; 
         height: 0; 
@@ -234,12 +226,8 @@ md-toolbar.md-tall.md-warn.ng-scope {
         position: relative;
         top: 1px;
       }
-      &.md-button.md-primary.md-raised:not([disabled]):hover {
-        background-color: #34b436;
-      }
-      &.md-button.md-raised[disabled] {
-        background: #4cae4e;
-        color: #fff !important;
+      &:after {
+        display: none;
       }
     }
     .layout-privacidad.layout-row {

@@ -1,5 +1,9 @@
 .acme-winwin {
   background: #fff;
+  .md-crear.md-blue h2 {
+    position: relative;
+    padding-right: 30px;
+  }
   md-card {
     &.no-padding {
       md-card-content {
@@ -104,13 +108,13 @@
       margin: 5px 0 10px 0;
     }
   }
-  h2 {
+  h2.ng-binding {
     text-transform: uppercase;
     margin: 0;
     height: 60px;
     overflow: hidden;
   }
-  p {
+  p.detalle {
     margin: 5px 0 0 ;
     strong {
       color: #144a9d;
@@ -296,6 +300,94 @@
   }
   .aside {
     padding: 0;
+  }
+  .caja-mensaje {
+    background: #4a6dce;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+    @media (min-width: 960px) {
+      width: 500px;
+      border-radius: 5px 5px 0 0;
+    }
+    .caja-mensaje-img {
+      width: 40px;
+      height: 40px;
+      border: solid 4px #6dccdd;
+      border-radius: 100px;
+      vertical-align: middle;
+    }
+    md-input-container {
+      padding-left: 0;
+      margin: 0;
+      padding-right: 0;
+      .md-errors-spacer {
+        display: none;
+      }
+    }
+    .social-media {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    textarea {
+      background: #fff;
+      height: 65px !important;
+      font-size: 12px;
+      color: #000;
+      border:none;
+      font-family: 'Montserrat', serif;
+      @media (min-width: 480px) {
+        width: 305px;
+      }
+    }
+  }
+  .md-fab {
+    border-radius: 0;
+    line-height: inherit;
+  }
+  .send {
+    background: #4cae4e;
+    margin: 0;
+    height: 63px;
+    &.md-button.md-fab:not([disabled]):hover {
+      background: #29972c;
+    }
+  }
+  .youtube {
+    background: #c62829;
+    color: #fff;
+    min-height: inherit;
+    &.md-button.md-fab:not([disabled]):hover {
+      background: #c62829;
+    }
+  }
+  .camera {
+    background: #ef8224;
+    color: #fff;
+    min-height: inherit;
+    margin: 0;
+    &.md-button.md-fab:not([disabled]):hover {
+      background: #ef8224;
+    }
+  }
+  .youtube {
+    width: 35px;
+    height: 30px;
+    margin: 0 0 4px 0;
+    md-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .camera {
+    width: 35px;
+    height: 30px;
+    md-icon {
+      height: 20px;
+    }
   }
 }
 .dialog-primary {
