@@ -43,18 +43,37 @@
       return $auth.isAuthenticated();
     };
 
+    var _filter = 'select'
+    var _categories = [];
     vm.doFilter = function(filter) {
+      _categories = [];
+      _filter = filter;
       winwin.getList(0, filter, 6).then(function(data) {
         vm.destacados = data;
       });
     };
+    
+    vm.doCategories = function(id) {
+      var _index = _categories.indexOf(id);
+      
+      if (_index == -1) {
+        _categories.push(id);
+      } else {
+        _categories.splice(_index, 1);
+      }
 
-    vm.doCategories = function($index) {
-      var _categories = vm.interests[$index]["id"];
-      winwin.getListByCategory(0, _categories, 6).then(function(data) {
-        vm.destacados = data;
-      });
+      if (_categories.length == 0) {
+        vm.doFilter(_filter);
+      } else {
+        winwin.getListByCategory(0, _categories.join(','), 6).then(function(data) {
+          vm.destacados = data;
+        });
+      }
     };
+
+    vm.isChecked = function(id) {
+      return _categories.indexOf(id) > -1;
+    }
 
     vm.showLoginDialog = function(ev) {
       $mdDialog.show({

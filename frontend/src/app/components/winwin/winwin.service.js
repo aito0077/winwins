@@ -38,7 +38,7 @@
       offset = typeof offset !== 'undefined' ? offset : default_offset;
 
       var paginateUrl = 'paginate' + '/' + page + '/' + offset;
-      return rWinwin.customGET(paginateUrl, {categories: categories});
+      return rWinwin.customGET(paginateUrl, {categories: [categories]});
     };
 
     _winwin.getWinwin = function(id) {

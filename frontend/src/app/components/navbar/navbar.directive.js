@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog, $document) {
+    function NavbarController(moment, $mdSidenav, $rootScope, ENV, $auth, account, $mdDialog, $document, user) {
       var vm = this;
 
       vm.imageServer = ENV.imageServer;
@@ -35,6 +35,7 @@
           account.getProfile()
           .then(function(data) {
              vm.account = data.profile;
+             vm.account.email = data.user.email;
           });
         }
       });
@@ -67,6 +68,13 @@
           parent: angular.element($document.body),
           targetEvent: ev,
           clickOutsideToClose:true
+        });
+      };
+
+      vm.resendActivationMail = function() {
+        user.resendActivationMail()
+        .then(function() {
+          vm.sentActivationMail = true;
         });
       };
     }

@@ -1,8 +1,3 @@
-<md-toolbar class="md-accent notice warning" layout="row" layout-align="center center" ng-show="!profile.isActive">
-  <p>
-    <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} {{profile.user.email}}. {{ 'No te llegó? Hace,' | translate }} <a href="#" translate>clic para reenviartelo</a>.
-  </p>
-</md-toolbar>
 <md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
   <h2><span translate ng-if="!profile.is_complete">COMPLETA TU PERFIL</span><span translate ng-if="profile.is_complete">EDITAR PERFIL</span></h2>
 </md-toolbar>
@@ -139,7 +134,7 @@
             <div layout="row" layout-align="center center" class="bg-white">
               <div><span translate>Mostrar Perfil</span></div>
               <div>
-                <md-switch name="private" ng-model="profile.user.private" ng-true-value="1" ng-false-value="0" aria-label="Mostrar perfil"></md-switch>
+                <md-switch name="private" ng-model="profile.user.private" ng-true-value="0" ng-false-value="1" aria-label="Mostrar perfil"></md-switch>
               </div>
             </div>
           </div>

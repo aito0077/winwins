@@ -299,7 +299,7 @@ class UserController extends Controller {
             $userDetail->private = $request->input('private');
         }
 
-
+        $user->username = $userDetail->name . ' ' . $userDetail->lastname;
 
         $current_password =  $request->input('current_password');
         $password =  $request->input('password');
@@ -308,12 +308,12 @@ class UserController extends Controller {
 
             if (Hash::check($current_password, $user->password)) {
                 $user->password = Hash::make($request->input('password'));
-                $user->save();
             } else {
                 return response()->json(['message' => 'user_current_password_wrong'], 400);
             }
         }
 
+        $user->save();
         $userDetail->save();
 
         Log::info($userDetail);

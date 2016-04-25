@@ -5,10 +5,11 @@
     .module('winwins')
     .controller('LoginController', LoginController);
 
+  /** @ngInject */
   function LoginController($mdDialog, $auth, $state, $timeout, account, $rootScope) {
     var vm = this;
 
-    vm.login_status = 'login';
+    vm.login_status = 'login'
 
     vm.login = function() {
       $auth.login({ email: vm.login.email, password: vm.login.password })
@@ -43,7 +44,7 @@
         return;
       }
       $auth.signup({
-        username: vm.register.name,
+        username: vm.register.name + ' ' + vm.register.lastname,
         lastname: vm.register.lastname,
         email: vm.register.email,
         password: vm.register.password,
@@ -70,6 +71,16 @@
     };
 
     vm.change_pass_status = 'change_pass';
+
+    vm.changePass = function() {
+      account.emailResetPass(vm.changePass.email)
+      .then(function() {
+        vm.change_pass_status = 'success';
+      })
+      .catch(function(response) {
+        vm.change_pass_status = 'error';
+      });
+    }
 
     var complete = function(redirect) {
       account.getProfile();

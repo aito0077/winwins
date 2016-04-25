@@ -32,7 +32,8 @@
                 <div flex><md-button class="md-icon-button" ng-click="login.authenticate('facebook')" aria-label="Facebook">
                   <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
                 </md-button>
-                <md-button class="md-icon-button" ng-click="login.authenticate('twitter')" aria-label="Twitter">
+                </div>
+<!--                 <md-button class="md-icon-button" ng-click="login.authenticate('twitter')" aria-label="Twitter">
                   <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
                 </md-button>
                 <md-button class="md-icon-button" ng-click="login.authenticate('google')" aria-label="Google">
@@ -40,14 +41,14 @@
                 </md-button>
                 <md-button class="md-icon-button" ng-click="login.authenticate('yahoo')" aria-label="Yahoo">
                   <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
-                </md-button></div>
+                </md-button></div> -->
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.login_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-ok.svg"></md-icon></md-button></div>
                 <div flex><h2 class="gray" translate>Genial!</h2></div>
                 <div flex><p class="violet" translate>Vamos a tu cuenta.</p></div>
               </div>
-              <div layout="column" layout-align="center center" class="login-ok" ng-show="login.login_status == 'error'" ng-click="login.login_status = 'login'">
+              <div layout="column" layout-align="center center" class="login-ok" ng-if="login.login_status == 'error'" ng-click="login.login_status = 'login'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
                 <div flex><p class="gray" translate>Usuario/password no correctos<br /></div>
               </div
@@ -80,7 +81,7 @@
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Email</label>
-                    <input id="email" type="email" name="email" length="30"  ng-model="login.register.email" class="validate" required ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                    <input id="email" type="email" name="email" length="30"  ng-model="login.register.email" class="validate" required>
                     <div ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched" class="help-block">
                       <p class="small" ng-message="required" translate>Ingresa tu correo.</p>
                     </div>
@@ -111,7 +112,7 @@
                     </div>
                   </md-input-container>
                 </div>
-                <button type="submit" name="action" translate class="md-raised md-primary bt-default">{{ 'Registrarme' | translate }}
+                <button type="submit" name="action" ng-disabled="registerForm.$invalid" translate class="md-raised md-primary bt-default">{{ 'Registrarme' | translate }}
                 </button>
               </form>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.register_status == 'success'">
@@ -135,26 +136,26 @@
           </md-tab-label>
           <md-tab-body>
             <md-content layout-padding class="section-login">
-              <form method="post" ng-submit="login.login()" name="projectForm" ng-show="login.change_pass_status == 'change_pass'">
+              <form method="post" ng-submit="login.changePass()" name="changePassForm" ng-show="login.change_pass_status == 'change_pass'">
                 <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label translate>Email</label>
-                    <input required name="clientName" ng-model="project.clientName">
-                    <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required" translate>Email Inválido</div>
+                    <input required name="email" ng-model="login.changePass.email" ng-pattern="/^[A-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                    <div ng-messages="changePassForm.email.$error">
+                      <div ng-message="required" translate>Ingresa tu correo.</div>
                     </div>
                   </md-input-container>
                 </div>
-                <button type="submit" ng-disabled="loginForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Enviar contraseña' | translate }}
+                <button type="submit" ng-disabled="changePassForm.$invalid" name="action" translate class="md-raised md-primary bt-default">{{ 'Enviar contraseña' | translate }}
                 </button>
               </form>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.change_pass_status == 'success'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-oks.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">{{ 'Te enviamos tu contraseña a' | translate }} <span class="violet">user@email.com</span></p></div>
+                <div flex><p class="gray">{{ 'Te enviamos tu contraseña a' | translate }} <span class="violet">{{login.changePass.email}}</span></p></div>
               </div>
               <div layout="column" layout-align="center center" class="login-ok" ng-show="login.change_pass_status == 'error'">
                 <div flex><md-button><md-icon md-svg-src="assets/images/icon-error.svg" class="s44"></md-icon></md-button></div>
-                <div flex><p class="gray">{{ 'El email' | translate }} <span class="red">user@email.com</span>
+                <div flex><p class="gray">{{ 'El email' | translate }} <span class="red">{{login.changePass.email}}</span>
                   {{ 'no es un usuario de Winwins' | translate }}.<br />
                   {{ 'Escribiste bien' | translate }}?</p></div>
               </div>

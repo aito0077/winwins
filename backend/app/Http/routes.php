@@ -27,7 +27,7 @@ Route::post('password/reset', 'PasswordController@postReset');
 Route::get('api/posts/{post_type}/{post_reference}/posts', ['uses' => 'PostController@posts']);
 
 Route::get('api/winwins/all', ['uses' => 'WinwinController@all']);
-Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
+//Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/paginate/{page}/{amount}/{filter}', ['uses' => 'WinwinController@paginate']);
 Route::get('api/winwins/paginate/{page}/{amount}', ['uses' => 'WinwinController@paginateCategories']);
 Route::get('api/winwins/search', ['uses' => 'WinwinController@search']);

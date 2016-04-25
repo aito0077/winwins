@@ -72,7 +72,7 @@ class WinwinController extends Controller {
 
     public function paginateCategories(Request $request, $page = 0, $amount = 15) {
         $winwins = [];
-        $categories = $request->input('categories');
+        $categories = explode(",", $request->input('categories'));
 
         Log::info($categories);
         if($categories == 'all') {
@@ -82,7 +82,7 @@ class WinwinController extends Controller {
         } else {
             $winwins = Winwin::where('published', '=', 1)->where('canceled', '=', 0)
                 ->join('interests_interested', 'winwins.id', '=', 'interests_interested.interested_id')
-                ->where('interests_interested.interest_id', '=', $categories)
+                ->whereIn('interests_interested.interest_id', $categories)
                 ->where('interests_interested.type', '=', 'WINWIN')
                 ->skip($page * $amount)->take($amount)->get();
             $collection = $this->processCollection($winwins);
@@ -102,9 +102,9 @@ class WinwinController extends Controller {
                     ->where('winwins_users.winwin_id', '=', $winwin->id)->count();
                 $winwin->users_already_joined = $users_count;
                 $winwin->users_left = ($winwin->users_amount - $users_count);
-                $winwin->popular = $winwin->users_joined > 1;
-                $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
-                $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
+                $winwin->popular = $winwin->users_joined > 5;
+                $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
+                $winwin->remarkable = $winwin->selected;
             }
 
             $winwin->sponsors;
@@ -132,8 +132,8 @@ class WinwinController extends Controller {
                 $winwin->users_left = ($winwin->users_amount - $users_count);
             }
             
-            $winwin->popular = $winwin->users_joined > 1;
-            $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
+            $winwin->popular = $winwin->users_joined > 5;
+            $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
             $winwin->remarkable = $winwin->selected;
             $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
@@ -166,9 +166,9 @@ class WinwinController extends Controller {
         $winwin->users_already_joined = $users_count;
         $winwin->users_left = ($winwin->users_amount - $users_count);
 
-        $winwin->popular = $winwin->users_joined > 1;
-        $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2);
-
+        $winwin->popular = $winwin->users_joined > 5;
+        $winwin->finishing = $winwin->closing_date < Carbon::now()->addDay(2) && $winwin->closing_date > Carbon::now();
+        $winwin->remarkable = $winwin->selected;
         $winwin->mark = $winwin->popular ? 'popular' : ($winwin->finishing ? 'finishing' : 'remarkable');
 
         $winwin->is_successful = ($winwin->status == 'SUCCESSFUL');
