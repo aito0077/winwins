@@ -6,7 +6,7 @@
           <h2><img src="assets/images/sumate.svg"></h2>
           <p translate>Cuando la gente lidera,
     los líderes acompañan.</p>
-          <md-button ng-href="#" class="green">{{'COMENZA ESTA AVENTURA' | translate }}</md-button>
+          <md-button ng-href ng-click="vm.showLoginDialog()" class="green">{{'COMENZA ESTA AVENTURA' | translate }}</md-button>
         </div>
         <div flex class="scroll-top">
           <md-button class="md-raised md-fab md-warn scroll-top-button" scroll-top  scroll ng-class="{scrollFixed:boolChangeClass}">
