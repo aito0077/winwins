@@ -62,29 +62,29 @@
       <div flex="40">
         <h2>{{winwin.winwin.title}}</h2>
         <div layout="col" layout-align="center start">
-          <div flex>
+          <div flex="83">
             <p class="detalle"><strong>Si supieras que somos {{winwin.winwin.users_amount}} personas</strong> para {{winwin.winwin.what_we_do}} <br/>
             </p>
             <p><strong>te sumarías?</strong></p>
             <md-button ng-href class="ver-mas" ng-click="winwin.showMasDetalleDialog()" ng-if="winwin.winwin.description">+ VER MAS DETALLES</md-button>
             <md-button class="bt-green md-whiteframe-17dp">SI, ME SUMO!</md-button>
           </div>
-          <div flex="5">
-            <md-button class="md-icon-button" ng-href="/#/login" aria-label="facebook">
+          <div flex="15" layout="column">
+            <div><md-button class="md-icon-button" ng-href="/#/login" aria-label="facebook">
               <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login" aria-label="google">
+            </md-button></div>
+            <div><md-button class="md-icon-button" ng-href="/#/login" aria-label="google">
               <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login" aria-label="twitter">
+            </md-button></div>
+            <div><md-button class="md-icon-button" ng-href="/#/login" aria-label="twitter">
               <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login" aria-label="share">
+            </md-button></div>
+            <div><md-button class="md-icon-button" ng-href="/#/login" aria-label="share">
               <md-icon md-svg-src="assets/images/icon-share.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" ng-href="/#/login" aria-label="email">
+            </md-button></div>
+            <div><md-button class="md-icon-button" ng-href="/#/login" aria-label="email">
               <md-icon md-svg-src="assets/images/icon-email.svg"></md-icon>
-            </md-button>
+            </md-button></div>
           </div>
         </div>
       </div>

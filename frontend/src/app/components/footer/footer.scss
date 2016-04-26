@@ -3,6 +3,9 @@
     position: relative;
     text-align: right;
     margin-right: -10px;
+    md-icon {
+      margin-top: -2px;
+    }
     .scroll-top-button {
       transition: bottom .5s ease;
       bottom: 0;
@@ -10,6 +13,9 @@
       &.scrollFixed {
         bottom: 20px;
         position: fixed;
+      }
+      @media (max-width: 1024px) {
+        right: 0;
       }
     }
   }
@@ -19,6 +25,11 @@
     .container {
       background: url('../assets/images/footer-img.png') right top no-repeat;
       height: 428px;
+    }
+    .layout-xs-column {
+      @media (max-width: 480px) {
+        text-align: center;
+      }
     }
     h2 {
       margin: 40px 0 0 0;
@@ -107,6 +118,9 @@
   }
   .footer-copy {
     background: #1b3089;
+    @media (max-width: 480px) {
+      text-align: center;
+    }
     .layout-row > div {
       font-size: 12px;
       color: #fff;

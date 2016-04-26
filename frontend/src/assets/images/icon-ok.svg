@@ -3,31 +3,35 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="152px" height="157px" viewBox="0 0 152 157" enable-background="new 0 0 152 157" xml:space="preserve">
-<ellipse fill="#73AD56" stroke="#F7F9F7" stroke-width="10" stroke-miterlimit="10" cx="75.779" cy="77.862" rx="70.926" ry="68.453"/>
-<rect x="34.167" y="37.333" fill="#73AD56" width="84.333" height="82.333"/>
+<ellipse fill="#4CAE4E" stroke="#F7F9F7" stroke-width="10" stroke-miterlimit="10" cx="75.779" cy="77.862" rx="70.926" ry="68.453"/>
+<rect x="34.167" y="37.333" fill="#4CAE4E" width="84.333" height="82.333"/>
 <g>
 	<g>
 		<g>
-			<defs>
-				<rect id="SVGID_1_" x="21.71" y="14.664" width="109.003" height="123.301"/>
-			</defs>
-			<clipPath id="SVGID_2_">
-				<use xlink:href="#SVGID_1_"  overflow="visible"/>
-			</clipPath>
-			<g clip-path="url(#SVGID_2_)">
-				<g>
-					<defs>
-						<rect id="SVGID_3_" x="21.71" y="14.664" width="109.003" height="123.301"/>
-					</defs>
-					<clipPath id="SVGID_4_">
-						<use xlink:href="#SVGID_3_"  overflow="visible"/>
-					</clipPath>
-					<polygon clip-path="url(#SVGID_4_)" fill="#FFFFFF" points="62.587,97.747 43.639,76.315 37.217,83.579 62.587,112.277 
-						117.088,50.626 110.664,43.362 					"/>
+			<g>
+				<defs>
+					<rect id="SVGID_1_" x="21.71" y="14.664" width="109.003" height="123.301"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  overflow="visible"/>
+				</clipPath>
+				<g clip-path="url(#SVGID_2_)">
+					<g>
+						<g>
+							<defs>
+								<rect id="SVGID_3_" x="21.71" y="14.664" width="109.003" height="123.301"/>
+							</defs>
+							<clipPath id="SVGID_4_">
+								<use xlink:href="#SVGID_3_"  overflow="visible"/>
+							</clipPath>
+							<polygon clip-path="url(#SVGID_4_)" fill="#FFFFFF" points="62.587,97.747 43.639,76.315 37.217,83.579 62.587,112.277 
+								117.088,50.626 110.664,43.362 							"/>
+						</g>
+					</g>
 				</g>
 			</g>
 		</g>
+		<polygon fill="#FFFFFF" points="37.125,83.625 43.5,76.314 62.5,97.625 110.75,43.375 117,50.625 62.375,112.25 		"/>
 	</g>
 </g>
-<polygon fill="#FFFFFF" points="37.125,83.625 43.5,76.314 62.5,97.625 110.75,43.375 117,50.625 62.375,112.25 "/>
 </svg>

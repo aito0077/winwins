@@ -71,15 +71,15 @@
   </div>
   <div class="menu hide show-xs show-sm">
   	<div layout="row" layout-align="space-between center">
-		  <div>
+		  <div layout="row">
 		  	<md-icon>keyboard_arrow_left</md-icon>
-			</div>
-			<div class="menu-notifications" ng-if="vm.isAuthenticated()">
-				<md-icon>notifications</md-icon>
-				<span class="badge">1</span>
+				<div class="menu-notifications" ng-if="vm.isAuthenticated()">
+					<md-icon>notifications</md-icon>
+					<span class="badge">1</span>
+				</div>
 			</div>
 		  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
-		  <div>
+		  <div layout="row">
 				<md-card-header>
 					<md-button ui-sref="home.profile" aria-label="avatar">
 						<md-card-avatar ng-if="vm.isAuthenticated()">
@@ -90,8 +90,6 @@
 		        		<md-icon md-svg-src="assets/images/icon-salir.svg"></md-icon>
 			      	</md-button>
 				</md-card-header>
-			</div>
-			<div>
 				<md-button ng-click="vm.openLeftMenu()" class="md-primary menu-toggle">
 	        <md-icon>menu</md-icon>
 	      </md-button>
@@ -134,7 +132,7 @@
 	  </div>
   </md-content>
 </md-sidenav>
-<md-toolbar class="md-accent notice warning" layout="row" layout-align="center center" ng-show="!vm.account.isActive" ng-if="vm.isAuthenticated()">
+<md-toolbar class="md-accent notice green" layout="row" layout-align="center center" ng-show="!vm.account.isActive" ng-if="vm.isAuthenticated()">
   <p>
     <md-icon md-svg-src="assets/images/icon-error.svg"></md-icon> <strong translate>ACTIVA TU CUENTA</strong> - {{ 'Te enviamos un correo a,' | translate }} {{vm.account.email}}. <span ng-show="!vm.sentActivationMail">{{ 'No te llegó? Hace,' | translate }}</span> <a href ng-click="vm.resendActivationMail()" translate ng-show="!vm.sentActivationMail">clic para reenviartelo.</a> <span ng-show="vm.sentActivationMail">{{ 'Te reenviamos el mail.' | translate }}</span>
   </p>

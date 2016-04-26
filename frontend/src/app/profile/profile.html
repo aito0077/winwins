@@ -51,20 +51,25 @@
           </md-input-container>
           <md-input-container class="md-block">
             <label translate>Intereses</label>
-            <input md-maxlength="30" md-no-asterisk name="interests" ng-model="profile.user.interests">
+            <md-select ng-model="profile.user.interests">
+              <md-option>test</md-option>
+              <md-option>test</md-option>
+              <md-option>test</md-option>
+            </md-select>
+            <!--<input md-maxlength="30" md-no-asterisk name="interests" ng-model="profile.user.interests">
             <div ng-messages="profileForm.interests.$error">
               <div ng-message="required" translate>Campo requerido.</div>
               <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
-            </div>
+            </div>-->
           </md-input-container>        
         </div>
         <div flex>
           <md-input-container class="md-block">
             <label translate>Sobre vos</label>
-            <input md-maxlength="30" md-no-asterisk name="about" ng-model="profile.user.about">
+            <input md-maxlength="500" md-no-asterisk name="about" ng-model="profile.user.about">
             <div ng-messages="profileForm.about.$error">
               <div ng-message="required" translate>Campo requerido.</div>
-              <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
+              <div ng-message="md-maxlength" translate>The name has to be less than 500 characters long.</div>
             </div>
           </md-input-container>
           <div class="md-block wrap-input">

@@ -24,6 +24,12 @@ section.acme-video {
       height: 444px;
     }
   }
+  @media (max-width: 480px) {
+    height: 260px;
+  }
+  @media (max-width: 320px) {
+    height: 195px;
+  }
   .login {
     z-index: 1;
   }
@@ -92,19 +98,19 @@ section.acme-video {
     color: #ed7932;
     margin: 20px 8px;
     font-size: 28px;
+    text-align: center;
     md-icon {
       position: relative;
       top:-3px;
       width: 60px;
-      height: 53px;
+      height: 50px;
       margin-right: 10px;
     }
     small {
       color: #a1a1a1;
       font-size: 12px;
       font-weight: normal;
-      position: relative;
-      bottom: 5px;
+      display: block;
     }
   }
 }
