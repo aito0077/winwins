@@ -94,8 +94,10 @@ header {
 		md-card-header .md-button.md-ink-ripple {
 	    min-width: 34px;
 	    padding: 0;
-	    margin-left: 0;
-	    margin-right: 0;
+	    margin: 0;
+	    .md-user-avatar {
+	    	margin-top: 5px;
+	    }
 		}
 		md-switch {
     	margin: 0 0 0 10px;
@@ -168,6 +170,7 @@ header {
 						text-align: left;
 						color: #fff;
 						padding: 17px 25px;
+						margin: 0;
 						font-weight: 700;
 						&:hover {
 							background: #eb6a24;
@@ -198,7 +201,11 @@ md-sidenav {
 	    left: 0;
 	    background: #fff;
 	    right: 0;
-	    height: 187px;
+	    .card-wrap-img {
+	    	width: 100%;
+	    	height: 187px;
+	    	overflow:hidden;
+	    }
       .card-opacity {
         background: rgba(34,35,38,.4);
         position: absolute;

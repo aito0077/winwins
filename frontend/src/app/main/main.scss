@@ -200,6 +200,19 @@ md-menu-content {
       width: 960px;
     }
   }
+  .cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+    @media (max-width: 960px) { 
+      max-width: 500px;
+      width: auto;
+    }
+  }
+  #fileInput {
+    margin-top: 30px;
+  }
 }
 .bt-green {
   background: #4cae4e;
