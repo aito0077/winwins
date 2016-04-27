@@ -25,6 +25,8 @@
       var vm = this;
 
       vm.imageServer = ENV.imageServer;
+      
+      vm.sentActivationMail = false;
 
       vm.isAuthenticated = function() {
         return $auth.isAuthenticated();
