@@ -1,0 +1,128 @@
+.section-login {
+  background: #e7e7e7;
+  md-content {
+    background: #e7e7e7;
+  }
+  md-input-container label:not(.md-no-float):not(.md-container-ignore) {
+    font-size: 15px;
+    left: 15px;
+    top:-12px;
+    /*transform: translate3d(0, 35px, 0) scale(1);*/
+  }
+  md-input-container.md-input-has-value label:not(.md-no-float) {
+    display: none;
+  }
+  md-input-container.md-input-focused label:not(.md-no-float),
+  md-input-container.md-input-invalid.md-input-has-value label:not(.md-no-float) {
+    /*transform: translate3d(0,6px,0) scale(.75);
+    display: none;*/
+    top:inherit;
+    display: block;
+  }
+  .md-input {
+    border-bottom: solid 2px #4376ba;
+    background:#fff;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 15px;
+    color:#434444;
+  }
+  .bt-default {
+    background: #23a698;
+    color: #fff;
+    border:none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    width: 100%;
+    height: 57px;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    &:before {
+      width: 0; 
+      height: 0; 
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 10px solid #fff;
+      content: '';
+      display: inline-block;
+      padding-left: 5px;
+    }
+  }
+  small {
+    font-size: 10px;
+    color: #444545;
+  }
+  .md-button.md-icon-button {
+    padding: 0;
+    margin: 0;
+    md-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+.tabs-login {
+  md-tabs-canvas {
+    background: #596baf;
+    .md-tab span {
+      color: #fff;
+    }
+    .md-tab.md-active {
+      background: #2f4a9a;
+    }
+    md-pagination-wrapper md-ink-bar {
+      display: none;
+    }
+    md-ink-bar {
+      color: #fff;
+    }
+  }
+  md-input-container {
+    margin: 0;
+  }
+  md-checkbox.md-checked.green .md-icon {
+   background-color: #61a498;
+  }
+  md-checkbox {
+    font-size: 10px;
+    line-height: 20px;
+    a {
+      color: #475a94;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+}
+.login-ok {
+  md-icon {
+    width: 160px;
+    height: 160px;
+  }
+  h2 {
+    font-size: 48px;
+    margin: 0;
+  }
+  p {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+  }
+  .gray {
+    color: #6c6c6c;
+  }
+  .violet {
+    color: #596baf;
+  }
+  .red {
+    color: #c72228;
+  }
+  .font-16 {
+    font-size: 16px;
+    margin: 10px 0 20px 0;
+  }
+  md-icon.s44 {
+    width: 44px;
+    height: 44px;
+  }
+}

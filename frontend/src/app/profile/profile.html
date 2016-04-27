@@ -1,0 +1,165 @@
+<md-toolbar class="md-tall md-warn" layout="row" layout-align="center center">
+  <h2><span translate ng-if="!profile.is_complete">COMPLETA TU PERFIL</span><span translate ng-if="profile.is_complete">EDITAR PERFIL</span></h2>
+</md-toolbar>
+<md-content class="acme-profile">
+  <div class="container">
+    <form method="post" name="profileForm" ng-submit="profile.saveProfile()">
+      <div layout="column" layout-padding layout-gt-sm="row" class="profile-bg-top">
+        <div flex="20">
+          <md-card>
+            <div class="card-wrap">
+              <img ng-src="{{ profile.cover_image.file }}" src="{{profile.imageServer}}/smart/{{profile.user.cover_photo}}" alt="" class="md-card-image" />
+              <span class="card-opacity"></span>
+            </div>
+            <div layout="column" class="profile-head" layout-align="space-between center">
+              <div flex class="profile-head-image-content"><img ng-src="{{ profile.avatar_image.file }}" src="{{profile.imageServer}}/smart/{{profile.user.photo}}" alt="" class="profile-head-image" />
+                <a class="bt-gray middle" translate ng-click="profile.showCropAvatarDialog()">subir avatar</a></div>
+              <div flex>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline" translate>{{profile.user.name}} {{profile.user.lastname}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <div flex>
+                <a class="bt-gray bottom" translate ng-click="profile.showCropCoverDialog()">subir portada</a>
+              </div>
+            </div>
+          </md-card>
+        </div>
+        <div flex>        
+          <md-input-container class="md-block">
+            <label translate>Nombre</label>
+            <input required name="name" ng-model="profile.user.name">
+            <div ng-messages="profileForm.name.$error">
+              <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label translate>Apellido</label>
+            <input required name="lastname" ng-model="profile.user.lastname">
+            <div ng-messages="profileForm.lastname.$error">
+              <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label translate>Email</label>
+            <input required name="email" ng-model="profile.user.email">
+            <div ng-messages="profileForm.email.$error">
+              <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label translate>Intereses</label>
+            <md-select ng-model="profile.user.interests">
+              <md-option>test</md-option>
+              <md-option>test</md-option>
+              <md-option>test</md-option>
+            </md-select>
+            <!--<input md-maxlength="30" md-no-asterisk name="interests" ng-model="profile.user.interests">
+            <div ng-messages="profileForm.interests.$error">
+              <div ng-message="required" translate>Campo requerido.</div>
+              <div ng-message="md-maxlength" translate>The name has to be less than 30 characters long.</div>
+            </div>-->
+          </md-input-container>        
+        </div>
+        <div flex>
+          <md-input-container class="md-block">
+            <label translate>Sobre vos</label>
+            <input md-maxlength="500" md-no-asterisk name="about" ng-model="profile.user.about">
+            <div ng-messages="profileForm.about.$error">
+              <div ng-message="required" translate>Campo requerido.</div>
+              <div ng-message="md-maxlength" translate>The name has to be less than 500 characters long.</div>
+            </div>
+          </md-input-container>
+          <div class="md-block wrap-input">
+            <md-datepicker ng-model="profile.user.birthdate" md-placeholder="Fecha de Nacimiento" ng-required></md-datepicker>
+          </div>        
+        </div>      
+      </div>
+      <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row" ng-if="profile.is_complete">
+        <div flex><h3 translate>Cambiar Contraseña</h3></div>
+        <div flex>
+          <md-input-container class="md-block">
+            <label translate>Contraseña actual</label>
+            <input name="current_password" ng-model="profile.user.current_password" type="password" ng-change="profileForm.current_password.$setValidity('currentPasswordWrong', true)">
+            <div ng-messages="profileForm.current_password.$error">
+              <div ng-message="currentPasswordWrong" translate>Clave actual incorrecta.</div>
+            </div>
+          </md-input-container>
+        </div>
+        <div flex>
+          <md-input-container class="md-block">
+            <label translate>Nueva Contraseña</label>
+            <input name="password" ng-model="profile.user.password" type="password">
+          </md-input-container>
+        </div>
+        <div flex="10">
+          <md-input-container class="md-block">
+            <label translate>Ingresa otra vez tu nueva contraseña</label>
+            <input name="confirmPassword" ng-model="profile.user.confirmPassword" data-password-verify="profile.user.password" type="password">
+            <div ng-messages="profileForm.confirmPassword.$error" ng-if="profileForm.confirmPassword.$touched">
+              <div ng-message="passwordVerify" translate>Las contraseñas ingresadas no son iguales.</div>
+            </div>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="column" layout-padding class="profile-bottom" layout-align-gt-sm="center center" layout-gt-sm="row">
+        <div flex><h3 translate>Notificaciones</h3><p translate>te actualizamos por email 
+  de lo importante</p></div>
+        <div flex>
+          <div layout="row" layout-align="center center" class="bg-white">
+            <div><span translate>Invitación a Winwins</span></div>
+            <div>
+              <md-switch name="invite_ww" ng-model="profile.user.invite_ww" ng-true-value="1" ng-false-value="0" aria-label="Invitación a winwin"></md-switch>
+            </div>
+          </div>
+        </div>
+        <div flex>
+          <div layout="row" layout-align="center center" class="bg-white">
+            <div><span translate>Winwins finalizado</span></div>
+            <div>
+              <md-switch name="ww_to_finish" ng-model="profile.user.ww_to_finish" ng-true-value="1" ng-false-value="0" aria-label="Winwins finalizado"></md-switch>
+            </div>
+          </div>
+        </div>
+        <div flex>
+          <div layout="row" layout-align="center center" class="bg-white">
+            <div><span translate>Invitación a Grupo</span></div>
+            <div>
+              <md-switch name="invite_group" ng-model="profile.user.invite_group" ng-true-value="1" ng-false-value="0" aria-label="Invitación a grupo"></md-switch>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div layout="column" layout-align-gt-sm="center center" layout-gt-sm="row">
+        <div flex="70" class="profile-bottom" layout-padding layout-gt-sm="row" layout-align-gt-sm="center center">  
+          <div flex><h3 translate>Privacidad del perfil</h3></div>
+          <div flex>
+            <div layout="row" layout-align="center center" class="bg-white">
+              <div><span translate>Mostrar Perfil</span></div>
+              <div>
+                <md-switch name="private" ng-model="profile.user.private" ng-true-value="0" ng-false-value="1" aria-label="Mostrar perfil"></md-switch>
+              </div>
+            </div>
+          </div>
+          <div><h3 translate>Idioma</h3></div>
+          <div flex>
+            <div layout="row" layout-align="center center" class="bg-white">
+              <div><div layout="row" layout-align="center center" class="bg-white">
+                  <div><span translate>Español</span></div>
+                  <div>
+                    <md-switch name="language_code" ng-model="profile.user.language_code" ng-true-value="1" ng-false-value="0" aria-label="Idioma"></md-switch>
+                  </div>
+                  <div><span translate>English</span></div>
+                </div></div>
+            </div>
+          </div>
+        </div>
+        <div flex="30" layout-padding class="profile-bottom">
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" ng-disabled="profile.processing" name="action" translate>Guardar</md-button>
+        </div>      
+      </div>
+    </form>
+  </div>
+</md-content>

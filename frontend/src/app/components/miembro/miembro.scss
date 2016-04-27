@@ -1,0 +1,75 @@
+.acme-miembro {
+  background:
+    url('../assets/images/member-border-top.svg') repeat-x left top,
+    url('../assets/images/member-border-bottom.svg') repeat-x left bottom;
+  background-color: #fff;
+  padding: 70px 0;
+  margin-bottom: 30px;
+  .container {
+    position: relative;
+  }
+  .title {
+    color: rgb(239, 131, 65);
+    margin: 20px 8px;
+    font-size: 28px;
+    text-align: center;
+    md-icon {
+      position: relative;
+      top:-3px;
+      margin-right: 10px;
+    }
+    small {
+      color: #a1a1a1;
+      font-size: 12px;
+      font-weight: 400;
+      display: block;
+    }
+  }
+  h3 {
+    text-align: center;
+    color: #666;
+    font-size: 21px;
+    margin-bottom: 15px;
+    span {
+      color: rgb(239, 131, 65);
+    }
+  }
+  .md-right {
+    @media (min-width:960px) {
+      position: absolute;
+      right: 0;
+      margin-top: 23px;
+    }
+    padding: 0 10px;
+    background: #4a6dce;
+    color: #fff;
+    font-size: 14px;
+    text-transform: initial;
+    line-height: 25px;
+    min-height: 25px;
+  }
+  .acme-miembro-thumb {
+    padding: 8px;
+    display: block;
+    img {
+      border-radius: 50%;
+      max-width: 100px;
+      width: 100%;
+      border: 6px solid #D0DBEB;
+      display: block;
+      box-sizing: border-box;
+    }
+  }
+  .md-green {
+    background: #4cae4e;
+    font-size: 20px;
+    padding: 4px 30px;
+    font-weight: 700;
+    margin: 20px;
+    color: white;
+    min-width: 220px;
+    &:not([disabled]):hover {
+      background: #4cae4e;
+    }
+  }
+}

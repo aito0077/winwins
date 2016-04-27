@@ -1,0 +1,254 @@
+.acme-navbar-text{
+  color: white;
+}
+header {
+	md-toolbar {
+		z-index: 50;
+	}
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: #0d47a1;
+  min-height: 50px;
+  height: 50px;
+	font-size: 14px;
+  box-shadow: 0px 2px 2px rgba(0,0,0,.4);
+  position: fixed;
+	.seccion {
+		line-height: 50px;
+	}
+  .menu-notifications {
+  	position: relative;
+	  .badge {
+	  	position: absolute;
+	  	width: 15px;
+	  	height: 15px;
+	  	border-radius: 100px;
+	  	color: #fff;
+	  	text-align: center;
+	  	background: #e5452e;
+			right: -5px;
+			top: -2px;
+			font-weight: 700;
+			font-size: 11px;
+	  }
+  }
+  .md-primary.menu-toggle {
+  	min-width: 38px;
+  	margin-right: 0;
+  }
+}
+header {
+	.menu {
+		>div {
+			a {
+				color: #fff;
+				text-decoration:none;
+				display: block;
+				padding: 0 10px;
+				margin: 0;
+				border-radius: 0;
+				text-transform: inherit;
+				line-height: inherit;
+				min-height: inherit;
+				.md-ripple-container {
+					border-radius: 0;
+				}
+				&.logo-md {
+					text-align: center;
+					position: absolute;
+					right: 0;
+					left: 0;
+					margin: 0 auto;
+					top: 8px;
+					width: 130px;
+					padding: 0;
+				}
+			}
+			&.crear {
+				margin: 0 25px;
+				line-height: 14px;
+				margin-top: 4px;
+				a {
+					background: #e5452e;
+					border-radius: 3px;
+					display: inline-block;
+					padding: 5px 8px;
+					font-weight: 700;
+					&:hover {
+						background: #fb3e22;
+					}
+				}
+			}
+			&.logo {
+				text-align: center;
+				position: absolute;
+				right: 0;
+				left: 0;
+				margin: 0 auto;
+				top: 8px;
+				width: 130px;
+				padding: 0;
+				a {
+					padding: 0;
+				}
+				a:hover {
+					background: none;
+				}
+			}
+			md-card-avatar {
+				margin: 0;
+			}
+		}
+		.space-right {
+			margin-right: 90px;
+		}
+		.space-left {
+			margin-left: 80px;
+		}
+		.md-primary.md-button.menu-toggle {
+			.ng-scope {
+				color: #fff;
+			}
+		}
+		md-card-header .md-button.md-ink-ripple {
+	    min-width: 34px;
+	    padding: 0;
+	    margin: 0;
+	    .md-user-avatar {
+	    	margin-top: 5px;
+	    }
+		}
+		md-switch {
+    	margin: 0 0 0 10px;
+    	.md-bar {
+    		background: #4a6dce;
+    	}
+    	.md-thumb {
+    		background: #d9dadb;
+    	}
+		}
+		md-input-container {
+			margin: 0;
+			@media (min-width: 960px) {
+				padding-left: 0;
+				margin-left: 15px;
+			}
+			.md-input {
+				background: none;
+				border:none;
+				border-bottom: solid 2px #eb6a24;
+				color: #99bce4;
+				font-family: 'Montserrat', serif;
+			}
+			.md-input::-webkit-input-placeholder { color: #99bce4; }
+			.md-input:-moz-placeholder { color: #99bce4; }
+			.md-input::moz-placeholder { color: #99bce4; }
+			.md-input:-ms-input-placeholder { color: #99bce4; }
+			&.md-input-has-placeholder .md-input {
+				color: #99bce4;
+			}
+			.md-errors-spacer {
+				display: none;
+			}
+			md-icon {
+				left: inherit;
+				cursor: pointer;
+				right: 0;
+			}
+			&.md-input-has-placeholder .md-input {
+				border-bottom: solid 2px #eb6a24;
+			}
+			&.md-input-has-placeholder .material-icons {
+				color: #fff;
+			}
+		}
+	}
+	.md-user-avatar {
+		width: 36px;
+		height: 36px;
+		border-radius: 100px;
+	}
+	.menu.show-sm, .menu.show-gt-sm, .menu.show-md {
+		width: 100%;
+	}
+	.menu.hide.show-gt-sm {
+		max-width: 970px;
+		.menu-notifications {
+			margin-right: 60px;
+		}
+		md-card-header {
+			margin-right: 50px;
+		}
+	}
+	.menu.show-md .flex-45 {
+		text-align: center;
+	}
+	.md-sidenav-left {
+		background: #1565c0;
+		.layout-padding {
+			background: #1565c0;
+			padding: 0;
+			.menu {
+				padding: 25px 0 0 0;
+				>div {
+					md-icon {
+						margin: -3px 20px 0 0;
+					}
+					a {
+						text-align: left;
+						color: #fff;
+						padding: 17px 25px;
+						margin: 0;
+						font-weight: 700;
+						&:hover {
+							background: #eb6a24;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+md-sidenav {
+	md-toolbar.md-theme-indigo {
+		box-shadow: none;
+		height: 221px;
+		border-bottom: solid 3px #eb6a24;
+		position: relative;
+		.md-user-avatar {
+			width: 100px;
+			height: 100px;
+		}
+		.md-headline {
+			font-weight: 700;
+		}
+		.card-wrap {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: #fff;
+	    right: 0;
+	    .card-wrap-img {
+	    	width: 100%;
+	    	height: 218px;
+	    	overflow:hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+	    }
+      .card-opacity {
+        background: rgba(34,35,38,.4);
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+      }
+    }
+    md-card-avatar, md-card-title {
+    	z-index: 30;
+    }
+	}
+}

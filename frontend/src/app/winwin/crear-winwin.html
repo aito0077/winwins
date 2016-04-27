@@ -1,0 +1,328 @@
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-crear md-blue" layout="row" layout-align="center center">
+    <h2><span translate>CREA TU WINWIN, COMIENZA UNA ACCIÓN  POSITIVA</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <form method="post" name="crearForm">
+      <div layout="column" layout-gt-sm="row" layout-margin layout-padding>
+        <div flex>
+          <div class="wrap-md-input-container">
+            <md-input-container class="md-block">
+              <label translate>Nombre para tu winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>
+                  Nombra tu winwin con  un título que lo represente.
+                </div>
+              </div>
+              <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div class="wrap-md-input-container">
+            <md-input-container class="md-block">
+              <p><label translate>Plantea tu winwin</label></p>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text">
+                  <p translate>Indicá primero la cantidad de personas que necesitas para cumplir con el objetivo de este winwin, luego completa la frase con tu propuesta de acción colectiva.</p>
+
+                  <p translate>Procurá ser concreto, preciso y realista acerca de lo que esperás de los participantes, y que el número de adhesiones que pusiste sea acorde a la meta.</p>
+                </div>
+              </div>
+              <div layout="row" layout-align="space-between center">
+                <div>
+                  <strong class="enfasis" translate>¿Si supieras que somos </strong>
+                </div>
+                <md-input-container class="md-block">
+                  <input required name="numero" ng-model="crear.numero" placeholder="Ej: 200">
+                  <div ng-messages="crearForm.name.$error">
+                    <div ng-message="required" translate>Campo requerido.</div>
+                  </div>
+                </md-input-container>
+                <div>
+                  <strong class="enfasis" translate>para</strong>
+                </div>
+              </div>
+              <div layout="column">
+                <md-input-container class="md-block">
+                  <textarea ng-model="rear.name" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
+                  <div ng-messages="crearForm.texto.$error">
+                    <div ng-message="required" translate>Campo requerido.</div>
+                  </div>
+                </md-input-container>
+                <div>
+                  <strong class="enfasis" translate>te sumarías?</strong>
+                </div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+        <div flex>
+          <div class="wrap-md-input-container">
+            <md-input-container class="md-block">
+              <label translate>Más detalles del Winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>
+                  Acá ingresa información detallada del Winwin, datos e información importante. Lugares, fechas, acciones
+y toda la información que te resulte relevante.
+                </div>
+              </div>
+              </md-button>
+              <textarea ng-model="rear.name" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+          <div class="wrap-md-input-container">
+            <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>
+                   Algunos Winwins requieren fecha
+límite para su concreción, si el tuyo 
+es uno de ellos, ingresala aquí.
+                </div>
+              </div>
+            <md-datepicker ng-model="myDate" md-placeholder="20/4/2016"></md-datepicker>
+          </div>
+          
+          <md-checkbox class="green terminos" ng-model="register.terms" name="terms">
+            {{ 'He leído y acepto los' | translate }} <a href="#" translate>términos y condiciones</a>.
+          </md-checkbox>
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" name="action" translate>{{ 'CONTINUAR' | translate }}</md-button>
+        </div>
+      </div>  
+    </form>
+  </div>
+</md-content>
+
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-crear md-blue" layout="row" layout-align="center center">
+    <h2><md-icon md-svg-src="assets/images/icon-megafono.svg"></md-icon><span translate>Difundí tu Winwin</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <div layout="column" layout-align="center center" class="comparti">
+      <h2 translate>Compartí tu Winwin</h2>
+      <p translate>en las redes sociales y sumá personas para concretarlo!</p>
+    </div>
+    <div layout="row" layout-align="center center" layout-margin class="comparti-social-media">
+      <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <div layout="column" class="comparti" flex-xs="80" flex="40">
+        <p class="enfasis" translate>Invitá amigos a tu Winwin por email</p>
+        <div class="wrap-md-input-container">
+          <md-input-container class="md-icon-float md-icon-right md-block">
+            <label>Ingresa mails para invitar</label>
+            <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+            <md-button class="md-fab send" aria-label="">
+              <md-icon md-svg-src="assets/images/icon-send.svg"></md-icon>
+            </md-button>
+          </md-input-container>
+        </div>
+        <small>Separá los emails con una coma.</small>
+        <md-button class="md-raised md-primary md-grey">IR AL WINWIN</md-button>
+      </div>
+    </div>
+  </div>
+</md-content>
+<md-content class="acme-crearwinwin">
+  <md-toolbar class="md-tall md-crear md-violet" layout="row" layout-align="center center">
+    <h2><md-icon md-svg-src="assets/images/icon-flag.svg"></md-icon><span translate>DALE IDENTIDAD A TU WINWIN</span></h2>
+  </md-toolbar>
+  <div class="container">
+    <form method="post" name="crearForm">
+      <div layout="column" layout-gt-sm="row" layout-margin layout-padding>
+        <div flex>
+          <md-card>
+            <img ng-src="assets/images/profile-img.jpg" class="md-card-image" alt="">
+            <md-card-title-text layout-align="center center" layout="column">
+              <md-button class="md-headline">TITULO DEL WINWIN</md-button>
+            </md-card-title-text>
+          </md-card>
+          <div layout="row" layout-align="center center">
+            <p class="legend">Subí una foto, elegí un video o una  imagen de la galería.</p>
+          </div>
+          <div layout="row" layout-align="center center" class="layout-icons">
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon>photo_camera</md-icon>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon md-svg-src="assets/images/icon-youtube.svg"></md-icon>
+            </md-whiteframe>
+            <md-whiteframe class="md-whiteframe-5dp" layout layout-align="center center" flex>
+              <md-icon>image</md-icon>
+            </md-whiteframe>
+          </div>
+        </div>
+        <div flex>
+          <div class="wrap-md-input-container">
+            <div layout="row" layout-align="center center">
+              <label>Escala del Winwin</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>Texto tooltip
+                </div>
+              </div>
+            </div>
+            <div layout="row" layout-align="center center">
+              <md-input-container class="md-block">
+                <md-select ng-model="selectedItem1" md-selected-text="getSelectedText1()">
+                  <md-optgroup label="Global">
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                    <md-option>Global</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          <div class="wrap-md-input-container">
+            <div layout="row" layout-align="center center">
+              <label>Elegí categorías. (Podes elegir más de una.)</label>
+              <div class="wrap-tooltip">
+                <span class="icon-help">?</span>
+                <div class="tooltip-text" translate>Texto tooltip
+                </div>
+              </div>
+            </div>
+            <div layout="row" layout-align="center center">
+              <md-input-container class="md-block">
+                <md-select ng-model="selectedItem2" md-selected-text="getSelectedText2()">
+                  <md-optgroup label="Internet - Tecnología">
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                    <md-option>Internet - Tecnología</md-option>
+                  </md-optgroup>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          
+          <md-button md-no-ink class="md-raised md-primary bt-green md-whiteframe-5dp" type="submit" name="action" translate>{{ 'CONTINUAR' | translate }}</md-button>
+        </div>
+      </div>  
+    </form>
+  </div>
+</md-content>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content>
+    <div layout="column" layout-padding layout-margin>
+      <h2 translate>Copia el link del video</h2>
+      <md-input-container class="md-block">
+        <input required name="numero" ng-model="crear.numero" placeholder="Ej: https://www.youtube.com/watch?v=rQxVTFVWNjA">
+        <div ng-messages="crearForm.name.$error">
+          <div ng-message="required" translate>Campo requerido.</div>
+        </div>
+      </md-input-container>
+    </div>
+    <div>
+      <img ng-src="assets/images/imagen-video.jpg" alt="" />
+    </div>
+    <div>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-raised md-primary" translate>LISTO</md-button>
+        <md-button class="md-raised md-grey" translate>CANCELAR</md-button>
+      </md-card-actions>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content>
+    <div layout="column" layout-padding layout-margin>
+      <h2 translate>Elegí una imagen de la galería.</h2>
+      <div layout="row" layout-margin layout-wrap class="galeria">
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img selected" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+        <div>
+          <img ng-src="assets/images/imagen-video.jpg" alt="" class="galeria-img" />
+        </div>
+      </div>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content class="acme-crearwinwin">
+    <div layout="column" layout-align="center center" layout-margin layout-padding class="comparti">
+      <md-icon md-svg-src="assets/images/icon-ok.svg" class="icon-big"></md-icon>
+      <h3 translate>Genial!</h3>
+      <p translate class="enfasis-blue">Compartido en Facebook</p>
+      <p><span class="enfasis">Sugerencia:</span> Comparti también en Twitter y Google+</p>
+    </div>
+    <div layout="row" layout-align="center center" layout-margin class="comparti-social-media">
+      <div><md-icon md-svg-src="assets/images/icon-facebook-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-twitter-share.svg" ng-href="#" target="_blank"></md-icon></div>
+      <div><md-icon md-svg-src="assets/images/icon-google-share.svg" ng-href="#" target="_blank"></md-icon></div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <div layout="column" class="comparti" flex-xs="80" flex="40">
+        <div class="wrap-md-input-container">
+          <md-input-container class="md-icon-float md-icon-right md-block">
+            <label>Ingresa mails para invitar</label>
+            <input required name="name" ng-model="crear.name">
+              <div ng-messages="crearForm.name.$error">
+                <div ng-message="required" translate>Campo requerido.</div>
+            </div>
+            <md-button class="md-fab send" aria-label="">
+              <md-icon md-svg-src="assets/images/icon-send.svg"></md-icon>
+            </md-button>
+          </md-input-container>
+        </div>
+        <small>Separá los emails con una coma.</small>
+      </div>
+    </div>
+  </md-dialog-content>
+</div>
+
+<div layout="column" class="lightbox-crear">
+  <md-dialog-content class="acme-crearwinwin">
+    <div layout="column" layout-align="center center" layout-margin class="comparti">
+      <md-icon md-svg-src="assets/images/icon-ok.svg" class="icon-big"></md-icon>
+      <h3 translate>Buenísimo!</h3>
+      <p class="medium"><em translate>“Un viaje de mil millas comienza con un solo paso.”</em></p>
+      <p class="enfasis-blue"><span>Vamos a tu Winwin.</p>
+    </div>
+  </md-dialog-content>
+</div>

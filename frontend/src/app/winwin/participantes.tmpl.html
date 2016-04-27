@@ -1,0 +1,15 @@
+<md-dialog-content class="dialog-primary">
+  <div class="md-dialog-content">
+    <h3 class="title">
+      <md-icon md-svg-src="assets/images/icon-participantes-title.svg"></md-icon>
+      {{ 'PARTICIPANTES' | translate }}
+    </h3>
+    <md-list>
+      <md-list-item ng-repeat="participante in users">
+        <img alt="" ng-src="{{imageServer}}/smart/{{participante.photo}}" alt=""class="md-avatar" />
+        <p>{{participante.username}}</p>
+        <md-button class="md-raised md-warn md-caption">Nombrar activador</md-button>
+      </md-list-item>
+    </md-list>
+  </div>
+</md-dialog-content>    

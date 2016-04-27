@@ -1,0 +1,60 @@
+
+
+<div id="menu-sponsor" class="container no-padding" style="position:absolute; top:56px;">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container col-xs-12 no-padding">
+        <ul id="nav-mobile blue darken-3">          
+          <li class="col-xs-3" ng-class="{active: current_view == 'home'}">
+            <a href ng-click="current_view = 'home'"  >
+            <img src="../images/sponsor.png" width="25" />  
+            </a>
+          </li>                         
+          <li class="col-xs-3" ng-class="{active: current_view == 'winwins'}">
+            <a href ng-click="current_view = 'winwins'" >
+            <img src="../images/ww.png" width="22" />  
+            </a>
+          </li>                    
+          <li class="col-xs-3" ng-class="{active: current_view == 'followers'}">
+            <a href ng-click="current_view = 'followers'"  >
+            <img src="../images/miembros.png" width="25" />  
+            </a>
+          </li>                  
+          <li class="col-xs-3" ng-class="{active: current_view == 'config'}">
+            <a href ng-show="sponsor.myself == true" ng-click="current_view = 'config'" >
+            <i class="fa fa-pencil center"  style="font-size: 21px; padding: 18px;"></i>
+            </a>
+          </li>          
+        </ul>
+      </div>
+    </div>
+  </nav>  
+</div>
+
+<tabset class="profile-tabs tab-content">
+  <tab active="current_view == 'home'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_summary.html'"></div>
+  </tab>
+  <tab active="current_view == 'winwins'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_winwins.html'"></div>
+  </tab>
+  <tab active="current_view == 'followers'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_followers.html'"></div>
+  </tab>
+  <tab active="current_view == 'config'" class="tab-pane">
+    <div ng-include="'/views/sponsor/view_config.html'"></div>
+  </tab>
+</tabset>
+
+<script>
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+</script>

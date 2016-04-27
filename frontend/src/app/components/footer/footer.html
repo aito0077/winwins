@@ -1,0 +1,75 @@
+<md-content class="acme-footer">
+  <div class="footer-sumate">
+    <div class="container">
+      <div layout="row" layout-xs="column" layout-padding layout-align="space-between end">
+        <div flex>
+          <h2><img src="assets/images/sumate.svg"></h2>
+          <p translate>Cuando la gente lidera,
+    los líderes acompañan.</p>
+          <md-button ng-href ng-click="vm.showLoginDialog()" class="green">{{'COMENZA ESTA AVENTURA' | translate }}</md-button>
+        </div>
+        <div flex class="scroll-top">
+          <md-button class="md-raised md-fab md-warn scroll-top-button" scroll-top  scroll ng-class="{scrollFixed:boolChangeClass}">
+            <md-icon md-svg-src="assets/images/icon-arrow-up.svg" aria-label="subir"></md-icon>{{$windows.crolly}}
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div layout-gt-sm="row" layout-padding layout-align="start center">
+        <div flex>
+          <ul>
+            <li><a href="#" translate>Ver Winwins</a></li>
+            <li><a href="#" translate>Usuarios</a></li>
+            <li><a href="#" translate>Sponsors</a></li>
+          </ul>
+        </div>
+        <div flex>
+          <ul>
+            <li><a href="#" translate>Sé sponsor</a></li>
+            <li><a href="#" translate>Crea un winwin</a></li>
+            <li><a href translate ng-click="vm.showLoginDialog()">Registrate</a></li>
+          </ul>
+        </div>
+        <div flex class="social-media">
+          <p translate>INGRESAR</p>
+          <md-button class="md-icon-button" ng-href ng-click="vm.showLoginDialog()" aria-label="facebook">
+            <md-icon md-svg-src="assets/images/icon-facebook.svg"></md-icon>
+          </md-button>
+<!--           <md-button class="md-icon-button" ng-href="/#/login" aria-label="twitter">
+            <md-icon md-svg-src="assets/images/icon-twitter.svg"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-href="/#/login" aria-label="google">
+            <md-icon md-svg-src="assets/images/icon-google.svg"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-href="/#/login" aria-label="yahoo">
+            <md-icon md-svg-src="assets/images/icon-yahoo.svg"></md-icon>
+          </md-button> -->
+          <md-button class="md-icon-button" ng-href ng-click="vm.showLoginDialog()" aria-label="wiwin">
+            <md-icon md-svg-src="assets/images/icon-ww.svg"></md-icon>
+          </md-button>
+        </div>
+        <div flex>
+          <a href="#" class="crear" translate>+ Crear Winwin</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <div class="container">
+      <div layout="row" layout-padding layout-align="space-between center">
+        <div>
+          <a ng-href="/#/terms" translate>Términos y condiciones</a>
+        </div>
+        <div>
+          {{'WinWins - Consenos en acción' | translate }} <span class="beta">beta</span>  ©  2016
+        </div>
+        <div>
+          <a href="#" translate>Contáctanos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-content>
