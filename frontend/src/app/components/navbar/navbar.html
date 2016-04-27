@@ -27,8 +27,8 @@
 		</div>
   </div>
   <div class="menu hide {{ vm.isAuthenticated()?'show-gt-sm':'show-md' }}">
-  	<div layout="row" layout-align="center center">
-		  <div flex="30">
+  	<div layout="row" layout-align="space-between center" layout-padding>
+		  <div>
 		  	<div layout="row" layout-align="center center">
 					<div>
 						<span>ES</span>
@@ -47,8 +47,8 @@
 					</div>
 				</div>
 			</div>
-		  <div flex="45"><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
-			<div flex="25" layout="row" layout-align="space-around center center">
+		  <div><a href="#" class="logo-md"><img src="../assets/images/logo.png" alt="" /></a></div>
+			<div layout="row" layout-align="space-around center center">
 		  		<div class="menu-notifications" ng-if="vm.isAuthenticated()">
 					<md-icon>notifications</md-icon>
 					<span class="badge">1</span>

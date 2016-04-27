@@ -34,6 +34,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   }
   .md-primary.menu-toggle {
   	min-width: 38px;
+  	margin-right: 0;
   }
 }
 header {
@@ -172,6 +173,9 @@ header {
 	}
 	.menu.hide.show-gt-sm {
 		max-width: 970px;
+		.menu-notifications {
+			margin-right: 20px;
+		}
 	}
 	.menu.show-md .flex-45 {
 		text-align: center;
