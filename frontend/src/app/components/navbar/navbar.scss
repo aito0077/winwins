@@ -213,7 +213,7 @@ header {
 md-sidenav {
 	md-toolbar.md-theme-indigo {
 		box-shadow: none;
-		height: 190px;
+		height: 221px;
 		border-bottom: solid 3px #eb6a24;
 		position: relative;
 		.md-user-avatar {
@@ -231,8 +231,12 @@ md-sidenav {
 	    right: 0;
 	    .card-wrap-img {
 	    	width: 100%;
-	    	height: 187px;
+	    	height: 218px;
 	    	overflow:hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
 	    }
       .card-opacity {
         background: rgba(34,35,38,.4);
