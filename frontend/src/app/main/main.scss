@@ -24,12 +24,6 @@ section.acme-video {
       height: 444px;
     }
   }
-  @media (max-width: 480px) {
-    height: 260px;
-  }
-  @media (max-width: 320px) {
-    height: 195px;
-  }
   .login {
     z-index: 1;
   }
@@ -205,7 +199,7 @@ md-menu-content {
     overflow: hidden;
     width:500px;
     height:350px;
-    @media (max-width: 960px) { 
+    @media (max-width: 960px) {
       max-width: 500px;
       width: auto;
     }
@@ -224,8 +218,8 @@ md-menu-content {
   width: 100%;
   margin: 0;
   &:after {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
     border-left: 10px solid #fff;
@@ -274,13 +268,13 @@ md-menu-content {
     top: 0;
     z-index: 900;
     text-align: left;
-    @media (min-width: 600px) { 
+    @media (min-width: 600px) {
       min-width: 350px;
     }
     min-width: 250px;
     &:before {
-      width: 0; 
-      height: 0; 
+      width: 0;
+      height: 0;
       border-top: 5px solid transparent;
       border-bottom: 5px solid transparent;
       border-left: 5px solid #ff9800;
