@@ -174,7 +174,10 @@ header {
 	.menu.hide.show-gt-sm {
 		max-width: 970px;
 		.menu-notifications {
-			margin-right: 20px;
+			margin-right: 60px;
+		}
+		md-card-header {
+			margin-right: 50px;
 		}
 	}
 	.menu.show-md .flex-45 {
