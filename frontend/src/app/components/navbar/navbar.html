@@ -104,7 +104,7 @@
     md-whiteframe="4">
   <md-toolbar class="md-theme-indigo" layout-align="center center" ng-if="vm.isAuthenticated()">
   	<div class="card-wrap">
-      <div class="card-wrap-img"><img src="../assets/images/sidebar-winwins.jpg" alt="" class="md-card-image" /></div>
+      <div class="card-wrap-img"><img ng-src="{{vm.imageServer}}/{{vm.account.cover_photo}}" alt="" class="md-card-image" /></div>
       <span class="card-opacity"></span>
     </div>
 		<md-card-avatar>
